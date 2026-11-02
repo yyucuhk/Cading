@@ -14,7 +14,7 @@ import numpy as np
 import gdsfactory as gf
 from gdsfactory.cross_section import ComponentAlongPath
 
-from layout.core.layers import Layers
+from layers import Layers
 
 
 
