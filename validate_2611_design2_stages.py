@@ -177,9 +177,22 @@ def run():
     missing=((r[(2,0)]-r[(14,0)])-label).area()*dbu**2
     check('layer14_covers_all_layer2_windows',missing<=TOL,missing_um2=float(missing))
     roi=box_region((150.001,-1000,10000,-25),dbu)
+    # Compare complete masks, excluding only actual text polygons.
+    # Never cut a label bounding-box hole into the release mask.
+    left_tip = min(d.info['tip_centers'], key=lambda p: p[0])
+    label_component = gf.components.text(
+        text=f"DESIGN 2_L800_ML{float(d.info['total_meander_length_um']):.1f}",
+        size=m.DETAIL_LABEL_SIZE, layer=m.MARKER_LAYER)
+    exact_text = snapshot(label_component)[(2,0)].transformed(kdb.Trans(
+        round((left_tip[0]+m.DETAIL_LABEL_TIP_X_OFFSET)/dbu),
+        round((left_tip[1]+m.DETAIL_LABEL_TIP_Y_OFFSET)/dbu)))
+    text_exclusion = exact_text + exact_text.transformed(kdb.Trans(kdb.Trans.R180))
     for layer in sorted(expected_layers):
-        reg=r[layer]-label if layer==(2,0) else r[layer]
-        diff=((reg^reg.transformed(kdb.Trans(kdb.Trans.R180)))&roi).area()*dbu**2
+        reg = r[layer]
+        delta = (reg ^ reg.transformed(kdb.Trans(kdb.Trans.R180))) & roi
+        if layer == (2,0):
+            delta -= text_exclusion
+        diff = delta.area()*dbu**2
         check(f'layer{layer[0]}_end_to_end_symmetry',diff<=TOL,rotated_xor_um2=float(diff))
     # Check for residual center holes only in the taper areas, not support pads.
     taper_roi=box_region((195,-205,325,-195),dbu)+box_region((-325,195,-195,205),dbu)

@@ -1,54 +1,155 @@
 {
   "checks": [
     {
-      "name": "one_800um_design2",
+      "name": "single_design2_800um",
       "passed": true
     },
     {
-      "name": "requested_converter_parameters",
-      "passed": true,
-      "layer10_final_taper_um": 100.0,
-      "ridge_widths_um": [
-        1.0,
-        0.6,
-        0.2
-      ],
-      "stage_lengths_um": [
-        40.0,
-        60.0
-      ],
-      "centerline_shift_um": 0.84
+      "name": "requested_stage_constants",
+      "passed": true
     },
     {
-      "name": "design2_does_not_mutate_design1_cells",
-      "passed": true,
-      "xor_um2": {
-        "2/0": 0.0,
-        "10/0": 0.0,
-        "11/0": 0.0,
-        "13/0": 0.0,
-        "14/0": 0.0,
-        "15/0": 0.0,
-        "16/0": 0.0,
-        "51/0": 0.0
-      }
+      "name": "840nm_centerline_shift_retained",
+      "passed": true
     },
     {
-      "name": "design1_rebuild_unchanged_after_design2",
-      "passed": true,
-      "xor_um2": {
-        "2/0": 0.0,
-        "10/0": 0.0,
-        "11/0": 0.0,
-        "13/0": 0.0,
-        "14/0": 0.0,
-        "15/0": 0.0,
-        "16/0": 0.0,
-        "51/0": 0.0
-      }
+      "name": "unchanged_45um_pnc",
+      "passed": true
     },
     {
-      "name": "required_layers",
+      "name": "complete_layer_10_profile_matches_requested_stages",
+      "passed": true,
+      "xor_um2": 0.00019999999999999998
+    },
+    {
+      "name": "coupler_layer_10_all_junctions_connected",
+      "passed": true
+    },
+    {
+      "name": "complete_layer_15_profile_matches_requested_stages",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "coupler_layer_15_all_junctions_connected",
+      "passed": true
+    },
+    {
+      "name": "layer10_ends_at_130um",
+      "passed": true
+    },
+    {
+      "name": "layer15_ends_at_120um",
+      "passed": true
+    },
+    {
+      "name": "no_layer15_third_stage_or_terminal_extension",
+      "passed": true,
+      "area_um2": 0.0
+    },
+    {
+      "name": "layer10_section_45.001",
+      "passed": true,
+      "x_from_3um_start": 0.0009999999999976694,
+      "measured_center_y_um": 0.0,
+      "measured_width_um": 3.0,
+      "expected_width_um": 3.0
+    },
+    {
+      "name": "layer10_section_55",
+      "passed": true,
+      "x_from_3um_start": 10.0,
+      "measured_center_y_um": 0.0,
+      "measured_width_um": 2.326,
+      "expected_width_um": 2.325
+    },
+    {
+      "name": "layer10_section_65.001",
+      "passed": true,
+      "x_from_3um_start": 20.001000000000005,
+      "measured_center_y_um": 0.0,
+      "measured_width_um": 1.6500000000000001,
+      "expected_width_um": 1.65
+    },
+    {
+      "name": "layer10_section_115",
+      "passed": true,
+      "x_from_3um_start": 70.0,
+      "measured_center_y_um": 0.0,
+      "measured_width_um": 1.316,
+      "expected_width_um": 1.315
+    },
+    {
+      "name": "layer10_section_164.999",
+      "passed": true,
+      "x_from_3um_start": 119.999,
+      "measured_center_y_um": 0.0,
+      "measured_width_um": 0.98,
+      "expected_width_um": 0.98
+    },
+    {
+      "name": "layer10_section_170",
+      "passed": true,
+      "x_from_3um_start": 125.0,
+      "measured_center_y_um": 0.0,
+      "measured_width_um": 0.59,
+      "expected_width_um": 0.59
+    },
+    {
+      "name": "layer10_section_174.999",
+      "passed": true,
+      "x_from_3um_start": 129.999,
+      "measured_center_y_um": 0.0,
+      "measured_width_um": 0.2,
+      "expected_width_um": 0.2
+    },
+    {
+      "name": "layer15_section_45.001",
+      "passed": true,
+      "x_from_3um_start": 0.0009999999999976694,
+      "measured_center_y_um": 0.0,
+      "measured_width_um": 1.0,
+      "expected_width_um": 1.0
+    },
+    {
+      "name": "layer15_section_55",
+      "passed": true,
+      "x_from_3um_start": 10.0,
+      "measured_center_y_um": 0.0,
+      "measured_width_um": 0.75,
+      "expected_width_um": 0.75
+    },
+    {
+      "name": "layer15_section_65.001",
+      "passed": true,
+      "x_from_3um_start": 20.001000000000005,
+      "measured_center_y_um": 0.0,
+      "measured_width_um": 0.5,
+      "expected_width_um": 0.5
+    },
+    {
+      "name": "layer15_section_115",
+      "passed": true,
+      "x_from_3um_start": 70.0,
+      "measured_center_y_um": 0.42,
+      "measured_width_um": 0.35000000000000003,
+      "expected_width_um": 0.35
+    },
+    {
+      "name": "layer15_section_164.999",
+      "passed": true,
+      "x_from_3um_start": 119.999,
+      "measured_center_y_um": 0.84,
+      "measured_width_um": 0.2,
+      "expected_width_um": 0.2
+    },
+    {
+      "name": "terminal_vertical_edge_gap_250nm",
+      "passed": true,
+      "gap_um": 0.25
+    },
+    {
+      "name": "all_device_layers_present",
       "passed": true,
       "layers": [
         [
@@ -86,147 +187,115 @@
       ]
     },
     {
-      "name": "no_construction_layer_exported",
+      "name": "metadata_has_three_slab_two_ridge_stages",
       "passed": true
     },
     {
-      "name": "layer_2_inherited_from_100um_slab_reference",
-      "passed": true,
-      "difference_um2": 9e-06,
-      "excludes": "label text only"
+      "name": "four_ticks_retained_on_layer15",
+      "passed": true
     },
     {
-      "name": "layer_10_inherited_from_100um_slab_reference",
-      "passed": true,
-      "difference_um2": 0.0,
-      "excludes": "nothing"
+      "name": "no_ticks_remain_on_layer10",
+      "passed": true
     },
     {
-      "name": "layer_11_inherited_from_100um_slab_reference",
-      "passed": true,
-      "difference_um2": 0.0,
-      "excludes": "nothing"
-    },
-    {
-      "name": "layer_13_inherited_from_100um_slab_reference",
-      "passed": true,
-      "difference_um2": 0.0,
-      "excludes": "nothing"
-    },
-    {
-      "name": "layer_14_inherited_from_100um_slab_reference",
-      "passed": true,
-      "difference_um2": 0.0,
-      "excludes": "nothing"
-    },
-    {
-      "name": "layer_51_inherited_from_100um_slab_reference",
-      "passed": true,
-      "difference_um2": 0.0,
-      "excludes": "nothing"
-    },
-    {
-      "name": "ridge_and_both_converters_connected",
-      "passed": true,
-      "connected_components": 1
-    },
-    {
-      "name": "all_four_alignment_tips_retained_on_layer15",
-      "passed": true,
-      "count": 4
+      "name": "optical_ridge_and_both_converters_connected",
+      "passed": true
     },
     {
       "name": "layer16_protection_connected",
       "passed": true
     },
     {
-      "name": "layer16_covers_offset_ridge",
-      "passed": true,
-      "uncovered_um2": 0.0
-    },
-    {
-      "name": "layer14_covers_complete_offset_ridge",
-      "passed": true,
-      "uncovered_um2": 0.0
-    },
-    {
-      "name": "layer14_still_covers_layer2_windows",
+      "name": "layer14_covers_complete_ridge",
       "passed": true,
       "missing_um2": 0.0
     },
     {
-      "name": "meander_and_ridge_outside_converters_unchanged",
+      "name": "layer16_covers_complete_ridge",
       "passed": true,
-      "unexpected_difference_um2": 0.0
+      "missing_um2": 0.0
     },
     {
-      "name": "layer_10_both_end_assemblies_rotationally_symmetric",
+      "name": "layer14_covers_all_layer2_windows",
       "passed": true,
-      "rotated_xor_um2": 0.0
+      "missing_um2": 0.0
     },
     {
-      "name": "layer_11_both_end_assemblies_rotationally_symmetric",
+      "name": "layer2_end_to_end_symmetry",
       "passed": true,
-      "rotated_xor_um2": 0.0
+      "rotated_xor_um2": 8.999999999999999e-05
     },
     {
-      "name": "layer_13_both_end_assemblies_rotationally_symmetric",
-      "passed": true,
-      "rotated_xor_um2": 0.0
-    },
-    {
-      "name": "layer_14_both_end_assemblies_rotationally_symmetric",
+      "name": "layer10_end_to_end_symmetry",
       "passed": true,
       "rotated_xor_um2": 0.0
     },
     {
-      "name": "layer_15_both_end_assemblies_rotationally_symmetric",
+      "name": "layer11_end_to_end_symmetry",
       "passed": true,
       "rotated_xor_um2": 0.0
     },
     {
-      "name": "layer_16_both_end_assemblies_rotationally_symmetric",
-      "passed": true,
-      "rotated_xor_um2": 0.000642
-    },
-    {
-      "name": "layer_51_both_end_assemblies_rotationally_symmetric",
+      "name": "layer13_end_to_end_symmetry",
       "passed": true,
       "rotated_xor_um2": 0.0
     },
     {
-      "name": "ridge_section_x_45.001",
+      "name": "layer14_end_to_end_symmetry",
       "passed": true,
-      "x_um": 45.001,
-      "center_y_um": 0.0,
-      "vertical_width_um": 1.0
+      "rotated_xor_um2": 8.999999999999999e-05
     },
     {
-      "name": "ridge_section_x_85.001",
+      "name": "layer15_end_to_end_symmetry",
       "passed": true,
-      "x_um": 85.001,
-      "center_y_um": 0.0,
-      "vertical_width_um": 0.6
+      "rotated_xor_um2": 0.0
     },
     {
-      "name": "ridge_section_x_144.999",
+      "name": "layer16_end_to_end_symmetry",
       "passed": true,
-      "x_um": 144.999,
-      "center_y_um": 0.84,
-      "vertical_width_um": 0.2
+      "rotated_xor_um2": 0.0
     },
     {
-      "name": "terminal_layers_are_laterally_separated",
+      "name": "layer51_end_to_end_symmetry",
       "passed": true,
-      "terminal_centerline_offset_um": 0.84,
-      "terminal_same_x_vertical_edge_gap_um": 0.513
+      "rotated_xor_um2": 0.0
     },
     {
-      "name": "export_contains_one_device",
+      "name": "no_layer14_center_holes",
+      "passed": true,
+      "remaining_hole_area_um2": 0.0
+    },
+    {
+      "name": "factory_repeatable_without_shared_cell_mutation",
+      "passed": true,
+      "xor_um2": {
+        "2/0": 0.0,
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 0.0,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "meander_and_pnc_ridge_unchanged",
+      "passed": true,
+      "unexpected_xor_um2": 0.0
+    },
+    {
+      "name": "entire_layer11_pnc_geometry_unchanged",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "one_complete_exported_device",
       "passed": true
     },
     {
-      "name": "export_preserves_every_layer",
+      "name": "export_preserves_all_device_layers",
       "passed": true,
       "xor_um2": {
         "2/0": 9e-06,
@@ -240,52 +309,120 @@
       }
     },
     {
-      "name": "exactly_one_device_instance",
-      "passed": true
-    },
-    {
-      "name": "left_bend_alignment_preserved",
+      "name": "left_bend_alignment_retained",
       "passed": true,
-      "left_pnc_edge_um": -900.0
+      "x_um": -900.0
     },
     {
-      "name": "original_design1_file_unchanged_2611_tapered_yue_dual_resist.py",
+      "name": "bottom_device_y_retained",
       "passed": true
     },
     {
-      "name": "original_design1_file_unchanged_2611_tapered_yue_dual_resist_L10_L12.gds",
+      "name": "design1_file_unchanged_2611_tapered_yue_dual_resist.py",
+      "passed": true
+    },
+    {
+      "name": "design1_file_unchanged_gds/2611_tapered_yue_dual_resist_L10_L12.gds",
       "passed": true
     }
   ],
   "failures": [],
-  "separation_definition": "centerline_to_centerline",
-  "assumptions": [
-    "40 um inherited first ridge transition",
-    "100 um applies to final Layer-10 1.0 to 0.2 um taper",
-    "840 nm is final centerline offset, not edge-to-edge gap"
+  "status": "PASS",
+  "output_file": "gds/2611_tapered_yue_design2.gds",
+  "layer10_widths_um": [
+    3.0,
+    1.65,
+    0.98,
+    0.2
   ],
-  "terminal_vertical_edge_gap_um": 0.513,
+  "layer10_lengths_um": [
+    20.0,
+    100.0,
+    10.0
+  ],
+  "layer15_widths_um": [
+    1.0,
+    0.5,
+    0.2
+  ],
+  "layer15_lengths_um": [
+    20.0,
+    100.0
+  ],
+  "centerline_offset_um": 0.84,
+  "terminal_vertical_edge_gap_um": 0.25,
   "ridge_sections": [
     {
-      "x_um": 45.001,
+      "layer": 10,
+      "x_um": 0.0009999999999976694,
+      "center_y_um": 0.0,
+      "width_um": 3.0
+    },
+    {
+      "layer": 10,
+      "x_um": 10.0,
+      "center_y_um": 0.0,
+      "width_um": 2.326
+    },
+    {
+      "layer": 10,
+      "x_um": 20.001000000000005,
+      "center_y_um": 0.0,
+      "width_um": 1.6500000000000001
+    },
+    {
+      "layer": 10,
+      "x_um": 70.0,
+      "center_y_um": 0.0,
+      "width_um": 1.316
+    },
+    {
+      "layer": 10,
+      "x_um": 119.999,
+      "center_y_um": 0.0,
+      "width_um": 0.98
+    },
+    {
+      "layer": 10,
+      "x_um": 125.0,
+      "center_y_um": 0.0,
+      "width_um": 0.59
+    },
+    {
+      "layer": 10,
+      "x_um": 129.999,
+      "center_y_um": 0.0,
+      "width_um": 0.2
+    },
+    {
+      "layer": 15,
+      "x_um": 0.0009999999999976694,
       "center_y_um": 0.0,
       "width_um": 1.0
     },
     {
-      "x_um": 85.001,
+      "layer": 15,
+      "x_um": 10.0,
       "center_y_um": 0.0,
-      "width_um": 0.6
+      "width_um": 0.75
     },
     {
-      "x_um": 144.999,
+      "layer": 15,
+      "x_um": 20.001000000000005,
+      "center_y_um": 0.0,
+      "width_um": 0.5
+    },
+    {
+      "layer": 15,
+      "x_um": 70.0,
+      "center_y_um": 0.42,
+      "width_um": 0.35000000000000003
+    },
+    {
+      "layer": 15,
+      "x_um": 119.999,
       "center_y_um": 0.84,
       "width_um": 0.2
     }
-  ],
-  "device_origin_um": [
-    -357.72,
-    -700.0
-  ],
-  "status": "PASS",
-  "output_file": "gds/2611_tapered_yue_design2.gds"
+  ]
 }
