@@ -1572,8 +1572,7 @@ def build_layout() -> gf.Component:
     left_pnc_bend_x_before_alignment = []
     total_meander_lengths = []
     reference_device_x_shift = None
-    reference_masked_device = None
-    reference_meander_split_x = None
+    placed_tip_pairs = []
     for y_position, meander_straight_length in zip(
         y_positions,
         sweep_parameters,
@@ -1652,14 +1651,13 @@ def build_layout() -> gf.Component:
                 slab_layer=NEGATIVE_RESIST_LAYER,
             ),
         )
-        # Build the fully processed device for this sweep value.
+        # Build each sweep device as ONE intact component.  Do not splice or
+        # clip the meander: the compact-meander generator already keeps both
+        # endpoint coordinates fixed while changing only the internal straight
+        # length, so its Euler bends remain continuously connected to the
+        # straight sections.
         masked_device = add_shared_mla_window(device, window_source)
 
-        # The bottom device is the sole reference. Its X placement is reused
-        # for every device. For devices 2 and 3, replace ONLY the meander-side
-        # geometry (left of the larger-x meander connection) with the
-        # length-specific sweep result. Everything to the right is copied
-        # directly from the bottom reference device.
         left_pnc_bend_x = float(
             device.bbox(layer=gf.get_layer(PNC_EBL_LAYER)).left
         )
@@ -1667,25 +1665,39 @@ def build_layout() -> gf.Component:
             reference_device_x_shift = (
                 LEFT_BEND_ALIGNMENT_X - left_pnc_bend_x
             )
-            reference_masked_device = masked_device.copy()
-            reference_meander_split_x = max(
-                float(center[0])
-                for center in window_source.info[
-                    "s_bend_connection_centers"
-                ]
-            )
-        else:
-            masked_device = splice_reference_with_swept_meander(
-                reference=reference_masked_device,
-                swept=masked_device,
-                split_x=float(reference_meander_split_x),
-            )
 
         device_x_shift = float(reference_device_x_shift)
         placed_device = fin.add_ref(masked_device)
         placed_device.move((device_x_shift, y_position))
         device_x_shifts.append(device_x_shift)
         left_pnc_bend_x_before_alignment.append(left_pnc_bend_x)
+
+        # Track BOTH fixed taper-tip locations.  Later we normalize only the
+        # local Layer-2/Layer-14 release-window neighborhoods from the bottom
+        # reference. No optical/meander/ridge layer is touched.
+        local_tips = []
+        for center, tip_orientation in zip(
+            window_source.info["s_bend_connection_centers"],
+            window_source.info["s_bend_connection_orientations"],
+            strict=True,
+        ):
+            tip_angle = radians(tip_orientation)
+            tip_outward = np.array(
+                [-cos(tip_angle), -sin(tip_angle)]
+            )
+            local_tips.append(
+                np.asarray(center, dtype=float)
+                + (
+                    SLAB_EXTENSION_LENGTH
+                    + LAYER14_CHANNEL_START_OFFSET
+                )
+                * tip_outward
+                + np.asarray(
+                    [device_x_shift, y_position],
+                    dtype=float,
+                )
+            )
+        placed_tip_pairs.append(local_tips)
 
         # This matches the compact-meander path construction in tapered_local:
         # two outer leads, one middle straight, and two 180-degree Euler bends.
@@ -1740,11 +1752,95 @@ def build_layout() -> gf.Component:
             )
         )
 
-    fin.info["device_count"] = device_count
+    # Normalize only the local release-window geometry (Layers 2 and 14)
+    # around BOTH fixed taper tips. The bottom device is the reference.
+    # This leaves Layers 10/11/15/16 and the complete meander untouched.
+    if len(placed_tip_pairs) > 1:
+        reference_tips = placed_tip_pairs[0]
+        tip_patch_size = (40.0, 36.0)
+
+        for layer_spec in (POSITIVE_RESIST_LAYER, Layers.via):
+            layer_tuple = tuple(layer_spec)
+            source = fin.copy()
+            source.flatten()
+            source.remove_layers(
+                [
+                    layer
+                    for layer in source.layers
+                    if tuple(layer) != layer_tuple
+                ]
+            )
+
+            target_windows = gf.Component()
+            replacement_patches = gf.Component()
+
+            for tip_index, reference_tip in enumerate(reference_tips):
+                reference_window = gf.Component()
+                reference_window_ref = reference_window.add_ref(
+                    gf.components.rectangle(
+                        size=tip_patch_size,
+                        centered=True,
+                        layer=layer_spec,
+                    )
+                )
+                reference_window_ref.move(tuple(reference_tip))
+
+                reference_patch = gf.boolean(
+                    A=source,
+                    B=reference_window,
+                    operation="and",
+                    layer=layer_spec,
+                    layer1=layer_spec,
+                    layer2=layer_spec,
+                )
+
+                for target_pair in placed_tip_pairs[1:]:
+                    target_tip = target_pair[tip_index]
+
+                    target_window = target_windows.add_ref(
+                        gf.components.rectangle(
+                            size=tip_patch_size,
+                            centered=True,
+                            layer=layer_spec,
+                        )
+                    )
+                    target_window.move(tuple(target_tip))
+
+                    patch_ref = replacement_patches.add_ref(
+                        reference_patch
+                    )
+                    patch_ref.move(
+                        (
+                            float(target_tip[0] - reference_tip[0]),
+                            float(target_tip[1] - reference_tip[1]),
+                        )
+                    )
+
+            source_without_targets = gf.boolean(
+                A=source,
+                B=target_windows,
+                operation="not",
+                layer=layer_spec,
+                layer1=layer_spec,
+                layer2=layer_spec,
+            )
+            normalized = gf.boolean(
+                A=source_without_targets,
+                B=replacement_patches,
+                operation="or",
+                layer=layer_spec,
+                layer1=layer_spec,
+                layer2=layer_spec,
+            )
+
+            fin.remove_layers([layer_spec], recursive=True)
+            fin.add_ref(normalized)
+
+        fin.info["device_count"] = device_count
     fin.info["bottom_device_y"] = BOTTOM_DEVICE_Y
     fin.info["device_y_pitch"] = DEVICE_Y_PITCH
     fin.info["placement_mode"] = (
-        "bottom_reference_right_side_plus_length_specific_meander_left_side"
+        "intact_compact_meander_fixed_endpoints_only_straight_length_sweep"
     )
     fin.info["left_bend_alignment_x"] = LEFT_BEND_ALIGNMENT_X
     fin.info["device_x_shifts"] = device_x_shifts
