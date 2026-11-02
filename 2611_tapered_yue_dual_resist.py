@@ -932,7 +932,7 @@ def make_tapered_coupler(
         doubleetch_label_layer=MARKER_LAYER,
         alignment_tick_layer=alignment_tick_layer,
         add_alignment_ticks=True,
-        alignment_tick_window_layer=None,
+        alignment_tick_window_layer=POSITIVE_RESIST_LAYER,
         alignment_tick_window_width=ALIGNMENT_TIP_WINDOW_WIDTH,
         alignment_tick_window_length=ALIGNMENT_TIP_WINDOW_LENGTH,
         alignment_tick_window_inward_shift=(
