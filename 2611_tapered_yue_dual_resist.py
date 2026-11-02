@@ -1187,6 +1187,57 @@ def add_shared_mla_window(
                 center[1] + end_extension / 2 * sin(angle),
             )
         )
+    # Revised Layer-14 strategy:
+    # Copy ALL remaining Layer-2 release geometry onto Layer 14, except for
+    # the small companion blocks around the Layer-10 tip markers near the
+    # taper-tip region. Then merge that copy with all existing Layer-14
+    # geometry so the complete area is exposed as one open MLA window.
+    layer2_full_copy = result.copy()
+    layer2_full_copy.flatten()
+    layer2_full_copy.remove_layers(
+        [
+            layer
+            for layer in layer2_full_copy.layers
+            if tuple(layer) != positive_layer
+        ]
+    )
+    layer2_full_copy.remap_layers(
+        {positive_layer: tuple(Layers.via)},
+        recursive=False,
+    )
+
+    layer2_for_layer14 = gf.boolean(
+        A=layer2_full_copy,
+        B=layer14_tip_exclusions,
+        operation="not",
+        layer=Layers.via,
+        layer1=Layers.via,
+        layer2=Layers.via,
+    )
+
+    existing_layer14 = result.copy()
+    existing_layer14.flatten()
+    existing_layer14.remove_layers(
+        [
+            layer
+            for layer in existing_layer14.layers
+            if tuple(layer) != tuple(Layers.via)
+        ]
+    )
+
+    merged_layer14 = gf.boolean(
+        A=existing_layer14,
+        B=layer2_for_layer14,
+        operation="or",
+        layer=Layers.via,
+        layer1=Layers.via,
+        layer2=Layers.via,
+    )
+
+    # Replace only Layer 14; every other mask layer remains untouched.
+    result.remove_layers([Layers.via], recursive=True)
+    result.add_ref(merged_layer14)
+
     # The broad meander route is needed only to calculate ports and PNC
     # placement. Do not export that temporary geometry on any mask layer.
     result.remove_layers([MEANDER_CONSTRUCTION_LAYER], recursive=True)
