@@ -8,7 +8,7 @@ it has no PNC-shaped exclusions or openings.
 The narrow PNC neck extends 0.5 um beyond both radial (local y) ends.
 The positive release windows, long tapered slots, support surround slots,
 glue holes, and former Layer-12 geometry are all assigned to Layer 2 for one
-shared MLA exposure. No Boolean geometry merge is applied.
+shared MLA exposure. Each completed device owns all its mask polygons.
 """
 
 from functools import partial
@@ -141,8 +141,8 @@ BOTTOM_DEVICE_Y = -700.0
 # 5. DEVICE PLACEMENT AND 600 UM EBL SUBFIELDS
 # =============================================================================
 
-# Align the left meander connection for every swept straight length. Three
-# 600 um EBL subfield columns can then share the same x boundaries.
+# Use only the bottom device to establish the common X origin.
+# All three fixed end assemblies then remain vertically aligned.
 LEFT_BEND_ALIGNMENT_X = -900.0
 EBL_SUBFIELD_SIZE = 600.0
 TETHER_LABEL_SIZE = 2.0
@@ -1254,7 +1254,8 @@ def add_shared_mla_window(
 
     # Replace Layer 2 with the cleaned, continuous version before creating
     # the Layer-14 copy. All other mask layers remain unchanged.
-    result.remove_layers([positive_layer], recursive=True)
+    result.flatten()
+    result.remove_layers([positive_layer], recursive=False)
     result.add_ref(cleaned_layer2)
 
     layer2_full_copy = cleaned_layer2.copy()
@@ -1292,12 +1293,14 @@ def add_shared_mla_window(
     )
 
     # Replace only Layer 14 with the merged open-window geometry.
-    result.remove_layers([Layers.via], recursive=True)
+    result.flatten()
+    result.remove_layers([Layers.via], recursive=False)
     result.add_ref(merged_layer14)
 
     # The broad meander route is needed only to calculate ports and PNC
     # placement. Do not export that temporary geometry on any mask layer.
-    result.remove_layers([MEANDER_CONSTRUCTION_LAYER], recursive=True)
+    result.flatten()
+    result.remove_layers([MEANDER_CONSTRUCTION_LAYER], recursive=False)
     result.info["mask_mode"] = "dual_resist_shared_etch"
     result.info["negative_resist_layer"] = negative_layer
     result.info["positive_resist_layer"] = positive_layer
@@ -1316,6 +1319,7 @@ def add_shared_mla_window(
         layer14_xmin,
         layer14_xmax,
     ]
+    result.flatten()
     return result
 
 
@@ -1323,636 +1327,169 @@ def add_shared_mla_window(
 # 9. TOP-LEVEL DEVICE SWEEP AND PLACEMENT
 # =============================================================================
 
-def repair_layer14_local_artifacts(component: gf.Component) -> None:
-    """Repair only the two local Layer-14 artifacts requested for this mask.
+def make_device(meander_straight_length: float) -> gf.Component:
+    """Build one complete, independent all-layer device in local coordinates.
 
-    1. Fill the tiny enclosed hole near x=-462.3 um.
-    2. Replace the stepped transition near x=-425..-422.7 um with one
-       continuous linear taper.
-
-    All non-Layer-14 geometry is left untouched.
+    Only meander_straight_length varies. Both taper/coupler assemblies,
+    butterfly tethers, support pads, alignment tips, exposure windows, and
+    all device layers are constructed here through the same helper calls.
+    No geometry is copied from another sweep device or cut at a global X.
     """
-    layer14_layer = tuple(Layers.via)
-
-    layer14 = component.copy()
-    layer14.flatten()
-    layer14.remove_layers(
-        [
-            layer
-            for layer in layer14.layers
-            if tuple(layer) != layer14_layer
-        ]
+    meander_straight_length = float(meander_straight_length)
+    if not np.isfinite(meander_straight_length) or meander_straight_length < 0:
+        raise ValueError("meander_straight_length must be finite and non-negative")
+    gf.gpdk.PDK.activate()
+    connection_width = REVIEW_TETHER_CONNECTION_WIDTH
+    taper_angle = TAPER_ANGLE
+    support_period = REVIEW_SUPPORT_ANCHOR_PERIOD
+    tether_spec = partial(
+        TETHER_FACTORIES[TETHER_VARIANT],
+        layer=NEGATIVE_RESIST_LAYER,
+        pad_scale=TETHER_PAD_SCALE,
+        connection_width=connection_width,
+        connection_taper_length=TETHER_CONNECTION_BLEND_LENGTH,
+    )
+    common_device_kwargs = dict(
+        chip_length=6000,
+        tapered_fiber_angle=taper_angle,
+        edge_coupler_spec=partial(
+            edge_coupler,
+            length=300,
+            taper_length=100,
+        ),
+        include_edge_couplers=False,
+        flatten=False,
+        s_bend_width=S_BEND_WIDTH,
+        s_bend_taper_length=S_BEND_TAPER_LENGTH,
+        s_bend_half_length=S_BEND_HALF_LENGTH,
+        s_bend_compact_180_radius=S_BEND_COMPACT_180_RADIUS,
+        s_bend_compact_euler_p=S_BEND_EULER_P,
+        s_bend_compact_straight_length=meander_straight_length,
+        s_bend_vertical_half_span=S_BEND_VERTICAL_HALF_SPAN,
+        # Use the wide meander only as construction geometry. It is
+        # removed before export and is not transferred to Layer 2.
+        s_bend_layer=MEANDER_CONSTRUCTION_LAYER,
+        ridge_s_bend_layer=RIDGE_LAYER,
+        ridge_s_bend_width=RIDGE_EXTENSION_END_WIDTH,
+    )
+    device = tapered_fiber_inout(
+        **common_device_kwargs,
+        s_bend_support_shield_spec=partial(
+            phononic_meander_shield,
+            width=connection_width,
+            pitch=support_period,
+            bend_pitch=REVIEW_SUPPORT_BEND_PERIOD,
+            slab_width=S_BEND_WIDTH,
+            layer=FULL_ETCH_LAYER,
+            pnc_layer=PNC_EBL_LAYER,
+            layer14_fill_layer=Layers.via,
+            end_extension=PNC_NARROW_END_EXTENSION,
+        ),
+        tapered_fiber_spec=make_tapered_coupler(
+            connection_width,
+            RIDGE_TAPER_LENGTH,
+            add_support_tips=False,
+            add_phononic_taper_support=True,
+            slab_layer=NEGATIVE_RESIST_LAYER,
+        ),
+        extra_rectangle_size=SUPPORT_RECTANGLE_SIZE,
+        extra_rectangle_gap=EXTRA_RECTANGLE_GAP,
+        extra_rectangle_layer=POSITIVE_RESIST_LAYER,
+        extra_rectangle_fill_layer=Layers.ring,
+        extra_rectangle_margin=0.0,
+        extra_rectangle_surround_slot_width=(
+            SUPPORT_SURROUND_SLOT_WIDTH
+        ),
+        tether_spec=tether_spec,
+    )
+    window_source = tapered_fiber_inout(
+        **common_device_kwargs,
+        tapered_fiber_spec=make_tapered_coupler(
+            connection_width,
+            RIDGE_TAPER_LENGTH,
+            add_support_tips=False,
+            alignment_tick_layer=MARKER_LAYER,
+            slab_layer=NEGATIVE_RESIST_LAYER,
+        ),
     )
 
-    # Remove only the small stepped portion that will be replaced below.
-    smooth_cut = gf.Component()
-    smooth_cut.add_polygon(
-        [
-            (-425.12, -904.0),
-            (-422.72, -904.0),
-            (-422.72, -896.0),
-            (-425.12, -896.0),
-        ],
-        layer=Layers.via,
-    )
-    layer14_without_step = gf.boolean(
-        A=layer14,
-        B=smooth_cut,
-        operation="not",
-        layer=Layers.via,
-        layer1=Layers.via,
-        layer2=Layers.via,
-    )
+    # Snapshot placement information BEFORE assembling the independent masks.
+    left_pnc_x = float(device.bbox(layer=gf.get_layer(PNC_EBL_LAYER)).left)
+    connection_centers = [list(map(float, p)) for p in
+                          window_source.info["s_bend_connection_centers"]]
+    connection_orientations = list(map(float,
+        window_source.info["s_bend_connection_orientations"]))
+    component = add_shared_mla_window(device, window_source)
+    component.flatten()
 
-    repair = gf.Component()
-
-    # Fill the measured 0.186 um x 3 um enclosed Layer-14 hole with a tiny
-    # overlap so no database-grid sliver remains.
-    repair.add_polygon(
-        [
-            (-462.42, -901.52),
-            (-462.20, -901.52),
-            (-462.20, -898.48),
-            (-462.42, -898.48),
-        ],
-        layer=Layers.via,
-    )
-
-    # Smooth the measured step into a single linear taper.  The left edge
-    # matches the existing ~7.01 um opening; the right edge matches the
-    # existing 1.0 um opening.
-    repair.add_polygon(
-        [
-            (-425.12, -903.506),
-            (-425.12, -896.494),
-            (-422.72, -899.500),
-            (-422.72, -900.500),
-        ],
-        layer=Layers.via,
-    )
-
-    repaired_layer14 = gf.boolean(
-        A=layer14_without_step,
-        B=repair,
-        operation="or",
-        layer=Layers.via,
-        layer1=Layers.via,
-        layer2=Layers.via,
-    )
-
-    component.remove_layers([Layers.via], recursive=True)
-    component.add_ref(repaired_layer14)
-
-
-def splice_reference_with_swept_meander(
-    reference: gf.Component,
-    swept: gf.Component,
-    split_x: float,
-) -> gf.Component:
-    """Use the swept device only left of split_x and reference to the right.
-
-    This guarantees that every non-meander feature on the right side
-    (tapers, tip region, channels, release windows, etc.) is copied exactly
-    from the verified bottom device. Only the meander-side geometry is taken
-    from the length-specific sweep device.
-    """
-    ref = reference.copy()
-    ref.flatten()
-    swp = swept.copy()
-    swp.flatten()
-
-    ref_bbox = ref.bbox()
-    swp_bbox = swp.bbox()
-    xmin = min(float(ref_bbox.left), float(swp_bbox.left)) - 10.0
-    xmax = max(float(ref_bbox.right), float(swp_bbox.right)) + 10.0
-    ymin = min(float(ref_bbox.bottom), float(swp_bbox.bottom)) - 10.0
-    ymax = max(float(ref_bbox.top), float(swp_bbox.top)) + 10.0
-    height = ymax - ymin
-    center_y = (ymin + ymax) / 2
-
-    output = gf.Component()
-    all_layers = {
-        tuple(layer) for layer in ref.layers
-    } | {
-        tuple(layer) for layer in swp.layers
-    }
-
-    for layer_tuple in sorted(all_layers):
-        ref_layer = ref.copy()
-        ref_layer.remove_layers(
-            [
-                layer
-                for layer in ref_layer.layers
-                if tuple(layer) != layer_tuple
-            ],
-            recursive=False,
-        )
-        swp_layer = swp.copy()
-        swp_layer.remove_layers(
-            [
-                layer
-                for layer in swp_layer.layers
-                if tuple(layer) != layer_tuple
-            ],
-            recursive=False,
-        )
-
-        left_clip = gf.Component()
-        if split_x > xmin:
-            left_ref = left_clip.add_ref(
-                gf.components.rectangle(
-                    size=(split_x - xmin, height),
-                    centered=True,
-                    layer=layer_tuple,
-                )
-            )
-            left_ref.move(((xmin + split_x) / 2, center_y))
-
-        right_clip = gf.Component()
-        if xmax > split_x:
-            right_ref = right_clip.add_ref(
-                gf.components.rectangle(
-                    size=(xmax - split_x, height),
-                    centered=True,
-                    layer=layer_tuple,
-                )
-            )
-            right_ref.move(((split_x + xmax) / 2, center_y))
-
-        swept_left = gf.boolean(
-            A=swp_layer,
-            B=left_clip,
-            operation="and",
-            layer=layer_tuple,
-            layer1=layer_tuple,
-            layer2=layer_tuple,
-        )
-        reference_right = gf.boolean(
-            A=ref_layer,
-            B=right_clip,
-            operation="and",
-            layer=layer_tuple,
-            layer1=layer_tuple,
-            layer2=layer_tuple,
-        )
-
-        combined = gf.boolean(
-            A=swept_left,
-            B=reference_right,
-            operation="or",
-            layer=layer_tuple,
-            layer1=layer_tuple,
-            layer2=layer_tuple,
-        )
-        output.add_ref(combined)
-
-    output.flatten()
-    return output
+    euler_length = float(gf.path.euler(
+        radius=S_BEND_COMPACT_180_RADIUS, angle=180,
+        p=S_BEND_EULER_P, use_eff=True).length())
+    total_length = (2 * S_BEND_HALF_LENGTH + 2 * meander_straight_length
+                    + 2 * euler_length)
+    tips = []
+    for center, orientation in zip(connection_centers,
+                                   connection_orientations, strict=True):
+        angle = radians(orientation)
+        tips.append(np.asarray(center) + SLAB_EXTENSION_LENGTH
+                    * np.array([-cos(angle), -sin(angle)]))
+    left_tip = min(tips, key=lambda point: float(point[0]))
+    label = component.add_ref(gf.components.text(
+        text=f"ML{total_length:.1f}_TL{POST_PNC_TAPER_LENGTH + SLAB_TAPER_LENGTH:g}",
+        size=DETAIL_LABEL_SIZE, layer=MARKER_LAYER))
+    label.move((float(left_tip[0]) + DETAIL_LABEL_TIP_X_OFFSET,
+                float(left_tip[1]) + DETAIL_LABEL_TIP_Y_OFFSET))
+    label_box = label.bbox()
+    label_bounds = [float(label_box.left), float(label_box.bottom),
+                    float(label_box.right), float(label_box.top)]
+    component.flatten()
+    component.info["builder"] = "make_device"
+    component.info["meander_straight_length_um"] = meander_straight_length
+    component.info["total_meander_length_um"] = total_length
+    component.info["left_pnc_bend_x"] = left_pnc_x
+    component.info["connection_centers"] = connection_centers
+    component.info["connection_orientations"] = connection_orientations
+    component.info["tip_centers"] = [list(map(float, p)) for p in tips]
+    component.info["label_bbox_um"] = label_bounds
+    component.info["mask_layers"] = [list(map(int, layer)) for layer in component.layers]
+    return component
 
 
 def build_layout() -> gf.Component:
-    """Build three review devices sweeping only meander straight length."""
-    name = Path(__file__).stem
-    top_cell_name = f"{name}_L10_L12"
-
+    """Call the same all-layer factory three times; only L and Y vary."""
     gf.gpdk.PDK.activate()
-    fin = gf.Component(top_cell_name)
-    sweep_parameters = MEANDER_STRAIGHT_LENGTHS
-    euler_180_length = float(
-        gf.path.euler(
-            radius=S_BEND_COMPACT_180_RADIUS,
-            angle=180,
-            p=S_BEND_EULER_P,
-            use_eff=True,
-        ).length()
-    )
-    layer10_taper_length = POST_PNC_TAPER_LENGTH + SLAB_TAPER_LENGTH
-    device_count = len(sweep_parameters)
-    chip_height = max(10e3, (device_count - 1) * DEVICE_Y_PITCH + 1000)
-    chip_shape = (5e3, chip_height)
+    fin = gf.Component(f"{Path(__file__).stem}_L10_L12")
+    lengths = tuple(float(length) for length in MEANDER_STRAIGHT_LENGTHS)
+    devices = [make_device(length) for length in lengths]
+    x_shift = LEFT_BEND_ALIGNMENT_X - float(devices[0].info["left_pnc_bend_x"])
+    y_positions = [BOTTOM_DEVICE_Y + i * DEVICE_Y_PITCH for i in range(len(devices))]
+    for device, y_position in zip(devices, y_positions, strict=True):
+        fin.add_ref(device).move((x_shift, y_position))
 
-    fin.add_ref(
-        gf.components.rectangle(size=chip_shape, centered=True, layer=(0, 0))
-    )
+    # Chip outline and global overlay markers are not part of the length sweep.
+    chip_shape = (5000.0, max(10000.0, (len(devices) - 1) * DEVICE_Y_PITCH + 1000))
+    fin.add_ref(gf.components.rectangle(size=chip_shape, centered=True, layer=(0, 0)))
     for marker_chip_shape, arm_length in (
-        ((chip_shape[0], chip_shape[1]), 50),
-        ((chip_shape[0] - 1000, chip_shape[1]), 80),
+        (chip_shape, 50), ((chip_shape[0] - 1000, chip_shape[1]), 80)
     ):
-        # Smaller first-layer reference marker.
-        fin.add_ref(
-            calipermarker_array(
-                chip_shape=marker_chip_shape,
-                arm_length=arm_length,
-                arm_width=LAYER10_MARKER_ARM_WIDTH,
-                center_square_size=LAYER10_MARKER_CENTER_SQUARE_SIZE,
-                layer1=NEGATIVE_RESIST_LAYER,
-                layer2=None,
-            )
-        )
-        # Larger second-layer marker centered on the Layer-10 marker.
-        fin.add_ref(
-            calipermarker_array(
-                chip_shape=marker_chip_shape,
-                arm_length=arm_length + MLA_MARKER_SIZE_INCREASE,
-                arm_width=MLA_MARKER_ARM_WIDTH,
-                center_square_size=MLA_MARKER_CENTER_SQUARE_SIZE,
-                layer1=MARKER_LAYER,
-                layer2=None,
-            )
-        )
-
-    # Keep the verified bottom device at its current Y position.
-    # Devices 2 and 3 are placed above it with exactly 600 um pitch.
-    y_positions = tuple(
-        BOTTOM_DEVICE_Y + index * DEVICE_Y_PITCH
-        for index in range(device_count)
-    )
-
-    device_x_shifts = []
-    left_pnc_bend_x_before_alignment = []
-    total_meander_lengths = []
-    reference_device_x_shift = None
-    placed_tip_pairs = []
-    for y_position, meander_straight_length in zip(
-        y_positions,
-        sweep_parameters,
-        strict=True,
-    ):
-        connection_width = REVIEW_TETHER_CONNECTION_WIDTH
-        taper_angle = TAPER_ANGLE
-        support_period = REVIEW_SUPPORT_ANCHOR_PERIOD
-        tether_spec = partial(
-            TETHER_FACTORIES[TETHER_VARIANT],
-            layer=NEGATIVE_RESIST_LAYER,
-            pad_scale=TETHER_PAD_SCALE,
-            connection_width=connection_width,
-            connection_taper_length=TETHER_CONNECTION_BLEND_LENGTH,
-        )
-        common_device_kwargs = dict(
-            chip_length=6000,
-            tapered_fiber_angle=taper_angle,
-            edge_coupler_spec=partial(
-                edge_coupler,
-                length=300,
-                taper_length=100,
-            ),
-            include_edge_couplers=False,
-            flatten=False,
-            s_bend_width=S_BEND_WIDTH,
-            s_bend_taper_length=S_BEND_TAPER_LENGTH,
-            s_bend_half_length=S_BEND_HALF_LENGTH,
-            s_bend_compact_180_radius=S_BEND_COMPACT_180_RADIUS,
-            s_bend_compact_euler_p=S_BEND_EULER_P,
-            s_bend_compact_straight_length=meander_straight_length,
-            s_bend_vertical_half_span=S_BEND_VERTICAL_HALF_SPAN,
-            # Use the wide meander only as construction geometry. It is
-            # removed before export and is not transferred to Layer 2.
-            s_bend_layer=MEANDER_CONSTRUCTION_LAYER,
-            ridge_s_bend_layer=RIDGE_LAYER,
-            ridge_s_bend_width=RIDGE_EXTENSION_END_WIDTH,
-        )
-        device = tapered_fiber_inout(
-            **common_device_kwargs,
-            s_bend_support_shield_spec=partial(
-                phononic_meander_shield,
-                width=connection_width,
-                pitch=support_period,
-                bend_pitch=REVIEW_SUPPORT_BEND_PERIOD,
-                slab_width=S_BEND_WIDTH,
-                layer=FULL_ETCH_LAYER,
-                pnc_layer=PNC_EBL_LAYER,
-                layer14_fill_layer=Layers.via,
-                end_extension=PNC_NARROW_END_EXTENSION,
-            ),
-            tapered_fiber_spec=make_tapered_coupler(
-                connection_width,
-                RIDGE_TAPER_LENGTH,
-                add_support_tips=False,
-                add_phononic_taper_support=True,
-                slab_layer=NEGATIVE_RESIST_LAYER,
-            ),
-            extra_rectangle_size=SUPPORT_RECTANGLE_SIZE,
-            extra_rectangle_gap=EXTRA_RECTANGLE_GAP,
-            extra_rectangle_layer=POSITIVE_RESIST_LAYER,
-            extra_rectangle_fill_layer=Layers.ring,
-            extra_rectangle_margin=0.0,
-            extra_rectangle_surround_slot_width=(
-                SUPPORT_SURROUND_SLOT_WIDTH
-            ),
-            tether_spec=tether_spec,
-        )
-        window_source = tapered_fiber_inout(
-            **common_device_kwargs,
-            tapered_fiber_spec=make_tapered_coupler(
-                connection_width,
-                RIDGE_TAPER_LENGTH,
-                add_support_tips=False,
-                alignment_tick_layer=MARKER_LAYER,
-                slab_layer=NEGATIVE_RESIST_LAYER,
-            ),
-        )
-        # Build each sweep device as ONE intact component.  Do not splice or
-        # clip the meander: the compact-meander generator already keeps both
-        # endpoint coordinates fixed while changing only the internal straight
-        # length, so its Euler bends remain continuously connected to the
-        # straight sections.
-        masked_device = add_shared_mla_window(device, window_source)
-
-        left_pnc_bend_x = float(
-            device.bbox(layer=gf.get_layer(PNC_EBL_LAYER)).left
-        )
-        if reference_device_x_shift is None:
-            reference_device_x_shift = (
-                LEFT_BEND_ALIGNMENT_X - left_pnc_bend_x
-            )
-
-        device_x_shift = float(reference_device_x_shift)
-        placed_device = fin.add_ref(masked_device)
-        placed_device.move((device_x_shift, y_position))
-        device_x_shifts.append(device_x_shift)
-        left_pnc_bend_x_before_alignment.append(left_pnc_bend_x)
-
-        # Track BOTH fixed taper-tip locations.  Later we normalize only the
-        # local Layer-2/Layer-14 release-window neighborhoods from the bottom
-        # reference. No optical/meander/ridge layer is touched.
-        local_tips = []
-        for center, tip_orientation in zip(
-            window_source.info["s_bend_connection_centers"],
-            window_source.info["s_bend_connection_orientations"],
-            strict=True,
-        ):
-            tip_angle = radians(tip_orientation)
-            tip_outward = np.array(
-                [-cos(tip_angle), -sin(tip_angle)]
-            )
-            local_tips.append(
-                np.asarray(center, dtype=float)
-                + (
-                    SLAB_EXTENSION_LENGTH
-                    + LAYER14_CHANNEL_START_OFFSET
-                )
-                * tip_outward
-                + np.asarray(
-                    [device_x_shift, y_position],
-                    dtype=float,
-                )
-            )
-        placed_tip_pairs.append(local_tips)
-
-        # This matches the compact-meander path construction in tapered_local:
-        # two outer leads, one middle straight, and two 180-degree Euler bends.
-        half_lead = (
-            2 * S_BEND_HALF_LENGTH + meander_straight_length
-        ) / 2
-        total_meander_length = (
-            2 * half_lead
-            + meander_straight_length
-            + 2 * euler_180_length
-        )
-        total_meander_lengths.append(float(total_meander_length))
-
-        layer15_endpoints = []
-        for center, orientation in zip(
-            window_source.info["s_bend_connection_centers"],
-            window_source.info["s_bend_connection_orientations"],
-            strict=True,
-        ):
-            angle = radians(orientation)
-            outward = np.array([-cos(angle), -sin(angle)])
-            layer15_endpoints.append(
-                np.asarray(center, dtype=float)
-                + (PNC_TAPER_LENGTH + RIDGE_TAPER_LENGTH) * outward
-            )
-        left_layer15_endpoint = min(
-            layer15_endpoints,
-            key=lambda point: float(point[0]),
-        )
-
-        # Keep the written device label compact: total meander centerline
-        # length and total Layer-10 taper length only.
-        detail_text = (
-            f"ML{total_meander_length:.1f}_"
-            f"TL{layer10_taper_length:g}"
-        )
-        detail_label = fin.add_ref(
-            gf.components.text(
-                text=detail_text,
-                size=DETAIL_LABEL_SIZE,
-                layer=MARKER_LAYER,
-            )
-        )
-        detail_label.move(
-            (
-                device_x_shift
-                + float(left_layer15_endpoint[0])
-                + DETAIL_LABEL_TIP_X_OFFSET,
-                y_position
-                + float(left_layer15_endpoint[1])
-                + DETAIL_LABEL_TIP_Y_OFFSET,
-            )
-        )
-
-    # Normalize only the local release-window geometry (Layers 2 and 14)
-    # around BOTH fixed taper tips. The bottom device is the reference.
-    # This leaves Layers 10/11/15/16 and the complete meander untouched.
-    if len(placed_tip_pairs) > 1:
-        reference_tips = placed_tip_pairs[0]
-        tip_patch_size = (40.0, 36.0)
-
-        for layer_spec in (POSITIVE_RESIST_LAYER, Layers.via):
-            layer_tuple = tuple(layer_spec)
-            source = fin.copy()
-            source.flatten()
-            source.remove_layers(
-                [
-                    layer
-                    for layer in source.layers
-                    if tuple(layer) != layer_tuple
-                ]
-            )
-
-            target_windows = gf.Component()
-            replacement_patches = gf.Component()
-
-            for tip_index, reference_tip in enumerate(reference_tips):
-                reference_window = gf.Component()
-                reference_window_ref = reference_window.add_ref(
-                    gf.components.rectangle(
-                        size=tip_patch_size,
-                        centered=True,
-                        layer=layer_spec,
-                    )
-                )
-                reference_window_ref.move(tuple(reference_tip))
-
-                reference_patch = gf.boolean(
-                    A=source,
-                    B=reference_window,
-                    operation="and",
-                    layer=layer_spec,
-                    layer1=layer_spec,
-                    layer2=layer_spec,
-                )
-
-                for target_pair in placed_tip_pairs[1:]:
-                    target_tip = target_pair[tip_index]
-
-                    target_window = target_windows.add_ref(
-                        gf.components.rectangle(
-                            size=tip_patch_size,
-                            centered=True,
-                            layer=layer_spec,
-                        )
-                    )
-                    target_window.move(tuple(target_tip))
-
-                    patch_ref = replacement_patches.add_ref(
-                        reference_patch
-                    )
-                    patch_ref.move(
-                        (
-                            float(target_tip[0] - reference_tip[0]),
-                            float(target_tip[1] - reference_tip[1]),
-                        )
-                    )
-
-            source_without_targets = gf.boolean(
-                A=source,
-                B=target_windows,
-                operation="not",
-                layer=layer_spec,
-                layer1=layer_spec,
-                layer2=layer_spec,
-            )
-            normalized = gf.boolean(
-                A=source_without_targets,
-                B=replacement_patches,
-                operation="or",
-                layer=layer_spec,
-                layer1=layer_spec,
-                layer2=layer_spec,
-            )
-
-            fin.remove_layers([layer_spec], recursive=True)
-            fin.add_ref(normalized)
-
-        fin.info["device_count"] = device_count
-    fin.info["bottom_device_y"] = BOTTOM_DEVICE_Y
+        fin.add_ref(calipermarker_array(
+            chip_shape=marker_chip_shape, arm_length=arm_length,
+            arm_width=LAYER10_MARKER_ARM_WIDTH,
+            center_square_size=LAYER10_MARKER_CENTER_SQUARE_SIZE,
+            layer1=NEGATIVE_RESIST_LAYER, layer2=None))
+        fin.add_ref(calipermarker_array(
+            chip_shape=marker_chip_shape, arm_length=arm_length + MLA_MARKER_SIZE_INCREASE,
+            arm_width=MLA_MARKER_ARM_WIDTH, center_square_size=MLA_MARKER_CENTER_SQUARE_SIZE,
+            layer1=MARKER_LAYER, layer2=None))
+    fin.info["device_count"] = len(devices)
+    fin.info["device_cells"] = [device.name for device in devices]
+    fin.info["meander_straight_lengths"] = list(lengths)
+    fin.info["total_meander_lengths"] = [float(d.info["total_meander_length_um"]) for d in devices]
+    fin.info["device_x_shifts"] = [float(x_shift)] * len(devices)
+    fin.info["device_y_positions"] = y_positions
     fin.info["device_y_pitch"] = DEVICE_Y_PITCH
-    fin.info["placement_mode"] = (
-        "intact_compact_meander_fixed_endpoints_only_straight_length_sweep"
-    )
-    fin.info["left_bend_alignment_x"] = LEFT_BEND_ALIGNMENT_X
-    fin.info["device_x_shifts"] = device_x_shifts
-    fin.info["left_pnc_bend_x_before_alignment"] = (
-        left_pnc_bend_x_before_alignment
-    )
-    fin.info["ebl_subfield_size"] = EBL_SUBFIELD_SIZE
-    fin.info["ebl_subfield_columns"] = 3
-    fin.info["total_meander_lengths"] = total_meander_lengths
-    fin.info["layer10_taper_length"] = layer10_taper_length
-    fin.info["euler_180_length"] = euler_180_length
-    fin.info["tether_connection_widths"] = [
-        REVIEW_TETHER_CONNECTION_WIDTH
-    ]
-    fin.info["tether_variant"] = TETHER_VARIANT
-    fin.info["slab_taper_length"] = SLAB_TAPER_LENGTH
-    fin.info["ridge_taper_length"] = RIDGE_TAPER_LENGTH
-    fin.info["taper_angles"] = [TAPER_ANGLE]
-    fin.info["s_bend_width"] = S_BEND_WIDTH
-    fin.info["s_bend_half_length"] = S_BEND_HALF_LENGTH
-    fin.info["taper_profile"] = "quintic_adiabatic"
-    fin.info["adiabatic_taper_points"] = ADIABATIC_TAPER_POINTS
-    fin.info["ridge_layer"] = tuple(RIDGE_LAYER)
-    fin.info["ridge_protection_layer"] = tuple(RIDGE_PROTECTION_LAYER)
-    fin.info["ridge_protection_margin"] = RIDGE_PROTECTION_MARGIN
-    fin.info["slab_extension_length"] = SLAB_EXTENSION_LENGTH
-    fin.info["pnc_taper_length"] = PNC_TAPER_LENGTH
-    fin.info["post_pnc_taper_length"] = POST_PNC_TAPER_LENGTH
-    fin.info["support_anchor_periods"] = [
-        REVIEW_SUPPORT_ANCHOR_PERIOD
-    ]
-    fin.info["support_bend_period"] = REVIEW_SUPPORT_BEND_PERIOD
-    fin.info["pnc_taper_support_cutoff_width"] = (
-        PNC_TAPER_SUPPORT_CUTOFF_WIDTH
-    )
-    fin.info["meander_bend_center_radius"] = (
-        S_BEND_COMPACT_180_RADIUS
-    )
-    fin.info["meander_euler_fraction"] = S_BEND_EULER_P
-    fin.info["meander_turn_count"] = 2
-    fin.info["meander_straight_lengths"] = list(
-        MEANDER_STRAIGHT_LENGTHS
-    )
-    fin.info["slab_extension_widths"] = [
-        SLAB_EXTENSION_END_WIDTH,
-        PNC_TAPER_END_WIDTH,
-        SLAB_EXTENSION_START_WIDTH,
-    ]
-    fin.info["ridge_extension_widths"] = [
-        RIDGE_EXTENSION_START_WIDTH,
-        RIDGE_EXTENSION_END_WIDTH,
-    ]
-    fin.info["alignment_tip_window_size"] = [
-        ALIGNMENT_TIP_WINDOW_WIDTH,
-        ALIGNMENT_TIP_WINDOW_LENGTH,
-    ]
-    fin.info["alignment_tip_slab_junction_offset"] = SLAB_EXTENSION_LENGTH
-    fin.info["sweep_parameters"] = [
-        [float(length)] for length in sweep_parameters
-    ]
-    fin.info["sweep_parameter_names"] = [
-        "meander_straight_length_um",
-    ]
-    fin.info["mask_mode"] = "dual_resist_shared_etch"
-    fin.info["interlayer_boolean_applied"] = False
-    fin.info["negative_resist_layer"] = tuple(NEGATIVE_RESIST_LAYER)
-    fin.info["full_etch_layer"] = tuple(FULL_ETCH_LAYER)
-    fin.info["meander_layer"] = None
-    fin.info["layer10_max_width"] = PNC_TAPER_END_WIDTH
-    fin.info["pnc_ebl_layer"] = tuple(PNC_EBL_LAYER)
-    fin.info["pnc_mla_layer"] = tuple(FULL_ETCH_LAYER)
-    fin.info["pnc_ebl_tone"] = "negative_solid_pnc"
-    fin.info["pnc_mla_tone"] = "positive_continuous_expanded_area"
-    fin.info["pnc_narrow_end_extension"] = PNC_NARROW_END_EXTENSION
-    fin.info["output_taper_layer"] = tuple(NEGATIVE_RESIST_LAYER)
-    fin.info["positive_resist_layer"] = tuple(POSITIVE_RESIST_LAYER)
-    fin.info["positive_window_margin"] = POSITIVE_WINDOW_MARGIN
-    fin.info["positive_window_end_extension"] = (
-        POSITIVE_WINDOW_END_EXTENSION
-    )
-    fin.info["marker_layer"] = tuple(MARKER_LAYER)
-    fin.info["detail_label_tip_offset"] = [
-        DETAIL_LABEL_TIP_X_OFFSET,
-        DETAIL_LABEL_TIP_Y_OFFSET,
-    ]
-    fin.info["detail_label_size"] = DETAIL_LABEL_SIZE
-    fin.info["tether_pad_scale"] = TETHER_PAD_SCALE
-    fin.info["support_rectangle_size"] = list(SUPPORT_RECTANGLE_SIZE)
-    fin.info["support_surround_slot_width"] = SUPPORT_SURROUND_SLOT_WIDTH
-    fin.info["meander_support_type"] = (
-        "periodic_phononic_crystal_outer_slab"
-    )
-    fin.info["phononic_connection_style"] = "solid_negative_resist_pnc"
-    fin.info["phononic_support_segments"] = list(PHONONIC_SUPPORT_SEGMENTS)
-    fin.info["phononic_support_gap"] = PHONONIC_SUPPORT_GAPS
-    fin.info["phononic_support_neck_width"] = REVIEW_TETHER_CONNECTION_WIDTH
-    fin.info["layer13_support_rectangles_only"] = True
-    fin.info["mla_channel_angle"] = MLA_CHANNEL_ANGLE
-    fin.info["layer14_channel_angle"] = LAYER14_CHANNEL_ANGLE
-    fin.info["mla_channel_start_width"] = MLA_CHANNEL_START_WIDTH
-    fin.info["layer14_channel_start_width"] = (
-        LAYER14_CHANNEL_START_WIDTH
-    )
-    fin.info["layer14_channel_start_offset"] = (
-        LAYER14_CHANNEL_START_OFFSET
-    )
-    fin.info["mla_channel_start_offset"] = MLA_CHANNEL_START_OFFSET
-    fin.info["positive_channel_length"] = POSITIVE_CHANNEL_LENGTH
-    fin.info["tether_rectangle_slot"] = False
-
-    # No post-merge Layer-14 repair here: Layer 14 must preserve every
-    # remaining cleaned Layer-2 feature after the union above.
+    fin.info["bottom_device_y"] = BOTTOM_DEVICE_Y
+    fin.info["placement_mode"] = "independent_all_layer_factory_fixed_endpoints"
     return fin
 
 
