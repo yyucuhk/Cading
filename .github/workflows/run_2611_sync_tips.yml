@@ -1,0 +1,66 @@
+name: Run 2611 synchronized tips
+
+on:
+  push:
+
+jobs:
+  run-2611:
+    if: github.event.head_commit.message == 'Run 2611 synchronized tips'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: python -m pip install --upgrade pip && python -m pip install gdsfactory==9.45.0 numpy klayout
+      - name: Run layout generator
+        run: python 2611_tapered_yue_dual_resist.py
+      - name: Verify three tip regions match
+        run: |
+          test -s gds/2611_tapered_yue_dual_resist_L10_L12.gds
+          python - <<'PY'
+          import klayout.db as kdb
+          path="gds/2611_tapered_yue_dual_resist_L10_L12.gds"
+          ly=kdb.Layout(); ly.read(path); top=ly.top_cell(); dbu=ly.dbu
+          tips=[("bottom",-422.72,-900.0),("middle",-122.72,-200.0),("top",177.28,500.0)]
+          for layer_num in (2,14):
+              reg=kdb.Region(top.begin_shapes_rec(ly.layer(layer_num,0))); reg.merge()
+              signatures=[]
+              print("LAYER",layer_num)
+              for name,cx,cy in tips:
+                  vals=[]
+                  for dx in (-6,-5,-4,-3,-2,-1,0,1,2,3,4,5,6):
+                      x=cx+dx
+                      clip=kdb.Region(kdb.Box(
+                          int((x-0.002)/dbu),int((cy-12)/dbu),
+                          int((x+0.002)/dbu),int((cy+12)/dbu),
+                      ))
+                      cr=reg & clip
+                      spans=[]
+                      for p in cr.each():
+                          b=p.bbox()
+                          spans.append((
+                              round(b.bottom*dbu-cy,3),
+                              round(b.top*dbu-cy,3),
+                          ))
+                      vals.append((dx,spans))
+                  signatures.append(vals)
+                  print(name,vals)
+              print("all_equal", signatures[0] == signatures[1] == signatures[2])
+              if not (signatures[0] == signatures[1] == signatures[2]):
+                  raise SystemExit(f"Layer {layer_num} tip regions do not match")
+          PY
+      - name: Commit generated GDS
+        run: |
+          git config user.name "chatgpt-runner"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add gds/2611_tapered_yue_dual_resist_L10_L12.gds
+          if git diff --cached --quiet; then
+            echo "No GDS changes to commit."
+          else
+            git commit -m "Regenerate GDS with synchronized tip geometry"
+            git push
+          fi
