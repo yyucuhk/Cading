@@ -133,7 +133,8 @@ SUPPORT_TIP_OVERLAP = 0.2
 ALIGNMENT_TIP_WINDOW_WIDTH = 2.0
 ALIGNMENT_TIP_WINDOW_LENGTH = 8.0
 ALIGNMENT_TIP_WINDOW_INWARD_SHIFT = 0.2
-DEVICE_Y_PITCH = 700.0
+DEVICE_Y_PITCH = 600.0
+BOTTOM_DEVICE_Y = -700.0
 
 
 # =============================================================================
@@ -1454,15 +1455,17 @@ def build_layout() -> gf.Component:
             )
         )
 
+    # Keep the verified bottom device at its current Y position.
+    # Devices 2 and 3 are placed above it with exactly 600 um pitch.
     y_positions = tuple(
-        (index - (device_count - 1) / 2) * DEVICE_Y_PITCH
+        BOTTOM_DEVICE_Y + index * DEVICE_Y_PITCH
         for index in range(device_count)
     )
 
     device_x_shifts = []
     left_pnc_bend_x_before_alignment = []
     total_meander_lengths = []
-    placed_right_tip_centers = []
+    reference_device_x_shift = None
     for y_position, meander_straight_length in zip(
         y_positions,
         sweep_parameters,
@@ -1541,53 +1544,26 @@ def build_layout() -> gf.Component:
                 slab_layer=NEGATIVE_RESIST_LAYER,
             ),
         )
-        # The taper connection remains at the same x for every length, so it
-        # is not a useful bend-alignment reference. Use the left edge of the
-        # actual Layer-11 PNC region, which follows the left Euler bend.
+        # The bottom device is the sole placement reference.
+        # Compute its X shift once, then reuse that exact shift for devices
+        # 2 and 3. Therefore the taper/tip/coupler geometry stays at the same
+        # X location in all three devices and ONLY the meander straight length
+        # changes with the sweep.
         left_pnc_bend_x = float(
             device.bbox(layer=gf.get_layer(PNC_EBL_LAYER)).left
         )
-        device_x_shift = LEFT_BEND_ALIGNMENT_X - left_pnc_bend_x
+        if reference_device_x_shift is None:
+            reference_device_x_shift = (
+                LEFT_BEND_ALIGNMENT_X - left_pnc_bend_x
+            )
+        device_x_shift = float(reference_device_x_shift)
+
         placed_device = fin.add_ref(
             add_shared_mla_window(device, window_source)
         )
         placed_device.move((device_x_shift, y_position))
-        device_x_shifts.append(float(device_x_shift))
+        device_x_shifts.append(device_x_shift)
         left_pnc_bend_x_before_alignment.append(left_pnc_bend_x)
-
-        # Track the larger-x taper-tip reference for each placed device.
-        # This lets us enforce identical local mask geometry across the
-        # three devices after placement; only the meander straight length
-        # is allowed to differ.
-        local_tip_candidates = []
-        for center, orientation in zip(
-            window_source.info["s_bend_connection_centers"],
-            window_source.info["s_bend_connection_orientations"],
-            strict=True,
-        ):
-            angle = radians(orientation)
-            outward = np.array([-cos(angle), -sin(angle)])
-            local_tip_candidates.append(
-                np.asarray(center, dtype=float)
-                + (
-                    SLAB_EXTENSION_LENGTH
-                    + LAYER14_CHANNEL_START_OFFSET
-                )
-                * outward
-            )
-        right_tip_local = max(
-            local_tip_candidates,
-            key=lambda point: float(point[0]),
-        )
-        placed_right_tip_centers.append(
-            np.asarray(
-                [
-                    float(right_tip_local[0]) + device_x_shift,
-                    float(right_tip_local[1]) + y_position,
-                ],
-                dtype=float,
-            )
-        )
 
         # This matches the compact-meander path construction in tapered_local:
         # two outer leads, one middle straight, and two 180-degree Euler bends.
@@ -1642,88 +1618,10 @@ def build_layout() -> gf.Component:
             )
         )
 
-    # Enforce identical local tip geometry across the three placed devices.
-    # The bottom device (first sweep entry) is the verified reference.  Copy
-    # only a small local patch around its larger-x tip onto the corresponding
-    # locations of the middle and top devices.  This affects Layers 2 and 14
-    # only and leaves the meander-length sweep untouched.
-    if len(placed_right_tip_centers) > 1:
-        reference_tip = placed_right_tip_centers[0]
-        tip_patch_size = (16.0, 24.0)
-
-        for layer_spec in (POSITIVE_RESIST_LAYER, Layers.via):
-            layer_tuple = tuple(layer_spec)
-
-            layer_source = fin.copy()
-            layer_source.flatten()
-            layer_source.remove_layers(
-                [
-                    layer
-                    for layer in layer_source.layers
-                    if tuple(layer) != layer_tuple
-                ]
-            )
-
-            reference_window = gf.Component()
-            reference_window_ref = reference_window.add_ref(
-                gf.components.rectangle(
-                    size=tip_patch_size,
-                    centered=True,
-                    layer=layer_spec,
-                )
-            )
-            reference_window_ref.move(tuple(reference_tip))
-
-            reference_patch = gf.boolean(
-                A=layer_source,
-                B=reference_window,
-                operation="and",
-                layer=layer_spec,
-                layer1=layer_spec,
-                layer2=layer_spec,
-            )
-
-            target_windows = gf.Component()
-            replicated_patches = gf.Component()
-            for target_tip in placed_right_tip_centers[1:]:
-                target_window = target_windows.add_ref(
-                    gf.components.rectangle(
-                        size=tip_patch_size,
-                        centered=True,
-                        layer=layer_spec,
-                    )
-                )
-                target_window.move(tuple(target_tip))
-
-                patch_ref = replicated_patches.add_ref(reference_patch)
-                patch_ref.move(
-                    (
-                        float(target_tip[0] - reference_tip[0]),
-                        float(target_tip[1] - reference_tip[1]),
-                    )
-                )
-
-            layer_without_targets = gf.boolean(
-                A=layer_source,
-                B=target_windows,
-                operation="not",
-                layer=layer_spec,
-                layer1=layer_spec,
-                layer2=layer_spec,
-            )
-            synchronized_layer = gf.boolean(
-                A=layer_without_targets,
-                B=replicated_patches,
-                operation="or",
-                layer=layer_spec,
-                layer1=layer_spec,
-                layer2=layer_spec,
-            )
-
-            fin.remove_layers([layer_spec], recursive=True)
-            fin.add_ref(synchronized_layer)
-
-        fin.info["device_count"] = device_count
+    fin.info["device_count"] = device_count
+    fin.info["bottom_device_y"] = BOTTOM_DEVICE_Y
+    fin.info["device_y_pitch"] = DEVICE_Y_PITCH
+    fin.info["placement_mode"] = "bottom_reference_fixed_x_only_meander_length_sweep"
     fin.info["left_bend_alignment_x"] = LEFT_BEND_ALIGNMENT_X
     fin.info["device_x_shifts"] = device_x_shifts
     fin.info["left_pnc_bend_x_before_alignment"] = (
