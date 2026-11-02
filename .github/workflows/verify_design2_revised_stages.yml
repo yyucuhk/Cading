@@ -1,0 +1,59 @@
+name: Verify revised Design 2 taper stages
+on:
+  push:
+    branches: [design/2611-design2-three-stage-tapers]
+defaults:
+  run:
+    shell: bash
+jobs:
+  verify:
+    if: github.event.head_commit.message == 'Build and verify revised Design 2 taper stages'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install layout engine
+        run: python -m pip install gdsfactory==9.45.0 matplotlib
+      - name: Save original Design 2 and protect Design 1
+        run: |
+          mkdir -p validation_2611_design2
+          cp gds/2611_tapered_yue_design2.gds validation_2611_design2/before.gds
+          python - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+          names = ['2611_tapered_yue_dual_resist.py', 'gds/2611_tapered_yue_dual_resist_L10_L12.gds']
+          data = {n: hashlib.sha256(Path(n).read_bytes()).hexdigest() for n in names}
+          Path('validation_2611_design2/protected_hashes.json').write_text(json.dumps(data))
+          PY
+      - name: Apply guarded taper update
+        run: |
+          python _update_design2_stages_once.py
+          python -m py_compile 2611_tapered_yue_design2.py validate_2611_design2.py validate_2611_design2_stages.py
+      - name: Validate measured stages all masks and exported GDS
+        run: python validate_2611_design2.py | tee validation_2611_design2/run.log
+      - name: Upload source GDS measured dimensions and previews
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: design2-revised-stages
+          path: |
+            2611_tapered_yue_design2.py
+            DESIGN2_README.md
+            validate_2611_design2.py
+            validate_2611_design2_stages.py
+            gds/2611_tapered_yue_design2.gds
+            validation_2611_design2/
+      - name: Commit only verified source and generated output
+        run: |
+          cp validation_2611_design2/validation_report.json gds/2611_design2_validation.json
+          git diff --exit-code -- 2611_tapered_yue_dual_resist.py gds/2611_tapered_yue_dual_resist_L10_L12.gds
+          git config user.name chatgpt-runner
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add 2611_tapered_yue_design2.py DESIGN2_README.md validate_2611_design2.py gds/2611_tapered_yue_design2.gds gds/2611_design2_validation.json
+          git commit -m 'Update Design 2 to three slab stages and two ridge stages'
+          git push
