@@ -5,7 +5,7 @@ on:
 
 jobs:
   run-2611:
-    if: github.event.head_commit.message == 'Run 2611 bottom reference sweep'
+    if: github.event.head_commit.message == 'Run 2611 bottom reference splice sweep'
     runs-on: ubuntu-latest
     permissions:
       contents: write
