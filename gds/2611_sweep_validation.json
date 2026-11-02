@@ -1,0 +1,537 @@
+{
+  "checks": [
+    {
+      "name": "requested_sweep",
+      "passed": true,
+      "lengths_um": [
+        200.0,
+        800.0,
+        1400.0
+      ]
+    },
+    {
+      "name": "vertical_pitch",
+      "passed": true,
+      "pitch_um": 600.0
+    },
+    {
+      "name": "device_1_required_layers",
+      "passed": true,
+      "layers": [
+        [
+          2,
+          0
+        ],
+        [
+          10,
+          0
+        ],
+        [
+          11,
+          0
+        ],
+        [
+          13,
+          0
+        ],
+        [
+          14,
+          0
+        ],
+        [
+          15,
+          0
+        ],
+        [
+          16,
+          0
+        ],
+        [
+          51,
+          0
+        ]
+      ]
+    },
+    {
+      "name": "device_2_required_layers",
+      "passed": true,
+      "layers": [
+        [
+          2,
+          0
+        ],
+        [
+          10,
+          0
+        ],
+        [
+          11,
+          0
+        ],
+        [
+          13,
+          0
+        ],
+        [
+          14,
+          0
+        ],
+        [
+          15,
+          0
+        ],
+        [
+          16,
+          0
+        ],
+        [
+          51,
+          0
+        ]
+      ]
+    },
+    {
+      "name": "build_2_does_not_mutate_device_1",
+      "passed": true,
+      "xor_um2": {
+        "2/0": 0.0,
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 0.0,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "device_3_required_layers",
+      "passed": true,
+      "layers": [
+        [
+          2,
+          0
+        ],
+        [
+          10,
+          0
+        ],
+        [
+          11,
+          0
+        ],
+        [
+          13,
+          0
+        ],
+        [
+          14,
+          0
+        ],
+        [
+          15,
+          0
+        ],
+        [
+          16,
+          0
+        ],
+        [
+          51,
+          0
+        ]
+      ]
+    },
+    {
+      "name": "build_3_does_not_mutate_device_1",
+      "passed": true,
+      "xor_um2": {
+        "2/0": 0.0,
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 0.0,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "build_3_does_not_mutate_device_2",
+      "passed": true,
+      "xor_um2": {
+        "2/0": 0.0,
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 0.0,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "device_2_left_complete_assembly_equals_bottom",
+      "passed": false,
+      "xor_um2": {
+        "2/0": 1753.954739,
+        "10/0": 0.0,
+        "11/0": 113.07202799999999,
+        "13/0": 0.0,
+        "14/0": 3738.268385,
+        "15/0": 134.876159,
+        "16/0": 190.472884,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "device_2_right_complete_assembly_equals_bottom",
+      "passed": false,
+      "xor_um2": {
+        "2/0": 1753.954739,
+        "10/0": 0.0,
+        "11/0": 113.07202799999999,
+        "13/0": 0.0,
+        "14/0": 3738.268385,
+        "15/0": 134.876159,
+        "16/0": 190.472884,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "device_3_left_complete_assembly_equals_bottom",
+      "passed": false,
+      "xor_um2": {
+        "2/0": 3282.754739,
+        "10/0": 0.0,
+        "11/0": 161.618988,
+        "13/0": 0.0,
+        "14/0": 7517.068385,
+        "15/0": 284.876159,
+        "16/0": 400.47288399999996,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "device_3_right_complete_assembly_equals_bottom",
+      "passed": false,
+      "xor_um2": {
+        "2/0": 3282.754739,
+        "10/0": 0.0,
+        "11/0": 161.618988,
+        "13/0": 0.0,
+        "14/0": 7517.068385,
+        "15/0": 284.876159,
+        "16/0": 400.47288399999996,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "device_3_build_order_independent",
+      "passed": true,
+      "xor_um2": {
+        "2/0": 0.0,
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 0.0,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "device_2_build_order_independent",
+      "passed": true,
+      "xor_um2": {
+        "2/0": 0.0,
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 0.0,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "device_1_build_order_independent",
+      "passed": true,
+      "xor_um2": {
+        "2/0": 0.0,
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 0.0,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "bottom_preserved_against_pre_refactor_reference",
+      "passed": true,
+      "xor_um2": {
+        "2/0": 9e-06,
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 1.7e-05,
+        "15/0": 0.0,
+        "16/0": 4e-06,
+        "51/0": 0.0
+      },
+      "serialization_tolerance_um2": 0.005
+    },
+    {
+      "name": "device_1_fixed_connection_centers",
+      "passed": true,
+      "centers_um": [
+        [
+          -150.0,
+          200.0
+        ],
+        [
+          150.0,
+          -200.0
+        ]
+      ]
+    },
+    {
+      "name": "device_1_meander_reaches_both_ports",
+      "passed": true,
+      "middle_straight_um": 200.0,
+      "outer_lead_um": 250.0
+    },
+    {
+      "name": "device_1_layer_15_entire_meander_covered",
+      "passed": true,
+      "missing_um2": 0.0
+    },
+    {
+      "name": "device_1_layer_14_entire_meander_covered",
+      "passed": true,
+      "missing_um2": 0.0
+    },
+    {
+      "name": "device_1_layer_15_connected",
+      "passed": true,
+      "connected_components": 1
+    },
+    {
+      "name": "device_1_layer_16_connected",
+      "passed": true,
+      "connected_components": 1
+    },
+    {
+      "name": "device_1_layer14_covers_layer2_mask",
+      "passed": true,
+      "missing_um2": 0.0,
+      "excludes": "device label only"
+    },
+    {
+      "name": "device_2_fixed_connection_centers",
+      "passed": true,
+      "centers_um": [
+        [
+          -150.0,
+          200.0
+        ],
+        [
+          150.0,
+          -200.0
+        ]
+      ]
+    },
+    {
+      "name": "device_2_meander_reaches_both_ports",
+      "passed": true,
+      "middle_straight_um": 800.0,
+      "outer_lead_um": 550.0
+    },
+    {
+      "name": "device_2_layer_15_entire_meander_covered",
+      "passed": true,
+      "missing_um2": 0.0
+    },
+    {
+      "name": "device_2_layer_14_entire_meander_covered",
+      "passed": true,
+      "missing_um2": 0.0
+    },
+    {
+      "name": "device_2_layer_15_connected",
+      "passed": true,
+      "connected_components": 1
+    },
+    {
+      "name": "device_2_layer_16_connected",
+      "passed": true,
+      "connected_components": 1
+    },
+    {
+      "name": "device_2_layer14_covers_layer2_mask",
+      "passed": true,
+      "missing_um2": 0.0,
+      "excludes": "device label only"
+    },
+    {
+      "name": "device_3_fixed_connection_centers",
+      "passed": true,
+      "centers_um": [
+        [
+          -150.0,
+          200.0
+        ],
+        [
+          150.0,
+          -200.0
+        ]
+      ]
+    },
+    {
+      "name": "device_3_meander_reaches_both_ports",
+      "passed": true,
+      "middle_straight_um": 1400.0,
+      "outer_lead_um": 850.0
+    },
+    {
+      "name": "device_3_layer_15_entire_meander_covered",
+      "passed": true,
+      "missing_um2": 0.0
+    },
+    {
+      "name": "device_3_layer_14_entire_meander_covered",
+      "passed": true,
+      "missing_um2": 0.0
+    },
+    {
+      "name": "device_3_layer_15_connected",
+      "passed": true,
+      "connected_components": 1
+    },
+    {
+      "name": "device_3_layer_16_connected",
+      "passed": true,
+      "connected_components": 1
+    },
+    {
+      "name": "device_3_layer14_covers_layer2_mask",
+      "passed": true,
+      "missing_um2": 0.0,
+      "excludes": "device label only"
+    },
+    {
+      "name": "ridge_area_matches_only_straight_length_sweep",
+      "passed": true,
+      "ridge_areas_um2": [
+        1575.82014,
+        2775.82014,
+        3975.82014
+      ],
+      "increments_um2": [
+        1199.9999999999998,
+        1200.0
+      ]
+    },
+    {
+      "name": "export_device_1_present",
+      "passed": true,
+      "cell_name": "Unnamed_220"
+    },
+    {
+      "name": "export_device_1_all_layers_preserved",
+      "passed": true,
+      "xor_um2": {
+        "2/0": 9e-06,
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 1.7e-05,
+        "15/0": 0.0,
+        "16/0": 4e-06,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "export_device_1_one_instance",
+      "passed": true,
+      "instance_count": 1
+    },
+    {
+      "name": "export_device_2_present",
+      "passed": true,
+      "cell_name": "Unnamed_239"
+    },
+    {
+      "name": "export_device_2_all_layers_preserved",
+      "passed": true,
+      "xor_um2": {
+        "2/0": 9e-06,
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 1.7e-05,
+        "15/0": 0.0,
+        "16/0": 4e-06,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "export_device_2_one_instance",
+      "passed": true,
+      "instance_count": 1
+    },
+    {
+      "name": "export_device_3_present",
+      "passed": true,
+      "cell_name": "Unnamed_258"
+    },
+    {
+      "name": "export_device_3_all_layers_preserved",
+      "passed": true,
+      "xor_um2": {
+        "2/0": 9e-06,
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 1.7e-05,
+        "15/0": 0.0,
+        "16/0": 0.0,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "export_device_3_one_instance",
+      "passed": true,
+      "instance_count": 1
+    },
+    {
+      "name": "export_actual_600um_y_pitch_and_same_x",
+      "passed": true,
+      "device_origins_um": [
+        [
+          -657.72,
+          -700.0
+        ],
+        [
+          -657.72,
+          -100.0
+        ],
+        [
+          -657.72,
+          500.0
+        ]
+      ]
+    }
+  ],
+  "failures": [
+    "device_2_left_complete_assembly_equals_bottom",
+    "device_2_right_complete_assembly_equals_bottom",
+    "device_3_left_complete_assembly_equals_bottom",
+    "device_3_right_complete_assembly_equals_bottom"
+  ],
+  "output_file": "gds/2611_tapered_yue_dual_resist_L10_L12.gds",
+  "status": "FAIL",
+  "exception": "Traceback (most recent call last):\n  File \"/home/runner/work/Cading/Cading/validate_2611_sweep.py\", line 264, in <module>\n    main()\n  File \"/home/runner/work/Cading/Cading/validate_2611_sweep.py\", line 258, in main\n    raise AssertionError('Failed checks: ' + ', '.join(REPORT['failures']))\nAssertionError: Failed checks: device_2_left_complete_assembly_equals_bottom, device_2_right_complete_assembly_equals_bottom, device_3_left_complete_assembly_equals_bottom, device_3_right_complete_assembly_equals_bottom\n"
+}
