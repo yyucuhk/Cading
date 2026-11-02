@@ -20,21 +20,21 @@ import sys
 import gdsfactory as gf
 import numpy as np
 
-REPOSITORY_ROOT = Path(__file__).resolve().parents[2]
+REPOSITORY_ROOT = Path(__file__).resolve().parent
 if str(REPOSITORY_ROOT) not in sys.path:
     sys.path.insert(0, str(REPOSITORY_ROOT))
 
-from layout.core import GDS
-from layout.core.layers import Layers
-from layout.core.markers import calipermarker_array
-from layout.acoustics.phononics import phononic_tether
-from tapeout.yue.tapered_local import (
+GDS = REPOSITORY_ROOT / "gds"
+from layers import Layers
+from markers import calipermarker_array
+from phononics import phononic_tether
+from tapered_local import (
     edge_coupler,
     tapered_fiber_3d,
     tapered_fiber_coupler,
     tapered_fiber_inout,
 )
-from tapeout.yue.tether_variants import TETHER_FACTORIES
+from tether_variants import TETHER_FACTORIES
 
 
 # =============================================================================
@@ -1433,6 +1433,7 @@ def build_layout() -> gf.Component:
 
 
 if __name__ == "__main__":
+    GDS.mkdir(parents=True, exist_ok=True)
     fin = build_layout()
     gds_save_options = gf.kdb.SaveLayoutOptions()
     gds_save_options.gds2_max_vertex_count = 2000
