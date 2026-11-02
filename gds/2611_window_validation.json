@@ -1,0 +1,380 @@
+{
+  "checks": [
+    {
+      "name": "device_1_export_preserves_all_layers",
+      "passed": true,
+      "xor_um2": {
+        "2/0": 9e-06,
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 4e-06,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "device_1_layer_2_no_companion_blocks_at_either_tip",
+      "passed": true,
+      "unwanted_block_area_um2": 0.0
+    },
+    {
+      "name": "device_1_layer_14_no_companion_blocks_at_either_tip",
+      "passed": true,
+      "unwanted_block_area_um2": 0.0
+    },
+    {
+      "name": "device_1_layer14_no_small_center_holes",
+      "passed": true,
+      "remaining_small_hole_area_um2": 0.0,
+      "remaining_hole_bboxes_um": [
+        [
+          355.0,
+          -220.0,
+          405.0,
+          -204.272
+        ],
+        [
+          355.0,
+          -195.558,
+          405.0,
+          -180.0
+        ],
+        [
+          -405.0,
+          180.0,
+          -355.0,
+          195.558
+        ],
+        [
+          -405.0,
+          204.272,
+          -355.0,
+          220.0
+        ]
+      ]
+    },
+    {
+      "name": "device_1_fills_both_matching_taper_junctions",
+      "passed": true,
+      "holes_filled": 2,
+      "fill_area_um2": 1.1159999999999999
+    },
+    {
+      "name": "device_1_layer_2_two_complete_ends_symmetric",
+      "passed": true,
+      "rotated_xor_um2": 9e-06
+    },
+    {
+      "name": "device_1_layer_14_two_complete_ends_symmetric",
+      "passed": true,
+      "rotated_xor_um2": 0.0
+    },
+    {
+      "name": "device_1_all_non_window_layers_unchanged",
+      "passed": true,
+      "xor_um2": {
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 0.0,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "device_1_previous_center_holes_now_fully_exposed",
+      "passed": true,
+      "formerly_unexposed_area_um2": 1.1159999999999999
+    },
+    {
+      "name": "device_1_support_pad_openings_preserved",
+      "passed": true,
+      "pad_hole_difference_um2": 0.0
+    },
+    {
+      "name": "device_1_layer_2_changes_confined_to_requested_regions",
+      "passed": true,
+      "unexpected_difference_um2": 0.0
+    },
+    {
+      "name": "device_1_layer_14_changes_confined_to_requested_regions",
+      "passed": true,
+      "unexpected_difference_um2": 1.7e-05
+    },
+    {
+      "name": "device_2_export_preserves_all_layers",
+      "passed": true,
+      "xor_um2": {
+        "2/0": 9e-06,
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 4e-06,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "device_2_layer_2_no_companion_blocks_at_either_tip",
+      "passed": true,
+      "unwanted_block_area_um2": 0.0
+    },
+    {
+      "name": "device_2_layer_14_no_companion_blocks_at_either_tip",
+      "passed": true,
+      "unwanted_block_area_um2": 0.0
+    },
+    {
+      "name": "device_2_layer14_no_small_center_holes",
+      "passed": true,
+      "remaining_small_hole_area_um2": 0.0,
+      "remaining_hole_bboxes_um": [
+        [
+          355.0,
+          -220.0,
+          405.0,
+          -204.272
+        ],
+        [
+          355.0,
+          -195.558,
+          405.0,
+          -180.0
+        ],
+        [
+          -405.0,
+          180.0,
+          -355.0,
+          195.558
+        ],
+        [
+          -405.0,
+          204.272,
+          -355.0,
+          220.0
+        ]
+      ]
+    },
+    {
+      "name": "device_2_fills_both_matching_taper_junctions",
+      "passed": true,
+      "holes_filled": 2,
+      "fill_area_um2": 1.1159999999999999
+    },
+    {
+      "name": "device_2_layer_2_two_complete_ends_symmetric",
+      "passed": true,
+      "rotated_xor_um2": 9e-06
+    },
+    {
+      "name": "device_2_layer_14_two_complete_ends_symmetric",
+      "passed": true,
+      "rotated_xor_um2": 0.0
+    },
+    {
+      "name": "device_2_all_non_window_layers_unchanged",
+      "passed": true,
+      "xor_um2": {
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 0.0,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "device_2_previous_center_holes_now_fully_exposed",
+      "passed": true,
+      "formerly_unexposed_area_um2": 1.1159999999999999
+    },
+    {
+      "name": "device_2_support_pad_openings_preserved",
+      "passed": true,
+      "pad_hole_difference_um2": 0.0
+    },
+    {
+      "name": "device_2_layer_2_changes_confined_to_requested_regions",
+      "passed": true,
+      "unexpected_difference_um2": 0.0
+    },
+    {
+      "name": "device_2_layer_14_changes_confined_to_requested_regions",
+      "passed": true,
+      "unexpected_difference_um2": 1.7e-05
+    },
+    {
+      "name": "device_3_export_preserves_all_layers",
+      "passed": true,
+      "xor_um2": {
+        "2/0": 9e-06,
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 0.0,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "device_3_layer_2_no_companion_blocks_at_either_tip",
+      "passed": true,
+      "unwanted_block_area_um2": 0.0
+    },
+    {
+      "name": "device_3_layer_14_no_companion_blocks_at_either_tip",
+      "passed": true,
+      "unwanted_block_area_um2": 0.0
+    },
+    {
+      "name": "device_3_layer14_no_small_center_holes",
+      "passed": true,
+      "remaining_small_hole_area_um2": 0.0,
+      "remaining_hole_bboxes_um": [
+        [
+          355.0,
+          -220.0,
+          405.0,
+          -204.272
+        ],
+        [
+          355.0,
+          -195.558,
+          405.0,
+          -180.0
+        ],
+        [
+          -405.0,
+          180.0,
+          -355.0,
+          195.558
+        ],
+        [
+          -405.0,
+          204.272,
+          -355.0,
+          220.0
+        ]
+      ]
+    },
+    {
+      "name": "device_3_fills_both_matching_taper_junctions",
+      "passed": true,
+      "holes_filled": 2,
+      "fill_area_um2": 1.1159999999999999
+    },
+    {
+      "name": "device_3_layer_2_two_complete_ends_symmetric",
+      "passed": true,
+      "rotated_xor_um2": 9e-06
+    },
+    {
+      "name": "device_3_layer_14_two_complete_ends_symmetric",
+      "passed": true,
+      "rotated_xor_um2": 0.0
+    },
+    {
+      "name": "device_3_all_non_window_layers_unchanged",
+      "passed": true,
+      "xor_um2": {
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 0.0,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "device_3_previous_center_holes_now_fully_exposed",
+      "passed": true,
+      "formerly_unexposed_area_um2": 1.1159999999999999
+    },
+    {
+      "name": "device_3_support_pad_openings_preserved",
+      "passed": true,
+      "pad_hole_difference_um2": 0.0
+    },
+    {
+      "name": "device_3_layer_2_changes_confined_to_requested_regions",
+      "passed": true,
+      "unexpected_difference_um2": 0.0
+    },
+    {
+      "name": "device_3_layer_14_changes_confined_to_requested_regions",
+      "passed": true,
+      "unexpected_difference_um2": 1.7e-05
+    },
+    {
+      "name": "export_contains_exactly_three_complete_devices",
+      "passed": true
+    },
+    {
+      "name": "export_device_1_matches_validated_window_geometry",
+      "passed": true,
+      "xor_um2": {
+        "2/0": 9e-06,
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 4e-06,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "export_device_2_matches_validated_window_geometry",
+      "passed": true,
+      "xor_um2": {
+        "2/0": 9e-06,
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 4e-06,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "export_device_3_matches_validated_window_geometry",
+      "passed": true,
+      "xor_um2": {
+        "2/0": 9e-06,
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 0.0,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "export_keeps_fixed_x_and_600um_pitch",
+      "passed": true,
+      "positions_um": [
+        [
+          -657.72,
+          -700.0
+        ],
+        [
+          -657.72,
+          -100.0
+        ],
+        [
+          -657.72,
+          500.0
+        ]
+      ]
+    }
+  ],
+  "failures": [],
+  "baseline_comparison_performed": true,
+  "status": "PASS"
+}
