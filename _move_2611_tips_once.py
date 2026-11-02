@@ -6,7 +6,7 @@ ROOT = Path(__file__).resolve().parent
 p = ROOT / '2611_tapered_yue_dual_resist.py'
 data = p.read_bytes()
 sha = hashlib.sha1(b'blob ' + str(len(data)).encode() + b'\0' + data).hexdigest()
-assert sha == 'a2476f8b11889d67942ddfbce326db4872ad47f5', sha
+assert sha == '8c7692ebcfd4f413db17898b6faf0ff15c9f8f6f', sha
 source = data.decode()
 helper = '''def alignment_tip_region(tip_centers, orientations, dbu: float):
     """Exact 0.5 x 10 um alignment ticks: two at each taper end.
