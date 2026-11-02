@@ -158,6 +158,7 @@ def tapered_fiber_coupler(
     waveguide_label_layer=Layers.wg,
     doubleetch_label_layer=Layers.wg_doubleetch,
     alignment_tick_layer=Layers.wg,
+    add_alignment_ticks=True,
     alignment_tick_window_layer=None,
     alignment_tick_window_width=2.0,
     alignment_tick_window_length=8.0,
@@ -209,6 +210,8 @@ def tapered_fiber_coupler(
     waveguide_label_layer, doubleetch_label_layer, alignment_tick_layer : LayerSpec
         Layers for the small taper label, large packaging label, and fiber-tip
         alignment ticks.
+    add_alignment_ticks : bool
+        When false, omit both fiber-tip alignment ticks and their side windows.
     alignment_tick_window_layer : LayerSpec or None
         Optional layer for paired side windows along each 0.5 x 10 um
         fiber-tip alignment tick.
@@ -320,40 +323,41 @@ def tapered_fiber_coupler(
         layer=Layers.fiber,
     )
 
-    # Ticks for aligning the tip of the fiber.
-    for i in [-1, 1]:
-        x1 = alignment_tick_x_offset
-        w = 15
-        d1 = .25
-        d2 = 5
-        c.add_polygon(
-            [
-                (x1+d1, i*w/2+d2),
-                (x1+d1, i*w/2-d2),
-                (x1-d1, i*w/2-d2),
-                (x1-d1, i*w/2+d2),
-            ],
-            layer=alignment_tick_layer,
-        )
-        if alignment_tick_window_layer is not None:
-            x_offset = d1 + alignment_tick_window_width / 2
-            for side in (-1, 1):
-                window = c.add_ref(
-                    gf.components.rectangle(
-                        size=(
-                            alignment_tick_window_width,
-                            alignment_tick_window_length,
-                        ),
-                        centered=True,
-                        layer=alignment_tick_window_layer,
+    # Optional ticks for aligning the tip of the fiber.
+    if add_alignment_ticks:
+        for i in [-1, 1]:
+            x1 = alignment_tick_x_offset
+            w = 15
+            d1 = .25
+            d2 = 5
+            c.add_polygon(
+                [
+                    (x1+d1, i*w/2+d2),
+                    (x1+d1, i*w/2-d2),
+                    (x1-d1, i*w/2-d2),
+                    (x1-d1, i*w/2+d2),
+                ],
+                layer=alignment_tick_layer,
+            )
+            if alignment_tick_window_layer is not None:
+                x_offset = d1 + alignment_tick_window_width / 2
+                for side in (-1, 1):
+                    window = c.add_ref(
+                        gf.components.rectangle(
+                            size=(
+                                alignment_tick_window_width,
+                                alignment_tick_window_length,
+                            ),
+                            centered=True,
+                            layer=alignment_tick_window_layer,
+                        )
                     )
-                )
-                window.move(
-                    (
-                        x1 + side * x_offset,
-                        i * (w / 2 - alignment_tick_window_inward_shift),
+                    window.move(
+                        (
+                            x1 + side * x_offset,
+                            i * (w / 2 - alignment_tick_window_inward_shift),
+                        )
                     )
-                )
 
     # Glue spots
     glue_spot_width = 300
