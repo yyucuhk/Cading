@@ -1,7 +1,8 @@
 name: Verify independent all-layer 2611 factory
 on:
   push:
-    branches: [fix/2611-independent-all-layer-sweep]\defaults:
+    branches: [fix/2611-independent-all-layer-sweep]
+defaults:
   run:
     shell: bash
 jobs:
