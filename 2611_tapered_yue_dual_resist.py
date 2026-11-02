@@ -1231,10 +1231,7 @@ def add_shared_mla_window(
     # removed companion blocks.
     smooth_tip_bridge = gf.Component()
     bridge_length = 6.0
-    bridge_width = (
-        float(window_source.info["taper_end_widths"][tip_exclusion_index])
-        + 2 * margin
-    )
+    bridge_width = SLAB_EXTENSION_START_WIDTH + 2 * margin
     bridge = smooth_tip_bridge.add_ref(
         gf.components.rectangle(
             size=(bridge_length, bridge_width),
