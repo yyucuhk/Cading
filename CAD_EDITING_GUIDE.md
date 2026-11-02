@@ -115,6 +115,9 @@ middle-straight sweep control.
 Edit `TETHER_VARIANT`, `TETHER_PAD_SCALE`, `TETHER_CONNECTION_BLEND_LENGTH`,
 `SUPPORT_RECTANGLE_SIZE`, `EXTRA_RECTANGLE_GAP` and `SUPPORT_SURROUND_SLOT_WIDTH`.
 `REVIEW_TETHER_CONNECTION_WIDTH` couples the slab's final width to its neck.
+`EXTRA_RECTANGLE_GAP` is the edge-to-edge distance from each outer taper
+endpoint to the nearest edge of its support rectangle, not the distance
+between the two devices or between opposite support islands.
 
 The optional `SUPPORT_TIP_*` values describe extra lateral supports disabled
 by `add_support_tips=False` inside `make_device()`. They do not control the

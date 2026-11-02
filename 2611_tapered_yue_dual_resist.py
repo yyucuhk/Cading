@@ -107,7 +107,7 @@ TETHER_VARIANT = 2  # 2 = split/forked butterfly in tether_variants.py
 TETHER_PAD_SCALE = 1.0  # library pad scale
 TETHER_CONNECTION_BLEND_LENGTH = 2.0  # neck blending length
 SUPPORT_RECTANGLE_SIZE = (50.0, 40.0)  # (longitudinal length, transverse width)
-EXTRA_RECTANGLE_GAP = 100.0  # distance between opposing support islands
+EXTRA_RECTANGLE_GAP = 100.0  # edge-to-edge gap: taper endpoint to support island
 SUPPORT_SURROUND_SLOT_WIDTH = 5.0  # Layer-2 slot around each support island
 # Optional extra side-support tips are disabled in make_device(). They
 # are NOT the fiber-alignment ticks (which are kept on Layer 15).
