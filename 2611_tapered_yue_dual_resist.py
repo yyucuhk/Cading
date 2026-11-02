@@ -1215,6 +1215,87 @@ def add_shared_mla_window(
 # 9. TOP-LEVEL DEVICE SWEEP AND PLACEMENT
 # =============================================================================
 
+def repair_layer14_local_artifacts(component: gf.Component) -> None:
+    """Repair only the two local Layer-14 artifacts requested for this mask.
+
+    1. Fill the tiny enclosed hole near x=-462.3 um.
+    2. Replace the stepped transition near x=-425..-422.7 um with one
+       continuous linear taper.
+
+    All non-Layer-14 geometry is left untouched.
+    """
+    layer14_layer = tuple(Layers.via)
+
+    layer14 = component.copy()
+    layer14.flatten()
+    layer14.remove_layers(
+        [
+            layer
+            for layer in layer14.layers
+            if tuple(layer) != layer14_layer
+        ]
+    )
+
+    # Remove only the small stepped portion that will be replaced below.
+    smooth_cut = gf.Component()
+    smooth_cut.add_polygon(
+        [
+            (-425.12, -904.0),
+            (-422.72, -904.0),
+            (-422.72, -896.0),
+            (-425.12, -896.0),
+        ],
+        layer=Layers.via,
+    )
+    layer14_without_step = gf.boolean(
+        A=layer14,
+        B=smooth_cut,
+        operation="not",
+        layer=Layers.via,
+        layer1=Layers.via,
+        layer2=Layers.via,
+    )
+
+    repair = gf.Component()
+
+    # Fill the measured 0.186 um x 3 um enclosed Layer-14 hole with a tiny
+    # overlap so no database-grid sliver remains.
+    repair.add_polygon(
+        [
+            (-462.42, -901.52),
+            (-462.20, -901.52),
+            (-462.20, -898.48),
+            (-462.42, -898.48),
+        ],
+        layer=Layers.via,
+    )
+
+    # Smooth the measured step into a single linear taper.  The left edge
+    # matches the existing ~7.01 um opening; the right edge matches the
+    # existing 1.0 um opening.
+    repair.add_polygon(
+        [
+            (-425.12, -903.506),
+            (-425.12, -896.494),
+            (-422.72, -899.500),
+            (-422.72, -900.500),
+        ],
+        layer=Layers.via,
+    )
+
+    repaired_layer14 = gf.boolean(
+        A=layer14_without_step,
+        B=repair,
+        operation="or",
+        layer=Layers.via,
+        layer1=Layers.via,
+        layer2=Layers.via,
+    )
+
+    component.remove_layers([Layers.via], recursive=True)
+    component.add_ref(repaired_layer14)
+
+
 def build_layout() -> gf.Component:
     """Build three review devices sweeping only meander straight length."""
     name = Path(__file__).stem
@@ -1528,6 +1609,9 @@ def build_layout() -> gf.Component:
     fin.info["mla_channel_start_offset"] = MLA_CHANNEL_START_OFFSET
     fin.info["positive_channel_length"] = POSITIVE_CHANNEL_LENGTH
     fin.info["tether_rectangle_slot"] = False
+
+    # Final local cleanup is intentionally restricted to Layer 14.
+    repair_layer14_local_artifacts(fin)
     return fin
 
 
