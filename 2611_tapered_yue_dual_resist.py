@@ -1190,32 +1190,50 @@ def add_shared_mla_window(
                 center[1] + end_extension / 2 * sin(angle),
             )
         )
-    # Revised Layer-14 strategy:
-    # Copy ALL remaining Layer-2 release geometry onto Layer 14, except for
-    # the small companion blocks around the Layer-10 tip markers near the
-    # taper-tip region. Then merge that copy with all existing Layer-14
-    # geometry so the complete area is exposed as one open MLA window.
-    layer2_full_copy = result.copy()
-    layer2_full_copy.flatten()
-    layer2_full_copy.remove_layers(
-        [
-            layer
-            for layer in layer2_full_copy.layers
-            if tuple(layer) != positive_layer
-        ]
-    )
-    layer2_full_copy.remap_layers(
-        {positive_layer: tuple(Layers.via)},
+    # Final Layer-2 / Layer-14 strategy:
+    # 1) Remove the annoying companion blocks near the larger-x taper tip
+    #    directly from Layer 2.
+    # 2) Copy ALL of that cleaned Layer 2 onto Layer 14.
+    # 3) Merge it with the existing Layer 14 geometry.
+    #
+    # The same local exclusion is also applied to the pre-existing Layer 14
+    # before the union, so the old tip blocks cannot survive from another
+    # Layer-14 construction path.
+    layer2_tip_exclusions = layer14_tip_exclusions.copy()
+    layer2_tip_exclusions.flatten()
+    layer2_tip_exclusions.remap_layers(
+        {tuple(Layers.via): positive_layer},
         recursive=False,
     )
 
-    layer2_for_layer14 = gf.boolean(
-        A=layer2_full_copy,
-        B=layer14_tip_exclusions,
+    existing_layer2 = result.copy()
+    existing_layer2.flatten()
+    existing_layer2.remove_layers(
+        [
+            layer
+            for layer in existing_layer2.layers
+            if tuple(layer) != positive_layer
+        ]
+    )
+    cleaned_layer2 = gf.boolean(
+        A=existing_layer2,
+        B=layer2_tip_exclusions,
         operation="not",
-        layer=Layers.via,
-        layer1=Layers.via,
-        layer2=Layers.via,
+        layer=positive_layer,
+        layer1=positive_layer,
+        layer2=positive_layer,
+    )
+
+    # Replace Layer 2 with the cleaned version before creating the Layer-14
+    # copy. All other mask layers remain unchanged.
+    result.remove_layers([positive_layer], recursive=True)
+    result.add_ref(cleaned_layer2)
+
+    layer2_full_copy = cleaned_layer2.copy()
+    layer2_full_copy.flatten()
+    layer2_full_copy.remap_layers(
+        {positive_layer: tuple(Layers.via)},
+        recursive=False,
     )
 
     existing_layer14 = result.copy()
@@ -1227,17 +1245,25 @@ def add_shared_mla_window(
             if tuple(layer) != tuple(Layers.via)
         ]
     )
+    existing_layer14 = gf.boolean(
+        A=existing_layer14,
+        B=layer14_tip_exclusions,
+        operation="not",
+        layer=Layers.via,
+        layer1=Layers.via,
+        layer2=Layers.via,
+    )
 
     merged_layer14 = gf.boolean(
         A=existing_layer14,
-        B=layer2_for_layer14,
+        B=layer2_full_copy,
         operation="or",
         layer=Layers.via,
         layer1=Layers.via,
         layer2=Layers.via,
     )
 
-    # Replace only Layer 14; every other mask layer remains untouched.
+    # Replace only Layer 14 with the merged open-window geometry.
     result.remove_layers([Layers.via], recursive=True)
     result.add_ref(merged_layer14)
 
