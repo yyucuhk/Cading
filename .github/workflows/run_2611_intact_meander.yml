@@ -5,7 +5,7 @@ on:
 
 jobs:
   run-2611:
-    if: github.event.head_commit.message == 'Run 2611 intact meander verification'
+    if: github.event.head_commit.message == 'Run 2611 intact meander verification sorted'
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -130,7 +130,7 @@ jobs:
                           for p in (reg & clip).each():
                               b=p.bbox()
                               spans.append((round(b.bottom*dbu-cy,3),round(b.top*dbu-cy,3)))
-                          vals.append((dx,spans))
+                          vals.append((dx,sorted(spans)))
                       sigs.append(vals)
                   equal=sigs[0]==sigs[1]==sigs[2]
                   print("tip",tip_index,"all_equal",equal)
