@@ -5,7 +5,7 @@ on:
 
 jobs:
   inspect:
-    if: github.event.head_commit.message == 'Inspect Layer14 local geometry'
+    if: github.event.head_commit.message == 'Inspect Layer14 holes and contour'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -14,7 +14,7 @@ jobs:
           python-version: '3.11'
       - name: Install klayout
         run: python -m pip install klayout
-      - name: Inspect vertical cross-sections
+      - name: Inspect holes and contour
         run: |
           python - <<'PY'
           import klayout.db as kdb
@@ -28,22 +28,30 @@ jobs:
           region = kdb.Region(top.begin_shapes_rec(li))
           region.merge()
 
-          bbox = region.bbox()
-          print("DBU", dbu)
-          print("L14 bbox um", bbox.left*dbu, bbox.bottom*dbu, bbox.right*dbu, bbox.top*dbu)
+          print("HOLES near x=-462")
+          for pi, poly in enumerate(region.each()):
+              pb = poly.bbox()
+              if pb.right*dbu < -480 or pb.left*dbu > -440:
+                  continue
+              try:
+                  nh = poly.holes()
+              except Exception:
+                  nh = 0
+              for hi in range(nh):
+                  pts = list(poly.each_point_hole(hi))
+                  xs=[p.x*dbu for p in pts]; ys=[p.y*dbu for p in pts]
+                  if max(xs) >= -480 and min(xs) <= -440:
+                      print("hole", pi, hi, "bbox", round(min(xs),3), round(min(ys),3), round(max(xs),3), round(max(ys),3))
+                      print("pts", [(round(x,3),round(y,3)) for x,y in zip(xs,ys)])
 
-          for x in (-466,-464,-463,-462.5,-462,-461.5,-461,-460,-426,-425,-424.5,-424,-423.5,-423,-422.5,-422,-421):
-              half = 0.002
-              clip = kdb.Region(kdb.Box(
-                  int(round((x-half)/dbu)),
-                  bbox.bottom-1000,
-                  int(round((x+half)/dbu)),
-                  bbox.top+1000,
-              ))
-              cross = region & clip
-              boxes = []
-              for p in cross.each():
-                  b = p.bbox()
-                  boxes.append((round(b.bottom*dbu,3), round(b.top*dbu,3)))
-              print(f"x={x:.3f}: {boxes}")
+          print("CONTOUR vertices x=-430..-418")
+          for pi, poly in enumerate(region.each()):
+              pb=poly.bbox()
+              if pb.right*dbu < -430 or pb.left*dbu > -418:
+                  continue
+              pts=list(poly.each_point_hull())
+              local=[(p.x*dbu,p.y*dbu) for p in pts if -431 <= p.x*dbu <= -417]
+              if local:
+                  print("poly",pi,"bbox",pb.left*dbu,pb.bottom*dbu,pb.right*dbu,pb.top*dbu)
+                  print([(round(x,3),round(y,3)) for x,y in local])
           PY
