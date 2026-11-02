@@ -1,0 +1,169 @@
+name: Run 2611 intact meander verification
+
+on:
+  push:
+
+jobs:
+  run-2611:
+    if: github.event.head_commit.message == 'Run 2611 intact meander verification'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: python -m pip install --upgrade pip && python -m pip install gdsfactory==9.45.0 numpy klayout
+      - name: Run layout generator
+        run: python 2611_tapered_yue_dual_resist.py
+      - name: Verify both ends and meander connectivity
+        run: |
+          python - <<'PY'
+          import importlib.util
+          from functools import partial
+          from math import radians, cos, sin
+          import numpy as np
+          import gdsfactory as gf
+          import klayout.db as kdb
+
+          # Recompute the two fixed tip locations from the source geometry.
+          spec=importlib.util.spec_from_file_location("m","2611_tapered_yue_dual_resist.py")
+          m=importlib.util.module_from_spec(spec); spec.loader.exec_module(m)
+          gf.gpdk.PDK.activate()
+
+          common=dict(
+              chip_length=6000,
+              tapered_fiber_angle=m.TAPER_ANGLE,
+              edge_coupler_spec=partial(m.edge_coupler,length=300,taper_length=100),
+              include_edge_couplers=False,
+              flatten=False,
+              s_bend_width=m.S_BEND_WIDTH,
+              s_bend_taper_length=m.S_BEND_TAPER_LENGTH,
+              s_bend_half_length=m.S_BEND_HALF_LENGTH,
+              s_bend_compact_180_radius=m.S_BEND_COMPACT_180_RADIUS,
+              s_bend_compact_euler_p=m.S_BEND_EULER_P,
+              s_bend_compact_straight_length=m.MEANDER_STRAIGHT_LENGTHS[0],
+              s_bend_vertical_half_span=m.S_BEND_VERTICAL_HALF_SPAN,
+              s_bend_layer=m.MEANDER_CONSTRUCTION_LAYER,
+              ridge_s_bend_layer=m.RIDGE_LAYER,
+              ridge_s_bend_width=m.RIDGE_EXTENSION_END_WIDTH,
+          )
+          ws=m.tapered_fiber_inout(
+              **common,
+              tapered_fiber_spec=m.make_tapered_coupler(
+                  m.REVIEW_TETHER_CONNECTION_WIDTH,
+                  m.RIDGE_TAPER_LENGTH,
+                  add_support_tips=False,
+                  alignment_tick_layer=m.MARKER_LAYER,
+                  slab_layer=m.NEGATIVE_RESIST_LAYER,
+              ),
+          )
+          dev=m.tapered_fiber_inout(
+              **common,
+              s_bend_support_shield_spec=partial(
+                  m.phononic_meander_shield,
+                  width=m.REVIEW_TETHER_CONNECTION_WIDTH,
+                  pitch=m.REVIEW_SUPPORT_ANCHOR_PERIOD,
+                  bend_pitch=m.REVIEW_SUPPORT_BEND_PERIOD,
+                  slab_width=m.S_BEND_WIDTH,
+                  layer=m.FULL_ETCH_LAYER,
+                  pnc_layer=m.PNC_EBL_LAYER,
+                  layer14_fill_layer=m.Layers.via,
+                  end_extension=m.PNC_NARROW_END_EXTENSION,
+              ),
+              tapered_fiber_spec=m.make_tapered_coupler(
+                  m.REVIEW_TETHER_CONNECTION_WIDTH,
+                  m.RIDGE_TAPER_LENGTH,
+                  add_support_tips=False,
+                  add_phononic_taper_support=True,
+                  slab_layer=m.NEGATIVE_RESIST_LAYER,
+              ),
+              extra_rectangle_size=m.SUPPORT_RECTANGLE_SIZE,
+              extra_rectangle_gap=m.EXTRA_RECTANGLE_GAP,
+              extra_rectangle_layer=m.POSITIVE_RESIST_LAYER,
+              extra_rectangle_fill_layer=m.Layers.ring,
+              extra_rectangle_margin=0.0,
+              extra_rectangle_surround_slot_width=m.SUPPORT_SURROUND_SLOT_WIDTH,
+              tether_spec=partial(
+                  m.TETHER_FACTORIES[m.TETHER_VARIANT],
+                  layer=m.NEGATIVE_RESIST_LAYER,
+                  pad_scale=m.TETHER_PAD_SCALE,
+                  connection_width=m.REVIEW_TETHER_CONNECTION_WIDTH,
+                  connection_taper_length=m.TETHER_CONNECTION_BLEND_LENGTH,
+              ),
+          )
+          shift=m.LEFT_BEND_ALIGNMENT_X-float(dev.bbox(layer=gf.get_layer(m.PNC_EBL_LAYER)).left)
+          local_tips=[]
+          for center,orientation in zip(ws.info["s_bend_connection_centers"],ws.info["s_bend_connection_orientations"],strict=True):
+              a=radians(orientation)
+              outward=np.array([-cos(a),-sin(a)])
+              local_tips.append(np.asarray(center,dtype=float)+(m.SLAB_EXTENSION_LENGTH+m.LAYER14_CHANNEL_START_OFFSET)*outward)
+
+          ys=[m.BOTTOM_DEVICE_Y+i*m.DEVICE_Y_PITCH for i in range(3)]
+          tips=[
+              [np.asarray([p[0]+shift,p[1]+y],dtype=float) for p in local_tips]
+              for y in ys
+          ]
+          print("tip_pairs",[[tuple(np.round(p,3)) for p in pair] for pair in tips])
+
+          path="gds/2611_tapered_yue_dual_resist_L10_L12.gds"
+          ly=kdb.Layout(); ly.read(path); top=ly.top_cell(); dbu=ly.dbu
+
+          # Both tip neighborhoods on L2/L14 must match bottom exactly.
+          for layer_num in (2,14):
+              reg=kdb.Region(top.begin_shapes_rec(ly.layer(layer_num,0))); reg.merge()
+              print("LAYER",layer_num)
+              for tip_index in (0,1):
+                  sigs=[]
+                  for di in range(3):
+                      cx,cy=tips[di][tip_index]
+                      vals=[]
+                      for dx in range(-18,19,3):
+                          x=cx+dx
+                          clip=kdb.Region(kdb.Box(
+                              int((x-0.002)/dbu),int((cy-20)/dbu),
+                              int((x+0.002)/dbu),int((cy+20)/dbu),
+                          ))
+                          spans=[]
+                          for p in (reg & clip).each():
+                              b=p.bbox()
+                              spans.append((round(b.bottom*dbu-cy,3),round(b.top*dbu-cy,3)))
+                          vals.append((dx,spans))
+                      sigs.append(vals)
+                  equal=sigs[0]==sigs[1]==sigs[2]
+                  print("tip",tip_index,"all_equal",equal)
+                  if not equal:
+                      print("bottom",sigs[0]); print("device2",sigs[1]); print("device3",sigs[2])
+                      raise SystemExit(f"Layer {layer_num} tip {tip_index} differs")
+
+          # Layer 15 central ridge/meander must be connected in each device.
+          l15=kdb.Region(top.begin_shapes_rec(ly.layer(15,0))); l15.merge()
+          for i,y in enumerate(ys,1):
+              roi=kdb.Region(kdb.Box(
+                  int(-2600/dbu),int((y-260)/dbu),
+                  int(800/dbu),int((y+260)/dbu),
+              ))
+              rr=l15 & roi
+              rr.merge()
+              polys=list(rr.each())
+              print("device",i,"layer15_components",len(polys),"area_um2",rr.area()*dbu*dbu)
+              # The connected ridge/meander body should dominate; tiny isolated
+              # fragments indicate a broken bend/straight junction.
+              areas=sorted([p.area()*dbu*dbu for p in polys],reverse=True)
+              print("areas",areas[:10])
+              if not areas or (len(areas)>1 and areas[1] > 1.0):
+                  raise SystemExit(f"Device {i} Layer15 has disconnected substantial components")
+          PY
+      - name: Commit generated GDS
+        run: |
+          git config user.name "chatgpt-runner"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add gds/2611_tapered_yue_dual_resist_L10_L12.gds
+          if git diff --cached --quiet; then
+            echo "No GDS changes to commit."
+          else
+            git commit -m "Regenerate GDS with intact meanders and matched two-sided windows"
+            git push
+          fi
