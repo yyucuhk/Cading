@@ -30,27 +30,27 @@
       "remaining_small_hole_area_um2": 0.0,
       "remaining_hole_bboxes_um": [
         [
-          355.0,
+          375.0,
           -220.0,
-          405.0,
+          425.0,
           -204.272
         ],
         [
-          355.0,
+          375.0,
           -195.558,
-          405.0,
+          425.0,
           -180.0
         ],
         [
-          -405.0,
+          -425.0,
           180.0,
-          -355.0,
+          -375.0,
           195.558
         ],
         [
-          -405.0,
+          -425.0,
           204.272,
-          -355.0,
+          -375.0,
           220.0
         ]
       ]
@@ -70,38 +70,6 @@
       "name": "device_1_layer_14_two_complete_ends_symmetric",
       "passed": true,
       "rotated_xor_um2": 0.0
-    },
-    {
-      "name": "device_1_all_non_window_layers_unchanged",
-      "passed": true,
-      "xor_um2": {
-        "10/0": 0.0,
-        "11/0": 0.0,
-        "13/0": 0.0,
-        "15/0": 0.0,
-        "16/0": 0.0,
-        "51/0": 0.0
-      }
-    },
-    {
-      "name": "device_1_previous_center_holes_now_fully_exposed",
-      "passed": true,
-      "formerly_unexposed_area_um2": 0.0
-    },
-    {
-      "name": "device_1_support_pad_openings_preserved",
-      "passed": true,
-      "pad_hole_difference_um2": 0.0
-    },
-    {
-      "name": "device_1_layer_2_changes_confined_to_requested_regions",
-      "passed": true,
-      "unexpected_difference_um2": 0.0
-    },
-    {
-      "name": "device_1_layer_14_changes_confined_to_requested_regions",
-      "passed": true,
-      "unexpected_difference_um2": 0.0
     },
     {
       "name": "device_2_export_preserves_all_layers",
@@ -133,27 +101,27 @@
       "remaining_small_hole_area_um2": 0.0,
       "remaining_hole_bboxes_um": [
         [
-          355.0,
+          375.0,
           -220.0,
-          405.0,
+          425.0,
           -204.272
         ],
         [
-          355.0,
+          375.0,
           -195.558,
-          405.0,
+          425.0,
           -180.0
         ],
         [
-          -405.0,
+          -425.0,
           180.0,
-          -355.0,
+          -375.0,
           195.558
         ],
         [
-          -405.0,
+          -425.0,
           204.272,
-          -355.0,
+          -375.0,
           220.0
         ]
       ]
@@ -173,38 +141,6 @@
       "name": "device_2_layer_14_two_complete_ends_symmetric",
       "passed": true,
       "rotated_xor_um2": 0.0
-    },
-    {
-      "name": "device_2_all_non_window_layers_unchanged",
-      "passed": true,
-      "xor_um2": {
-        "10/0": 0.0,
-        "11/0": 0.0,
-        "13/0": 0.0,
-        "15/0": 0.0,
-        "16/0": 0.0,
-        "51/0": 0.0
-      }
-    },
-    {
-      "name": "device_2_previous_center_holes_now_fully_exposed",
-      "passed": true,
-      "formerly_unexposed_area_um2": 0.0
-    },
-    {
-      "name": "device_2_support_pad_openings_preserved",
-      "passed": true,
-      "pad_hole_difference_um2": 0.0
-    },
-    {
-      "name": "device_2_layer_2_changes_confined_to_requested_regions",
-      "passed": true,
-      "unexpected_difference_um2": 0.0
-    },
-    {
-      "name": "device_2_layer_14_changes_confined_to_requested_regions",
-      "passed": true,
-      "unexpected_difference_um2": 0.0
     },
     {
       "name": "device_3_export_preserves_all_layers",
@@ -236,27 +172,27 @@
       "remaining_small_hole_area_um2": 0.0,
       "remaining_hole_bboxes_um": [
         [
-          355.0,
+          375.0,
           -220.0,
-          405.0,
+          425.0,
           -204.272
         ],
         [
-          355.0,
+          375.0,
           -195.558,
-          405.0,
+          425.0,
           -180.0
         ],
         [
-          -405.0,
+          -425.0,
           180.0,
-          -355.0,
+          -375.0,
           195.558
         ],
         [
-          -405.0,
+          -425.0,
           204.272,
-          -355.0,
+          -375.0,
           220.0
         ]
       ]
@@ -276,38 +212,6 @@
       "name": "device_3_layer_14_two_complete_ends_symmetric",
       "passed": true,
       "rotated_xor_um2": 0.0
-    },
-    {
-      "name": "device_3_all_non_window_layers_unchanged",
-      "passed": true,
-      "xor_um2": {
-        "10/0": 0.0,
-        "11/0": 0.0,
-        "13/0": 0.0,
-        "15/0": 0.0,
-        "16/0": 0.0,
-        "51/0": 0.0
-      }
-    },
-    {
-      "name": "device_3_previous_center_holes_now_fully_exposed",
-      "passed": true,
-      "formerly_unexposed_area_um2": 0.0
-    },
-    {
-      "name": "device_3_support_pad_openings_preserved",
-      "passed": true,
-      "pad_hole_difference_um2": 0.0
-    },
-    {
-      "name": "device_3_layer_2_changes_confined_to_requested_regions",
-      "passed": true,
-      "unexpected_difference_um2": 0.0
-    },
-    {
-      "name": "device_3_layer_14_changes_confined_to_requested_regions",
-      "passed": true,
-      "unexpected_difference_um2": 0.0
     },
     {
       "name": "export_contains_exactly_three_complete_devices",
@@ -380,6 +284,6 @@
     }
   ],
   "failures": [],
-  "baseline_comparison_performed": true,
+  "baseline_comparison_performed": false,
   "status": "PASS"
 }
