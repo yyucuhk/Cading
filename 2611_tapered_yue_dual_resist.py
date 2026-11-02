@@ -1523,14 +1523,20 @@ def make_device(meander_straight_length: float) -> gf.Component:
 
 
 def build_layout() -> gf.Component:
-    """Call the same all-layer factory three times; only L and Y vary."""
+    """Place complete devices with aligned left bends and 600 um Y pitch."""
     gf.gpdk.PDK.activate()
     fin = gf.Component(f"{Path(__file__).stem}_L10_L12")
     lengths = tuple(float(length) for length in MEANDER_STRAIGHT_LENGTHS)
     devices = [make_device(length) for length in lengths]
-    x_shift = LEFT_BEND_ALIGNMENT_X - float(devices[0].info["left_pnc_bend_x"])
+    # Translate each COMPLETE device. Do not edit, clip, or remap any layer.
+    # The reference is the leftmost Layer-11 PNC edge at the left Euler bend.
+    # Device 1 stays in place; the longer devices move right to align here.
+    x_shifts = [
+        LEFT_BEND_ALIGNMENT_X - float(device.info["left_pnc_bend_x"])
+        for device in devices
+    ]
     y_positions = [BOTTOM_DEVICE_Y + i * DEVICE_Y_PITCH for i in range(len(devices))]
-    for device, y_position in zip(devices, y_positions, strict=True):
+    for device, x_shift, y_position in zip(devices, x_shifts, y_positions, strict=True):
         fin.add_ref(device).move((x_shift, y_position))
 
     # Chip outline and global overlay markers are not part of the length sweep.
@@ -1552,11 +1558,14 @@ def build_layout() -> gf.Component:
     fin.info["device_cells"] = [device.name for device in devices]
     fin.info["meander_straight_lengths"] = list(lengths)
     fin.info["total_meander_lengths"] = [float(d.info["total_meander_length_um"]) for d in devices]
-    fin.info["device_x_shifts"] = [float(x_shift)] * len(devices)
+    fin.info["device_x_shifts"] = [float(value) for value in x_shifts]
+    fin.info["left_bend_alignment_x"] = LEFT_BEND_ALIGNMENT_X
+    fin.info["alignment_reference_layer"] = list(PNC_EBL_LAYER)
+    fin.info["alignment_reference"] = "leftmost_pnc_edge_of_left_euler_bend"
     fin.info["device_y_positions"] = y_positions
     fin.info["device_y_pitch"] = DEVICE_Y_PITCH
     fin.info["bottom_device_y"] = BOTTOM_DEVICE_Y
-    fin.info["placement_mode"] = "independent_all_layer_factory_fixed_endpoints"
+    fin.info["placement_mode"] = "independent_all_layer_factory_left_bend_aligned"
     return fin
 
 

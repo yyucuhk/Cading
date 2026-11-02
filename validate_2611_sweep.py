@@ -249,10 +249,15 @@ def main():
             transform = instances[0].trans
             actual_positions.append([transform.disp.x * dbu, transform.disp.y * dbu])
     if len(actual_positions) == 3:
-        check('export_actual_600um_y_pitch_and_same_x',
+        left_bend_edges = [
+            kdb.Region(final.cell(name).begin_shapes_rec(final.layer(11, 0))).bbox().left
+            * final.dbu + position[0]
+            for name, position in zip(names, actual_positions, strict=True)
+        ]
+        check('export_actual_600um_y_pitch_and_aligned_left_bends',
               np.allclose(np.diff(np.asarray(actual_positions)[:, 1]), 600.0, rtol=0, atol=1e-9)
-              and np.ptp(np.asarray(actual_positions)[:, 0]) == 0,
-              device_origins_um=actual_positions)
+              and np.allclose(left_bend_edges, m.LEFT_BEND_ALIGNMENT_X, rtol=0, atol=1e-9),
+              device_origins_um=actual_positions, left_bend_edges_um=left_bend_edges)
     REPORT['output_file'] = str(output_path.relative_to(ROOT))
     REPORT['status'] = 'PASS' if not REPORT['failures'] else 'FAIL'
     (OUT / 'validation_report.json').write_text(json.dumps(REPORT, indent=2))

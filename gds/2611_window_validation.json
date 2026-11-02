@@ -86,7 +86,7 @@
     {
       "name": "device_1_previous_center_holes_now_fully_exposed",
       "passed": true,
-      "formerly_unexposed_area_um2": 1.1159999999999999
+      "formerly_unexposed_area_um2": 0.0
     },
     {
       "name": "device_1_support_pad_openings_preserved",
@@ -101,7 +101,7 @@
     {
       "name": "device_1_layer_14_changes_confined_to_requested_regions",
       "passed": true,
-      "unexpected_difference_um2": 1.7e-05
+      "unexpected_difference_um2": 0.0
     },
     {
       "name": "device_2_export_preserves_all_layers",
@@ -189,7 +189,7 @@
     {
       "name": "device_2_previous_center_holes_now_fully_exposed",
       "passed": true,
-      "formerly_unexposed_area_um2": 1.1159999999999999
+      "formerly_unexposed_area_um2": 0.0
     },
     {
       "name": "device_2_support_pad_openings_preserved",
@@ -204,7 +204,7 @@
     {
       "name": "device_2_layer_14_changes_confined_to_requested_regions",
       "passed": true,
-      "unexpected_difference_um2": 1.7e-05
+      "unexpected_difference_um2": 0.0
     },
     {
       "name": "device_3_export_preserves_all_layers",
@@ -292,7 +292,7 @@
     {
       "name": "device_3_previous_center_holes_now_fully_exposed",
       "passed": true,
-      "formerly_unexposed_area_um2": 1.1159999999999999
+      "formerly_unexposed_area_um2": 0.0
     },
     {
       "name": "device_3_support_pad_openings_preserved",
@@ -307,7 +307,7 @@
     {
       "name": "device_3_layer_14_changes_confined_to_requested_regions",
       "passed": true,
-      "unexpected_difference_um2": 1.7e-05
+      "unexpected_difference_um2": 0.0
     },
     {
       "name": "export_contains_exactly_three_complete_devices",
@@ -356,7 +356,7 @@
       }
     },
     {
-      "name": "export_keeps_fixed_x_and_600um_pitch",
+      "name": "export_keeps_aligned_left_bends_and_600um_pitch",
       "passed": true,
       "positions_um": [
         [
@@ -364,13 +364,18 @@
           -700.0
         ],
         [
-          -657.72,
+          -357.72,
           -100.0
         ],
         [
-          -657.72,
+          -57.72,
           500.0
         ]
+      ],
+      "left_bend_edges_um": [
+        -900.0,
+        -900.0,
+        -900.0
       ]
     }
   ],
