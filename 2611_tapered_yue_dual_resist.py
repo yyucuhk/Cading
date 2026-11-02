@@ -958,6 +958,62 @@ def make_tapered_coupler(
     )
 
 
+def fill_layer14_taper_seams(
+    layer14: gf.Component,
+    connection_centers,
+    connection_orientations,
+) -> gf.Component:
+    """Fill enclosed L14 holes only inside the two taper center regions.
+
+    Detect actual hole polygons, rather than drawing a guessed rectangle.
+    The allowed region follows each port's local outward direction, from
+    its meander connection to its slab tip. Larger support-pad openings
+    farther out are explicitly outside this region and remain unchanged.
+    Input cells are only read; the returned polygons are independently owned.
+    """
+    layer_index = gf.get_layer(Layers.via)
+    dbu = float(layer14.kcl.dbu)
+    region = gf.kdb.Region(
+        layer14.kdb_cell.begin_shapes_rec(layer_index)
+    ).merged()
+    fills = gf.kdb.Region()
+    filled_count = 0
+    half_width = SLAB_EXTENSION_END_WIDTH / 2
+    tolerance = dbu / 2
+    frames = []
+    for center, orientation in zip(
+        connection_centers, connection_orientations, strict=True
+    ):
+        angle = radians(float(orientation))
+        outward = np.array([-cos(angle), -sin(angle)])
+        normal = np.array([-outward[1], outward[0]])
+        frames.append((np.asarray(center, dtype=float), outward, normal))
+
+    for polygon in region.each():
+        for hole_index in range(polygon.holes()):
+            points = list(polygon.each_point_hole(hole_index))
+            coords = np.asarray([(p.x * dbu, p.y * dbu) for p in points])
+            for center, outward, normal in frames:
+                relative = coords - center
+                longitudinal = relative @ outward
+                transverse = relative @ normal
+                inside_taper = (
+                    np.all(longitudinal >= -tolerance)
+                    and np.all(longitudinal <= SLAB_EXTENSION_LENGTH + tolerance)
+                    and np.all(np.abs(transverse) <= half_width + tolerance)
+                )
+                if inside_taper:
+                    fills.insert(gf.kdb.Polygon(points))
+                    filled_count += 1
+                    break
+
+    repaired = gf.Component()
+    repaired.kdb_cell.shapes(layer_index).insert((region | fills).merged())
+    repaired.info["taper_seam_holes_filled"] = filled_count
+    repaired.info["taper_seam_fill_area_um2"] = float(fills.area() * dbu**2)
+    return repaired
+
+
 def add_shared_mla_window(
     device: gf.Component,
     window_source: gf.Component,
@@ -1122,43 +1178,36 @@ def add_shared_mla_window(
         layer2=Layers.via,
     )
 
-    # Keep the Layer-2 companion windows around the two Layer-10 tip markers,
-    # but do NOT copy those local windows onto Layer 14.  Reconstruct the four
-    # small Layer-2 window rectangles at each taper tip and subtract only those
-    # shapes from the Layer-14 copy.
+    # Remove the companion-window blocks at BOTH taper tips.  Work in
+    # device-local coordinates so every straight-length variant receives
+    # exactly the same two-ended cleanup. Layer-10 alignment tips are kept.
     layer14_tip_exclusions = gf.Component()
     tick_half_separation = 15.0 / 2 - ALIGNMENT_TIP_WINDOW_INWARD_SHIFT
     tick_window_x_offset = 0.25 + ALIGNMENT_TIP_WINDOW_WIDTH / 2
-    # Exclude only the tip-block family on the larger-x side. For the first
-    # placed device this is the block near x ~= -422 um requested by the user.
-    # The opposite Layer-2 tip region is now copied into Layer 14 as well.
-    tip_exclusion_index = int(np.argmax(layer14_starts[:, 0]))
-    start_point = layer14_start_points[tip_exclusion_index]
-    orientation = window_source.info[
-        "s_bend_connection_orientations"
-    ][tip_exclusion_index]
-    angle = radians(orientation)
-    outward = np.array([-cos(angle), -sin(angle)])
-    normal = np.array([-outward[1], outward[0]])
-    for transverse_side in (-1.0, 1.0):
-        for longitudinal_side in (-1.0, 1.0):
-            window_center = (
-                np.asarray(start_point, dtype=float)
-                + longitudinal_side * tick_window_x_offset * outward
-                + transverse_side * tick_half_separation * normal
-            )
-            exclusion = layer14_tip_exclusions.add_ref(
-                gf.components.rectangle(
-                    size=(
-                        ALIGNMENT_TIP_WINDOW_WIDTH,
-                        ALIGNMENT_TIP_WINDOW_LENGTH,
-                    ),
-                    centered=True,
-                    layer=Layers.via,
+    tip_orientations = window_source.info["s_bend_connection_orientations"]
+    for tip_start, tip_orientation in zip(
+        layer14_start_points, tip_orientations, strict=True
+    ):
+        tip_angle = radians(tip_orientation)
+        outward = np.array([-cos(tip_angle), -sin(tip_angle)])
+        normal = np.array([-outward[1], outward[0]])
+        for transverse_side in (-1.0, 1.0):
+            for longitudinal_side in (-1.0, 1.0):
+                window_center = (
+                    np.asarray(tip_start, dtype=float)
+                    + longitudinal_side * tick_window_x_offset * outward
+                    + transverse_side * tick_half_separation * normal
                 )
-            )
-            exclusion.rotate(orientation + 180)
-            exclusion.move(tuple(window_center))
+                exclusion = layer14_tip_exclusions.add_ref(
+                    gf.components.rectangle(
+                        size=(ALIGNMENT_TIP_WINDOW_WIDTH,
+                              ALIGNMENT_TIP_WINDOW_LENGTH),
+                        centered=True,
+                        layer=Layers.via,
+                    )
+                )
+                exclusion.rotate(tip_orientation + 180)
+                exclusion.move(tuple(window_center))
 
     layer14_central_pattern = gf.boolean(
         A=layer14_central_pattern,
@@ -1192,7 +1241,7 @@ def add_shared_mla_window(
             )
         )
     # Final Layer-2 / Layer-14 strategy:
-    # 1) Remove the annoying companion blocks near the larger-x taper tip
+    # 1) Remove the companion-window blocks at both taper tips
     #    directly from Layer 2.
     # 2) Copy ALL of that cleaned Layer 2 onto Layer 14.
     # 3) Merge it with the existing Layer 14 geometry.
@@ -1233,15 +1282,18 @@ def add_shared_mla_window(
     smooth_tip_bridge = gf.Component()
     bridge_length = 6.0
     bridge_width = SLAB_EXTENSION_START_WIDTH + 2 * margin
-    bridge = smooth_tip_bridge.add_ref(
-        gf.components.rectangle(
-            size=(bridge_length, bridge_width),
-            centered=True,
-            layer=positive_layer,
+    for tip_start, tip_orientation in zip(
+        layer14_start_points, tip_orientations, strict=True
+    ):
+        bridge = smooth_tip_bridge.add_ref(
+            gf.components.rectangle(
+                size=(bridge_length, bridge_width),
+                centered=True,
+                layer=positive_layer,
+            )
         )
-    )
-    bridge.rotate(orientation)
-    bridge.move(tuple(np.asarray(start_point, dtype=float)))
+        bridge.rotate(tip_orientation)
+        bridge.move(tuple(np.asarray(tip_start, dtype=float)))
 
     cleaned_layer2 = gf.boolean(
         A=cleaned_layer2,
@@ -1292,7 +1344,22 @@ def add_shared_mla_window(
         layer2=Layers.via,
     )
 
-    # Replace only Layer 14 with the merged open-window geometry.
+    # Fill the tiny enclosed taper-junction holes on Layer 14 only.
+    # Do this after the union so mask fragments cannot recreate the seams.
+    merged_layer14 = fill_layer14_taper_seams(
+        merged_layer14,
+        window_source.info["s_bend_connection_centers"],
+        window_source.info["s_bend_connection_orientations"],
+    )
+    result.info["layer14_taper_holes_filled"] = int(
+        merged_layer14.info["taper_seam_holes_filled"]
+    )
+    result.info["layer14_taper_fill_area_um2"] = float(
+        merged_layer14.info["taper_seam_fill_area_um2"]
+    )
+    result.info["tip_window_cleanup"] = "both_ends_with_continuous_central_opening"
+
+    # Replace only Layer 14 with independently owned merged polygons.
     result.flatten()
     result.remove_layers([Layers.via], recursive=False)
     result.add_ref(merged_layer14)

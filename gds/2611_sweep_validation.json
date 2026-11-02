@@ -269,21 +269,6 @@
       }
     },
     {
-      "name": "bottom_preserved_against_pre_refactor_reference",
-      "passed": true,
-      "xor_um2": {
-        "2/0": 9e-06,
-        "10/0": 0.0,
-        "11/0": 0.0,
-        "13/0": 0.0,
-        "14/0": 1.7e-05,
-        "15/0": 0.0,
-        "16/0": 4e-06,
-        "51/0": 0.0
-      },
-      "serialization_tolerance_um2": 0.005
-    },
-    {
       "name": "device_1_fixed_connection_centers",
       "passed": true,
       "centers_um": [
@@ -437,7 +422,7 @@
     {
       "name": "export_device_1_present",
       "passed": true,
-      "cell_name": "Unnamed_220"
+      "cell_name": "Unnamed_226"
     },
     {
       "name": "export_device_1_all_layers_preserved",
@@ -447,7 +432,7 @@
         "10/0": 0.0,
         "11/0": 0.0,
         "13/0": 0.0,
-        "14/0": 1.7e-05,
+        "14/0": 0.0,
         "15/0": 0.0,
         "16/0": 4e-06,
         "51/0": 0.0
@@ -461,7 +446,7 @@
     {
       "name": "export_device_2_present",
       "passed": true,
-      "cell_name": "Unnamed_239"
+      "cell_name": "Unnamed_246"
     },
     {
       "name": "export_device_2_all_layers_preserved",
@@ -471,7 +456,7 @@
         "10/0": 0.0,
         "11/0": 0.0,
         "13/0": 0.0,
-        "14/0": 1.7e-05,
+        "14/0": 0.0,
         "15/0": 0.0,
         "16/0": 4e-06,
         "51/0": 0.0
@@ -485,7 +470,7 @@
     {
       "name": "export_device_3_present",
       "passed": true,
-      "cell_name": "Unnamed_258"
+      "cell_name": "Unnamed_266"
     },
     {
       "name": "export_device_3_all_layers_preserved",
@@ -495,7 +480,7 @@
         "10/0": 0.0,
         "11/0": 0.0,
         "13/0": 0.0,
-        "14/0": 1.7e-05,
+        "14/0": 0.0,
         "15/0": 0.0,
         "16/0": 0.0,
         "51/0": 0.0
