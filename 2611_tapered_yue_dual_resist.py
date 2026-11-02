@@ -1690,8 +1690,8 @@ def build_layout() -> gf.Component:
     fin.info["positive_channel_length"] = POSITIVE_CHANNEL_LENGTH
     fin.info["tether_rectangle_slot"] = False
 
-    # Final local cleanup is intentionally restricted to Layer 14.
-    repair_layer14_local_artifacts(fin)
+    # No post-merge Layer-14 repair here: Layer 14 must preserve every
+    # remaining cleaned Layer-2 feature after the union above.
     return fin
 
 
