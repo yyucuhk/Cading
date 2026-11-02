@@ -5,7 +5,7 @@ on:
 
 jobs:
   inspect:
-    if: github.event.head_commit.message == 'Inspect Layer2 tip block'
+    if: github.event.head_commit.message == 'Inspect Layer2 tip holes'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -26,7 +26,14 @@ jobs:
               print("LAYER",layer_num)
               for i,p in enumerate(reg.each()):
                   b=p.bbox()
-                  if b.right*dbu < -480 or b.left*dbu > -390:
+                  if not (b.bottom*dbu <= -900 <= b.top*dbu):
                       continue
-                  print("poly",i,"bbox",round(b.left*dbu,3),round(b.bottom*dbu,3),round(b.right*dbu,3),round(b.top*dbu,3),"holes",p.holes())
+                  print("poly",i,"bbox",tuple(round(v,3) for v in (b.left*dbu,b.bottom*dbu,b.right*dbu,b.top*dbu)),"holes",p.holes())
+                  for hi in range(p.holes()):
+                      pts=list(p.each_point_hole(hi))
+                      xs=[q.x*dbu for q in pts]; ys=[q.y*dbu for q in pts]
+                      hb=(min(xs),min(ys),max(xs),max(ys))
+                      if hb[2] >= -480 and hb[0] <= -390:
+                          print("hole",hi,"bbox",tuple(round(v,3) for v in hb))
+                          print("pts",[(round(x,3),round(y,3)) for x,y in zip(xs,ys)])
           PY
