@@ -16,7 +16,7 @@ caller customises with `functools.partial` — `tapered_fiber_780` and
 import sys
 from pathlib import Path
 
-REPOSITORY_ROOT = Path(__file__).resolve().parents[2]
+REPOSITORY_ROOT = Path(__file__).resolve().parent
 if str(REPOSITORY_ROOT) not in sys.path:
     sys.path.insert(0, str(REPOSITORY_ROOT))
 
@@ -24,10 +24,12 @@ import numpy as np
 import gdsfactory as gf
 from functools import partial
 
-from layout.core.layers import Layers
-from layout.core.logos import get_cal, get_ionq
-from layout.core.text import text
-from layout.core.routing import connect
+from layers import Layers
+from text import text
+
+def connect(*args, **kwargs):
+    from routing import connect as _connect
+    return _connect(*args, **kwargs)
 
 @gf.cell
 def tapered_fiber_linear(
