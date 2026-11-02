@@ -1,0 +1,65 @@
+name: Finalize validated CAD cleanup documentation
+on:
+  push:
+    branches: [refactor/2611-editable-cad-sections]
+defaults:
+  run:
+    shell: bash
+jobs:
+  finalize:
+    if: github.event.head_commit.message == 'Finalize CAD editing comments'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Correct support-gap description with unchanged Python AST
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import ast
+          for name in ('2611_tapered_yue_dual_resist.py','2611_tapered_yue_design2.py'):
+              p=Path(name)
+              before=p.read_text()
+              old='distance between opposing support islands'
+              new='edge-to-edge gap: taper endpoint to support island'
+              assert before.count(old)==1
+              after=before.replace(old,new)
+              assert ast.dump(ast.parse(before))==ast.dump(ast.parse(after))
+              p.write_text(after)
+          p=Path('CAD_EDITING_GUIDE.md')
+          s=p.read_text()
+          anchor='`REVIEW_TETHER_CONNECTION_WIDTH` couples the slab\'s final width to its neck.'
+          assert s.count(anchor)==1
+          s=s.replace(anchor, anchor+'\n`EXTRA_RECTANGLE_GAP` is the edge-to-edge distance from each outer taper\nendpoint to the nearest edge of its support rectangle, not the distance\nbetween the two devices or between opposite support islands.')
+          p.write_text(s)
+          PY
+      - name: Confirm recorded geometry checks passed
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          r=json.loads(Path('gds/2611_code_cleanup_validation.json').read_text())
+          assert r['status']=='PASS' and not r['failures']
+          assert r['baseline_comparison_performed']
+          print('PASS',len(r['checks']),'checks; final source change is comments only')
+          PY
+      - name: Upload final cleaned code and guide
+        uses: actions/upload-artifact@v4
+        with:
+          name: 2611-cleaned-code-release
+          path: |
+            2611_tapered_yue_dual_resist.py
+            2611_tapered_yue_design2.py
+            CAD_EDITING_GUIDE.md
+            validate_2611_cleanup.py
+            gds/2611_code_cleanup_validation.json
+      - name: Remove one-time migration and workflows
+        run: |
+          git rm _clean_2611_codes_once.py .github/workflows/verify_2611_cleanup.yml .github/workflows/finalize_2611_cleanup.yml
+          git config user.name 'chatgpt-runner'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add 2611_tapered_yue_dual_resist.py 2611_tapered_yue_design2.py CAD_EDITING_GUIDE.md
+          git commit -m 'Clarify support-gap controls and remove temporary cleanup runners'
+          git push
