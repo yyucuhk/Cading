@@ -24,7 +24,7 @@ from kfactory import kdb
 from shapely.geometry import LineString, MultiPolygon, Polygon
 from shapely.ops import unary_union
 
-from layout.core.layers import Layers
+from layers import Layers
 
 _WIDTH_RATIO = 0.8   # character width / height
 _THICK_RATIO = _WIDTH_RATIO / 5   # stroke thickness / height
