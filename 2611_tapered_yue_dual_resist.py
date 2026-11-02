@@ -436,10 +436,11 @@ def phononic_taper_shield(
     overshoot: float = PHONONIC_SUPPORT_OVERSHOOT,
     layer=FULL_ETCH_LAYER,
     pnc_layer=PNC_EBL_LAYER,
+    layer14_fill_layer=None,
     end_extension: float = PNC_NARROW_END_EXTENSION,
     npoints: int = ADIABATIC_TAPER_POINTS,
 ) -> gf.Component:
-    """Draw solid negative-resist PNC cells and surrounding taper MLA mask."""
+    """Draw PNC masks plus an optional solid Layer-14 taper opening."""
     if not width2 <= cutoff_width < width1:
         raise ValueError("Require width2 <= cutoff_width < width1")
     if length <= 0 or pitch <= 0:
@@ -497,6 +498,24 @@ def phononic_taper_shield(
     band_outer_edge = np.concatenate(
         ([outer_edge[0]], outer_edge, [outer_edge[-1]])
     )
+    # Layer 14 should open the COMPLETE 15->3 um taper region, not just
+    # duplicate the two Layer-2 side bands.  Fill from the upper OUTER
+    # boundary of Layer 2 all the way to the lower OUTER boundary using the
+    # exact same longitudinal extension as the Layer-2 mask.
+    if layer14_fill_layer is not None:
+        layer14_upper = list(
+            zip(band_x, band_outer_edge, strict=True)
+        )
+        layer14_lower = list(
+            zip(band_x[::-1], -band_outer_edge[::-1], strict=True)
+        )
+        layer14_full_open = gf.Component()
+        layer14_full_open.add_polygon(
+            layer14_upper + layer14_lower,
+            layer=layer14_fill_layer,
+        )
+        outer_bands.add_ref(layer14_full_open)
+
     upper_polygon = list(
         zip(band_x, band_inner_edge, strict=True)
     ) + list(
@@ -794,6 +813,7 @@ def two_layer_tapered_fiber(
                 tether_width=tether_connection_width,
                 layer=FULL_ETCH_LAYER,
                 pnc_layer=PNC_EBL_LAYER,
+                layer14_fill_layer=Layers.via,
                 end_extension=PNC_NARROW_END_EXTENSION,
             )
         )
@@ -911,6 +931,7 @@ def make_tapered_coupler(
         waveguide_label_layer=MARKER_LAYER,
         doubleetch_label_layer=MARKER_LAYER,
         alignment_tick_layer=alignment_tick_layer,
+        add_alignment_ticks=False,
         alignment_tick_window_layer=POSITIVE_RESIST_LAYER,
         alignment_tick_window_width=ALIGNMENT_TIP_WINDOW_WIDTH,
         alignment_tick_window_length=ALIGNMENT_TIP_WINDOW_LENGTH,
