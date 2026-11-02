@@ -196,9 +196,16 @@ def main():
         delta = compare(snapshots[i-1], file_snapshot(final, instance.cell), final.dbu)
         check(f'export_device_{i}_matches_validated_window_geometry', all(a<=TOL for a in delta.values()), xor_um2=delta)
     positions = [[inst.trans.disp.x*final.dbu,inst.trans.disp.y*final.dbu] for inst in instances]
-    check('export_keeps_fixed_x_and_600um_pitch',
-          len(positions)==3 and np.ptp(np.asarray(positions)[:,0])==0 and
-          np.allclose(np.diff(np.asarray(positions)[:,1]),600,atol=1e-9,rtol=0), positions_um=positions)
+    left_bend_edges = [
+        kdb.Region(inst.cell.begin_shapes_rec(final.layer(11, 0))).bbox().left
+        * final.dbu + inst.trans.disp.x * final.dbu
+        for inst in instances
+    ]
+    check('export_keeps_aligned_left_bends_and_600um_pitch',
+          len(positions)==3 and
+          np.allclose(left_bend_edges,module.LEFT_BEND_ALIGNMENT_X,atol=1e-9,rtol=0) and
+          np.allclose(np.diff(np.asarray(positions)[:,1]),600,atol=1e-9,rtol=0),
+          positions_um=positions, left_bend_edges_um=left_bend_edges)
     REPORT['baseline_comparison_performed'] = baseline_available
     REPORT['status'] = 'PASS' if not REPORT['failures'] else 'FAIL'
     (OUT / 'validation_report.json').write_text(json.dumps(REPORT,indent=2))

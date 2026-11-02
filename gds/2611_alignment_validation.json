@@ -1,0 +1,209 @@
+{
+  "checks": [
+    {
+      "name": "same_database_grid",
+      "passed": true,
+      "dbu_um": 0.001
+    },
+    {
+      "name": "exactly_three_devices_before_and_after",
+      "passed": true,
+      "before_count": 3,
+      "after_count": 3
+    },
+    {
+      "name": "device_1_every_layer_exactly_unchanged",
+      "passed": true,
+      "xor_um2": {
+        "2/0": 0.0,
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 0.0,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "device_1_rigid_x_translation_only",
+      "passed": true,
+      "translation_um": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "device_1_placed_all_layer_translation_xor_zero",
+      "passed": true,
+      "xor_um2": {
+        "2/0": 0.0,
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 0.0,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "device_1_left_bend_edge_at_minus_900",
+      "passed": true,
+      "left_bend_edge_um": -900.0
+    },
+    {
+      "name": "device_1_layer_15_connected",
+      "passed": true,
+      "components": 1
+    },
+    {
+      "name": "device_1_layer_16_connected",
+      "passed": true,
+      "components": 1
+    },
+    {
+      "name": "device_2_every_layer_exactly_unchanged",
+      "passed": true,
+      "xor_um2": {
+        "2/0": 0.0,
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 0.0,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "device_2_rigid_x_translation_only",
+      "passed": true,
+      "translation_um": [
+        300.0,
+        0.0
+      ]
+    },
+    {
+      "name": "device_2_placed_all_layer_translation_xor_zero",
+      "passed": true,
+      "xor_um2": {
+        "2/0": 0.0,
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 0.0,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "device_2_left_bend_edge_at_minus_900",
+      "passed": true,
+      "left_bend_edge_um": -900.0
+    },
+    {
+      "name": "device_2_layer_15_connected",
+      "passed": true,
+      "components": 1
+    },
+    {
+      "name": "device_2_layer_16_connected",
+      "passed": true,
+      "components": 1
+    },
+    {
+      "name": "device_3_every_layer_exactly_unchanged",
+      "passed": true,
+      "xor_um2": {
+        "2/0": 0.0,
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 0.0,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "device_3_rigid_x_translation_only",
+      "passed": true,
+      "translation_um": [
+        600.0,
+        0.0
+      ]
+    },
+    {
+      "name": "device_3_placed_all_layer_translation_xor_zero",
+      "passed": true,
+      "xor_um2": {
+        "2/0": 0.0,
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 0.0,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "device_3_left_bend_edge_at_minus_900",
+      "passed": true,
+      "left_bend_edge_um": -900.0
+    },
+    {
+      "name": "device_3_layer_15_connected",
+      "passed": true,
+      "components": 1
+    },
+    {
+      "name": "device_3_layer_16_connected",
+      "passed": true,
+      "components": 1
+    },
+    {
+      "name": "unchanged_y_positions_and_600um_pitch",
+      "passed": true,
+      "device_origins_um": [
+        [
+          -657.72,
+          -700.0
+        ],
+        [
+          -357.72,
+          -100.0
+        ],
+        [
+          -57.72,
+          500.0
+        ]
+      ],
+      "left_bend_edges_um": [
+        -900.0,
+        -900.0,
+        -900.0
+      ]
+    },
+    {
+      "name": "chip_outline_and_global_markers_unchanged",
+      "passed": true,
+      "xor_um2": {
+        "0/0": 0.0,
+        "2/0": 0.0,
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 0.0,
+        "51/0": 0.0
+      }
+    }
+  ],
+  "failures": [],
+  "status": "PASS",
+  "baseline_gds": "before_alignment.gds"
+}

@@ -492,7 +492,7 @@
       "instance_count": 1
     },
     {
-      "name": "export_actual_600um_y_pitch_and_same_x",
+      "name": "export_actual_600um_y_pitch_and_aligned_left_bends",
       "passed": true,
       "device_origins_um": [
         [
@@ -500,13 +500,18 @@
           -700.0
         ],
         [
-          -657.72,
+          -357.72,
           -100.0
         ],
         [
-          -657.72,
+          -57.72,
           500.0
         ]
+      ],
+      "left_bend_edges_um": [
+        -900.0,
+        -900.0,
+        -900.0
       ]
     }
   ],
