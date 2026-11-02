@@ -14,16 +14,14 @@ from pathlib import Path
 
 import gdsfactory as gf
 
-REPOSITORY_ROOT = Path(__file__).resolve().parents[2]
+REPOSITORY_ROOT = Path(__file__).resolve().parent
 if str(REPOSITORY_ROOT) not in sys.path:
     sys.path.insert(0, str(REPOSITORY_ROOT))
 
-from tapeout.yue.extract_layer2_gdsfactory import read_layer_polygons
+from extract_layer2_gdsfactory import read_layer_polygons
 
 
-DEFAULT_SOURCE_GDS = (
-    Path(__file__).resolve().parents[2] / "gds" / "tether_variants.gds"
-)
+DEFAULT_SOURCE_GDS = REPOSITORY_ROOT / "tether_variants.gds"
 DEFAULT_LAYER = (2, 0)
 PORT_WIDTH = 0.2
 DEFAULT_CONNECTION_TAPER_LENGTH = 10.0
