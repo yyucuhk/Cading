@@ -1,0 +1,95 @@
+name: Run 2611 bottom-reference sweep
+
+on:
+  push:
+
+jobs:
+  run-2611:
+    if: github.event.head_commit.message == 'Run 2611 bottom reference sweep'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: python -m pip install --upgrade pip && python -m pip install gdsfactory==9.45.0 numpy klayout
+      - name: Run layout generator
+        run: python 2611_tapered_yue_dual_resist.py
+      - name: Verify placement and local geometry
+        run: |
+          test -s gds/2611_tapered_yue_dual_resist_L10_L12.gds
+          python - <<'PY'
+          import klayout.db as kdb
+
+          path="gds/2611_tapered_yue_dual_resist_L10_L12.gds"
+          ly=kdb.Layout(); ly.read(path); top=ly.top_cell(); dbu=ly.dbu
+
+          tips=[
+              ("bottom",-422.72,-900.0),
+              ("device2",-422.72,-300.0),
+              ("device3",-422.72,300.0),
+          ]
+
+          print("TIP_COORDS", tips)
+          print("Y_PITCH_1", tips[1][2]-tips[0][2])
+          print("Y_PITCH_2", tips[2][2]-tips[1][2])
+
+          # Compare local mask signatures around the same tip location.
+          for layer_num in (2,10,11,14,15,16):
+              reg=kdb.Region(top.begin_shapes_rec(ly.layer(layer_num,0))); reg.merge()
+              signatures=[]
+              print("LAYER",layer_num)
+              for name,cx,cy in tips:
+                  vals=[]
+                  for dx in (-12,-10,-8,-6,-4,-2,0,2,4,6,8,10,12):
+                      x=cx+dx
+                      clip=kdb.Region(kdb.Box(
+                          int((x-0.002)/dbu),int((cy-25)/dbu),
+                          int((x+0.002)/dbu),int((cy+25)/dbu),
+                      ))
+                      cr=reg & clip
+                      spans=[]
+                      for p in cr.each():
+                          b=p.bbox()
+                          spans.append((
+                              round(b.bottom*dbu-cy,3),
+                              round(b.top*dbu-cy,3),
+                          ))
+                      vals.append((dx,spans))
+                  signatures.append(vals)
+                  print(name,vals)
+              equal=signatures[0] == signatures[1] == signatures[2]
+              print("all_equal",equal)
+              if not equal:
+                  raise SystemExit(f"Layer {layer_num} local tip geometry differs")
+
+          # Verify that the three Layer-11 left extents differ by the intended
+          # meander straight sweep while the right/tip side stays fixed.
+          l11=kdb.Region(top.begin_shapes_rec(ly.layer(11,0))); l11.merge()
+          centers=[-700.0,-100.0,500.0]
+          for name,cy in zip(("bottom","device2","device3"),centers):
+              band=kdb.Region(kdb.Box(
+                  int(-2500/dbu),int((cy-275)/dbu),
+                  int(500/dbu),int((cy+275)/dbu),
+              ))
+              rr=l11 & band
+              b=rr.bbox()
+              print(name,"L11_bbox_um",(
+                  round(b.left*dbu,3),round(b.bottom*dbu,3),
+                  round(b.right*dbu,3),round(b.top*dbu,3)
+              ))
+          PY
+      - name: Commit generated GDS
+        run: |
+          git config user.name "chatgpt-runner"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add gds/2611_tapered_yue_dual_resist_L10_L12.gds
+          if git diff --cached --quiet; then
+            echo "No GDS changes to commit."
+          else
+            git commit -m "Regenerate GDS with bottom-reference meander sweep"
+            git push
+          fi
