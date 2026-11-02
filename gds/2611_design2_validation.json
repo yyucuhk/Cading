@@ -281,16 +281,6 @@
       }
     },
     {
-      "name": "meander_and_pnc_ridge_unchanged",
-      "passed": true,
-      "unexpected_xor_um2": 0.0
-    },
-    {
-      "name": "entire_layer11_pnc_geometry_unchanged",
-      "passed": true,
-      "xor_um2": 0.0
-    },
-    {
       "name": "one_complete_exported_device",
       "passed": true
     },
@@ -315,14 +305,6 @@
     },
     {
       "name": "bottom_device_y_retained",
-      "passed": true
-    },
-    {
-      "name": "design1_file_unchanged_2611_tapered_yue_dual_resist.py",
-      "passed": true
-    },
-    {
-      "name": "design1_file_unchanged_gds/2611_tapered_yue_dual_resist_L10_L12.gds",
       "passed": true
     }
   ],

@@ -1,0 +1,1103 @@
+{
+  "checks": [
+    {
+      "name": "design1_L800_actual_path_captured",
+      "passed": true,
+      "paths": 1
+    },
+    {
+      "name": "design1_L800_three_actual_straights_equal",
+      "passed": true,
+      "measured_straights_um": [
+        800.0,
+        800.0,
+        800.0
+      ]
+    },
+    {
+      "name": "design1_L800_ports_follow_equal_length",
+      "passed": true,
+      "connection_centers_um": [
+        [
+          -400.0,
+          200.0
+        ],
+        [
+          400.0,
+          -200.0
+        ]
+      ]
+    },
+    {
+      "name": "design1_L800_entire_path_equals_three_straights_two_bends",
+      "passed": true
+    },
+    {
+      "name": "design1_L800_path_ends_at_both_ports",
+      "passed": true
+    },
+    {
+      "name": "design1_L800_total_length_formula_and_metadata",
+      "passed": true,
+      "bend180_um": 370.911,
+      "formula_total_um": 3141.822,
+      "actual_path_total_um": 3141.822610417227
+    },
+    {
+      "name": "design1_L800_correct_length_label_present",
+      "passed": true
+    },
+    {
+      "name": "design1_L800_all_layers_retained",
+      "passed": true
+    },
+    {
+      "name": "design1_L800_four_tips_on_layer15_only",
+      "passed": true
+    },
+    {
+      "name": "design1_L800_ridge_and_both_ends_connected",
+      "passed": true
+    },
+    {
+      "name": "design1_L800_protection_connected",
+      "passed": true
+    },
+    {
+      "name": "design1_L800_layer14_covers_complete_optical_ridge",
+      "passed": true,
+      "missing_um2": 0.0
+    },
+    {
+      "name": "design1_L800_layer16_covers_complete_optical_ridge",
+      "passed": true,
+      "missing_um2": 0.0
+    },
+    {
+      "name": "design1_L800_layer14_covers_layer2",
+      "passed": true
+    },
+    {
+      "name": "design1_L800_layer15_whole_meander_and_all_junctions_covered",
+      "passed": true,
+      "missing_um2": 0.0
+    },
+    {
+      "name": "design1_L800_layer14_whole_meander_and_all_junctions_covered",
+      "passed": true,
+      "missing_um2": 0.0
+    },
+    {
+      "name": "design1_L800_complete_end_1_every_layer_unchanged_after_translation",
+      "passed": true,
+      "translation_um": [
+        -250.0,
+        0.0
+      ],
+      "xor_um2": {
+        "2/0": 9e-06,
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 0.0,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "design1_L800_complete_end_2_every_layer_unchanged_after_translation",
+      "passed": true,
+      "translation_um": [
+        250.0,
+        0.0
+      ],
+      "xor_um2": {
+        "2/0": 0.0,
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 0.0,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "design1_L800_left_bend_reference_unchanged",
+      "passed": true
+    },
+    {
+      "name": "design1_L800_gds_preserves_every_layer",
+      "passed": true,
+      "xor_um2": {
+        "2/0": 9e-06,
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 4e-06,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "design1_L800_does_not_mutate_device_1",
+      "passed": true
+    },
+    {
+      "name": "design1_L200_actual_path_captured",
+      "passed": true,
+      "paths": 1
+    },
+    {
+      "name": "design1_L200_three_actual_straights_equal",
+      "passed": true,
+      "measured_straights_um": [
+        200.0,
+        200.0,
+        200.0
+      ]
+    },
+    {
+      "name": "design1_L200_ports_follow_equal_length",
+      "passed": true,
+      "connection_centers_um": [
+        [
+          -100.0,
+          200.0
+        ],
+        [
+          100.0,
+          -200.0
+        ]
+      ]
+    },
+    {
+      "name": "design1_L200_entire_path_equals_three_straights_two_bends",
+      "passed": true
+    },
+    {
+      "name": "design1_L200_path_ends_at_both_ports",
+      "passed": true
+    },
+    {
+      "name": "design1_L200_total_length_formula_and_metadata",
+      "passed": true,
+      "bend180_um": 370.911,
+      "formula_total_um": 1341.8220000000001,
+      "actual_path_total_um": 1341.8226104172268
+    },
+    {
+      "name": "design1_L200_correct_length_label_present",
+      "passed": true
+    },
+    {
+      "name": "design1_L200_all_layers_retained",
+      "passed": true
+    },
+    {
+      "name": "design1_L200_four_tips_on_layer15_only",
+      "passed": true
+    },
+    {
+      "name": "design1_L200_ridge_and_both_ends_connected",
+      "passed": true
+    },
+    {
+      "name": "design1_L200_protection_connected",
+      "passed": true
+    },
+    {
+      "name": "design1_L200_layer14_covers_complete_optical_ridge",
+      "passed": true,
+      "missing_um2": 0.0
+    },
+    {
+      "name": "design1_L200_layer16_covers_complete_optical_ridge",
+      "passed": true,
+      "missing_um2": 0.0
+    },
+    {
+      "name": "design1_L200_layer14_covers_layer2",
+      "passed": true
+    },
+    {
+      "name": "design1_L200_layer15_whole_meander_and_all_junctions_covered",
+      "passed": true,
+      "missing_um2": 0.0
+    },
+    {
+      "name": "design1_L200_layer14_whole_meander_and_all_junctions_covered",
+      "passed": true,
+      "missing_um2": 0.0
+    },
+    {
+      "name": "design1_L200_complete_end_1_every_layer_unchanged_after_translation",
+      "passed": true,
+      "translation_um": [
+        50.0,
+        0.0
+      ],
+      "xor_um2": {
+        "2/0": 9e-06,
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 0.0,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "design1_L200_complete_end_2_every_layer_unchanged_after_translation",
+      "passed": true,
+      "translation_um": [
+        -50.0,
+        0.0
+      ],
+      "xor_um2": {
+        "2/0": 0.0,
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 0.0,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "design1_L200_left_bend_reference_unchanged",
+      "passed": true
+    },
+    {
+      "name": "design1_L200_gds_preserves_every_layer",
+      "passed": true,
+      "xor_um2": {
+        "2/0": 9e-06,
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 4e-06,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "design1_L200_does_not_mutate_device_1",
+      "passed": true
+    },
+    {
+      "name": "design1_L200_does_not_mutate_device_2",
+      "passed": true
+    },
+    {
+      "name": "design1_L1400_actual_path_captured",
+      "passed": true,
+      "paths": 1
+    },
+    {
+      "name": "design1_L1400_three_actual_straights_equal",
+      "passed": true,
+      "measured_straights_um": [
+        1400.0,
+        1400.0,
+        1400.0
+      ]
+    },
+    {
+      "name": "design1_L1400_ports_follow_equal_length",
+      "passed": true,
+      "connection_centers_um": [
+        [
+          -700.0,
+          200.0
+        ],
+        [
+          700.0,
+          -200.0
+        ]
+      ]
+    },
+    {
+      "name": "design1_L1400_entire_path_equals_three_straights_two_bends",
+      "passed": true
+    },
+    {
+      "name": "design1_L1400_path_ends_at_both_ports",
+      "passed": true
+    },
+    {
+      "name": "design1_L1400_total_length_formula_and_metadata",
+      "passed": true,
+      "bend180_um": 370.911,
+      "formula_total_um": 4941.822,
+      "actual_path_total_um": 4941.822610417226
+    },
+    {
+      "name": "design1_L1400_correct_length_label_present",
+      "passed": true
+    },
+    {
+      "name": "design1_L1400_all_layers_retained",
+      "passed": true
+    },
+    {
+      "name": "design1_L1400_four_tips_on_layer15_only",
+      "passed": true
+    },
+    {
+      "name": "design1_L1400_ridge_and_both_ends_connected",
+      "passed": true
+    },
+    {
+      "name": "design1_L1400_protection_connected",
+      "passed": true
+    },
+    {
+      "name": "design1_L1400_layer14_covers_complete_optical_ridge",
+      "passed": true,
+      "missing_um2": 0.0
+    },
+    {
+      "name": "design1_L1400_layer16_covers_complete_optical_ridge",
+      "passed": true,
+      "missing_um2": 0.0
+    },
+    {
+      "name": "design1_L1400_layer14_covers_layer2",
+      "passed": true
+    },
+    {
+      "name": "design1_L1400_layer15_whole_meander_and_all_junctions_covered",
+      "passed": true,
+      "missing_um2": 0.0
+    },
+    {
+      "name": "design1_L1400_layer14_whole_meander_and_all_junctions_covered",
+      "passed": true,
+      "missing_um2": 0.0
+    },
+    {
+      "name": "design1_L1400_complete_end_1_every_layer_unchanged_after_translation",
+      "passed": true,
+      "translation_um": [
+        -550.0,
+        0.0
+      ],
+      "xor_um2": {
+        "2/0": 9e-06,
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 0.0,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "design1_L1400_complete_end_2_every_layer_unchanged_after_translation",
+      "passed": true,
+      "translation_um": [
+        550.0,
+        0.0
+      ],
+      "xor_um2": {
+        "2/0": 0.0,
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 0.0,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "design1_L1400_left_bend_reference_unchanged",
+      "passed": true
+    },
+    {
+      "name": "design1_L1400_gds_preserves_every_layer",
+      "passed": true,
+      "xor_um2": {
+        "2/0": 9e-06,
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 0.0,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "design1_L1400_does_not_mutate_device_1",
+      "passed": true
+    },
+    {
+      "name": "design1_L1400_does_not_mutate_device_2",
+      "passed": true
+    },
+    {
+      "name": "design1_L1400_does_not_mutate_device_3",
+      "passed": true
+    },
+    {
+      "name": "design1_L800_build_order_independent",
+      "passed": true
+    },
+    {
+      "name": "design1_L200_build_order_independent",
+      "passed": true
+    },
+    {
+      "name": "design1_L1400_build_order_independent",
+      "passed": true
+    },
+    {
+      "name": "design1_rejects_0.0",
+      "passed": true
+    },
+    {
+      "name": "design1_rejects_-1.0",
+      "passed": true
+    },
+    {
+      "name": "design1_rejects_nan",
+      "passed": true
+    },
+    {
+      "name": "design1_rejects_inf",
+      "passed": true
+    },
+    {
+      "name": "design1_exported_device_count",
+      "passed": true
+    },
+    {
+      "name": "design1_placed_device_1_left_bend_alignment",
+      "passed": true
+    },
+    {
+      "name": "design1_placed_device_1_y_unchanged",
+      "passed": true
+    },
+    {
+      "name": "design1_chip_and_global_markers_unchanged",
+      "passed": true,
+      "xor_um2": {
+        "0/0": 0.0,
+        "2/0": 0.0,
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 0.0,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "design1_supports_1_devices_with_600um_pitch",
+      "passed": true
+    },
+    {
+      "name": "design1_supports_3_devices_with_600um_pitch",
+      "passed": true
+    },
+    {
+      "name": "design1_supports_5_devices_with_600um_pitch",
+      "passed": true
+    },
+    {
+      "name": "design2_L800_actual_path_captured",
+      "passed": true,
+      "paths": 1
+    },
+    {
+      "name": "design2_L800_three_actual_straights_equal",
+      "passed": true,
+      "measured_straights_um": [
+        800.0,
+        800.0,
+        800.0
+      ]
+    },
+    {
+      "name": "design2_L800_ports_follow_equal_length",
+      "passed": true,
+      "connection_centers_um": [
+        [
+          -400.0,
+          200.0
+        ],
+        [
+          400.0,
+          -200.0
+        ]
+      ]
+    },
+    {
+      "name": "design2_L800_entire_path_equals_three_straights_two_bends",
+      "passed": true
+    },
+    {
+      "name": "design2_L800_path_ends_at_both_ports",
+      "passed": true
+    },
+    {
+      "name": "design2_L800_total_length_formula_and_metadata",
+      "passed": true,
+      "bend180_um": 370.911,
+      "formula_total_um": 3141.822,
+      "actual_path_total_um": 3141.822610417227
+    },
+    {
+      "name": "design2_L800_correct_length_label_present",
+      "passed": true
+    },
+    {
+      "name": "design2_L800_all_layers_retained",
+      "passed": true
+    },
+    {
+      "name": "design2_L800_four_tips_on_layer15_only",
+      "passed": true
+    },
+    {
+      "name": "design2_L800_ridge_and_both_ends_connected",
+      "passed": true
+    },
+    {
+      "name": "design2_L800_protection_connected",
+      "passed": true
+    },
+    {
+      "name": "design2_L800_layer14_covers_complete_optical_ridge",
+      "passed": true,
+      "missing_um2": 0.0
+    },
+    {
+      "name": "design2_L800_layer16_covers_complete_optical_ridge",
+      "passed": true,
+      "missing_um2": 0.0
+    },
+    {
+      "name": "design2_L800_layer14_covers_layer2",
+      "passed": true
+    },
+    {
+      "name": "design2_L800_layer15_whole_meander_and_all_junctions_covered",
+      "passed": true,
+      "missing_um2": 0.0
+    },
+    {
+      "name": "design2_L800_layer14_whole_meander_and_all_junctions_covered",
+      "passed": true,
+      "missing_um2": 0.0
+    },
+    {
+      "name": "design2_L800_complete_end_1_every_layer_unchanged_after_translation",
+      "passed": true,
+      "translation_um": [
+        -250.0,
+        0.0
+      ],
+      "xor_um2": {
+        "2/0": 9e-06,
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 0.0,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "design2_L800_complete_end_2_every_layer_unchanged_after_translation",
+      "passed": true,
+      "translation_um": [
+        250.0,
+        0.0
+      ],
+      "xor_um2": {
+        "2/0": 0.0,
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 0.0,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "design2_L800_left_bend_reference_unchanged",
+      "passed": true
+    },
+    {
+      "name": "design2_L800_gds_preserves_every_layer",
+      "passed": true,
+      "xor_um2": {
+        "2/0": 9e-06,
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 4e-06,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "design2_L800_does_not_mutate_device_1",
+      "passed": true
+    },
+    {
+      "name": "design2_L200_actual_path_captured",
+      "passed": true,
+      "paths": 1
+    },
+    {
+      "name": "design2_L200_three_actual_straights_equal",
+      "passed": true,
+      "measured_straights_um": [
+        200.0,
+        200.0,
+        200.0
+      ]
+    },
+    {
+      "name": "design2_L200_ports_follow_equal_length",
+      "passed": true,
+      "connection_centers_um": [
+        [
+          -100.0,
+          200.0
+        ],
+        [
+          100.0,
+          -200.0
+        ]
+      ]
+    },
+    {
+      "name": "design2_L200_entire_path_equals_three_straights_two_bends",
+      "passed": true
+    },
+    {
+      "name": "design2_L200_path_ends_at_both_ports",
+      "passed": true
+    },
+    {
+      "name": "design2_L200_total_length_formula_and_metadata",
+      "passed": true,
+      "bend180_um": 370.911,
+      "formula_total_um": 1341.8220000000001,
+      "actual_path_total_um": 1341.8226104172268
+    },
+    {
+      "name": "design2_L200_correct_length_label_present",
+      "passed": true
+    },
+    {
+      "name": "design2_L200_all_layers_retained",
+      "passed": true
+    },
+    {
+      "name": "design2_L200_four_tips_on_layer15_only",
+      "passed": true
+    },
+    {
+      "name": "design2_L200_ridge_and_both_ends_connected",
+      "passed": true
+    },
+    {
+      "name": "design2_L200_protection_connected",
+      "passed": true
+    },
+    {
+      "name": "design2_L200_layer14_covers_complete_optical_ridge",
+      "passed": true,
+      "missing_um2": 0.0
+    },
+    {
+      "name": "design2_L200_layer16_covers_complete_optical_ridge",
+      "passed": true,
+      "missing_um2": 0.0
+    },
+    {
+      "name": "design2_L200_layer14_covers_layer2",
+      "passed": true
+    },
+    {
+      "name": "design2_L200_layer15_whole_meander_and_all_junctions_covered",
+      "passed": true,
+      "missing_um2": 0.0
+    },
+    {
+      "name": "design2_L200_layer14_whole_meander_and_all_junctions_covered",
+      "passed": true,
+      "missing_um2": 0.0
+    },
+    {
+      "name": "design2_L200_complete_end_1_every_layer_unchanged_after_translation",
+      "passed": true,
+      "translation_um": [
+        50.0,
+        0.0
+      ],
+      "xor_um2": {
+        "2/0": 9e-06,
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 0.0,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "design2_L200_complete_end_2_every_layer_unchanged_after_translation",
+      "passed": true,
+      "translation_um": [
+        -50.0,
+        0.0
+      ],
+      "xor_um2": {
+        "2/0": 0.0,
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 0.0,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "design2_L200_left_bend_reference_unchanged",
+      "passed": true
+    },
+    {
+      "name": "design2_L200_gds_preserves_every_layer",
+      "passed": true,
+      "xor_um2": {
+        "2/0": 9e-06,
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 4e-06,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "design2_L200_does_not_mutate_device_1",
+      "passed": true
+    },
+    {
+      "name": "design2_L200_does_not_mutate_device_2",
+      "passed": true
+    },
+    {
+      "name": "design2_L1400_actual_path_captured",
+      "passed": true,
+      "paths": 1
+    },
+    {
+      "name": "design2_L1400_three_actual_straights_equal",
+      "passed": true,
+      "measured_straights_um": [
+        1400.0,
+        1400.0,
+        1400.0
+      ]
+    },
+    {
+      "name": "design2_L1400_ports_follow_equal_length",
+      "passed": true,
+      "connection_centers_um": [
+        [
+          -700.0,
+          200.0
+        ],
+        [
+          700.0,
+          -200.0
+        ]
+      ]
+    },
+    {
+      "name": "design2_L1400_entire_path_equals_three_straights_two_bends",
+      "passed": true
+    },
+    {
+      "name": "design2_L1400_path_ends_at_both_ports",
+      "passed": true
+    },
+    {
+      "name": "design2_L1400_total_length_formula_and_metadata",
+      "passed": true,
+      "bend180_um": 370.911,
+      "formula_total_um": 4941.822,
+      "actual_path_total_um": 4941.822610417226
+    },
+    {
+      "name": "design2_L1400_correct_length_label_present",
+      "passed": true
+    },
+    {
+      "name": "design2_L1400_all_layers_retained",
+      "passed": true
+    },
+    {
+      "name": "design2_L1400_four_tips_on_layer15_only",
+      "passed": true
+    },
+    {
+      "name": "design2_L1400_ridge_and_both_ends_connected",
+      "passed": true
+    },
+    {
+      "name": "design2_L1400_protection_connected",
+      "passed": true
+    },
+    {
+      "name": "design2_L1400_layer14_covers_complete_optical_ridge",
+      "passed": true,
+      "missing_um2": 0.0
+    },
+    {
+      "name": "design2_L1400_layer16_covers_complete_optical_ridge",
+      "passed": true,
+      "missing_um2": 0.0
+    },
+    {
+      "name": "design2_L1400_layer14_covers_layer2",
+      "passed": true
+    },
+    {
+      "name": "design2_L1400_layer15_whole_meander_and_all_junctions_covered",
+      "passed": true,
+      "missing_um2": 0.0
+    },
+    {
+      "name": "design2_L1400_layer14_whole_meander_and_all_junctions_covered",
+      "passed": true,
+      "missing_um2": 0.0
+    },
+    {
+      "name": "design2_L1400_complete_end_1_every_layer_unchanged_after_translation",
+      "passed": true,
+      "translation_um": [
+        -550.0,
+        0.0
+      ],
+      "xor_um2": {
+        "2/0": 9e-06,
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 0.0,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "design2_L1400_complete_end_2_every_layer_unchanged_after_translation",
+      "passed": true,
+      "translation_um": [
+        550.0,
+        0.0
+      ],
+      "xor_um2": {
+        "2/0": 0.0,
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 0.0,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "design2_L1400_left_bend_reference_unchanged",
+      "passed": true
+    },
+    {
+      "name": "design2_L1400_gds_preserves_every_layer",
+      "passed": true,
+      "xor_um2": {
+        "2/0": 9e-06,
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 0.0,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "design2_L1400_does_not_mutate_device_1",
+      "passed": true
+    },
+    {
+      "name": "design2_L1400_does_not_mutate_device_2",
+      "passed": true
+    },
+    {
+      "name": "design2_L1400_does_not_mutate_device_3",
+      "passed": true
+    },
+    {
+      "name": "design2_L800_build_order_independent",
+      "passed": true
+    },
+    {
+      "name": "design2_L200_build_order_independent",
+      "passed": true
+    },
+    {
+      "name": "design2_L1400_build_order_independent",
+      "passed": true
+    },
+    {
+      "name": "design2_rejects_0.0",
+      "passed": true
+    },
+    {
+      "name": "design2_rejects_-1.0",
+      "passed": true
+    },
+    {
+      "name": "design2_rejects_nan",
+      "passed": true
+    },
+    {
+      "name": "design2_rejects_inf",
+      "passed": true
+    },
+    {
+      "name": "design2_exported_device_count",
+      "passed": true
+    },
+    {
+      "name": "design2_placed_device_1_left_bend_alignment",
+      "passed": true
+    },
+    {
+      "name": "design2_placed_device_1_y_unchanged",
+      "passed": true
+    },
+    {
+      "name": "design2_chip_and_global_markers_unchanged",
+      "passed": true,
+      "xor_um2": {
+        "0/0": 0.0,
+        "2/0": 0.0,
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 0.0,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "design2_supports_1_devices_with_600um_pitch",
+      "passed": true
+    },
+    {
+      "name": "design2_supports_3_devices_with_600um_pitch",
+      "passed": true
+    },
+    {
+      "name": "design2_supports_5_devices_with_600um_pitch",
+      "passed": true
+    }
+  ],
+  "failures": [],
+  "lengths": [
+    {
+      "design": "design1",
+      "common_straight_um": 800.0,
+      "straights_um": [
+        800.0,
+        800.0,
+        800.0
+      ],
+      "each_euler_bend_um": 370.911,
+      "total_meander_um": 3141.822
+    },
+    {
+      "design": "design1",
+      "common_straight_um": 200.0,
+      "straights_um": [
+        200.0,
+        200.0,
+        200.0
+      ],
+      "each_euler_bend_um": 370.911,
+      "total_meander_um": 1341.8220000000001
+    },
+    {
+      "design": "design1",
+      "common_straight_um": 1400.0,
+      "straights_um": [
+        1400.0,
+        1400.0,
+        1400.0
+      ],
+      "each_euler_bend_um": 370.911,
+      "total_meander_um": 4941.822
+    },
+    {
+      "design": "design2",
+      "common_straight_um": 800.0,
+      "straights_um": [
+        800.0,
+        800.0,
+        800.0
+      ],
+      "each_euler_bend_um": 370.911,
+      "total_meander_um": 3141.822
+    },
+    {
+      "design": "design2",
+      "common_straight_um": 200.0,
+      "straights_um": [
+        200.0,
+        200.0,
+        200.0
+      ],
+      "each_euler_bend_um": 370.911,
+      "total_meander_um": 1341.8220000000001
+    },
+    {
+      "design": "design2",
+      "common_straight_um": 1400.0,
+      "straights_um": [
+        1400.0,
+        1400.0,
+        1400.0
+      ],
+      "each_euler_bend_um": 370.911,
+      "total_meander_um": 4941.822
+    }
+  ],
+  "baseline_comparison_performed": true,
+  "status": "PASS"
+}

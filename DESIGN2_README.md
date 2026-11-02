@@ -4,7 +4,7 @@ Run `python 2611_tapered_yue_design2.py` from the Cading root.
 Output: `gds/2611_tapered_yue_design2.gds`.
 Run `python validate_2611_design2.py` for the current polygon-level checks.
 
-One complete device has an 800 um middle meander straight and a DESIGN 2 label.
+One complete device has an 800 um length for EACH of the three meander straights and a DESIGN 2 label.
 The existing 45 um PNC section is unchanged; the following distances are
 measured outward from its 3 um Layer-10 endpoint.
 
@@ -38,3 +38,7 @@ Editable dimensions are grouped in sections 3 and 4 of the Python source:
 `RIDGE_EXTENSION_START_WIDTH`, `RIDGE_CONVERTER_END_WIDTH`, and
 `RIDGE_CONVERTER_Y_SHIFT`.
 Geometry validation is not an optical-performance simulation or fabrication DRC.
+
+Equal-straight meander: total centerline = 3*L + 2*Euler180_length.
+End assemblies follow the ports at x=+/-L/2; all taper widths, stages and offset
+are unchanged. See CAD_EDITING_GUIDE.md and validate_2611_equal_straights.py.

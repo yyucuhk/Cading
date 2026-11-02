@@ -19,7 +19,9 @@ DRAWING FLOW
                    -> whole-device placement -> export_gds()
 
 MEANDER_STRAIGHT_LENGTHS has one entry per device, ordered bottom to top.
-Only the middle straight length varies per entry; other settings are shared.
+Each entry is the COMMON length of all THREE straights; other settings are shared.
+Meander centerline length = 3 * L + 2 * actual_180_degree_Euler_bend_length.
+Complete end assemblies move with the ports; their local geometry is unchanged.
 Both ends are constructed together, not copied or clipped from another device.
 Use CAD_EDITING_GUIDE.md for the parameter and layer reference.
 """
@@ -59,7 +61,7 @@ from tether_variants import TETHER_FACTORIES
 
 # --- 1A. Device count, straight-length sweep, and whole-device placement ---
 # One entry = one device. Example: (200.0, 800.0, 1400.0).
-MEANDER_STRAIGHT_LENGTHS = (800,)  # middle straight lengths; bottom to top
+MEANDER_STRAIGHT_LENGTHS = (800,)  # EACH of three equal straights; bottom to top
 DEVICE_Y_PITCH = 600.0  # origin-to-origin vertical pitch
 BOTTOM_DEVICE_Y = -700.0  # first device origin, NOT its lower taper tip
 LEFT_BEND_ALIGNMENT_X = -900.0  # common leftmost Layer-11 PNC bend edge
@@ -81,7 +83,8 @@ ADIABATIC_TAPER_POINTS = 201  # polygon samples per quintic transition
 # --- 1C. Euler meander ---
 S_BEND_COMPACT_180_RADIUS = 100.0  # effective radius of each 180-degree bend
 S_BEND_EULER_P = 0.2  # Euler fraction: 0 circular, 1 full Euler
-S_BEND_HALF_LENGTH = 150.0  # half the horizontal separation of the two ports
+# Horizontal half-port separation is derived as L / 2 in make_device().
+# Do not set a fixed S_BEND_HALF_LENGTH: it would make the outer leads unequal.
 S_BEND_WIDTH = 15.0  # construction/support envelope; NOT optical ridge width
 SLAB_EXTENSION_END_WIDTH = 15.0  # width at the start of the 15 -> 3 PNC transition
 S_BEND_TAPER_LENGTH = 10.0  # legacy noncompact-route setting; compact path ignores it
@@ -1330,14 +1333,20 @@ def move_alignment_tips_to_layer15(component, tip_centers, orientations):
 def make_device(meander_straight_length: float) -> gf.Component:
     """Build one complete, independent all-layer device in local coordinates.
 
-    Only meander_straight_length varies. Both taper/coupler assemblies,
+    All THREE straight segments have length meander_straight_length.
+    The two port X coordinates are -L/2 and +L/2. Both taper/coupler assemblies,
     butterfly tethers, support pads, alignment tips, exposure windows, and
     all device layers are constructed here through the same helper calls.
     No geometry is copied from another sweep device or cut at a global X.
     """
     meander_straight_length = float(meander_straight_length)
-    if not np.isfinite(meander_straight_length) or meander_straight_length < 0:
-        raise ValueError("meander_straight_length must be finite and non-negative")
+    if not np.isfinite(meander_straight_length) or meander_straight_length <= 0:
+        raise ValueError("meander_straight_length must be finite and positive")
+    if TAPER_ANGLE != 0.0:
+        raise ValueError("Equal-straight layout requires TAPER_ANGLE = 0; rotate a complete device instead")
+    # The native router sets each outer lead to (port_dx + middle_L) / 2.
+    # Setting port_dx = L makes both outer leads exactly L as well.
+    meander_half_length = meander_straight_length / 2.0
     gf.gpdk.PDK.activate()
     connection_width = REVIEW_TETHER_CONNECTION_WIDTH
     taper_angle = TAPER_ANGLE
@@ -1362,7 +1371,7 @@ def make_device(meander_straight_length: float) -> gf.Component:
         flatten=False,
         s_bend_width=S_BEND_WIDTH,
         s_bend_taper_length=S_BEND_TAPER_LENGTH,
-        s_bend_half_length=S_BEND_HALF_LENGTH,
+        s_bend_half_length=meander_half_length,
         s_bend_compact_180_radius=S_BEND_COMPACT_180_RADIUS,
         s_bend_compact_euler_p=S_BEND_EULER_P,
         s_bend_compact_straight_length=meander_straight_length,
@@ -1430,7 +1439,9 @@ def make_device(meander_straight_length: float) -> gf.Component:
             radius=S_BEND_COMPACT_180_RADIUS, angle=180, p=S_BEND_EULER_P, use_eff=True
         ).length()
     )
-    total_length = 2 * S_BEND_HALF_LENGTH + 2 * meander_straight_length + 2 * euler_length
+    # Centerline between the two meander ports only; excludes end tapers/tethers.
+    # Euler length is measured from the actual path, not approximated by pi*R.
+    total_length = 3 * meander_straight_length + 2 * euler_length
     tips = []
     for center, orientation in zip(connection_centers, connection_orientations, strict=True):
         angle = radians(orientation)
@@ -1464,6 +1475,11 @@ def make_device(meander_straight_length: float) -> gf.Component:
     # --- 9G. Return complete independent geometry plus metadata ---
     component.info["builder"] = "make_device"
     component.info["meander_straight_length_um"] = meander_straight_length
+    component.info["meander_straight_segment_lengths_um"] = [meander_straight_length] * 3
+    component.info["meander_straight_total_um"] = 3 * meander_straight_length
+    component.info["meander_half_port_separation_um"] = meander_half_length
+    component.info["meander_180_bend_length_um"] = euler_length
+    component.info["meander_length_formula"] = "3 * L + 2 * Euler_180_length"
     component.info["total_meander_length_um"] = total_length
     component.info["left_pnc_bend_x"] = left_pnc_x
     component.info["connection_centers"] = connection_centers
@@ -1558,8 +1574,8 @@ def validate_settings() -> None:
     if not MEANDER_STRAIGHT_LENGTHS:
         raise ValueError("MEANDER_STRAIGHT_LENGTHS must contain at least one device")
     for length in MEANDER_STRAIGHT_LENGTHS:
-        if not np.isfinite(float(length)) or float(length) < 0:
-            raise ValueError("Meander straight lengths must be finite and non-negative")
+        if not np.isfinite(float(length)) or float(length) <= 0:
+            raise ValueError("Meander straight lengths must be finite and positive")
     dimensions = {
         "DEVICE_Y_PITCH": DEVICE_Y_PITCH,
         "S_BEND_COMPACT_180_RADIUS": S_BEND_COMPACT_180_RADIUS,
