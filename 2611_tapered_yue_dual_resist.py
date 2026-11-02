@@ -1404,6 +1404,112 @@ def repair_layer14_local_artifacts(component: gf.Component) -> None:
     component.add_ref(repaired_layer14)
 
 
+def splice_reference_with_swept_meander(
+    reference: gf.Component,
+    swept: gf.Component,
+    split_x: float,
+) -> gf.Component:
+    """Use the swept device only left of split_x and reference to the right.
+
+    This guarantees that every non-meander feature on the right side
+    (tapers, tip region, channels, release windows, etc.) is copied exactly
+    from the verified bottom device. Only the meander-side geometry is taken
+    from the length-specific sweep device.
+    """
+    ref = reference.copy()
+    ref.flatten()
+    swp = swept.copy()
+    swp.flatten()
+
+    ref_bbox = ref.bbox()
+    swp_bbox = swp.bbox()
+    xmin = min(float(ref_bbox.left), float(swp_bbox.left)) - 10.0
+    xmax = max(float(ref_bbox.right), float(swp_bbox.right)) + 10.0
+    ymin = min(float(ref_bbox.bottom), float(swp_bbox.bottom)) - 10.0
+    ymax = max(float(ref_bbox.top), float(swp_bbox.top)) + 10.0
+    height = ymax - ymin
+    center_y = (ymin + ymax) / 2
+
+    output = gf.Component()
+    all_layers = {
+        tuple(layer) for layer in ref.layers
+    } | {
+        tuple(layer) for layer in swp.layers
+    }
+
+    for layer_tuple in sorted(all_layers):
+        ref_layer = ref.copy()
+        ref_layer.remove_layers(
+            [
+                layer
+                for layer in ref_layer.layers
+                if tuple(layer) != layer_tuple
+            ],
+            recursive=False,
+        )
+        swp_layer = swp.copy()
+        swp_layer.remove_layers(
+            [
+                layer
+                for layer in swp_layer.layers
+                if tuple(layer) != layer_tuple
+            ],
+            recursive=False,
+        )
+
+        left_clip = gf.Component()
+        if split_x > xmin:
+            left_ref = left_clip.add_ref(
+                gf.components.rectangle(
+                    size=(split_x - xmin, height),
+                    centered=True,
+                    layer=layer_tuple,
+                )
+            )
+            left_ref.move(((xmin + split_x) / 2, center_y))
+
+        right_clip = gf.Component()
+        if xmax > split_x:
+            right_ref = right_clip.add_ref(
+                gf.components.rectangle(
+                    size=(xmax - split_x, height),
+                    centered=True,
+                    layer=layer_tuple,
+                )
+            )
+            right_ref.move(((split_x + xmax) / 2, center_y))
+
+        swept_left = gf.boolean(
+            A=swp_layer,
+            B=left_clip,
+            operation="and",
+            layer=layer_tuple,
+            layer1=layer_tuple,
+            layer2=layer_tuple,
+        )
+        reference_right = gf.boolean(
+            A=ref_layer,
+            B=right_clip,
+            operation="and",
+            layer=layer_tuple,
+            layer1=layer_tuple,
+            layer2=layer_tuple,
+        )
+
+        combined = gf.boolean(
+            A=swept_left,
+            B=reference_right,
+            operation="or",
+            layer=layer_tuple,
+            layer1=layer_tuple,
+            layer2=layer_tuple,
+        )
+        output.add_ref(combined)
+
+    output.flatten()
+    return output
+
+
 def build_layout() -> gf.Component:
     """Build three review devices sweeping only meander straight length."""
     name = Path(__file__).stem
@@ -1466,6 +1572,8 @@ def build_layout() -> gf.Component:
     left_pnc_bend_x_before_alignment = []
     total_meander_lengths = []
     reference_device_x_shift = None
+    reference_masked_device = None
+    reference_meander_split_x = None
     for y_position, meander_straight_length in zip(
         y_positions,
         sweep_parameters,
@@ -1544,11 +1652,14 @@ def build_layout() -> gf.Component:
                 slab_layer=NEGATIVE_RESIST_LAYER,
             ),
         )
-        # The bottom device is the sole placement reference.
-        # Compute its X shift once, then reuse that exact shift for devices
-        # 2 and 3. Therefore the taper/tip/coupler geometry stays at the same
-        # X location in all three devices and ONLY the meander straight length
-        # changes with the sweep.
+        # Build the fully processed device for this sweep value.
+        masked_device = add_shared_mla_window(device, window_source)
+
+        # The bottom device is the sole reference. Its X placement is reused
+        # for every device. For devices 2 and 3, replace ONLY the meander-side
+        # geometry (left of the larger-x meander connection) with the
+        # length-specific sweep result. Everything to the right is copied
+        # directly from the bottom reference device.
         left_pnc_bend_x = float(
             device.bbox(layer=gf.get_layer(PNC_EBL_LAYER)).left
         )
@@ -1556,11 +1667,22 @@ def build_layout() -> gf.Component:
             reference_device_x_shift = (
                 LEFT_BEND_ALIGNMENT_X - left_pnc_bend_x
             )
-        device_x_shift = float(reference_device_x_shift)
+            reference_masked_device = masked_device.copy()
+            reference_meander_split_x = max(
+                float(center[0])
+                for center in window_source.info[
+                    "s_bend_connection_centers"
+                ]
+            )
+        else:
+            masked_device = splice_reference_with_swept_meander(
+                reference=reference_masked_device,
+                swept=masked_device,
+                split_x=float(reference_meander_split_x),
+            )
 
-        placed_device = fin.add_ref(
-            add_shared_mla_window(device, window_source)
-        )
+        device_x_shift = float(reference_device_x_shift)
+        placed_device = fin.add_ref(masked_device)
         placed_device.move((device_x_shift, y_position))
         device_x_shifts.append(device_x_shift)
         left_pnc_bend_x_before_alignment.append(left_pnc_bend_x)
@@ -1621,7 +1743,9 @@ def build_layout() -> gf.Component:
     fin.info["device_count"] = device_count
     fin.info["bottom_device_y"] = BOTTOM_DEVICE_Y
     fin.info["device_y_pitch"] = DEVICE_Y_PITCH
-    fin.info["placement_mode"] = "bottom_reference_fixed_x_only_meander_length_sweep"
+    fin.info["placement_mode"] = (
+        "bottom_reference_right_side_plus_length_specific_meander_left_side"
+    )
     fin.info["left_bend_alignment_x"] = LEFT_BEND_ALIGNMENT_X
     fin.info["device_x_shifts"] = device_x_shifts
     fin.info["left_pnc_bend_x_before_alignment"] = (
