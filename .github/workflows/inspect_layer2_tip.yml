@@ -1,0 +1,32 @@
+name: Inspect Layer2 tip block
+
+on:
+  push:
+
+jobs:
+  inspect:
+    if: github.event.head_commit.message == 'Inspect Layer2 tip block'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install klayout
+        run: python -m pip install klayout
+      - name: Inspect
+        run: |
+          python - <<'PY'
+          import klayout.db as kdb
+          path="gds/2611_tapered_yue_dual_resist_L10_L12.gds"
+          ly=kdb.Layout(); ly.read(path); top=ly.top_cell(); dbu=ly.dbu
+          for layer_num in (2,14):
+              li=ly.layer(layer_num,0)
+              reg=kdb.Region(top.begin_shapes_rec(li)); reg.merge()
+              print("LAYER",layer_num)
+              for i,p in enumerate(reg.each()):
+                  b=p.bbox()
+                  if b.right*dbu < -480 or b.left*dbu > -390:
+                      continue
+                  print("poly",i,"bbox",round(b.left*dbu,3),round(b.bottom*dbu,3),round(b.right*dbu,3),round(b.top*dbu,3),"holes",p.holes())
+          PY
