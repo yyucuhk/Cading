@@ -1128,33 +1128,36 @@ def add_shared_mla_window(
     layer14_tip_exclusions = gf.Component()
     tick_half_separation = 15.0 / 2 - ALIGNMENT_TIP_WINDOW_INWARD_SHIFT
     tick_window_x_offset = 0.25 + ALIGNMENT_TIP_WINDOW_WIDTH / 2
-    for start_point, orientation in zip(
-        layer14_start_points,
-        window_source.info["s_bend_connection_orientations"],
-        strict=True,
-    ):
-        angle = radians(orientation)
-        outward = np.array([-cos(angle), -sin(angle)])
-        normal = np.array([-outward[1], outward[0]])
-        for transverse_side in (-1.0, 1.0):
-            for longitudinal_side in (-1.0, 1.0):
-                window_center = (
-                    np.asarray(start_point, dtype=float)
-                    + longitudinal_side * tick_window_x_offset * outward
-                    + transverse_side * tick_half_separation * normal
+    # Exclude only the tip-block family on the larger-x side. For the first
+    # placed device this is the block near x ~= -422 um requested by the user.
+    # The opposite Layer-2 tip region is now copied into Layer 14 as well.
+    tip_exclusion_index = int(np.argmax(layer14_starts[:, 0]))
+    start_point = layer14_start_points[tip_exclusion_index]
+    orientation = window_source.info[
+        "s_bend_connection_orientations"
+    ][tip_exclusion_index]
+    angle = radians(orientation)
+    outward = np.array([-cos(angle), -sin(angle)])
+    normal = np.array([-outward[1], outward[0]])
+    for transverse_side in (-1.0, 1.0):
+        for longitudinal_side in (-1.0, 1.0):
+            window_center = (
+                np.asarray(start_point, dtype=float)
+                + longitudinal_side * tick_window_x_offset * outward
+                + transverse_side * tick_half_separation * normal
+            )
+            exclusion = layer14_tip_exclusions.add_ref(
+                gf.components.rectangle(
+                    size=(
+                        ALIGNMENT_TIP_WINDOW_WIDTH,
+                        ALIGNMENT_TIP_WINDOW_LENGTH,
+                    ),
+                    centered=True,
+                    layer=Layers.via,
                 )
-                exclusion = layer14_tip_exclusions.add_ref(
-                    gf.components.rectangle(
-                        size=(
-                            ALIGNMENT_TIP_WINDOW_WIDTH,
-                            ALIGNMENT_TIP_WINDOW_LENGTH,
-                        ),
-                        centered=True,
-                        layer=Layers.via,
-                    )
-                )
-                exclusion.rotate(orientation + 180)
-                exclusion.move(tuple(window_center))
+            )
+            exclusion.rotate(orientation + 180)
+            exclusion.move(tuple(window_center))
 
     layer14_central_pattern = gf.boolean(
         A=layer14_central_pattern,
