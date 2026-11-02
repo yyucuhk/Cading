@@ -1,19 +1,33 @@
-"""Three-device two-EBL Euler-meander review.
+"""Design 1 - aligned ridge taper: editable, all-layer GDS generator.
 
-Layer 10 is limited to taper geometry at or below 3 um width.
-The broad 15 um meander body is omitted from the exported mask layers.
-Literal GDS layer 11 carries each solid PNC cell for negative-resist EBL.
-Layer 2 carries a continuous expanded positive-resist region for MLA exposure;
-it has no PNC-shaped exclusions or openings.
-The narrow PNC neck extends 0.5 um beyond both radial (local y) ends.
-The positive release windows, long tapered slots, support surround slots,
-glue holes, and former Layer-12 geometry are all assigned to Layer 2 for one
-shared MLA exposure. Each completed device owns all its mask polygons.
+QUICK START
+    1. Edit Section 01 (all lengths/widths in um; angles in degrees).
+    2. Run the WHOLE file in a fresh Python process after changing settings.
+    3. The output path is printed at the end. Existing GDS is overwritten.
+
+SECTION MAP
+    00 imports/paths              06 coupler packaging and long channels
+    01 USER PARAMETERS           07 Layer 2 / 14 / 16 exposure masks
+    02 layers/derived values     08 move alignment tips to Layer 15
+    03 taper polygon primitives  09 make_device(): one COMPLETE device
+    04 PNC/meander support masks  10 chip placement and global markers
+    05 two-layer taper assembly  11 settings checks and GDS export
+
+DRAWING FLOW
+    build_layout() -> make_device(L) -> taper/meander/support geometry
+                   -> release/protection masks -> labels/tip-layer move
+                   -> whole-device placement -> export_gds()
+
+MEANDER_STRAIGHT_LENGTHS has one entry per device, ordered bottom to top.
+Only the middle straight length varies per entry; other settings are shared.
+Both ends are constructed together, not copied or clipped from another device.
+Use CAD_EDITING_GUIDE.md for the parameter and layer reference.
 """
 
+# %% [00] IMPORTS AND REPOSITORY PATHS
+# =============================================================================
 from functools import partial
 from math import cos, radians, sin
-import os
 from pathlib import Path
 import sys
 
@@ -23,8 +37,8 @@ import numpy as np
 REPOSITORY_ROOT = Path(__file__).resolve().parent
 if str(REPOSITORY_ROOT) not in sys.path:
     sys.path.insert(0, str(REPOSITORY_ROOT))
-
 GDS = REPOSITORY_ROOT / "gds"
+
 from layers import Layers
 from markers import calipermarker_array
 from phononics import phononic_tether
@@ -37,168 +51,197 @@ from tapered_local import (
 from tether_variants import TETHER_FACTORIES
 
 
+# %% [01] USER PARAMETERS - EDIT HERE
 # =============================================================================
-# 1. MASK LAYERS AND FABRICATION TONES
-# =============================================================================
+# Units: um for dimensions, degrees for angles, dimensionless for scales.
+# Change values here, then rerun the entire file; decorated-cell defaults and
+# the derived values in Section 02 are evaluated when the module is loaded.
 
-NEGATIVE_RESIST_LAYER = Layers.wg       # GDS 10/0: negative-resist fine mask
-# Temporary construction layer used to route and position the meander. It is
-# removed recursively before the final GDS is written.
-MEANDER_CONSTRUCTION_LAYER = (999, 0)
-# This device intentionally repurposes literal GDS 2/0 as its second EBL,
-# positive-resist full-etch mask around the PNC features.
-FULL_ETCH_LAYER = Layers.globalmarker  # GDS 2/0: surrounding MLA open mask
-PNC_EBL_LAYER = Layers.wg_doubleetch   # GDS 11/0: negative-resist PNC
-PNC_NARROW_END_EXTENSION = 0.5
-LAYER2_LAYER10_COPY_DELAY = 0.5
-POSITIVE_RESIST_LAYER = FULL_ETCH_LAYER  # GDS 2/0: shared MLA open mask
-MARKER_LAYER = FULL_ETCH_LAYER           # GDS 2/0: markers and labels
-RIDGE_LAYER = Layers.mc                  # GDS 15/0: ridge taper
-RIDGE_PROTECTION_LAYER = Layers.mc2      # GDS 16/0: ridge protection
-RIDGE_PROTECTION_MARGIN = 0.2
+# --- 1A. Device count, straight-length sweep, and whole-device placement ---
+# One entry = one device. Example: (200.0, 800.0, 1400.0).
+MEANDER_STRAIGHT_LENGTHS = (800,)  # middle straight lengths; bottom to top
+DEVICE_Y_PITCH = 600.0  # origin-to-origin vertical pitch
+BOTTOM_DEVICE_Y = -700.0  # first device origin, NOT its lower taper tip
+LEFT_BEND_ALIGNMENT_X = -900.0  # common leftmost Layer-11 PNC bend edge
 
+# --- 1B. Optical taper stages (outward from the 3 um PNC endpoint) ---
+# Layer 10: 3 -> 1 over RIDGE_TAPER_LENGTH, then 1 -> 0.2 over
+# SLAB_TAPER_LENGTH. Layer 15: 1 -> 0.1 over RIDGE_TAPER_LENGTH, then ends.
+# These are post-PNC lengths; the separate 15 -> 3 PNC region precedes them.
+RIDGE_TAPER_LENGTH = 40.0  # common first-stage length for Layers 10/15
+SLAB_TAPER_LENGTH = 40.0  # second/final Layer-10 stage length
+SLAB_EXTENSION_START_WIDTH = 1.0  # Layer-10 intermediate width
+RIDGE_MEANDER_WIDTH = 1.0  # Layer-15 meander and taper input width
+RIDGE_EXTENSION_START_WIDTH = 0.1  # Layer-15 terminal width
+REVIEW_TETHER_CONNECTION_WIDTH = 0.2  # Layer-10 terminal width AND tether neck
+PNC_TAPER_SUPPORT_CUTOFF_WIDTH = 3.0  # Layer-10 input width after the PNC region
+TAPER_ANGLE = 0.0  # paired taper placement angle; validated design uses 0
+ADIABATIC_TAPER_POINTS = 201  # polygon samples per quintic transition
 
-# =============================================================================
-# 2. MLA RELEASE-WINDOW AND LONG-CHANNEL SETTINGS
-# =============================================================================
+# --- 1C. Euler meander ---
+S_BEND_COMPACT_180_RADIUS = 100.0  # effective radius of each 180-degree bend
+S_BEND_EULER_P = 0.2  # Euler fraction: 0 circular, 1 full Euler
+S_BEND_HALF_LENGTH = 150.0  # half the horizontal separation of the two ports
+S_BEND_WIDTH = 15.0  # construction/support envelope; NOT optical ridge width
+SLAB_EXTENSION_END_WIDTH = 15.0  # width at the start of the 15 -> 3 PNC transition
+S_BEND_TAPER_LENGTH = 10.0  # legacy noncompact-route setting; compact path ignores it
+# Optical width is RIDGE_MEANDER_WIDTH in 1B.
 
-POSITIVE_WINDOW_MARGIN = 3.0
-# Exact shared-MLA window endpoint beyond the physical taper end.
-# Keep this at least as large as POSITIVE_WINDOW_MARGIN.
-POSITIVE_WINDOW_END_EXTENSION = 15.0
+# --- 1D. Phononic-crystal (PNC) support pattern ---
+REVIEW_SUPPORT_ANCHOR_PERIOD = 15.0  # requested PNC pitch on straight regions
+REVIEW_SUPPORT_BEND_PERIOD = 3.0  # requested PNC pitch on bends
+PHONONIC_SUPPORT_SEGMENTS = (
+    0.626,
+    0.600,
+    0.560,
+    0.540,
+    0.516,
+    0.504,
+)  # six square-mass sizes in the PNC library cell
+PHONONIC_SUPPORT_GAPS = 0.25  # gap between PNC masses
+PNC_NARROW_END_EXTENSION = 0.5  # narrow neck extension at both radial ends
+# The PNC taper length is three straight periods; see Section 02.
 
-
-# =============================================================================
-# 3. OPTICAL TAPER AND BUTTERFLY TETHER SETTINGS
-# =============================================================================
-
-# Variant 2 is the library's split/forked butterfly-style tether.
-TETHER_VARIANT = 2
-REVIEW_TETHER_CONNECTION_WIDTH = 0.2
-TAPER_ANGLE = 0.0
-MEANDER_STRAIGHT_LENGTHS = (800,)
-REVIEW_SUPPORT_ANCHOR_PERIOD = 15.0
-REVIEW_SUPPORT_BEND_PERIOD = 3.0
-PNC_TAPER_SUPPORT_CUTOFF_WIDTH = 3.0
-# Phononic-crystal support copied from layout.acoustics.phononics. The thin
-# beam follows the taper tip width and carries the library's six square masses.
-PHONONIC_SUPPORT_SEGMENTS = (0.626, 0.600, 0.560, 0.540, 0.516, 0.504)
-PHONONIC_SUPPORT_GAPS = 0.25
-PHONONIC_SUPPORT_OVERSHOOT = PNC_NARROW_END_EXTENSION
-RIDGE_TAPER_LENGTH = 40.0
-SLAB_TAPER_LENGTH = 40.0
-TETHER_CONNECTION_BLEND_LENGTH = 2.0
-TETHER_PAD_SCALE = 1.0
-# Independent full taper angles for the two long slot layers.
-MLA_CHANNEL_ANGLE = 2.0
-LAYER14_CHANNEL_ANGLE = 1.5
-MLA_CHANNEL_START_WIDTH = 6.0
-LAYER14_CHANNEL_START_WIDTH = 1.0
-# Keep each Layer-14 tapered channel beginning exactly at the optical tip.
-# Glue-circle positions are calculated independently and do not move.
-LAYER14_CHANNEL_START_OFFSET = 0.0
-# The shared-MLA and restored Layer-14 tapered slots are 2000 um long.
-POSITIVE_CHANNEL_LENGTH = 2000.0
-S_BEND_WIDTH = 15.0
-
-
-# =============================================================================
-# 4. EULER MEANDER GEOMETRY
-# =============================================================================
-
-S_BEND_TAPER_LENGTH = 10.0
-S_BEND_HALF_LENGTH = 150.0
-S_BEND_COMPACT_180_RADIUS = 100.0
-# Euler fraction: 0=circular, 0.5=partial Euler, 1=full Euler.
-S_BEND_EULER_P = 0.2
-# Two opposite 180-degree bends shift the route by four center radii.
-S_BEND_VERTICAL_HALF_SPAN = 2 * S_BEND_COMPACT_180_RADIUS
-# The PNC section spans exactly three 15 um periods. At its final cell, the
-# Layer-10 slab is 3 um wide; both post-PNC adiabatic tapers start there.
-PNC_TAPER_LENGTH = 3 * REVIEW_SUPPORT_ANCHOR_PERIOD
-POST_PNC_TAPER_LENGTH = RIDGE_TAPER_LENGTH
-SLAB_EXTENSION_LENGTH = PNC_TAPER_LENGTH + POST_PNC_TAPER_LENGTH
-SLAB_EXTENSION_START_WIDTH = 1.0
-SLAB_EXTENSION_END_WIDTH = 15.0
-PNC_TAPER_END_WIDTH = PNC_TAPER_SUPPORT_CUTOFF_WIDTH
-RIDGE_EXTENSION_START_WIDTH = 0.1
-RIDGE_MEANDER_WIDTH = 1.0
-RIDGE_EXTENSION_END_WIDTH = RIDGE_MEANDER_WIDTH
+# --- 1E. Butterfly tethers and support islands ---
+TETHER_VARIANT = 2  # 2 = split/forked butterfly in tether_variants.py
+TETHER_PAD_SCALE = 1.0  # library pad scale
+TETHER_CONNECTION_BLEND_LENGTH = 2.0  # neck blending length
+SUPPORT_RECTANGLE_SIZE = (50.0, 40.0)  # (longitudinal length, transverse width)
+EXTRA_RECTANGLE_GAP = 100.0  # edge-to-edge gap: taper endpoint to support island
+SUPPORT_SURROUND_SLOT_WIDTH = 5.0  # Layer-2 slot around each support island
+# Optional extra side-support tips are disabled in make_device(). They
+# are NOT the fiber-alignment ticks (which are kept on Layer 15).
 SUPPORT_TIP_POSITION = 30.0
 SUPPORT_TIP_WIDTH = 0.5
 SUPPORT_TIP_LENGTH = 10.0
 SUPPORT_TIP_OVERLAP = 0.2
-# ACTIVE S-BEND SUPPORT GEOMETRY.
-# Two shared-MLA side windows along each existing 0.5 x 10 um alignment tip.
+
+# --- 1F. Layer 2 / 14 release windows and Layer 16 protection ---
+POSITIVE_WINDOW_MARGIN = 3.0  # Layer-2 taper-window expansion
+POSITIVE_WINDOW_END_EXTENSION = 15.0  # must be >= POSITIVE_WINDOW_MARGIN
+LAYER2_LAYER10_COPY_DELAY = 0.5  # inset of L10 copy from the PNC boundary
+RIDGE_PROTECTION_MARGIN = 0.2  # Layer-16 offset around ridge; excludes alignment ticks
+MLA_CHANNEL_ANGLE = 2.0  # full opening angle on Layer 2
+LAYER14_CHANNEL_ANGLE = 1.5  # full opening angle on Layer 14
+MLA_CHANNEL_START_WIDTH = 6.0
+LAYER14_CHANNEL_START_WIDTH = 1.0
+LAYER14_CHANNEL_START_OFFSET = 0.0  # from stage-1 end, NOT final optical endpoint
+POSITIVE_CHANNEL_LENGTH = 2000.0  # Layer-2 long-channel length
+LAYER14_CHANNEL_LENGTH = 2000.0  # Layer-14 long-channel length
+# Dimensions below define REMOVED companion windows, not alignment ticks.
+# Actual alignment ticks are fixed at 0.5 x 10 um in tapered_local.py and
+# matched by alignment_tip_region(); edit both together to change tick shape.
 ALIGNMENT_TIP_WINDOW_WIDTH = 2.0
 ALIGNMENT_TIP_WINDOW_LENGTH = 8.0
 ALIGNMENT_TIP_WINDOW_INWARD_SHIFT = 0.2
-DEVICE_Y_PITCH = 600.0
-BOTTOM_DEVICE_Y = -700.0
 
-
-# =============================================================================
-# 5. DEVICE PLACEMENT AND 600 UM EBL SUBFIELDS
-# =============================================================================
-
-# Use only the bottom device to establish the common X origin.
-# All three fixed end assemblies then remain vertically aligned.
-LEFT_BEND_ALIGNMENT_X = -900.0
-EBL_SUBFIELD_SIZE = 600.0
+# --- 1G. Labels, chip outline, global overlay marks, and output ---
 TETHER_LABEL_SIZE = 2.0
-ADIABATIC_TAPER_POINTS = 201
-# Detailed per-device label placed beside the left Layer-15 taper endpoint.
+DETAIL_LABEL_SIZE = 3.0
 DETAIL_LABEL_TIP_X_OFFSET = 5.0
 DETAIL_LABEL_TIP_Y_OFFSET = 10.0
-DETAIL_LABEL_SIZE = 3.0
-# Corner overlay markers: the MLA marker is larger than the Layer-10 marker.
 LAYER10_MARKER_ARM_WIDTH = 2.0
 LAYER10_MARKER_CENTER_SQUARE_SIZE = 3.0
 MLA_MARKER_SIZE_INCREASE = 10.0
 MLA_MARKER_ARM_WIDTH = 3.0
 MLA_MARKER_CENTER_SQUARE_SIZE = 5.0
+CHIP_WIDTH = 5000.0
+CHIP_MIN_HEIGHT = 10000.0
+CHIP_Y_ALLOWANCE = 1000.0
+INNER_MARKER_CHIP_WIDTH_REDUCTION = 1000.0
+GLOBAL_MARKER_ARM_LENGTHS = (50.0, 80.0)  # outer row, inner row
+GDS_MAX_VERTEX_COUNT = 2000
+TOP_CELL_NAME = f"{Path(__file__).stem}_L10_L12"
+OUTPUT_GDS_FILENAME = f"{TOP_CELL_NAME}.gds"
+# TOP_CELL_NAME is a naming label, not a device-count or geometry control.
 
-# The support island remains; only its border is exposed on the shared MLA mask.
-SUPPORT_RECTANGLE_SIZE = (50.0, 40.0)
-SUPPORT_SURROUND_SLOT_WIDTH = 5.0
-EXTRA_RECTANGLE_GAP = 100.0
-# Start the long shared-MLA tapered slot at the end of the short rectangular
-# taper-window extension, not at the distant support rectangle.
+
+# %% [02] MASK LAYERS AND DERIVED VALUES - NORMALLY DO NOT EDIT
+# =============================================================================
+NEGATIVE_RESIST_LAYER = Layers.wg  # 10/0: slab/tethers; alignment ticks move off this layer
+FULL_ETCH_LAYER = Layers.globalmarker  # 2/0: continuous positive-resist MLA mask
+POSITIVE_RESIST_LAYER = FULL_ETCH_LAYER  # alias for the shared Layer-2 mask
+MARKER_LAYER = FULL_ETCH_LAYER  # 2/0: labels and coarse alignment markers
+PNC_EBL_LAYER = Layers.wg_doubleetch  # 11/0: solid PNC structures
+RIDGE_LAYER = Layers.mc  # 15/0: optical ridge AND isolated alignment ticks
+RIDGE_PROTECTION_LAYER = Layers.mc2  # 16/0: optical-ridge protection
+MEANDER_CONSTRUCTION_LAYER = (999, 0)  # temporary; never exported
+# Other inherited layers: Layers.via = 14/0 (release), Layers.ring =
+# 13/0 (island fill), Layers.fiber = 51/0 (fiber guide), 0/0 = chip outline.
+
+S_BEND_VERTICAL_HALF_SPAN = 2 * S_BEND_COMPACT_180_RADIUS
+PNC_TAPER_LENGTH = 3 * REVIEW_SUPPORT_ANCHOR_PERIOD
+POST_PNC_TAPER_LENGTH = RIDGE_TAPER_LENGTH
+SLAB_EXTENSION_LENGTH = (
+    PNC_TAPER_LENGTH + POST_PNC_TAPER_LENGTH
+)  # stage-1 endpoint / alignment landmark, not total taper length
+PNC_TAPER_END_WIDTH = PNC_TAPER_SUPPORT_CUTOFF_WIDTH
+RIDGE_EXTENSION_END_WIDTH = RIDGE_MEANDER_WIDTH
+PHONONIC_SUPPORT_OVERSHOOT = PNC_NARROW_END_EXTENSION
 MLA_CHANNEL_START_OFFSET = POSITIVE_WINDOW_END_EXTENSION
 
 
+# %% [03] TAPER POLYGON PRIMITIVES
 # =============================================================================
-# 6. PHONONIC-CRYSTAL SUPPORT COMPONENTS
-# =============================================================================
-
+# Edit profiles here only when changing the taper law, not dimensions.
 @gf.cell
-def phononic_meander_support(
-    width: float = REVIEW_TETHER_CONNECTION_WIDTH,
-    segments: tuple[float, ...] = PHONONIC_SUPPORT_SEGMENTS,
-    gaps: float = PHONONIC_SUPPORT_GAPS,
-    overshoot: float = PHONONIC_SUPPORT_OVERSHOOT,
+def tapered_fiber_adiabatic(
+    length: float = 50.0,
+    width1: float = 0.8,
+    width2: float = 0.2,
+    taper_length: float | None = None,
+    npoints: int = ADIABATIC_TAPER_POINTS,
     layer=NEGATIVE_RESIST_LAYER,
 ) -> gf.Component:
-    """Layer-remapped library PNC tether for the meander supports."""
-    source = phononic_tether(
-        width=width,
-        segments=segments,
-        gaps=gaps,
-        overshoot=overshoot,
-    ).copy()
-    source.flatten()
-    source.remap_layers(
-        {Layers.wg_doubleetch: layer},
-        recursive=False,
-    )
+    """Quintic adiabatic taper with zero slope/curvature at both ends."""
+    if taper_length is None:
+        taper_length = length
+    if length <= 0 or taper_length <= 0 or taper_length > length:
+        raise ValueError("Require 0 < taper_length <= length")
+    if width1 <= 0 or width2 <= 0:
+        raise ValueError("Taper widths must be positive")
+    if npoints < 8:
+        raise ValueError("npoints must be at least 8")
+
+    straight_length = length - taper_length
+    transition_x = np.linspace(0.0, taper_length, npoints)
+    u = transition_x / taper_length
+    # Quintic smootherstep: first and second derivatives vanish at u=0,1.
+    weight = 6 * u**5 - 15 * u**4 + 10 * u**3
+    transition_width = width1 + (width2 - width1) * weight
+    x = transition_x + straight_length
+    widths = transition_width
+    if straight_length > 0:
+        x = np.concatenate(([0.0, straight_length], x[1:]))
+        widths = np.concatenate(([width1, width1], widths[1:]))
+
+    upper = [(float(xi), float(wi / 2)) for xi, wi in zip(x, widths)]
+    lower = [(float(xi), float(-wi / 2)) for xi, wi in zip(x[::-1], widths[::-1])]
     component = gf.Component()
-    reference = component.add_ref(source)
-    component.add_port("a1", port=reference.ports["a1"])
-    component.add_port("a2", port=reference.ports["a2"])
-    component.info["support_type"] = "phononic_crystal"
+    component.add_polygon(upper + lower, layer=layer)
+    component.add_port(
+        name="o1",
+        center=(0.0, 0.0),
+        width=width1,
+        orientation=180,
+        layer=layer,
+    )
+    component.add_port(
+        name="o2",
+        center=(length, 0.0),
+        width=width2,
+        orientation=0,
+        layer=layer,
+    )
+    component.info["profile"] = "quintic_adiabatic"
+    component.info["npoints"] = npoints
     return component
 
 
+# %% [04] PNC SUPPORT AND MEANDER MASK GEOMETRY
+# =============================================================================
+# Writes Layer 11 PNCs, Layer 2 bands, and optional solid Layer 14 fill.
+# The connected optical meander path itself comes from tapered_local.py.
 @gf.cell
 def phononic_meander_shield(
     path,
@@ -235,13 +278,9 @@ def phononic_meander_shield(
     section_start = 0
     for index in range(1, len(section_types)):
         if section_types[index] != section_types[section_start]:
-            section_ranges.append(
-                (section_start, index, bool(section_types[section_start]))
-            )
+            section_ranges.append((section_start, index, bool(section_types[section_start])))
             section_start = index
-    section_ranges.append(
-        (section_start, len(section_types), bool(section_types[section_start]))
-    )
+    section_ranges.append((section_start, len(section_types), bool(section_types[section_start])))
 
     tether = phononic_tether(
         width=width,
@@ -249,15 +288,13 @@ def phononic_meander_shield(
         gaps=gaps,
         overshoot=overshoot,
     )
-    tether_length = float(
-        tether.ports["a2"].center[0] - tether.ports["a1"].center[0]
-    )
+    tether_length = float(tether.ports["a2"].center[0] - tether.ports["a1"].center[0])
     cell_extent = max(float(max(segments)), width)
     cell_half_length = cell_extent / 2 + 1e-3
 
-    # Make one continuous band around the complete meander. PNC cells are
-    # subtracted only after they have been placed as complete library cells,
-    # so no cell is clipped at a straight/Euler section boundary.
+    # Draw continuous Layer-2 side bands and separate solid Layer-11
+    # PNC cells. Keep whole cells at straight/Euler boundaries; no PNC-shaped
+    # holes are subtracted from the positive mask.
     band_offset = (slab_width + tether_length) / 2
     band_cross_section = gf.CrossSection(
         sections=tuple(
@@ -290,27 +327,20 @@ def phononic_meander_shield(
             len(lengths) - 1,
         )
         segment_index = max(segment_index, 0)
-        segment_fraction = (
-            path_position - cumulative_lengths[segment_index]
-        ) / lengths[segment_index]
-        center = (
-            points[segment_index]
-            + segment_fraction * vectors[segment_index]
-        )
+        segment_fraction = (path_position - cumulative_lengths[segment_index]) / lengths[
+            segment_index
+        ]
+        center = points[segment_index] + segment_fraction * vectors[segment_index]
         tangent = (
             vectors[segment_index] / lengths[segment_index]
             if tangent_override is None
             else tangent_override / np.linalg.norm(tangent_override)
         )
         normal = np.array([-tangent[1], tangent[0]])
-        tangent_angle = float(
-            np.degrees(np.arctan2(tangent[1], tangent[0]))
-        )
+        tangent_angle = float(np.degrees(np.arctan2(tangent[1], tangent[0])))
         for side in (-1, 1):
             anchor = center + side * normal * slab_width / 2
-            full_cells.add_ref(tether).rotate(
-                tangent_angle + side * 90
-            ).move(tuple(anchor))
+            full_cells.add_ref(tether).rotate(tangent_angle + side * 90).move(tuple(anchor))
         support_positions.append(float(path_position))
 
     # A single shared PNC is placed exactly at every straight/bend boundary.
@@ -321,14 +351,8 @@ def phononic_meander_shield(
         section_end_length = cumulative_lengths[stop]
         section_length = section_end_length - section_start_length
         requested_pitch = bend_pitch if is_bend else pitch
-        start_clearance = (
-            requested_pitch if start > 0 else cell_half_length
-        )
-        end_clearance = (
-            requested_pitch
-            if stop < len(lengths)
-            else cell_half_length
-        )
+        start_clearance = requested_pitch if start > 0 else cell_half_length
+        end_clearance = requested_pitch if stop < len(lengths) else cell_half_length
         usable_start = section_start_length + start_clearance
         usable_end = section_end_length - end_clearance
         if usable_end < usable_start:
@@ -414,9 +438,7 @@ def phononic_meander_shield(
     component.info["layer14_full_meander_open"] = layer14_fill_layer is not None
     if layer14_fill_layer is not None:
         component.info["layer14_fill_layer"] = tuple(layer14_fill_layer)
-        component.info["layer14_full_open_width"] = (
-            slab_width + 2 * tether_length
-        )
+        component.info["layer14_full_open_width"] = slab_width + 2 * tether_length
     component.info["pnc_narrow_end_extension"] = end_extension
     component.info["full_pnc_cells"] = True
     component.info["support_positions"] = support_positions
@@ -477,9 +499,7 @@ def phononic_taper_shield(
         gaps=gaps,
         overshoot=overshoot,
     )
-    tether_length = float(
-        tether.ports["a2"].center[0] - tether.ports["a1"].center[0]
-    )
+    tether_length = float(tether.ports["a2"].center[0] - tether.ports["a1"].center[0])
     cell_extent = max(float(max(segments)), tether_width)
     cell_half_length = cell_extent / 2 + 1e-3
 
@@ -490,26 +510,16 @@ def phononic_taper_shield(
     # cell remains centered exactly at the 3 um taper endpoint but is no
     # longer cut in half by the end of the surrounding positive-resist band.
     band_end_extension = cell_half_length
-    band_x = np.concatenate(
-        ([-band_end_extension], x, [cutoff_x + band_end_extension])
-    )
-    band_inner_edge = np.concatenate(
-        ([inner_edge[0]], inner_edge, [inner_edge[-1]])
-    )
-    band_outer_edge = np.concatenate(
-        ([outer_edge[0]], outer_edge, [outer_edge[-1]])
-    )
+    band_x = np.concatenate(([-band_end_extension], x, [cutoff_x + band_end_extension]))
+    band_inner_edge = np.concatenate(([inner_edge[0]], inner_edge, [inner_edge[-1]]))
+    band_outer_edge = np.concatenate(([outer_edge[0]], outer_edge, [outer_edge[-1]]))
     # Layer 14 should open the COMPLETE 15->3 um taper region, not just
     # duplicate the two Layer-2 side bands.  Fill from the upper OUTER
     # boundary of Layer 2 all the way to the lower OUTER boundary using the
     # exact same longitudinal extension as the Layer-2 mask.
     if layer14_fill_layer is not None:
-        layer14_upper = list(
-            zip(band_x, band_outer_edge, strict=True)
-        )
-        layer14_lower = list(
-            zip(band_x[::-1], -band_outer_edge[::-1], strict=True)
-        )
+        layer14_upper = list(zip(band_x, band_outer_edge, strict=True))
+        layer14_lower = list(zip(band_x[::-1], -band_outer_edge[::-1], strict=True))
         layer14_full_open = gf.Component()
         layer14_full_open.add_polygon(
             layer14_upper + layer14_lower,
@@ -517,9 +527,7 @@ def phononic_taper_shield(
         )
         outer_bands.add_ref(layer14_full_open)
 
-    upper_polygon = list(
-        zip(band_x, band_inner_edge, strict=True)
-    ) + list(
+    upper_polygon = list(zip(band_x, band_inner_edge, strict=True)) + list(
         zip(band_x[::-1], band_outer_edge[::-1], strict=True)
     )
     lower_polygon = [(xi, -yi) for xi, yi in upper_polygon]
@@ -530,16 +538,10 @@ def phononic_taper_shield(
     support_positions = np.arange(pitch, cutoff_x + 1e-9, pitch)
     for support_x in support_positions:
         support_u = support_x / length
-        support_weight = (
-            6 * support_u**5 - 15 * support_u**4 + 10 * support_u**3
-        )
+        support_weight = 6 * support_u**5 - 15 * support_u**4 + 10 * support_u**3
         support_width = width1 + (width2 - width1) * support_weight
-        cuts.add_ref(tether).rotate(90).move(
-            (support_x, support_width / 2)
-        )
-        cuts.add_ref(tether).rotate(-90).move(
-            (support_x, -support_width / 2)
-        )
+        cuts.add_ref(tether).rotate(90).move((support_x, support_width / 2))
+        cuts.add_ref(tether).rotate(-90).move((support_x, -support_width / 2))
 
     component = gf.Component()
     # Layer 2 remains continuous across the taper and does not reveal PNC
@@ -560,9 +562,7 @@ def phononic_taper_shield(
     component.add_ref(pnc_cells)
     component.info["cutoff_width"] = cutoff_width
     component.info["cutoff_x"] = float(cutoff_x)
-    component.info["support_positions"] = [
-        float(value) for value in support_positions
-    ]
+    component.info["support_positions"] = [float(value) for value in support_positions]
     component.info["pnc_ebl_layer"] = tuple(pnc_layer)
     component.info["pnc_mla_layer"] = tuple(layer)
     component.info["pnc_ebl_tone"] = "negative_solid_pnc"
@@ -571,95 +571,10 @@ def phononic_taper_shield(
     return component
 
 
+# %% [05] TWO-LAYER TAPER ASSEMBLY
 # =============================================================================
-# 7. SUPPORT-ISLAND AND ADIABATIC-TAPER COMPONENTS
-# =============================================================================
-
-def rectangular_surround_slot() -> gf.Component:
-    """Return the positive 5 um frame around the support island."""
-    length, width = SUPPORT_RECTANGLE_SIZE
-    margin = SUPPORT_SURROUND_SLOT_WIDTH
-    component = gf.Component()
-    for size, center in (
-        ((length + 2 * margin, margin), (0, width / 2 + margin / 2)),
-        ((length + 2 * margin, margin), (0, -width / 2 - margin / 2)),
-        ((margin, width), (length / 2 + margin / 2, 0)),
-        ((margin, width), (-length / 2 - margin / 2, 0)),
-    ):
-        component.add_ref(
-            gf.components.rectangle(
-                size=size,
-                centered=True,
-                layer=POSITIVE_RESIST_LAYER,
-            )
-        ).move(center)
-    component.add_ref(
-        gf.components.rectangle(
-            size=SUPPORT_RECTANGLE_SIZE,
-            centered=True,
-            layer=Layers.ring,
-        )
-    )
-    return component
-
-
-@gf.cell
-def tapered_fiber_adiabatic(
-    length: float = 50.0,
-    width1: float = 0.8,
-    width2: float = 0.2,
-    taper_length: float | None = None,
-    npoints: int = ADIABATIC_TAPER_POINTS,
-    layer=NEGATIVE_RESIST_LAYER,
-) -> gf.Component:
-    """Quintic adiabatic taper with zero slope/curvature at both ends."""
-    if taper_length is None:
-        taper_length = length
-    if length <= 0 or taper_length <= 0 or taper_length > length:
-        raise ValueError("Require 0 < taper_length <= length")
-    if width1 <= 0 or width2 <= 0:
-        raise ValueError("Taper widths must be positive")
-    if npoints < 8:
-        raise ValueError("npoints must be at least 8")
-
-    straight_length = length - taper_length
-    transition_x = np.linspace(0.0, taper_length, npoints)
-    u = transition_x / taper_length
-    # Quintic smootherstep: first and second derivatives vanish at u=0,1.
-    weight = 6 * u**5 - 15 * u**4 + 10 * u**3
-    transition_width = width1 + (width2 - width1) * weight
-    x = transition_x + straight_length
-    widths = transition_width
-    if straight_length > 0:
-        x = np.concatenate(([0.0, straight_length], x[1:]))
-        widths = np.concatenate(([width1, width1], widths[1:]))
-
-    upper = [(float(xi), float(wi / 2)) for xi, wi in zip(x, widths)]
-    lower = [
-        (float(xi), float(-wi / 2))
-        for xi, wi in zip(x[::-1], widths[::-1])
-    ]
-    component = gf.Component()
-    component.add_polygon(upper + lower, layer=layer)
-    component.add_port(
-        name="o1",
-        center=(0.0, 0.0),
-        width=width1,
-        orientation=180,
-        layer=layer,
-    )
-    component.add_port(
-        name="o2",
-        center=(length, 0.0),
-        width=width2,
-        orientation=0,
-        layer=layer,
-    )
-    component.info["profile"] = "quintic_adiabatic"
-    component.info["npoints"] = npoints
-    return component
-
-
+# Local +x points outward from the meander. Widths are along local y.
+# The second device end is placed by rotation; never hand-patch one end.
 @gf.cell
 def two_layer_tapered_fiber(
     tether_connection_width: float = 0.2,
@@ -676,15 +591,13 @@ def two_layer_tapered_fiber(
     1 um to the tether width.
     """
     if not 0 < ridge_taper_length <= POST_PNC_TAPER_LENGTH:
-        raise ValueError(
-            "ridge_taper_length must satisfy 0 < length <= "
-            "POST_PNC_TAPER_LENGTH"
-        )
+        raise ValueError("ridge_taper_length must satisfy 0 < length <= " "POST_PNC_TAPER_LENGTH")
     component = gf.Component()
 
     # The first transition is intentionally not drawn on Layer 10 because its
     # width is greater than 3 um. Keep its longitudinal distance so all PNC,
     # ridge, and downstream taper coordinates remain unchanged.
+    # --- 5A. Layer 10: first post-PNC slab stage ---
     post_pnc_slab_taper = component.add_ref(
         tapered_fiber_adiabatic(
             length=POST_PNC_TAPER_LENGTH,
@@ -699,6 +612,7 @@ def two_layer_tapered_fiber(
     # Keep a standard 1 um Layer-15 optical guide across the complete PNC
     # section. This explicitly continues the 1 um ridge from the meander to
     # the exact point where the narrow ridge taper begins.
+    # --- 5B. Layer 15: constant ridge through PNC, then first taper ---
     ridge_pnc_section = component.add_ref(
         tapered_fiber_adiabatic(
             length=PNC_TAPER_LENGTH,
@@ -720,6 +634,7 @@ def two_layer_tapered_fiber(
     )
     ridge_extension.connect("o1", ridge_pnc_section.ports["o2"])
 
+    # --- 5D. Layer 10: final slab taper, ending at the tether neck ---
     outer_slab_taper = component.add_ref(
         tapered_fiber_adiabatic(
             length=SLAB_TAPER_LENGTH,
@@ -734,6 +649,7 @@ def two_layer_tapered_fiber(
     # Continue Layer 2 from the 3 um Layer-10 starting point to the Layer-15
     # endpoint with a quintic adiabatic profile. The two inner edges close to
     # the centerline while the outer edges reach a total y-size of 7 um.
+    # --- 5E. Layer 2: transition windows and delayed slab copy ---
     release_tether = phononic_tether(
         width=tether_connection_width,
         segments=PHONONIC_SUPPORT_SEGMENTS,
@@ -741,8 +657,7 @@ def two_layer_tapered_fiber(
         overshoot=PHONONIC_SUPPORT_OVERSHOOT,
     )
     release_band_width = float(
-        release_tether.ports["a2"].center[0]
-        - release_tether.ports["a1"].center[0]
+        release_tether.ports["a2"].center[0] - release_tether.ports["a1"].center[0]
     )
     transition_x = np.linspace(
         0.0,
@@ -750,21 +665,13 @@ def two_layer_tapered_fiber(
         ADIABATIC_TAPER_POINTS,
     )
     transition_u = transition_x / RIDGE_TAPER_LENGTH
-    transition_weight = (
-        6 * transition_u**5
-        - 15 * transition_u**4
-        + 10 * transition_u**3
-    )
+    transition_weight = 6 * transition_u**5 - 15 * transition_u**4 + 10 * transition_u**3
     release_x = PNC_TAPER_LENGTH + transition_x
     start_inner = PNC_TAPER_END_WIDTH / 2
     start_outer = start_inner + release_band_width
-    release_target_half_y = SLAB_EXTENSION_START_WIDTH / 2 + (
-        POSITIVE_WINDOW_MARGIN
-    )
+    release_target_half_y = SLAB_EXTENSION_START_WIDTH / 2 + (POSITIVE_WINDOW_MARGIN)
     release_inner = start_inner * (1 - transition_weight)
-    release_outer = start_outer + (
-        release_target_half_y - start_outer
-    ) * transition_weight
+    release_outer = start_outer + (release_target_half_y - start_outer) * transition_weight
     upper_release = list(zip(release_x, release_inner, strict=True)) + list(
         zip(release_x[::-1], release_outer[::-1], strict=True)
     )
@@ -782,9 +689,9 @@ def two_layer_tapered_fiber(
     )
     copy_u = copy_x_local / POST_PNC_TAPER_LENGTH
     copy_weight = 6 * copy_u**5 - 15 * copy_u**4 + 10 * copy_u**3
-    copy_width = PNC_TAPER_END_WIDTH + (
-        SLAB_EXTENSION_START_WIDTH - PNC_TAPER_END_WIDTH
-    ) * copy_weight
+    copy_width = (
+        PNC_TAPER_END_WIDTH + (SLAB_EXTENSION_START_WIDTH - PNC_TAPER_END_WIDTH) * copy_weight
+    )
     copy_x = PNC_TAPER_LENGTH + copy_x_local
     copy_upper = [
         (float(x_value), float(width_value / 2))
@@ -803,6 +710,7 @@ def two_layer_tapered_fiber(
         layer=FULL_ETCH_LAYER,
     )
 
+    # --- 5F. Layers 11/14: PNC taper supports and full release opening ---
     if add_phononic_taper_support:
         component.add_ref(
             phononic_taper_shield(
@@ -822,19 +730,17 @@ def two_layer_tapered_fiber(
     # A lateral support pair stabilizes the longer suspended transition. Each
     # tip overlaps the local slab edge slightly and extends away from both
     # sides of the waveguide.
+    # --- 5G. Optional extra side-supports (disabled by current factory) ---
     support_u = SUPPORT_TIP_POSITION / PNC_TAPER_LENGTH
     support_weight = 6 * support_u**5 - 15 * support_u**4 + 10 * support_u**3
-    local_slab_width = SLAB_EXTENSION_END_WIDTH + (
-        PNC_TAPER_END_WIDTH - SLAB_EXTENSION_END_WIDTH
-    ) * support_weight
+    local_slab_width = (
+        SLAB_EXTENSION_END_WIDTH + (PNC_TAPER_END_WIDTH - SLAB_EXTENSION_END_WIDTH) * support_weight
+    )
     support_size = (
         SUPPORT_TIP_WIDTH,
         SUPPORT_TIP_LENGTH + SUPPORT_TIP_OVERLAP,
     )
-    support_center_y = (
-        local_slab_width / 2
-        + (SUPPORT_TIP_LENGTH - SUPPORT_TIP_OVERLAP) / 2
-    )
+    support_center_y = local_slab_width / 2 + (SUPPORT_TIP_LENGTH - SUPPORT_TIP_OVERLAP) / 2
     if add_support_tips:
         for side in (-1, 1):
             support = component.add_ref(
@@ -846,6 +752,7 @@ def two_layer_tapered_fiber(
             )
             support.move((SUPPORT_TIP_POSITION, side * support_center_y))
 
+    # --- 5H. Ports and metadata used by coupler packaging ---
     component.add_port(
         "o1",
         center=(0.0, 0.0),
@@ -857,25 +764,17 @@ def two_layer_tapered_fiber(
     component.info["profile"] = "two_layer_quintic_adiabatic"
     component.info["pnc_taper_length"] = PNC_TAPER_LENGTH
     component.info["post_pnc_taper_length"] = POST_PNC_TAPER_LENGTH
-    component.info["slab_extension_length"] = (
-        PNC_TAPER_LENGTH + POST_PNC_TAPER_LENGTH
-    )
+    component.info["slab_extension_length"] = PNC_TAPER_LENGTH + POST_PNC_TAPER_LENGTH
     component.info["slab_taper_length"] = SLAB_TAPER_LENGTH
     component.info["ridge_taper_length"] = ridge_taper_length
     component.info["support_tip_size"] = list(support_size)
     component.info["support_tip_position"] = SUPPORT_TIP_POSITION
     component.info["support_tips_added"] = add_support_tips
-    component.info["phononic_taper_support_added"] = (
-        add_phononic_taper_support
-    )
+    component.info["phononic_taper_support_added"] = add_phononic_taper_support
     component.info["layer10_max_taper_width"] = PNC_TAPER_END_WIDTH
-    component.info["layer2_end_distance"] = (
-        PNC_TAPER_LENGTH + RIDGE_TAPER_LENGTH
-    )
+    component.info["layer2_end_distance"] = PNC_TAPER_LENGTH + RIDGE_TAPER_LENGTH
     component.info["layer2_end_y_size"] = 2 * release_target_half_y
-    component.info["layer2_layer10_copy_delay"] = (
-        LAYER2_LAYER10_COPY_DELAY
-    )
+    component.info["layer2_layer10_copy_delay"] = LAYER2_LAYER10_COPY_DELAY
     component.info["slab_widths_at_extension"] = [
         SLAB_EXTENSION_END_WIDTH,
         PNC_TAPER_END_WIDTH,
@@ -888,10 +787,9 @@ def two_layer_tapered_fiber(
     return component
 
 
+# %% [06] COUPLER PACKAGING AND LONG CHANNELS
 # =============================================================================
-# 8. COUPLER ASSEMBLY AND SHARED MLA MASK
-# =============================================================================
-
+# Uses tapered_local.py for fiber guide, glue spots, ticks and channels.
 def make_tapered_coupler(
     tether_connection_width: float,
     ridge_taper_length: float,
@@ -903,8 +801,7 @@ def make_tapered_coupler(
     """Return a coupler whose narrow taper end matches its tether."""
     if not 0 < tether_connection_width < S_BEND_WIDTH:
         raise ValueError(
-            "tether_connection_width must be positive and narrower than "
-            "S_BEND_WIDTH"
+            "tether_connection_width must be positive and narrower than " "S_BEND_WIDTH"
         )
 
     taper_spec = partial(
@@ -936,9 +833,7 @@ def make_tapered_coupler(
         alignment_tick_window_layer=POSITIVE_RESIST_LAYER,
         alignment_tick_window_width=ALIGNMENT_TIP_WINDOW_WIDTH,
         alignment_tick_window_length=ALIGNMENT_TIP_WINDOW_LENGTH,
-        alignment_tick_window_inward_shift=(
-            ALIGNMENT_TIP_WINDOW_INWARD_SHIFT
-        ),
+        alignment_tick_window_inward_shift=(ALIGNMENT_TIP_WINDOW_INWARD_SHIFT),
         alignment_tick_x_offset=SLAB_EXTENSION_LENGTH,
         glue_layers=(POSITIVE_RESIST_LAYER, Layers.via),
         oxide_open_layer=POSITIVE_RESIST_LAYER,
@@ -949,15 +844,17 @@ def make_tapered_coupler(
         oxide_open_start_offset=MLA_CHANNEL_START_OFFSET,
         oxide_open_duplicate_layer=Layers.via,
         oxide_open_duplicate_angle=LAYER14_CHANNEL_ANGLE,
-        oxide_open_duplicate_length=2000.0,
+        oxide_open_duplicate_length=LAYER14_CHANNEL_LENGTH,
         oxide_open_duplicate_start_width=LAYER14_CHANNEL_START_WIDTH,
         oxide_open_duplicate_start_at_taper_end=False,
-        oxide_open_duplicate_start_offset=(
-            SLAB_EXTENSION_LENGTH + LAYER14_CHANNEL_START_OFFSET
-        ),
+        oxide_open_duplicate_start_offset=(SLAB_EXTENSION_LENGTH + LAYER14_CHANNEL_START_OFFSET),
     )
 
 
+# %% [07] EXPOSURE AND PROTECTION MASKS: LAYERS 2 / 14 / 16
+# =============================================================================
+# Flatten independent copies before editing. Do NOT recursively remove
+# layers from shared/cached child cells: that can erase other devices.
 def fill_layer14_taper_seams(
     layer14: gf.Component,
     connection_centers,
@@ -973,17 +870,13 @@ def fill_layer14_taper_seams(
     """
     layer_index = gf.get_layer(Layers.via)
     dbu = float(layer14.kcl.dbu)
-    region = gf.kdb.Region(
-        layer14.kdb_cell.begin_shapes_rec(layer_index)
-    ).merged()
+    region = gf.kdb.Region(layer14.kdb_cell.begin_shapes_rec(layer_index)).merged()
     fills = gf.kdb.Region()
     filled_count = 0
     half_width = SLAB_EXTENSION_END_WIDTH / 2
     tolerance = dbu / 2
     frames = []
-    for center, orientation in zip(
-        connection_centers, connection_orientations, strict=True
-    ):
+    for center, orientation in zip(connection_centers, connection_orientations, strict=True):
         angle = radians(float(orientation))
         outward = np.array([-cos(angle), -sin(angle)])
         normal = np.array([-outward[1], outward[0]])
@@ -1024,15 +917,13 @@ def add_shared_mla_window(
     if margin <= 0:
         raise ValueError("POSITIVE_WINDOW_MARGIN must be positive")
     if end_extension < margin:
-        raise ValueError(
-            "POSITIVE_WINDOW_END_EXTENSION must be at least "
-            "POSITIVE_WINDOW_MARGIN"
-        )
+        raise ValueError("POSITIVE_WINDOW_END_EXTENSION must be at least " "POSITIVE_WINDOW_MARGIN")
 
     negative_layer = tuple(NEGATIVE_RESIST_LAYER)
     positive_layer = tuple(POSITIVE_RESIST_LAYER)
 
     # Flatten only a temporary copy for the offset calculation.
+    # --- 7A. Layer 2: expanded optical-taper exposure window ---
     positive_window = gf.Component()
     positive_window.add_ref(window_source)
     positive_window.flatten()
@@ -1049,8 +940,8 @@ def add_shared_mla_window(
         recursive=False,
     )
 
-    # Clip the former Layer-12 shape at the Layer-15 endpoint before assigning
-    # it to the shared Layer-2 MLA mask.
+    # Start the expanded Layer-2 taper window at the END OF STAGE 1.
+    # For Design 2 this is not the final ridge endpoint. There is no Layer 12.
     release_start_distance = PNC_TAPER_LENGTH + RIDGE_TAPER_LENGTH
     layer12_start_regions = gf.Component()
     clip_length = 6000.0
@@ -1062,9 +953,7 @@ def add_shared_mla_window(
     ):
         angle = radians(orientation)
         outward = np.array([-cos(angle), -sin(angle)])
-        release_start = np.asarray(center, dtype=float) + (
-            release_start_distance * outward
-        )
+        release_start = np.asarray(center, dtype=float) + (release_start_distance * outward)
         clip_center = release_start + clip_length / 2 * outward
         clip = layer12_start_regions.add_ref(
             gf.components.rectangle(
@@ -1084,16 +973,13 @@ def add_shared_mla_window(
         layer2=positive_layer,
     )
 
+    # --- 7B. Layer 16: optical-ridge offset (before moving alignment tips) ---
     ridge_protection = gf.Component()
     ridge_protection.add_ref(device)
     ridge_protection.flatten()
     ridge_layer = tuple(RIDGE_LAYER)
     ridge_protection.remove_layers(
-        [
-            layer
-            for layer in ridge_protection.layers
-            if tuple(layer) != ridge_layer
-        ]
+        [layer for layer in ridge_protection.layers if tuple(layer) != ridge_layer]
     )
     ridge_protection.offset(
         layer=ridge_layer,
@@ -1115,6 +1001,7 @@ def add_shared_mla_window(
     # exactly by the OUTER edges of Layer 2. Here we keep the existing Layer-2
     # copy through the adjacent PNC/taper regions and clip it at the current
     # Layer-14 channel starts.
+    # --- 7C. Layer 14: central opening and local start coordinates ---
     layer14_start_points = []
     for center, orientation in zip(
         window_source.info["s_bend_connection_centers"],
@@ -1125,28 +1012,19 @@ def add_shared_mla_window(
         outward = np.array([-cos(angle), -sin(angle)])
         layer14_start_points.append(
             np.asarray(center, dtype=float)
-            + (
-                SLAB_EXTENSION_LENGTH
-                + LAYER14_CHANNEL_START_OFFSET
-            )
-            * outward
+            + (SLAB_EXTENSION_LENGTH + LAYER14_CHANNEL_START_OFFSET) * outward
         )
 
     layer14_starts = np.asarray(layer14_start_points, dtype=float)
     layer14_xmin = float(layer14_starts[:, 0].min())
     layer14_xmax = float(layer14_starts[:, 0].max())
 
-    # Copy only the device's meander/PNC release geometry.  Deliberately do
-    # not copy ``positive_window`` because that is the expanded taper-tip
-    # region on Layer 2 and is not wanted on Layer 14.
+    # First copy the central PNC/taper bands. The COMPLETE cleaned
+    # Layer-2 window is merged into Layer 14 later in this function.
     layer14_pattern_source = device.copy()
     layer14_pattern_source.flatten()
     layer14_pattern_source.remove_layers(
-        [
-            layer
-            for layer in layer14_pattern_source.layers
-            if tuple(layer) != positive_layer
-        ]
+        [layer for layer in layer14_pattern_source.layers if tuple(layer) != positive_layer]
     )
     layer14_pattern_source.remap_layers(
         {positive_layer: tuple(Layers.via)},
@@ -1180,14 +1058,14 @@ def add_shared_mla_window(
 
     # Remove the companion-window blocks at BOTH taper tips.  Work in
     # device-local coordinates so every straight-length variant receives
-    # exactly the same two-ended cleanup. Layer-10 alignment tips are kept.
+    # exactly the same two-ended cleanup. Alignment tips are retained
+    # here and moved from Layer 10 to Layer 15 at the end of make_device().
+    # --- 7D. Both ends: remove only companion-window blocks ---
     layer14_tip_exclusions = gf.Component()
     tick_half_separation = 15.0 / 2 - ALIGNMENT_TIP_WINDOW_INWARD_SHIFT
     tick_window_x_offset = 0.25 + ALIGNMENT_TIP_WINDOW_WIDTH / 2
     tip_orientations = window_source.info["s_bend_connection_orientations"]
-    for tip_start, tip_orientation in zip(
-        layer14_start_points, tip_orientations, strict=True
-    ):
+    for tip_start, tip_orientation in zip(layer14_start_points, tip_orientations, strict=True):
         tip_angle = radians(tip_orientation)
         outward = np.array([-cos(tip_angle), -sin(tip_angle)])
         normal = np.array([-outward[1], outward[0]])
@@ -1200,8 +1078,7 @@ def add_shared_mla_window(
                 )
                 exclusion = layer14_tip_exclusions.add_ref(
                     gf.components.rectangle(
-                        size=(ALIGNMENT_TIP_WINDOW_WIDTH,
-                              ALIGNMENT_TIP_WINDOW_LENGTH),
+                        size=(ALIGNMENT_TIP_WINDOW_WIDTH, ALIGNMENT_TIP_WINDOW_LENGTH),
                         centered=True,
                         layer=Layers.via,
                     )
@@ -1219,6 +1096,7 @@ def add_shared_mla_window(
     )
     result.add_ref(layer14_central_pattern)
 
+    # --- 7E. Layer 2: extend the outer window to meet its long channel ---
     for center, orientation, taper_width in zip(
         window_source.info["taper_end_centers"],
         window_source.info["taper_end_orientations"],
@@ -1249,6 +1127,7 @@ def add_shared_mla_window(
     # The same local exclusion is also applied to the pre-existing Layer 14
     # before the union, so the old tip blocks cannot survive from another
     # Layer-14 construction path.
+    # --- 7F. Clean Layer 2 and restore its continuous central openings ---
     layer2_tip_exclusions = layer14_tip_exclusions.copy()
     layer2_tip_exclusions.flatten()
     layer2_tip_exclusions.remap_layers(
@@ -1259,11 +1138,7 @@ def add_shared_mla_window(
     existing_layer2 = result.copy()
     existing_layer2.flatten()
     existing_layer2.remove_layers(
-        [
-            layer
-            for layer in existing_layer2.layers
-            if tuple(layer) != positive_layer
-        ]
+        [layer for layer in existing_layer2.layers if tuple(layer) != positive_layer]
     )
     cleaned_layer2 = gf.boolean(
         A=existing_layer2,
@@ -1274,17 +1149,15 @@ def add_shared_mla_window(
         layer2=positive_layer,
     )
 
-    # Ignore the old top/bottom tip blocks entirely and rebuild only the
+    # Rebuild the central opening after companion-window removal. Keep the
     # central release opening as one smooth continuous bridge through this
     # local transition.  The bridge width is the intended taper opening
-    # (optical taper width + 2*MLA margin), so it does not recreate the
+    # (stage-1 slab width + 2*MLA margin), so it does not recreate the
     # removed companion blocks.
     smooth_tip_bridge = gf.Component()
     bridge_length = 6.0
     bridge_width = SLAB_EXTENSION_START_WIDTH + 2 * margin
-    for tip_start, tip_orientation in zip(
-        layer14_start_points, tip_orientations, strict=True
-    ):
+    for tip_start, tip_orientation in zip(layer14_start_points, tip_orientations, strict=True):
         bridge = smooth_tip_bridge.add_ref(
             gf.components.rectangle(
                 size=(bridge_length, bridge_width),
@@ -1310,6 +1183,7 @@ def add_shared_mla_window(
     result.remove_layers([positive_layer], recursive=False)
     result.add_ref(cleaned_layer2)
 
+    # --- 7G. Layer 14: merge the ENTIRE cleaned Layer-2 mask ---
     layer2_full_copy = cleaned_layer2.copy()
     layer2_full_copy.flatten()
     layer2_full_copy.remap_layers(
@@ -1320,11 +1194,7 @@ def add_shared_mla_window(
     existing_layer14 = result.copy()
     existing_layer14.flatten()
     existing_layer14.remove_layers(
-        [
-            layer
-            for layer in existing_layer14.layers
-            if tuple(layer) != tuple(Layers.via)
-        ]
+        [layer for layer in existing_layer14.layers if tuple(layer) != tuple(Layers.via)]
     )
     existing_layer14 = gf.boolean(
         A=existing_layer14,
@@ -1346,14 +1216,13 @@ def add_shared_mla_window(
 
     # Fill the tiny enclosed taper-junction holes on Layer 14 only.
     # Do this after the union so mask fragments cannot recreate the seams.
+    # --- 7H. Layer 14 only: fill bounded taper-junction seams ---
     merged_layer14 = fill_layer14_taper_seams(
         merged_layer14,
         window_source.info["s_bend_connection_centers"],
         window_source.info["s_bend_connection_orientations"],
     )
-    result.info["layer14_taper_holes_filled"] = int(
-        merged_layer14.info["taper_seam_holes_filled"]
-    )
+    result.info["layer14_taper_holes_filled"] = int(merged_layer14.info["taper_seam_holes_filled"])
     result.info["layer14_taper_fill_area_um2"] = float(
         merged_layer14.info["taper_seam_fill_area_um2"]
     )
@@ -1368,17 +1237,14 @@ def add_shared_mla_window(
     # placement. Do not export that temporary geometry on any mask layer.
     result.flatten()
     result.remove_layers([MEANDER_CONSTRUCTION_LAYER], recursive=False)
+    # --- 7I. Record final mask metadata; construction layer already removed ---
     result.info["mask_mode"] = "dual_resist_shared_etch"
     result.info["negative_resist_layer"] = negative_layer
     result.info["positive_resist_layer"] = positive_layer
     result.info["positive_window_margin"] = float(margin)
     result.info["positive_window_end_extension"] = float(end_extension)
-    result.info["layer2_transition_endpoint_distance"] = (
-        release_start_distance
-    )
-    result.info["layer2_release_target_y_size"] = (
-        SLAB_EXTENSION_START_WIDTH + 2 * margin
-    )
+    result.info["layer2_transition_endpoint_distance"] = release_start_distance
+    result.info["layer2_release_target_y_size"] = SLAB_EXTENSION_START_WIDTH + 2 * margin
     result.info["layer2_adiabatic_taper_length"] = RIDGE_TAPER_LENGTH
     result.info["ridge_protection_layer"] = tuple(RIDGE_PROTECTION_LAYER)
     result.info["ridge_protection_margin"] = RIDGE_PROTECTION_MARGIN
@@ -1390,10 +1256,10 @@ def add_shared_mla_window(
     return result
 
 
+# %% [08] ALIGNMENT TICKS: MOVE LAYER 10 TO LAYER 15
 # =============================================================================
-# 9. TOP-LEVEL DEVICE SWEEP AND PLACEMENT
-# =============================================================================
-
+# Two 0.5 x 10 um ticks per taper end; shapes/positions are unchanged.
+# This late move prevents them from changing the Layer-16 protection mask.
 def alignment_tip_region(tip_centers, orientations, dbu: float):
     """Exact 0.5 x 10 um alignment ticks: two at each taper end.
 
@@ -1407,14 +1273,18 @@ def alignment_tip_region(tip_centers, orientations, dbu: float):
         normal = np.array([-sin(angle), cos(angle)])
         for side in (-1.0, 1.0):
             center = np.asarray(tip, dtype=float) + side * 7.5 * normal
-            corners = [center + dx * tangent + dy * normal
-                       for dx, dy in ((-0.25, -5.0), (0.25, -5.0),
-                                      (0.25, 5.0), (-0.25, 5.0))]
-            region.insert(gf.kdb.Polygon([
-                gf.kdb.Point(int(round(point[0] / dbu)),
-                             int(round(point[1] / dbu)))
-                for point in corners
-            ]))
+            corners = [
+                center + dx * tangent + dy * normal
+                for dx, dy in ((-0.25, -5.0), (0.25, -5.0), (0.25, 5.0), (-0.25, 5.0))
+            ]
+            region.insert(
+                gf.kdb.Polygon(
+                    [
+                        gf.kdb.Point(int(round(point[0] / dbu)), int(round(point[1] / dbu)))
+                        for point in corners
+                    ]
+                )
+            )
     return region.merged()
 
 
@@ -1426,8 +1296,7 @@ def move_alignment_tips_to_layer15(component, tip_centers, orientations):
     no cached child cells or other Layer-10/Layer-15 polygons are edited.
     """
     component.flatten()
-    expected = alignment_tip_region(tip_centers, orientations,
-                                    float(component.kcl.dbu))
+    expected = alignment_tip_region(tip_centers, orientations, float(component.kcl.dbu))
     expected_polygons = list(expected.each())
     source_shapes = component.kdb_cell.shapes(gf.get_layer(NEGATIVE_RESIST_LAYER))
     destination = component.kdb_cell.shapes(gf.get_layer(RIDGE_LAYER))
@@ -1438,15 +1307,14 @@ def move_alignment_tips_to_layer15(component, tip_centers, orientations):
             continue
         polygon = gf.kdb.Polygon(shape.box) if shape.is_box() else shape.polygon
         for target in expected_polygons:
-            if polygon.bbox() == target.bbox() and (
-                gf.kdb.Region(polygon) ^ gf.kdb.Region(target)
-            ).is_empty():
+            if (
+                polygon.bbox() == target.bbox()
+                and (gf.kdb.Region(polygon) ^ gf.kdb.Region(target)).is_empty()
+            ):
                 selected.append(shape)
                 selected_region.insert(polygon)
                 break
-    if len(selected) != 2 * len(tip_centers) or not (
-        selected_region ^ expected
-    ).is_empty():
+    if len(selected) != 2 * len(tip_centers) or not (selected_region ^ expected).is_empty():
         raise ValueError("Expected exactly two complete Layer-10 ticks per taper end")
     # Copy each original shape exactly, then erase only that source shape.
     for shape in selected:
@@ -1456,6 +1324,9 @@ def move_alignment_tips_to_layer15(component, tip_centers, orientations):
     component.info["alignment_tip_count"] = len(selected)
 
 
+# %% [09] ONE COMPLETE DEVICE: make_device(meander_straight_length)
+# =============================================================================
+# This is the sole all-layer device factory. Every sweep entry calls it.
 def make_device(meander_straight_length: float) -> gf.Component:
     """Build one complete, independent all-layer device in local coordinates.
 
@@ -1471,6 +1342,7 @@ def make_device(meander_straight_length: float) -> gf.Component:
     connection_width = REVIEW_TETHER_CONNECTION_WIDTH
     taper_angle = TAPER_ANGLE
     support_period = REVIEW_SUPPORT_ANCHOR_PERIOD
+    # --- 9A. Configure butterfly tether and common meander geometry ---
     tether_spec = partial(
         TETHER_FACTORIES[TETHER_VARIANT],
         layer=NEGATIVE_RESIST_LAYER,
@@ -1501,6 +1373,7 @@ def make_device(meander_straight_length: float) -> gf.Component:
         ridge_s_bend_layer=RIDGE_LAYER,
         ridge_s_bend_width=RIDGE_EXTENSION_END_WIDTH,
     )
+    # --- 9B. Draw BOTH ends, meander, PNCs, tethers, and support pads ---
     device = tapered_fiber_inout(
         **common_device_kwargs,
         s_bend_support_shield_spec=partial(
@@ -1526,11 +1399,10 @@ def make_device(meander_straight_length: float) -> gf.Component:
         extra_rectangle_layer=POSITIVE_RESIST_LAYER,
         extra_rectangle_fill_layer=Layers.ring,
         extra_rectangle_margin=0.0,
-        extra_rectangle_surround_slot_width=(
-            SUPPORT_SURROUND_SLOT_WIDTH
-        ),
+        extra_rectangle_surround_slot_width=(SUPPORT_SURROUND_SLOT_WIDTH),
         tether_spec=tether_spec,
     )
+    # --- 9C. Separate source for exposure-window construction ---
     window_source = tapered_fiber_inout(
         **common_device_kwargs,
         tapered_fiber_spec=make_tapered_coupler(
@@ -1544,35 +1416,52 @@ def make_device(meander_straight_length: float) -> gf.Component:
 
     # Snapshot placement information BEFORE assembling the independent masks.
     left_pnc_x = float(device.bbox(layer=gf.get_layer(PNC_EBL_LAYER)).left)
-    connection_centers = [list(map(float, p)) for p in
-                          window_source.info["s_bend_connection_centers"]]
-    connection_orientations = list(map(float,
-        window_source.info["s_bend_connection_orientations"]))
+    connection_centers = [
+        list(map(float, p)) for p in window_source.info["s_bend_connection_centers"]
+    ]
+    connection_orientations = list(map(float, window_source.info["s_bend_connection_orientations"]))
+    # --- 9D. Complete Layer 2 / 14 / 16 masks on owned polygons ---
     component = add_shared_mla_window(device, window_source)
     component.flatten()
 
-    euler_length = float(gf.path.euler(
-        radius=S_BEND_COMPACT_180_RADIUS, angle=180,
-        p=S_BEND_EULER_P, use_eff=True).length())
-    total_length = (2 * S_BEND_HALF_LENGTH + 2 * meander_straight_length
-                    + 2 * euler_length)
+    # --- 9E. Length label and alignment-tip coordinates ---
+    euler_length = float(
+        gf.path.euler(
+            radius=S_BEND_COMPACT_180_RADIUS, angle=180, p=S_BEND_EULER_P, use_eff=True
+        ).length()
+    )
+    total_length = 2 * S_BEND_HALF_LENGTH + 2 * meander_straight_length + 2 * euler_length
     tips = []
-    for center, orientation in zip(connection_centers,
-                                   connection_orientations, strict=True):
+    for center, orientation in zip(connection_centers, connection_orientations, strict=True):
         angle = radians(orientation)
-        tips.append(np.asarray(center) + SLAB_EXTENSION_LENGTH
-                    * np.array([-cos(angle), -sin(angle)]))
+        tips.append(
+            np.asarray(center) + SLAB_EXTENSION_LENGTH * np.array([-cos(angle), -sin(angle)])
+        )
     left_tip = min(tips, key=lambda point: float(point[0]))
-    label = component.add_ref(gf.components.text(
-        text=f"ML{total_length:.1f}_TL{POST_PNC_TAPER_LENGTH + SLAB_TAPER_LENGTH:g}",
-        size=DETAIL_LABEL_SIZE, layer=MARKER_LAYER))
-    label.move((float(left_tip[0]) + DETAIL_LABEL_TIP_X_OFFSET,
-                float(left_tip[1]) + DETAIL_LABEL_TIP_Y_OFFSET))
+    label = component.add_ref(
+        gf.components.text(
+            text=f"ML{total_length:.1f}_TL{POST_PNC_TAPER_LENGTH + SLAB_TAPER_LENGTH:g}",
+            size=DETAIL_LABEL_SIZE,
+            layer=MARKER_LAYER,
+        )
+    )
+    label.move(
+        (
+            float(left_tip[0]) + DETAIL_LABEL_TIP_X_OFFSET,
+            float(left_tip[1]) + DETAIL_LABEL_TIP_Y_OFFSET,
+        )
+    )
     label_box = label.bbox()
-    label_bounds = [float(label_box.left), float(label_box.bottom),
-                    float(label_box.right), float(label_box.top)]
+    label_bounds = [
+        float(label_box.left),
+        float(label_box.bottom),
+        float(label_box.right),
+        float(label_box.top),
+    ]
     component.flatten()
+    # --- 9F. Move alignment ticks AFTER all exposure/protection masks ---
     move_alignment_tips_to_layer15(component, tips, connection_orientations)
+    # --- 9G. Return complete independent geometry plus metadata ---
     component.info["builder"] = "make_device"
     component.info["meander_straight_length_um"] = meander_straight_length
     component.info["total_meander_length_um"] = total_length
@@ -1585,38 +1474,65 @@ def make_device(meander_straight_length: float) -> gf.Component:
     return component
 
 
+# %% [10] CHIP PLACEMENT AND GLOBAL MARKERS
+# =============================================================================
+# Only whole-device translations occur here. All layers move together.
+def add_chip_outline_and_markers(component: gf.Component, device_count: int) -> None:
+    """Add only the chip outline and global overlay markers to a layout.
+
+    All devices are already placed. No device polygons are edited here.
+    """
+    # Chip outline and global overlay markers are not part of the length sweep.
+    chip_shape = (
+        CHIP_WIDTH,
+        max(CHIP_MIN_HEIGHT, (device_count - 1) * DEVICE_Y_PITCH + CHIP_Y_ALLOWANCE),
+    )
+    component.add_ref(gf.components.rectangle(size=chip_shape, centered=True, layer=(0, 0)))
+    for marker_chip_shape, arm_length in (
+        (chip_shape, GLOBAL_MARKER_ARM_LENGTHS[0]),
+        (
+            (chip_shape[0] - INNER_MARKER_CHIP_WIDTH_REDUCTION, chip_shape[1]),
+            GLOBAL_MARKER_ARM_LENGTHS[1],
+        ),
+    ):
+        component.add_ref(
+            calipermarker_array(
+                chip_shape=marker_chip_shape,
+                arm_length=arm_length,
+                arm_width=LAYER10_MARKER_ARM_WIDTH,
+                center_square_size=LAYER10_MARKER_CENTER_SQUARE_SIZE,
+                layer1=NEGATIVE_RESIST_LAYER,
+                layer2=None,
+            )
+        )
+        component.add_ref(
+            calipermarker_array(
+                chip_shape=marker_chip_shape,
+                arm_length=arm_length + MLA_MARKER_SIZE_INCREASE,
+                arm_width=MLA_MARKER_ARM_WIDTH,
+                center_square_size=MLA_MARKER_CENTER_SQUARE_SIZE,
+                layer1=MARKER_LAYER,
+                layer2=None,
+            )
+        )
+
+
 def build_layout() -> gf.Component:
-    """Place complete devices with aligned left bends and 600 um Y pitch."""
+    """Call make_device for each length; align entire devices, then add chip marks."""
+    validate_settings()
     gf.gpdk.PDK.activate()
-    fin = gf.Component(f"{Path(__file__).stem}_L10_L12")
+    fin = gf.Component(TOP_CELL_NAME)
     lengths = tuple(float(length) for length in MEANDER_STRAIGHT_LENGTHS)
     devices = [make_device(length) for length in lengths]
     # Translate each COMPLETE device. Do not edit, clip, or remap any layer.
     # The reference is the leftmost Layer-11 PNC edge at the left Euler bend.
     # Device 1 stays in place; the longer devices move right to align here.
-    x_shifts = [
-        LEFT_BEND_ALIGNMENT_X - float(device.info["left_pnc_bend_x"])
-        for device in devices
-    ]
+    x_shifts = [LEFT_BEND_ALIGNMENT_X - float(device.info["left_pnc_bend_x"]) for device in devices]
     y_positions = [BOTTOM_DEVICE_Y + i * DEVICE_Y_PITCH for i in range(len(devices))]
     for device, x_shift, y_position in zip(devices, x_shifts, y_positions, strict=True):
         fin.add_ref(device).move((x_shift, y_position))
 
-    # Chip outline and global overlay markers are not part of the length sweep.
-    chip_shape = (5000.0, max(10000.0, (len(devices) - 1) * DEVICE_Y_PITCH + 1000))
-    fin.add_ref(gf.components.rectangle(size=chip_shape, centered=True, layer=(0, 0)))
-    for marker_chip_shape, arm_length in (
-        (chip_shape, 50), ((chip_shape[0] - 1000, chip_shape[1]), 80)
-    ):
-        fin.add_ref(calipermarker_array(
-            chip_shape=marker_chip_shape, arm_length=arm_length,
-            arm_width=LAYER10_MARKER_ARM_WIDTH,
-            center_square_size=LAYER10_MARKER_CENTER_SQUARE_SIZE,
-            layer1=NEGATIVE_RESIST_LAYER, layer2=None))
-        fin.add_ref(calipermarker_array(
-            chip_shape=marker_chip_shape, arm_length=arm_length + MLA_MARKER_SIZE_INCREASE,
-            arm_width=MLA_MARKER_ARM_WIDTH, center_square_size=MLA_MARKER_CENTER_SQUARE_SIZE,
-            layer1=MARKER_LAYER, layer2=None))
+    add_chip_outline_and_markers(fin, len(devices))
     fin.info["device_count"] = len(devices)
     fin.info["device_cells"] = [device.name for device in devices]
     fin.info["meander_straight_lengths"] = list(lengths)
@@ -1632,13 +1548,57 @@ def build_layout() -> gf.Component:
     return fin
 
 
+# %% [11] SETTINGS CHECKS AND GDS EXPORT
+# =============================================================================
+def validate_settings() -> None:
+    """Catch empty sweeps and invalid common dimensions before writing a GDS.
+
+    These are basic input checks, NOT fabrication DRC or optical validation.
+    """
+    if not MEANDER_STRAIGHT_LENGTHS:
+        raise ValueError("MEANDER_STRAIGHT_LENGTHS must contain at least one device")
+    for length in MEANDER_STRAIGHT_LENGTHS:
+        if not np.isfinite(float(length)) or float(length) < 0:
+            raise ValueError("Meander straight lengths must be finite and non-negative")
+    dimensions = {
+        "DEVICE_Y_PITCH": DEVICE_Y_PITCH,
+        "S_BEND_COMPACT_180_RADIUS": S_BEND_COMPACT_180_RADIUS,
+        "RIDGE_MEANDER_WIDTH": RIDGE_MEANDER_WIDTH,
+        "RIDGE_TAPER_LENGTH": RIDGE_TAPER_LENGTH,
+        "SLAB_TAPER_LENGTH": SLAB_TAPER_LENGTH,
+        "REVIEW_TETHER_CONNECTION_WIDTH": REVIEW_TETHER_CONNECTION_WIDTH,
+        "POSITIVE_WINDOW_MARGIN": POSITIVE_WINDOW_MARGIN,
+        "CHIP_WIDTH": CHIP_WIDTH,
+        "CHIP_MIN_HEIGHT": CHIP_MIN_HEIGHT,
+    }
+    for name, value in dimensions.items():
+        if not np.isfinite(value) or value <= 0:
+            raise ValueError(f"{name} must be finite and positive")
+    if not 0 <= S_BEND_EULER_P <= 1:
+        raise ValueError("S_BEND_EULER_P must be between 0 and 1")
+    if POSITIVE_WINDOW_END_EXTENSION < POSITIVE_WINDOW_MARGIN:
+        raise ValueError("POSITIVE_WINDOW_END_EXTENSION must be >= POSITIVE_WINDOW_MARGIN")
+    if not all(np.isfinite(v) for v in (BOTTOM_DEVICE_Y, LEFT_BEND_ALIGNMENT_X)):
+        raise ValueError("Device placement coordinates must be finite")
+
+
+def export_gds(output_path: str | Path | None = None) -> Path:
+    """Build and write the complete layout; return the actual saved path.
+
+    Default: GDS / OUTPUT_GDS_FILENAME. Supplying a path does not change
+    geometry. An existing file at that path is overwritten.
+    """
+    path = Path(output_path) if output_path is not None else GDS / OUTPUT_GDS_FILENAME
+    if path.suffix.lower() != ".gds":
+        raise ValueError("The output filename must end in .gds")
+    component = build_layout()
+    path.parent.mkdir(parents=True, exist_ok=True)
+    options = gf.kdb.SaveLayoutOptions()
+    options.gds2_max_vertex_count = GDS_MAX_VERTEX_COUNT
+    component.write_gds(path, save_options=options, with_metadata=False)
+    return path
+
+
 if __name__ == "__main__":
-    GDS.mkdir(parents=True, exist_ok=True)
-    fin = build_layout()
-    gds_save_options = gf.kdb.SaveLayoutOptions()
-    gds_save_options.gds2_max_vertex_count = 2000
-    fin.write_gds(
-        os.path.join(GDS, f"{fin.name}.gds"),
-        save_options=gds_save_options,
-        with_metadata=False,
-    )
+    saved_path = export_gds()
+    print(f"Wrote {saved_path}")
