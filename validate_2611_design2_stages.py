@@ -176,7 +176,8 @@ def run():
     label=box_region(d.info['label_bbox_um'],dbu)
     missing=((r[(2,0)]-r[(14,0)])-label).area()*dbu**2
     check('layer14_covers_all_layer2_windows',missing<=TOL,missing_um2=float(missing))
-    roi=box_region((150.001,-1000,10000,-25),dbu)
+    half = float(d.info['meander_half_port_separation_um'])
+    roi=box_region((half+0.001,-1000,10000,-25),dbu)
     # Compare complete masks, excluding only actual text polygons.
     # Never cut a label bounding-box hole into the release mask.
     left_tip = min(d.info['tip_centers'], key=lambda p: p[0])
@@ -195,7 +196,7 @@ def run():
         diff = delta.area()*dbu**2
         check(f'layer{layer[0]}_end_to_end_symmetry',diff<=TOL,rotated_xor_um2=float(diff))
     # Check for residual center holes only in the taper areas, not support pads.
-    taper_roi=box_region((195,-205,325,-195),dbu)+box_region((-325,195,-195,205),dbu)
+    taper_roi=box_region((half+45,-205,half+175,-195),dbu)+box_region((-half-175,195,-half-45,205),dbu)
     holes=kdb.Region()
     for poly in r[(14,0)].merged().each():
         for i in range(poly.holes()):
@@ -206,20 +207,8 @@ def run():
     delta=compare(r,snapshot(repeated),dbu)
     check('factory_repeatable_without_shared_cell_mutation',all(v==0 for v in delta.values()),xor_um2=delta)
 
-    before=OUT/'before.gds'
-    if before.exists():
-        oldly,_=read(before)
-        old_instances=actual_device_instances(oldly)
-        assert len(old_instances)==1
-        old=file_snapshot(oldly,old_instances[0].cell)
-        old_tip_boxes=box_region((-235.25,187.5,-234.75,197.5),dbu)+box_region((-235.25,202.5,-234.75,212.5),dbu)
-        old_tip_boxes+=old_tip_boxes.transformed(kdb.Trans(kdb.Trans.R180))
-        old_optical=old[(15,0)]-old_tip_boxes
-        allowed=box_region((194.999,-205,500,-195),dbu)+box_region((-500,195,-194.999,205),dbu)
-        unchanged=((old_optical^optical)-allowed).area()*dbu**2
-        check('meander_and_pnc_ridge_unchanged',unchanged<=TOL,unexpected_xor_um2=float(unchanged))
-        pd=(old[(11,0)]^r[(11,0)]).area()*dbu**2
-        check('entire_layer11_pnc_geometry_unchanged',pd<=TOL,xor_um2=float(pd))
+    if (OUT/'before.gds').exists():
+        raise ValueError('Archive the historical taper-only before.gds; use validate_2611_equal_straights.py for moved-port comparisons')
 
     top=m.build_layout()
     path=ROOT/'gds/2611_tapered_yue_design2.gds'

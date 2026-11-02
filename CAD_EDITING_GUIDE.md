@@ -1,7 +1,7 @@
 # Editing Design 1 and Design 2
 
-Both generators now use the same section numbers. The cleanup preserves the
-approved CAD geometry; it does not redesign either device.
+Both generators use the same section numbers. The latest meander update uses
+three equal straight sections joined by two unchanged 180-degree Euler bends.
 
 | Design | Script | Default output |
 |---|---|---|
@@ -35,9 +35,11 @@ MEANDER_STRAIGHT_LENGTHS = (200.0, 800.0, 1400.0)
 ```
 
 The tuple is the ONLY device-count control. Both scripts currently retain the
-approved one-device 800 um setting. Each entry controls the middle straight
-section, not total optical path length. The outer straight leads also adjust
-to maintain the two connection ports. Other Section-01 settings are shared by
+one-device 800 um setting. Each entry controls ALL THREE straight sections,
+not the total optical path length. With L=800, the straights are 800/800/800 um.
+The horizontal port coordinates are -L/2 and +L/2; complete end assemblies
+follow those ports without any change to their local geometry.
+Other Section-01 settings are shared by
 all devices in that script; they are not per-device dictionaries.
 
 The device origin is placed at `BOTTOM_DEVICE_Y + index * DEVICE_Y_PITCH`.
@@ -108,7 +110,31 @@ is derived as three straight periods, so changing the straight period also
 changes that taper's length. `PHONONIC_SUPPORT_SEGMENTS` and
 `PHONONIC_SUPPORT_GAPS` define the library cell's masses and gaps.
 `S_BEND_TAPER_LENGTH` belongs to the inherited noncompact route; it is not the
-middle-straight sweep control.
+equal-straight sweep control.
+
+### Equal-straight length calculation
+
+In both scripts, `make_device(L)` now draws:
+
+```text
+straight L -> 180-degree Euler bend -> straight L
+           -> opposite 180-degree Euler bend -> straight L
+```
+
+The centerline length between the two meander ports is
+`L_total = 3 * L + 2 * L_bend180`. The code measures `L_bend180` with
+`gf.path.euler(radius=S_BEND_COMPACT_180_RADIUS, angle=180,
+p=S_BEND_EULER_P, use_eff=True).length()`, rather than using the circular
+approximation `pi*R`. The device ML label and metadata use this same formula.
+PNC/optical tapers outside the meander ports and tethers are NOT included.
+
+For the unchanged radius and Euler fraction, the bend contribution is constant;
+increasing L by 100 um increases the total meander length by 300 um.
+The left bend alignment and Y pitch are retained. End assemblies move along X
+as needed; they are not clipped, stretched or copied between devices.
+`S_BEND_HALF_LENGTH` is no longer an editable constant: Section 09 calculates
+its per-device replacement as L/2. L must be positive. Keep `TAPER_ANGLE=0`;
+rotate an entire device instance when a rotated device is needed.
 
 ### 1E: Tethers and support islands
 
@@ -190,6 +216,13 @@ The cleanup uses the existing GDSFactory 9.45.0 environment and support files;
 it does not add a new runtime module dependency.
 
 ## 4. Check changes
+
+Run `python validate_2611_equal_straights.py` for the current equal-straight
+geometry, complete-end preservation, connected meander/masks, exact length
+labels, export and placement checks in both designs. This regenerates both
+production GDS files. The original pre-change comparison is available when
+the matching baseline is retained in `validation_2611_equal_straights/baseline/`.
+
 
 ```bash
 python validate_2611_cleanup.py
