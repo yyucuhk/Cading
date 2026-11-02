@@ -1,11 +1,11 @@
-name: Inspect Layer2 tip block
+name: Inspect device-local L2-L14 difference
 
 on:
   push:
 
 jobs:
   inspect:
-    if: github.event.head_commit.message == 'Inspect Layer2 tip holes'
+    if: github.event.head_commit.message == 'Inspect device local L2 L14 diff'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -20,20 +20,15 @@ jobs:
           import klayout.db as kdb
           path="gds/2611_tapered_yue_dual_resist_L10_L12.gds"
           ly=kdb.Layout(); ly.read(path); top=ly.top_cell(); dbu=ly.dbu
-          for layer_num in (2,14):
-              li=ly.layer(layer_num,0)
-              reg=kdb.Region(top.begin_shapes_rec(li)); reg.merge()
-              print("LAYER",layer_num)
-              for i,p in enumerate(reg.each()):
-                  b=p.bbox()
-                  if not (b.bottom*dbu <= -900 <= b.top*dbu):
-                      continue
-                  print("poly",i,"bbox",tuple(round(v,3) for v in (b.left*dbu,b.bottom*dbu,b.right*dbu,b.top*dbu)),"holes",p.holes())
-                  for hi in range(p.holes()):
-                      pts=list(p.each_point_hole(hi))
-                      xs=[q.x*dbu for q in pts]; ys=[q.y*dbu for q in pts]
-                      hb=(min(xs),min(ys),max(xs),max(ys))
-                      if hb[2] >= -480 and hb[0] <= -390:
-                          print("hole",hi,"bbox",tuple(round(v,3) for v in hb))
-                          print("pts",[(round(x,3),round(y,3)) for x,y in zip(xs,ys)])
+          l2=kdb.Region(top.begin_shapes_rec(ly.layer(2,0))); l2.merge()
+          l14=kdb.Region(top.begin_shapes_rec(ly.layer(14,0))); l14.merge()
+          miss=l2-l14
+          roi=kdb.Region(kdb.Box(int(-3000/dbu),int(-1100/dbu),int(2300/dbu),int(1100/dbu)))
+          miss &= roi
+          miss.merge()
+          print("local missing area um2", miss.area()*dbu*dbu)
+          for i,p in enumerate(miss.each()):
+              b=p.bbox()
+              area=p.area()*dbu*dbu
+              print("poly",i,"area",round(area,6),"bbox",tuple(round(v,3) for v in (b.left*dbu,b.bottom*dbu,b.right*dbu,b.top*dbu)))
           PY
