@@ -794,7 +794,6 @@ def two_layer_tapered_fiber(
                 tether_width=tether_connection_width,
                 layer=FULL_ETCH_LAYER,
                 pnc_layer=PNC_EBL_LAYER,
-                layer14_fill_layer=Layers.via,
                 end_extension=PNC_NARROW_END_EXTENSION,
             )
         )
@@ -1258,6 +1257,7 @@ def build_layout() -> gf.Component:
                 slab_width=S_BEND_WIDTH,
                 layer=FULL_ETCH_LAYER,
                 pnc_layer=PNC_EBL_LAYER,
+                layer14_fill_layer=Layers.via,
                 end_extension=PNC_NARROW_END_EXTENSION,
             ),
             tapered_fiber_spec=make_tapered_coupler(
