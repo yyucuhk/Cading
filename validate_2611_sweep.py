@@ -140,9 +140,11 @@ def main():
                   all(area == 0 for area in delta.values()), xor_um2=delta)
 
     # Full-area, every-layer comparisons of BOTH complete end assemblies.
-    # The meander occupies the opposite half-planes; no small tip patches.
-    left_roi = box_region((-10000, 0, -m.S_BEND_HALF_LENGTH, 1000), dbu)
-    right_roi = box_region((m.S_BEND_HALF_LENGTH, -1000, 10000, 0), dbu)
+    # Exclude the variable middle meander at y=0, including its side bands.
+    # Both full end assemblies (including the 150 um radius glue windows
+    # centered at y=+/-200) remain inside these complete-end test regions.
+    left_roi = box_region((-10000, 25, -m.S_BEND_HALF_LENGTH, 1000), dbu)
+    right_roi = box_region((m.S_BEND_HALF_LENGTH, -1000, 10000, -25), dbu)
     for index in (1, 2):
         label_exclusion = box_region(devices[0].info['label_bbox_um'], dbu)
         label_exclusion += box_region(devices[index].info['label_bbox_um'], dbu)
