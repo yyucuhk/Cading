@@ -1,0 +1,46 @@
+name: Run 2611 GDS generation
+
+on:
+  push:
+
+jobs:
+  run-2611:
+    if: github.event.head_commit.message == 'Run 2611 merge layer2 into layer14'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: python -m pip install --upgrade pip && python -m pip install gdsfactory==9.45.0 numpy klayout
+      - name: Run layout generator
+        run: python 2611_tapered_yue_dual_resist.py
+      - name: Verify output and Layer14 coverage
+        run: |
+          test -s gds/2611_tapered_yue_dual_resist_L10_L12.gds
+          python - <<'PY'
+          import klayout.db as kdb
+          path="gds/2611_tapered_yue_dual_resist_L10_L12.gds"
+          ly=kdb.Layout(); ly.read(path); top=ly.top_cell()
+          l2=kdb.Region(top.begin_shapes_rec(ly.layer(2,0))); l2.merge()
+          l14=kdb.Region(top.begin_shapes_rec(ly.layer(14,0))); l14.merge()
+          missing=l2-l14
+          print("L2 area:", l2.area())
+          print("L14 area:", l14.area())
+          print("L2 not covered by L14:", missing.area())
+          print("Missing bbox:", missing.bbox() if not missing.is_empty() else "none")
+          PY
+      - name: Commit generated GDS
+        run: |
+          git config user.name "chatgpt-runner"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add gds/2611_tapered_yue_dual_resist_L10_L12.gds
+          if git diff --cached --quiet; then
+            echo "No GDS changes to commit."
+          else
+            git commit -m "Regenerate GDS with Layer 2 merged into Layer 14"
+            git push
+          fi
