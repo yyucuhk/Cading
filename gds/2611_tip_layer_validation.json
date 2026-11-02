@@ -1,0 +1,233 @@
+{
+  "checks": [
+    {
+      "name": "same_database_grid",
+      "passed": true,
+      "dbu_um": 0.001
+    },
+    {
+      "name": "exactly_three_devices",
+      "passed": true
+    },
+    {
+      "name": "four_original_ticks_per_device",
+      "passed": true,
+      "count": 4,
+      "area_um2": 20.0
+    },
+    {
+      "name": "device_1_original_tips_identified",
+      "passed": true
+    },
+    {
+      "name": "device_1_only_four_tips_removed_from_layer10",
+      "passed": true,
+      "removed_area_um2": 20.0,
+      "tips_remaining_on_layer10_um2": 0.0
+    },
+    {
+      "name": "device_1_same_four_tips_added_to_layer15",
+      "passed": true,
+      "added_area_um2": 20.0,
+      "count": 4
+    },
+    {
+      "name": "device_1_tip_shapes_and_positions_exactly_preserved",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "device_1_every_other_layer_exactly_unchanged",
+      "passed": true,
+      "xor_um2": {
+        "2/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "16/0": 0.0,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "device_1_combined_layer10_15_geometry_unchanged",
+      "passed": true
+    },
+    {
+      "name": "device_1_placement_unchanged",
+      "passed": true,
+      "origin_um": [
+        -657.72,
+        -700.0
+      ]
+    },
+    {
+      "name": "device_1_original_ridge_still_connected",
+      "passed": true,
+      "ridge_components": 1,
+      "isolated_alignment_tips": 4
+    },
+    {
+      "name": "device_1_layer16_still_connected",
+      "passed": true
+    },
+    {
+      "name": "device_1_left_bend_remains_aligned",
+      "passed": true
+    },
+    {
+      "name": "device_2_original_tips_identified",
+      "passed": true
+    },
+    {
+      "name": "device_2_only_four_tips_removed_from_layer10",
+      "passed": true,
+      "removed_area_um2": 20.0,
+      "tips_remaining_on_layer10_um2": 0.0
+    },
+    {
+      "name": "device_2_same_four_tips_added_to_layer15",
+      "passed": true,
+      "added_area_um2": 20.0,
+      "count": 4
+    },
+    {
+      "name": "device_2_tip_shapes_and_positions_exactly_preserved",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "device_2_every_other_layer_exactly_unchanged",
+      "passed": true,
+      "xor_um2": {
+        "2/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "16/0": 0.0,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "device_2_combined_layer10_15_geometry_unchanged",
+      "passed": true
+    },
+    {
+      "name": "device_2_placement_unchanged",
+      "passed": true,
+      "origin_um": [
+        -357.72,
+        -100.0
+      ]
+    },
+    {
+      "name": "device_2_original_ridge_still_connected",
+      "passed": true,
+      "ridge_components": 1,
+      "isolated_alignment_tips": 4
+    },
+    {
+      "name": "device_2_layer16_still_connected",
+      "passed": true
+    },
+    {
+      "name": "device_2_left_bend_remains_aligned",
+      "passed": true
+    },
+    {
+      "name": "device_3_original_tips_identified",
+      "passed": true
+    },
+    {
+      "name": "device_3_only_four_tips_removed_from_layer10",
+      "passed": true,
+      "removed_area_um2": 20.0,
+      "tips_remaining_on_layer10_um2": 0.0
+    },
+    {
+      "name": "device_3_same_four_tips_added_to_layer15",
+      "passed": true,
+      "added_area_um2": 20.0,
+      "count": 4
+    },
+    {
+      "name": "device_3_tip_shapes_and_positions_exactly_preserved",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "device_3_every_other_layer_exactly_unchanged",
+      "passed": true,
+      "xor_um2": {
+        "2/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "16/0": 0.0,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "device_3_combined_layer10_15_geometry_unchanged",
+      "passed": true
+    },
+    {
+      "name": "device_3_placement_unchanged",
+      "passed": true,
+      "origin_um": [
+        -57.72,
+        500.0
+      ]
+    },
+    {
+      "name": "device_3_original_ridge_still_connected",
+      "passed": true,
+      "ridge_components": 1,
+      "isolated_alignment_tips": 4
+    },
+    {
+      "name": "device_3_layer16_still_connected",
+      "passed": true
+    },
+    {
+      "name": "device_3_left_bend_remains_aligned",
+      "passed": true
+    },
+    {
+      "name": "600um_y_pitch_preserved",
+      "passed": true,
+      "positions_um": [
+        [
+          -657.72,
+          -700.0
+        ],
+        [
+          -357.72,
+          -100.0
+        ],
+        [
+          -57.72,
+          500.0
+        ]
+      ]
+    },
+    {
+      "name": "chip_outline_and_global_markers_unchanged",
+      "passed": true,
+      "xor_um2": {
+        "0/0": 0.0,
+        "2/0": 0.0,
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 0.0,
+        "51/0": 0.0
+      }
+    }
+  ],
+  "failures": [],
+  "baseline_gds": "validation_2611_tips/before.gds",
+  "output_gds": "gds/2611_tapered_yue_dual_resist_L10_L12.gds",
+  "status": "PASS"
+}

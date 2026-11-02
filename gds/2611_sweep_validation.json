@@ -410,9 +410,9 @@
       "name": "ridge_area_matches_only_straight_length_sweep",
       "passed": true,
       "ridge_areas_um2": [
-        1575.82014,
-        2775.82014,
-        3975.82014
+        1595.82014,
+        2795.82014,
+        3995.82014
       ],
       "increments_um2": [
         1199.9999999999998,

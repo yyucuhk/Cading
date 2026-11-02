@@ -211,7 +211,11 @@ def main():
             check(f'device_{index}_layer_{layer}_entire_meander_covered',
                   area <= SERIAL_TOL_UM2, missing_um2=float(area))
         for layer in (15, 16):
-            components = list(regions[(layer, 0)].merged().each())
+            connected_region = regions[(layer, 0)].dup()
+            if layer == 15:
+                connected_region -= m.alignment_tip_region(
+                    device.info['tip_centers'], device.info['connection_orientations'], dbu)
+            components = list(connected_region.merged().each())
             check(f'device_{index}_layer_{layer}_connected', len(components) == 1,
                   connected_components=len(components))
         label_roi = box_region(device.info['label_bbox_um'], dbu)
