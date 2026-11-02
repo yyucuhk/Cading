@@ -1,0 +1,95 @@
+import os
+
+import gdsfactory as gf
+
+from layout.core.layers import Layers
+from layout.core import GDS
+
+
+gf.gpdk.PDK.activate()
+
+
+@gf.cell
+def spiral_with_straight_facets(
+    width: float = 0.5,
+    spiral_straight_length: float = 20e3,
+    min_radius: float = 300,
+    spacing: float = 20,
+    n_spacings: int = 8,
+    facet_straight_length: float = 1000,
+    layer=Layers.wg,
+) -> gf.Component:
+    """Racetrack spiral between vertical input/output facet waveguides.
+
+    Optical sequence::
+
+        vertical input -> 90 deg Euler bend -> racetrack spiral
+                       -> 90 deg Euler bend -> vertical output
+
+    Input ``o1`` faces north and output ``o2`` faces south, keeping both
+    facet waveguides outside the long horizontal spiral footprint.
+    """
+    if n_spacings < 1:
+        raise ValueError("n_spacings must be at least 1")
+    if min_radius <= 0 or spacing <= width:
+        raise ValueError("min_radius must be positive and spacing must exceed width")
+
+    xs = gf.cross_section.strip(width=width, layer=layer)
+    spiral = gf.components.spiral_racetrack(
+        straight_length=spiral_straight_length,
+        min_radius=min_radius,
+        spacings=(spacing,) * n_spacings,
+        bend=gf.components.bend_euler,
+        cross_section=xs,
+    )
+
+    c = gf.Component()
+    spiral_ref = c.add_ref(spiral)
+    ports = list(spiral_ref.ports)
+    left_internal = min(ports, key=lambda p: p.center[0])
+    right_internal = max(ports, key=lambda p: p.center[0])
+
+    # Explicit 90 deg Euler bends: left input turns upward, while the
+    # right output turns downward. Thus neither lead crosses the spiral.
+    bend90 = gf.components.bend_euler(
+        radius=min_radius,
+        angle=90,
+        cross_section=xs,
+    )
+    input_bend = c.add_ref(bend90)
+    input_bend.connect("o1", left_internal, mirror=True)
+    output_bend = c.add_ref(bend90)
+    output_bend.connect("o1", right_internal, mirror=True)
+
+    # Straight vertical waveguides terminate the two facets.
+    straight = gf.components.straight(
+        length=facet_straight_length,
+        cross_section=xs,
+    )
+    input_straight = c.add_ref(straight)
+    input_straight.connect("o1", input_bend.ports["o2"])
+    output_straight = c.add_ref(straight)
+    output_straight.connect("o1", output_bend.ports["o2"])
+    c.add_port("o1", port=input_straight.ports["o2"])
+    c.add_port("o2", port=output_straight.ports["o2"])
+
+    c.info["spiral_length"] = float(spiral.info["length"])
+    c.info["bend90_length"] = float(bend90.info["length"])
+    c.info["length"] = (
+        c.info["spiral_length"]
+        + 2 * c.info["bend90_length"]
+        + 2 * facet_straight_length
+    )
+
+    assert c.ports["o1"].orientation == 90
+    assert c.ports["o2"].orientation == 270
+    return c
+
+
+if __name__ == "__main__":
+    component = spiral_with_straight_facets()
+    filepath = os.path.join(GDS, "spiral_with_straight_facets.gds")
+    component.write_gds(filepath)
+    print(f"Wrote {filepath}")
+    print(f"Optical length: {component.info['length']:.3f} um")
+    component.show()
