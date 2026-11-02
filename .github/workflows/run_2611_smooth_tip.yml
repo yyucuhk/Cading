@@ -1,0 +1,53 @@
+name: Run 2611 smooth tip transition
+
+on:
+  push:
+
+jobs:
+  run-2611:
+    if: github.event.head_commit.message == 'Run 2611 smooth tip transition'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: python -m pip install --upgrade pip && python -m pip install gdsfactory==9.45.0 numpy klayout
+      - name: Run layout generator
+        run: python 2611_tapered_yue_dual_resist.py
+      - name: Verify local Layer2 and Layer14 transition
+        run: |
+          test -s gds/2611_tapered_yue_dual_resist_L10_L12.gds
+          python - <<'PY'
+          import klayout.db as kdb
+          path="gds/2611_tapered_yue_dual_resist_L10_L12.gds"
+          ly=kdb.Layout(); ly.read(path); top=ly.top_cell(); dbu=ly.dbu
+          for layer_num in (2,14):
+              reg=kdb.Region(top.begin_shapes_rec(ly.layer(layer_num,0))); reg.merge()
+              bbox=reg.bbox()
+              print("LAYER",layer_num)
+              for x in (-425,-424,-423,-422.5,-422,-421.5,-421,-420):
+                  half=0.002
+                  clip=kdb.Region(kdb.Box(int((x-half)/dbu),bbox.bottom-1000,int((x+half)/dbu),bbox.top+1000))
+                  cr=reg & clip
+                  spans=[]
+                  for p in cr.each():
+                      b=p.bbox()
+                      if -950 <= b.bottom*dbu <= -850 or -950 <= b.top*dbu <= -850:
+                          spans.append((round(b.bottom*dbu,3),round(b.top*dbu,3)))
+                  print(f"x={x}: {spans}")
+          PY
+      - name: Commit generated GDS
+        run: |
+          git config user.name "chatgpt-runner"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add gds/2611_tapered_yue_dual_resist_L10_L12.gds
+          if git diff --cached --quiet; then
+            echo "No GDS changes to commit."
+          else
+            git commit -m "Regenerate GDS with smooth continuous tip transition"
+            git push
+          fi
