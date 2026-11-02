@@ -1,0 +1,437 @@
+{
+  "checks": [
+    {
+      "name": "design1_L800_all_device_layers_present",
+      "passed": true
+    },
+    {
+      "name": "design1_L800_no_construction_layer",
+      "passed": true
+    },
+    {
+      "name": "design1_L800_alignment_ticks_only_on_layer15",
+      "passed": true
+    },
+    {
+      "name": "design1_L800_optical_ridge_connected",
+      "passed": true
+    },
+    {
+      "name": "design1_L800_ridge_protection_connected",
+      "passed": true
+    },
+    {
+      "name": "design1_L800_layer14_and_16_cover_ridge",
+      "passed": true
+    },
+    {
+      "name": "design1_L800_every_polygon_unchanged",
+      "passed": true,
+      "xor_um2": {
+        "2/0": 0.0,
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 0.0,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "design1_L200_all_device_layers_present",
+      "passed": true
+    },
+    {
+      "name": "design1_L200_no_construction_layer",
+      "passed": true
+    },
+    {
+      "name": "design1_L200_alignment_ticks_only_on_layer15",
+      "passed": true
+    },
+    {
+      "name": "design1_L200_optical_ridge_connected",
+      "passed": true
+    },
+    {
+      "name": "design1_L200_ridge_protection_connected",
+      "passed": true
+    },
+    {
+      "name": "design1_L200_layer14_and_16_cover_ridge",
+      "passed": true
+    },
+    {
+      "name": "design1_L200_every_polygon_unchanged",
+      "passed": true,
+      "xor_um2": {
+        "2/0": 0.0,
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 0.0,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "design1_L200_does_not_mutate_L800",
+      "passed": true
+    },
+    {
+      "name": "design1_L1400_all_device_layers_present",
+      "passed": true
+    },
+    {
+      "name": "design1_L1400_no_construction_layer",
+      "passed": true
+    },
+    {
+      "name": "design1_L1400_alignment_ticks_only_on_layer15",
+      "passed": true
+    },
+    {
+      "name": "design1_L1400_optical_ridge_connected",
+      "passed": true
+    },
+    {
+      "name": "design1_L1400_ridge_protection_connected",
+      "passed": true
+    },
+    {
+      "name": "design1_L1400_layer14_and_16_cover_ridge",
+      "passed": true
+    },
+    {
+      "name": "design1_L1400_every_polygon_unchanged",
+      "passed": true,
+      "xor_um2": {
+        "2/0": 0.0,
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 0.0,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "design1_L1400_does_not_mutate_L800",
+      "passed": true
+    },
+    {
+      "name": "design1_L1400_does_not_mutate_L200",
+      "passed": true
+    },
+    {
+      "name": "design1_L1400_build_order_independent",
+      "passed": true
+    },
+    {
+      "name": "design1_L200_build_order_independent",
+      "passed": true
+    },
+    {
+      "name": "design1_L800_build_order_independent",
+      "passed": true
+    },
+    {
+      "name": "design1_export_function_returns_written_path",
+      "passed": true
+    },
+    {
+      "name": "design1_top_cell_name_preserved",
+      "passed": true
+    },
+    {
+      "name": "design1_configured_device_count",
+      "passed": true,
+      "count": 1
+    },
+    {
+      "name": "design1_actual_left_bends_aligned",
+      "passed": true,
+      "x_um": [
+        -900.0
+      ]
+    },
+    {
+      "name": "design1_actual_y_placement",
+      "passed": true,
+      "positions_um": [
+        [
+          -357.72,
+          -700.0
+        ]
+      ]
+    },
+    {
+      "name": "design1_complete_layout_exactly_unchanged",
+      "passed": true,
+      "xor_um2": {
+        "0/0": 0.0,
+        "2/0": 0.0,
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 0.0,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "design1_all_existing_parameter_values_preserved",
+      "passed": true,
+      "altered_parameters": []
+    },
+    {
+      "name": "design1_matches_approved_repository_gds",
+      "passed": true,
+      "xor_um2": {
+        "0/0": 0.0,
+        "2/0": 0.0,
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 0.0,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "design1_supports_1_devices",
+      "passed": true
+    },
+    {
+      "name": "design1_supports_5_devices",
+      "passed": true
+    },
+    {
+      "name": "design1_empty_sweep_rejected",
+      "passed": true
+    },
+    {
+      "name": "design2_L800_all_device_layers_present",
+      "passed": true
+    },
+    {
+      "name": "design2_L800_no_construction_layer",
+      "passed": true
+    },
+    {
+      "name": "design2_L800_alignment_ticks_only_on_layer15",
+      "passed": true
+    },
+    {
+      "name": "design2_L800_optical_ridge_connected",
+      "passed": true
+    },
+    {
+      "name": "design2_L800_ridge_protection_connected",
+      "passed": true
+    },
+    {
+      "name": "design2_L800_layer14_and_16_cover_ridge",
+      "passed": true
+    },
+    {
+      "name": "design2_L800_every_polygon_unchanged",
+      "passed": true,
+      "xor_um2": {
+        "2/0": 0.0,
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 0.0,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "design2_L200_all_device_layers_present",
+      "passed": true
+    },
+    {
+      "name": "design2_L200_no_construction_layer",
+      "passed": true
+    },
+    {
+      "name": "design2_L200_alignment_ticks_only_on_layer15",
+      "passed": true
+    },
+    {
+      "name": "design2_L200_optical_ridge_connected",
+      "passed": true
+    },
+    {
+      "name": "design2_L200_ridge_protection_connected",
+      "passed": true
+    },
+    {
+      "name": "design2_L200_layer14_and_16_cover_ridge",
+      "passed": true
+    },
+    {
+      "name": "design2_L200_every_polygon_unchanged",
+      "passed": true,
+      "xor_um2": {
+        "2/0": 0.0,
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 0.0,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "design2_L200_does_not_mutate_L800",
+      "passed": true
+    },
+    {
+      "name": "design2_L1400_all_device_layers_present",
+      "passed": true
+    },
+    {
+      "name": "design2_L1400_no_construction_layer",
+      "passed": true
+    },
+    {
+      "name": "design2_L1400_alignment_ticks_only_on_layer15",
+      "passed": true
+    },
+    {
+      "name": "design2_L1400_optical_ridge_connected",
+      "passed": true
+    },
+    {
+      "name": "design2_L1400_ridge_protection_connected",
+      "passed": true
+    },
+    {
+      "name": "design2_L1400_layer14_and_16_cover_ridge",
+      "passed": true
+    },
+    {
+      "name": "design2_L1400_every_polygon_unchanged",
+      "passed": true,
+      "xor_um2": {
+        "2/0": 0.0,
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 0.0,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "design2_L1400_does_not_mutate_L800",
+      "passed": true
+    },
+    {
+      "name": "design2_L1400_does_not_mutate_L200",
+      "passed": true
+    },
+    {
+      "name": "design2_L1400_build_order_independent",
+      "passed": true
+    },
+    {
+      "name": "design2_L200_build_order_independent",
+      "passed": true
+    },
+    {
+      "name": "design2_L800_build_order_independent",
+      "passed": true
+    },
+    {
+      "name": "design2_export_function_returns_written_path",
+      "passed": true
+    },
+    {
+      "name": "design2_top_cell_name_preserved",
+      "passed": true
+    },
+    {
+      "name": "design2_configured_device_count",
+      "passed": true,
+      "count": 1
+    },
+    {
+      "name": "design2_actual_left_bends_aligned",
+      "passed": true,
+      "x_um": [
+        -900.0
+      ]
+    },
+    {
+      "name": "design2_actual_y_placement",
+      "passed": true,
+      "positions_um": [
+        [
+          -357.72,
+          -700.0
+        ]
+      ]
+    },
+    {
+      "name": "design2_complete_layout_exactly_unchanged",
+      "passed": true,
+      "xor_um2": {
+        "0/0": 0.0,
+        "2/0": 0.0,
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 0.0,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "design2_all_existing_parameter_values_preserved",
+      "passed": true,
+      "altered_parameters": []
+    },
+    {
+      "name": "design2_matches_approved_repository_gds",
+      "passed": true,
+      "xor_um2": {
+        "0/0": 0.0,
+        "2/0": 0.0,
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 0.0,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "design2_supports_1_devices",
+      "passed": true
+    },
+    {
+      "name": "design2_supports_5_devices",
+      "passed": true
+    },
+    {
+      "name": "design2_empty_sweep_rejected",
+      "passed": true
+    }
+  ],
+  "failures": [],
+  "baseline_comparison_performed": true,
+  "status": "PASS"
+}
