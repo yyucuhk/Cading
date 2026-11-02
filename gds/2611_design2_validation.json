@@ -1,0 +1,291 @@
+{
+  "checks": [
+    {
+      "name": "one_800um_design2",
+      "passed": true
+    },
+    {
+      "name": "requested_converter_parameters",
+      "passed": true,
+      "layer10_final_taper_um": 100.0,
+      "ridge_widths_um": [
+        1.0,
+        0.6,
+        0.2
+      ],
+      "stage_lengths_um": [
+        40.0,
+        60.0
+      ],
+      "centerline_shift_um": 0.84
+    },
+    {
+      "name": "design2_does_not_mutate_design1_cells",
+      "passed": true,
+      "xor_um2": {
+        "2/0": 0.0,
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 0.0,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "design1_rebuild_unchanged_after_design2",
+      "passed": true,
+      "xor_um2": {
+        "2/0": 0.0,
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 0.0,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "required_layers",
+      "passed": true,
+      "layers": [
+        [
+          2,
+          0
+        ],
+        [
+          10,
+          0
+        ],
+        [
+          11,
+          0
+        ],
+        [
+          13,
+          0
+        ],
+        [
+          14,
+          0
+        ],
+        [
+          15,
+          0
+        ],
+        [
+          16,
+          0
+        ],
+        [
+          51,
+          0
+        ]
+      ]
+    },
+    {
+      "name": "no_construction_layer_exported",
+      "passed": true
+    },
+    {
+      "name": "layer_2_inherited_from_100um_slab_reference",
+      "passed": true,
+      "difference_um2": 9e-06,
+      "excludes": "label text only"
+    },
+    {
+      "name": "layer_10_inherited_from_100um_slab_reference",
+      "passed": true,
+      "difference_um2": 0.0,
+      "excludes": "nothing"
+    },
+    {
+      "name": "layer_11_inherited_from_100um_slab_reference",
+      "passed": true,
+      "difference_um2": 0.0,
+      "excludes": "nothing"
+    },
+    {
+      "name": "layer_13_inherited_from_100um_slab_reference",
+      "passed": true,
+      "difference_um2": 0.0,
+      "excludes": "nothing"
+    },
+    {
+      "name": "layer_14_inherited_from_100um_slab_reference",
+      "passed": true,
+      "difference_um2": 0.0,
+      "excludes": "nothing"
+    },
+    {
+      "name": "layer_51_inherited_from_100um_slab_reference",
+      "passed": true,
+      "difference_um2": 0.0,
+      "excludes": "nothing"
+    },
+    {
+      "name": "ridge_and_both_converters_connected",
+      "passed": true,
+      "connected_components": 1
+    },
+    {
+      "name": "all_four_alignment_tips_retained_on_layer15",
+      "passed": true,
+      "count": 4
+    },
+    {
+      "name": "layer16_protection_connected",
+      "passed": true
+    },
+    {
+      "name": "layer16_covers_offset_ridge",
+      "passed": true,
+      "uncovered_um2": 0.0
+    },
+    {
+      "name": "layer14_covers_complete_offset_ridge",
+      "passed": true,
+      "uncovered_um2": 0.0
+    },
+    {
+      "name": "layer14_still_covers_layer2_windows",
+      "passed": true,
+      "missing_um2": 0.0
+    },
+    {
+      "name": "meander_and_ridge_outside_converters_unchanged",
+      "passed": true,
+      "unexpected_difference_um2": 0.0
+    },
+    {
+      "name": "layer_10_both_end_assemblies_rotationally_symmetric",
+      "passed": true,
+      "rotated_xor_um2": 0.0
+    },
+    {
+      "name": "layer_11_both_end_assemblies_rotationally_symmetric",
+      "passed": true,
+      "rotated_xor_um2": 0.0
+    },
+    {
+      "name": "layer_13_both_end_assemblies_rotationally_symmetric",
+      "passed": true,
+      "rotated_xor_um2": 0.0
+    },
+    {
+      "name": "layer_14_both_end_assemblies_rotationally_symmetric",
+      "passed": true,
+      "rotated_xor_um2": 0.0
+    },
+    {
+      "name": "layer_15_both_end_assemblies_rotationally_symmetric",
+      "passed": true,
+      "rotated_xor_um2": 0.0
+    },
+    {
+      "name": "layer_16_both_end_assemblies_rotationally_symmetric",
+      "passed": true,
+      "rotated_xor_um2": 0.000642
+    },
+    {
+      "name": "layer_51_both_end_assemblies_rotationally_symmetric",
+      "passed": true,
+      "rotated_xor_um2": 0.0
+    },
+    {
+      "name": "ridge_section_x_45.001",
+      "passed": true,
+      "x_um": 45.001,
+      "center_y_um": 0.0,
+      "vertical_width_um": 1.0
+    },
+    {
+      "name": "ridge_section_x_85.001",
+      "passed": true,
+      "x_um": 85.001,
+      "center_y_um": 0.0,
+      "vertical_width_um": 0.6
+    },
+    {
+      "name": "ridge_section_x_144.999",
+      "passed": true,
+      "x_um": 144.999,
+      "center_y_um": 0.84,
+      "vertical_width_um": 0.2
+    },
+    {
+      "name": "terminal_layers_are_laterally_separated",
+      "passed": true,
+      "terminal_centerline_offset_um": 0.84,
+      "terminal_same_x_vertical_edge_gap_um": 0.513
+    },
+    {
+      "name": "export_contains_one_device",
+      "passed": true
+    },
+    {
+      "name": "export_preserves_every_layer",
+      "passed": true,
+      "xor_um2": {
+        "2/0": 9e-06,
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 4e-06,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "exactly_one_device_instance",
+      "passed": true
+    },
+    {
+      "name": "left_bend_alignment_preserved",
+      "passed": true,
+      "left_pnc_edge_um": -900.0
+    },
+    {
+      "name": "original_design1_file_unchanged_2611_tapered_yue_dual_resist.py",
+      "passed": true
+    },
+    {
+      "name": "original_design1_file_unchanged_2611_tapered_yue_dual_resist_L10_L12.gds",
+      "passed": true
+    }
+  ],
+  "failures": [],
+  "separation_definition": "centerline_to_centerline",
+  "assumptions": [
+    "40 um inherited first ridge transition",
+    "100 um applies to final Layer-10 1.0 to 0.2 um taper",
+    "840 nm is final centerline offset, not edge-to-edge gap"
+  ],
+  "terminal_vertical_edge_gap_um": 0.513,
+  "ridge_sections": [
+    {
+      "x_um": 45.001,
+      "center_y_um": 0.0,
+      "width_um": 1.0
+    },
+    {
+      "x_um": 85.001,
+      "center_y_um": 0.0,
+      "width_um": 0.6
+    },
+    {
+      "x_um": 144.999,
+      "center_y_um": 0.84,
+      "width_um": 0.2
+    }
+  ],
+  "device_origin_um": [
+    -357.72,
+    -700.0
+  ],
+  "status": "PASS",
+  "output_file": "gds/2611_tapered_yue_design2.gds"
+}
