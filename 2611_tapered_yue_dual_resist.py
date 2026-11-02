@@ -1224,8 +1224,38 @@ def add_shared_mla_window(
         layer2=positive_layer,
     )
 
-    # Replace Layer 2 with the cleaned version before creating the Layer-14
-    # copy. All other mask layers remain unchanged.
+    # Ignore the old top/bottom tip blocks entirely and rebuild only the
+    # central release opening as one smooth continuous bridge through this
+    # local transition.  The bridge width is the intended taper opening
+    # (optical taper width + 2*MLA margin), so it does not recreate the
+    # removed companion blocks.
+    smooth_tip_bridge = gf.Component()
+    bridge_length = 6.0
+    bridge_width = (
+        float(window_source.info["taper_end_widths"][tip_exclusion_index])
+        + 2 * margin
+    )
+    bridge = smooth_tip_bridge.add_ref(
+        gf.components.rectangle(
+            size=(bridge_length, bridge_width),
+            centered=True,
+            layer=positive_layer,
+        )
+    )
+    bridge.rotate(orientation)
+    bridge.move(tuple(np.asarray(start_point, dtype=float)))
+
+    cleaned_layer2 = gf.boolean(
+        A=cleaned_layer2,
+        B=smooth_tip_bridge,
+        operation="or",
+        layer=positive_layer,
+        layer1=positive_layer,
+        layer2=positive_layer,
+    )
+
+    # Replace Layer 2 with the cleaned, continuous version before creating
+    # the Layer-14 copy. All other mask layers remain unchanged.
     result.remove_layers([positive_layer], recursive=True)
     result.add_ref(cleaned_layer2)
 
