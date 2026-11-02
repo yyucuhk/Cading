@@ -1,0 +1,88 @@
+name: Verify geometry-preserving CAD code cleanup
+on:
+  push:
+    branches: [refactor/2611-editable-cad-sections]
+defaults:
+  run:
+    shell: bash
+jobs:
+  verify:
+    if: github.event.head_commit.message == 'Validate CAD cleanup'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install geometry engine and formatter
+        run: python -m pip install gdsfactory==9.45.0 black==25.1.0
+      - name: Capture original polygons and approved output hashes
+        run: |
+          mkdir -p validation_2611_cleanup/source_before
+          cp 2611_tapered_yue_dual_resist.py 2611_tapered_yue_design2.py validation_2611_cleanup/source_before/
+          sha256sum gds/2611_tapered_yue_dual_resist_L10_L12.gds gds/2611_tapered_yue_design2.gds > validation_2611_cleanup/approved_gds.sha256
+          python validate_2611_cleanup.py capture | tee validation_2611_cleanup/capture.log
+      - name: Organize both generators and format their sections
+        run: |
+          python _clean_2611_codes_once.py
+          python -m black --line-length 100 2611_tapered_yue_dual_resist.py 2611_tapered_yue_design2.py validate_2611_cleanup.py
+          python -m py_compile 2611_tapered_yue_dual_resist.py 2611_tapered_yue_design2.py validate_2611_cleanup.py
+          python - <<'PY'
+          import ast
+          from pathlib import Path
+          for name in ('2611_tapered_yue_dual_resist.py','2611_tapered_yue_design2.py'):
+              old=ast.parse((Path('validation_2611_cleanup/source_before')/name).read_text())
+              new=ast.parse(Path(name).read_text())
+              funcs=lambda t:{n.name:n for n in t.body if isinstance(n,ast.FunctionDef)}
+              a,b=funcs(old),funcs(new)
+              changed=[key for key in a.keys() & b.keys() if ast.dump(a[key])!=ast.dump(b[key])]
+              assert set(changed)=={'make_tapered_coupler','build_layout'}, changed
+              defs=lambda t:{n.targets[0].id:ast.dump(n.value) for n in t.body if isinstance(n,ast.Assign) and isinstance(n.targets[0],ast.Name)}
+              aa,bb=defs(old),defs(new)
+              assert all(aa[key]==bb[key] for key in aa.keys()&bb.keys())
+              assert set(aa)-set(bb)=={'EBL_SUBFIELD_SIZE'}
+              print(name,'all geometry/mask/one-device function bodies unchanged; parameter expressions preserved')
+          PY
+      - name: Check every layer before and after plus one and five device runs
+        run: python validate_2611_cleanup.py | tee validation_2611_cleanup/verification.log
+      - name: Run current Design 2 stage validator and both normal entry points
+        run: |
+          python validate_2611_design2.py > validation_2611_cleanup/design2_stages.log
+          python 2611_tapered_yue_dual_resist.py
+          python 2611_tapered_yue_design2.py
+          python - <<'PY'
+          from pathlib import Path
+          import klayout.db as kdb
+          from validate_2611_cleanup import read, differences, MODELS
+          for key,(_,gdsname) in MODELS.items():
+              before, br=read(Path('validation_2611_cleanup/before')/f'{key}_layout.gds')
+              after, ar=read(Path('gds')/gdsname)
+              delta=differences(br,ar,after.dbu)
+              assert all(v==0 for v in delta.values()),(key,delta)
+              print('NORMAL_SCRIPT_EXPORT_ZERO_XOR',key,delta)
+          PY
+          git restore -- gds/2611_tapered_yue_dual_resist_L10_L12.gds gds/2611_tapered_yue_design2.gds
+          sha256sum -c validation_2611_cleanup/approved_gds.sha256
+      - name: Upload cleaned scripts guide and geometry regression evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: 2611-cleaned-cad-scripts
+          path: |
+            2611_tapered_yue_dual_resist.py
+            2611_tapered_yue_design2.py
+            CAD_EDITING_GUIDE.md
+            validate_2611_cleanup.py
+            validation_2611_cleanup/
+            validation_2611_design2/validation_report.json
+      - name: Commit only verified source cleanup and report
+        run: |
+          cp validation_2611_cleanup/validation_report.json gds/2611_code_cleanup_validation.json
+          git config user.name 'chatgpt-runner'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add 2611_tapered_yue_dual_resist.py 2611_tapered_yue_design2.py CAD_EDITING_GUIDE.md validate_2611_cleanup.py gds/2611_code_cleanup_validation.json
+          git commit -m 'Organize both CAD generators into editable sections without geometry changes'
+          git push
