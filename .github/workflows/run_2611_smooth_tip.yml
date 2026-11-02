@@ -1,4 +1,5 @@
 name: Run 2611 smooth tip transition
+# rerun full-width bridge
 
 on:
   push:
