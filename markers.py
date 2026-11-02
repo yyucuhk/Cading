@@ -7,7 +7,7 @@ at every ``(+-marker_x, +-marker_y)``), while `calipermarker_array` takes the
 full chip shape instead.
 """
 import gdsfactory as gf
-from layout.core.layers import Layers
+from layers import Layers
 import numpy as np
 
 
