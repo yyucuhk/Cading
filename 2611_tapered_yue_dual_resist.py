@@ -210,9 +210,10 @@ def phononic_meander_shield(
     slab_width: float = S_BEND_WIDTH,
     layer=FULL_ETCH_LAYER,
     pnc_layer=PNC_EBL_LAYER,
+    layer14_fill_layer=None,
     end_extension: float = PNC_NARROW_END_EXTENSION,
 ) -> gf.Component:
-    """Draw solid negative-resist PNC cells and the surrounding MLA mask."""
+    """Draw the PNC masks and optional solid Layer-14 meander opening."""
     if pitch <= 0 or bend_pitch <= 0:
         raise ValueError("Straight and bend PNC pitches must be positive")
     if end_extension < 0:
@@ -370,6 +371,31 @@ def phononic_meander_shield(
         recursive=False,
     )
     component.add_ref(mla_band)
+
+    # Optional Layer 14: fill the complete area enclosed by the OUTER
+    # boundaries of the two Layer-2 meander bands. Each Layer-2 band has
+    # width tether_length and begins at +/- slab_width/2, so one centered
+    # band of width slab_width + 2*tether_length reaches exactly to their
+    # outer edges. This opens the whole meander region in Layer 14 without
+    # expanding beyond the Layer-2 envelope.
+    if layer14_fill_layer is not None:
+        layer14_full_width = slab_width + 2 * tether_length
+        layer14_cross_section = gf.CrossSection(
+            sections=(
+                gf.Section(
+                    width=layer14_full_width,
+                    offset=0.0,
+                    layer=layer14_fill_layer,
+                    port_names=("o1", "o2"),
+                ),
+            )
+        )
+        layer14_full_open = gf.path.extrude(
+            path,
+            cross_section=layer14_cross_section,
+        )
+        component.add_ref(layer14_full_open)
+
     # Layer 11 is the negative-resist EBL mask: draw the complete PNC itself,
     # including the narrow beam extended at both radial ends.
     pnc_cells = full_cells.copy()
@@ -384,6 +410,12 @@ def phononic_meander_shield(
     component.info["pnc_mla_layer"] = tuple(layer)
     component.info["pnc_ebl_tone"] = "negative_solid_pnc"
     component.info["pnc_mla_tone"] = "positive_continuous_expanded_area"
+    component.info["layer14_full_meander_open"] = layer14_fill_layer is not None
+    if layer14_fill_layer is not None:
+        component.info["layer14_fill_layer"] = tuple(layer14_fill_layer)
+        component.info["layer14_full_open_width"] = (
+            slab_width + 2 * tether_length
+        )
     component.info["pnc_narrow_end_extension"] = end_extension
     component.info["full_pnc_cells"] = True
     component.info["support_positions"] = support_positions
@@ -762,6 +794,7 @@ def two_layer_tapered_fiber(
                 tether_width=tether_connection_width,
                 layer=FULL_ETCH_LAYER,
                 pnc_layer=PNC_EBL_LAYER,
+                layer14_fill_layer=Layers.via,
                 end_extension=PNC_NARROW_END_EXTENSION,
             )
         )
@@ -1000,10 +1033,11 @@ def add_shared_mla_window(
     result.add_ref(positive_window)
     result.add_ref(ridge_protection)
 
-    # Layer 14 is the final MLA release exposure.  Copy the existing Layer-2
-    # release-pattern geometry in the central meander/PNC region onto Layer
-    # 14.  Clip only in x, exactly at the two current Layer-14 channel starts;
-    # do not add a solid rectangular fill.
+    # Layer 14 is the final MLA release exposure. The meander itself already
+    # receives a SOLID Layer-14 opening from phononic_meander_shield(), bounded
+    # exactly by the OUTER edges of Layer 2. Here we keep the existing Layer-2
+    # copy through the adjacent PNC/taper regions and clip it at the current
+    # Layer-14 channel starts.
     layer14_start_points = []
     for center, orientation in zip(
         window_source.info["s_bend_connection_centers"],
