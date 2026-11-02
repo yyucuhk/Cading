@@ -30,39 +30,38 @@ jobs:
           data = {n: hashlib.sha256(Path(n).read_bytes()).hexdigest() for n in names}
           Path('validation_2611_design2/protected_hashes.json').write_text(json.dumps(data))
           PY
-      - name: Apply guarded taper update
+      - name: Apply guarded taper update and exact-text symmetry exclusion
         run: |
           python _update_design2_stages_once.py
           python - <<'PY'
           from pathlib import Path
           p = Path('validate_2611_design2_stages.py')
           s = p.read_text()
-          old = '''    for layer in sorted(expected_layers):
-                  reg=r[layer]-label if layer==(2,0) else r[layer]
-                  diff=((reg^reg.transformed(kdb.Trans(kdb.Trans.R180)))&roi).area()*dbu**2
-                  check(f'layer{layer[0]}_end_to_end_symmetry',diff<=TOL,rotated_xor_um2=float(diff))'''
-          # Remove YAML indentation from this embedded source pattern.
-          import textwrap
-          old = '\n'.join([old.splitlines()[0]] + [line[6:] for line in old.splitlines()[1:]])
-          new = '''    # A label can overlap valid release geometry. Compare complete masks
-              # first, then exclude only the actual text polygons and their rotated
-              # counterparts, rather than cutting a bounding-box hole into a mask.
-              left_tip = min(d.info['tip_centers'], key=lambda p: p[0])
-              label_component = gf.components.text(
-                  text=f"DESIGN 2_L800_ML{float(d.info['total_meander_length_um']):.1f}",
-                  size=m.DETAIL_LABEL_SIZE, layer=m.MARKER_LAYER)
-              exact_text = snapshot(label_component)[(2,0)].transformed(kdb.Trans(
-                  round((left_tip[0]+m.DETAIL_LABEL_TIP_X_OFFSET)/dbu),
-                  round((left_tip[1]+m.DETAIL_LABEL_TIP_Y_OFFSET)/dbu)))
-              text_exclusion = exact_text + exact_text.transformed(kdb.Trans(kdb.Trans.R180))
-              for layer in sorted(expected_layers):
-                  reg = r[layer]
-                  delta = (reg ^ reg.transformed(kdb.Trans(kdb.Trans.R180))) & roi
-                  if layer == (2,0):
-                      delta -= text_exclusion
-                  diff = delta.area()*dbu**2
-                  check(f'layer{layer[0]}_end_to_end_symmetry',diff<=TOL,rotated_xor_um2=float(diff))'''
-          new = '\n'.join([new.splitlines()[0]] + [line[10:] for line in new.splitlines()[1:]])
+          old = '\n'.join([
+              '    for layer in sorted(expected_layers):',
+              '        reg=r[layer]-label if layer==(2,0) else r[layer]',
+              '        diff=((reg^reg.transformed(kdb.Trans(kdb.Trans.R180)))&roi).area()*dbu**2',
+              "        check(f'layer{layer[0]}_end_to_end_symmetry',diff<=TOL,rotated_xor_um2=float(diff))",
+          ])
+          new = '\n'.join([
+              '    # Compare complete masks, excluding only actual text polygons.',
+              '    # Never cut a label bounding-box hole into the release mask.',
+              "    left_tip = min(d.info['tip_centers'], key=lambda p: p[0])",
+              '    label_component = gf.components.text(',
+              '        text=f"DESIGN 2_L800_ML{float(d.info[\'total_meander_length_um\']):.1f}",',
+              '        size=m.DETAIL_LABEL_SIZE, layer=m.MARKER_LAYER)',
+              '    exact_text = snapshot(label_component)[(2,0)].transformed(kdb.Trans(',
+              '        round((left_tip[0]+m.DETAIL_LABEL_TIP_X_OFFSET)/dbu),',
+              '        round((left_tip[1]+m.DETAIL_LABEL_TIP_Y_OFFSET)/dbu)))',
+              '    text_exclusion = exact_text + exact_text.transformed(kdb.Trans(kdb.Trans.R180))',
+              '    for layer in sorted(expected_layers):',
+              '        reg = r[layer]',
+              '        delta = (reg ^ reg.transformed(kdb.Trans(kdb.Trans.R180))) & roi',
+              '        if layer == (2,0):',
+              '            delta -= text_exclusion',
+              '        diff = delta.area()*dbu**2',
+              "        check(f'layer{layer[0]}_end_to_end_symmetry',diff<=TOL,rotated_xor_um2=float(diff))",
+          ])
           assert s.count(old) == 1, repr(old)
           p.write_text(s.replace(old,new,1))
           PY
