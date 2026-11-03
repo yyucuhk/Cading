@@ -1,0 +1,2682 @@
+{
+  "checks": [
+    {
+      "name": "18_complete_device_instances",
+      "passed": true
+    },
+    {
+      "name": "manifest_matches_actual_cells",
+      "passed": true
+    },
+    {
+      "name": "D1_01_B2_T80_all_layers_present",
+      "passed": true
+    },
+    {
+      "name": "D1_01_B2_T80_placement",
+      "passed": true
+    },
+    {
+      "name": "D1_01_B2_T80_left_bend_aligned",
+      "passed": true,
+      "x_um": -900.0
+    },
+    {
+      "name": "D1_01_B2_T80_connected_optical_path",
+      "passed": true
+    },
+    {
+      "name": "D1_01_B2_T80_four_tips_on_L15_only",
+      "passed": true
+    },
+    {
+      "name": "D1_01_B2_T80_connected_L16",
+      "passed": true
+    },
+    {
+      "name": "D1_01_B2_T80_L14_covers_ridge",
+      "passed": true,
+      "uncovered_um2": 0.0
+    },
+    {
+      "name": "D1_01_B2_T80_L16_covers_ridge",
+      "passed": true,
+      "uncovered_um2": 0.0
+    },
+    {
+      "name": "D1_01_B2_T80_L2_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 9e-06
+    },
+    {
+      "name": "D1_01_B2_T80_L10_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_01_B2_T80_L11_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_01_B2_T80_L13_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_01_B2_T80_L14_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_01_B2_T80_L15_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_01_B2_T80_L16_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_01_B2_T80_L51_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_01_B2_T80_right_L10_junction0",
+      "passed": true,
+      "expected_width_um": 3.0,
+      "measured_width_um": 3.0
+    },
+    {
+      "name": "D1_01_B2_T80_right_L10_junction1",
+      "passed": true,
+      "expected_width_um": 1.0,
+      "measured_width_um": 1.0
+    },
+    {
+      "name": "D1_01_B2_T80_right_L10_junction2",
+      "passed": true,
+      "expected_width_um": 0.2,
+      "measured_width_um": 0.2
+    },
+    {
+      "name": "D1_01_B2_T80_right_L15_junction0",
+      "passed": true,
+      "expected_width_um": 1.0,
+      "measured_width_um": 1.0
+    },
+    {
+      "name": "D1_01_B2_T80_right_L15_junction1",
+      "passed": true,
+      "expected_width_um": 0.1,
+      "measured_width_um": 0.1
+    },
+    {
+      "name": "D1_01_B2_T80_left_L10_junction0",
+      "passed": true,
+      "expected_width_um": 3.0,
+      "measured_width_um": 3.0
+    },
+    {
+      "name": "D1_01_B2_T80_left_L10_junction1",
+      "passed": true,
+      "expected_width_um": 1.0,
+      "measured_width_um": 1.0
+    },
+    {
+      "name": "D1_01_B2_T80_left_L10_junction2",
+      "passed": true,
+      "expected_width_um": 0.2,
+      "measured_width_um": 0.2
+    },
+    {
+      "name": "D1_01_B2_T80_left_L15_junction0",
+      "passed": true,
+      "expected_width_um": 1.0,
+      "measured_width_um": 1.0
+    },
+    {
+      "name": "D1_01_B2_T80_left_L15_junction1",
+      "passed": true,
+      "expected_width_um": 0.1,
+      "measured_width_um": 0.1
+    },
+    {
+      "name": "D1_02_B2_T100_all_layers_present",
+      "passed": true
+    },
+    {
+      "name": "D1_02_B2_T100_placement",
+      "passed": true
+    },
+    {
+      "name": "D1_02_B2_T100_left_bend_aligned",
+      "passed": true,
+      "x_um": -900.0
+    },
+    {
+      "name": "D1_02_B2_T100_connected_optical_path",
+      "passed": true
+    },
+    {
+      "name": "D1_02_B2_T100_four_tips_on_L15_only",
+      "passed": true
+    },
+    {
+      "name": "D1_02_B2_T100_connected_L16",
+      "passed": true
+    },
+    {
+      "name": "D1_02_B2_T100_L14_covers_ridge",
+      "passed": true,
+      "uncovered_um2": 0.0
+    },
+    {
+      "name": "D1_02_B2_T100_L16_covers_ridge",
+      "passed": true,
+      "uncovered_um2": 0.0
+    },
+    {
+      "name": "D1_02_B2_T100_L2_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 9e-06
+    },
+    {
+      "name": "D1_02_B2_T100_L10_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_02_B2_T100_L11_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_02_B2_T100_L13_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_02_B2_T100_L14_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_02_B2_T100_L15_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_02_B2_T100_L16_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_02_B2_T100_L51_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_02_B2_T100_right_L10_junction0",
+      "passed": true,
+      "expected_width_um": 3.0,
+      "measured_width_um": 3.0
+    },
+    {
+      "name": "D1_02_B2_T100_right_L10_junction1",
+      "passed": true,
+      "expected_width_um": 1.0,
+      "measured_width_um": 1.0
+    },
+    {
+      "name": "D1_02_B2_T100_right_L10_junction2",
+      "passed": true,
+      "expected_width_um": 0.2,
+      "measured_width_um": 0.2
+    },
+    {
+      "name": "D1_02_B2_T100_right_L15_junction0",
+      "passed": true,
+      "expected_width_um": 1.0,
+      "measured_width_um": 1.0
+    },
+    {
+      "name": "D1_02_B2_T100_right_L15_junction1",
+      "passed": true,
+      "expected_width_um": 0.1,
+      "measured_width_um": 0.1
+    },
+    {
+      "name": "D1_02_B2_T100_left_L10_junction0",
+      "passed": true,
+      "expected_width_um": 3.0,
+      "measured_width_um": 3.0
+    },
+    {
+      "name": "D1_02_B2_T100_left_L10_junction1",
+      "passed": true,
+      "expected_width_um": 1.0,
+      "measured_width_um": 1.0
+    },
+    {
+      "name": "D1_02_B2_T100_left_L10_junction2",
+      "passed": true,
+      "expected_width_um": 0.2,
+      "measured_width_um": 0.2
+    },
+    {
+      "name": "D1_02_B2_T100_left_L15_junction0",
+      "passed": true,
+      "expected_width_um": 1.0,
+      "measured_width_um": 1.0
+    },
+    {
+      "name": "D1_02_B2_T100_left_L15_junction1",
+      "passed": true,
+      "expected_width_um": 0.1,
+      "measured_width_um": 0.1
+    },
+    {
+      "name": "D1_03_B2_T120_all_layers_present",
+      "passed": true
+    },
+    {
+      "name": "D1_03_B2_T120_placement",
+      "passed": true
+    },
+    {
+      "name": "D1_03_B2_T120_left_bend_aligned",
+      "passed": true,
+      "x_um": -900.0
+    },
+    {
+      "name": "D1_03_B2_T120_connected_optical_path",
+      "passed": true
+    },
+    {
+      "name": "D1_03_B2_T120_four_tips_on_L15_only",
+      "passed": true
+    },
+    {
+      "name": "D1_03_B2_T120_connected_L16",
+      "passed": true
+    },
+    {
+      "name": "D1_03_B2_T120_L14_covers_ridge",
+      "passed": true,
+      "uncovered_um2": 0.0
+    },
+    {
+      "name": "D1_03_B2_T120_L16_covers_ridge",
+      "passed": true,
+      "uncovered_um2": 0.0
+    },
+    {
+      "name": "D1_03_B2_T120_L2_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.000159
+    },
+    {
+      "name": "D1_03_B2_T120_L10_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_03_B2_T120_L11_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_03_B2_T120_L13_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_03_B2_T120_L14_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.00015
+    },
+    {
+      "name": "D1_03_B2_T120_L15_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_03_B2_T120_L16_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_03_B2_T120_L51_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_03_B2_T120_right_L10_junction0",
+      "passed": true,
+      "expected_width_um": 3.0,
+      "measured_width_um": 3.0
+    },
+    {
+      "name": "D1_03_B2_T120_right_L10_junction1",
+      "passed": true,
+      "expected_width_um": 1.0,
+      "measured_width_um": 1.0
+    },
+    {
+      "name": "D1_03_B2_T120_right_L10_junction2",
+      "passed": true,
+      "expected_width_um": 0.2,
+      "measured_width_um": 0.2
+    },
+    {
+      "name": "D1_03_B2_T120_right_L15_junction0",
+      "passed": true,
+      "expected_width_um": 1.0,
+      "measured_width_um": 1.0
+    },
+    {
+      "name": "D1_03_B2_T120_right_L15_junction1",
+      "passed": true,
+      "expected_width_um": 0.1,
+      "measured_width_um": 0.1
+    },
+    {
+      "name": "D1_03_B2_T120_left_L10_junction0",
+      "passed": true,
+      "expected_width_um": 3.0,
+      "measured_width_um": 3.0
+    },
+    {
+      "name": "D1_03_B2_T120_left_L10_junction1",
+      "passed": true,
+      "expected_width_um": 1.0,
+      "measured_width_um": 1.0
+    },
+    {
+      "name": "D1_03_B2_T120_left_L10_junction2",
+      "passed": true,
+      "expected_width_um": 0.2,
+      "measured_width_um": 0.2
+    },
+    {
+      "name": "D1_03_B2_T120_left_L15_junction0",
+      "passed": true,
+      "expected_width_um": 1.0,
+      "measured_width_um": 1.0
+    },
+    {
+      "name": "D1_03_B2_T120_left_L15_junction1",
+      "passed": true,
+      "expected_width_um": 0.1,
+      "measured_width_um": 0.1
+    },
+    {
+      "name": "D1_04_B3_T80_all_layers_present",
+      "passed": true
+    },
+    {
+      "name": "D1_04_B3_T80_placement",
+      "passed": true
+    },
+    {
+      "name": "D1_04_B3_T80_left_bend_aligned",
+      "passed": true,
+      "x_um": -900.0
+    },
+    {
+      "name": "D1_04_B3_T80_connected_optical_path",
+      "passed": true
+    },
+    {
+      "name": "D1_04_B3_T80_four_tips_on_L15_only",
+      "passed": true
+    },
+    {
+      "name": "D1_04_B3_T80_connected_L16",
+      "passed": true
+    },
+    {
+      "name": "D1_04_B3_T80_L14_covers_ridge",
+      "passed": true,
+      "uncovered_um2": 0.0
+    },
+    {
+      "name": "D1_04_B3_T80_L16_covers_ridge",
+      "passed": true,
+      "uncovered_um2": 0.0
+    },
+    {
+      "name": "D1_04_B3_T80_L2_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 9e-06
+    },
+    {
+      "name": "D1_04_B3_T80_L10_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_04_B3_T80_L11_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_04_B3_T80_L13_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_04_B3_T80_L14_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_04_B3_T80_L15_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_04_B3_T80_L16_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_04_B3_T80_L51_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_04_B3_T80_right_L10_junction0",
+      "passed": true,
+      "expected_width_um": 3.0,
+      "measured_width_um": 3.0
+    },
+    {
+      "name": "D1_04_B3_T80_right_L10_junction1",
+      "passed": true,
+      "expected_width_um": 1.0,
+      "measured_width_um": 1.0
+    },
+    {
+      "name": "D1_04_B3_T80_right_L10_junction2",
+      "passed": true,
+      "expected_width_um": 0.2,
+      "measured_width_um": 0.2
+    },
+    {
+      "name": "D1_04_B3_T80_right_L15_junction0",
+      "passed": true,
+      "expected_width_um": 1.0,
+      "measured_width_um": 1.0
+    },
+    {
+      "name": "D1_04_B3_T80_right_L15_junction1",
+      "passed": true,
+      "expected_width_um": 0.1,
+      "measured_width_um": 0.1
+    },
+    {
+      "name": "D1_04_B3_T80_left_L10_junction0",
+      "passed": true,
+      "expected_width_um": 3.0,
+      "measured_width_um": 3.0
+    },
+    {
+      "name": "D1_04_B3_T80_left_L10_junction1",
+      "passed": true,
+      "expected_width_um": 1.0,
+      "measured_width_um": 1.0
+    },
+    {
+      "name": "D1_04_B3_T80_left_L10_junction2",
+      "passed": true,
+      "expected_width_um": 0.2,
+      "measured_width_um": 0.2
+    },
+    {
+      "name": "D1_04_B3_T80_left_L15_junction0",
+      "passed": true,
+      "expected_width_um": 1.0,
+      "measured_width_um": 1.0
+    },
+    {
+      "name": "D1_04_B3_T80_left_L15_junction1",
+      "passed": true,
+      "expected_width_um": 0.1,
+      "measured_width_um": 0.1
+    },
+    {
+      "name": "D1_05_B3_T100_all_layers_present",
+      "passed": true
+    },
+    {
+      "name": "D1_05_B3_T100_placement",
+      "passed": true
+    },
+    {
+      "name": "D1_05_B3_T100_left_bend_aligned",
+      "passed": true,
+      "x_um": -900.0
+    },
+    {
+      "name": "D1_05_B3_T100_connected_optical_path",
+      "passed": true
+    },
+    {
+      "name": "D1_05_B3_T100_four_tips_on_L15_only",
+      "passed": true
+    },
+    {
+      "name": "D1_05_B3_T100_connected_L16",
+      "passed": true
+    },
+    {
+      "name": "D1_05_B3_T100_L14_covers_ridge",
+      "passed": true,
+      "uncovered_um2": 0.0
+    },
+    {
+      "name": "D1_05_B3_T100_L16_covers_ridge",
+      "passed": true,
+      "uncovered_um2": 0.0
+    },
+    {
+      "name": "D1_05_B3_T100_L2_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 9e-06
+    },
+    {
+      "name": "D1_05_B3_T100_L10_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_05_B3_T100_L11_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_05_B3_T100_L13_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_05_B3_T100_L14_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_05_B3_T100_L15_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_05_B3_T100_L16_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_05_B3_T100_L51_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_05_B3_T100_right_L10_junction0",
+      "passed": true,
+      "expected_width_um": 3.0,
+      "measured_width_um": 3.0
+    },
+    {
+      "name": "D1_05_B3_T100_right_L10_junction1",
+      "passed": true,
+      "expected_width_um": 1.0,
+      "measured_width_um": 1.0
+    },
+    {
+      "name": "D1_05_B3_T100_right_L10_junction2",
+      "passed": true,
+      "expected_width_um": 0.2,
+      "measured_width_um": 0.2
+    },
+    {
+      "name": "D1_05_B3_T100_right_L15_junction0",
+      "passed": true,
+      "expected_width_um": 1.0,
+      "measured_width_um": 1.0
+    },
+    {
+      "name": "D1_05_B3_T100_right_L15_junction1",
+      "passed": true,
+      "expected_width_um": 0.1,
+      "measured_width_um": 0.1
+    },
+    {
+      "name": "D1_05_B3_T100_left_L10_junction0",
+      "passed": true,
+      "expected_width_um": 3.0,
+      "measured_width_um": 3.0
+    },
+    {
+      "name": "D1_05_B3_T100_left_L10_junction1",
+      "passed": true,
+      "expected_width_um": 1.0,
+      "measured_width_um": 1.0
+    },
+    {
+      "name": "D1_05_B3_T100_left_L10_junction2",
+      "passed": true,
+      "expected_width_um": 0.2,
+      "measured_width_um": 0.2
+    },
+    {
+      "name": "D1_05_B3_T100_left_L15_junction0",
+      "passed": true,
+      "expected_width_um": 1.0,
+      "measured_width_um": 1.0
+    },
+    {
+      "name": "D1_05_B3_T100_left_L15_junction1",
+      "passed": true,
+      "expected_width_um": 0.1,
+      "measured_width_um": 0.1
+    },
+    {
+      "name": "D1_06_B3_T120_all_layers_present",
+      "passed": true
+    },
+    {
+      "name": "D1_06_B3_T120_placement",
+      "passed": true
+    },
+    {
+      "name": "D1_06_B3_T120_left_bend_aligned",
+      "passed": true,
+      "x_um": -900.0
+    },
+    {
+      "name": "D1_06_B3_T120_connected_optical_path",
+      "passed": true
+    },
+    {
+      "name": "D1_06_B3_T120_four_tips_on_L15_only",
+      "passed": true
+    },
+    {
+      "name": "D1_06_B3_T120_connected_L16",
+      "passed": true
+    },
+    {
+      "name": "D1_06_B3_T120_L14_covers_ridge",
+      "passed": true,
+      "uncovered_um2": 0.0
+    },
+    {
+      "name": "D1_06_B3_T120_L16_covers_ridge",
+      "passed": true,
+      "uncovered_um2": 0.0
+    },
+    {
+      "name": "D1_06_B3_T120_L2_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.000159
+    },
+    {
+      "name": "D1_06_B3_T120_L10_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_06_B3_T120_L11_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_06_B3_T120_L13_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_06_B3_T120_L14_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.00015
+    },
+    {
+      "name": "D1_06_B3_T120_L15_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_06_B3_T120_L16_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_06_B3_T120_L51_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_06_B3_T120_right_L10_junction0",
+      "passed": true,
+      "expected_width_um": 3.0,
+      "measured_width_um": 3.0
+    },
+    {
+      "name": "D1_06_B3_T120_right_L10_junction1",
+      "passed": true,
+      "expected_width_um": 1.0,
+      "measured_width_um": 1.0
+    },
+    {
+      "name": "D1_06_B3_T120_right_L10_junction2",
+      "passed": true,
+      "expected_width_um": 0.2,
+      "measured_width_um": 0.2
+    },
+    {
+      "name": "D1_06_B3_T120_right_L15_junction0",
+      "passed": true,
+      "expected_width_um": 1.0,
+      "measured_width_um": 1.0
+    },
+    {
+      "name": "D1_06_B3_T120_right_L15_junction1",
+      "passed": true,
+      "expected_width_um": 0.1,
+      "measured_width_um": 0.1
+    },
+    {
+      "name": "D1_06_B3_T120_left_L10_junction0",
+      "passed": true,
+      "expected_width_um": 3.0,
+      "measured_width_um": 3.0
+    },
+    {
+      "name": "D1_06_B3_T120_left_L10_junction1",
+      "passed": true,
+      "expected_width_um": 1.0,
+      "measured_width_um": 1.0
+    },
+    {
+      "name": "D1_06_B3_T120_left_L10_junction2",
+      "passed": true,
+      "expected_width_um": 0.2,
+      "measured_width_um": 0.2
+    },
+    {
+      "name": "D1_06_B3_T120_left_L15_junction0",
+      "passed": true,
+      "expected_width_um": 1.0,
+      "measured_width_um": 1.0
+    },
+    {
+      "name": "D1_06_B3_T120_left_L15_junction1",
+      "passed": true,
+      "expected_width_um": 0.1,
+      "measured_width_um": 0.1
+    },
+    {
+      "name": "D1_07_B5_T80_all_layers_present",
+      "passed": true
+    },
+    {
+      "name": "D1_07_B5_T80_placement",
+      "passed": true
+    },
+    {
+      "name": "D1_07_B5_T80_left_bend_aligned",
+      "passed": true,
+      "x_um": -900.0
+    },
+    {
+      "name": "D1_07_B5_T80_connected_optical_path",
+      "passed": true
+    },
+    {
+      "name": "D1_07_B5_T80_four_tips_on_L15_only",
+      "passed": true
+    },
+    {
+      "name": "D1_07_B5_T80_connected_L16",
+      "passed": true
+    },
+    {
+      "name": "D1_07_B5_T80_L14_covers_ridge",
+      "passed": true,
+      "uncovered_um2": 0.0
+    },
+    {
+      "name": "D1_07_B5_T80_L16_covers_ridge",
+      "passed": true,
+      "uncovered_um2": 0.0
+    },
+    {
+      "name": "D1_07_B5_T80_L2_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 9e-06
+    },
+    {
+      "name": "D1_07_B5_T80_L10_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_07_B5_T80_L11_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_07_B5_T80_L13_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_07_B5_T80_L14_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_07_B5_T80_L15_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_07_B5_T80_L16_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_07_B5_T80_L51_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_07_B5_T80_right_L10_junction0",
+      "passed": true,
+      "expected_width_um": 3.0,
+      "measured_width_um": 3.0
+    },
+    {
+      "name": "D1_07_B5_T80_right_L10_junction1",
+      "passed": true,
+      "expected_width_um": 1.0,
+      "measured_width_um": 1.0
+    },
+    {
+      "name": "D1_07_B5_T80_right_L10_junction2",
+      "passed": true,
+      "expected_width_um": 0.2,
+      "measured_width_um": 0.2
+    },
+    {
+      "name": "D1_07_B5_T80_right_L15_junction0",
+      "passed": true,
+      "expected_width_um": 1.0,
+      "measured_width_um": 1.0
+    },
+    {
+      "name": "D1_07_B5_T80_right_L15_junction1",
+      "passed": true,
+      "expected_width_um": 0.1,
+      "measured_width_um": 0.1
+    },
+    {
+      "name": "D1_07_B5_T80_left_L10_junction0",
+      "passed": true,
+      "expected_width_um": 3.0,
+      "measured_width_um": 3.0
+    },
+    {
+      "name": "D1_07_B5_T80_left_L10_junction1",
+      "passed": true,
+      "expected_width_um": 1.0,
+      "measured_width_um": 1.0
+    },
+    {
+      "name": "D1_07_B5_T80_left_L10_junction2",
+      "passed": true,
+      "expected_width_um": 0.2,
+      "measured_width_um": 0.2
+    },
+    {
+      "name": "D1_07_B5_T80_left_L15_junction0",
+      "passed": true,
+      "expected_width_um": 1.0,
+      "measured_width_um": 1.0
+    },
+    {
+      "name": "D1_07_B5_T80_left_L15_junction1",
+      "passed": true,
+      "expected_width_um": 0.1,
+      "measured_width_um": 0.1
+    },
+    {
+      "name": "D1_08_B5_T100_all_layers_present",
+      "passed": true
+    },
+    {
+      "name": "D1_08_B5_T100_placement",
+      "passed": true
+    },
+    {
+      "name": "D1_08_B5_T100_left_bend_aligned",
+      "passed": true,
+      "x_um": -900.0
+    },
+    {
+      "name": "D1_08_B5_T100_connected_optical_path",
+      "passed": true
+    },
+    {
+      "name": "D1_08_B5_T100_four_tips_on_L15_only",
+      "passed": true
+    },
+    {
+      "name": "D1_08_B5_T100_connected_L16",
+      "passed": true
+    },
+    {
+      "name": "D1_08_B5_T100_L14_covers_ridge",
+      "passed": true,
+      "uncovered_um2": 0.0
+    },
+    {
+      "name": "D1_08_B5_T100_L16_covers_ridge",
+      "passed": true,
+      "uncovered_um2": 0.0
+    },
+    {
+      "name": "D1_08_B5_T100_L2_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 9e-06
+    },
+    {
+      "name": "D1_08_B5_T100_L10_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_08_B5_T100_L11_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_08_B5_T100_L13_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_08_B5_T100_L14_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_08_B5_T100_L15_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_08_B5_T100_L16_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_08_B5_T100_L51_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_08_B5_T100_right_L10_junction0",
+      "passed": true,
+      "expected_width_um": 3.0,
+      "measured_width_um": 3.0
+    },
+    {
+      "name": "D1_08_B5_T100_right_L10_junction1",
+      "passed": true,
+      "expected_width_um": 1.0,
+      "measured_width_um": 1.0
+    },
+    {
+      "name": "D1_08_B5_T100_right_L10_junction2",
+      "passed": true,
+      "expected_width_um": 0.2,
+      "measured_width_um": 0.2
+    },
+    {
+      "name": "D1_08_B5_T100_right_L15_junction0",
+      "passed": true,
+      "expected_width_um": 1.0,
+      "measured_width_um": 1.0
+    },
+    {
+      "name": "D1_08_B5_T100_right_L15_junction1",
+      "passed": true,
+      "expected_width_um": 0.1,
+      "measured_width_um": 0.1
+    },
+    {
+      "name": "D1_08_B5_T100_left_L10_junction0",
+      "passed": true,
+      "expected_width_um": 3.0,
+      "measured_width_um": 3.0
+    },
+    {
+      "name": "D1_08_B5_T100_left_L10_junction1",
+      "passed": true,
+      "expected_width_um": 1.0,
+      "measured_width_um": 1.0
+    },
+    {
+      "name": "D1_08_B5_T100_left_L10_junction2",
+      "passed": true,
+      "expected_width_um": 0.2,
+      "measured_width_um": 0.2
+    },
+    {
+      "name": "D1_08_B5_T100_left_L15_junction0",
+      "passed": true,
+      "expected_width_um": 1.0,
+      "measured_width_um": 1.0
+    },
+    {
+      "name": "D1_08_B5_T100_left_L15_junction1",
+      "passed": true,
+      "expected_width_um": 0.1,
+      "measured_width_um": 0.1
+    },
+    {
+      "name": "D1_09_B5_T120_all_layers_present",
+      "passed": true
+    },
+    {
+      "name": "D1_09_B5_T120_placement",
+      "passed": true
+    },
+    {
+      "name": "D1_09_B5_T120_left_bend_aligned",
+      "passed": true,
+      "x_um": -900.0
+    },
+    {
+      "name": "D1_09_B5_T120_connected_optical_path",
+      "passed": true
+    },
+    {
+      "name": "D1_09_B5_T120_four_tips_on_L15_only",
+      "passed": true
+    },
+    {
+      "name": "D1_09_B5_T120_connected_L16",
+      "passed": true
+    },
+    {
+      "name": "D1_09_B5_T120_L14_covers_ridge",
+      "passed": true,
+      "uncovered_um2": 0.0
+    },
+    {
+      "name": "D1_09_B5_T120_L16_covers_ridge",
+      "passed": true,
+      "uncovered_um2": 0.0
+    },
+    {
+      "name": "D1_09_B5_T120_L2_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.000159
+    },
+    {
+      "name": "D1_09_B5_T120_L10_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_09_B5_T120_L11_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_09_B5_T120_L13_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_09_B5_T120_L14_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.00015
+    },
+    {
+      "name": "D1_09_B5_T120_L15_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_09_B5_T120_L16_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_09_B5_T120_L51_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_09_B5_T120_right_L10_junction0",
+      "passed": true,
+      "expected_width_um": 3.0,
+      "measured_width_um": 3.0
+    },
+    {
+      "name": "D1_09_B5_T120_right_L10_junction1",
+      "passed": true,
+      "expected_width_um": 1.0,
+      "measured_width_um": 1.0
+    },
+    {
+      "name": "D1_09_B5_T120_right_L10_junction2",
+      "passed": true,
+      "expected_width_um": 0.2,
+      "measured_width_um": 0.2
+    },
+    {
+      "name": "D1_09_B5_T120_right_L15_junction0",
+      "passed": true,
+      "expected_width_um": 1.0,
+      "measured_width_um": 1.0
+    },
+    {
+      "name": "D1_09_B5_T120_right_L15_junction1",
+      "passed": true,
+      "expected_width_um": 0.1,
+      "measured_width_um": 0.1
+    },
+    {
+      "name": "D1_09_B5_T120_left_L10_junction0",
+      "passed": true,
+      "expected_width_um": 3.0,
+      "measured_width_um": 3.0
+    },
+    {
+      "name": "D1_09_B5_T120_left_L10_junction1",
+      "passed": true,
+      "expected_width_um": 1.0,
+      "measured_width_um": 1.0
+    },
+    {
+      "name": "D1_09_B5_T120_left_L10_junction2",
+      "passed": true,
+      "expected_width_um": 0.2,
+      "measured_width_um": 0.2
+    },
+    {
+      "name": "D1_09_B5_T120_left_L15_junction0",
+      "passed": true,
+      "expected_width_um": 1.0,
+      "measured_width_um": 1.0
+    },
+    {
+      "name": "D1_09_B5_T120_left_L15_junction1",
+      "passed": true,
+      "expected_width_um": 0.1,
+      "measured_width_um": 0.1
+    },
+    {
+      "name": "D2_01_B2_T80_all_layers_present",
+      "passed": true
+    },
+    {
+      "name": "D2_01_B2_T80_placement",
+      "passed": true
+    },
+    {
+      "name": "D2_01_B2_T80_left_bend_aligned",
+      "passed": true,
+      "x_um": 4100.0
+    },
+    {
+      "name": "D2_01_B2_T80_connected_optical_path",
+      "passed": true
+    },
+    {
+      "name": "D2_01_B2_T80_four_tips_on_L15_only",
+      "passed": true
+    },
+    {
+      "name": "D2_01_B2_T80_connected_L16",
+      "passed": true
+    },
+    {
+      "name": "D2_01_B2_T80_L14_covers_ridge",
+      "passed": true,
+      "uncovered_um2": 0.0
+    },
+    {
+      "name": "D2_01_B2_T80_L16_covers_ridge",
+      "passed": true,
+      "uncovered_um2": 0.0
+    },
+    {
+      "name": "D2_01_B2_T80_L2_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 9.999999999999999e-06
+    },
+    {
+      "name": "D2_01_B2_T80_L10_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D2_01_B2_T80_L11_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D2_01_B2_T80_L13_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D2_01_B2_T80_L14_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 1e-06
+    },
+    {
+      "name": "D2_01_B2_T80_L15_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D2_01_B2_T80_L16_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.000714
+    },
+    {
+      "name": "D2_01_B2_T80_L51_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D2_01_B2_T80_right_L10_junction0",
+      "passed": true,
+      "expected_width_um": 3.0,
+      "measured_width_um": 3.0
+    },
+    {
+      "name": "D2_01_B2_T80_right_L10_junction1",
+      "passed": true,
+      "expected_width_um": 1.65,
+      "measured_width_um": 1.6500000000000001
+    },
+    {
+      "name": "D2_01_B2_T80_right_L10_junction2",
+      "passed": true,
+      "expected_width_um": 0.98,
+      "measured_width_um": 0.98
+    },
+    {
+      "name": "D2_01_B2_T80_right_L10_junction3",
+      "passed": true,
+      "expected_width_um": 0.2,
+      "measured_width_um": 0.2
+    },
+    {
+      "name": "D2_01_B2_T80_right_L15_junction0",
+      "passed": true,
+      "expected_width_um": 1.0,
+      "measured_width_um": 1.0
+    },
+    {
+      "name": "D2_01_B2_T80_right_L15_junction1",
+      "passed": true,
+      "expected_width_um": 0.5,
+      "measured_width_um": 0.5
+    },
+    {
+      "name": "D2_01_B2_T80_right_L15_junction2",
+      "passed": true,
+      "expected_width_um": 0.2,
+      "measured_width_um": 0.2
+    },
+    {
+      "name": "D2_01_B2_T80_left_L10_junction0",
+      "passed": true,
+      "expected_width_um": 3.0,
+      "measured_width_um": 3.0
+    },
+    {
+      "name": "D2_01_B2_T80_left_L10_junction1",
+      "passed": true,
+      "expected_width_um": 1.65,
+      "measured_width_um": 1.6500000000000001
+    },
+    {
+      "name": "D2_01_B2_T80_left_L10_junction2",
+      "passed": true,
+      "expected_width_um": 0.98,
+      "measured_width_um": 0.98
+    },
+    {
+      "name": "D2_01_B2_T80_left_L10_junction3",
+      "passed": true,
+      "expected_width_um": 0.2,
+      "measured_width_um": 0.2
+    },
+    {
+      "name": "D2_01_B2_T80_left_L15_junction0",
+      "passed": true,
+      "expected_width_um": 1.0,
+      "measured_width_um": 1.0
+    },
+    {
+      "name": "D2_01_B2_T80_left_L15_junction1",
+      "passed": true,
+      "expected_width_um": 0.5,
+      "measured_width_um": 0.5
+    },
+    {
+      "name": "D2_01_B2_T80_left_L15_junction2",
+      "passed": true,
+      "expected_width_um": 0.2,
+      "measured_width_um": 0.2
+    },
+    {
+      "name": "D2_02_B2_T100_all_layers_present",
+      "passed": true
+    },
+    {
+      "name": "D2_02_B2_T100_placement",
+      "passed": true
+    },
+    {
+      "name": "D2_02_B2_T100_left_bend_aligned",
+      "passed": true,
+      "x_um": 4100.0
+    },
+    {
+      "name": "D2_02_B2_T100_connected_optical_path",
+      "passed": true
+    },
+    {
+      "name": "D2_02_B2_T100_four_tips_on_L15_only",
+      "passed": true
+    },
+    {
+      "name": "D2_02_B2_T100_connected_L16",
+      "passed": true
+    },
+    {
+      "name": "D2_02_B2_T100_L14_covers_ridge",
+      "passed": true,
+      "uncovered_um2": 0.0
+    },
+    {
+      "name": "D2_02_B2_T100_L16_covers_ridge",
+      "passed": true,
+      "uncovered_um2": 0.0
+    },
+    {
+      "name": "D2_02_B2_T100_L2_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 3.2999999999999996e-05
+    },
+    {
+      "name": "D2_02_B2_T100_L10_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D2_02_B2_T100_L11_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D2_02_B2_T100_L13_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D2_02_B2_T100_L14_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 2.4e-05
+    },
+    {
+      "name": "D2_02_B2_T100_L15_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D2_02_B2_T100_L16_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 2.7e-05
+    },
+    {
+      "name": "D2_02_B2_T100_L51_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D2_02_B2_T100_right_L10_junction0",
+      "passed": true,
+      "expected_width_um": 3.0,
+      "measured_width_um": 3.0
+    },
+    {
+      "name": "D2_02_B2_T100_right_L10_junction1",
+      "passed": true,
+      "expected_width_um": 1.65,
+      "measured_width_um": 1.6500000000000001
+    },
+    {
+      "name": "D2_02_B2_T100_right_L10_junction2",
+      "passed": true,
+      "expected_width_um": 0.98,
+      "measured_width_um": 0.98
+    },
+    {
+      "name": "D2_02_B2_T100_right_L10_junction3",
+      "passed": true,
+      "expected_width_um": 0.2,
+      "measured_width_um": 0.2
+    },
+    {
+      "name": "D2_02_B2_T100_right_L15_junction0",
+      "passed": true,
+      "expected_width_um": 1.0,
+      "measured_width_um": 1.0
+    },
+    {
+      "name": "D2_02_B2_T100_right_L15_junction1",
+      "passed": true,
+      "expected_width_um": 0.5,
+      "measured_width_um": 0.5
+    },
+    {
+      "name": "D2_02_B2_T100_right_L15_junction2",
+      "passed": true,
+      "expected_width_um": 0.2,
+      "measured_width_um": 0.2
+    },
+    {
+      "name": "D2_02_B2_T100_left_L10_junction0",
+      "passed": true,
+      "expected_width_um": 3.0,
+      "measured_width_um": 3.0
+    },
+    {
+      "name": "D2_02_B2_T100_left_L10_junction1",
+      "passed": true,
+      "expected_width_um": 1.65,
+      "measured_width_um": 1.6500000000000001
+    },
+    {
+      "name": "D2_02_B2_T100_left_L10_junction2",
+      "passed": true,
+      "expected_width_um": 0.98,
+      "measured_width_um": 0.98
+    },
+    {
+      "name": "D2_02_B2_T100_left_L10_junction3",
+      "passed": true,
+      "expected_width_um": 0.2,
+      "measured_width_um": 0.2
+    },
+    {
+      "name": "D2_02_B2_T100_left_L15_junction0",
+      "passed": true,
+      "expected_width_um": 1.0,
+      "measured_width_um": 1.0
+    },
+    {
+      "name": "D2_02_B2_T100_left_L15_junction1",
+      "passed": true,
+      "expected_width_um": 0.5,
+      "measured_width_um": 0.5
+    },
+    {
+      "name": "D2_02_B2_T100_left_L15_junction2",
+      "passed": true,
+      "expected_width_um": 0.2,
+      "measured_width_um": 0.2
+    },
+    {
+      "name": "D2_03_B2_T120_all_layers_present",
+      "passed": true
+    },
+    {
+      "name": "D2_03_B2_T120_placement",
+      "passed": true
+    },
+    {
+      "name": "D2_03_B2_T120_left_bend_aligned",
+      "passed": true,
+      "x_um": 4100.0
+    },
+    {
+      "name": "D2_03_B2_T120_connected_optical_path",
+      "passed": true
+    },
+    {
+      "name": "D2_03_B2_T120_four_tips_on_L15_only",
+      "passed": true
+    },
+    {
+      "name": "D2_03_B2_T120_connected_L16",
+      "passed": true
+    },
+    {
+      "name": "D2_03_B2_T120_L14_covers_ridge",
+      "passed": true,
+      "uncovered_um2": 0.0
+    },
+    {
+      "name": "D2_03_B2_T120_L16_covers_ridge",
+      "passed": true,
+      "uncovered_um2": 0.0
+    },
+    {
+      "name": "D2_03_B2_T120_L2_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 2.9999999999999997e-05
+    },
+    {
+      "name": "D2_03_B2_T120_L10_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D2_03_B2_T120_L11_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D2_03_B2_T120_L13_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D2_03_B2_T120_L14_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 2.1e-05
+    },
+    {
+      "name": "D2_03_B2_T120_L15_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D2_03_B2_T120_L16_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 1.8999999999999998e-05
+    },
+    {
+      "name": "D2_03_B2_T120_L51_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D2_03_B2_T120_right_L10_junction0",
+      "passed": true,
+      "expected_width_um": 3.0,
+      "measured_width_um": 3.0
+    },
+    {
+      "name": "D2_03_B2_T120_right_L10_junction1",
+      "passed": true,
+      "expected_width_um": 1.65,
+      "measured_width_um": 1.6500000000000001
+    },
+    {
+      "name": "D2_03_B2_T120_right_L10_junction2",
+      "passed": true,
+      "expected_width_um": 0.98,
+      "measured_width_um": 0.98
+    },
+    {
+      "name": "D2_03_B2_T120_right_L10_junction3",
+      "passed": true,
+      "expected_width_um": 0.2,
+      "measured_width_um": 0.2
+    },
+    {
+      "name": "D2_03_B2_T120_right_L15_junction0",
+      "passed": true,
+      "expected_width_um": 1.0,
+      "measured_width_um": 1.0
+    },
+    {
+      "name": "D2_03_B2_T120_right_L15_junction1",
+      "passed": true,
+      "expected_width_um": 0.5,
+      "measured_width_um": 0.5
+    },
+    {
+      "name": "D2_03_B2_T120_right_L15_junction2",
+      "passed": true,
+      "expected_width_um": 0.2,
+      "measured_width_um": 0.2
+    },
+    {
+      "name": "D2_03_B2_T120_left_L10_junction0",
+      "passed": true,
+      "expected_width_um": 3.0,
+      "measured_width_um": 3.0
+    },
+    {
+      "name": "D2_03_B2_T120_left_L10_junction1",
+      "passed": true,
+      "expected_width_um": 1.65,
+      "measured_width_um": 1.6500000000000001
+    },
+    {
+      "name": "D2_03_B2_T120_left_L10_junction2",
+      "passed": true,
+      "expected_width_um": 0.98,
+      "measured_width_um": 0.98
+    },
+    {
+      "name": "D2_03_B2_T120_left_L10_junction3",
+      "passed": true,
+      "expected_width_um": 0.2,
+      "measured_width_um": 0.2
+    },
+    {
+      "name": "D2_03_B2_T120_left_L15_junction0",
+      "passed": true,
+      "expected_width_um": 1.0,
+      "measured_width_um": 1.0
+    },
+    {
+      "name": "D2_03_B2_T120_left_L15_junction1",
+      "passed": true,
+      "expected_width_um": 0.5,
+      "measured_width_um": 0.5
+    },
+    {
+      "name": "D2_03_B2_T120_left_L15_junction2",
+      "passed": true,
+      "expected_width_um": 0.2,
+      "measured_width_um": 0.2
+    },
+    {
+      "name": "D2_04_B3_T80_all_layers_present",
+      "passed": true
+    },
+    {
+      "name": "D2_04_B3_T80_placement",
+      "passed": true
+    },
+    {
+      "name": "D2_04_B3_T80_left_bend_aligned",
+      "passed": true,
+      "x_um": 4100.0
+    },
+    {
+      "name": "D2_04_B3_T80_connected_optical_path",
+      "passed": true
+    },
+    {
+      "name": "D2_04_B3_T80_four_tips_on_L15_only",
+      "passed": true
+    },
+    {
+      "name": "D2_04_B3_T80_connected_L16",
+      "passed": true
+    },
+    {
+      "name": "D2_04_B3_T80_L14_covers_ridge",
+      "passed": true,
+      "uncovered_um2": 0.0
+    },
+    {
+      "name": "D2_04_B3_T80_L16_covers_ridge",
+      "passed": true,
+      "uncovered_um2": 0.0
+    },
+    {
+      "name": "D2_04_B3_T80_L2_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 9.999999999999999e-06
+    },
+    {
+      "name": "D2_04_B3_T80_L10_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D2_04_B3_T80_L11_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D2_04_B3_T80_L13_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D2_04_B3_T80_L14_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 1e-06
+    },
+    {
+      "name": "D2_04_B3_T80_L15_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D2_04_B3_T80_L16_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.000714
+    },
+    {
+      "name": "D2_04_B3_T80_L51_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D2_04_B3_T80_right_L10_junction0",
+      "passed": true,
+      "expected_width_um": 3.0,
+      "measured_width_um": 3.0
+    },
+    {
+      "name": "D2_04_B3_T80_right_L10_junction1",
+      "passed": true,
+      "expected_width_um": 1.65,
+      "measured_width_um": 1.6500000000000001
+    },
+    {
+      "name": "D2_04_B3_T80_right_L10_junction2",
+      "passed": true,
+      "expected_width_um": 0.98,
+      "measured_width_um": 0.98
+    },
+    {
+      "name": "D2_04_B3_T80_right_L10_junction3",
+      "passed": true,
+      "expected_width_um": 0.2,
+      "measured_width_um": 0.2
+    },
+    {
+      "name": "D2_04_B3_T80_right_L15_junction0",
+      "passed": true,
+      "expected_width_um": 1.0,
+      "measured_width_um": 1.0
+    },
+    {
+      "name": "D2_04_B3_T80_right_L15_junction1",
+      "passed": true,
+      "expected_width_um": 0.5,
+      "measured_width_um": 0.5
+    },
+    {
+      "name": "D2_04_B3_T80_right_L15_junction2",
+      "passed": true,
+      "expected_width_um": 0.2,
+      "measured_width_um": 0.2
+    },
+    {
+      "name": "D2_04_B3_T80_left_L10_junction0",
+      "passed": true,
+      "expected_width_um": 3.0,
+      "measured_width_um": 3.0
+    },
+    {
+      "name": "D2_04_B3_T80_left_L10_junction1",
+      "passed": true,
+      "expected_width_um": 1.65,
+      "measured_width_um": 1.6500000000000001
+    },
+    {
+      "name": "D2_04_B3_T80_left_L10_junction2",
+      "passed": true,
+      "expected_width_um": 0.98,
+      "measured_width_um": 0.98
+    },
+    {
+      "name": "D2_04_B3_T80_left_L10_junction3",
+      "passed": true,
+      "expected_width_um": 0.2,
+      "measured_width_um": 0.2
+    },
+    {
+      "name": "D2_04_B3_T80_left_L15_junction0",
+      "passed": true,
+      "expected_width_um": 1.0,
+      "measured_width_um": 1.0
+    },
+    {
+      "name": "D2_04_B3_T80_left_L15_junction1",
+      "passed": true,
+      "expected_width_um": 0.5,
+      "measured_width_um": 0.5
+    },
+    {
+      "name": "D2_04_B3_T80_left_L15_junction2",
+      "passed": true,
+      "expected_width_um": 0.2,
+      "measured_width_um": 0.2
+    },
+    {
+      "name": "D2_05_B3_T100_all_layers_present",
+      "passed": true
+    },
+    {
+      "name": "D2_05_B3_T100_placement",
+      "passed": true
+    },
+    {
+      "name": "D2_05_B3_T100_left_bend_aligned",
+      "passed": true,
+      "x_um": 4100.0
+    },
+    {
+      "name": "D2_05_B3_T100_connected_optical_path",
+      "passed": true
+    },
+    {
+      "name": "D2_05_B3_T100_four_tips_on_L15_only",
+      "passed": true
+    },
+    {
+      "name": "D2_05_B3_T100_connected_L16",
+      "passed": true
+    },
+    {
+      "name": "D2_05_B3_T100_L14_covers_ridge",
+      "passed": true,
+      "uncovered_um2": 0.0
+    },
+    {
+      "name": "D2_05_B3_T100_L16_covers_ridge",
+      "passed": true,
+      "uncovered_um2": 0.0
+    },
+    {
+      "name": "D2_05_B3_T100_L2_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 3.2999999999999996e-05
+    },
+    {
+      "name": "D2_05_B3_T100_L10_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D2_05_B3_T100_L11_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D2_05_B3_T100_L13_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D2_05_B3_T100_L14_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 2.4e-05
+    },
+    {
+      "name": "D2_05_B3_T100_L15_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D2_05_B3_T100_L16_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 2.7e-05
+    },
+    {
+      "name": "D2_05_B3_T100_L51_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D2_05_B3_T100_right_L10_junction0",
+      "passed": true,
+      "expected_width_um": 3.0,
+      "measured_width_um": 3.0
+    },
+    {
+      "name": "D2_05_B3_T100_right_L10_junction1",
+      "passed": true,
+      "expected_width_um": 1.65,
+      "measured_width_um": 1.6500000000000001
+    },
+    {
+      "name": "D2_05_B3_T100_right_L10_junction2",
+      "passed": true,
+      "expected_width_um": 0.98,
+      "measured_width_um": 0.98
+    },
+    {
+      "name": "D2_05_B3_T100_right_L10_junction3",
+      "passed": true,
+      "expected_width_um": 0.2,
+      "measured_width_um": 0.2
+    },
+    {
+      "name": "D2_05_B3_T100_right_L15_junction0",
+      "passed": true,
+      "expected_width_um": 1.0,
+      "measured_width_um": 1.0
+    },
+    {
+      "name": "D2_05_B3_T100_right_L15_junction1",
+      "passed": true,
+      "expected_width_um": 0.5,
+      "measured_width_um": 0.5
+    },
+    {
+      "name": "D2_05_B3_T100_right_L15_junction2",
+      "passed": true,
+      "expected_width_um": 0.2,
+      "measured_width_um": 0.2
+    },
+    {
+      "name": "D2_05_B3_T100_left_L10_junction0",
+      "passed": true,
+      "expected_width_um": 3.0,
+      "measured_width_um": 3.0
+    },
+    {
+      "name": "D2_05_B3_T100_left_L10_junction1",
+      "passed": true,
+      "expected_width_um": 1.65,
+      "measured_width_um": 1.6500000000000001
+    },
+    {
+      "name": "D2_05_B3_T100_left_L10_junction2",
+      "passed": true,
+      "expected_width_um": 0.98,
+      "measured_width_um": 0.98
+    },
+    {
+      "name": "D2_05_B3_T100_left_L10_junction3",
+      "passed": true,
+      "expected_width_um": 0.2,
+      "measured_width_um": 0.2
+    },
+    {
+      "name": "D2_05_B3_T100_left_L15_junction0",
+      "passed": true,
+      "expected_width_um": 1.0,
+      "measured_width_um": 1.0
+    },
+    {
+      "name": "D2_05_B3_T100_left_L15_junction1",
+      "passed": true,
+      "expected_width_um": 0.5,
+      "measured_width_um": 0.5
+    },
+    {
+      "name": "D2_05_B3_T100_left_L15_junction2",
+      "passed": true,
+      "expected_width_um": 0.2,
+      "measured_width_um": 0.2
+    },
+    {
+      "name": "D2_06_B3_T120_all_layers_present",
+      "passed": true
+    },
+    {
+      "name": "D2_06_B3_T120_placement",
+      "passed": true
+    },
+    {
+      "name": "D2_06_B3_T120_left_bend_aligned",
+      "passed": true,
+      "x_um": 4100.0
+    },
+    {
+      "name": "D2_06_B3_T120_connected_optical_path",
+      "passed": true
+    },
+    {
+      "name": "D2_06_B3_T120_four_tips_on_L15_only",
+      "passed": true
+    },
+    {
+      "name": "D2_06_B3_T120_connected_L16",
+      "passed": true
+    },
+    {
+      "name": "D2_06_B3_T120_L14_covers_ridge",
+      "passed": true,
+      "uncovered_um2": 0.0
+    },
+    {
+      "name": "D2_06_B3_T120_L16_covers_ridge",
+      "passed": true,
+      "uncovered_um2": 0.0
+    },
+    {
+      "name": "D2_06_B3_T120_L2_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 2.9999999999999997e-05
+    },
+    {
+      "name": "D2_06_B3_T120_L10_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D2_06_B3_T120_L11_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D2_06_B3_T120_L13_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D2_06_B3_T120_L14_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 2.1e-05
+    },
+    {
+      "name": "D2_06_B3_T120_L15_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D2_06_B3_T120_L16_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 1.8999999999999998e-05
+    },
+    {
+      "name": "D2_06_B3_T120_L51_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D2_06_B3_T120_right_L10_junction0",
+      "passed": true,
+      "expected_width_um": 3.0,
+      "measured_width_um": 3.0
+    },
+    {
+      "name": "D2_06_B3_T120_right_L10_junction1",
+      "passed": true,
+      "expected_width_um": 1.65,
+      "measured_width_um": 1.6500000000000001
+    },
+    {
+      "name": "D2_06_B3_T120_right_L10_junction2",
+      "passed": true,
+      "expected_width_um": 0.98,
+      "measured_width_um": 0.98
+    },
+    {
+      "name": "D2_06_B3_T120_right_L10_junction3",
+      "passed": true,
+      "expected_width_um": 0.2,
+      "measured_width_um": 0.2
+    },
+    {
+      "name": "D2_06_B3_T120_right_L15_junction0",
+      "passed": true,
+      "expected_width_um": 1.0,
+      "measured_width_um": 1.0
+    },
+    {
+      "name": "D2_06_B3_T120_right_L15_junction1",
+      "passed": true,
+      "expected_width_um": 0.5,
+      "measured_width_um": 0.5
+    },
+    {
+      "name": "D2_06_B3_T120_right_L15_junction2",
+      "passed": true,
+      "expected_width_um": 0.2,
+      "measured_width_um": 0.2
+    },
+    {
+      "name": "D2_06_B3_T120_left_L10_junction0",
+      "passed": true,
+      "expected_width_um": 3.0,
+      "measured_width_um": 3.0
+    },
+    {
+      "name": "D2_06_B3_T120_left_L10_junction1",
+      "passed": true,
+      "expected_width_um": 1.65,
+      "measured_width_um": 1.6500000000000001
+    },
+    {
+      "name": "D2_06_B3_T120_left_L10_junction2",
+      "passed": true,
+      "expected_width_um": 0.98,
+      "measured_width_um": 0.98
+    },
+    {
+      "name": "D2_06_B3_T120_left_L10_junction3",
+      "passed": true,
+      "expected_width_um": 0.2,
+      "measured_width_um": 0.2
+    },
+    {
+      "name": "D2_06_B3_T120_left_L15_junction0",
+      "passed": true,
+      "expected_width_um": 1.0,
+      "measured_width_um": 1.0
+    },
+    {
+      "name": "D2_06_B3_T120_left_L15_junction1",
+      "passed": true,
+      "expected_width_um": 0.5,
+      "measured_width_um": 0.5
+    },
+    {
+      "name": "D2_06_B3_T120_left_L15_junction2",
+      "passed": true,
+      "expected_width_um": 0.2,
+      "measured_width_um": 0.2
+    },
+    {
+      "name": "D2_07_B5_T80_all_layers_present",
+      "passed": true
+    },
+    {
+      "name": "D2_07_B5_T80_placement",
+      "passed": true
+    },
+    {
+      "name": "D2_07_B5_T80_left_bend_aligned",
+      "passed": true,
+      "x_um": 4100.0
+    },
+    {
+      "name": "D2_07_B5_T80_connected_optical_path",
+      "passed": true
+    },
+    {
+      "name": "D2_07_B5_T80_four_tips_on_L15_only",
+      "passed": true
+    },
+    {
+      "name": "D2_07_B5_T80_connected_L16",
+      "passed": true
+    },
+    {
+      "name": "D2_07_B5_T80_L14_covers_ridge",
+      "passed": true,
+      "uncovered_um2": 0.0
+    },
+    {
+      "name": "D2_07_B5_T80_L16_covers_ridge",
+      "passed": true,
+      "uncovered_um2": 0.0
+    },
+    {
+      "name": "D2_07_B5_T80_L2_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 9.999999999999999e-06
+    },
+    {
+      "name": "D2_07_B5_T80_L10_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D2_07_B5_T80_L11_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D2_07_B5_T80_L13_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D2_07_B5_T80_L14_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 1e-06
+    },
+    {
+      "name": "D2_07_B5_T80_L15_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D2_07_B5_T80_L16_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.000714
+    },
+    {
+      "name": "D2_07_B5_T80_L51_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D2_07_B5_T80_right_L10_junction0",
+      "passed": true,
+      "expected_width_um": 3.0,
+      "measured_width_um": 3.0
+    },
+    {
+      "name": "D2_07_B5_T80_right_L10_junction1",
+      "passed": true,
+      "expected_width_um": 1.65,
+      "measured_width_um": 1.6500000000000001
+    },
+    {
+      "name": "D2_07_B5_T80_right_L10_junction2",
+      "passed": true,
+      "expected_width_um": 0.98,
+      "measured_width_um": 0.98
+    },
+    {
+      "name": "D2_07_B5_T80_right_L10_junction3",
+      "passed": true,
+      "expected_width_um": 0.2,
+      "measured_width_um": 0.2
+    },
+    {
+      "name": "D2_07_B5_T80_right_L15_junction0",
+      "passed": true,
+      "expected_width_um": 1.0,
+      "measured_width_um": 1.0
+    },
+    {
+      "name": "D2_07_B5_T80_right_L15_junction1",
+      "passed": true,
+      "expected_width_um": 0.5,
+      "measured_width_um": 0.5
+    },
+    {
+      "name": "D2_07_B5_T80_right_L15_junction2",
+      "passed": true,
+      "expected_width_um": 0.2,
+      "measured_width_um": 0.2
+    },
+    {
+      "name": "D2_07_B5_T80_left_L10_junction0",
+      "passed": true,
+      "expected_width_um": 3.0,
+      "measured_width_um": 3.0
+    },
+    {
+      "name": "D2_07_B5_T80_left_L10_junction1",
+      "passed": true,
+      "expected_width_um": 1.65,
+      "measured_width_um": 1.6500000000000001
+    },
+    {
+      "name": "D2_07_B5_T80_left_L10_junction2",
+      "passed": true,
+      "expected_width_um": 0.98,
+      "measured_width_um": 0.98
+    },
+    {
+      "name": "D2_07_B5_T80_left_L10_junction3",
+      "passed": true,
+      "expected_width_um": 0.2,
+      "measured_width_um": 0.2
+    },
+    {
+      "name": "D2_07_B5_T80_left_L15_junction0",
+      "passed": true,
+      "expected_width_um": 1.0,
+      "measured_width_um": 1.0
+    },
+    {
+      "name": "D2_07_B5_T80_left_L15_junction1",
+      "passed": true,
+      "expected_width_um": 0.5,
+      "measured_width_um": 0.5
+    },
+    {
+      "name": "D2_07_B5_T80_left_L15_junction2",
+      "passed": true,
+      "expected_width_um": 0.2,
+      "measured_width_um": 0.2
+    },
+    {
+      "name": "D2_08_B5_T100_all_layers_present",
+      "passed": true
+    },
+    {
+      "name": "D2_08_B5_T100_placement",
+      "passed": true
+    },
+    {
+      "name": "D2_08_B5_T100_left_bend_aligned",
+      "passed": true,
+      "x_um": 4100.0
+    },
+    {
+      "name": "D2_08_B5_T100_connected_optical_path",
+      "passed": true
+    },
+    {
+      "name": "D2_08_B5_T100_four_tips_on_L15_only",
+      "passed": true
+    },
+    {
+      "name": "D2_08_B5_T100_connected_L16",
+      "passed": true
+    },
+    {
+      "name": "D2_08_B5_T100_L14_covers_ridge",
+      "passed": true,
+      "uncovered_um2": 0.0
+    },
+    {
+      "name": "D2_08_B5_T100_L16_covers_ridge",
+      "passed": true,
+      "uncovered_um2": 0.0
+    },
+    {
+      "name": "D2_08_B5_T100_L2_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 3.2999999999999996e-05
+    },
+    {
+      "name": "D2_08_B5_T100_L10_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D2_08_B5_T100_L11_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D2_08_B5_T100_L13_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D2_08_B5_T100_L14_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 2.4e-05
+    },
+    {
+      "name": "D2_08_B5_T100_L15_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D2_08_B5_T100_L16_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 2.7e-05
+    },
+    {
+      "name": "D2_08_B5_T100_L51_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D2_08_B5_T100_right_L10_junction0",
+      "passed": true,
+      "expected_width_um": 3.0,
+      "measured_width_um": 3.0
+    },
+    {
+      "name": "D2_08_B5_T100_right_L10_junction1",
+      "passed": true,
+      "expected_width_um": 1.65,
+      "measured_width_um": 1.6500000000000001
+    },
+    {
+      "name": "D2_08_B5_T100_right_L10_junction2",
+      "passed": true,
+      "expected_width_um": 0.98,
+      "measured_width_um": 0.98
+    },
+    {
+      "name": "D2_08_B5_T100_right_L10_junction3",
+      "passed": true,
+      "expected_width_um": 0.2,
+      "measured_width_um": 0.2
+    },
+    {
+      "name": "D2_08_B5_T100_right_L15_junction0",
+      "passed": true,
+      "expected_width_um": 1.0,
+      "measured_width_um": 1.0
+    },
+    {
+      "name": "D2_08_B5_T100_right_L15_junction1",
+      "passed": true,
+      "expected_width_um": 0.5,
+      "measured_width_um": 0.5
+    },
+    {
+      "name": "D2_08_B5_T100_right_L15_junction2",
+      "passed": true,
+      "expected_width_um": 0.2,
+      "measured_width_um": 0.2
+    },
+    {
+      "name": "D2_08_B5_T100_left_L10_junction0",
+      "passed": true,
+      "expected_width_um": 3.0,
+      "measured_width_um": 3.0
+    },
+    {
+      "name": "D2_08_B5_T100_left_L10_junction1",
+      "passed": true,
+      "expected_width_um": 1.65,
+      "measured_width_um": 1.6500000000000001
+    },
+    {
+      "name": "D2_08_B5_T100_left_L10_junction2",
+      "passed": true,
+      "expected_width_um": 0.98,
+      "measured_width_um": 0.98
+    },
+    {
+      "name": "D2_08_B5_T100_left_L10_junction3",
+      "passed": true,
+      "expected_width_um": 0.2,
+      "measured_width_um": 0.2
+    },
+    {
+      "name": "D2_08_B5_T100_left_L15_junction0",
+      "passed": true,
+      "expected_width_um": 1.0,
+      "measured_width_um": 1.0
+    },
+    {
+      "name": "D2_08_B5_T100_left_L15_junction1",
+      "passed": true,
+      "expected_width_um": 0.5,
+      "measured_width_um": 0.5
+    },
+    {
+      "name": "D2_08_B5_T100_left_L15_junction2",
+      "passed": true,
+      "expected_width_um": 0.2,
+      "measured_width_um": 0.2
+    },
+    {
+      "name": "D2_09_B5_T120_all_layers_present",
+      "passed": true
+    },
+    {
+      "name": "D2_09_B5_T120_placement",
+      "passed": true
+    },
+    {
+      "name": "D2_09_B5_T120_left_bend_aligned",
+      "passed": true,
+      "x_um": 4100.0
+    },
+    {
+      "name": "D2_09_B5_T120_connected_optical_path",
+      "passed": true
+    },
+    {
+      "name": "D2_09_B5_T120_four_tips_on_L15_only",
+      "passed": true
+    },
+    {
+      "name": "D2_09_B5_T120_connected_L16",
+      "passed": true
+    },
+    {
+      "name": "D2_09_B5_T120_L14_covers_ridge",
+      "passed": true,
+      "uncovered_um2": 0.0
+    },
+    {
+      "name": "D2_09_B5_T120_L16_covers_ridge",
+      "passed": true,
+      "uncovered_um2": 0.0
+    },
+    {
+      "name": "D2_09_B5_T120_L2_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 2.9999999999999997e-05
+    },
+    {
+      "name": "D2_09_B5_T120_L10_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D2_09_B5_T120_L11_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D2_09_B5_T120_L13_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D2_09_B5_T120_L14_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 2.1e-05
+    },
+    {
+      "name": "D2_09_B5_T120_L15_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D2_09_B5_T120_L16_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 1.8999999999999998e-05
+    },
+    {
+      "name": "D2_09_B5_T120_L51_both_complete_ends_symmetric",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D2_09_B5_T120_right_L10_junction0",
+      "passed": true,
+      "expected_width_um": 3.0,
+      "measured_width_um": 3.0
+    },
+    {
+      "name": "D2_09_B5_T120_right_L10_junction1",
+      "passed": true,
+      "expected_width_um": 1.65,
+      "measured_width_um": 1.6500000000000001
+    },
+    {
+      "name": "D2_09_B5_T120_right_L10_junction2",
+      "passed": true,
+      "expected_width_um": 0.98,
+      "measured_width_um": 0.98
+    },
+    {
+      "name": "D2_09_B5_T120_right_L10_junction3",
+      "passed": true,
+      "expected_width_um": 0.2,
+      "measured_width_um": 0.2
+    },
+    {
+      "name": "D2_09_B5_T120_right_L15_junction0",
+      "passed": true,
+      "expected_width_um": 1.0,
+      "measured_width_um": 1.0
+    },
+    {
+      "name": "D2_09_B5_T120_right_L15_junction1",
+      "passed": true,
+      "expected_width_um": 0.5,
+      "measured_width_um": 0.5
+    },
+    {
+      "name": "D2_09_B5_T120_right_L15_junction2",
+      "passed": true,
+      "expected_width_um": 0.2,
+      "measured_width_um": 0.2
+    },
+    {
+      "name": "D2_09_B5_T120_left_L10_junction0",
+      "passed": true,
+      "expected_width_um": 3.0,
+      "measured_width_um": 3.0
+    },
+    {
+      "name": "D2_09_B5_T120_left_L10_junction1",
+      "passed": true,
+      "expected_width_um": 1.65,
+      "measured_width_um": 1.6500000000000001
+    },
+    {
+      "name": "D2_09_B5_T120_left_L10_junction2",
+      "passed": true,
+      "expected_width_um": 0.98,
+      "measured_width_um": 0.98
+    },
+    {
+      "name": "D2_09_B5_T120_left_L10_junction3",
+      "passed": true,
+      "expected_width_um": 0.2,
+      "measured_width_um": 0.2
+    },
+    {
+      "name": "D2_09_B5_T120_left_L15_junction0",
+      "passed": true,
+      "expected_width_um": 1.0,
+      "measured_width_um": 1.0
+    },
+    {
+      "name": "D2_09_B5_T120_left_L15_junction1",
+      "passed": true,
+      "expected_width_um": 0.5,
+      "measured_width_um": 0.5
+    },
+    {
+      "name": "D2_09_B5_T120_left_L15_junction2",
+      "passed": true,
+      "expected_width_um": 0.2,
+      "measured_width_um": 0.2
+    },
+    {
+      "name": "design1_nine_rows",
+      "passed": true
+    },
+    {
+      "name": "design1_600um_y_pitch",
+      "passed": true
+    },
+    {
+      "name": "design2_nine_rows",
+      "passed": true
+    },
+    {
+      "name": "design2_600um_y_pitch",
+      "passed": true
+    },
+    {
+      "name": "matching_rows_5000um_apart",
+      "passed": true
+    }
+  ],
+  "failures": [],
+  "status": "PASS",
+  "check_count": 511,
+  "gds_file": "2611_design1_design2_L1400_18device_sweep.gds"
+}

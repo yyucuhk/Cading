@@ -61,7 +61,7 @@ from tether_variants import TETHER_FACTORIES
 
 # --- 1A. Device count, straight-length sweep, and whole-device placement ---
 # One entry = one device. Example: (200.0, 800.0, 1400.0).
-MEANDER_STRAIGHT_LENGTHS = (800,)  # EACH of three equal straights; bottom to top
+MEANDER_STRAIGHT_LENGTHS = (1400.0,)  # EACH of three equal straights; bottom to top
 DEVICE_Y_PITCH = 600.0  # origin-to-origin vertical pitch
 BOTTOM_DEVICE_Y = -700.0  # first device origin, NOT its lower taper tip
 LEFT_BEND_ALIGNMENT_X = -900.0  # common leftmost Layer-11 PNC bend edge
