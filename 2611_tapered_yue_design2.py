@@ -61,7 +61,7 @@ from tether_variants import TETHER_FACTORIES
 
 # --- 1A. Device count, straight-length sweep, and whole-device placement ---
 # One entry = one device. Example: (200.0, 800.0, 1400.0).
-MEANDER_STRAIGHT_LENGTHS = (800.0,)  # EACH of three equal straights; bottom to top
+MEANDER_STRAIGHT_LENGTHS = (1400.0,)  # EACH of three equal straights; bottom to top
 DEVICE_Y_PITCH = 600.0  # origin-to-origin vertical pitch
 BOTTOM_DEVICE_Y = -700.0  # first device origin, NOT its lower taper tip
 LEFT_BEND_ALIGNMENT_X = -900.0  # common leftmost Layer-11 PNC bend edge
@@ -160,7 +160,7 @@ CHIP_Y_ALLOWANCE = 1000.0
 INNER_MARKER_CHIP_WIDTH_REDUCTION = 1000.0
 GLOBAL_MARKER_ARM_LENGTHS = (50.0, 80.0)  # outer row, inner row
 GDS_MAX_VERTEX_COUNT = 2000
-TOP_CELL_NAME = "Design2_L800"
+TOP_CELL_NAME = "Design2_L1400"
 OUTPUT_GDS_FILENAME = "2611_tapered_yue_design2.gds"
 # TOP_CELL_NAME is a naming label, not a device-count or geometry control.
 

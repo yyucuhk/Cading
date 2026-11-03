@@ -1,0 +1,1976 @@
+{
+  "status": "PASS",
+  "devices": [
+    {
+      "design": 1,
+      "row": 0,
+      "bend_period_um": 2.0,
+      "taper_total_um": 80.0,
+      "stage_lengths_um": [
+        40.0,
+        40.0
+      ],
+      "straight_um": 1400.0,
+      "case_id": "D1_01_B2_T80",
+      "source": "2611_tapered_yue_dual_resist.py",
+      "source_sha256": "7ef56ab5fa3e5f59e2e7b0b32a5be03f6197ade981b65098dd253c5ec4460e5e",
+      "left_pnc_x_um": -842.287,
+      "measured_straights_um": [
+        1400.0,
+        1400.0,
+        1400.0
+      ],
+      "measured_bends_um": [
+        370.9113052086134,
+        370.9113052086134
+      ],
+      "meander_length_um": 4941.822610417226,
+      "bend_pnc_measurements": [
+        {
+          "pairs": 184,
+          "fitted_pitch_um": 2.0049798098834204
+        },
+        {
+          "pairs": 184,
+          "fitted_pitch_um": 2.0049798098818123
+        }
+      ],
+      "straight_pnc_period_um": 15.0,
+      "layer10_widths_um": [
+        3.0,
+        1.0,
+        0.2
+      ],
+      "layer15_widths_um": [
+        1.0,
+        0.1
+      ],
+      "layer15_lengths_um": [
+        40.0
+      ],
+      "taper_samples": [
+        {
+          "layer": 10,
+          "distance_um": 0.0,
+          "measured_width_um": 3.0,
+          "target_width_um": 3.0
+        },
+        {
+          "layer": 10,
+          "distance_um": 40.0,
+          "measured_width_um": 1.0,
+          "target_width_um": 1.0
+        },
+        {
+          "layer": 10,
+          "distance_um": 80.0,
+          "measured_width_um": 0.2,
+          "target_width_um": 0.2
+        },
+        {
+          "layer": 15,
+          "distance_um": 0.0,
+          "measured_width_um": 1.0,
+          "target_width_um": 1.0
+        },
+        {
+          "layer": 15,
+          "distance_um": 40.0,
+          "measured_width_um": 0.1,
+          "target_width_um": 0.1
+        }
+      ],
+      "tip_centers": [
+        [
+          -785.0,
+          200.0
+        ],
+        [
+          785.0,
+          -200.0
+        ]
+      ],
+      "orientations": [
+        0.0,
+        180.0
+      ],
+      "status": "PASS",
+      "origin_um": [
+        -57.713,
+        -700.0
+      ],
+      "left_bend_reference_x_um": -900.0
+    },
+    {
+      "design": 1,
+      "row": 1,
+      "bend_period_um": 2.0,
+      "taper_total_um": 100.0,
+      "stage_lengths_um": [
+        50.0,
+        50.0
+      ],
+      "straight_um": 1400.0,
+      "case_id": "D1_02_B2_T100",
+      "source": "2611_tapered_yue_dual_resist.py",
+      "source_sha256": "7ef56ab5fa3e5f59e2e7b0b32a5be03f6197ade981b65098dd253c5ec4460e5e",
+      "left_pnc_x_um": -842.287,
+      "measured_straights_um": [
+        1400.0,
+        1400.0,
+        1400.0
+      ],
+      "measured_bends_um": [
+        370.9113052086134,
+        370.9113052086134
+      ],
+      "meander_length_um": 4941.822610417226,
+      "bend_pnc_measurements": [
+        {
+          "pairs": 184,
+          "fitted_pitch_um": 2.0049798098834204
+        },
+        {
+          "pairs": 184,
+          "fitted_pitch_um": 2.0049798098818123
+        }
+      ],
+      "straight_pnc_period_um": 15.0,
+      "layer10_widths_um": [
+        3.0,
+        1.0,
+        0.2
+      ],
+      "layer15_widths_um": [
+        1.0,
+        0.1
+      ],
+      "layer15_lengths_um": [
+        50.0
+      ],
+      "taper_samples": [
+        {
+          "layer": 10,
+          "distance_um": 0.0,
+          "measured_width_um": 3.0,
+          "target_width_um": 3.0
+        },
+        {
+          "layer": 10,
+          "distance_um": 50.0,
+          "measured_width_um": 1.0,
+          "target_width_um": 1.0
+        },
+        {
+          "layer": 10,
+          "distance_um": 100.0,
+          "measured_width_um": 0.2,
+          "target_width_um": 0.2
+        },
+        {
+          "layer": 15,
+          "distance_um": 0.0,
+          "measured_width_um": 1.0,
+          "target_width_um": 1.0
+        },
+        {
+          "layer": 15,
+          "distance_um": 50.0,
+          "measured_width_um": 0.1,
+          "target_width_um": 0.1
+        }
+      ],
+      "tip_centers": [
+        [
+          -795.0,
+          200.0
+        ],
+        [
+          795.0,
+          -200.0
+        ]
+      ],
+      "orientations": [
+        0.0,
+        180.0
+      ],
+      "status": "PASS",
+      "origin_um": [
+        -57.713,
+        -100.0
+      ],
+      "left_bend_reference_x_um": -900.0
+    },
+    {
+      "design": 1,
+      "row": 2,
+      "bend_period_um": 2.0,
+      "taper_total_um": 120.0,
+      "stage_lengths_um": [
+        60.0,
+        60.0
+      ],
+      "straight_um": 1400.0,
+      "case_id": "D1_03_B2_T120",
+      "source": "2611_tapered_yue_dual_resist.py",
+      "source_sha256": "7ef56ab5fa3e5f59e2e7b0b32a5be03f6197ade981b65098dd253c5ec4460e5e",
+      "left_pnc_x_um": -842.287,
+      "measured_straights_um": [
+        1400.0,
+        1400.0,
+        1400.0
+      ],
+      "measured_bends_um": [
+        370.9113052086134,
+        370.9113052086134
+      ],
+      "meander_length_um": 4941.822610417226,
+      "bend_pnc_measurements": [
+        {
+          "pairs": 184,
+          "fitted_pitch_um": 2.0049798098834204
+        },
+        {
+          "pairs": 184,
+          "fitted_pitch_um": 2.0049798098818123
+        }
+      ],
+      "straight_pnc_period_um": 15.0,
+      "layer10_widths_um": [
+        3.0,
+        1.0,
+        0.2
+      ],
+      "layer15_widths_um": [
+        1.0,
+        0.1
+      ],
+      "layer15_lengths_um": [
+        60.0
+      ],
+      "taper_samples": [
+        {
+          "layer": 10,
+          "distance_um": 0.0,
+          "measured_width_um": 3.0,
+          "target_width_um": 3.0
+        },
+        {
+          "layer": 10,
+          "distance_um": 60.0,
+          "measured_width_um": 1.0,
+          "target_width_um": 1.0
+        },
+        {
+          "layer": 10,
+          "distance_um": 120.0,
+          "measured_width_um": 0.2,
+          "target_width_um": 0.2
+        },
+        {
+          "layer": 15,
+          "distance_um": 0.0,
+          "measured_width_um": 1.0,
+          "target_width_um": 1.0
+        },
+        {
+          "layer": 15,
+          "distance_um": 60.0,
+          "measured_width_um": 0.1,
+          "target_width_um": 0.1
+        }
+      ],
+      "tip_centers": [
+        [
+          -805.0,
+          200.0
+        ],
+        [
+          805.0,
+          -200.0
+        ]
+      ],
+      "orientations": [
+        0.0,
+        180.0
+      ],
+      "status": "PASS",
+      "origin_um": [
+        -57.713,
+        500.0
+      ],
+      "left_bend_reference_x_um": -900.0
+    },
+    {
+      "design": 1,
+      "row": 3,
+      "bend_period_um": 3.0,
+      "taper_total_um": 80.0,
+      "stage_lengths_um": [
+        40.0,
+        40.0
+      ],
+      "straight_um": 1400.0,
+      "case_id": "D1_04_B3_T80",
+      "source": "2611_tapered_yue_dual_resist.py",
+      "source_sha256": "7ef56ab5fa3e5f59e2e7b0b32a5be03f6197ade981b65098dd253c5ec4460e5e",
+      "left_pnc_x_um": -842.28,
+      "measured_straights_um": [
+        1400.0,
+        1400.0,
+        1400.0
+      ],
+      "measured_bends_um": [
+        370.9113052086134,
+        370.9113052086134
+      ],
+      "meander_length_um": 4941.822610417226,
+      "bend_pnc_measurements": [
+        {
+          "pairs": 122,
+          "fitted_pitch_um": 3.0157959108154206
+        },
+        {
+          "pairs": 122,
+          "fitted_pitch_um": 3.0157959108129893
+        }
+      ],
+      "straight_pnc_period_um": 15.0,
+      "layer10_widths_um": [
+        3.0,
+        1.0,
+        0.2
+      ],
+      "layer15_widths_um": [
+        1.0,
+        0.1
+      ],
+      "layer15_lengths_um": [
+        40.0
+      ],
+      "taper_samples": [
+        {
+          "layer": 10,
+          "distance_um": 0.0,
+          "measured_width_um": 3.0,
+          "target_width_um": 3.0
+        },
+        {
+          "layer": 10,
+          "distance_um": 40.0,
+          "measured_width_um": 1.0,
+          "target_width_um": 1.0
+        },
+        {
+          "layer": 10,
+          "distance_um": 80.0,
+          "measured_width_um": 0.2,
+          "target_width_um": 0.2
+        },
+        {
+          "layer": 15,
+          "distance_um": 0.0,
+          "measured_width_um": 1.0,
+          "target_width_um": 1.0
+        },
+        {
+          "layer": 15,
+          "distance_um": 40.0,
+          "measured_width_um": 0.1,
+          "target_width_um": 0.1
+        }
+      ],
+      "tip_centers": [
+        [
+          -785.0,
+          200.0
+        ],
+        [
+          785.0,
+          -200.0
+        ]
+      ],
+      "orientations": [
+        0.0,
+        180.0
+      ],
+      "status": "PASS",
+      "origin_um": [
+        -57.72,
+        1100.0
+      ],
+      "left_bend_reference_x_um": -900.0
+    },
+    {
+      "design": 1,
+      "row": 4,
+      "bend_period_um": 3.0,
+      "taper_total_um": 100.0,
+      "stage_lengths_um": [
+        50.0,
+        50.0
+      ],
+      "straight_um": 1400.0,
+      "case_id": "D1_05_B3_T100",
+      "source": "2611_tapered_yue_dual_resist.py",
+      "source_sha256": "7ef56ab5fa3e5f59e2e7b0b32a5be03f6197ade981b65098dd253c5ec4460e5e",
+      "left_pnc_x_um": -842.28,
+      "measured_straights_um": [
+        1400.0,
+        1400.0,
+        1400.0
+      ],
+      "measured_bends_um": [
+        370.9113052086134,
+        370.9113052086134
+      ],
+      "meander_length_um": 4941.822610417226,
+      "bend_pnc_measurements": [
+        {
+          "pairs": 122,
+          "fitted_pitch_um": 3.0157959108154206
+        },
+        {
+          "pairs": 122,
+          "fitted_pitch_um": 3.0157959108129893
+        }
+      ],
+      "straight_pnc_period_um": 15.0,
+      "layer10_widths_um": [
+        3.0,
+        1.0,
+        0.2
+      ],
+      "layer15_widths_um": [
+        1.0,
+        0.1
+      ],
+      "layer15_lengths_um": [
+        50.0
+      ],
+      "taper_samples": [
+        {
+          "layer": 10,
+          "distance_um": 0.0,
+          "measured_width_um": 3.0,
+          "target_width_um": 3.0
+        },
+        {
+          "layer": 10,
+          "distance_um": 50.0,
+          "measured_width_um": 1.0,
+          "target_width_um": 1.0
+        },
+        {
+          "layer": 10,
+          "distance_um": 100.0,
+          "measured_width_um": 0.2,
+          "target_width_um": 0.2
+        },
+        {
+          "layer": 15,
+          "distance_um": 0.0,
+          "measured_width_um": 1.0,
+          "target_width_um": 1.0
+        },
+        {
+          "layer": 15,
+          "distance_um": 50.0,
+          "measured_width_um": 0.1,
+          "target_width_um": 0.1
+        }
+      ],
+      "tip_centers": [
+        [
+          -795.0,
+          200.0
+        ],
+        [
+          795.0,
+          -200.0
+        ]
+      ],
+      "orientations": [
+        0.0,
+        180.0
+      ],
+      "status": "PASS",
+      "origin_um": [
+        -57.72,
+        1700.0
+      ],
+      "left_bend_reference_x_um": -900.0
+    },
+    {
+      "design": 1,
+      "row": 5,
+      "bend_period_um": 3.0,
+      "taper_total_um": 120.0,
+      "stage_lengths_um": [
+        60.0,
+        60.0
+      ],
+      "straight_um": 1400.0,
+      "case_id": "D1_06_B3_T120",
+      "source": "2611_tapered_yue_dual_resist.py",
+      "source_sha256": "7ef56ab5fa3e5f59e2e7b0b32a5be03f6197ade981b65098dd253c5ec4460e5e",
+      "left_pnc_x_um": -842.28,
+      "measured_straights_um": [
+        1400.0,
+        1400.0,
+        1400.0
+      ],
+      "measured_bends_um": [
+        370.9113052086134,
+        370.9113052086134
+      ],
+      "meander_length_um": 4941.822610417226,
+      "bend_pnc_measurements": [
+        {
+          "pairs": 122,
+          "fitted_pitch_um": 3.0157959108154206
+        },
+        {
+          "pairs": 122,
+          "fitted_pitch_um": 3.0157959108129893
+        }
+      ],
+      "straight_pnc_period_um": 15.0,
+      "layer10_widths_um": [
+        3.0,
+        1.0,
+        0.2
+      ],
+      "layer15_widths_um": [
+        1.0,
+        0.1
+      ],
+      "layer15_lengths_um": [
+        60.0
+      ],
+      "taper_samples": [
+        {
+          "layer": 10,
+          "distance_um": 0.0,
+          "measured_width_um": 3.0,
+          "target_width_um": 3.0
+        },
+        {
+          "layer": 10,
+          "distance_um": 60.0,
+          "measured_width_um": 1.0,
+          "target_width_um": 1.0
+        },
+        {
+          "layer": 10,
+          "distance_um": 120.0,
+          "measured_width_um": 0.2,
+          "target_width_um": 0.2
+        },
+        {
+          "layer": 15,
+          "distance_um": 0.0,
+          "measured_width_um": 1.0,
+          "target_width_um": 1.0
+        },
+        {
+          "layer": 15,
+          "distance_um": 60.0,
+          "measured_width_um": 0.1,
+          "target_width_um": 0.1
+        }
+      ],
+      "tip_centers": [
+        [
+          -805.0,
+          200.0
+        ],
+        [
+          805.0,
+          -200.0
+        ]
+      ],
+      "orientations": [
+        0.0,
+        180.0
+      ],
+      "status": "PASS",
+      "origin_um": [
+        -57.72,
+        2300.0
+      ],
+      "left_bend_reference_x_um": -900.0
+    },
+    {
+      "design": 1,
+      "row": 6,
+      "bend_period_um": 5.0,
+      "taper_total_um": 80.0,
+      "stage_lengths_um": [
+        40.0,
+        40.0
+      ],
+      "straight_um": 1400.0,
+      "case_id": "D1_07_B5_T80",
+      "source": "2611_tapered_yue_dual_resist.py",
+      "source_sha256": "7ef56ab5fa3e5f59e2e7b0b32a5be03f6197ade981b65098dd253c5ec4460e5e",
+      "left_pnc_x_um": -842.291,
+      "measured_straights_um": [
+        1400.0,
+        1400.0,
+        1400.0
+      ],
+      "measured_bends_um": [
+        370.9113052086134,
+        370.9113052086134
+      ],
+      "meander_length_um": 4941.822610417226,
+      "bend_pnc_measurements": [
+        {
+          "pairs": 73,
+          "fitted_pitch_um": 5.012657016787027
+        },
+        {
+          "pairs": 73,
+          "fitted_pitch_um": 5.01265701678294
+        }
+      ],
+      "straight_pnc_period_um": 15.0,
+      "layer10_widths_um": [
+        3.0,
+        1.0,
+        0.2
+      ],
+      "layer15_widths_um": [
+        1.0,
+        0.1
+      ],
+      "layer15_lengths_um": [
+        40.0
+      ],
+      "taper_samples": [
+        {
+          "layer": 10,
+          "distance_um": 0.0,
+          "measured_width_um": 3.0,
+          "target_width_um": 3.0
+        },
+        {
+          "layer": 10,
+          "distance_um": 40.0,
+          "measured_width_um": 1.0,
+          "target_width_um": 1.0
+        },
+        {
+          "layer": 10,
+          "distance_um": 80.0,
+          "measured_width_um": 0.2,
+          "target_width_um": 0.2
+        },
+        {
+          "layer": 15,
+          "distance_um": 0.0,
+          "measured_width_um": 1.0,
+          "target_width_um": 1.0
+        },
+        {
+          "layer": 15,
+          "distance_um": 40.0,
+          "measured_width_um": 0.1,
+          "target_width_um": 0.1
+        }
+      ],
+      "tip_centers": [
+        [
+          -785.0,
+          200.0
+        ],
+        [
+          785.0,
+          -200.0
+        ]
+      ],
+      "orientations": [
+        0.0,
+        180.0
+      ],
+      "status": "PASS",
+      "origin_um": [
+        -57.709,
+        2900.0
+      ],
+      "left_bend_reference_x_um": -900.0
+    },
+    {
+      "design": 1,
+      "row": 7,
+      "bend_period_um": 5.0,
+      "taper_total_um": 100.0,
+      "stage_lengths_um": [
+        50.0,
+        50.0
+      ],
+      "straight_um": 1400.0,
+      "case_id": "D1_08_B5_T100",
+      "source": "2611_tapered_yue_dual_resist.py",
+      "source_sha256": "7ef56ab5fa3e5f59e2e7b0b32a5be03f6197ade981b65098dd253c5ec4460e5e",
+      "left_pnc_x_um": -842.291,
+      "measured_straights_um": [
+        1400.0,
+        1400.0,
+        1400.0
+      ],
+      "measured_bends_um": [
+        370.9113052086134,
+        370.9113052086134
+      ],
+      "meander_length_um": 4941.822610417226,
+      "bend_pnc_measurements": [
+        {
+          "pairs": 73,
+          "fitted_pitch_um": 5.012657016787027
+        },
+        {
+          "pairs": 73,
+          "fitted_pitch_um": 5.01265701678294
+        }
+      ],
+      "straight_pnc_period_um": 15.0,
+      "layer10_widths_um": [
+        3.0,
+        1.0,
+        0.2
+      ],
+      "layer15_widths_um": [
+        1.0,
+        0.1
+      ],
+      "layer15_lengths_um": [
+        50.0
+      ],
+      "taper_samples": [
+        {
+          "layer": 10,
+          "distance_um": 0.0,
+          "measured_width_um": 3.0,
+          "target_width_um": 3.0
+        },
+        {
+          "layer": 10,
+          "distance_um": 50.0,
+          "measured_width_um": 1.0,
+          "target_width_um": 1.0
+        },
+        {
+          "layer": 10,
+          "distance_um": 100.0,
+          "measured_width_um": 0.2,
+          "target_width_um": 0.2
+        },
+        {
+          "layer": 15,
+          "distance_um": 0.0,
+          "measured_width_um": 1.0,
+          "target_width_um": 1.0
+        },
+        {
+          "layer": 15,
+          "distance_um": 50.0,
+          "measured_width_um": 0.1,
+          "target_width_um": 0.1
+        }
+      ],
+      "tip_centers": [
+        [
+          -795.0,
+          200.0
+        ],
+        [
+          795.0,
+          -200.0
+        ]
+      ],
+      "orientations": [
+        0.0,
+        180.0
+      ],
+      "status": "PASS",
+      "origin_um": [
+        -57.709,
+        3500.0
+      ],
+      "left_bend_reference_x_um": -900.0
+    },
+    {
+      "design": 1,
+      "row": 8,
+      "bend_period_um": 5.0,
+      "taper_total_um": 120.0,
+      "stage_lengths_um": [
+        60.0,
+        60.0
+      ],
+      "straight_um": 1400.0,
+      "case_id": "D1_09_B5_T120",
+      "source": "2611_tapered_yue_dual_resist.py",
+      "source_sha256": "7ef56ab5fa3e5f59e2e7b0b32a5be03f6197ade981b65098dd253c5ec4460e5e",
+      "left_pnc_x_um": -842.291,
+      "measured_straights_um": [
+        1400.0,
+        1400.0,
+        1400.0
+      ],
+      "measured_bends_um": [
+        370.9113052086134,
+        370.9113052086134
+      ],
+      "meander_length_um": 4941.822610417226,
+      "bend_pnc_measurements": [
+        {
+          "pairs": 73,
+          "fitted_pitch_um": 5.012657016787027
+        },
+        {
+          "pairs": 73,
+          "fitted_pitch_um": 5.01265701678294
+        }
+      ],
+      "straight_pnc_period_um": 15.0,
+      "layer10_widths_um": [
+        3.0,
+        1.0,
+        0.2
+      ],
+      "layer15_widths_um": [
+        1.0,
+        0.1
+      ],
+      "layer15_lengths_um": [
+        60.0
+      ],
+      "taper_samples": [
+        {
+          "layer": 10,
+          "distance_um": 0.0,
+          "measured_width_um": 3.0,
+          "target_width_um": 3.0
+        },
+        {
+          "layer": 10,
+          "distance_um": 60.0,
+          "measured_width_um": 1.0,
+          "target_width_um": 1.0
+        },
+        {
+          "layer": 10,
+          "distance_um": 120.0,
+          "measured_width_um": 0.2,
+          "target_width_um": 0.2
+        },
+        {
+          "layer": 15,
+          "distance_um": 0.0,
+          "measured_width_um": 1.0,
+          "target_width_um": 1.0
+        },
+        {
+          "layer": 15,
+          "distance_um": 60.0,
+          "measured_width_um": 0.1,
+          "target_width_um": 0.1
+        }
+      ],
+      "tip_centers": [
+        [
+          -805.0,
+          200.0
+        ],
+        [
+          805.0,
+          -200.0
+        ]
+      ],
+      "orientations": [
+        0.0,
+        180.0
+      ],
+      "status": "PASS",
+      "origin_um": [
+        -57.709,
+        4100.0
+      ],
+      "left_bend_reference_x_um": -900.0
+    },
+    {
+      "design": 2,
+      "row": 0,
+      "bend_period_um": 2.0,
+      "taper_total_um": 80.0,
+      "stage_lengths_um": [
+        12.307692307692308,
+        61.53846153846154,
+        6.153846153846154
+      ],
+      "straight_um": 1400.0,
+      "case_id": "D2_01_B2_T80",
+      "source": "2611_tapered_yue_design2.py",
+      "source_sha256": "e82b0d4b559b6631c0522c392b2ca346131945ea54a465e15176d49b18db36c8",
+      "left_pnc_x_um": -842.287,
+      "measured_straights_um": [
+        1400.0,
+        1400.0,
+        1400.0
+      ],
+      "measured_bends_um": [
+        370.9113052086134,
+        370.9113052086134
+      ],
+      "meander_length_um": 4941.822610417226,
+      "bend_pnc_measurements": [
+        {
+          "pairs": 184,
+          "fitted_pitch_um": 2.0049798098834204
+        },
+        {
+          "pairs": 184,
+          "fitted_pitch_um": 2.0049798098818123
+        }
+      ],
+      "straight_pnc_period_um": 15.0,
+      "layer10_widths_um": [
+        3.0,
+        1.65,
+        0.98,
+        0.2
+      ],
+      "layer15_widths_um": [
+        1.0,
+        0.5,
+        0.2
+      ],
+      "layer15_lengths_um": [
+        12.307692307692308,
+        61.53846153846154
+      ],
+      "taper_samples": [
+        {
+          "layer": 10,
+          "distance_um": 0.0,
+          "measured_width_um": 3.0,
+          "target_width_um": 3.0
+        },
+        {
+          "layer": 10,
+          "distance_um": 12.307692307692307,
+          "measured_width_um": 1.6500000000000001,
+          "target_width_um": 1.65
+        },
+        {
+          "layer": 10,
+          "distance_um": 73.84615384615385,
+          "measured_width_um": 0.98,
+          "target_width_um": 0.98
+        },
+        {
+          "layer": 10,
+          "distance_um": 80.00000000000001,
+          "measured_width_um": 0.2,
+          "target_width_um": 0.2
+        },
+        {
+          "layer": 15,
+          "distance_um": 0.0,
+          "measured_width_um": 1.0,
+          "target_width_um": 1.0
+        },
+        {
+          "layer": 15,
+          "distance_um": 12.307692307692307,
+          "measured_width_um": 0.5,
+          "target_width_um": 0.5
+        },
+        {
+          "layer": 15,
+          "distance_um": 73.84615384615385,
+          "measured_width_um": 0.2,
+          "target_width_um": 0.2
+        }
+      ],
+      "tip_centers": [
+        [
+          -757.3076923076923,
+          200.0
+        ],
+        [
+          757.3076923076923,
+          -200.0
+        ]
+      ],
+      "orientations": [
+        0.0,
+        180.0
+      ],
+      "status": "PASS",
+      "origin_um": [
+        4942.287,
+        -700.0
+      ],
+      "left_bend_reference_x_um": 4100.0
+    },
+    {
+      "design": 2,
+      "row": 1,
+      "bend_period_um": 2.0,
+      "taper_total_um": 100.0,
+      "stage_lengths_um": [
+        15.384615384615385,
+        76.92307692307692,
+        7.6923076923076925
+      ],
+      "straight_um": 1400.0,
+      "case_id": "D2_02_B2_T100",
+      "source": "2611_tapered_yue_design2.py",
+      "source_sha256": "e82b0d4b559b6631c0522c392b2ca346131945ea54a465e15176d49b18db36c8",
+      "left_pnc_x_um": -842.287,
+      "measured_straights_um": [
+        1400.0,
+        1400.0,
+        1400.0
+      ],
+      "measured_bends_um": [
+        370.9113052086134,
+        370.9113052086134
+      ],
+      "meander_length_um": 4941.822610417226,
+      "bend_pnc_measurements": [
+        {
+          "pairs": 184,
+          "fitted_pitch_um": 2.0049798098834204
+        },
+        {
+          "pairs": 184,
+          "fitted_pitch_um": 2.0049798098818123
+        }
+      ],
+      "straight_pnc_period_um": 15.0,
+      "layer10_widths_um": [
+        3.0,
+        1.65,
+        0.98,
+        0.2
+      ],
+      "layer15_widths_um": [
+        1.0,
+        0.5,
+        0.2
+      ],
+      "layer15_lengths_um": [
+        15.384615384615385,
+        76.92307692307692
+      ],
+      "taper_samples": [
+        {
+          "layer": 10,
+          "distance_um": 0.0,
+          "measured_width_um": 3.0,
+          "target_width_um": 3.0
+        },
+        {
+          "layer": 10,
+          "distance_um": 15.384615384615387,
+          "measured_width_um": 1.6500000000000001,
+          "target_width_um": 1.65
+        },
+        {
+          "layer": 10,
+          "distance_um": 92.30769230769232,
+          "measured_width_um": 0.98,
+          "target_width_um": 0.98
+        },
+        {
+          "layer": 10,
+          "distance_um": 100.0,
+          "measured_width_um": 0.2,
+          "target_width_um": 0.2
+        },
+        {
+          "layer": 15,
+          "distance_um": 0.0,
+          "measured_width_um": 1.0,
+          "target_width_um": 1.0
+        },
+        {
+          "layer": 15,
+          "distance_um": 15.384615384615387,
+          "measured_width_um": 0.5,
+          "target_width_um": 0.5
+        },
+        {
+          "layer": 15,
+          "distance_um": 92.30769230769232,
+          "measured_width_um": 0.2,
+          "target_width_um": 0.2
+        }
+      ],
+      "tip_centers": [
+        [
+          -760.3846153846154,
+          200.0
+        ],
+        [
+          760.3846153846154,
+          -200.0
+        ]
+      ],
+      "orientations": [
+        0.0,
+        180.0
+      ],
+      "status": "PASS",
+      "origin_um": [
+        4942.287,
+        -100.0
+      ],
+      "left_bend_reference_x_um": 4100.0
+    },
+    {
+      "design": 2,
+      "row": 2,
+      "bend_period_um": 2.0,
+      "taper_total_um": 120.0,
+      "stage_lengths_um": [
+        18.46153846153846,
+        92.3076923076923,
+        9.23076923076923
+      ],
+      "straight_um": 1400.0,
+      "case_id": "D2_03_B2_T120",
+      "source": "2611_tapered_yue_design2.py",
+      "source_sha256": "e82b0d4b559b6631c0522c392b2ca346131945ea54a465e15176d49b18db36c8",
+      "left_pnc_x_um": -842.287,
+      "measured_straights_um": [
+        1400.0,
+        1400.0,
+        1400.0
+      ],
+      "measured_bends_um": [
+        370.9113052086134,
+        370.9113052086134
+      ],
+      "meander_length_um": 4941.822610417226,
+      "bend_pnc_measurements": [
+        {
+          "pairs": 184,
+          "fitted_pitch_um": 2.0049798098834204
+        },
+        {
+          "pairs": 184,
+          "fitted_pitch_um": 2.0049798098818123
+        }
+      ],
+      "straight_pnc_period_um": 15.0,
+      "layer10_widths_um": [
+        3.0,
+        1.65,
+        0.98,
+        0.2
+      ],
+      "layer15_widths_um": [
+        1.0,
+        0.5,
+        0.2
+      ],
+      "layer15_lengths_um": [
+        18.46153846153846,
+        92.3076923076923
+      ],
+      "taper_samples": [
+        {
+          "layer": 10,
+          "distance_um": 0.0,
+          "measured_width_um": 3.0,
+          "target_width_um": 3.0
+        },
+        {
+          "layer": 10,
+          "distance_um": 18.46153846153846,
+          "measured_width_um": 1.6500000000000001,
+          "target_width_um": 1.65
+        },
+        {
+          "layer": 10,
+          "distance_um": 110.76923076923077,
+          "measured_width_um": 0.98,
+          "target_width_um": 0.98
+        },
+        {
+          "layer": 10,
+          "distance_um": 120.0,
+          "measured_width_um": 0.2,
+          "target_width_um": 0.2
+        },
+        {
+          "layer": 15,
+          "distance_um": 0.0,
+          "measured_width_um": 1.0,
+          "target_width_um": 1.0
+        },
+        {
+          "layer": 15,
+          "distance_um": 18.46153846153846,
+          "measured_width_um": 0.5,
+          "target_width_um": 0.5
+        },
+        {
+          "layer": 15,
+          "distance_um": 110.76923076923077,
+          "measured_width_um": 0.2,
+          "target_width_um": 0.2
+        }
+      ],
+      "tip_centers": [
+        [
+          -763.4615384615385,
+          200.0
+        ],
+        [
+          763.4615384615385,
+          -200.0
+        ]
+      ],
+      "orientations": [
+        0.0,
+        180.0
+      ],
+      "status": "PASS",
+      "origin_um": [
+        4942.287,
+        500.0
+      ],
+      "left_bend_reference_x_um": 4100.0
+    },
+    {
+      "design": 2,
+      "row": 3,
+      "bend_period_um": 3.0,
+      "taper_total_um": 80.0,
+      "stage_lengths_um": [
+        12.307692307692308,
+        61.53846153846154,
+        6.153846153846154
+      ],
+      "straight_um": 1400.0,
+      "case_id": "D2_04_B3_T80",
+      "source": "2611_tapered_yue_design2.py",
+      "source_sha256": "e82b0d4b559b6631c0522c392b2ca346131945ea54a465e15176d49b18db36c8",
+      "left_pnc_x_um": -842.28,
+      "measured_straights_um": [
+        1400.0,
+        1400.0,
+        1400.0
+      ],
+      "measured_bends_um": [
+        370.9113052086134,
+        370.9113052086134
+      ],
+      "meander_length_um": 4941.822610417226,
+      "bend_pnc_measurements": [
+        {
+          "pairs": 122,
+          "fitted_pitch_um": 3.0157959108154206
+        },
+        {
+          "pairs": 122,
+          "fitted_pitch_um": 3.0157959108129893
+        }
+      ],
+      "straight_pnc_period_um": 15.0,
+      "layer10_widths_um": [
+        3.0,
+        1.65,
+        0.98,
+        0.2
+      ],
+      "layer15_widths_um": [
+        1.0,
+        0.5,
+        0.2
+      ],
+      "layer15_lengths_um": [
+        12.307692307692308,
+        61.53846153846154
+      ],
+      "taper_samples": [
+        {
+          "layer": 10,
+          "distance_um": 0.0,
+          "measured_width_um": 3.0,
+          "target_width_um": 3.0
+        },
+        {
+          "layer": 10,
+          "distance_um": 12.307692307692307,
+          "measured_width_um": 1.6500000000000001,
+          "target_width_um": 1.65
+        },
+        {
+          "layer": 10,
+          "distance_um": 73.84615384615385,
+          "measured_width_um": 0.98,
+          "target_width_um": 0.98
+        },
+        {
+          "layer": 10,
+          "distance_um": 80.00000000000001,
+          "measured_width_um": 0.2,
+          "target_width_um": 0.2
+        },
+        {
+          "layer": 15,
+          "distance_um": 0.0,
+          "measured_width_um": 1.0,
+          "target_width_um": 1.0
+        },
+        {
+          "layer": 15,
+          "distance_um": 12.307692307692307,
+          "measured_width_um": 0.5,
+          "target_width_um": 0.5
+        },
+        {
+          "layer": 15,
+          "distance_um": 73.84615384615385,
+          "measured_width_um": 0.2,
+          "target_width_um": 0.2
+        }
+      ],
+      "tip_centers": [
+        [
+          -757.3076923076923,
+          200.0
+        ],
+        [
+          757.3076923076923,
+          -200.0
+        ]
+      ],
+      "orientations": [
+        0.0,
+        180.0
+      ],
+      "status": "PASS",
+      "origin_um": [
+        4942.28,
+        1100.0
+      ],
+      "left_bend_reference_x_um": 4100.0
+    },
+    {
+      "design": 2,
+      "row": 4,
+      "bend_period_um": 3.0,
+      "taper_total_um": 100.0,
+      "stage_lengths_um": [
+        15.384615384615385,
+        76.92307692307692,
+        7.6923076923076925
+      ],
+      "straight_um": 1400.0,
+      "case_id": "D2_05_B3_T100",
+      "source": "2611_tapered_yue_design2.py",
+      "source_sha256": "e82b0d4b559b6631c0522c392b2ca346131945ea54a465e15176d49b18db36c8",
+      "left_pnc_x_um": -842.28,
+      "measured_straights_um": [
+        1400.0,
+        1400.0,
+        1400.0
+      ],
+      "measured_bends_um": [
+        370.9113052086134,
+        370.9113052086134
+      ],
+      "meander_length_um": 4941.822610417226,
+      "bend_pnc_measurements": [
+        {
+          "pairs": 122,
+          "fitted_pitch_um": 3.0157959108154206
+        },
+        {
+          "pairs": 122,
+          "fitted_pitch_um": 3.0157959108129893
+        }
+      ],
+      "straight_pnc_period_um": 15.0,
+      "layer10_widths_um": [
+        3.0,
+        1.65,
+        0.98,
+        0.2
+      ],
+      "layer15_widths_um": [
+        1.0,
+        0.5,
+        0.2
+      ],
+      "layer15_lengths_um": [
+        15.384615384615385,
+        76.92307692307692
+      ],
+      "taper_samples": [
+        {
+          "layer": 10,
+          "distance_um": 0.0,
+          "measured_width_um": 3.0,
+          "target_width_um": 3.0
+        },
+        {
+          "layer": 10,
+          "distance_um": 15.384615384615387,
+          "measured_width_um": 1.6500000000000001,
+          "target_width_um": 1.65
+        },
+        {
+          "layer": 10,
+          "distance_um": 92.30769230769232,
+          "measured_width_um": 0.98,
+          "target_width_um": 0.98
+        },
+        {
+          "layer": 10,
+          "distance_um": 100.0,
+          "measured_width_um": 0.2,
+          "target_width_um": 0.2
+        },
+        {
+          "layer": 15,
+          "distance_um": 0.0,
+          "measured_width_um": 1.0,
+          "target_width_um": 1.0
+        },
+        {
+          "layer": 15,
+          "distance_um": 15.384615384615387,
+          "measured_width_um": 0.5,
+          "target_width_um": 0.5
+        },
+        {
+          "layer": 15,
+          "distance_um": 92.30769230769232,
+          "measured_width_um": 0.2,
+          "target_width_um": 0.2
+        }
+      ],
+      "tip_centers": [
+        [
+          -760.3846153846154,
+          200.0
+        ],
+        [
+          760.3846153846154,
+          -200.0
+        ]
+      ],
+      "orientations": [
+        0.0,
+        180.0
+      ],
+      "status": "PASS",
+      "origin_um": [
+        4942.28,
+        1700.0
+      ],
+      "left_bend_reference_x_um": 4100.0
+    },
+    {
+      "design": 2,
+      "row": 5,
+      "bend_period_um": 3.0,
+      "taper_total_um": 120.0,
+      "stage_lengths_um": [
+        18.46153846153846,
+        92.3076923076923,
+        9.23076923076923
+      ],
+      "straight_um": 1400.0,
+      "case_id": "D2_06_B3_T120",
+      "source": "2611_tapered_yue_design2.py",
+      "source_sha256": "e82b0d4b559b6631c0522c392b2ca346131945ea54a465e15176d49b18db36c8",
+      "left_pnc_x_um": -842.28,
+      "measured_straights_um": [
+        1400.0,
+        1400.0,
+        1400.0
+      ],
+      "measured_bends_um": [
+        370.9113052086134,
+        370.9113052086134
+      ],
+      "meander_length_um": 4941.822610417226,
+      "bend_pnc_measurements": [
+        {
+          "pairs": 122,
+          "fitted_pitch_um": 3.0157959108154206
+        },
+        {
+          "pairs": 122,
+          "fitted_pitch_um": 3.0157959108129893
+        }
+      ],
+      "straight_pnc_period_um": 15.0,
+      "layer10_widths_um": [
+        3.0,
+        1.65,
+        0.98,
+        0.2
+      ],
+      "layer15_widths_um": [
+        1.0,
+        0.5,
+        0.2
+      ],
+      "layer15_lengths_um": [
+        18.46153846153846,
+        92.3076923076923
+      ],
+      "taper_samples": [
+        {
+          "layer": 10,
+          "distance_um": 0.0,
+          "measured_width_um": 3.0,
+          "target_width_um": 3.0
+        },
+        {
+          "layer": 10,
+          "distance_um": 18.46153846153846,
+          "measured_width_um": 1.6500000000000001,
+          "target_width_um": 1.65
+        },
+        {
+          "layer": 10,
+          "distance_um": 110.76923076923077,
+          "measured_width_um": 0.98,
+          "target_width_um": 0.98
+        },
+        {
+          "layer": 10,
+          "distance_um": 120.0,
+          "measured_width_um": 0.2,
+          "target_width_um": 0.2
+        },
+        {
+          "layer": 15,
+          "distance_um": 0.0,
+          "measured_width_um": 1.0,
+          "target_width_um": 1.0
+        },
+        {
+          "layer": 15,
+          "distance_um": 18.46153846153846,
+          "measured_width_um": 0.5,
+          "target_width_um": 0.5
+        },
+        {
+          "layer": 15,
+          "distance_um": 110.76923076923077,
+          "measured_width_um": 0.2,
+          "target_width_um": 0.2
+        }
+      ],
+      "tip_centers": [
+        [
+          -763.4615384615385,
+          200.0
+        ],
+        [
+          763.4615384615385,
+          -200.0
+        ]
+      ],
+      "orientations": [
+        0.0,
+        180.0
+      ],
+      "status": "PASS",
+      "origin_um": [
+        4942.28,
+        2300.0
+      ],
+      "left_bend_reference_x_um": 4100.0
+    },
+    {
+      "design": 2,
+      "row": 6,
+      "bend_period_um": 5.0,
+      "taper_total_um": 80.0,
+      "stage_lengths_um": [
+        12.307692307692308,
+        61.53846153846154,
+        6.153846153846154
+      ],
+      "straight_um": 1400.0,
+      "case_id": "D2_07_B5_T80",
+      "source": "2611_tapered_yue_design2.py",
+      "source_sha256": "e82b0d4b559b6631c0522c392b2ca346131945ea54a465e15176d49b18db36c8",
+      "left_pnc_x_um": -842.291,
+      "measured_straights_um": [
+        1400.0,
+        1400.0,
+        1400.0
+      ],
+      "measured_bends_um": [
+        370.9113052086134,
+        370.9113052086134
+      ],
+      "meander_length_um": 4941.822610417226,
+      "bend_pnc_measurements": [
+        {
+          "pairs": 73,
+          "fitted_pitch_um": 5.012657016787027
+        },
+        {
+          "pairs": 73,
+          "fitted_pitch_um": 5.01265701678294
+        }
+      ],
+      "straight_pnc_period_um": 15.0,
+      "layer10_widths_um": [
+        3.0,
+        1.65,
+        0.98,
+        0.2
+      ],
+      "layer15_widths_um": [
+        1.0,
+        0.5,
+        0.2
+      ],
+      "layer15_lengths_um": [
+        12.307692307692308,
+        61.53846153846154
+      ],
+      "taper_samples": [
+        {
+          "layer": 10,
+          "distance_um": 0.0,
+          "measured_width_um": 3.0,
+          "target_width_um": 3.0
+        },
+        {
+          "layer": 10,
+          "distance_um": 12.307692307692307,
+          "measured_width_um": 1.6500000000000001,
+          "target_width_um": 1.65
+        },
+        {
+          "layer": 10,
+          "distance_um": 73.84615384615385,
+          "measured_width_um": 0.98,
+          "target_width_um": 0.98
+        },
+        {
+          "layer": 10,
+          "distance_um": 80.00000000000001,
+          "measured_width_um": 0.2,
+          "target_width_um": 0.2
+        },
+        {
+          "layer": 15,
+          "distance_um": 0.0,
+          "measured_width_um": 1.0,
+          "target_width_um": 1.0
+        },
+        {
+          "layer": 15,
+          "distance_um": 12.307692307692307,
+          "measured_width_um": 0.5,
+          "target_width_um": 0.5
+        },
+        {
+          "layer": 15,
+          "distance_um": 73.84615384615385,
+          "measured_width_um": 0.2,
+          "target_width_um": 0.2
+        }
+      ],
+      "tip_centers": [
+        [
+          -757.3076923076923,
+          200.0
+        ],
+        [
+          757.3076923076923,
+          -200.0
+        ]
+      ],
+      "orientations": [
+        0.0,
+        180.0
+      ],
+      "status": "PASS",
+      "origin_um": [
+        4942.291,
+        2900.0
+      ],
+      "left_bend_reference_x_um": 4100.0
+    },
+    {
+      "design": 2,
+      "row": 7,
+      "bend_period_um": 5.0,
+      "taper_total_um": 100.0,
+      "stage_lengths_um": [
+        15.384615384615385,
+        76.92307692307692,
+        7.6923076923076925
+      ],
+      "straight_um": 1400.0,
+      "case_id": "D2_08_B5_T100",
+      "source": "2611_tapered_yue_design2.py",
+      "source_sha256": "e82b0d4b559b6631c0522c392b2ca346131945ea54a465e15176d49b18db36c8",
+      "left_pnc_x_um": -842.291,
+      "measured_straights_um": [
+        1400.0,
+        1400.0,
+        1400.0
+      ],
+      "measured_bends_um": [
+        370.9113052086134,
+        370.9113052086134
+      ],
+      "meander_length_um": 4941.822610417226,
+      "bend_pnc_measurements": [
+        {
+          "pairs": 73,
+          "fitted_pitch_um": 5.012657016787027
+        },
+        {
+          "pairs": 73,
+          "fitted_pitch_um": 5.01265701678294
+        }
+      ],
+      "straight_pnc_period_um": 15.0,
+      "layer10_widths_um": [
+        3.0,
+        1.65,
+        0.98,
+        0.2
+      ],
+      "layer15_widths_um": [
+        1.0,
+        0.5,
+        0.2
+      ],
+      "layer15_lengths_um": [
+        15.384615384615385,
+        76.92307692307692
+      ],
+      "taper_samples": [
+        {
+          "layer": 10,
+          "distance_um": 0.0,
+          "measured_width_um": 3.0,
+          "target_width_um": 3.0
+        },
+        {
+          "layer": 10,
+          "distance_um": 15.384615384615387,
+          "measured_width_um": 1.6500000000000001,
+          "target_width_um": 1.65
+        },
+        {
+          "layer": 10,
+          "distance_um": 92.30769230769232,
+          "measured_width_um": 0.98,
+          "target_width_um": 0.98
+        },
+        {
+          "layer": 10,
+          "distance_um": 100.0,
+          "measured_width_um": 0.2,
+          "target_width_um": 0.2
+        },
+        {
+          "layer": 15,
+          "distance_um": 0.0,
+          "measured_width_um": 1.0,
+          "target_width_um": 1.0
+        },
+        {
+          "layer": 15,
+          "distance_um": 15.384615384615387,
+          "measured_width_um": 0.5,
+          "target_width_um": 0.5
+        },
+        {
+          "layer": 15,
+          "distance_um": 92.30769230769232,
+          "measured_width_um": 0.2,
+          "target_width_um": 0.2
+        }
+      ],
+      "tip_centers": [
+        [
+          -760.3846153846154,
+          200.0
+        ],
+        [
+          760.3846153846154,
+          -200.0
+        ]
+      ],
+      "orientations": [
+        0.0,
+        180.0
+      ],
+      "status": "PASS",
+      "origin_um": [
+        4942.291,
+        3500.0
+      ],
+      "left_bend_reference_x_um": 4100.0
+    },
+    {
+      "design": 2,
+      "row": 8,
+      "bend_period_um": 5.0,
+      "taper_total_um": 120.0,
+      "stage_lengths_um": [
+        18.46153846153846,
+        92.3076923076923,
+        9.23076923076923
+      ],
+      "straight_um": 1400.0,
+      "case_id": "D2_09_B5_T120",
+      "source": "2611_tapered_yue_design2.py",
+      "source_sha256": "e82b0d4b559b6631c0522c392b2ca346131945ea54a465e15176d49b18db36c8",
+      "left_pnc_x_um": -842.291,
+      "measured_straights_um": [
+        1400.0,
+        1400.0,
+        1400.0
+      ],
+      "measured_bends_um": [
+        370.9113052086134,
+        370.9113052086134
+      ],
+      "meander_length_um": 4941.822610417226,
+      "bend_pnc_measurements": [
+        {
+          "pairs": 73,
+          "fitted_pitch_um": 5.012657016787027
+        },
+        {
+          "pairs": 73,
+          "fitted_pitch_um": 5.01265701678294
+        }
+      ],
+      "straight_pnc_period_um": 15.0,
+      "layer10_widths_um": [
+        3.0,
+        1.65,
+        0.98,
+        0.2
+      ],
+      "layer15_widths_um": [
+        1.0,
+        0.5,
+        0.2
+      ],
+      "layer15_lengths_um": [
+        18.46153846153846,
+        92.3076923076923
+      ],
+      "taper_samples": [
+        {
+          "layer": 10,
+          "distance_um": 0.0,
+          "measured_width_um": 3.0,
+          "target_width_um": 3.0
+        },
+        {
+          "layer": 10,
+          "distance_um": 18.46153846153846,
+          "measured_width_um": 1.6500000000000001,
+          "target_width_um": 1.65
+        },
+        {
+          "layer": 10,
+          "distance_um": 110.76923076923077,
+          "measured_width_um": 0.98,
+          "target_width_um": 0.98
+        },
+        {
+          "layer": 10,
+          "distance_um": 120.0,
+          "measured_width_um": 0.2,
+          "target_width_um": 0.2
+        },
+        {
+          "layer": 15,
+          "distance_um": 0.0,
+          "measured_width_um": 1.0,
+          "target_width_um": 1.0
+        },
+        {
+          "layer": 15,
+          "distance_um": 18.46153846153846,
+          "measured_width_um": 0.5,
+          "target_width_um": 0.5
+        },
+        {
+          "layer": 15,
+          "distance_um": 110.76923076923077,
+          "measured_width_um": 0.2,
+          "target_width_um": 0.2
+        }
+      ],
+      "tip_centers": [
+        [
+          -763.4615384615385,
+          200.0
+        ],
+        [
+          763.4615384615385,
+          -200.0
+        ]
+      ],
+      "orientations": [
+        0.0,
+        180.0
+      ],
+      "status": "PASS",
+      "origin_um": [
+        4942.291,
+        4100.0
+      ],
+      "left_bend_reference_x_um": 4100.0
+    }
+  ],
+  "device_count": 18,
+  "row_pitch_um": 600.0,
+  "design_x_offset_um": 5000.0,
+  "taper_allocation": "proportional stage scaling",
+  "stage_ratios": {
+    "1": [
+      1.0,
+      1.0
+    ],
+    "2": [
+      2.0,
+      10.0,
+      1.0
+    ]
+  },
+  "taper_length_definition": "full Layer-10 taper after the unchanged 45 um PNC",
+  "frame_bounds_um": [
+    -3500,
+    -5000.0,
+    8400,
+    5000.0
+  ],
+  "fabrication_mask_overlaps": [],
+  "notes": [
+    "Bend period is the existing nominal parameter. Interior spacings are fitted to the arc; measured values are listed per case.",
+    "Layer 51 is a nonfabrication fiber guide and may cross columns. No fabrication layer is clipped."
+  ]
+}
