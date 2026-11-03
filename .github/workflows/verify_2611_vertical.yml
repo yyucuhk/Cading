@@ -30,9 +30,10 @@ jobs:
           Path('validation_2611_vertical/protected_hashes.json').write_text(json.dumps({
               p:hashlib.sha256(Path(p).read_bytes()).hexdigest() for p in paths},indent=2))
           PY
-      - name: Apply guarded placement and exact-glyph cleanup
+      - name: Apply vertical placement and isolate text before flattening
         run: |
           python _vertical_sweep_once.py
+          python _vertical_label_fix.py
           python -m py_compile 2611_build_combined_sweep.py validate_2611_combined_sweep.py validate_2611_vertical_sweep.py
       - name: Build all 18 complete devices and new vertical GDS
         run: python 2611_build_combined_sweep.py
@@ -63,12 +64,12 @@ jobs:
             validation_2611_vertical/validation_report.json
       - name: Commit only passing output and remove temporary runner
         run: |
-          rm _vertical_sweep_once.py .github/workflows/verify_2611_vertical.yml
+          rm _vertical_sweep_once.py _vertical_label_fix.py .github/workflows/verify_2611_vertical.yml
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add 2611_build_combined_sweep.py validate_2611_combined_sweep.py validate_2611_vertical_sweep.py COMBINED_SWEEP_README.md
           git add gds/2611_design1_design2_L1400_18device_sweep.gds gds/2611_design1_design2_L1400_18device_sweep.csv gds/2611_design1_design2_L1400_18device_sweep.json
           git add gds/2611_combined_sweep_validation.json gds/2611_vertical_sweep_validation.json
-          git add -u -- _vertical_sweep_once.py .github/workflows/verify_2611_vertical.yml
+          git add -u -- _vertical_sweep_once.py _vertical_label_fix.py .github/workflows/verify_2611_vertical.yml
           git commit -m 'Stack all 18 devices vertically with one clean parameter label each'
           git push
