@@ -22,7 +22,7 @@ Dimensions are in micrometres (um), angles in degrees. Thus 980 nm is `0.980`,
 ### 1A: Number of devices and placement
 
 ```python
-MEANDER_STRAIGHT_LENGTHS = (800.0,)  # one device; keep the trailing comma
+MEANDER_STRAIGHT_LENGTHS = (1400.0,)  # one device; keep the trailing comma
 DEVICE_Y_PITCH = 600.0
 BOTTOM_DEVICE_Y = -700.0
 LEFT_BEND_ALIGNMENT_X = -900.0
@@ -35,7 +35,7 @@ MEANDER_STRAIGHT_LENGTHS = (200.0, 800.0, 1400.0)
 ```
 
 The tuple is the ONLY device-count control. Both scripts currently retain the
-one-device 800 um setting. Each entry controls ALL THREE straight sections,
+one-device 1400 um setting. Each entry controls ALL THREE straight sections,
 not the total optical path length. With L=800, the straights are 800/800/800 um.
 The horizontal port coordinates are -L/2 and +L/2; complete end assemblies
 follow those ports without any change to their local geometry.
@@ -104,10 +104,12 @@ edge gap at the ridge endpoint is 0.840 - 0.980/2 - 0.200/2 = 0.250 um.
 `RIDGE_MEANDER_WIDTH` in 1B is the optical width. `S_BEND_WIDTH` is the wider
 construction/support envelope and is NOT that optical width.
 
-`REVIEW_SUPPORT_ANCHOR_PERIOD` controls requested straight-section PNC pitch;
-`REVIEW_SUPPORT_BEND_PERIOD` controls requested bend pitch. The PNC taper length
-is derived as three straight periods, so changing the straight period also
-changes that taper's length. `PHONONIC_SUPPORT_SEGMENTS` and
+`MEANDER_STRAIGHT_PNC_PERIOD` controls the exact center-to-center PNC pitch
+on the three meander straights (currently 5 um). `REVIEW_SUPPORT_BEND_PERIOD`
+independently controls the nominal fitted-to-arc bend pitch.
+`REVIEW_SUPPORT_ANCHOR_PERIOD` controls only the separate PNC-taper pattern
+(currently 15 um); the PNC taper length is three of those periods, or 45 um.
+Changing the straight-meander pitch does not change that taper's length. `PHONONIC_SUPPORT_SEGMENTS` and
 `PHONONIC_SUPPORT_GAPS` define the library cell's masses and gaps.
 `S_BEND_TAPER_LENGTH` belongs to the inherited noncompact route; it is not the
 equal-straight sweep control.
@@ -253,3 +255,22 @@ mask construction happens before the final move of alignment ticks from
 Layer 10 to Layer 15. Do not remove the independent-copy/flatten steps or use
 recursive layer deletion on cached child cells. Shared-cell mutation was the
 cause of earlier missing structures; these ownership rules are deliberate.
+
+## Independent straight-meander PNC pitch (current)
+
+`STRAIGHT_PNC_PERIOD = 5.0` in Section 01 of `2611_build_combined_sweep.py`
+controls the straight PNC spacing for all 18 devices. The two standalone
+generators use `MEANDER_STRAIGHT_PNC_PERIOD = 5.0` in Section 01 / 1D.
+This is CENTER-TO-CENTER pitch, not edge-to-edge clearance. All three 1400 um
+straights use an exact 5 um grid, with 279 interior PNC pairs per straight.
+One shared PNC pair at each straight/bend junction is retained.
+
+`REVIEW_SUPPORT_ANCHOR_PERIOD = 15.0` is now explicitly the independent
+PNC-taper pitch. Its three-period 45 um transition and all optical taper
+lengths stay unchanged. Do not change it to edit straight-meander pitch.
+The bend sweep remains nominal 2/3/5 um with the existing fitted-to-arc
+sampler. Labels still report design, post-PNC taper length and bend period
+only; the common straight period is recorded separately in CSV/JSON.
+
+Run `python validate_2611_straight_pitch.py` after regenerating the combined
+sweep to measure every straight PNC population directly in the exported GDS.
