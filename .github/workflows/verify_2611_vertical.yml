@@ -1,0 +1,74 @@
+name: Build and verify vertical single-label sweep
+on:
+  push:
+    branches: [layout/2611-vertical-single-label]
+jobs:
+  verify:
+    if: github.event.head_commit.message == 'Build vertical single-label sweep'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install pinned layout engine
+        run: python -m pip install gdsfactory==9.45.0
+      - name: Preserve approved devices and standalone files
+        run: |
+          mkdir -p validation_2611_vertical
+          cp gds/2611_design1_design2_L1400_18device_sweep.gds validation_2611_vertical/before.gds
+          cp gds/2611_design1_design2_L1400_18device_sweep.json validation_2611_vertical/before.json
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib, json
+          paths=['2611_tapered_yue_dual_resist.py','2611_tapered_yue_design2.py',
+                 'gds/2611_tapered_yue_dual_resist_L10_L12.gds','gds/2611_tapered_yue_design2.gds',
+                 'tapered_local.py','layers.py','markers.py','phononics.py','tether_variants.py']
+          Path('validation_2611_vertical/protected_hashes.json').write_text(json.dumps({
+              p:hashlib.sha256(Path(p).read_bytes()).hexdigest() for p in paths},indent=2))
+          PY
+      - name: Apply guarded placement and exact-glyph cleanup
+        run: |
+          python _vertical_sweep_once.py
+          python -m py_compile 2611_build_combined_sweep.py validate_2611_combined_sweep.py validate_2611_vertical_sweep.py
+      - name: Build all 18 complete devices and new vertical GDS
+        run: python 2611_build_combined_sweep.py
+      - name: Check every complete end and actual exported placement
+        run: python validate_2611_combined_sweep.py
+      - name: Compare every nonlabel polygon and verify exactly 18 labels
+        run: python validate_2611_vertical_sweep.py
+      - name: Upload source GDS manifest and validation
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: 2611-vertical-single-label-release
+          path: |
+            2611_build_combined_sweep.py
+            2611_tapered_yue_dual_resist.py
+            2611_tapered_yue_design2.py
+            validate_2611_combined_sweep.py
+            validate_2611_vertical_sweep.py
+            COMBINED_SWEEP_README.md
+            CAD_EDITING_GUIDE.md
+            gds/2611_design1_design2_L1400_18device_sweep.gds
+            gds/2611_design1_design2_L1400_18device_sweep.csv
+            gds/2611_design1_design2_L1400_18device_sweep.json
+            gds/2611_combined_sweep_validation.json
+            gds/2611_vertical_sweep_validation.json
+            validation_2611_combined_sweep/combined_sweep.png
+            validation_2611_combined_sweep/*.log
+            validation_2611_vertical/validation_report.json
+      - name: Commit only passing output and remove temporary runner
+        run: |
+          rm _vertical_sweep_once.py .github/workflows/verify_2611_vertical.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add 2611_build_combined_sweep.py validate_2611_combined_sweep.py validate_2611_vertical_sweep.py COMBINED_SWEEP_README.md
+          git add gds/2611_design1_design2_L1400_18device_sweep.gds gds/2611_design1_design2_L1400_18device_sweep.csv gds/2611_design1_design2_L1400_18device_sweep.json
+          git add gds/2611_combined_sweep_validation.json gds/2611_vertical_sweep_validation.json
+          git add -u -- _vertical_sweep_once.py .github/workflows/verify_2611_vertical.yml
+          git commit -m 'Stack all 18 devices vertically with one clean parameter label each'
+          git push
