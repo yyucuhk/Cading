@@ -1234,7 +1234,7 @@
     {
       "name": "D2_01_B2_T80_left_bend_aligned",
       "passed": true,
-      "x_um": 4100.0
+      "x_um": -900.0
     },
     {
       "name": "D2_01_B2_T80_connected_optical_path",
@@ -1393,7 +1393,7 @@
     {
       "name": "D2_02_B2_T100_left_bend_aligned",
       "passed": true,
-      "x_um": 4100.0
+      "x_um": -900.0
     },
     {
       "name": "D2_02_B2_T100_connected_optical_path",
@@ -1552,7 +1552,7 @@
     {
       "name": "D2_03_B2_T120_left_bend_aligned",
       "passed": true,
-      "x_um": 4100.0
+      "x_um": -900.0
     },
     {
       "name": "D2_03_B2_T120_connected_optical_path",
@@ -1711,7 +1711,7 @@
     {
       "name": "D2_04_B3_T80_left_bend_aligned",
       "passed": true,
-      "x_um": 4100.0
+      "x_um": -900.0
     },
     {
       "name": "D2_04_B3_T80_connected_optical_path",
@@ -1870,7 +1870,7 @@
     {
       "name": "D2_05_B3_T100_left_bend_aligned",
       "passed": true,
-      "x_um": 4100.0
+      "x_um": -900.0
     },
     {
       "name": "D2_05_B3_T100_connected_optical_path",
@@ -2029,7 +2029,7 @@
     {
       "name": "D2_06_B3_T120_left_bend_aligned",
       "passed": true,
-      "x_um": 4100.0
+      "x_um": -900.0
     },
     {
       "name": "D2_06_B3_T120_connected_optical_path",
@@ -2188,7 +2188,7 @@
     {
       "name": "D2_07_B5_T80_left_bend_aligned",
       "passed": true,
-      "x_um": 4100.0
+      "x_um": -900.0
     },
     {
       "name": "D2_07_B5_T80_connected_optical_path",
@@ -2347,7 +2347,7 @@
     {
       "name": "D2_08_B5_T100_left_bend_aligned",
       "passed": true,
-      "x_um": 4100.0
+      "x_um": -900.0
     },
     {
       "name": "D2_08_B5_T100_connected_optical_path",
@@ -2506,7 +2506,7 @@
     {
       "name": "D2_09_B5_T120_left_bend_aligned",
       "passed": true,
-      "x_um": 4100.0
+      "x_um": -900.0
     },
     {
       "name": "D2_09_B5_T120_connected_optical_path",
@@ -2671,12 +2671,16 @@
       "passed": true
     },
     {
-      "name": "matching_rows_5000um_apart",
+      "name": "matching_design_rows_same_x_5400um_y_offset",
+      "passed": true
+    },
+    {
+      "name": "all_18_rows_600um_pitch",
       "passed": true
     }
   ],
   "failures": [],
   "status": "PASS",
-  "check_count": 511,
+  "check_count": 512,
   "gds_file": "2611_design1_design2_L1400_18device_sweep.gds"
 }

@@ -19,7 +19,7 @@ Section 01 of `2611_build_combined_sweep.py`:
 STRAIGHT_LENGTH = 1400.0
 BEND_PNC_PERIODS = (2.0, 3.0, 5.0)
 POST_PNC_TAPER_LENGTHS = (80.0, 100.0, 120.0)
-DESIGN_X_OFFSET = 5000.0
+DESIGN_X_OFFSET = 0.0
 ROW_PITCH = 600.0
 FIRST_ROW_Y = -700.0
 LEFT_BEND_X = -900.0
@@ -64,10 +64,25 @@ GDS coordinates are quantized to the existing 1 nm database grid.
 | 8 | 5 | 100 | 3500 |
 | 9 | 5 | 120 | 4100 |
 
-Design 1 is the left column; Design 2 is translated +5000 um in X.
-Leftmost PNC bend edges align at X=-900 um and X=4100 um respectively.
-All layers move together. Additional labels identify design, row, bend period,
-taper total and common straight length, e.g. `D2_05_B3_T100_L1400`.
+## Single vertical column and one label
+
+Design 1 occupies rows 1-9 at origin Y=-700,-100,...,4100 um.
+Design 2 occupies rows 10-18 at origin Y=4700,5300,...,9500 um.
+All consecutive rows, including the design boundary, have 600 um pitch.
+ALL leftmost PNC bend edges align at X=-900 um. There is NO 5000 um X shift.
+The table above gives rows within Design 1; add 5400 um to its Y coordinates
+for corresponding Design-2 cases. Device geometry is translated as a whole.
+
+Exactly ONE label per device is drawn on Layer 2, for example `D2_T100_P3`:
+Design 2, total post-PNC Layer-10 taper 100 um, nominal bend PNC period 3 um.
+No row number, meander length, ML/TL label, or second label is drawn.
+Each label is a separate `LABEL_<case_id>` cell; the physical device cell
+contains no length text. The final standalone length-label call is isolated on temporary layer 998
+in the in-memory source before geometry is built. It is then removed from
+the independent device. This prevents old text from merging into release
+windows; neither glyph areas nor text bounding boxes are cut out of masks.
+Editable label size and offsets are in Section 01 of the combined builder.
+The individual standalone Design-1/Design-2 scripts and GDSs are unchanged.
 
 The unchanged PNC sampler fits integer populations into each Euler arc.
 Consequently 2/3/5 um are NOMINAL requested periods. Measured interior spacings
@@ -102,16 +117,26 @@ layers must not change when only bend period changes. All fabrication-layer
 pairwise inter-device overlaps are checked.
 
 The independent validator measures both ends of every exported device and
-compares full end-assembly symmetry, excluding only exact label polygons.
+compares full end-assembly symmetry; device cells now have no text.
 It also checks actual instance counts, X/Y placement, all layers and connectivity.
 
-The combined frame encompasses fabrication geometry: X=-3500 to +8400 um,
-Y=-5000 to +5000 um (11.9 x 10 mm). This is one encompassing reference outline,
-not a claim of fitting inside a previous standalone 5 mm-wide chip frame.
-Inherited global markers are added once around this frame. Long Layer-51
-fiber guides are nonfabrication geometry; they are retained and may cross
-columns. They do not determine the frame or exposure-mask collision checks.
+The reference frame and global overlay markers are rebuilt to enclose the
+vertical column, with 500 um margin and a minimum height of 10000 um.
+Actual bounds are recorded in the JSON manifest; the 18-row layout is taller
+than the old two-column layout. Layer-51 fiber guides are retained as
+nonfabrication geometry and are not used to set exposure-frame extents.
+All fabrication-mask pairwise overlaps and label-to-mask overlaps are checked.
 
 These checks are geometric, not optical simulations or foundry DRC.
 Historical single-device reports do not validate this new sweep. Update the
 independent validator expectations when changing the requested matrix or widths.
+
+## Independent placement/label regression
+
+Run `python validate_2611_vertical_sweep.py` after building. When an approved
+pre-update GDS and manifest are present in `validation_2611_vertical/before.*`,
+it also compares every local device layer against that baseline. For Layer 2,
+new_mask UNION original_text must recover the approved old mask; this is
+important where the old text overlapped real release windows. Every other
+layer must match directly. Physical source-function bodies are unchanged;
+only the single final length-label layer is redirected in the memory copy.

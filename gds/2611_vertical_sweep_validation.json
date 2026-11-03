@@ -1,0 +1,1684 @@
+{
+  "checks": [
+    {
+      "name": "one_top_cell",
+      "passed": true
+    },
+    {
+      "name": "no_temporary_text_layer_exported",
+      "passed": true
+    },
+    {
+      "name": "exactly_18_device_cells",
+      "passed": true
+    },
+    {
+      "name": "exactly_one_label_for_every_device",
+      "passed": true
+    },
+    {
+      "name": "one_frame_and_no_obsolete_label_group",
+      "passed": true
+    },
+    {
+      "name": "single_column_manifest",
+      "passed": true
+    },
+    {
+      "name": "no_gds_text_elements_outside_polygon_labels",
+      "passed": true
+    },
+    {
+      "name": "D1_01_B2_T80_row_order",
+      "passed": true
+    },
+    {
+      "name": "D1_01_B2_T80_actual_y_position",
+      "passed": true,
+      "y_um": -700.0
+    },
+    {
+      "name": "D1_01_B2_T80_actual_left_bend_x",
+      "passed": true,
+      "x_um": -900.0
+    },
+    {
+      "name": "D1_01_B2_T80_only_translation",
+      "passed": true
+    },
+    {
+      "name": "D1_01_B2_T80_three_equal_1400um_straights",
+      "passed": true
+    },
+    {
+      "name": "D1_01_B2_T80_old_length_glyph_removal_recorded",
+      "passed": true
+    },
+    {
+      "name": "D1_01_B2_T80_label_only_design_taper_period",
+      "passed": true,
+      "text": "D1_T80_P2",
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_01_B2_T80_label_position",
+      "passed": true
+    },
+    {
+      "name": "D1_01_B2_T80_no_changes_outside_original_length_text",
+      "passed": true,
+      "outside_old_text_xor_um2": 0.0
+    },
+    {
+      "name": "D1_01_B2_T80_approved_geometry_recovered_by_adding_only_old_text",
+      "passed": true,
+      "xor_um2": {
+        "2/0": 0.0,
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 0.0,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "D1_01_B2_T80_unchanged_stage_lengths_um",
+      "passed": true
+    },
+    {
+      "name": "D1_01_B2_T80_unchanged_layer10_widths_um",
+      "passed": true
+    },
+    {
+      "name": "D1_01_B2_T80_unchanged_layer15_widths_um",
+      "passed": true
+    },
+    {
+      "name": "D1_01_B2_T80_unchanged_layer15_lengths_um",
+      "passed": true
+    },
+    {
+      "name": "D1_01_B2_T80_unchanged_bend_pnc_measurements",
+      "passed": true
+    },
+    {
+      "name": "D1_01_B2_T80_unchanged_tip_centers",
+      "passed": true
+    },
+    {
+      "name": "D1_01_B2_T80_unchanged_straight_um",
+      "passed": true
+    },
+    {
+      "name": "D1_02_B2_T100_row_order",
+      "passed": true
+    },
+    {
+      "name": "D1_02_B2_T100_actual_y_position",
+      "passed": true,
+      "y_um": -100.0
+    },
+    {
+      "name": "D1_02_B2_T100_actual_left_bend_x",
+      "passed": true,
+      "x_um": -900.0
+    },
+    {
+      "name": "D1_02_B2_T100_only_translation",
+      "passed": true
+    },
+    {
+      "name": "D1_02_B2_T100_three_equal_1400um_straights",
+      "passed": true
+    },
+    {
+      "name": "D1_02_B2_T100_old_length_glyph_removal_recorded",
+      "passed": true
+    },
+    {
+      "name": "D1_02_B2_T100_label_only_design_taper_period",
+      "passed": true,
+      "text": "D1_T100_P2",
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_02_B2_T100_label_position",
+      "passed": true
+    },
+    {
+      "name": "D1_02_B2_T100_no_changes_outside_original_length_text",
+      "passed": true,
+      "outside_old_text_xor_um2": 0.0
+    },
+    {
+      "name": "D1_02_B2_T100_approved_geometry_recovered_by_adding_only_old_text",
+      "passed": true,
+      "xor_um2": {
+        "2/0": 0.0,
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 0.0,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "D1_02_B2_T100_unchanged_stage_lengths_um",
+      "passed": true
+    },
+    {
+      "name": "D1_02_B2_T100_unchanged_layer10_widths_um",
+      "passed": true
+    },
+    {
+      "name": "D1_02_B2_T100_unchanged_layer15_widths_um",
+      "passed": true
+    },
+    {
+      "name": "D1_02_B2_T100_unchanged_layer15_lengths_um",
+      "passed": true
+    },
+    {
+      "name": "D1_02_B2_T100_unchanged_bend_pnc_measurements",
+      "passed": true
+    },
+    {
+      "name": "D1_02_B2_T100_unchanged_tip_centers",
+      "passed": true
+    },
+    {
+      "name": "D1_02_B2_T100_unchanged_straight_um",
+      "passed": true
+    },
+    {
+      "name": "D1_03_B2_T120_row_order",
+      "passed": true
+    },
+    {
+      "name": "D1_03_B2_T120_actual_y_position",
+      "passed": true,
+      "y_um": 500.0
+    },
+    {
+      "name": "D1_03_B2_T120_actual_left_bend_x",
+      "passed": true,
+      "x_um": -900.0
+    },
+    {
+      "name": "D1_03_B2_T120_only_translation",
+      "passed": true
+    },
+    {
+      "name": "D1_03_B2_T120_three_equal_1400um_straights",
+      "passed": true
+    },
+    {
+      "name": "D1_03_B2_T120_old_length_glyph_removal_recorded",
+      "passed": true
+    },
+    {
+      "name": "D1_03_B2_T120_label_only_design_taper_period",
+      "passed": true,
+      "text": "D1_T120_P2",
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_03_B2_T120_label_position",
+      "passed": true
+    },
+    {
+      "name": "D1_03_B2_T120_no_changes_outside_original_length_text",
+      "passed": true,
+      "outside_old_text_xor_um2": 0.0
+    },
+    {
+      "name": "D1_03_B2_T120_approved_geometry_recovered_by_adding_only_old_text",
+      "passed": true,
+      "xor_um2": {
+        "2/0": 0.0,
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 0.0,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "D1_03_B2_T120_unchanged_stage_lengths_um",
+      "passed": true
+    },
+    {
+      "name": "D1_03_B2_T120_unchanged_layer10_widths_um",
+      "passed": true
+    },
+    {
+      "name": "D1_03_B2_T120_unchanged_layer15_widths_um",
+      "passed": true
+    },
+    {
+      "name": "D1_03_B2_T120_unchanged_layer15_lengths_um",
+      "passed": true
+    },
+    {
+      "name": "D1_03_B2_T120_unchanged_bend_pnc_measurements",
+      "passed": true
+    },
+    {
+      "name": "D1_03_B2_T120_unchanged_tip_centers",
+      "passed": true
+    },
+    {
+      "name": "D1_03_B2_T120_unchanged_straight_um",
+      "passed": true
+    },
+    {
+      "name": "D1_04_B3_T80_row_order",
+      "passed": true
+    },
+    {
+      "name": "D1_04_B3_T80_actual_y_position",
+      "passed": true,
+      "y_um": 1100.0
+    },
+    {
+      "name": "D1_04_B3_T80_actual_left_bend_x",
+      "passed": true,
+      "x_um": -900.0
+    },
+    {
+      "name": "D1_04_B3_T80_only_translation",
+      "passed": true
+    },
+    {
+      "name": "D1_04_B3_T80_three_equal_1400um_straights",
+      "passed": true
+    },
+    {
+      "name": "D1_04_B3_T80_old_length_glyph_removal_recorded",
+      "passed": true
+    },
+    {
+      "name": "D1_04_B3_T80_label_only_design_taper_period",
+      "passed": true,
+      "text": "D1_T80_P3",
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_04_B3_T80_label_position",
+      "passed": true
+    },
+    {
+      "name": "D1_04_B3_T80_no_changes_outside_original_length_text",
+      "passed": true,
+      "outside_old_text_xor_um2": 0.0
+    },
+    {
+      "name": "D1_04_B3_T80_approved_geometry_recovered_by_adding_only_old_text",
+      "passed": true,
+      "xor_um2": {
+        "2/0": 0.0,
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 0.0,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "D1_04_B3_T80_unchanged_stage_lengths_um",
+      "passed": true
+    },
+    {
+      "name": "D1_04_B3_T80_unchanged_layer10_widths_um",
+      "passed": true
+    },
+    {
+      "name": "D1_04_B3_T80_unchanged_layer15_widths_um",
+      "passed": true
+    },
+    {
+      "name": "D1_04_B3_T80_unchanged_layer15_lengths_um",
+      "passed": true
+    },
+    {
+      "name": "D1_04_B3_T80_unchanged_bend_pnc_measurements",
+      "passed": true
+    },
+    {
+      "name": "D1_04_B3_T80_unchanged_tip_centers",
+      "passed": true
+    },
+    {
+      "name": "D1_04_B3_T80_unchanged_straight_um",
+      "passed": true
+    },
+    {
+      "name": "D1_05_B3_T100_row_order",
+      "passed": true
+    },
+    {
+      "name": "D1_05_B3_T100_actual_y_position",
+      "passed": true,
+      "y_um": 1700.0
+    },
+    {
+      "name": "D1_05_B3_T100_actual_left_bend_x",
+      "passed": true,
+      "x_um": -900.0
+    },
+    {
+      "name": "D1_05_B3_T100_only_translation",
+      "passed": true
+    },
+    {
+      "name": "D1_05_B3_T100_three_equal_1400um_straights",
+      "passed": true
+    },
+    {
+      "name": "D1_05_B3_T100_old_length_glyph_removal_recorded",
+      "passed": true
+    },
+    {
+      "name": "D1_05_B3_T100_label_only_design_taper_period",
+      "passed": true,
+      "text": "D1_T100_P3",
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_05_B3_T100_label_position",
+      "passed": true
+    },
+    {
+      "name": "D1_05_B3_T100_no_changes_outside_original_length_text",
+      "passed": true,
+      "outside_old_text_xor_um2": 0.0
+    },
+    {
+      "name": "D1_05_B3_T100_approved_geometry_recovered_by_adding_only_old_text",
+      "passed": true,
+      "xor_um2": {
+        "2/0": 0.0,
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 0.0,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "D1_05_B3_T100_unchanged_stage_lengths_um",
+      "passed": true
+    },
+    {
+      "name": "D1_05_B3_T100_unchanged_layer10_widths_um",
+      "passed": true
+    },
+    {
+      "name": "D1_05_B3_T100_unchanged_layer15_widths_um",
+      "passed": true
+    },
+    {
+      "name": "D1_05_B3_T100_unchanged_layer15_lengths_um",
+      "passed": true
+    },
+    {
+      "name": "D1_05_B3_T100_unchanged_bend_pnc_measurements",
+      "passed": true
+    },
+    {
+      "name": "D1_05_B3_T100_unchanged_tip_centers",
+      "passed": true
+    },
+    {
+      "name": "D1_05_B3_T100_unchanged_straight_um",
+      "passed": true
+    },
+    {
+      "name": "D1_06_B3_T120_row_order",
+      "passed": true
+    },
+    {
+      "name": "D1_06_B3_T120_actual_y_position",
+      "passed": true,
+      "y_um": 2300.0
+    },
+    {
+      "name": "D1_06_B3_T120_actual_left_bend_x",
+      "passed": true,
+      "x_um": -900.0
+    },
+    {
+      "name": "D1_06_B3_T120_only_translation",
+      "passed": true
+    },
+    {
+      "name": "D1_06_B3_T120_three_equal_1400um_straights",
+      "passed": true
+    },
+    {
+      "name": "D1_06_B3_T120_old_length_glyph_removal_recorded",
+      "passed": true
+    },
+    {
+      "name": "D1_06_B3_T120_label_only_design_taper_period",
+      "passed": true,
+      "text": "D1_T120_P3",
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_06_B3_T120_label_position",
+      "passed": true
+    },
+    {
+      "name": "D1_06_B3_T120_no_changes_outside_original_length_text",
+      "passed": true,
+      "outside_old_text_xor_um2": 0.0
+    },
+    {
+      "name": "D1_06_B3_T120_approved_geometry_recovered_by_adding_only_old_text",
+      "passed": true,
+      "xor_um2": {
+        "2/0": 0.0,
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 0.0,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "D1_06_B3_T120_unchanged_stage_lengths_um",
+      "passed": true
+    },
+    {
+      "name": "D1_06_B3_T120_unchanged_layer10_widths_um",
+      "passed": true
+    },
+    {
+      "name": "D1_06_B3_T120_unchanged_layer15_widths_um",
+      "passed": true
+    },
+    {
+      "name": "D1_06_B3_T120_unchanged_layer15_lengths_um",
+      "passed": true
+    },
+    {
+      "name": "D1_06_B3_T120_unchanged_bend_pnc_measurements",
+      "passed": true
+    },
+    {
+      "name": "D1_06_B3_T120_unchanged_tip_centers",
+      "passed": true
+    },
+    {
+      "name": "D1_06_B3_T120_unchanged_straight_um",
+      "passed": true
+    },
+    {
+      "name": "D1_07_B5_T80_row_order",
+      "passed": true
+    },
+    {
+      "name": "D1_07_B5_T80_actual_y_position",
+      "passed": true,
+      "y_um": 2900.0
+    },
+    {
+      "name": "D1_07_B5_T80_actual_left_bend_x",
+      "passed": true,
+      "x_um": -900.0
+    },
+    {
+      "name": "D1_07_B5_T80_only_translation",
+      "passed": true
+    },
+    {
+      "name": "D1_07_B5_T80_three_equal_1400um_straights",
+      "passed": true
+    },
+    {
+      "name": "D1_07_B5_T80_old_length_glyph_removal_recorded",
+      "passed": true
+    },
+    {
+      "name": "D1_07_B5_T80_label_only_design_taper_period",
+      "passed": true,
+      "text": "D1_T80_P5",
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_07_B5_T80_label_position",
+      "passed": true
+    },
+    {
+      "name": "D1_07_B5_T80_no_changes_outside_original_length_text",
+      "passed": true,
+      "outside_old_text_xor_um2": 0.0
+    },
+    {
+      "name": "D1_07_B5_T80_approved_geometry_recovered_by_adding_only_old_text",
+      "passed": true,
+      "xor_um2": {
+        "2/0": 0.0,
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 0.0,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "D1_07_B5_T80_unchanged_stage_lengths_um",
+      "passed": true
+    },
+    {
+      "name": "D1_07_B5_T80_unchanged_layer10_widths_um",
+      "passed": true
+    },
+    {
+      "name": "D1_07_B5_T80_unchanged_layer15_widths_um",
+      "passed": true
+    },
+    {
+      "name": "D1_07_B5_T80_unchanged_layer15_lengths_um",
+      "passed": true
+    },
+    {
+      "name": "D1_07_B5_T80_unchanged_bend_pnc_measurements",
+      "passed": true
+    },
+    {
+      "name": "D1_07_B5_T80_unchanged_tip_centers",
+      "passed": true
+    },
+    {
+      "name": "D1_07_B5_T80_unchanged_straight_um",
+      "passed": true
+    },
+    {
+      "name": "D1_08_B5_T100_row_order",
+      "passed": true
+    },
+    {
+      "name": "D1_08_B5_T100_actual_y_position",
+      "passed": true,
+      "y_um": 3500.0
+    },
+    {
+      "name": "D1_08_B5_T100_actual_left_bend_x",
+      "passed": true,
+      "x_um": -900.0
+    },
+    {
+      "name": "D1_08_B5_T100_only_translation",
+      "passed": true
+    },
+    {
+      "name": "D1_08_B5_T100_three_equal_1400um_straights",
+      "passed": true
+    },
+    {
+      "name": "D1_08_B5_T100_old_length_glyph_removal_recorded",
+      "passed": true
+    },
+    {
+      "name": "D1_08_B5_T100_label_only_design_taper_period",
+      "passed": true,
+      "text": "D1_T100_P5",
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_08_B5_T100_label_position",
+      "passed": true
+    },
+    {
+      "name": "D1_08_B5_T100_no_changes_outside_original_length_text",
+      "passed": true,
+      "outside_old_text_xor_um2": 0.0
+    },
+    {
+      "name": "D1_08_B5_T100_approved_geometry_recovered_by_adding_only_old_text",
+      "passed": true,
+      "xor_um2": {
+        "2/0": 0.0,
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 0.0,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "D1_08_B5_T100_unchanged_stage_lengths_um",
+      "passed": true
+    },
+    {
+      "name": "D1_08_B5_T100_unchanged_layer10_widths_um",
+      "passed": true
+    },
+    {
+      "name": "D1_08_B5_T100_unchanged_layer15_widths_um",
+      "passed": true
+    },
+    {
+      "name": "D1_08_B5_T100_unchanged_layer15_lengths_um",
+      "passed": true
+    },
+    {
+      "name": "D1_08_B5_T100_unchanged_bend_pnc_measurements",
+      "passed": true
+    },
+    {
+      "name": "D1_08_B5_T100_unchanged_tip_centers",
+      "passed": true
+    },
+    {
+      "name": "D1_08_B5_T100_unchanged_straight_um",
+      "passed": true
+    },
+    {
+      "name": "D1_09_B5_T120_row_order",
+      "passed": true
+    },
+    {
+      "name": "D1_09_B5_T120_actual_y_position",
+      "passed": true,
+      "y_um": 4100.0
+    },
+    {
+      "name": "D1_09_B5_T120_actual_left_bend_x",
+      "passed": true,
+      "x_um": -900.0
+    },
+    {
+      "name": "D1_09_B5_T120_only_translation",
+      "passed": true
+    },
+    {
+      "name": "D1_09_B5_T120_three_equal_1400um_straights",
+      "passed": true
+    },
+    {
+      "name": "D1_09_B5_T120_old_length_glyph_removal_recorded",
+      "passed": true
+    },
+    {
+      "name": "D1_09_B5_T120_label_only_design_taper_period",
+      "passed": true,
+      "text": "D1_T120_P5",
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_09_B5_T120_label_position",
+      "passed": true
+    },
+    {
+      "name": "D1_09_B5_T120_no_changes_outside_original_length_text",
+      "passed": true,
+      "outside_old_text_xor_um2": 0.0
+    },
+    {
+      "name": "D1_09_B5_T120_approved_geometry_recovered_by_adding_only_old_text",
+      "passed": true,
+      "xor_um2": {
+        "2/0": 0.0,
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 0.0,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "D1_09_B5_T120_unchanged_stage_lengths_um",
+      "passed": true
+    },
+    {
+      "name": "D1_09_B5_T120_unchanged_layer10_widths_um",
+      "passed": true
+    },
+    {
+      "name": "D1_09_B5_T120_unchanged_layer15_widths_um",
+      "passed": true
+    },
+    {
+      "name": "D1_09_B5_T120_unchanged_layer15_lengths_um",
+      "passed": true
+    },
+    {
+      "name": "D1_09_B5_T120_unchanged_bend_pnc_measurements",
+      "passed": true
+    },
+    {
+      "name": "D1_09_B5_T120_unchanged_tip_centers",
+      "passed": true
+    },
+    {
+      "name": "D1_09_B5_T120_unchanged_straight_um",
+      "passed": true
+    },
+    {
+      "name": "D2_01_B2_T80_row_order",
+      "passed": true
+    },
+    {
+      "name": "D2_01_B2_T80_actual_y_position",
+      "passed": true,
+      "y_um": 4700.0
+    },
+    {
+      "name": "D2_01_B2_T80_actual_left_bend_x",
+      "passed": true,
+      "x_um": -900.0
+    },
+    {
+      "name": "D2_01_B2_T80_only_translation",
+      "passed": true
+    },
+    {
+      "name": "D2_01_B2_T80_three_equal_1400um_straights",
+      "passed": true
+    },
+    {
+      "name": "D2_01_B2_T80_old_length_glyph_removal_recorded",
+      "passed": true
+    },
+    {
+      "name": "D2_01_B2_T80_label_only_design_taper_period",
+      "passed": true,
+      "text": "D2_T80_P2",
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D2_01_B2_T80_label_position",
+      "passed": true
+    },
+    {
+      "name": "D2_01_B2_T80_no_changes_outside_original_length_text",
+      "passed": true,
+      "outside_old_text_xor_um2": 0.0
+    },
+    {
+      "name": "D2_01_B2_T80_approved_geometry_recovered_by_adding_only_old_text",
+      "passed": true,
+      "xor_um2": {
+        "2/0": 0.0,
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 0.0,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "D2_01_B2_T80_unchanged_stage_lengths_um",
+      "passed": true
+    },
+    {
+      "name": "D2_01_B2_T80_unchanged_layer10_widths_um",
+      "passed": true
+    },
+    {
+      "name": "D2_01_B2_T80_unchanged_layer15_widths_um",
+      "passed": true
+    },
+    {
+      "name": "D2_01_B2_T80_unchanged_layer15_lengths_um",
+      "passed": true
+    },
+    {
+      "name": "D2_01_B2_T80_unchanged_bend_pnc_measurements",
+      "passed": true
+    },
+    {
+      "name": "D2_01_B2_T80_unchanged_tip_centers",
+      "passed": true
+    },
+    {
+      "name": "D2_01_B2_T80_unchanged_straight_um",
+      "passed": true
+    },
+    {
+      "name": "D2_02_B2_T100_row_order",
+      "passed": true
+    },
+    {
+      "name": "D2_02_B2_T100_actual_y_position",
+      "passed": true,
+      "y_um": 5300.0
+    },
+    {
+      "name": "D2_02_B2_T100_actual_left_bend_x",
+      "passed": true,
+      "x_um": -900.0
+    },
+    {
+      "name": "D2_02_B2_T100_only_translation",
+      "passed": true
+    },
+    {
+      "name": "D2_02_B2_T100_three_equal_1400um_straights",
+      "passed": true
+    },
+    {
+      "name": "D2_02_B2_T100_old_length_glyph_removal_recorded",
+      "passed": true
+    },
+    {
+      "name": "D2_02_B2_T100_label_only_design_taper_period",
+      "passed": true,
+      "text": "D2_T100_P2",
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D2_02_B2_T100_label_position",
+      "passed": true
+    },
+    {
+      "name": "D2_02_B2_T100_no_changes_outside_original_length_text",
+      "passed": true,
+      "outside_old_text_xor_um2": 0.0
+    },
+    {
+      "name": "D2_02_B2_T100_approved_geometry_recovered_by_adding_only_old_text",
+      "passed": true,
+      "xor_um2": {
+        "2/0": 0.0,
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 0.0,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "D2_02_B2_T100_unchanged_stage_lengths_um",
+      "passed": true
+    },
+    {
+      "name": "D2_02_B2_T100_unchanged_layer10_widths_um",
+      "passed": true
+    },
+    {
+      "name": "D2_02_B2_T100_unchanged_layer15_widths_um",
+      "passed": true
+    },
+    {
+      "name": "D2_02_B2_T100_unchanged_layer15_lengths_um",
+      "passed": true
+    },
+    {
+      "name": "D2_02_B2_T100_unchanged_bend_pnc_measurements",
+      "passed": true
+    },
+    {
+      "name": "D2_02_B2_T100_unchanged_tip_centers",
+      "passed": true
+    },
+    {
+      "name": "D2_02_B2_T100_unchanged_straight_um",
+      "passed": true
+    },
+    {
+      "name": "D2_03_B2_T120_row_order",
+      "passed": true
+    },
+    {
+      "name": "D2_03_B2_T120_actual_y_position",
+      "passed": true,
+      "y_um": 5900.0
+    },
+    {
+      "name": "D2_03_B2_T120_actual_left_bend_x",
+      "passed": true,
+      "x_um": -900.0
+    },
+    {
+      "name": "D2_03_B2_T120_only_translation",
+      "passed": true
+    },
+    {
+      "name": "D2_03_B2_T120_three_equal_1400um_straights",
+      "passed": true
+    },
+    {
+      "name": "D2_03_B2_T120_old_length_glyph_removal_recorded",
+      "passed": true
+    },
+    {
+      "name": "D2_03_B2_T120_label_only_design_taper_period",
+      "passed": true,
+      "text": "D2_T120_P2",
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D2_03_B2_T120_label_position",
+      "passed": true
+    },
+    {
+      "name": "D2_03_B2_T120_no_changes_outside_original_length_text",
+      "passed": true,
+      "outside_old_text_xor_um2": 0.0
+    },
+    {
+      "name": "D2_03_B2_T120_approved_geometry_recovered_by_adding_only_old_text",
+      "passed": true,
+      "xor_um2": {
+        "2/0": 0.0,
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 0.0,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "D2_03_B2_T120_unchanged_stage_lengths_um",
+      "passed": true
+    },
+    {
+      "name": "D2_03_B2_T120_unchanged_layer10_widths_um",
+      "passed": true
+    },
+    {
+      "name": "D2_03_B2_T120_unchanged_layer15_widths_um",
+      "passed": true
+    },
+    {
+      "name": "D2_03_B2_T120_unchanged_layer15_lengths_um",
+      "passed": true
+    },
+    {
+      "name": "D2_03_B2_T120_unchanged_bend_pnc_measurements",
+      "passed": true
+    },
+    {
+      "name": "D2_03_B2_T120_unchanged_tip_centers",
+      "passed": true
+    },
+    {
+      "name": "D2_03_B2_T120_unchanged_straight_um",
+      "passed": true
+    },
+    {
+      "name": "D2_04_B3_T80_row_order",
+      "passed": true
+    },
+    {
+      "name": "D2_04_B3_T80_actual_y_position",
+      "passed": true,
+      "y_um": 6500.0
+    },
+    {
+      "name": "D2_04_B3_T80_actual_left_bend_x",
+      "passed": true,
+      "x_um": -900.0
+    },
+    {
+      "name": "D2_04_B3_T80_only_translation",
+      "passed": true
+    },
+    {
+      "name": "D2_04_B3_T80_three_equal_1400um_straights",
+      "passed": true
+    },
+    {
+      "name": "D2_04_B3_T80_old_length_glyph_removal_recorded",
+      "passed": true
+    },
+    {
+      "name": "D2_04_B3_T80_label_only_design_taper_period",
+      "passed": true,
+      "text": "D2_T80_P3",
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D2_04_B3_T80_label_position",
+      "passed": true
+    },
+    {
+      "name": "D2_04_B3_T80_no_changes_outside_original_length_text",
+      "passed": true,
+      "outside_old_text_xor_um2": 0.0
+    },
+    {
+      "name": "D2_04_B3_T80_approved_geometry_recovered_by_adding_only_old_text",
+      "passed": true,
+      "xor_um2": {
+        "2/0": 0.0,
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 0.0,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "D2_04_B3_T80_unchanged_stage_lengths_um",
+      "passed": true
+    },
+    {
+      "name": "D2_04_B3_T80_unchanged_layer10_widths_um",
+      "passed": true
+    },
+    {
+      "name": "D2_04_B3_T80_unchanged_layer15_widths_um",
+      "passed": true
+    },
+    {
+      "name": "D2_04_B3_T80_unchanged_layer15_lengths_um",
+      "passed": true
+    },
+    {
+      "name": "D2_04_B3_T80_unchanged_bend_pnc_measurements",
+      "passed": true
+    },
+    {
+      "name": "D2_04_B3_T80_unchanged_tip_centers",
+      "passed": true
+    },
+    {
+      "name": "D2_04_B3_T80_unchanged_straight_um",
+      "passed": true
+    },
+    {
+      "name": "D2_05_B3_T100_row_order",
+      "passed": true
+    },
+    {
+      "name": "D2_05_B3_T100_actual_y_position",
+      "passed": true,
+      "y_um": 7100.0
+    },
+    {
+      "name": "D2_05_B3_T100_actual_left_bend_x",
+      "passed": true,
+      "x_um": -900.0
+    },
+    {
+      "name": "D2_05_B3_T100_only_translation",
+      "passed": true
+    },
+    {
+      "name": "D2_05_B3_T100_three_equal_1400um_straights",
+      "passed": true
+    },
+    {
+      "name": "D2_05_B3_T100_old_length_glyph_removal_recorded",
+      "passed": true
+    },
+    {
+      "name": "D2_05_B3_T100_label_only_design_taper_period",
+      "passed": true,
+      "text": "D2_T100_P3",
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D2_05_B3_T100_label_position",
+      "passed": true
+    },
+    {
+      "name": "D2_05_B3_T100_no_changes_outside_original_length_text",
+      "passed": true,
+      "outside_old_text_xor_um2": 0.0
+    },
+    {
+      "name": "D2_05_B3_T100_approved_geometry_recovered_by_adding_only_old_text",
+      "passed": true,
+      "xor_um2": {
+        "2/0": 0.0,
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 0.0,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "D2_05_B3_T100_unchanged_stage_lengths_um",
+      "passed": true
+    },
+    {
+      "name": "D2_05_B3_T100_unchanged_layer10_widths_um",
+      "passed": true
+    },
+    {
+      "name": "D2_05_B3_T100_unchanged_layer15_widths_um",
+      "passed": true
+    },
+    {
+      "name": "D2_05_B3_T100_unchanged_layer15_lengths_um",
+      "passed": true
+    },
+    {
+      "name": "D2_05_B3_T100_unchanged_bend_pnc_measurements",
+      "passed": true
+    },
+    {
+      "name": "D2_05_B3_T100_unchanged_tip_centers",
+      "passed": true
+    },
+    {
+      "name": "D2_05_B3_T100_unchanged_straight_um",
+      "passed": true
+    },
+    {
+      "name": "D2_06_B3_T120_row_order",
+      "passed": true
+    },
+    {
+      "name": "D2_06_B3_T120_actual_y_position",
+      "passed": true,
+      "y_um": 7700.0
+    },
+    {
+      "name": "D2_06_B3_T120_actual_left_bend_x",
+      "passed": true,
+      "x_um": -900.0
+    },
+    {
+      "name": "D2_06_B3_T120_only_translation",
+      "passed": true
+    },
+    {
+      "name": "D2_06_B3_T120_three_equal_1400um_straights",
+      "passed": true
+    },
+    {
+      "name": "D2_06_B3_T120_old_length_glyph_removal_recorded",
+      "passed": true
+    },
+    {
+      "name": "D2_06_B3_T120_label_only_design_taper_period",
+      "passed": true,
+      "text": "D2_T120_P3",
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D2_06_B3_T120_label_position",
+      "passed": true
+    },
+    {
+      "name": "D2_06_B3_T120_no_changes_outside_original_length_text",
+      "passed": true,
+      "outside_old_text_xor_um2": 0.0
+    },
+    {
+      "name": "D2_06_B3_T120_approved_geometry_recovered_by_adding_only_old_text",
+      "passed": true,
+      "xor_um2": {
+        "2/0": 0.0,
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 0.0,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "D2_06_B3_T120_unchanged_stage_lengths_um",
+      "passed": true
+    },
+    {
+      "name": "D2_06_B3_T120_unchanged_layer10_widths_um",
+      "passed": true
+    },
+    {
+      "name": "D2_06_B3_T120_unchanged_layer15_widths_um",
+      "passed": true
+    },
+    {
+      "name": "D2_06_B3_T120_unchanged_layer15_lengths_um",
+      "passed": true
+    },
+    {
+      "name": "D2_06_B3_T120_unchanged_bend_pnc_measurements",
+      "passed": true
+    },
+    {
+      "name": "D2_06_B3_T120_unchanged_tip_centers",
+      "passed": true
+    },
+    {
+      "name": "D2_06_B3_T120_unchanged_straight_um",
+      "passed": true
+    },
+    {
+      "name": "D2_07_B5_T80_row_order",
+      "passed": true
+    },
+    {
+      "name": "D2_07_B5_T80_actual_y_position",
+      "passed": true,
+      "y_um": 8300.0
+    },
+    {
+      "name": "D2_07_B5_T80_actual_left_bend_x",
+      "passed": true,
+      "x_um": -900.0
+    },
+    {
+      "name": "D2_07_B5_T80_only_translation",
+      "passed": true
+    },
+    {
+      "name": "D2_07_B5_T80_three_equal_1400um_straights",
+      "passed": true
+    },
+    {
+      "name": "D2_07_B5_T80_old_length_glyph_removal_recorded",
+      "passed": true
+    },
+    {
+      "name": "D2_07_B5_T80_label_only_design_taper_period",
+      "passed": true,
+      "text": "D2_T80_P5",
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D2_07_B5_T80_label_position",
+      "passed": true
+    },
+    {
+      "name": "D2_07_B5_T80_no_changes_outside_original_length_text",
+      "passed": true,
+      "outside_old_text_xor_um2": 0.0
+    },
+    {
+      "name": "D2_07_B5_T80_approved_geometry_recovered_by_adding_only_old_text",
+      "passed": true,
+      "xor_um2": {
+        "2/0": 0.0,
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 0.0,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "D2_07_B5_T80_unchanged_stage_lengths_um",
+      "passed": true
+    },
+    {
+      "name": "D2_07_B5_T80_unchanged_layer10_widths_um",
+      "passed": true
+    },
+    {
+      "name": "D2_07_B5_T80_unchanged_layer15_widths_um",
+      "passed": true
+    },
+    {
+      "name": "D2_07_B5_T80_unchanged_layer15_lengths_um",
+      "passed": true
+    },
+    {
+      "name": "D2_07_B5_T80_unchanged_bend_pnc_measurements",
+      "passed": true
+    },
+    {
+      "name": "D2_07_B5_T80_unchanged_tip_centers",
+      "passed": true
+    },
+    {
+      "name": "D2_07_B5_T80_unchanged_straight_um",
+      "passed": true
+    },
+    {
+      "name": "D2_08_B5_T100_row_order",
+      "passed": true
+    },
+    {
+      "name": "D2_08_B5_T100_actual_y_position",
+      "passed": true,
+      "y_um": 8900.0
+    },
+    {
+      "name": "D2_08_B5_T100_actual_left_bend_x",
+      "passed": true,
+      "x_um": -900.0
+    },
+    {
+      "name": "D2_08_B5_T100_only_translation",
+      "passed": true
+    },
+    {
+      "name": "D2_08_B5_T100_three_equal_1400um_straights",
+      "passed": true
+    },
+    {
+      "name": "D2_08_B5_T100_old_length_glyph_removal_recorded",
+      "passed": true
+    },
+    {
+      "name": "D2_08_B5_T100_label_only_design_taper_period",
+      "passed": true,
+      "text": "D2_T100_P5",
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D2_08_B5_T100_label_position",
+      "passed": true
+    },
+    {
+      "name": "D2_08_B5_T100_no_changes_outside_original_length_text",
+      "passed": true,
+      "outside_old_text_xor_um2": 0.0
+    },
+    {
+      "name": "D2_08_B5_T100_approved_geometry_recovered_by_adding_only_old_text",
+      "passed": true,
+      "xor_um2": {
+        "2/0": 0.0,
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 0.0,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "D2_08_B5_T100_unchanged_stage_lengths_um",
+      "passed": true
+    },
+    {
+      "name": "D2_08_B5_T100_unchanged_layer10_widths_um",
+      "passed": true
+    },
+    {
+      "name": "D2_08_B5_T100_unchanged_layer15_widths_um",
+      "passed": true
+    },
+    {
+      "name": "D2_08_B5_T100_unchanged_layer15_lengths_um",
+      "passed": true
+    },
+    {
+      "name": "D2_08_B5_T100_unchanged_bend_pnc_measurements",
+      "passed": true
+    },
+    {
+      "name": "D2_08_B5_T100_unchanged_tip_centers",
+      "passed": true
+    },
+    {
+      "name": "D2_08_B5_T100_unchanged_straight_um",
+      "passed": true
+    },
+    {
+      "name": "D2_09_B5_T120_row_order",
+      "passed": true
+    },
+    {
+      "name": "D2_09_B5_T120_actual_y_position",
+      "passed": true,
+      "y_um": 9500.0
+    },
+    {
+      "name": "D2_09_B5_T120_actual_left_bend_x",
+      "passed": true,
+      "x_um": -900.0
+    },
+    {
+      "name": "D2_09_B5_T120_only_translation",
+      "passed": true
+    },
+    {
+      "name": "D2_09_B5_T120_three_equal_1400um_straights",
+      "passed": true
+    },
+    {
+      "name": "D2_09_B5_T120_old_length_glyph_removal_recorded",
+      "passed": true
+    },
+    {
+      "name": "D2_09_B5_T120_label_only_design_taper_period",
+      "passed": true,
+      "text": "D2_T120_P5",
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D2_09_B5_T120_label_position",
+      "passed": true
+    },
+    {
+      "name": "D2_09_B5_T120_no_changes_outside_original_length_text",
+      "passed": true,
+      "outside_old_text_xor_um2": 0.0
+    },
+    {
+      "name": "D2_09_B5_T120_approved_geometry_recovered_by_adding_only_old_text",
+      "passed": true,
+      "xor_um2": {
+        "2/0": 0.0,
+        "10/0": 0.0,
+        "11/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 0.0,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "D2_09_B5_T120_unchanged_stage_lengths_um",
+      "passed": true
+    },
+    {
+      "name": "D2_09_B5_T120_unchanged_layer10_widths_um",
+      "passed": true
+    },
+    {
+      "name": "D2_09_B5_T120_unchanged_layer15_widths_um",
+      "passed": true
+    },
+    {
+      "name": "D2_09_B5_T120_unchanged_layer15_lengths_um",
+      "passed": true
+    },
+    {
+      "name": "D2_09_B5_T120_unchanged_bend_pnc_measurements",
+      "passed": true
+    },
+    {
+      "name": "D2_09_B5_T120_unchanged_tip_centers",
+      "passed": true
+    },
+    {
+      "name": "D2_09_B5_T120_unchanged_straight_um",
+      "passed": true
+    },
+    {
+      "name": "no_interdevice_fabrication_overlaps",
+      "passed": true,
+      "overlaps": 0
+    },
+    {
+      "name": "D1_01_B2_T80_label_clear_of_all_device_masks",
+      "passed": true
+    },
+    {
+      "name": "D1_02_B2_T100_label_clear_of_all_device_masks",
+      "passed": true
+    },
+    {
+      "name": "D1_03_B2_T120_label_clear_of_all_device_masks",
+      "passed": true
+    },
+    {
+      "name": "D1_04_B3_T80_label_clear_of_all_device_masks",
+      "passed": true
+    },
+    {
+      "name": "D1_05_B3_T100_label_clear_of_all_device_masks",
+      "passed": true
+    },
+    {
+      "name": "D1_06_B3_T120_label_clear_of_all_device_masks",
+      "passed": true
+    },
+    {
+      "name": "D1_07_B5_T80_label_clear_of_all_device_masks",
+      "passed": true
+    },
+    {
+      "name": "D1_08_B5_T100_label_clear_of_all_device_masks",
+      "passed": true
+    },
+    {
+      "name": "D1_09_B5_T120_label_clear_of_all_device_masks",
+      "passed": true
+    },
+    {
+      "name": "D2_01_B2_T80_label_clear_of_all_device_masks",
+      "passed": true
+    },
+    {
+      "name": "D2_02_B2_T100_label_clear_of_all_device_masks",
+      "passed": true
+    },
+    {
+      "name": "D2_03_B2_T120_label_clear_of_all_device_masks",
+      "passed": true
+    },
+    {
+      "name": "D2_04_B3_T80_label_clear_of_all_device_masks",
+      "passed": true
+    },
+    {
+      "name": "D2_05_B3_T100_label_clear_of_all_device_masks",
+      "passed": true
+    },
+    {
+      "name": "D2_06_B3_T120_label_clear_of_all_device_masks",
+      "passed": true
+    },
+    {
+      "name": "D2_07_B5_T80_label_clear_of_all_device_masks",
+      "passed": true
+    },
+    {
+      "name": "D2_08_B5_T100_label_clear_of_all_device_masks",
+      "passed": true
+    },
+    {
+      "name": "D2_09_B5_T120_label_clear_of_all_device_masks",
+      "passed": true
+    },
+    {
+      "name": "all_labels_mutually_separate",
+      "passed": true
+    },
+    {
+      "name": "frame_encloses_all_fabrication_geometry",
+      "passed": true,
+      "outside": []
+    },
+    {
+      "name": "global_alignment_marks_clear_of_devices_and_labels",
+      "passed": true
+    },
+    {
+      "name": "unchanged_standalone_2611_tapered_yue_dual_resist.py",
+      "passed": true
+    },
+    {
+      "name": "unchanged_standalone_2611_tapered_yue_design2.py",
+      "passed": true
+    },
+    {
+      "name": "unchanged_standalone_gds/2611_tapered_yue_dual_resist_L10_L12.gds",
+      "passed": true
+    },
+    {
+      "name": "unchanged_standalone_gds/2611_tapered_yue_design2.gds",
+      "passed": true
+    },
+    {
+      "name": "unchanged_standalone_tapered_local.py",
+      "passed": true
+    },
+    {
+      "name": "unchanged_standalone_layers.py",
+      "passed": true
+    },
+    {
+      "name": "unchanged_standalone_markers.py",
+      "passed": true
+    },
+    {
+      "name": "unchanged_standalone_phononics.py",
+      "passed": true
+    },
+    {
+      "name": "unchanged_standalone_tether_variants.py",
+      "passed": true
+    }
+  ],
+  "failures": [],
+  "status": "PASS",
+  "check_count": 344,
+  "baseline_comparison_performed": true,
+  "frame_bounds_um": [
+    -3500,
+    -1600,
+    3400,
+    10400
+  ],
+  "label_format": "D{design}_T{taper_um}_P{bend_period_um}",
+  "y_origins_um": [
+    -700.0,
+    -100.0,
+    500.0,
+    1100.0,
+    1700.0,
+    2300.0,
+    2900.0,
+    3500.0,
+    4100.0,
+    4700.0,
+    5300.0,
+    5900.0,
+    6500.0,
+    7100.0,
+    7700.0,
+    8300.0,
+    8900.0,
+    9500.0
+  ],
+  "gds_sha256": "fbafbbdaa7e34dab01e856c6a5bd92386053bfa463f32653a5affbeed0bcc608"
+}
