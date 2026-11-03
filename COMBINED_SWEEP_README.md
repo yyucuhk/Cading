@@ -28,8 +28,8 @@ STAGE_RATIOS = {1: (1.0, 1.0), 2: (2.0, 10.0, 1.0)}
 
 Each of the THREE meander straights is 1400 um. The two Euler bends retain
 100 um effective radius and 0.2 Euler fraction. The centerline length is
-approximately 4941.823 um, excluding end tapers and tethers. The straight-region
-PNC nominal period remains 15 um. Only bend PNC periods are swept.
+approximately 4941.823 um, excluding end tapers and tethers. The straight-meander PNC period is exactly 5 um. The separate
+45 um PNC taper still uses its existing 15 um period. Only bend PNC periods are swept.
 
 ## Definition of total taper length
 
@@ -140,3 +140,22 @@ new_mask UNION original_text must recover the approved old mask; this is
 important where the old text overlapped real release windows. Every other
 layer must match directly. Physical source-function bodies are unchanged;
 only the single final length-label layer is redirected in the memory copy.
+
+## Independent straight-meander PNC pitch (current)
+
+`STRAIGHT_PNC_PERIOD = 5.0` in Section 01 of `2611_build_combined_sweep.py`
+controls the straight PNC spacing for all 18 devices. The two standalone
+generators use `MEANDER_STRAIGHT_PNC_PERIOD = 5.0` in Section 01 / 1D.
+This is CENTER-TO-CENTER pitch, not edge-to-edge clearance. All three 1400 um
+straights use an exact 5 um grid, with 279 interior PNC pairs per straight.
+One shared PNC pair at each straight/bend junction is retained.
+
+`REVIEW_SUPPORT_ANCHOR_PERIOD = 15.0` is now explicitly the independent
+PNC-taper pitch. Its three-period 45 um transition and all optical taper
+lengths stay unchanged. Do not change it to edit straight-meander pitch.
+The bend sweep remains nominal 2/3/5 um with the existing fitted-to-arc
+sampler. Labels still report design, post-PNC taper length and bend period
+only; the common straight period is recorded separately in CSV/JSON.
+
+Run `python validate_2611_straight_pitch.py` after regenerating the combined
+sweep to measure every straight PNC population directly in the exported GDS.

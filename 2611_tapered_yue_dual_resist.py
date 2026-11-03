@@ -91,7 +91,8 @@ S_BEND_TAPER_LENGTH = 10.0  # legacy noncompact-route setting; compact path igno
 # Optical width is RIDGE_MEANDER_WIDTH in 1B.
 
 # --- 1D. Phononic-crystal (PNC) support pattern ---
-REVIEW_SUPPORT_ANCHOR_PERIOD = 15.0  # requested PNC pitch on straight regions
+MEANDER_STRAIGHT_PNC_PERIOD = 5.0  # exact center-to-center pitch on all three straights
+REVIEW_SUPPORT_ANCHOR_PERIOD = 15.0  # PNC TAPER pitch only; preserves its 45 um length
 REVIEW_SUPPORT_BEND_PERIOD = 3.0  # requested PNC pitch on bends
 PHONONIC_SUPPORT_SEGMENTS = (
     0.626,
@@ -252,7 +253,7 @@ def phononic_meander_shield(
     segments: tuple[float, ...] = PHONONIC_SUPPORT_SEGMENTS,
     gaps: float = PHONONIC_SUPPORT_GAPS,
     overshoot: float = PHONONIC_SUPPORT_OVERSHOOT,
-    pitch: float = REVIEW_SUPPORT_ANCHOR_PERIOD,
+    pitch: float = MEANDER_STRAIGHT_PNC_PERIOD,
     bend_pitch: float = REVIEW_SUPPORT_BEND_PERIOD,
     slab_width: float = S_BEND_WIDTH,
     layer=FULL_ETCH_LAYER,
@@ -360,6 +361,27 @@ def phononic_meander_shield(
         usable_end = section_end_length - end_clearance
         if usable_end < usable_start:
             continue
+        # Straights use a fixed pitch, NOT a linspace fitted to the span.
+        # Anchor the first straight backwards from its bend. Anchor the other
+        # straights forwards from their starting bend. Shared boundary pairs
+        # are added below exactly once. Any residual stays at an end clearance.
+        if not is_bend:
+            if start == 0:
+                count = max(0, int(np.floor(
+                    (section_length - cell_half_length) / requested_pitch + 1e-9
+                )))
+                path_positions = section_end_length - requested_pitch * np.arange(1, count + 1)
+            else:
+                clearance = requested_pitch if stop < len(lengths) else cell_half_length
+                count = max(0, int(np.floor(
+                    (section_length - clearance) / requested_pitch + 1e-9
+                )))
+                path_positions = section_start_length + requested_pitch * np.arange(1, count + 1)
+            for path_position in np.sort(path_positions):
+                add_pnc_pair(float(path_position))
+            continue
+
+        # Preserve the existing fitted-to-arc BEND sampler without changes.
         usable_length = usable_end - usable_start
         count = max(
             1,
@@ -444,6 +466,8 @@ def phononic_meander_shield(
         component.info["layer14_full_open_width"] = slab_width + 2 * tether_length
     component.info["pnc_narrow_end_extension"] = end_extension
     component.info["full_pnc_cells"] = True
+    component.info["straight_pnc_pitch_um"] = float(pitch)
+    component.info["straight_pnc_sampling"] = "exact_pitch_bend_anchored"
     component.info["support_positions"] = support_positions
     component.info["connection_pnc_positions"] = connection_positions
     return component
@@ -1350,7 +1374,7 @@ def make_device(meander_straight_length: float) -> gf.Component:
     gf.gpdk.PDK.activate()
     connection_width = REVIEW_TETHER_CONNECTION_WIDTH
     taper_angle = TAPER_ANGLE
-    support_period = REVIEW_SUPPORT_ANCHOR_PERIOD
+    support_period = MEANDER_STRAIGHT_PNC_PERIOD
     # --- 9A. Configure butterfly tether and common meander geometry ---
     tether_spec = partial(
         TETHER_FACTORIES[TETHER_VARIANT],
@@ -1577,6 +1601,7 @@ def validate_settings() -> None:
         if not np.isfinite(float(length)) or float(length) <= 0:
             raise ValueError("Meander straight lengths must be finite and positive")
     dimensions = {
+        "MEANDER_STRAIGHT_PNC_PERIOD": MEANDER_STRAIGHT_PNC_PERIOD,
         "DEVICE_Y_PITCH": DEVICE_Y_PITCH,
         "S_BEND_COMPACT_180_RADIUS": S_BEND_COMPACT_180_RADIUS,
         "RIDGE_MEANDER_WIDTH": RIDGE_MEANDER_WIDTH,

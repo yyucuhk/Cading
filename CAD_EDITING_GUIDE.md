@@ -253,3 +253,22 @@ mask construction happens before the final move of alignment ticks from
 Layer 10 to Layer 15. Do not remove the independent-copy/flatten steps or use
 recursive layer deletion on cached child cells. Shared-cell mutation was the
 cause of earlier missing structures; these ownership rules are deliberate.
+
+## Independent straight-meander PNC pitch (current)
+
+`STRAIGHT_PNC_PERIOD = 5.0` in Section 01 of `2611_build_combined_sweep.py`
+controls the straight PNC spacing for all 18 devices. The two standalone
+generators use `MEANDER_STRAIGHT_PNC_PERIOD = 5.0` in Section 01 / 1D.
+This is CENTER-TO-CENTER pitch, not edge-to-edge clearance. All three 1400 um
+straights use an exact 5 um grid, with 279 interior PNC pairs per straight.
+One shared PNC pair at each straight/bend junction is retained.
+
+`REVIEW_SUPPORT_ANCHOR_PERIOD = 15.0` is now explicitly the independent
+PNC-taper pitch. Its three-period 45 um transition and all optical taper
+lengths stay unchanged. Do not change it to edit straight-meander pitch.
+The bend sweep remains nominal 2/3/5 um with the existing fitted-to-arc
+sampler. Labels still report design, post-PNC taper length and bend period
+only; the common straight period is recorded separately in CSV/JSON.
+
+Run `python validate_2611_straight_pitch.py` after regenerating the combined
+sweep to measure every straight PNC population directly in the exported GDS.

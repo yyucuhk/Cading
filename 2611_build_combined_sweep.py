@@ -24,6 +24,7 @@ ROOT = Path(__file__).resolve().parent
 
 # %% [01] USER PARAMETERS (all dimensions in um)
 STRAIGHT_LENGTH = 1400.0  # EACH of three straight segments
+STRAIGHT_PNC_PERIOD = 5.0  # exact center-to-center pitch; independent of bend/taper PNC
 BEND_PNC_PERIODS = (2.0, 3.0, 5.0)
 POST_PNC_TAPER_LENGTHS = (80.0, 100.0, 120.0)  # total Layer-10 length; excludes PNC
 DESIGN_ORDER = (1, 2)  # bottom to top: nine Design-1, then nine Design-2 devices
@@ -88,7 +89,8 @@ def configured_module(case, extra=None):
     design = case['design']
     path = ROOT / SOURCES[design]
     values = dict(MEANDER_STRAIGHT_LENGTHS=(case['straight_um'],),
-                  REVIEW_SUPPORT_BEND_PERIOD=case['bend_period_um'])
+                  REVIEW_SUPPORT_BEND_PERIOD=case['bend_period_um'],
+                  MEANDER_STRAIGHT_PNC_PERIOD=STRAIGHT_PNC_PERIOD)
     stages = case['stage_lengths_um']
     if design == 1:
         values.update(RIDGE_TAPER_LENGTH=stages[0], SLAB_TAPER_LENGTH=stages[1])
@@ -175,6 +177,7 @@ def worker(case):
         capture['points'] = np.asarray(path.points, dtype=float)
         capture['positions'] = list(shield.info['support_positions'])
         capture['bend_pitch'] = float(kwargs['bend_pitch'])
+        capture['straight_pitch'] = float(kwargs['pitch'])
         return shield
 
     measured_shield.__name__ = original.__name__
@@ -210,6 +213,30 @@ def worker(case):
     require(np.allclose(actual_lengths[::2], case['straight_um'], atol=1e-6), 'Unequal straights')
     require(abs(sum(actual_lengths) - float(d.info['total_meander_length_um'])) < .003,
             'Incorrect total-length label')
+    # Measure each actual straight population, including bend-boundary pitch.
+    require(abs(capture['straight_pitch'] - STRAIGHT_PNC_PERIOD) < 1e-12,
+            'Wrong straight PNC pitch sent to the shield')
+    require(m.PNC_TAPER_LENGTH == 45.0 and m.REVIEW_SUPPORT_ANCHOR_PERIOD == 15.0,
+            'Straight pitch must not change the PNC taper region')
+    straight_measurements = []
+    for a, b, is_bend in sections:
+        if is_bend:
+            continue
+        positions = sorted(p for p in capture['positions']
+                           if cumulative[a] + 1e-6 < p < cumulative[b] - 1e-6)
+        diffs = np.diff(positions)
+        require(len(diffs) > 1 and np.allclose(diffs, STRAIGHT_PNC_PERIOD, atol=1e-8, rtol=0),
+                'Straight PNC spacing is not the exact requested pitch')
+        if a > 0:
+            require(abs(positions[0] - cumulative[a] - STRAIGHT_PNC_PERIOD) < 1e-8,
+                    'Incorrect straight pitch next to its starting bend')
+        if b < len(seg):
+            require(abs(cumulative[b] - positions[-1] - STRAIGHT_PNC_PERIOD) < 1e-8,
+                    'Incorrect straight pitch next to its ending bend')
+        straight_measurements.append(dict(
+            interior_pairs=len(positions), min_pitch_um=float(min(diffs)),
+            max_pitch_um=float(max(diffs)),
+            start_um=capture['points'][a].tolist(), end_um=capture['points'][b].tolist()))
     bend_measurements = []
     for a, b, is_bend in sections:
         if is_bend:
@@ -263,7 +290,10 @@ def worker(case):
                 left_pnc_x_um=regions[(11,0)].bbox().left*dbu,
                 measured_straights_um=actual_lengths[::2], measured_bends_um=actual_lengths[1::2],
                 meander_length_um=sum(actual_lengths), bend_pnc_measurements=bend_measurements,
-                straight_pnc_period_um=float(m.REVIEW_SUPPORT_ANCHOR_PERIOD),
+                straight_pnc_period_um=float(m.MEANDER_STRAIGHT_PNC_PERIOD),
+                straight_pnc_measurements=straight_measurements,
+                taper_pnc_period_um=float(m.REVIEW_SUPPORT_ANCHOR_PERIOD),
+                pnc_taper_length_um=float(m.PNC_TAPER_LENGTH),
                 layer10_widths_um=widths10, layer15_widths_um=widths15,
                 layer15_lengths_um=lengths15, taper_samples=samples,
                 tip_centers=d.info['tip_centers'], orientations=d.info['connection_orientations'],
@@ -421,11 +451,12 @@ def combine(entries):
                   taper_allocation='proportional stage scaling', stage_ratios=STAGE_RATIOS,
                   taper_length_definition='full Layer-10 taper after the unchanged 45 um PNC',
                   frame_bounds_um=[xmin,ymin,xmax,ymax], fabrication_mask_overlaps=overlaps,
-                  notes=['Bend period is the existing nominal parameter. Interior spacings are fitted to the arc; measured values are listed per case.',
+                  notes=['Straight PNC center-to-center pitch is exactly 5 um, independent of the unchanged 15 um taper-PNC pitch and 45 um PNC taper.',
+                         'Bend period is the existing nominal parameter. Interior spacings are fitted to the arc; measured values are listed per case.',
                          'Layer 51 is a retained nonfabrication fiber guide. No fabrication layer is clipped.',
                          'Original length text is isolated on temporary 998/0 before flattening, then removed. Fabrication masks are never subtracted.'])
     MANIFEST.write_text(json.dumps(manifest,indent=2))
-    fields=['case_id','design','row','global_row','label','bend_period_um','taper_total_um','stage_lengths_um',
+    fields=['case_id','design','row','global_row','label','straight_pnc_period_um','bend_period_um','taper_total_um','stage_lengths_um',
             'layer15_lengths_um','straight_um','meander_length_um','origin_um','left_bend_reference_x_um']
     with CSV_PATH.open('w',newline='') as fp:
         writer=csv.DictWriter(fp,fieldnames=fields);writer.writeheader()

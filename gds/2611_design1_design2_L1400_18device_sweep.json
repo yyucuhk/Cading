@@ -19,7 +19,7 @@
         "removed_area_um2": 42.363,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "7ef56ab5fa3e5f59e2e7b0b32a5be03f6197ade981b65098dd253c5ec4460e5e",
+      "source_sha256": "a3a5401fb6bbf23f14d5f628d64c7cf20121fb91619b1fa6e61d874cdb75a99a",
       "left_pnc_x_um": -842.287,
       "measured_straights_um": [
         1400.0,
@@ -41,7 +41,50 @@
           "fitted_pitch_um": 2.0049798098818123
         }
       ],
-      "straight_pnc_period_um": 15.0,
+      "straight_pnc_period_um": 5.0,
+      "straight_pnc_measurements": [
+        {
+          "interior_pairs": 279,
+          "min_pitch_um": 5.0,
+          "max_pitch_um": 5.0,
+          "start_um": [
+            -700.0,
+            200.0
+          ],
+          "end_um": [
+            700.0,
+            200.0
+          ]
+        },
+        {
+          "interior_pairs": 279,
+          "min_pitch_um": 5.0,
+          "max_pitch_um": 5.0,
+          "start_um": [
+            700.0,
+            0.0
+          ],
+          "end_um": [
+            -700.0,
+            1.7053025658242404e-13
+          ]
+        },
+        {
+          "interior_pairs": 279,
+          "min_pitch_um": 4.999999999999545,
+          "max_pitch_um": 5.0,
+          "start_um": [
+            -700.0,
+            -199.99999999999983
+          ],
+          "end_um": [
+            700.0,
+            -199.99999999999983
+          ]
+        }
+      ],
+      "taper_pnc_period_um": 15.0,
+      "pnc_taper_length_um": 45.0,
       "layer10_widths_um": [
         3.0,
         1.0,
@@ -135,7 +178,7 @@
         "removed_area_um2": 44.271,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "7ef56ab5fa3e5f59e2e7b0b32a5be03f6197ade981b65098dd253c5ec4460e5e",
+      "source_sha256": "a3a5401fb6bbf23f14d5f628d64c7cf20121fb91619b1fa6e61d874cdb75a99a",
       "left_pnc_x_um": -842.287,
       "measured_straights_um": [
         1400.0,
@@ -157,7 +200,50 @@
           "fitted_pitch_um": 2.0049798098818123
         }
       ],
-      "straight_pnc_period_um": 15.0,
+      "straight_pnc_period_um": 5.0,
+      "straight_pnc_measurements": [
+        {
+          "interior_pairs": 279,
+          "min_pitch_um": 5.0,
+          "max_pitch_um": 5.0,
+          "start_um": [
+            -700.0,
+            200.0
+          ],
+          "end_um": [
+            700.0,
+            200.0
+          ]
+        },
+        {
+          "interior_pairs": 279,
+          "min_pitch_um": 5.0,
+          "max_pitch_um": 5.0,
+          "start_um": [
+            700.0,
+            0.0
+          ],
+          "end_um": [
+            -700.0,
+            1.7053025658242404e-13
+          ]
+        },
+        {
+          "interior_pairs": 279,
+          "min_pitch_um": 4.999999999999545,
+          "max_pitch_um": 5.0,
+          "start_um": [
+            -700.0,
+            -199.99999999999983
+          ],
+          "end_um": [
+            700.0,
+            -199.99999999999983
+          ]
+        }
+      ],
+      "taper_pnc_period_um": 15.0,
+      "pnc_taper_length_um": 45.0,
       "layer10_widths_um": [
         3.0,
         1.0,
@@ -251,7 +337,7 @@
         "removed_area_um2": 44.297999999999995,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "7ef56ab5fa3e5f59e2e7b0b32a5be03f6197ade981b65098dd253c5ec4460e5e",
+      "source_sha256": "a3a5401fb6bbf23f14d5f628d64c7cf20121fb91619b1fa6e61d874cdb75a99a",
       "left_pnc_x_um": -842.287,
       "measured_straights_um": [
         1400.0,
@@ -273,7 +359,50 @@
           "fitted_pitch_um": 2.0049798098818123
         }
       ],
-      "straight_pnc_period_um": 15.0,
+      "straight_pnc_period_um": 5.0,
+      "straight_pnc_measurements": [
+        {
+          "interior_pairs": 279,
+          "min_pitch_um": 5.0,
+          "max_pitch_um": 5.0,
+          "start_um": [
+            -700.0,
+            200.0
+          ],
+          "end_um": [
+            700.0,
+            200.0
+          ]
+        },
+        {
+          "interior_pairs": 279,
+          "min_pitch_um": 5.0,
+          "max_pitch_um": 5.0,
+          "start_um": [
+            700.0,
+            0.0
+          ],
+          "end_um": [
+            -700.0,
+            1.7053025658242404e-13
+          ]
+        },
+        {
+          "interior_pairs": 279,
+          "min_pitch_um": 4.999999999999545,
+          "max_pitch_um": 5.0,
+          "start_um": [
+            -700.0,
+            -199.99999999999983
+          ],
+          "end_um": [
+            700.0,
+            -199.99999999999983
+          ]
+        }
+      ],
+      "taper_pnc_period_um": 15.0,
+      "pnc_taper_length_um": 45.0,
       "layer10_widths_um": [
         3.0,
         1.0,
@@ -367,7 +496,7 @@
         "removed_area_um2": 42.363,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "7ef56ab5fa3e5f59e2e7b0b32a5be03f6197ade981b65098dd253c5ec4460e5e",
+      "source_sha256": "a3a5401fb6bbf23f14d5f628d64c7cf20121fb91619b1fa6e61d874cdb75a99a",
       "left_pnc_x_um": -842.28,
       "measured_straights_um": [
         1400.0,
@@ -389,7 +518,50 @@
           "fitted_pitch_um": 3.0157959108129893
         }
       ],
-      "straight_pnc_period_um": 15.0,
+      "straight_pnc_period_um": 5.0,
+      "straight_pnc_measurements": [
+        {
+          "interior_pairs": 279,
+          "min_pitch_um": 5.0,
+          "max_pitch_um": 5.0,
+          "start_um": [
+            -700.0,
+            200.0
+          ],
+          "end_um": [
+            700.0,
+            200.0
+          ]
+        },
+        {
+          "interior_pairs": 279,
+          "min_pitch_um": 5.0,
+          "max_pitch_um": 5.0,
+          "start_um": [
+            700.0,
+            0.0
+          ],
+          "end_um": [
+            -700.0,
+            1.7053025658242404e-13
+          ]
+        },
+        {
+          "interior_pairs": 279,
+          "min_pitch_um": 4.999999999999545,
+          "max_pitch_um": 5.0,
+          "start_um": [
+            -700.0,
+            -199.99999999999983
+          ],
+          "end_um": [
+            700.0,
+            -199.99999999999983
+          ]
+        }
+      ],
+      "taper_pnc_period_um": 15.0,
+      "pnc_taper_length_um": 45.0,
       "layer10_widths_um": [
         3.0,
         1.0,
@@ -483,7 +655,7 @@
         "removed_area_um2": 44.271,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "7ef56ab5fa3e5f59e2e7b0b32a5be03f6197ade981b65098dd253c5ec4460e5e",
+      "source_sha256": "a3a5401fb6bbf23f14d5f628d64c7cf20121fb91619b1fa6e61d874cdb75a99a",
       "left_pnc_x_um": -842.28,
       "measured_straights_um": [
         1400.0,
@@ -505,7 +677,50 @@
           "fitted_pitch_um": 3.0157959108129893
         }
       ],
-      "straight_pnc_period_um": 15.0,
+      "straight_pnc_period_um": 5.0,
+      "straight_pnc_measurements": [
+        {
+          "interior_pairs": 279,
+          "min_pitch_um": 5.0,
+          "max_pitch_um": 5.0,
+          "start_um": [
+            -700.0,
+            200.0
+          ],
+          "end_um": [
+            700.0,
+            200.0
+          ]
+        },
+        {
+          "interior_pairs": 279,
+          "min_pitch_um": 5.0,
+          "max_pitch_um": 5.0,
+          "start_um": [
+            700.0,
+            0.0
+          ],
+          "end_um": [
+            -700.0,
+            1.7053025658242404e-13
+          ]
+        },
+        {
+          "interior_pairs": 279,
+          "min_pitch_um": 4.999999999999545,
+          "max_pitch_um": 5.0,
+          "start_um": [
+            -700.0,
+            -199.99999999999983
+          ],
+          "end_um": [
+            700.0,
+            -199.99999999999983
+          ]
+        }
+      ],
+      "taper_pnc_period_um": 15.0,
+      "pnc_taper_length_um": 45.0,
       "layer10_widths_um": [
         3.0,
         1.0,
@@ -599,7 +814,7 @@
         "removed_area_um2": 44.297999999999995,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "7ef56ab5fa3e5f59e2e7b0b32a5be03f6197ade981b65098dd253c5ec4460e5e",
+      "source_sha256": "a3a5401fb6bbf23f14d5f628d64c7cf20121fb91619b1fa6e61d874cdb75a99a",
       "left_pnc_x_um": -842.28,
       "measured_straights_um": [
         1400.0,
@@ -621,7 +836,50 @@
           "fitted_pitch_um": 3.0157959108129893
         }
       ],
-      "straight_pnc_period_um": 15.0,
+      "straight_pnc_period_um": 5.0,
+      "straight_pnc_measurements": [
+        {
+          "interior_pairs": 279,
+          "min_pitch_um": 5.0,
+          "max_pitch_um": 5.0,
+          "start_um": [
+            -700.0,
+            200.0
+          ],
+          "end_um": [
+            700.0,
+            200.0
+          ]
+        },
+        {
+          "interior_pairs": 279,
+          "min_pitch_um": 5.0,
+          "max_pitch_um": 5.0,
+          "start_um": [
+            700.0,
+            0.0
+          ],
+          "end_um": [
+            -700.0,
+            1.7053025658242404e-13
+          ]
+        },
+        {
+          "interior_pairs": 279,
+          "min_pitch_um": 4.999999999999545,
+          "max_pitch_um": 5.0,
+          "start_um": [
+            -700.0,
+            -199.99999999999983
+          ],
+          "end_um": [
+            700.0,
+            -199.99999999999983
+          ]
+        }
+      ],
+      "taper_pnc_period_um": 15.0,
+      "pnc_taper_length_um": 45.0,
       "layer10_widths_um": [
         3.0,
         1.0,
@@ -715,7 +973,7 @@
         "removed_area_um2": 42.363,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "7ef56ab5fa3e5f59e2e7b0b32a5be03f6197ade981b65098dd253c5ec4460e5e",
+      "source_sha256": "a3a5401fb6bbf23f14d5f628d64c7cf20121fb91619b1fa6e61d874cdb75a99a",
       "left_pnc_x_um": -842.291,
       "measured_straights_um": [
         1400.0,
@@ -737,7 +995,50 @@
           "fitted_pitch_um": 5.01265701678294
         }
       ],
-      "straight_pnc_period_um": 15.0,
+      "straight_pnc_period_um": 5.0,
+      "straight_pnc_measurements": [
+        {
+          "interior_pairs": 279,
+          "min_pitch_um": 5.0,
+          "max_pitch_um": 5.0,
+          "start_um": [
+            -700.0,
+            200.0
+          ],
+          "end_um": [
+            700.0,
+            200.0
+          ]
+        },
+        {
+          "interior_pairs": 279,
+          "min_pitch_um": 5.0,
+          "max_pitch_um": 5.0,
+          "start_um": [
+            700.0,
+            0.0
+          ],
+          "end_um": [
+            -700.0,
+            1.7053025658242404e-13
+          ]
+        },
+        {
+          "interior_pairs": 279,
+          "min_pitch_um": 4.999999999999545,
+          "max_pitch_um": 5.0,
+          "start_um": [
+            -700.0,
+            -199.99999999999983
+          ],
+          "end_um": [
+            700.0,
+            -199.99999999999983
+          ]
+        }
+      ],
+      "taper_pnc_period_um": 15.0,
+      "pnc_taper_length_um": 45.0,
       "layer10_widths_um": [
         3.0,
         1.0,
@@ -831,7 +1132,7 @@
         "removed_area_um2": 44.271,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "7ef56ab5fa3e5f59e2e7b0b32a5be03f6197ade981b65098dd253c5ec4460e5e",
+      "source_sha256": "a3a5401fb6bbf23f14d5f628d64c7cf20121fb91619b1fa6e61d874cdb75a99a",
       "left_pnc_x_um": -842.291,
       "measured_straights_um": [
         1400.0,
@@ -853,7 +1154,50 @@
           "fitted_pitch_um": 5.01265701678294
         }
       ],
-      "straight_pnc_period_um": 15.0,
+      "straight_pnc_period_um": 5.0,
+      "straight_pnc_measurements": [
+        {
+          "interior_pairs": 279,
+          "min_pitch_um": 5.0,
+          "max_pitch_um": 5.0,
+          "start_um": [
+            -700.0,
+            200.0
+          ],
+          "end_um": [
+            700.0,
+            200.0
+          ]
+        },
+        {
+          "interior_pairs": 279,
+          "min_pitch_um": 5.0,
+          "max_pitch_um": 5.0,
+          "start_um": [
+            700.0,
+            0.0
+          ],
+          "end_um": [
+            -700.0,
+            1.7053025658242404e-13
+          ]
+        },
+        {
+          "interior_pairs": 279,
+          "min_pitch_um": 4.999999999999545,
+          "max_pitch_um": 5.0,
+          "start_um": [
+            -700.0,
+            -199.99999999999983
+          ],
+          "end_um": [
+            700.0,
+            -199.99999999999983
+          ]
+        }
+      ],
+      "taper_pnc_period_um": 15.0,
+      "pnc_taper_length_um": 45.0,
       "layer10_widths_um": [
         3.0,
         1.0,
@@ -947,7 +1291,7 @@
         "removed_area_um2": 44.297999999999995,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "7ef56ab5fa3e5f59e2e7b0b32a5be03f6197ade981b65098dd253c5ec4460e5e",
+      "source_sha256": "a3a5401fb6bbf23f14d5f628d64c7cf20121fb91619b1fa6e61d874cdb75a99a",
       "left_pnc_x_um": -842.291,
       "measured_straights_um": [
         1400.0,
@@ -969,7 +1313,50 @@
           "fitted_pitch_um": 5.01265701678294
         }
       ],
-      "straight_pnc_period_um": 15.0,
+      "straight_pnc_period_um": 5.0,
+      "straight_pnc_measurements": [
+        {
+          "interior_pairs": 279,
+          "min_pitch_um": 5.0,
+          "max_pitch_um": 5.0,
+          "start_um": [
+            -700.0,
+            200.0
+          ],
+          "end_um": [
+            700.0,
+            200.0
+          ]
+        },
+        {
+          "interior_pairs": 279,
+          "min_pitch_um": 5.0,
+          "max_pitch_um": 5.0,
+          "start_um": [
+            700.0,
+            0.0
+          ],
+          "end_um": [
+            -700.0,
+            1.7053025658242404e-13
+          ]
+        },
+        {
+          "interior_pairs": 279,
+          "min_pitch_um": 4.999999999999545,
+          "max_pitch_um": 5.0,
+          "start_um": [
+            -700.0,
+            -199.99999999999983
+          ],
+          "end_um": [
+            700.0,
+            -199.99999999999983
+          ]
+        }
+      ],
+      "taper_pnc_period_um": 15.0,
+      "pnc_taper_length_um": 45.0,
       "layer10_widths_um": [
         3.0,
         1.0,
@@ -1064,7 +1451,7 @@
         "removed_area_um2": 75.276,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "e82b0d4b559b6631c0522c392b2ca346131945ea54a465e15176d49b18db36c8",
+      "source_sha256": "5e959efe4b7c5ad4a5cec1159eec961a86ed06bdd50b9a3bcc4c48fa266ec1a3",
       "left_pnc_x_um": -842.287,
       "measured_straights_um": [
         1400.0,
@@ -1086,7 +1473,50 @@
           "fitted_pitch_um": 2.0049798098818123
         }
       ],
-      "straight_pnc_period_um": 15.0,
+      "straight_pnc_period_um": 5.0,
+      "straight_pnc_measurements": [
+        {
+          "interior_pairs": 279,
+          "min_pitch_um": 5.0,
+          "max_pitch_um": 5.0,
+          "start_um": [
+            -700.0,
+            200.0
+          ],
+          "end_um": [
+            700.0,
+            200.0
+          ]
+        },
+        {
+          "interior_pairs": 279,
+          "min_pitch_um": 5.0,
+          "max_pitch_um": 5.0,
+          "start_um": [
+            700.0,
+            0.0
+          ],
+          "end_um": [
+            -700.0,
+            1.7053025658242404e-13
+          ]
+        },
+        {
+          "interior_pairs": 279,
+          "min_pitch_um": 4.999999999999545,
+          "max_pitch_um": 5.0,
+          "start_um": [
+            -700.0,
+            -199.99999999999983
+          ],
+          "end_um": [
+            700.0,
+            -199.99999999999983
+          ]
+        }
+      ],
+      "taper_pnc_period_um": 15.0,
+      "pnc_taper_length_um": 45.0,
       "layer10_widths_um": [
         3.0,
         1.65,
@@ -1196,7 +1626,7 @@
         "removed_area_um2": 75.276,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "e82b0d4b559b6631c0522c392b2ca346131945ea54a465e15176d49b18db36c8",
+      "source_sha256": "5e959efe4b7c5ad4a5cec1159eec961a86ed06bdd50b9a3bcc4c48fa266ec1a3",
       "left_pnc_x_um": -842.287,
       "measured_straights_um": [
         1400.0,
@@ -1218,7 +1648,50 @@
           "fitted_pitch_um": 2.0049798098818123
         }
       ],
-      "straight_pnc_period_um": 15.0,
+      "straight_pnc_period_um": 5.0,
+      "straight_pnc_measurements": [
+        {
+          "interior_pairs": 279,
+          "min_pitch_um": 5.0,
+          "max_pitch_um": 5.0,
+          "start_um": [
+            -700.0,
+            200.0
+          ],
+          "end_um": [
+            700.0,
+            200.0
+          ]
+        },
+        {
+          "interior_pairs": 279,
+          "min_pitch_um": 5.0,
+          "max_pitch_um": 5.0,
+          "start_um": [
+            700.0,
+            0.0
+          ],
+          "end_um": [
+            -700.0,
+            1.7053025658242404e-13
+          ]
+        },
+        {
+          "interior_pairs": 279,
+          "min_pitch_um": 4.999999999999545,
+          "max_pitch_um": 5.0,
+          "start_um": [
+            -700.0,
+            -199.99999999999983
+          ],
+          "end_um": [
+            700.0,
+            -199.99999999999983
+          ]
+        }
+      ],
+      "taper_pnc_period_um": 15.0,
+      "pnc_taper_length_um": 45.0,
       "layer10_widths_um": [
         3.0,
         1.65,
@@ -1328,7 +1801,7 @@
         "removed_area_um2": 75.276,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "e82b0d4b559b6631c0522c392b2ca346131945ea54a465e15176d49b18db36c8",
+      "source_sha256": "5e959efe4b7c5ad4a5cec1159eec961a86ed06bdd50b9a3bcc4c48fa266ec1a3",
       "left_pnc_x_um": -842.287,
       "measured_straights_um": [
         1400.0,
@@ -1350,7 +1823,50 @@
           "fitted_pitch_um": 2.0049798098818123
         }
       ],
-      "straight_pnc_period_um": 15.0,
+      "straight_pnc_period_um": 5.0,
+      "straight_pnc_measurements": [
+        {
+          "interior_pairs": 279,
+          "min_pitch_um": 5.0,
+          "max_pitch_um": 5.0,
+          "start_um": [
+            -700.0,
+            200.0
+          ],
+          "end_um": [
+            700.0,
+            200.0
+          ]
+        },
+        {
+          "interior_pairs": 279,
+          "min_pitch_um": 5.0,
+          "max_pitch_um": 5.0,
+          "start_um": [
+            700.0,
+            0.0
+          ],
+          "end_um": [
+            -700.0,
+            1.7053025658242404e-13
+          ]
+        },
+        {
+          "interior_pairs": 279,
+          "min_pitch_um": 4.999999999999545,
+          "max_pitch_um": 5.0,
+          "start_um": [
+            -700.0,
+            -199.99999999999983
+          ],
+          "end_um": [
+            700.0,
+            -199.99999999999983
+          ]
+        }
+      ],
+      "taper_pnc_period_um": 15.0,
+      "pnc_taper_length_um": 45.0,
       "layer10_widths_um": [
         3.0,
         1.65,
@@ -1460,7 +1976,7 @@
         "removed_area_um2": 75.276,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "e82b0d4b559b6631c0522c392b2ca346131945ea54a465e15176d49b18db36c8",
+      "source_sha256": "5e959efe4b7c5ad4a5cec1159eec961a86ed06bdd50b9a3bcc4c48fa266ec1a3",
       "left_pnc_x_um": -842.28,
       "measured_straights_um": [
         1400.0,
@@ -1482,7 +1998,50 @@
           "fitted_pitch_um": 3.0157959108129893
         }
       ],
-      "straight_pnc_period_um": 15.0,
+      "straight_pnc_period_um": 5.0,
+      "straight_pnc_measurements": [
+        {
+          "interior_pairs": 279,
+          "min_pitch_um": 5.0,
+          "max_pitch_um": 5.0,
+          "start_um": [
+            -700.0,
+            200.0
+          ],
+          "end_um": [
+            700.0,
+            200.0
+          ]
+        },
+        {
+          "interior_pairs": 279,
+          "min_pitch_um": 5.0,
+          "max_pitch_um": 5.0,
+          "start_um": [
+            700.0,
+            0.0
+          ],
+          "end_um": [
+            -700.0,
+            1.7053025658242404e-13
+          ]
+        },
+        {
+          "interior_pairs": 279,
+          "min_pitch_um": 4.999999999999545,
+          "max_pitch_um": 5.0,
+          "start_um": [
+            -700.0,
+            -199.99999999999983
+          ],
+          "end_um": [
+            700.0,
+            -199.99999999999983
+          ]
+        }
+      ],
+      "taper_pnc_period_um": 15.0,
+      "pnc_taper_length_um": 45.0,
       "layer10_widths_um": [
         3.0,
         1.65,
@@ -1592,7 +2151,7 @@
         "removed_area_um2": 75.276,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "e82b0d4b559b6631c0522c392b2ca346131945ea54a465e15176d49b18db36c8",
+      "source_sha256": "5e959efe4b7c5ad4a5cec1159eec961a86ed06bdd50b9a3bcc4c48fa266ec1a3",
       "left_pnc_x_um": -842.28,
       "measured_straights_um": [
         1400.0,
@@ -1614,7 +2173,50 @@
           "fitted_pitch_um": 3.0157959108129893
         }
       ],
-      "straight_pnc_period_um": 15.0,
+      "straight_pnc_period_um": 5.0,
+      "straight_pnc_measurements": [
+        {
+          "interior_pairs": 279,
+          "min_pitch_um": 5.0,
+          "max_pitch_um": 5.0,
+          "start_um": [
+            -700.0,
+            200.0
+          ],
+          "end_um": [
+            700.0,
+            200.0
+          ]
+        },
+        {
+          "interior_pairs": 279,
+          "min_pitch_um": 5.0,
+          "max_pitch_um": 5.0,
+          "start_um": [
+            700.0,
+            0.0
+          ],
+          "end_um": [
+            -700.0,
+            1.7053025658242404e-13
+          ]
+        },
+        {
+          "interior_pairs": 279,
+          "min_pitch_um": 4.999999999999545,
+          "max_pitch_um": 5.0,
+          "start_um": [
+            -700.0,
+            -199.99999999999983
+          ],
+          "end_um": [
+            700.0,
+            -199.99999999999983
+          ]
+        }
+      ],
+      "taper_pnc_period_um": 15.0,
+      "pnc_taper_length_um": 45.0,
       "layer10_widths_um": [
         3.0,
         1.65,
@@ -1724,7 +2326,7 @@
         "removed_area_um2": 75.276,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "e82b0d4b559b6631c0522c392b2ca346131945ea54a465e15176d49b18db36c8",
+      "source_sha256": "5e959efe4b7c5ad4a5cec1159eec961a86ed06bdd50b9a3bcc4c48fa266ec1a3",
       "left_pnc_x_um": -842.28,
       "measured_straights_um": [
         1400.0,
@@ -1746,7 +2348,50 @@
           "fitted_pitch_um": 3.0157959108129893
         }
       ],
-      "straight_pnc_period_um": 15.0,
+      "straight_pnc_period_um": 5.0,
+      "straight_pnc_measurements": [
+        {
+          "interior_pairs": 279,
+          "min_pitch_um": 5.0,
+          "max_pitch_um": 5.0,
+          "start_um": [
+            -700.0,
+            200.0
+          ],
+          "end_um": [
+            700.0,
+            200.0
+          ]
+        },
+        {
+          "interior_pairs": 279,
+          "min_pitch_um": 5.0,
+          "max_pitch_um": 5.0,
+          "start_um": [
+            700.0,
+            0.0
+          ],
+          "end_um": [
+            -700.0,
+            1.7053025658242404e-13
+          ]
+        },
+        {
+          "interior_pairs": 279,
+          "min_pitch_um": 4.999999999999545,
+          "max_pitch_um": 5.0,
+          "start_um": [
+            -700.0,
+            -199.99999999999983
+          ],
+          "end_um": [
+            700.0,
+            -199.99999999999983
+          ]
+        }
+      ],
+      "taper_pnc_period_um": 15.0,
+      "pnc_taper_length_um": 45.0,
       "layer10_widths_um": [
         3.0,
         1.65,
@@ -1856,7 +2501,7 @@
         "removed_area_um2": 75.276,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "e82b0d4b559b6631c0522c392b2ca346131945ea54a465e15176d49b18db36c8",
+      "source_sha256": "5e959efe4b7c5ad4a5cec1159eec961a86ed06bdd50b9a3bcc4c48fa266ec1a3",
       "left_pnc_x_um": -842.291,
       "measured_straights_um": [
         1400.0,
@@ -1878,7 +2523,50 @@
           "fitted_pitch_um": 5.01265701678294
         }
       ],
-      "straight_pnc_period_um": 15.0,
+      "straight_pnc_period_um": 5.0,
+      "straight_pnc_measurements": [
+        {
+          "interior_pairs": 279,
+          "min_pitch_um": 5.0,
+          "max_pitch_um": 5.0,
+          "start_um": [
+            -700.0,
+            200.0
+          ],
+          "end_um": [
+            700.0,
+            200.0
+          ]
+        },
+        {
+          "interior_pairs": 279,
+          "min_pitch_um": 5.0,
+          "max_pitch_um": 5.0,
+          "start_um": [
+            700.0,
+            0.0
+          ],
+          "end_um": [
+            -700.0,
+            1.7053025658242404e-13
+          ]
+        },
+        {
+          "interior_pairs": 279,
+          "min_pitch_um": 4.999999999999545,
+          "max_pitch_um": 5.0,
+          "start_um": [
+            -700.0,
+            -199.99999999999983
+          ],
+          "end_um": [
+            700.0,
+            -199.99999999999983
+          ]
+        }
+      ],
+      "taper_pnc_period_um": 15.0,
+      "pnc_taper_length_um": 45.0,
       "layer10_widths_um": [
         3.0,
         1.65,
@@ -1988,7 +2676,7 @@
         "removed_area_um2": 75.276,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "e82b0d4b559b6631c0522c392b2ca346131945ea54a465e15176d49b18db36c8",
+      "source_sha256": "5e959efe4b7c5ad4a5cec1159eec961a86ed06bdd50b9a3bcc4c48fa266ec1a3",
       "left_pnc_x_um": -842.291,
       "measured_straights_um": [
         1400.0,
@@ -2010,7 +2698,50 @@
           "fitted_pitch_um": 5.01265701678294
         }
       ],
-      "straight_pnc_period_um": 15.0,
+      "straight_pnc_period_um": 5.0,
+      "straight_pnc_measurements": [
+        {
+          "interior_pairs": 279,
+          "min_pitch_um": 5.0,
+          "max_pitch_um": 5.0,
+          "start_um": [
+            -700.0,
+            200.0
+          ],
+          "end_um": [
+            700.0,
+            200.0
+          ]
+        },
+        {
+          "interior_pairs": 279,
+          "min_pitch_um": 5.0,
+          "max_pitch_um": 5.0,
+          "start_um": [
+            700.0,
+            0.0
+          ],
+          "end_um": [
+            -700.0,
+            1.7053025658242404e-13
+          ]
+        },
+        {
+          "interior_pairs": 279,
+          "min_pitch_um": 4.999999999999545,
+          "max_pitch_um": 5.0,
+          "start_um": [
+            -700.0,
+            -199.99999999999983
+          ],
+          "end_um": [
+            700.0,
+            -199.99999999999983
+          ]
+        }
+      ],
+      "taper_pnc_period_um": 15.0,
+      "pnc_taper_length_um": 45.0,
       "layer10_widths_um": [
         3.0,
         1.65,
@@ -2120,7 +2851,7 @@
         "removed_area_um2": 75.276,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "e82b0d4b559b6631c0522c392b2ca346131945ea54a465e15176d49b18db36c8",
+      "source_sha256": "5e959efe4b7c5ad4a5cec1159eec961a86ed06bdd50b9a3bcc4c48fa266ec1a3",
       "left_pnc_x_um": -842.291,
       "measured_straights_um": [
         1400.0,
@@ -2142,7 +2873,50 @@
           "fitted_pitch_um": 5.01265701678294
         }
       ],
-      "straight_pnc_period_um": 15.0,
+      "straight_pnc_period_um": 5.0,
+      "straight_pnc_measurements": [
+        {
+          "interior_pairs": 279,
+          "min_pitch_um": 5.0,
+          "max_pitch_um": 5.0,
+          "start_um": [
+            -700.0,
+            200.0
+          ],
+          "end_um": [
+            700.0,
+            200.0
+          ]
+        },
+        {
+          "interior_pairs": 279,
+          "min_pitch_um": 5.0,
+          "max_pitch_um": 5.0,
+          "start_um": [
+            700.0,
+            0.0
+          ],
+          "end_um": [
+            -700.0,
+            1.7053025658242404e-13
+          ]
+        },
+        {
+          "interior_pairs": 279,
+          "min_pitch_um": 4.999999999999545,
+          "max_pitch_um": 5.0,
+          "start_um": [
+            -700.0,
+            -199.99999999999983
+          ],
+          "end_um": [
+            700.0,
+            -199.99999999999983
+          ]
+        }
+      ],
+      "taper_pnc_period_um": 15.0,
+      "pnc_taper_length_um": 45.0,
       "layer10_widths_um": [
         3.0,
         1.65,
@@ -2264,6 +3038,7 @@
   ],
   "fabrication_mask_overlaps": [],
   "notes": [
+    "Straight PNC center-to-center pitch is exactly 5 um, independent of the unchanged 15 um taper-PNC pitch and 45 um PNC taper.",
     "Bend period is the existing nominal parameter. Interior spacings are fitted to the arc; measured values are listed per case.",
     "Layer 51 is a retained nonfabrication fiber guide. No fabrication layer is clipped.",
     "Original length text is isolated on temporary 998/0 before flattening, then removed. Fabrication masks are never subtracted."
