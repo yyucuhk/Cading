@@ -1,4 +1,4 @@
-"""Build two 3x3 CAD sweeps in one GDS, without sharing cached device cells.
+"""Build 18 vertically stacked CAD devices with one parameter label each.
 
 Run from Cading: python 2611_build_combined_sweep.py
 Edit only Section 01 for the sweep. Source geometry remains in the two
@@ -26,10 +26,11 @@ ROOT = Path(__file__).resolve().parent
 STRAIGHT_LENGTH = 1400.0  # EACH of three straight segments
 BEND_PNC_PERIODS = (2.0, 3.0, 5.0)
 POST_PNC_TAPER_LENGTHS = (80.0, 100.0, 120.0)  # total Layer-10 length; excludes PNC
-DESIGN_X_OFFSET = 5000.0  # Design 2 relative to Design 1
+DESIGN_ORDER = (1, 2)  # bottom to top: nine Design-1, then nine Design-2 devices
+DESIGN_X_OFFSET = 0.0  # retained in manifest; both designs share the same bend X
 ROW_PITCH = 600.0
 FIRST_ROW_Y = -700.0
-LEFT_BEND_X = -900.0  # leftmost L11 PNC edge in the Design-1 column
+LEFT_BEND_X = -900.0  # common leftmost Layer-11 PNC bend edge for ALL devices
 # Preserve the existing relative stage lengths, NOT absolute stage lengths.
 # Change these explicit ratios to choose a different taper-length allocation.
 STAGE_RATIOS = {1: (1.0, 1.0), 2: (2.0, 10.0, 1.0)}
@@ -39,6 +40,9 @@ MANIFEST = OUTPUT.with_suffix('.json')
 CSV_PATH = OUTPUT.with_suffix('.csv')
 WORK = ROOT / 'validation_2611_combined_sweep'
 LABEL_SIZE = 5.0
+LABEL_X_OFFSET = 200.0  # from the aligned left PNC bend edge
+LABEL_Y_OFFSET = 250.0  # from the device origin, clear of the optical route
+# Single GDS label format: D1_T80_P2 (all lengths/periods in um).
 # A single encompassing outline/marker set, not 18 overlapping chip frames.
 FRAME_MARGIN = 500.0
 MIN_FRAME_HEIGHT = 10000.0
@@ -54,11 +58,12 @@ def require(condition, message):
 # %% [02] Cartesian-product cases and safe parameter loading
 
 def cases():
-    require(STRAIGHT_LENGTH > 0 and ROW_PITCH > 0 and DESIGN_X_OFFSET > 0,
-            'Lengths and spacing must be positive')
+    require(STRAIGHT_LENGTH > 0 and ROW_PITCH > 0, 'Lengths and spacing must be positive')
+    require(DESIGN_X_OFFSET == 0 and DESIGN_ORDER == (1, 2),
+            'This layout uses one vertical column: Design 1 below Design 2')
     rows = [(p, t) for p in BEND_PNC_PERIODS for t in POST_PNC_TAPER_LENGTHS]
     result = []
-    for design in (1, 2):
+    for design in DESIGN_ORDER:
         for row, (period, total) in enumerate(rows):
             ratio = STAGE_RATIOS[design]
             require(period > 0 and total > 0 and min(ratio) > 0, 'Invalid sweep setting')
@@ -66,6 +71,7 @@ def cases():
             result.append(dict(design=design, row=row, bend_period_um=period,
                                taper_total_um=total, stage_lengths_um=stages,
                                straight_um=STRAIGHT_LENGTH,
+                               global_row=len(result),
                                case_id=f'D{design}_{row+1:02d}_B{period:g}_T{total:g}'))
     return result
 
@@ -73,7 +79,8 @@ def cases():
 def configured_module(case, extra=None):
     """Replace only named TOP-LEVEL parameter assignments in a memory copy.
 
-    All geometry functions and expressions are left untouched. This is not
+    All physical geometry functions and expressions are left untouched.
+    Only the final standalone text call is isolated on temporary layer 998. This is not
     runtime mutation of a loaded module: defaults and decorators see the new
     values on their very first evaluation. The caller isolates each case in
     a new process so GDSFactory caches cannot cross-contaminate the sweep.
@@ -98,12 +105,57 @@ def configured_module(case, extra=None):
                 node.value = ast.parse(repr(values[target.id]), mode='eval').body
                 found[target.id] += 1
     require(all(v == 1 for v in found.values()), f'Parameter assignment changed: {found}')
+    # Isolate ONLY the final standalone length label. It is drawn after all
+    # exposure/protection masks. Original text can overlap PNC windows and
+    # flatten() merges overlapping polygons, so post-hoc glyph subtraction
+    # cannot safely distinguish text from the underlying physical opening.
+    # Give that one text call a temporary layer before construction, then
+    # remove only the temporary layer from the independent finished cell.
+    label_calls = 0
+    for function in tree.body:
+        if isinstance(function, ast.FunctionDef) and function.name == 'make_device':
+            for node in ast.walk(function):
+                if isinstance(node, ast.Call) and ast.unparse(node.func) == 'gf.components.text':
+                    layer_kw = next((k for k in node.keywords if k.arg == 'layer'), None)
+                    require(layer_kw is not None and ast.unparse(layer_kw.value) == 'MARKER_LAYER',
+                            'Unexpected standalone label construction')
+                    layer_kw.value = ast.parse('(998, 0)', mode='eval').body
+                    label_calls += 1
+    require(label_calls == 1, 'Expected exactly one standalone length-label call')
     ast.fix_missing_locations(tree)
     module = types.ModuleType('sweep_' + case['case_id'])
     module.__file__ = str(path)
     sys.modules[module.__name__] = module
     exec(compile(tree, str(path), 'exec'), module.__dict__)
     return module
+
+
+def sweep_label(case):
+    """Exactly the requested three quantities; widths/lengths are in um."""
+    return f"D{case['design']}_T{case['taper_total_um']:g}_P{case['bend_period_um']:g}"
+
+
+def remove_original_length_label(component, module):
+    """Remove only temporary length text, never any fabrication-mask polygon.
+
+    configured_module places the original final length label on 998/0.
+    This layer is isolated before flattening can merge text into a release
+    window. Standalone source files still draw their usual labels unchanged.
+    """
+    import gdsfactory as gf
+    import klayout.db as kdb
+    component.flatten()
+    layer = gf.get_layer((998, 0))
+    text = kdb.Region(component.kdb_cell.begin_shapes_rec(layer)).merged()
+    require(not text.is_empty(), 'Isolated original length label is missing')
+    count = int(text.count())
+    area = float(text.area()) * float(component.kcl.dbu)**2
+    component.remove_layers([(998, 0)], recursive=False)
+    require(kdb.Region(component.kdb_cell.begin_shapes_rec(layer)).is_empty(),
+            'Temporary text layer was not cleared')
+    component.info['length_label_removed_for_combined_sweep'] = True
+    return dict(removed_polygon_count=count, removed_area_um2=area,
+                method='isolate_final_length_text_on_998_before_flatten_then_remove_998')
 
 
 # %% [03] Build and measure one COMPLETE all-layer device (child process)
@@ -128,6 +180,7 @@ def worker(case):
     measured_shield.__name__ = original.__name__
     setattr(m, shield_name, measured_shield)
     d = m.make_device(case['straight_um'])
+    removed_label = remove_original_length_label(d, m)
     d.flatten()
     d.name = case['case_id']
     dbu = float(d.kcl.dbu)
@@ -205,6 +258,7 @@ def worker(case):
     options.gds2_max_vertex_count = 2000
     d.write_gds(out / (case['case_id']+'.gds'), save_options=options, with_metadata=False)
     data = dict(case, source=SOURCES[case['design']],
+                removed_length_label=removed_label,
                 source_sha256=hashlib.sha256((ROOT/SOURCES[case['design']]).read_bytes()).hexdigest(),
                 left_pnc_x_um=regions[(11,0)].bbox().left*dbu,
                 measured_straights_um=actual_lengths[::2], measured_bends_um=actual_lengths[1::2],
@@ -256,7 +310,7 @@ def combine(entries):
     placed = []
     locals_by_case = {}
     fabrication_bbox = kdb.Box()
-    labels = gf.Component('SWEEP_CASE_LABELS')
+    label_instances = []
     for case in entries:
         ident = case['case_id']
         meta = json.loads((WORK/'cases'/f'{ident}.json').read_text())
@@ -267,8 +321,8 @@ def combine(entries):
         require(set(src) == set(copied) and all((src[l]^copied[l]).is_empty() for l in src),
                 f'{ident}: lost geometry while merging')
         locals_by_case[ident] = copied
-        x = LEFT_BEND_X + (case['design']-1)*DESIGN_X_OFFSET - meta['left_pnc_x_um']
-        y = FIRST_ROW_Y + case['row']*ROW_PITCH
+        x = LEFT_BEND_X - meta['left_pnc_x_um']
+        y = FIRST_ROW_Y + case['global_row']*ROW_PITCH
         trans = kdb.Trans(round(x/DBU), round(y/DBU))
         top.insert(kdb.CellInstArray(cell.cell_index(), trans))
         meta['origin_um'] = [trans.disp.x*DBU, trans.disp.y*DBU]
@@ -277,10 +331,21 @@ def combine(entries):
         for r in physical.values():
             fabrication_bbox += r.bbox()
         placed.append((meta, physical))
-        # Keep the existing length label; add explicit sweep ID above each row.
-        labels.add_ref(gf.components.text(
-            text=f'{ident}_L{STRAIGHT_LENGTH:g}', size=LABEL_SIZE, layer=(2,0)
-        )).move((LEFT_BEND_X+(case['design']-1)*DESIGN_X_OFFSET+200, y+250))
+        # ONE independent label per device. The worker has removed its old
+        # length text via its isolated temporary layer; the old sweep ID is gone.
+        label_text = sweep_label(case)
+        label = gf.components.text(text=label_text, size=LABEL_SIZE, layer=(2, 0))
+        label_region = kdb.Region(label.kdb_cell.begin_shapes_rec(gf.get_layer((2, 0))))
+        label_cell = ly.create_cell('LABEL_' + ident)
+        label_cell.shapes(ly.layer(2, 0)).insert(label_region)
+        label_trans = kdb.Trans(round((LEFT_BEND_X + LABEL_X_OFFSET)/DBU),
+                               round((y + LABEL_Y_OFFSET)/DBU))
+        top.insert(kdb.CellInstArray(label_cell.cell_index(), label_trans))
+        meta['label'] = label_text
+        meta['label_layer'] = [2, 0]
+        meta['label_origin_um'] = [label_trans.disp.x*DBU, label_trans.disp.y*DBU]
+        meta['label_size_um'] = LABEL_SIZE
+        label_instances.append((ident, label_region.transformed(label_trans)))
 
     # Only Layer 11 may change when only the bend period is varied.
     for design in (1,2):
@@ -304,25 +369,36 @@ def combine(entries):
                     if area > .001:
                         overlaps.append(dict(a=a['case_id'],b=b['case_id'],layer=n,area_um2=area))
     require(not overlaps, f'Fabrication-mask collision: {overlaps}')
-    for i in range(len(entries)//2):
-        a=placed[i][0]; b=placed[i+len(entries)//2][0]
-        require(abs(b['origin_um'][0]-a['origin_um'][0]-DESIGN_X_OFFSET)<.0011,
-                'Design column displacement is not 5000 um')
-        require(b['origin_um'][1]==a['origin_um'][1], 'Design columns have unequal row coordinates')
+    origins = [meta['origin_um'][1] for meta, _ in placed]
+    require(all(abs(b-a-ROW_PITCH) < 1e-8 for a,b in zip(origins, origins[1:])),
+            'The full vertical column must have uniform Y pitch')
+    require(all(abs(meta['left_bend_reference_x_um']-LEFT_BEND_X) < 1e-8
+                for meta, _ in placed), 'Left bends are not aligned')
+    for ident, text_region in label_instances:
+        for meta, masks in placed:
+            require(all((text_region & reg).is_empty() for reg in masks.values()),
+                    f'Label {ident} touches fabrication geometry of {meta["case_id"]}')
+        fabrication_bbox += text_region.bbox()
+    for i, (name, reg) in enumerate(label_instances):
+        for other_name, other in label_instances[i+1:]:
+            require((reg & other).is_empty(), f'Labels overlap: {name}, {other_name}')
 
     # Enclose fabrication masks, NOT long nonfabrication fiber-guide polygons.
     xmin=math.floor((fabrication_bbox.left*DBU-FRAME_MARGIN)/100)*100
     xmax=math.ceil((fabrication_bbox.right*DBU+FRAME_MARGIN)/100)*100
-    ymin=min(-MIN_FRAME_HEIGHT/2, math.floor((fabrication_bbox.bottom*DBU-FRAME_MARGIN)/100)*100)
-    ymax=max(MIN_FRAME_HEIGHT/2, math.ceil((fabrication_bbox.top*DBU+FRAME_MARGIN)/100)*100)
+    ymin=math.floor((fabrication_bbox.bottom*DBU-FRAME_MARGIN)/100)*100
+    ymax=math.ceil((fabrication_bbox.top*DBU+FRAME_MARGIN)/100)*100
+    if ymax-ymin < MIN_FRAME_HEIGHT:
+        middle=(ymin+ymax)/2
+        ymin=math.floor((middle-MIN_FRAME_HEIGHT/2)/100)*100
+        ymax=math.ceil((middle+MIN_FRAME_HEIGHT/2)/100)*100
     m=configured_module(entries[0], dict(CHIP_WIDTH=xmax-xmin, CHIP_MIN_HEIGHT=ymax-ymin))
     frame=gf.Component('SWEEP_FRAME_SOURCE')
-    m.add_chip_outline_and_markers(frame, len(entries)//2)
-    frame.add_ref(labels).move((-(xmax+xmin)/2, -(ymax+ymin)/2))
+    m.add_chip_outline_and_markers(frame, len(entries))
     frame.flatten()
     frame.write_gds(WORK/'frame.gds', with_metadata=False)
     f_ly,f_cell=read_gds(WORK/'frame.gds')
-    f=copy_flat(ly,f_ly,f_cell,'SWEEP_FRAME_AND_LABELS')
+    f=copy_flat(ly,f_ly,f_cell,'SWEEP_FRAME_AND_GLOBAL_MARKERS')
     top.insert(kdb.CellInstArray(f.cell_index(),kdb.Trans(round((xmax+xmin)/2/DBU),round((ymax+ymin)/2/DBU))))
     OUTPUT.parent.mkdir(exist_ok=True)
     options=kdb.SaveLayoutOptions();options.gds2_max_vertex_count=2000
@@ -330,19 +406,26 @@ def combine(entries):
     exported, ex_top=read_gds(OUTPUT)
     actual=[i for i in ex_top.each_inst() if i.cell.name.startswith(('D1_','D2_'))]
     require(len(actual)==len(entries)==18,'Incorrect exported device count')
+    actual_labels=[i for i in ex_top.each_inst() if i.cell.name.startswith('LABEL_')]
+    require(len(actual_labels)==len(entries), 'There must be exactly one label per device')
     for inst in actual:
         a=locals_by_case[inst.cell.name]; b=cell_regions(exported,inst.cell)
         require(set(a)==set(b) and all((a[l]^b[l]).area()*DBU**2 < .005 for l in a),
                 f'{inst.cell.name}: GDS export altered a layer')
     manifest=dict(status='PASS', devices=[a for a,_ in placed], device_count=len(entries),
-                  row_pitch_um=ROW_PITCH, design_x_offset_um=DESIGN_X_OFFSET,
+                  row_pitch_um=ROW_PITCH, design_x_offset_um=0.0,
+                  placement_mode='single_vertical_column_design1_then_design2',
+                  first_row_y_um=FIRST_ROW_Y, left_bend_x_um=LEFT_BEND_X,
+                  labels_per_device=1, label_format='D{design}_T{taper_um}_P{bend_period_um}',
+                  design_y_offset_um=len(entries)//2*ROW_PITCH,
                   taper_allocation='proportional stage scaling', stage_ratios=STAGE_RATIOS,
                   taper_length_definition='full Layer-10 taper after the unchanged 45 um PNC',
                   frame_bounds_um=[xmin,ymin,xmax,ymax], fabrication_mask_overlaps=overlaps,
                   notes=['Bend period is the existing nominal parameter. Interior spacings are fitted to the arc; measured values are listed per case.',
-                         'Layer 51 is a nonfabrication fiber guide and may cross columns. No fabrication layer is clipped.'])
+                         'Layer 51 is a retained nonfabrication fiber guide. No fabrication layer is clipped.',
+                         'Original length text is isolated on temporary 998/0 before flattening, then removed. Fabrication masks are never subtracted.'])
     MANIFEST.write_text(json.dumps(manifest,indent=2))
-    fields=['case_id','design','row','bend_period_um','taper_total_um','stage_lengths_um',
+    fields=['case_id','design','row','global_row','label','bend_period_um','taper_total_um','stage_lengths_um',
             'layer15_lengths_um','straight_um','meander_length_um','origin_um','left_bend_reference_x_um']
     with CSV_PATH.open('w',newline='') as fp:
         writer=csv.DictWriter(fp,fieldnames=fields);writer.writeheader()
@@ -360,7 +443,7 @@ def render(ly, top, manifest):
     matplotlib.use('Agg')
     import matplotlib.pyplot as plt
     from matplotlib.collections import LineCollection
-    fig,ax=plt.subplots(figsize=(13,10))
+    fig,ax=plt.subplots(figsize=(10,19))
     for n in (14,11,15):
         lines=[]
         for poly in kdb.Region(top.begin_shapes_rec(ly.layer(n,0))).merged().each():
@@ -369,9 +452,12 @@ def render(ly, top, manifest):
         ax.add_collection(LineCollection(lines,linewidths=.35,label=f'Layer {n}'))
     for e in manifest['devices']:
         x=e['left_bend_reference_x_um'];y=e['origin_um'][1]
-        ax.text(x+200,y+255,e['case_id'],fontsize=7)
-    ax.set(xlim=(-3200,8200),ylim=(-1200,4550),xlabel='X (um)',ylabel='Y (um)',
-           title='Design 1 (left) / Design 2 (right): 9 cases each, 5000 um column offset')
+        ax.text(x+LABEL_X_OFFSET,y+LABEL_Y_OFFSET+15,e['label'],fontsize=7)
+    frame=manifest['frame_bounds_um']
+    ax.set(xlim=(frame[0],frame[2]),ylim=(FIRST_ROW_Y-450,
+           FIRST_ROW_Y+(len(manifest['devices'])-1)*ROW_PITCH+450),
+           xlabel='X (um)',ylabel='Y (um)',
+           title='One vertical column: Design 1 (bottom 9), Design 2 (top 9)')
     ax.set_aspect('equal');fig.tight_layout();fig.savefig(WORK/'combined_sweep.png',dpi=200)
     plt.close(fig)
 

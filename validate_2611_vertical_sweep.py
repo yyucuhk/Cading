@@ -4,7 +4,7 @@ Run after 2611_build_combined_sweep.py. Optional baseline inputs:
   validation_2611_vertical/before.gds
   validation_2611_vertical/before.json
   validation_2611_vertical/protected_hashes.json
-Only the old standalone length-label polygons may differ inside device cells.
+Original text may overlap windows: compare old = new UNION old text, never cut out a text box.
 These are geometric regression checks, not foundry DRC or optical validation.
 """
 from pathlib import Path
@@ -48,34 +48,21 @@ def text_polygons(text, size, x=0.0, y=0.0, dbu=0.001):
     return polys
 
 
-def baseline_without_separate_length_glyphs(layout, cell, entry):
-    """Independently inspect and omit whole original glyphs, not a region cut."""
-    dbu = layout.dbu
+def original_length_text_region(entry, dbu):
+    """Reconstruct old text on its original grid for union-based comparison.
+
+    Original text sometimes overlapped a physical window. The correct
+    baseline relation is new_mask UNION old_text == approved_old_mask,
+    not new_mask == approved_old_mask MINUS old_text.
+    """
     total = entry['meander_length_um']
     text = (f"ML{total:.1f}_TL{entry['taper_total_um']:g}" if entry['design'] == 1
             else f"DESIGN 2_L{entry['straight_um']:g}_ML{total:.1f}")
-    tip = min(entry['tip_centers'], key=lambda p: p[0])
-    targets = text_polygons(text, 3.0, tip[0]+5.0, tip[1]+10.0, dbu)
-    remaining = list(targets)
-    cleaned = kdb.Region()
-    for shape in cell.shapes(layout.find_layer(2, 0)).each():
-        if not (shape.is_polygon() or shape.is_box()):
-            raise ValueError('Unexpected nonpolygon shape in approved device Layer 2')
-        poly = kdb.Polygon(shape.box) if shape.is_box() else shape.polygon
-        match = None
-        for i, target in enumerate(remaining):
-            if poly.bbox() == target.bbox() and (kdb.Region(poly)^kdb.Region(target)).is_empty():
-                match = i
-                break
-        if match is not None:
-            remaining.pop(match)
-        else:
-            cleaned.insert(poly)
-    check(entry['case_id']+'_baseline_all_original_glyphs_found', not remaining,
-          target_polygons=len(targets), unmatched=len(remaining))
-    result = regions(layout, cell)
-    result[(2, 0)] = cleaned.merged()
-    return result
+    tip = min(entry['tip_centers'], key=lambda point: point[0])
+    reg = kdb.Region()
+    for poly in text_polygons(text, 3.0, tip[0]+5.0, tip[1]+10.0, dbu):
+        reg.insert(poly)
+    return reg.merged()
 
 
 def run():
@@ -92,6 +79,8 @@ def run():
     frames = [i for i in instances if i.cell.name == 'SWEEP_FRAME_AND_GLOBAL_MARKERS']
     expected = {d['case_id'] for d in manifest['devices']}
     check('one_top_cell', len(ly.top_cells()) == 1)
+    check('no_temporary_text_layer_exported', all(ly.get_info(i).layer != 998
+          or kdb.Region(top.begin_shapes_rec(i)).is_empty() for i in ly.layer_indexes()))
     check('exactly_18_device_cells', len(devices) == 18 and set(devices) == expected)
     check('exactly_one_label_for_every_device', len(labels) == 18 and set(labels) == expected)
     check('one_frame_and_no_obsolete_label_group', len(frames) == 1 and len(instances) == 37)
@@ -147,11 +136,17 @@ def run():
                                for layer, reg in local.items() if layer != (51,0)}))
 
         if old_layout is not None:
-            baseline = baseline_without_separate_length_glyphs(old_layout, old_devices[ident], old_entries[ident])
+            baseline = regions(old_layout, old_devices[ident])
+            original_text = original_length_text_region(old_entries[ident], dbu)
+            restored = dict(local)
+            restored[(2,0)] = (local[(2,0)] + original_text).merged()
+            outside = ((baseline[(2,0)] ^ local[(2,0)]) - original_text).area()*dbu**2
+            check(ident+'_no_changes_outside_original_length_text', outside < 0.005,
+                  outside_old_text_xor_um2=float(outside))
             delta = {f'{n}/{d}': float((baseline.get((n,d), kdb.Region()) ^
-                                     local.get((n,d), kdb.Region())).area()*dbu**2)
+                                     restored.get((n,d), kdb.Region())).area()*dbu**2)
                      for n,d in sorted(set(baseline)|set(local))}
-            check(ident+'_every_nonlabel_polygon_preserved',
+            check(ident+'_approved_geometry_recovered_by_adding_only_old_text',
                   all(v < 0.005 for v in delta.values()), xor_um2=delta)
             for key in ('stage_lengths_um','layer10_widths_um','layer15_widths_um',
                         'layer15_lengths_um','bend_pnc_measurements','tip_centers','straight_um'):

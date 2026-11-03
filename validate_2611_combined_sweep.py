@@ -39,7 +39,7 @@ def run():
         actual=(inst.trans.disp.x*dbu,inst.trans.disp.y*dbu)
         check(name+'_placement',all(abs(a-b)<1e-8 for a,b in zip(actual,e['origin_um'])))
         left=(regs[11].bbox().left+inst.trans.disp.x)*dbu
-        check(name+'_left_bend_aligned',abs(left-(-900+(e['design']-1)*5000))<1e-8,x_um=left)
+        check(name+'_left_bend_aligned',abs(left-manifest['left_bend_x_um'])<1e-8,x_um=left)
         rows[e['design']].append((e['row'],*actual))
         ticks=kdb.Region()
         for (tx,ty),ori in zip(e['tip_centers'],e['orientations']):
@@ -58,18 +58,10 @@ def run():
             area=(optical-regs[mask]).area()*dbu**2
             check(name+f'_L{mask}_covers_ridge',area<.005,uncovered_um2=area)
 
-        # Full end-assembly symmetry: exclude only the exact length-text shapes.
-        left_tip=min(e['tip_centers'],key=lambda p:p[0])
-        label=(f"ML{e['meander_length_um']:.1f}_TL{e['taper_total_um']:g}" if e['design']==1 else
-               f"DESIGN 2_L{e['straight_um']:g}_ML{e['meander_length_um']:.1f}")
-        tc=gf.components.text(text=label,size=3.,layer=(2,0))
-        text=kdb.Region(tc.kdb_cell.begin_shapes_rec(gf.get_layer((2,0)))).transformed(
-            kdb.Trans(round((left_tip[0]+5.)/dbu),round((left_tip[1]+10.)/dbu)))
-        text+=text.transformed(kdb.Trans(kdb.Trans.R180))
+        # No device-level length text remains; compare the full end masks.
         roi=box((e['straight_um']/2+.001,-1000,10000,-25))
         for n,r in regs.items():
             delta=(r^r.transformed(kdb.Trans(kdb.Trans.R180)))&roi
-            if n==2: delta-=text
             area=delta.area()*dbu**2
             check(name+f'_L{n}_both_complete_ends_symmetric',area<.005,xor_um2=area)
 
@@ -94,8 +86,10 @@ def run():
         check(f'design{design}_nine_rows',len(positions)==9)
         check(f'design{design}_600um_y_pitch',all(abs(b[2]-a[2]-600)<1e-8
               for a,b in zip(positions,positions[1:])))
-    check('matching_rows_5000um_apart',all(abs(b[1]-a[1]-5000)<1e-8 and b[2]==a[2]
+    check('matching_design_rows_same_x_5400um_y_offset',all(abs(b[1]-a[1])<1e-8 and abs(b[2]-a[2]-5400)<1e-8
            for a,b in zip(rows[1],rows[2])))
+    ys=sorted(i.trans.disp.y*dbu for i in instances.values())
+    check('all_18_rows_600um_pitch',all(abs(b-a-600)<1e-8 for a,b in zip(ys,ys[1:])))
     REPORT['status']='PASS' if not REPORT['failures'] else 'FAIL'
     REPORT['check_count']=len(REPORT['checks'])
     REPORT['gds_file']=STEM.with_suffix('.gds').name
