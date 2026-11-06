@@ -401,19 +401,24 @@ def render(ly,top,result):
     import matplotlib
     matplotlib.use('Agg')
     import matplotlib.pyplot as plt
-    from matplotlib.collections import LineCollection
 
     def view(cell,name,bounds,title,layers=(14,11,15)):
-        fig,ax=plt.subplots(figsize=(15,5))
+        fig,ax=plt.subplots(figsize=(7,8) if name=='bend_detail' else (15,5))
         for n in layers:
             reg=(kdb.Region(cell.begin_shapes_rec(ly.layer(n,0))) & box(bounds)).merged()
             lines=[]
             for p in reg.each():
                 pts=[(v.x*DBU,v.y*DBU) for v in p.each_point_hull()]
                 if pts:lines.append(pts+[pts[0]])
-            ax.add_collection(LineCollection(lines,linewidths=.6,label=f'Layer {n}'))
+            flat = [point for line in lines for point in line + [(float('nan'),float('nan'))]]
+            if flat:
+                ax.plot([v[0] for v in flat],[v[1] for v in flat],linewidth=.6,label=f'Layer {n}')
         ax.set(xlim=(bounds[0],bounds[2]),ylim=(bounds[1],bounds[3]),
                xlabel='X (um)',ylabel='Y (um)',title=title)
+        if name == 'overview':
+            for entry in result['devices']:
+                x,y=entry['label_origin_um']
+                ax.text(x,y+20,entry['label'],fontsize=8)
         ax.set_aspect('equal');ax.legend(loc='upper right');fig.tight_layout()
         fig.savefig(WORK/(name+'.png'),dpi=200);plt.close(fig)
 
@@ -422,7 +427,7 @@ def render(ly,top,result):
          'Design 1: three 6000 um straights; widths 1.62 / 1.64 / 1.68 um (bottom to top)')
     first=next(i.cell for i in top.each_inst() if i.cell.name==case_id(WG_WIDTHS[0]))
     view(first,'straight_detail',(-50,-220,50,-180),'Exported GDS: 10 um straight PNC pitch, 1.62 um ridge')
-    view(first,'bend_detail',(STRAIGHT_LENGTH/2-20,-235,STRAIGHT_LENGTH/2+170,35),
+    view(first,'bend_detail',(STRAIGHT_LENGTH/2-20,-25,STRAIGHT_LENGTH/2+170,225),
          'Exported GDS: 10 um centerline arc-length PNC pitch in bend')
     view(first,'right_end',(STRAIGHT_LENGTH/2+20,-235,STRAIGHT_LENGTH/2+300,-165),
          'Design 1: complete right taper, alignment tips and tether',layers=(2,10,11,14,15,16))
