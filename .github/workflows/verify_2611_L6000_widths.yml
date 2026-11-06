@@ -1,0 +1,65 @@
+name: Verify separate 6000 um Design 1 width sweep
+on:
+  push:
+    branches: [layout/2611-design1-L6000-P10-widths]
+    paths:
+      - 2611_design1_L6000_P10_width_sweep.py
+      - .github/workflows/verify_2611_L6000_widths.yml
+jobs:
+  verify:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install pinned layout engine
+        run: python -m pip install gdsfactory==9.45.0
+      - name: Protect all existing source and GDS files
+        run: |
+          mkdir -p validation_2611_L6000_width_sweep
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib, json, subprocess
+          paths=subprocess.check_output(['git','ls-tree','-r','--name-only','d0bb602097798e6c4d5ff31f358d7a2ad107e351'],text=True).splitlines()
+          hashes={p:hashlib.sha256(Path(p).read_bytes()).hexdigest() for p in paths}
+          Path('validation_2611_L6000_width_sweep/protected_hashes.json').write_text(json.dumps(hashes,indent=2))
+          PY
+      - name: Build and verify three complete devices
+        run: python 2611_design1_L6000_P10_width_sweep.py
+      - name: Verify no existing file was changed
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib,json
+          work=Path('validation_2611_L6000_width_sweep')
+          hashes=json.loads((work/'protected_hashes.json').read_text())
+          changed=[p for p,h in hashes.items() if hashlib.sha256(Path(p).read_bytes()).hexdigest()!=h]
+          assert not changed, changed
+          report=Path('gds/2611_design1_L6000_P10_width_sweep.json')
+          data=json.loads(report.read_text());data['existing_files_unchanged']=True
+          data['protected_file_count']=len(hashes)
+          report.write_text(json.dumps(data,indent=2))
+          print('All',len(hashes),'existing files unchanged')
+          PY
+      - name: Upload source GDS reports and exported previews
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: 2611-design1-L6000-P10-width-sweep
+          path: |
+            2611_design1_L6000_P10_width_sweep.py
+            gds/2611_design1_L6000_P10_width_sweep.*
+            validation_2611_L6000_width_sweep/
+          if-no-files-found: error
+      - name: Commit only validated new output
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add gds/2611_design1_L6000_P10_width_sweep.gds gds/2611_design1_L6000_P10_width_sweep.json gds/2611_design1_L6000_P10_width_sweep.csv
+          git diff --cached --quiet || git commit -m 'Add validated 6000 um Design 1 width sweep GDS'
+          git push
