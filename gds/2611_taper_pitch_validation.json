@@ -1,0 +1,5542 @@
+{
+  "checks": [
+    {
+      "name": "design1_device_count",
+      "passed": true,
+      "count": 1
+    },
+    {
+      "name": "design1_database_grid",
+      "passed": true
+    },
+    {
+      "name": "design1_1_same_placement",
+      "passed": true
+    },
+    {
+      "name": "design1_1_right_1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "design1_1_right_1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "design1_1_right_1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "design1_1_right_-1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "design1_1_right_-1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "design1_1_right_-1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "design1_1_left_1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "design1_1_left_1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "design1_1_left_1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "design1_1_left_-1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "design1_1_left_-1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "design1_1_left_-1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "design1_every_non_PNC_layer_exactly_unchanged",
+      "passed": true,
+      "xor_um2": {
+        "0/0": 0.0,
+        "2/0": 0.0,
+        "10/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 0.0,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "design1_PNC_changes_only_in_tapers",
+      "passed": true,
+      "outside_tapers_xor_um2": 0.0,
+      "total_PNC_change_um2": 67.965744
+    },
+    {
+      "name": "design1_physical_PNC_update_present",
+      "passed": true
+    },
+    {
+      "name": "design2_device_count",
+      "passed": true,
+      "count": 1
+    },
+    {
+      "name": "design2_database_grid",
+      "passed": true
+    },
+    {
+      "name": "design2_1_same_placement",
+      "passed": true
+    },
+    {
+      "name": "design2_1_right_1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "design2_1_right_1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "design2_1_right_1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "design2_1_right_-1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "design2_1_right_-1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "design2_1_right_-1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "design2_1_left_1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "design2_1_left_1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "design2_1_left_1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "design2_1_left_-1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "design2_1_left_-1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "design2_1_left_-1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "design2_every_non_PNC_layer_exactly_unchanged",
+      "passed": true,
+      "xor_um2": {
+        "0/0": 0.0,
+        "2/0": 0.0,
+        "10/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 0.0,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "design2_PNC_changes_only_in_tapers",
+      "passed": true,
+      "outside_tapers_xor_um2": 0.0,
+      "total_PNC_change_um2": 67.965744
+    },
+    {
+      "name": "design2_physical_PNC_update_present",
+      "passed": true
+    },
+    {
+      "name": "combined_device_count",
+      "passed": true,
+      "count": 18
+    },
+    {
+      "name": "combined_database_grid",
+      "passed": true
+    },
+    {
+      "name": "combined_1_same_placement",
+      "passed": true
+    },
+    {
+      "name": "combined_1_right_1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "combined_1_right_1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "combined_1_right_1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "combined_1_right_-1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "combined_1_right_-1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "combined_1_right_-1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "combined_1_left_1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "combined_1_left_1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "combined_1_left_1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "combined_1_left_-1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "combined_1_left_-1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "combined_1_left_-1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "combined_2_same_placement",
+      "passed": true
+    },
+    {
+      "name": "combined_2_right_1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "combined_2_right_1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "combined_2_right_1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "combined_2_right_-1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "combined_2_right_-1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "combined_2_right_-1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "combined_2_left_1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "combined_2_left_1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "combined_2_left_1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "combined_2_left_-1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "combined_2_left_-1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "combined_2_left_-1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "combined_3_same_placement",
+      "passed": true
+    },
+    {
+      "name": "combined_3_right_1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "combined_3_right_1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "combined_3_right_1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "combined_3_right_-1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "combined_3_right_-1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "combined_3_right_-1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "combined_3_left_1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "combined_3_left_1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "combined_3_left_1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "combined_3_left_-1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "combined_3_left_-1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "combined_3_left_-1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "combined_4_same_placement",
+      "passed": true
+    },
+    {
+      "name": "combined_4_right_1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "combined_4_right_1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "combined_4_right_1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "combined_4_right_-1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "combined_4_right_-1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "combined_4_right_-1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "combined_4_left_1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "combined_4_left_1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "combined_4_left_1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "combined_4_left_-1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "combined_4_left_-1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "combined_4_left_-1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "combined_5_same_placement",
+      "passed": true
+    },
+    {
+      "name": "combined_5_right_1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "combined_5_right_1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "combined_5_right_1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "combined_5_right_-1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "combined_5_right_-1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "combined_5_right_-1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "combined_5_left_1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "combined_5_left_1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "combined_5_left_1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "combined_5_left_-1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "combined_5_left_-1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "combined_5_left_-1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "combined_6_same_placement",
+      "passed": true
+    },
+    {
+      "name": "combined_6_right_1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "combined_6_right_1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "combined_6_right_1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "combined_6_right_-1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "combined_6_right_-1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "combined_6_right_-1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "combined_6_left_1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "combined_6_left_1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "combined_6_left_1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "combined_6_left_-1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "combined_6_left_-1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "combined_6_left_-1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "combined_7_same_placement",
+      "passed": true
+    },
+    {
+      "name": "combined_7_right_1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "combined_7_right_1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "combined_7_right_1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "combined_7_right_-1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "combined_7_right_-1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "combined_7_right_-1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "combined_7_left_1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "combined_7_left_1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "combined_7_left_1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "combined_7_left_-1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "combined_7_left_-1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "combined_7_left_-1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "combined_8_same_placement",
+      "passed": true
+    },
+    {
+      "name": "combined_8_right_1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "combined_8_right_1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "combined_8_right_1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "combined_8_right_-1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "combined_8_right_-1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "combined_8_right_-1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "combined_8_left_1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "combined_8_left_1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "combined_8_left_1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "combined_8_left_-1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "combined_8_left_-1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "combined_8_left_-1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "combined_9_same_placement",
+      "passed": true
+    },
+    {
+      "name": "combined_9_right_1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "combined_9_right_1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "combined_9_right_1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "combined_9_right_-1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "combined_9_right_-1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "combined_9_right_-1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "combined_9_left_1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "combined_9_left_1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "combined_9_left_1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "combined_9_left_-1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "combined_9_left_-1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "combined_9_left_-1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "combined_10_same_placement",
+      "passed": true
+    },
+    {
+      "name": "combined_10_right_1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "combined_10_right_1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "combined_10_right_1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "combined_10_right_-1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "combined_10_right_-1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "combined_10_right_-1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "combined_10_left_1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "combined_10_left_1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "combined_10_left_1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "combined_10_left_-1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "combined_10_left_-1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "combined_10_left_-1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "combined_11_same_placement",
+      "passed": true
+    },
+    {
+      "name": "combined_11_right_1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "combined_11_right_1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "combined_11_right_1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "combined_11_right_-1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "combined_11_right_-1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "combined_11_right_-1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "combined_11_left_1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "combined_11_left_1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "combined_11_left_1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "combined_11_left_-1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "combined_11_left_-1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "combined_11_left_-1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "combined_12_same_placement",
+      "passed": true
+    },
+    {
+      "name": "combined_12_right_1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "combined_12_right_1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "combined_12_right_1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "combined_12_right_-1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "combined_12_right_-1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "combined_12_right_-1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "combined_12_left_1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "combined_12_left_1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "combined_12_left_1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "combined_12_left_-1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "combined_12_left_-1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "combined_12_left_-1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "combined_13_same_placement",
+      "passed": true
+    },
+    {
+      "name": "combined_13_right_1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "combined_13_right_1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "combined_13_right_1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "combined_13_right_-1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "combined_13_right_-1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "combined_13_right_-1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "combined_13_left_1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "combined_13_left_1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "combined_13_left_1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "combined_13_left_-1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "combined_13_left_-1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "combined_13_left_-1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "combined_14_same_placement",
+      "passed": true
+    },
+    {
+      "name": "combined_14_right_1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "combined_14_right_1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "combined_14_right_1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "combined_14_right_-1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "combined_14_right_-1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "combined_14_right_-1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "combined_14_left_1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "combined_14_left_1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "combined_14_left_1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "combined_14_left_-1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "combined_14_left_-1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "combined_14_left_-1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "combined_15_same_placement",
+      "passed": true
+    },
+    {
+      "name": "combined_15_right_1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "combined_15_right_1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "combined_15_right_1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "combined_15_right_-1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "combined_15_right_-1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "combined_15_right_-1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "combined_15_left_1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "combined_15_left_1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "combined_15_left_1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "combined_15_left_-1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "combined_15_left_-1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "combined_15_left_-1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "combined_16_same_placement",
+      "passed": true
+    },
+    {
+      "name": "combined_16_right_1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "combined_16_right_1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "combined_16_right_1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "combined_16_right_-1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "combined_16_right_-1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "combined_16_right_-1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "combined_16_left_1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "combined_16_left_1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "combined_16_left_1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "combined_16_left_-1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "combined_16_left_-1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "combined_16_left_-1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "combined_17_same_placement",
+      "passed": true
+    },
+    {
+      "name": "combined_17_right_1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "combined_17_right_1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "combined_17_right_1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "combined_17_right_-1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "combined_17_right_-1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "combined_17_right_-1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "combined_17_left_1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "combined_17_left_1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "combined_17_left_1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "combined_17_left_-1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "combined_17_left_-1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "combined_17_left_-1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "combined_18_same_placement",
+      "passed": true
+    },
+    {
+      "name": "combined_18_right_1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "combined_18_right_1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "combined_18_right_1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "combined_18_right_-1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "combined_18_right_-1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "combined_18_right_-1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "combined_18_left_1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "combined_18_left_1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "combined_18_left_1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "combined_18_left_-1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        45.0
+      ],
+      "expected_pitch_um": 5.0
+    },
+    {
+      "name": "combined_18_left_-1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 5.0,
+      "measured_max_um": 5.0
+    },
+    {
+      "name": "combined_18_left_-1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "combined_one_label_per_device",
+      "passed": true
+    },
+    {
+      "name": "combined_every_non_PNC_layer_exactly_unchanged",
+      "passed": true,
+      "xor_um2": {
+        "0/0": 0.0,
+        "2/0": 0.0,
+        "10/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 0.0,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "combined_PNC_changes_only_in_tapers",
+      "passed": true,
+      "outside_tapers_xor_um2": 0.0,
+      "total_PNC_change_um2": 1223.383392
+    },
+    {
+      "name": "combined_physical_PNC_update_present",
+      "passed": true
+    },
+    {
+      "name": "long_design1_device_count",
+      "passed": true,
+      "count": 3
+    },
+    {
+      "name": "long_design1_database_grid",
+      "passed": true
+    },
+    {
+      "name": "long_design1_1_same_placement",
+      "passed": true
+    },
+    {
+      "name": "long_design1_1_right_1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -30.0,
+        -20.0,
+        -10.0,
+        0.0,
+        10.0,
+        20.0,
+        30.0,
+        40.0
+      ],
+      "expected_pitch_um": 10.0
+    },
+    {
+      "name": "long_design1_1_right_1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 10.0,
+      "measured_max_um": 10.0
+    },
+    {
+      "name": "long_design1_1_right_1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "long_design1_1_right_-1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -30.0,
+        -20.0,
+        -10.0,
+        0.0,
+        10.0,
+        20.0,
+        30.0,
+        40.0
+      ],
+      "expected_pitch_um": 10.0
+    },
+    {
+      "name": "long_design1_1_right_-1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 10.0,
+      "measured_max_um": 10.0
+    },
+    {
+      "name": "long_design1_1_right_-1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "long_design1_1_left_1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -30.0,
+        -20.0,
+        -10.0,
+        0.0,
+        10.0,
+        20.0,
+        30.0,
+        40.0
+      ],
+      "expected_pitch_um": 10.0
+    },
+    {
+      "name": "long_design1_1_left_1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 10.0,
+      "measured_max_um": 10.0
+    },
+    {
+      "name": "long_design1_1_left_1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "long_design1_1_left_-1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -30.0,
+        -20.0,
+        -10.0,
+        0.0,
+        10.0,
+        20.0,
+        30.0,
+        40.0
+      ],
+      "expected_pitch_um": 10.0
+    },
+    {
+      "name": "long_design1_1_left_-1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 10.0,
+      "measured_max_um": 10.0
+    },
+    {
+      "name": "long_design1_1_left_-1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "long_design1_2_same_placement",
+      "passed": true
+    },
+    {
+      "name": "long_design1_2_right_1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -30.0,
+        -20.0,
+        -10.0,
+        0.0,
+        10.0,
+        20.0,
+        30.0,
+        40.0
+      ],
+      "expected_pitch_um": 10.0
+    },
+    {
+      "name": "long_design1_2_right_1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 10.0,
+      "measured_max_um": 10.0
+    },
+    {
+      "name": "long_design1_2_right_1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "long_design1_2_right_-1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -30.0,
+        -20.0,
+        -10.0,
+        0.0,
+        10.0,
+        20.0,
+        30.0,
+        40.0
+      ],
+      "expected_pitch_um": 10.0
+    },
+    {
+      "name": "long_design1_2_right_-1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 10.0,
+      "measured_max_um": 10.0
+    },
+    {
+      "name": "long_design1_2_right_-1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "long_design1_2_left_1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -30.0,
+        -20.0,
+        -10.0,
+        0.0,
+        10.0,
+        20.0,
+        30.0,
+        40.0
+      ],
+      "expected_pitch_um": 10.0
+    },
+    {
+      "name": "long_design1_2_left_1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 10.0,
+      "measured_max_um": 10.0
+    },
+    {
+      "name": "long_design1_2_left_1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "long_design1_2_left_-1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -30.0,
+        -20.0,
+        -10.0,
+        0.0,
+        10.0,
+        20.0,
+        30.0,
+        40.0
+      ],
+      "expected_pitch_um": 10.0
+    },
+    {
+      "name": "long_design1_2_left_-1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 10.0,
+      "measured_max_um": 10.0
+    },
+    {
+      "name": "long_design1_2_left_-1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "long_design1_3_same_placement",
+      "passed": true
+    },
+    {
+      "name": "long_design1_3_right_1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -30.0,
+        -20.0,
+        -10.0,
+        0.0,
+        10.0,
+        20.0,
+        30.0,
+        40.0
+      ],
+      "expected_pitch_um": 10.0
+    },
+    {
+      "name": "long_design1_3_right_1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 10.0,
+      "measured_max_um": 10.0
+    },
+    {
+      "name": "long_design1_3_right_1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "long_design1_3_right_-1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -30.0,
+        -20.0,
+        -10.0,
+        0.0,
+        10.0,
+        20.0,
+        30.0,
+        40.0
+      ],
+      "expected_pitch_um": 10.0
+    },
+    {
+      "name": "long_design1_3_right_-1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 10.0,
+      "measured_max_um": 10.0
+    },
+    {
+      "name": "long_design1_3_right_-1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "long_design1_3_left_1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -30.0,
+        -20.0,
+        -10.0,
+        0.0,
+        10.0,
+        20.0,
+        30.0,
+        40.0
+      ],
+      "expected_pitch_um": 10.0
+    },
+    {
+      "name": "long_design1_3_left_1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 10.0,
+      "measured_max_um": 10.0
+    },
+    {
+      "name": "long_design1_3_left_1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "long_design1_3_left_-1_actual_PNC_grid",
+      "passed": true,
+      "measured_centers_from_port_um": [
+        -30.0,
+        -20.0,
+        -10.0,
+        0.0,
+        10.0,
+        20.0,
+        30.0,
+        40.0
+      ],
+      "expected_pitch_um": 10.0
+    },
+    {
+      "name": "long_design1_3_left_-1_no_compressed_or_missing_interval",
+      "passed": true,
+      "measured_min_um": 10.0,
+      "measured_max_um": 10.0
+    },
+    {
+      "name": "long_design1_3_left_-1_one_PNC_at_interface",
+      "passed": true
+    },
+    {
+      "name": "long_design1_one_label_per_device",
+      "passed": true
+    },
+    {
+      "name": "long_design1_every_non_PNC_layer_exactly_unchanged",
+      "passed": true,
+      "xor_um2": {
+        "0/0": 0.0,
+        "2/0": 0.0,
+        "10/0": 0.0,
+        "13/0": 0.0,
+        "14/0": 0.0,
+        "15/0": 0.0,
+        "16/0": 0.0,
+        "51/0": 0.0
+      }
+    },
+    {
+      "name": "long_design1_PNC_changes_only_in_tapers",
+      "passed": true,
+      "outside_tapers_xor_um2": 0.0,
+      "total_PNC_change_um2": 174.769056
+    },
+    {
+      "name": "long_design1_physical_PNC_update_present",
+      "passed": true
+    }
+  ],
+  "failures": [],
+  "measurements": [
+    {
+      "layout": "design1",
+      "cell": "Unnamed_62",
+      "end": "right",
+      "pitch_um": 5.0,
+      "taper_length_um": 45.0,
+      "before_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ]
+      },
+      "after_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ]
+      }
+    },
+    {
+      "layout": "design1",
+      "cell": "Unnamed_62",
+      "end": "left",
+      "pitch_um": 5.0,
+      "taper_length_um": 45.0,
+      "before_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ]
+      },
+      "after_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ]
+      }
+    },
+    {
+      "layout": "design2",
+      "cell": "Unnamed_64",
+      "end": "right",
+      "pitch_um": 5.0,
+      "taper_length_um": 45.0,
+      "before_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ]
+      },
+      "after_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ]
+      }
+    },
+    {
+      "layout": "design2",
+      "cell": "Unnamed_64",
+      "end": "left",
+      "pitch_um": 5.0,
+      "taper_length_um": 45.0,
+      "before_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ]
+      },
+      "after_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ]
+      }
+    },
+    {
+      "layout": "combined",
+      "cell": "D1_01_B2_T80",
+      "end": "right",
+      "pitch_um": 5.0,
+      "taper_length_um": 45.0,
+      "before_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ]
+      },
+      "after_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ]
+      }
+    },
+    {
+      "layout": "combined",
+      "cell": "D1_01_B2_T80",
+      "end": "left",
+      "pitch_um": 5.0,
+      "taper_length_um": 45.0,
+      "before_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ]
+      },
+      "after_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ]
+      }
+    },
+    {
+      "layout": "combined",
+      "cell": "D1_02_B2_T100",
+      "end": "right",
+      "pitch_um": 5.0,
+      "taper_length_um": 45.0,
+      "before_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ]
+      },
+      "after_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ]
+      }
+    },
+    {
+      "layout": "combined",
+      "cell": "D1_02_B2_T100",
+      "end": "left",
+      "pitch_um": 5.0,
+      "taper_length_um": 45.0,
+      "before_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ]
+      },
+      "after_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ]
+      }
+    },
+    {
+      "layout": "combined",
+      "cell": "D1_03_B2_T120",
+      "end": "right",
+      "pitch_um": 5.0,
+      "taper_length_um": 45.0,
+      "before_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ]
+      },
+      "after_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ]
+      }
+    },
+    {
+      "layout": "combined",
+      "cell": "D1_03_B2_T120",
+      "end": "left",
+      "pitch_um": 5.0,
+      "taper_length_um": 45.0,
+      "before_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ]
+      },
+      "after_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ]
+      }
+    },
+    {
+      "layout": "combined",
+      "cell": "D1_04_B3_T80",
+      "end": "right",
+      "pitch_um": 5.0,
+      "taper_length_um": 45.0,
+      "before_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ]
+      },
+      "after_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ]
+      }
+    },
+    {
+      "layout": "combined",
+      "cell": "D1_04_B3_T80",
+      "end": "left",
+      "pitch_um": 5.0,
+      "taper_length_um": 45.0,
+      "before_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ]
+      },
+      "after_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ]
+      }
+    },
+    {
+      "layout": "combined",
+      "cell": "D1_05_B3_T100",
+      "end": "right",
+      "pitch_um": 5.0,
+      "taper_length_um": 45.0,
+      "before_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ]
+      },
+      "after_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ]
+      }
+    },
+    {
+      "layout": "combined",
+      "cell": "D1_05_B3_T100",
+      "end": "left",
+      "pitch_um": 5.0,
+      "taper_length_um": 45.0,
+      "before_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ]
+      },
+      "after_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ]
+      }
+    },
+    {
+      "layout": "combined",
+      "cell": "D1_06_B3_T120",
+      "end": "right",
+      "pitch_um": 5.0,
+      "taper_length_um": 45.0,
+      "before_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ]
+      },
+      "after_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ]
+      }
+    },
+    {
+      "layout": "combined",
+      "cell": "D1_06_B3_T120",
+      "end": "left",
+      "pitch_um": 5.0,
+      "taper_length_um": 45.0,
+      "before_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ]
+      },
+      "after_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ]
+      }
+    },
+    {
+      "layout": "combined",
+      "cell": "D1_07_B5_T80",
+      "end": "right",
+      "pitch_um": 5.0,
+      "taper_length_um": 45.0,
+      "before_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ]
+      },
+      "after_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ]
+      }
+    },
+    {
+      "layout": "combined",
+      "cell": "D1_07_B5_T80",
+      "end": "left",
+      "pitch_um": 5.0,
+      "taper_length_um": 45.0,
+      "before_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ]
+      },
+      "after_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ]
+      }
+    },
+    {
+      "layout": "combined",
+      "cell": "D1_08_B5_T100",
+      "end": "right",
+      "pitch_um": 5.0,
+      "taper_length_um": 45.0,
+      "before_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ]
+      },
+      "after_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ]
+      }
+    },
+    {
+      "layout": "combined",
+      "cell": "D1_08_B5_T100",
+      "end": "left",
+      "pitch_um": 5.0,
+      "taper_length_um": 45.0,
+      "before_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ]
+      },
+      "after_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ]
+      }
+    },
+    {
+      "layout": "combined",
+      "cell": "D1_09_B5_T120",
+      "end": "right",
+      "pitch_um": 5.0,
+      "taper_length_um": 45.0,
+      "before_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ]
+      },
+      "after_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ]
+      }
+    },
+    {
+      "layout": "combined",
+      "cell": "D1_09_B5_T120",
+      "end": "left",
+      "pitch_um": 5.0,
+      "taper_length_um": 45.0,
+      "before_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ]
+      },
+      "after_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ]
+      }
+    },
+    {
+      "layout": "combined",
+      "cell": "D2_01_B2_T80",
+      "end": "right",
+      "pitch_um": 5.0,
+      "taper_length_um": 45.0,
+      "before_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ]
+      },
+      "after_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ]
+      }
+    },
+    {
+      "layout": "combined",
+      "cell": "D2_01_B2_T80",
+      "end": "left",
+      "pitch_um": 5.0,
+      "taper_length_um": 45.0,
+      "before_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ]
+      },
+      "after_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ]
+      }
+    },
+    {
+      "layout": "combined",
+      "cell": "D2_02_B2_T100",
+      "end": "right",
+      "pitch_um": 5.0,
+      "taper_length_um": 45.0,
+      "before_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ]
+      },
+      "after_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ]
+      }
+    },
+    {
+      "layout": "combined",
+      "cell": "D2_02_B2_T100",
+      "end": "left",
+      "pitch_um": 5.0,
+      "taper_length_um": 45.0,
+      "before_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ]
+      },
+      "after_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ]
+      }
+    },
+    {
+      "layout": "combined",
+      "cell": "D2_03_B2_T120",
+      "end": "right",
+      "pitch_um": 5.0,
+      "taper_length_um": 45.0,
+      "before_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ]
+      },
+      "after_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ]
+      }
+    },
+    {
+      "layout": "combined",
+      "cell": "D2_03_B2_T120",
+      "end": "left",
+      "pitch_um": 5.0,
+      "taper_length_um": 45.0,
+      "before_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ]
+      },
+      "after_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ]
+      }
+    },
+    {
+      "layout": "combined",
+      "cell": "D2_04_B3_T80",
+      "end": "right",
+      "pitch_um": 5.0,
+      "taper_length_um": 45.0,
+      "before_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ]
+      },
+      "after_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ]
+      }
+    },
+    {
+      "layout": "combined",
+      "cell": "D2_04_B3_T80",
+      "end": "left",
+      "pitch_um": 5.0,
+      "taper_length_um": 45.0,
+      "before_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ]
+      },
+      "after_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ]
+      }
+    },
+    {
+      "layout": "combined",
+      "cell": "D2_05_B3_T100",
+      "end": "right",
+      "pitch_um": 5.0,
+      "taper_length_um": 45.0,
+      "before_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ]
+      },
+      "after_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ]
+      }
+    },
+    {
+      "layout": "combined",
+      "cell": "D2_05_B3_T100",
+      "end": "left",
+      "pitch_um": 5.0,
+      "taper_length_um": 45.0,
+      "before_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ]
+      },
+      "after_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ]
+      }
+    },
+    {
+      "layout": "combined",
+      "cell": "D2_06_B3_T120",
+      "end": "right",
+      "pitch_um": 5.0,
+      "taper_length_um": 45.0,
+      "before_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ]
+      },
+      "after_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ]
+      }
+    },
+    {
+      "layout": "combined",
+      "cell": "D2_06_B3_T120",
+      "end": "left",
+      "pitch_um": 5.0,
+      "taper_length_um": 45.0,
+      "before_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ]
+      },
+      "after_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ]
+      }
+    },
+    {
+      "layout": "combined",
+      "cell": "D2_07_B5_T80",
+      "end": "right",
+      "pitch_um": 5.0,
+      "taper_length_um": 45.0,
+      "before_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ]
+      },
+      "after_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ]
+      }
+    },
+    {
+      "layout": "combined",
+      "cell": "D2_07_B5_T80",
+      "end": "left",
+      "pitch_um": 5.0,
+      "taper_length_um": 45.0,
+      "before_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ]
+      },
+      "after_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ]
+      }
+    },
+    {
+      "layout": "combined",
+      "cell": "D2_08_B5_T100",
+      "end": "right",
+      "pitch_um": 5.0,
+      "taper_length_um": 45.0,
+      "before_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ]
+      },
+      "after_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ]
+      }
+    },
+    {
+      "layout": "combined",
+      "cell": "D2_08_B5_T100",
+      "end": "left",
+      "pitch_um": 5.0,
+      "taper_length_um": 45.0,
+      "before_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ]
+      },
+      "after_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ]
+      }
+    },
+    {
+      "layout": "combined",
+      "cell": "D2_09_B5_T120",
+      "end": "right",
+      "pitch_um": 5.0,
+      "taper_length_um": 45.0,
+      "before_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ]
+      },
+      "after_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ]
+      }
+    },
+    {
+      "layout": "combined",
+      "cell": "D2_09_B5_T120",
+      "end": "left",
+      "pitch_um": 5.0,
+      "taper_length_um": 45.0,
+      "before_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          15.0,
+          30.0,
+          45.0
+        ]
+      },
+      "after_centers_from_port_um": {
+        "1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ],
+        "-1": [
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          35.0,
+          40.0,
+          45.0
+        ]
+      }
+    },
+    {
+      "layout": "long_design1",
+      "cell": "D1_L6000_W1620_P10",
+      "end": "right",
+      "pitch_um": 10.0,
+      "taper_length_um": 45.0,
+      "before_centers_from_port_um": {
+        "1": [
+          -30.0,
+          -20.0,
+          -10.0,
+          15.0,
+          30.0,
+          45.0
+        ],
+        "-1": [
+          -30.0,
+          -20.0,
+          -10.0,
+          15.0,
+          30.0,
+          45.0
+        ]
+      },
+      "after_centers_from_port_um": {
+        "1": [
+          -30.0,
+          -20.0,
+          -10.0,
+          0.0,
+          10.0,
+          20.0,
+          30.0,
+          40.0
+        ],
+        "-1": [
+          -30.0,
+          -20.0,
+          -10.0,
+          0.0,
+          10.0,
+          20.0,
+          30.0,
+          40.0
+        ]
+      }
+    },
+    {
+      "layout": "long_design1",
+      "cell": "D1_L6000_W1620_P10",
+      "end": "left",
+      "pitch_um": 10.0,
+      "taper_length_um": 45.0,
+      "before_centers_from_port_um": {
+        "1": [
+          -30.0,
+          -20.0,
+          -10.0,
+          15.0,
+          30.0,
+          45.0
+        ],
+        "-1": [
+          -30.0,
+          -20.0,
+          -10.0,
+          15.0,
+          30.0,
+          45.0
+        ]
+      },
+      "after_centers_from_port_um": {
+        "1": [
+          -30.0,
+          -20.0,
+          -10.0,
+          0.0,
+          10.0,
+          20.0,
+          30.0,
+          40.0
+        ],
+        "-1": [
+          -30.0,
+          -20.0,
+          -10.0,
+          0.0,
+          10.0,
+          20.0,
+          30.0,
+          40.0
+        ]
+      }
+    },
+    {
+      "layout": "long_design1",
+      "cell": "D1_L6000_W1640_P10",
+      "end": "right",
+      "pitch_um": 10.0,
+      "taper_length_um": 45.0,
+      "before_centers_from_port_um": {
+        "1": [
+          -30.0,
+          -20.0,
+          -10.0,
+          15.0,
+          30.0,
+          45.0
+        ],
+        "-1": [
+          -30.0,
+          -20.0,
+          -10.0,
+          15.0,
+          30.0,
+          45.0
+        ]
+      },
+      "after_centers_from_port_um": {
+        "1": [
+          -30.0,
+          -20.0,
+          -10.0,
+          0.0,
+          10.0,
+          20.0,
+          30.0,
+          40.0
+        ],
+        "-1": [
+          -30.0,
+          -20.0,
+          -10.0,
+          0.0,
+          10.0,
+          20.0,
+          30.0,
+          40.0
+        ]
+      }
+    },
+    {
+      "layout": "long_design1",
+      "cell": "D1_L6000_W1640_P10",
+      "end": "left",
+      "pitch_um": 10.0,
+      "taper_length_um": 45.0,
+      "before_centers_from_port_um": {
+        "1": [
+          -30.0,
+          -20.0,
+          -10.0,
+          15.0,
+          30.0,
+          45.0
+        ],
+        "-1": [
+          -30.0,
+          -20.0,
+          -10.0,
+          15.0,
+          30.0,
+          45.0
+        ]
+      },
+      "after_centers_from_port_um": {
+        "1": [
+          -30.0,
+          -20.0,
+          -10.0,
+          0.0,
+          10.0,
+          20.0,
+          30.0,
+          40.0
+        ],
+        "-1": [
+          -30.0,
+          -20.0,
+          -10.0,
+          0.0,
+          10.0,
+          20.0,
+          30.0,
+          40.0
+        ]
+      }
+    },
+    {
+      "layout": "long_design1",
+      "cell": "D1_L6000_W1680_P10",
+      "end": "right",
+      "pitch_um": 10.0,
+      "taper_length_um": 45.0,
+      "before_centers_from_port_um": {
+        "1": [
+          -30.0,
+          -20.0,
+          -10.0,
+          15.0,
+          30.0,
+          45.0
+        ],
+        "-1": [
+          -30.0,
+          -20.0,
+          -10.0,
+          15.0,
+          30.0,
+          45.0
+        ]
+      },
+      "after_centers_from_port_um": {
+        "1": [
+          -30.0,
+          -20.0,
+          -10.0,
+          0.0,
+          10.0,
+          20.0,
+          30.0,
+          40.0
+        ],
+        "-1": [
+          -30.0,
+          -20.0,
+          -10.0,
+          0.0,
+          10.0,
+          20.0,
+          30.0,
+          40.0
+        ]
+      }
+    },
+    {
+      "layout": "long_design1",
+      "cell": "D1_L6000_W1680_P10",
+      "end": "left",
+      "pitch_um": 10.0,
+      "taper_length_um": 45.0,
+      "before_centers_from_port_um": {
+        "1": [
+          -30.0,
+          -20.0,
+          -10.0,
+          15.0,
+          30.0,
+          45.0
+        ],
+        "-1": [
+          -30.0,
+          -20.0,
+          -10.0,
+          15.0,
+          30.0,
+          45.0
+        ]
+      },
+      "after_centers_from_port_um": {
+        "1": [
+          -30.0,
+          -20.0,
+          -10.0,
+          0.0,
+          10.0,
+          20.0,
+          30.0,
+          40.0
+        ],
+        "-1": [
+          -30.0,
+          -20.0,
+          -10.0,
+          0.0,
+          10.0,
+          20.0,
+          30.0,
+          40.0
+        ]
+      }
+    }
+  ],
+  "outputs": {
+    "2611_tapered_yue_dual_resist_L10_L12.gds": {
+      "sha256": "aa82bbd0f250cef0bbd1737933e324b2a479b82bb4ff67a2366ccb907fd6aa23",
+      "devices": 1,
+      "pitch_um": 5.0
+    },
+    "2611_tapered_yue_design2.gds": {
+      "sha256": "9e199eaa2fc03a52d15e9514ff9181d264c2a9821c00d2e0e7078263056339c2",
+      "devices": 1,
+      "pitch_um": 5.0
+    },
+    "2611_design1_design2_L1400_18device_sweep.gds": {
+      "sha256": "0fd8703eaa5b1fe40bc85d51220fdb13143766c534d3fa07cc9e4b8376bf61d6",
+      "devices": 18,
+      "pitch_um": 5.0
+    },
+    "2611_design1_L6000_P10_width_sweep.gds": {
+      "sha256": "2c9a2ded2a70e9fc4f6b630463a9323284906748d29f0fa9ef9de3eecb6746c7",
+      "devices": 3,
+      "pitch_um": 10.0
+    }
+  },
+  "status": "PASS",
+  "check_count": 321,
+  "devices_checked": 23,
+  "taper_ends_checked": 46,
+  "baseline_comparison_performed": true,
+  "build_engine_versions": {
+    "short": {
+      "gdsfactory": "9.45.0",
+      "kfactory": "2.6.1",
+      "klayout": "0.30.12",
+      "numpy": "2.4.6"
+    },
+    "long": {
+      "gdsfactory": "9.45.0",
+      "kfactory": "2.6.1",
+      "klayout": "0.30.13",
+      "numpy": "2.4.6"
+    }
+  }
+}

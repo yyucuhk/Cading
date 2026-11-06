@@ -216,8 +216,9 @@ def worker(case):
     # Measure each actual straight population, including bend-boundary pitch.
     require(abs(capture['straight_pitch'] - STRAIGHT_PNC_PERIOD) < 1e-12,
             'Wrong straight PNC pitch sent to the shield')
-    require(m.PNC_TAPER_LENGTH == 45.0 and m.REVIEW_SUPPORT_ANCHOR_PERIOD == 15.0,
-            'Straight pitch must not change the PNC taper region')
+    require(m.PNC_TAPER_LENGTH == 45.0 and
+            m.REVIEW_SUPPORT_ANCHOR_PERIOD == STRAIGHT_PNC_PERIOD,
+            'Taper PNC pitch must match the straight pitch without changing its 45 um length')
     straight_measurements = []
     for a, b, is_bend in sections:
         if is_bend:
@@ -451,7 +452,7 @@ def combine(entries):
                   taper_allocation='proportional stage scaling', stage_ratios=STAGE_RATIOS,
                   taper_length_definition='full Layer-10 taper after the unchanged 45 um PNC',
                   frame_bounds_um=[xmin,ymin,xmax,ymax], fabrication_mask_overlaps=overlaps,
-                  notes=['Straight PNC center-to-center pitch is exactly 5 um, independent of the unchanged 15 um taper-PNC pitch and 45 um PNC taper.',
+                  notes=['Straight and taper PNC center-to-center pitches match. The taper grid starts at the connection port and its 45 um envelope is unchanged.',
                          'Bend period is the existing nominal parameter. Interior spacings are fitted to the arc; measured values are listed per case.',
                          'Layer 51 is a retained nonfabrication fiber guide. No fabrication layer is clipped.',
                          'Original length text is isolated on temporary 998/0 before flattening, then removed. Fabrication masks are never subtracted.'])

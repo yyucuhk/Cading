@@ -4,7 +4,8 @@ All dimensions are um. Each of THREE meander straights is 6000 um.
 Layer 15 optical ridge widths: 1.62, 1.64, 1.68. Both meander straight
 and bend PNC pitches are 10 um. Existing Design-1 tapers are preserved:
 L10 3 -> 1 -> 0.2 over 40/40; L15 W -> 0.1 over 40 after the 45 um PNC.
-The separate PNC-taper pitch stays 15 um. No existing source/GDS is rewritten.
+The PNC-taper pitch follows the 10 um straight pitch; its length stays 45 um.
+This builder does not rewrite the source or the other GDS outputs.
 
 Bend pitch is exact CENTERLINE ARC-LENGTH pitch between interior PNC pairs.
 The noninteger arc-length remainder is split equally at the junctions;
@@ -284,7 +285,8 @@ def worker(width):
             measured = section.bbox().height()*DBU
             check(checks, f'end{side}_L{layer}_x{x:g}_taper_width', section.count()==1 and abs(measured-w)<.0041,
                   measured_width_um=measured, expected_width_um=w)
-    check(checks, 'separate_PNC_taper_unchanged', m.PNC_TAPER_LENGTH==45 and m.REVIEW_SUPPORT_ANCHOR_PERIOD==15)
+    check(checks, 'taper_PNC_matches_straight_without_changing_length',
+          m.PNC_TAPER_LENGTH==45 and m.REVIEW_SUPPORT_ANCHOR_PERIOD==STRAIGHT_PNC_PERIOD)
     check(checks, 'Design1_taper_lengths_preserved', m.RIDGE_TAPER_LENGTH==40 and m.SLAB_TAPER_LENGTH==40)
     options = kdb.SaveLayoutOptions(); options.gds2_max_vertex_count=2000
     WORK.mkdir(exist_ok=True)
@@ -299,6 +301,9 @@ def worker(width):
                 left_pnc_x_um=r[(11,0)].bbox().left*DBU,
                 tip_centers=device.info['tip_centers'],
                 connection_centers=device.info['connection_centers'],
+                straight_pnc_period_um=float(m.MEANDER_STRAIGHT_PNC_PERIOD),
+                taper_pnc_period_um=float(m.REVIEW_SUPPORT_ANCHOR_PERIOD),
+                pnc_taper_length_um=float(m.PNC_TAPER_LENGTH),
                 post_pnc_taper_total_um=80., label=f'D1_W{width:.2f}_T80_P{BEND_PNC_PERIOD:g}',
                 checks=checks,status='PASS')
     (WORK/(device.name+'.json')).write_text(json.dumps(data,indent=2))

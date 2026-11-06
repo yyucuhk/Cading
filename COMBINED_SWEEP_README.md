@@ -29,7 +29,7 @@ STAGE_RATIOS = {1: (1.0, 1.0), 2: (2.0, 10.0, 1.0)}
 Each of the THREE meander straights is 1400 um. The two Euler bends retain
 100 um effective radius and 0.2 Euler fraction. The centerline length is
 approximately 4941.823 um, excluding end tapers and tethers. The straight-meander PNC period is exactly 5 um. The separate
-45 um PNC taper still uses its existing 15 um period. Only bend PNC periods are swept.
+45 um PNC taper now uses the same 5 um period as the straights. Only bend PNC periods are swept.
 
 ## Definition of total taper length
 
@@ -150,12 +150,33 @@ This is CENTER-TO-CENTER pitch, not edge-to-edge clearance. All three 1400 um
 straights use an exact 5 um grid, with 279 interior PNC pairs per straight.
 One shared PNC pair at each straight/bend junction is retained.
 
-`REVIEW_SUPPORT_ANCHOR_PERIOD = 15.0` is now explicitly the independent
-PNC-taper pitch. Its three-period 45 um transition and all optical taper
-lengths stay unchanged. Do not change it to edit straight-meander pitch.
+`REVIEW_SUPPORT_ANCHOR_PERIOD = MEANDER_STRAIGHT_PNC_PERIOD` makes the
+PNC taper follow the straight-section pitch. Its physical length is fixed
+separately by `PNC_TAPER_TRANSITION_LENGTH = 45.0`; optical tapers do not move.
 The bend sweep remains nominal 2/3/5 um with the existing fitted-to-arc
 sampler. Labels still report design, post-PNC taper length and bend period
 only; the common straight period is recorded separately in CSV/JSON.
 
 Run `python validate_2611_straight_pitch.py` after regenerating the combined
 sweep to measure every straight PNC population directly in the exported GDS.
+
+## Taper-junction pitch correction
+
+PNCs now continue on the straight-section grid through each 45 um PNC taper,
+including a pair at the connection port. The 1400 um designs use 5 um
+pitch on both straights and tapers; the separate 6000 um width sweep uses
+10 um on both. Bend samplers and all optical/release/protection geometry
+are unchanged. No extra cell is forced onto a non-grid taper endpoint.
+Run `python validate_2611_taper_pitch.py` after regenerating the four GDSs
+to check both taper ends and the junction-to-straight spacings. Historical
+baseline reports describe the previous geometry; the new report is
+`gds/2611_taper_pitch_validation.json`.
+
+### Reproducing the approved mask grid
+
+The short standalone designs and 18-device sweep were rebuilt with
+GDSFactory 9.45.0 and KLayout 0.30.12. The separate 6000 um sweep uses
+GDSFactory 9.45.0 and KLayout 0.30.13, matching its original export.
+Pin the matching versions for exact polygon comparisons; changing the
+geometry-engine version can change nanometre-grid rounding in offset masks.
+The taper-pitch report records both environments.

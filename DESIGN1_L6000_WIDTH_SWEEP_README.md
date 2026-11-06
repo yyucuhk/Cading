@@ -50,7 +50,9 @@ split symmetrically at the two bend ends: approximately 10.456 um between
 each junction pair and the nearest interior pair. There are 36 interior
 pairs per bend. The routine does not stretch the interior pitch to fit.
 
-The separate 45 um PNC TAPER transition retains its prior 15 um pitch.
+The 45 um PNC TAPER transition now uses the same 10 um pitch as the straights.
+Stations are at 0, 10, 20, 30, 40 um from its port. The final 5 um
+is an unpopulated remainder, not a compressed last interval.
 The request changes straight and bending meander regions, not that taper.
 
 ## Retained Design-1 taper topology
@@ -89,3 +91,24 @@ The build fails rather than exporting success when widths, pitches,
 connections, full end symmetry, mask coverage, inter-device overlaps or
 all-layer export comparisons fail. These are geometry checks, not a full
 fabrication-rule check or an optical-performance simulation.
+
+## Taper-junction pitch correction
+
+PNCs now continue on the straight-section grid through each 45 um PNC taper,
+including a pair at the connection port. The 1400 um designs use 5 um
+pitch on both straights and tapers; the separate 6000 um width sweep uses
+10 um on both. Bend samplers and all optical/release/protection geometry
+are unchanged. No extra cell is forced onto a non-grid taper endpoint.
+Run `python validate_2611_taper_pitch.py` after regenerating the four GDSs
+to check both taper ends and the junction-to-straight spacings. Historical
+baseline reports describe the previous geometry; the new report is
+`gds/2611_taper_pitch_validation.json`.
+
+### Reproducing the approved mask grid
+
+The short standalone designs and 18-device sweep were rebuilt with
+GDSFactory 9.45.0 and KLayout 0.30.12. The separate 6000 um sweep uses
+GDSFactory 9.45.0 and KLayout 0.30.13, matching its original export.
+Pin the matching versions for exact polygon comparisons; changing the
+geometry-engine version can change nanometre-grid rounding in offset masks.
+The taper-pitch report records both environments.
