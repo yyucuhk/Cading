@@ -14,8 +14,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Install geometry engine
-        run: python -m pip install gdsfactory==9.45.0
+      - name: Install approved short-layout geometry engine
+        run: python -m pip install gdsfactory==9.45.0 klayout==0.30.12
       - name: Preserve four approved output baselines
         run: python validate_2611_taper_pitch.py capture
       - name: Match taper pitch while preserving physical taper length
@@ -23,20 +23,36 @@ jobs:
           python _match_2611_taper_pitch_once.py
           python - <<'PY'
           from pathlib import Path
+          import importlib.metadata as md, json
           p=Path('CAD_EDITING_GUIDE.md')
           s=p.read_text().replace(
               '`REVIEW_SUPPORT_ANCHOR_PERIOD` controls only the separate PNC-taper pattern\n(currently 15 um); the PNC taper length is three of those periods, or 45 um.',
               '`REVIEW_SUPPORT_ANCHOR_PERIOD` is an alias of `MEANDER_STRAIGHT_PNC_PERIOD`.\nThe taper follows that pitch; `PNC_TAPER_TRANSITION_LENGTH = 45.0` independently fixes its length.')
           p.write_text(s)
+          versions={name:md.version(name) for name in ('gdsfactory','kfactory','klayout','numpy')}
+          Path('validation_2611_taper_pitch/short_engine.json').write_text(json.dumps(versions,indent=2))
+          for name in ('2611_tapered_yue_dual_resist.py','2611_tapered_yue_design2.py'):
+              p=Path(name)
+              s=p.read_text().replace(
+                  '    # The meander stops one pitch before this port, so x=0 is not a duplicate.',
+                  '    # For the current integral-length straight grids, x=0 is not a duplicate.')
+              p.write_text(s)
           PY
           python -m py_compile 2611_tapered_yue_dual_resist.py 2611_tapered_yue_design2.py 2611_build_combined_sweep.py 2611_design1_L6000_P10_width_sweep.py validate_2611_taper_pitch.py
-      - name: Regenerate both standalone designs
+      - name: Regenerate short standalone designs and vertical 18-device sweep
         run: |
           python 2611_tapered_yue_dual_resist.py
           python 2611_tapered_yue_design2.py
-      - name: Regenerate vertical 18-device sweep and separate 6000 um sweep
-        run: |
           python 2611_build_combined_sweep.py
+      - name: Regenerate 6000 um sweep with its approved geometry engine
+        run: |
+          python -m pip install klayout==0.30.13
+          python - <<'PY'
+          from pathlib import Path
+          import importlib.metadata as md, json
+          versions={name:md.version(name) for name in ('gdsfactory','kfactory','klayout','numpy')}
+          Path('validation_2611_taper_pitch/long_engine.json').write_text(json.dumps(versions,indent=2))
+          PY
           python 2611_design1_L6000_P10_width_sweep.py
       - name: Recheck both ends connectivity labels placement and straight pitch
         run: |
@@ -45,6 +61,18 @@ jobs:
           python validate_2611_straight_pitch.py
       - name: Measure taper junction spacing and prove only local Layer 11 changes
         run: python validate_2611_taper_pitch.py
+      - name: Record reproducible geometry engine versions
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json
+          versions={kind:json.loads(Path(f'validation_2611_taper_pitch/{kind}_engine.json').read_text()) for kind in ('short','long')}
+          for name in ('gds/2611_taper_pitch_validation.json','validation_2611_taper_pitch/validation_report.json'):
+              p=Path(name);d=json.loads(p.read_text());d['build_engine_versions']=versions;p.write_text(json.dumps(d,indent=2))
+          note='\n### Reproducing the approved mask grid\n\nThe short standalone designs and 18-device sweep were rebuilt with\nGDSFactory 9.45.0 and KLayout 0.30.12. The separate 6000 um sweep uses\nGDSFactory 9.45.0 and KLayout 0.30.13, matching its original export.\nPin the matching versions for exact polygon comparisons; changing the\ngeometry-engine version can change nanometre-grid rounding in offset masks.\nThe taper-pitch report records both environments.\n'
+          for name in ('CAD_EDITING_GUIDE.md','COMBINED_SWEEP_README.md','DESIGN1_L6000_WIDTH_SWEEP_README.md'):
+              p=Path(name);p.write_text(p.read_text()+note)
+          PY
       - name: Upload updated code GDS files and measured previews
         if: always()
         uses: actions/upload-artifact@v4
@@ -69,6 +97,7 @@ jobs:
             gds/2611_vertical_sweep_validation.json
             gds/2611_straight_pitch_validation.json
             validation_2611_taper_pitch/*.png
+            validation_2611_taper_pitch/*engine.json
             validation_2611_taper_pitch/validation_report.json
             validation_2611_combined_sweep/*.log
             validation_2611_L6000_width_sweep/*.log
