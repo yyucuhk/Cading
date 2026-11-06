@@ -1,0 +1,1685 @@
+{
+  "status": "PASS",
+  "source_file": "2611_tapered_yue_dual_resist.py",
+  "source_sha256": "a3a5401fb6bbf23f14d5f628d64c7cf20121fb91619b1fa6e61d874cdb75a99a",
+  "devices": [
+    {
+      "case_id": "D1_L6000_W1620_P10",
+      "width_um": 1.62,
+      "straight_length_um": 6000.0,
+      "total_meander_um": 18741.822610417224,
+      "section_measurements": [
+        {
+          "kind": "straight",
+          "length_um": 6000.0,
+          "start_um": [
+            -3000.0,
+            200.0
+          ],
+          "end_um": [
+            3000.0,
+            200.0
+          ],
+          "interior_PNC_pairs": 599,
+          "pitch_um": 10.0,
+          "junction_clearances_um": [
+            10.0,
+            10.0
+          ]
+        },
+        {
+          "kind": "bend",
+          "length_um": 370.9113052086134,
+          "start_um": [
+            3000.0,
+            200.0
+          ],
+          "end_um": [
+            3000.0,
+            0.0
+          ],
+          "interior_PNC_pairs": 36,
+          "pitch_um": 10.0,
+          "junction_clearances_um": [
+            10.455652604417992,
+            10.455652604418901
+          ]
+        },
+        {
+          "kind": "straight",
+          "length_um": 6000.0,
+          "start_um": [
+            3000.0,
+            0.0
+          ],
+          "end_um": [
+            -3000.0,
+            7.389644451905042e-13
+          ],
+          "interior_PNC_pairs": 599,
+          "pitch_um": 10.0,
+          "junction_clearances_um": [
+            10.0,
+            10.0
+          ]
+        },
+        {
+          "kind": "bend",
+          "length_um": 370.9113052086134,
+          "start_um": [
+            -3000.0,
+            7.389644451905042e-13
+          ],
+          "end_um": [
+            -3000.0,
+            -199.99999999999926
+          ],
+          "interior_PNC_pairs": 36,
+          "pitch_um": 10.0,
+          "junction_clearances_um": [
+            10.455652603821363,
+            10.455652603819544
+          ]
+        },
+        {
+          "kind": "straight",
+          "length_um": 6000.0,
+          "start_um": [
+            -3000.0,
+            -199.99999999999926
+          ],
+          "end_um": [
+            3000.0,
+            -199.99999999999926
+          ],
+          "interior_PNC_pairs": 599,
+          "pitch_um": 10.0,
+          "junction_clearances_um": [
+            10.0,
+            10.0
+          ]
+        }
+      ],
+      "left_pnc_x_um": -3142.1530000000002,
+      "tip_centers": [
+        [
+          -3085.0,
+          200.0
+        ],
+        [
+          3085.0,
+          -200.0
+        ]
+      ],
+      "connection_centers": [
+        [
+          -3000.0,
+          200.0
+        ],
+        [
+          3000.0,
+          -200.0
+        ]
+      ],
+      "post_pnc_taper_total_um": 80.0,
+      "label": "D1_W1.62_T80_P10",
+      "checks": [
+        {
+          "name": "all_device_layers_present",
+          "passed": true
+        },
+        {
+          "name": "ridge_is_one_connected_body",
+          "passed": true
+        },
+        {
+          "name": "protection_connected",
+          "passed": true
+        },
+        {
+          "name": "four_alignment_ticks_only_on_layer15",
+          "passed": true
+        },
+        {
+          "name": "layer14_covers_ridge",
+          "passed": true,
+          "missing_um2": 0.0
+        },
+        {
+          "name": "layer16_covers_ridge",
+          "passed": true,
+          "missing_um2": 0.0
+        },
+        {
+          "name": "three_straights_two_bends",
+          "passed": true
+        },
+        {
+          "name": "no_duplicate_PNC_pairs",
+          "passed": true
+        },
+        {
+          "name": "section0_exact_pitch",
+          "passed": true,
+          "pitch_um": 10.0,
+          "interior_pairs": 599
+        },
+        {
+          "name": "straight0_6000um",
+          "passed": true,
+          "measured_um": 6000.0
+        },
+        {
+          "name": "straight0_side1_exportable_PNC_centers",
+          "passed": true,
+          "count": 599,
+          "expected_count": 599
+        },
+        {
+          "name": "straight0_side-1_exportable_PNC_centers",
+          "passed": true,
+          "count": 599,
+          "expected_count": 599
+        },
+        {
+          "name": "straight0_measured_ridge_width",
+          "passed": true,
+          "measured_width_um": 1.62,
+          "requested_width_um": 1.62
+        },
+        {
+          "name": "section0_all_PNC_necks_present",
+          "passed": true
+        },
+        {
+          "name": "section1_exact_pitch",
+          "passed": true,
+          "pitch_um": 10.0,
+          "interior_pairs": 36
+        },
+        {
+          "name": "bend1_symmetric_junction_clearance",
+          "passed": true,
+          "junction_clearances_um": [
+            10.455652604417992,
+            10.455652604418901
+          ]
+        },
+        {
+          "name": "section1_all_PNC_necks_present",
+          "passed": true
+        },
+        {
+          "name": "bend1_ridge_width_at_11_sections",
+          "passed": true
+        },
+        {
+          "name": "section2_exact_pitch",
+          "passed": true,
+          "pitch_um": 10.0,
+          "interior_pairs": 599
+        },
+        {
+          "name": "straight2_6000um",
+          "passed": true,
+          "measured_um": 6000.0
+        },
+        {
+          "name": "straight2_side1_exportable_PNC_centers",
+          "passed": true,
+          "count": 599,
+          "expected_count": 599
+        },
+        {
+          "name": "straight2_side-1_exportable_PNC_centers",
+          "passed": true,
+          "count": 599,
+          "expected_count": 599
+        },
+        {
+          "name": "straight2_measured_ridge_width",
+          "passed": true,
+          "measured_width_um": 1.62,
+          "requested_width_um": 1.62
+        },
+        {
+          "name": "section2_all_PNC_necks_present",
+          "passed": true
+        },
+        {
+          "name": "section3_exact_pitch",
+          "passed": true,
+          "pitch_um": 10.0,
+          "interior_pairs": 36
+        },
+        {
+          "name": "bend3_symmetric_junction_clearance",
+          "passed": true,
+          "junction_clearances_um": [
+            10.455652603821363,
+            10.455652603819544
+          ]
+        },
+        {
+          "name": "section3_all_PNC_necks_present",
+          "passed": true
+        },
+        {
+          "name": "bend3_ridge_width_at_11_sections",
+          "passed": true
+        },
+        {
+          "name": "section4_exact_pitch",
+          "passed": true,
+          "pitch_um": 10.0,
+          "interior_pairs": 599
+        },
+        {
+          "name": "straight4_6000um",
+          "passed": true,
+          "measured_um": 6000.0
+        },
+        {
+          "name": "straight4_side1_exportable_PNC_centers",
+          "passed": true,
+          "count": 599,
+          "expected_count": 599
+        },
+        {
+          "name": "straight4_side-1_exportable_PNC_centers",
+          "passed": true,
+          "count": 599,
+          "expected_count": 599
+        },
+        {
+          "name": "straight4_measured_ridge_width",
+          "passed": true,
+          "measured_width_um": 1.62,
+          "requested_width_um": 1.62
+        },
+        {
+          "name": "section4_all_PNC_necks_present",
+          "passed": true
+        },
+        {
+          "name": "correct_centerline_length",
+          "passed": true,
+          "measured_total_um": 18741.822610417224
+        },
+        {
+          "name": "layer2_complete_end_symmetry",
+          "passed": true,
+          "xor_um2": 3.5e-05
+        },
+        {
+          "name": "layer10_complete_end_symmetry",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "layer11_complete_end_symmetry",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "layer13_complete_end_symmetry",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "layer14_complete_end_symmetry",
+          "passed": true,
+          "xor_um2": 3.5e-05
+        },
+        {
+          "name": "layer15_complete_end_symmetry",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "layer16_complete_end_symmetry",
+          "passed": true,
+          "xor_um2": 2e-06
+        },
+        {
+          "name": "layer51_complete_end_symmetry",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "end-1_L10_x3045_taper_width",
+          "passed": true,
+          "measured_width_um": 3.0,
+          "expected_width_um": 3.0
+        },
+        {
+          "name": "end-1_L10_x3085_taper_width",
+          "passed": true,
+          "measured_width_um": 1.0,
+          "expected_width_um": 1.0
+        },
+        {
+          "name": "end-1_L10_x3125_taper_width",
+          "passed": true,
+          "measured_width_um": 0.2,
+          "expected_width_um": 0.2
+        },
+        {
+          "name": "end-1_L15_x3045_taper_width",
+          "passed": true,
+          "measured_width_um": 1.62,
+          "expected_width_um": 1.62
+        },
+        {
+          "name": "end-1_L15_x3085_taper_width",
+          "passed": true,
+          "measured_width_um": 0.1,
+          "expected_width_um": 0.1
+        },
+        {
+          "name": "end1_L10_x3045_taper_width",
+          "passed": true,
+          "measured_width_um": 3.0,
+          "expected_width_um": 3.0
+        },
+        {
+          "name": "end1_L10_x3085_taper_width",
+          "passed": true,
+          "measured_width_um": 1.0,
+          "expected_width_um": 1.0
+        },
+        {
+          "name": "end1_L10_x3125_taper_width",
+          "passed": true,
+          "measured_width_um": 0.2,
+          "expected_width_um": 0.2
+        },
+        {
+          "name": "end1_L15_x3045_taper_width",
+          "passed": true,
+          "measured_width_um": 1.62,
+          "expected_width_um": 1.62
+        },
+        {
+          "name": "end1_L15_x3085_taper_width",
+          "passed": true,
+          "measured_width_um": 0.1,
+          "expected_width_um": 0.1
+        },
+        {
+          "name": "separate_PNC_taper_unchanged",
+          "passed": true
+        },
+        {
+          "name": "Design1_taper_lengths_preserved",
+          "passed": true
+        },
+        {
+          "name": "export_layer2_unchanged",
+          "passed": true,
+          "xor_um2": 9e-06
+        },
+        {
+          "name": "export_layer10_unchanged",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "export_layer11_unchanged",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "export_layer13_unchanged",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "export_layer14_unchanged",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "export_layer15_unchanged",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "export_layer16_unchanged",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "export_layer51_unchanged",
+          "passed": true,
+          "xor_um2": 0.0
+        }
+      ],
+      "status": "PASS",
+      "origin_um": [
+        2242.1530000000002,
+        -700.0
+      ],
+      "label_origin_um": [
+        -700.0,
+        -450.0
+      ]
+    },
+    {
+      "case_id": "D1_L6000_W1640_P10",
+      "width_um": 1.64,
+      "straight_length_um": 6000.0,
+      "total_meander_um": 18741.822610417224,
+      "section_measurements": [
+        {
+          "kind": "straight",
+          "length_um": 6000.0,
+          "start_um": [
+            -3000.0,
+            200.0
+          ],
+          "end_um": [
+            3000.0,
+            200.0
+          ],
+          "interior_PNC_pairs": 599,
+          "pitch_um": 10.0,
+          "junction_clearances_um": [
+            10.0,
+            10.0
+          ]
+        },
+        {
+          "kind": "bend",
+          "length_um": 370.9113052086134,
+          "start_um": [
+            3000.0,
+            200.0
+          ],
+          "end_um": [
+            3000.0,
+            0.0
+          ],
+          "interior_PNC_pairs": 36,
+          "pitch_um": 10.0,
+          "junction_clearances_um": [
+            10.455652604417992,
+            10.455652604418901
+          ]
+        },
+        {
+          "kind": "straight",
+          "length_um": 6000.0,
+          "start_um": [
+            3000.0,
+            0.0
+          ],
+          "end_um": [
+            -3000.0,
+            7.389644451905042e-13
+          ],
+          "interior_PNC_pairs": 599,
+          "pitch_um": 10.0,
+          "junction_clearances_um": [
+            10.0,
+            10.0
+          ]
+        },
+        {
+          "kind": "bend",
+          "length_um": 370.9113052086134,
+          "start_um": [
+            -3000.0,
+            7.389644451905042e-13
+          ],
+          "end_um": [
+            -3000.0,
+            -199.99999999999926
+          ],
+          "interior_PNC_pairs": 36,
+          "pitch_um": 10.0,
+          "junction_clearances_um": [
+            10.455652603821363,
+            10.455652603819544
+          ]
+        },
+        {
+          "kind": "straight",
+          "length_um": 6000.0,
+          "start_um": [
+            -3000.0,
+            -199.99999999999926
+          ],
+          "end_um": [
+            3000.0,
+            -199.99999999999926
+          ],
+          "interior_PNC_pairs": 599,
+          "pitch_um": 10.0,
+          "junction_clearances_um": [
+            10.0,
+            10.0
+          ]
+        }
+      ],
+      "left_pnc_x_um": -3142.1530000000002,
+      "tip_centers": [
+        [
+          -3085.0,
+          200.0
+        ],
+        [
+          3085.0,
+          -200.0
+        ]
+      ],
+      "connection_centers": [
+        [
+          -3000.0,
+          200.0
+        ],
+        [
+          3000.0,
+          -200.0
+        ]
+      ],
+      "post_pnc_taper_total_um": 80.0,
+      "label": "D1_W1.64_T80_P10",
+      "checks": [
+        {
+          "name": "all_device_layers_present",
+          "passed": true
+        },
+        {
+          "name": "ridge_is_one_connected_body",
+          "passed": true
+        },
+        {
+          "name": "protection_connected",
+          "passed": true
+        },
+        {
+          "name": "four_alignment_ticks_only_on_layer15",
+          "passed": true
+        },
+        {
+          "name": "layer14_covers_ridge",
+          "passed": true,
+          "missing_um2": 0.0
+        },
+        {
+          "name": "layer16_covers_ridge",
+          "passed": true,
+          "missing_um2": 0.0
+        },
+        {
+          "name": "three_straights_two_bends",
+          "passed": true
+        },
+        {
+          "name": "no_duplicate_PNC_pairs",
+          "passed": true
+        },
+        {
+          "name": "section0_exact_pitch",
+          "passed": true,
+          "pitch_um": 10.0,
+          "interior_pairs": 599
+        },
+        {
+          "name": "straight0_6000um",
+          "passed": true,
+          "measured_um": 6000.0
+        },
+        {
+          "name": "straight0_side1_exportable_PNC_centers",
+          "passed": true,
+          "count": 599,
+          "expected_count": 599
+        },
+        {
+          "name": "straight0_side-1_exportable_PNC_centers",
+          "passed": true,
+          "count": 599,
+          "expected_count": 599
+        },
+        {
+          "name": "straight0_measured_ridge_width",
+          "passed": true,
+          "measured_width_um": 1.6400000000000001,
+          "requested_width_um": 1.64
+        },
+        {
+          "name": "section0_all_PNC_necks_present",
+          "passed": true
+        },
+        {
+          "name": "section1_exact_pitch",
+          "passed": true,
+          "pitch_um": 10.0,
+          "interior_pairs": 36
+        },
+        {
+          "name": "bend1_symmetric_junction_clearance",
+          "passed": true,
+          "junction_clearances_um": [
+            10.455652604417992,
+            10.455652604418901
+          ]
+        },
+        {
+          "name": "section1_all_PNC_necks_present",
+          "passed": true
+        },
+        {
+          "name": "bend1_ridge_width_at_11_sections",
+          "passed": true
+        },
+        {
+          "name": "section2_exact_pitch",
+          "passed": true,
+          "pitch_um": 10.0,
+          "interior_pairs": 599
+        },
+        {
+          "name": "straight2_6000um",
+          "passed": true,
+          "measured_um": 6000.0
+        },
+        {
+          "name": "straight2_side1_exportable_PNC_centers",
+          "passed": true,
+          "count": 599,
+          "expected_count": 599
+        },
+        {
+          "name": "straight2_side-1_exportable_PNC_centers",
+          "passed": true,
+          "count": 599,
+          "expected_count": 599
+        },
+        {
+          "name": "straight2_measured_ridge_width",
+          "passed": true,
+          "measured_width_um": 1.6400000000000001,
+          "requested_width_um": 1.64
+        },
+        {
+          "name": "section2_all_PNC_necks_present",
+          "passed": true
+        },
+        {
+          "name": "section3_exact_pitch",
+          "passed": true,
+          "pitch_um": 10.0,
+          "interior_pairs": 36
+        },
+        {
+          "name": "bend3_symmetric_junction_clearance",
+          "passed": true,
+          "junction_clearances_um": [
+            10.455652603821363,
+            10.455652603819544
+          ]
+        },
+        {
+          "name": "section3_all_PNC_necks_present",
+          "passed": true
+        },
+        {
+          "name": "bend3_ridge_width_at_11_sections",
+          "passed": true
+        },
+        {
+          "name": "section4_exact_pitch",
+          "passed": true,
+          "pitch_um": 10.0,
+          "interior_pairs": 599
+        },
+        {
+          "name": "straight4_6000um",
+          "passed": true,
+          "measured_um": 6000.0
+        },
+        {
+          "name": "straight4_side1_exportable_PNC_centers",
+          "passed": true,
+          "count": 599,
+          "expected_count": 599
+        },
+        {
+          "name": "straight4_side-1_exportable_PNC_centers",
+          "passed": true,
+          "count": 599,
+          "expected_count": 599
+        },
+        {
+          "name": "straight4_measured_ridge_width",
+          "passed": true,
+          "measured_width_um": 1.6400000000000001,
+          "requested_width_um": 1.64
+        },
+        {
+          "name": "section4_all_PNC_necks_present",
+          "passed": true
+        },
+        {
+          "name": "correct_centerline_length",
+          "passed": true,
+          "measured_total_um": 18741.822610417224
+        },
+        {
+          "name": "layer2_complete_end_symmetry",
+          "passed": true,
+          "xor_um2": 3.5e-05
+        },
+        {
+          "name": "layer10_complete_end_symmetry",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "layer11_complete_end_symmetry",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "layer13_complete_end_symmetry",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "layer14_complete_end_symmetry",
+          "passed": true,
+          "xor_um2": 3.5e-05
+        },
+        {
+          "name": "layer15_complete_end_symmetry",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "layer16_complete_end_symmetry",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "layer51_complete_end_symmetry",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "end-1_L10_x3045_taper_width",
+          "passed": true,
+          "measured_width_um": 3.0,
+          "expected_width_um": 3.0
+        },
+        {
+          "name": "end-1_L10_x3085_taper_width",
+          "passed": true,
+          "measured_width_um": 1.0,
+          "expected_width_um": 1.0
+        },
+        {
+          "name": "end-1_L10_x3125_taper_width",
+          "passed": true,
+          "measured_width_um": 0.2,
+          "expected_width_um": 0.2
+        },
+        {
+          "name": "end-1_L15_x3045_taper_width",
+          "passed": true,
+          "measured_width_um": 1.6400000000000001,
+          "expected_width_um": 1.64
+        },
+        {
+          "name": "end-1_L15_x3085_taper_width",
+          "passed": true,
+          "measured_width_um": 0.1,
+          "expected_width_um": 0.1
+        },
+        {
+          "name": "end1_L10_x3045_taper_width",
+          "passed": true,
+          "measured_width_um": 3.0,
+          "expected_width_um": 3.0
+        },
+        {
+          "name": "end1_L10_x3085_taper_width",
+          "passed": true,
+          "measured_width_um": 1.0,
+          "expected_width_um": 1.0
+        },
+        {
+          "name": "end1_L10_x3125_taper_width",
+          "passed": true,
+          "measured_width_um": 0.2,
+          "expected_width_um": 0.2
+        },
+        {
+          "name": "end1_L15_x3045_taper_width",
+          "passed": true,
+          "measured_width_um": 1.6400000000000001,
+          "expected_width_um": 1.64
+        },
+        {
+          "name": "end1_L15_x3085_taper_width",
+          "passed": true,
+          "measured_width_um": 0.1,
+          "expected_width_um": 0.1
+        },
+        {
+          "name": "separate_PNC_taper_unchanged",
+          "passed": true
+        },
+        {
+          "name": "Design1_taper_lengths_preserved",
+          "passed": true
+        },
+        {
+          "name": "export_layer2_unchanged",
+          "passed": true,
+          "xor_um2": 9e-06
+        },
+        {
+          "name": "export_layer10_unchanged",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "export_layer11_unchanged",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "export_layer13_unchanged",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "export_layer14_unchanged",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "export_layer15_unchanged",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "export_layer16_unchanged",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "export_layer51_unchanged",
+          "passed": true,
+          "xor_um2": 0.0
+        }
+      ],
+      "status": "PASS",
+      "origin_um": [
+        2242.1530000000002,
+        -100.0
+      ],
+      "label_origin_um": [
+        -700.0,
+        150.0
+      ]
+    },
+    {
+      "case_id": "D1_L6000_W1680_P10",
+      "width_um": 1.68,
+      "straight_length_um": 6000.0,
+      "total_meander_um": 18741.822610417224,
+      "section_measurements": [
+        {
+          "kind": "straight",
+          "length_um": 6000.0,
+          "start_um": [
+            -3000.0,
+            200.0
+          ],
+          "end_um": [
+            3000.0,
+            200.0
+          ],
+          "interior_PNC_pairs": 599,
+          "pitch_um": 10.0,
+          "junction_clearances_um": [
+            10.0,
+            10.0
+          ]
+        },
+        {
+          "kind": "bend",
+          "length_um": 370.9113052086134,
+          "start_um": [
+            3000.0,
+            200.0
+          ],
+          "end_um": [
+            3000.0,
+            0.0
+          ],
+          "interior_PNC_pairs": 36,
+          "pitch_um": 10.0,
+          "junction_clearances_um": [
+            10.455652604417992,
+            10.455652604418901
+          ]
+        },
+        {
+          "kind": "straight",
+          "length_um": 6000.0,
+          "start_um": [
+            3000.0,
+            0.0
+          ],
+          "end_um": [
+            -3000.0,
+            7.389644451905042e-13
+          ],
+          "interior_PNC_pairs": 599,
+          "pitch_um": 10.0,
+          "junction_clearances_um": [
+            10.0,
+            10.0
+          ]
+        },
+        {
+          "kind": "bend",
+          "length_um": 370.9113052086134,
+          "start_um": [
+            -3000.0,
+            7.389644451905042e-13
+          ],
+          "end_um": [
+            -3000.0,
+            -199.99999999999926
+          ],
+          "interior_PNC_pairs": 36,
+          "pitch_um": 10.0,
+          "junction_clearances_um": [
+            10.455652603821363,
+            10.455652603819544
+          ]
+        },
+        {
+          "kind": "straight",
+          "length_um": 6000.0,
+          "start_um": [
+            -3000.0,
+            -199.99999999999926
+          ],
+          "end_um": [
+            3000.0,
+            -199.99999999999926
+          ],
+          "interior_PNC_pairs": 599,
+          "pitch_um": 10.0,
+          "junction_clearances_um": [
+            10.0,
+            10.0
+          ]
+        }
+      ],
+      "left_pnc_x_um": -3142.1530000000002,
+      "tip_centers": [
+        [
+          -3085.0,
+          200.0
+        ],
+        [
+          3085.0,
+          -200.0
+        ]
+      ],
+      "connection_centers": [
+        [
+          -3000.0,
+          200.0
+        ],
+        [
+          3000.0,
+          -200.0
+        ]
+      ],
+      "post_pnc_taper_total_um": 80.0,
+      "label": "D1_W1.68_T80_P10",
+      "checks": [
+        {
+          "name": "all_device_layers_present",
+          "passed": true
+        },
+        {
+          "name": "ridge_is_one_connected_body",
+          "passed": true
+        },
+        {
+          "name": "protection_connected",
+          "passed": true
+        },
+        {
+          "name": "four_alignment_ticks_only_on_layer15",
+          "passed": true
+        },
+        {
+          "name": "layer14_covers_ridge",
+          "passed": true,
+          "missing_um2": 0.0
+        },
+        {
+          "name": "layer16_covers_ridge",
+          "passed": true,
+          "missing_um2": 0.0
+        },
+        {
+          "name": "three_straights_two_bends",
+          "passed": true
+        },
+        {
+          "name": "no_duplicate_PNC_pairs",
+          "passed": true
+        },
+        {
+          "name": "section0_exact_pitch",
+          "passed": true,
+          "pitch_um": 10.0,
+          "interior_pairs": 599
+        },
+        {
+          "name": "straight0_6000um",
+          "passed": true,
+          "measured_um": 6000.0
+        },
+        {
+          "name": "straight0_side1_exportable_PNC_centers",
+          "passed": true,
+          "count": 599,
+          "expected_count": 599
+        },
+        {
+          "name": "straight0_side-1_exportable_PNC_centers",
+          "passed": true,
+          "count": 599,
+          "expected_count": 599
+        },
+        {
+          "name": "straight0_measured_ridge_width",
+          "passed": true,
+          "measured_width_um": 1.68,
+          "requested_width_um": 1.68
+        },
+        {
+          "name": "section0_all_PNC_necks_present",
+          "passed": true
+        },
+        {
+          "name": "section1_exact_pitch",
+          "passed": true,
+          "pitch_um": 10.0,
+          "interior_pairs": 36
+        },
+        {
+          "name": "bend1_symmetric_junction_clearance",
+          "passed": true,
+          "junction_clearances_um": [
+            10.455652604417992,
+            10.455652604418901
+          ]
+        },
+        {
+          "name": "section1_all_PNC_necks_present",
+          "passed": true
+        },
+        {
+          "name": "bend1_ridge_width_at_11_sections",
+          "passed": true
+        },
+        {
+          "name": "section2_exact_pitch",
+          "passed": true,
+          "pitch_um": 10.0,
+          "interior_pairs": 599
+        },
+        {
+          "name": "straight2_6000um",
+          "passed": true,
+          "measured_um": 6000.0
+        },
+        {
+          "name": "straight2_side1_exportable_PNC_centers",
+          "passed": true,
+          "count": 599,
+          "expected_count": 599
+        },
+        {
+          "name": "straight2_side-1_exportable_PNC_centers",
+          "passed": true,
+          "count": 599,
+          "expected_count": 599
+        },
+        {
+          "name": "straight2_measured_ridge_width",
+          "passed": true,
+          "measured_width_um": 1.68,
+          "requested_width_um": 1.68
+        },
+        {
+          "name": "section2_all_PNC_necks_present",
+          "passed": true
+        },
+        {
+          "name": "section3_exact_pitch",
+          "passed": true,
+          "pitch_um": 10.0,
+          "interior_pairs": 36
+        },
+        {
+          "name": "bend3_symmetric_junction_clearance",
+          "passed": true,
+          "junction_clearances_um": [
+            10.455652603821363,
+            10.455652603819544
+          ]
+        },
+        {
+          "name": "section3_all_PNC_necks_present",
+          "passed": true
+        },
+        {
+          "name": "bend3_ridge_width_at_11_sections",
+          "passed": true
+        },
+        {
+          "name": "section4_exact_pitch",
+          "passed": true,
+          "pitch_um": 10.0,
+          "interior_pairs": 599
+        },
+        {
+          "name": "straight4_6000um",
+          "passed": true,
+          "measured_um": 6000.0
+        },
+        {
+          "name": "straight4_side1_exportable_PNC_centers",
+          "passed": true,
+          "count": 599,
+          "expected_count": 599
+        },
+        {
+          "name": "straight4_side-1_exportable_PNC_centers",
+          "passed": true,
+          "count": 599,
+          "expected_count": 599
+        },
+        {
+          "name": "straight4_measured_ridge_width",
+          "passed": true,
+          "measured_width_um": 1.68,
+          "requested_width_um": 1.68
+        },
+        {
+          "name": "section4_all_PNC_necks_present",
+          "passed": true
+        },
+        {
+          "name": "correct_centerline_length",
+          "passed": true,
+          "measured_total_um": 18741.822610417224
+        },
+        {
+          "name": "layer2_complete_end_symmetry",
+          "passed": true,
+          "xor_um2": 3.5e-05
+        },
+        {
+          "name": "layer10_complete_end_symmetry",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "layer11_complete_end_symmetry",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "layer13_complete_end_symmetry",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "layer14_complete_end_symmetry",
+          "passed": true,
+          "xor_um2": 3.5e-05
+        },
+        {
+          "name": "layer15_complete_end_symmetry",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "layer16_complete_end_symmetry",
+          "passed": true,
+          "xor_um2": 1e-06
+        },
+        {
+          "name": "layer51_complete_end_symmetry",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "end-1_L10_x3045_taper_width",
+          "passed": true,
+          "measured_width_um": 3.0,
+          "expected_width_um": 3.0
+        },
+        {
+          "name": "end-1_L10_x3085_taper_width",
+          "passed": true,
+          "measured_width_um": 1.0,
+          "expected_width_um": 1.0
+        },
+        {
+          "name": "end-1_L10_x3125_taper_width",
+          "passed": true,
+          "measured_width_um": 0.2,
+          "expected_width_um": 0.2
+        },
+        {
+          "name": "end-1_L15_x3045_taper_width",
+          "passed": true,
+          "measured_width_um": 1.68,
+          "expected_width_um": 1.68
+        },
+        {
+          "name": "end-1_L15_x3085_taper_width",
+          "passed": true,
+          "measured_width_um": 0.1,
+          "expected_width_um": 0.1
+        },
+        {
+          "name": "end1_L10_x3045_taper_width",
+          "passed": true,
+          "measured_width_um": 3.0,
+          "expected_width_um": 3.0
+        },
+        {
+          "name": "end1_L10_x3085_taper_width",
+          "passed": true,
+          "measured_width_um": 1.0,
+          "expected_width_um": 1.0
+        },
+        {
+          "name": "end1_L10_x3125_taper_width",
+          "passed": true,
+          "measured_width_um": 0.2,
+          "expected_width_um": 0.2
+        },
+        {
+          "name": "end1_L15_x3045_taper_width",
+          "passed": true,
+          "measured_width_um": 1.68,
+          "expected_width_um": 1.68
+        },
+        {
+          "name": "end1_L15_x3085_taper_width",
+          "passed": true,
+          "measured_width_um": 0.1,
+          "expected_width_um": 0.1
+        },
+        {
+          "name": "separate_PNC_taper_unchanged",
+          "passed": true
+        },
+        {
+          "name": "Design1_taper_lengths_preserved",
+          "passed": true
+        },
+        {
+          "name": "export_layer2_unchanged",
+          "passed": true,
+          "xor_um2": 9e-06
+        },
+        {
+          "name": "export_layer10_unchanged",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "export_layer11_unchanged",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "export_layer13_unchanged",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "export_layer14_unchanged",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "export_layer15_unchanged",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "export_layer16_unchanged",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "export_layer51_unchanged",
+          "passed": true,
+          "xor_um2": 0.0
+        }
+      ],
+      "status": "PASS",
+      "origin_um": [
+        2242.1530000000002,
+        500.0
+      ],
+      "label_origin_um": [
+        -700.0,
+        750.0
+      ]
+    }
+  ],
+  "frame_bounds_um": [
+    -3400,
+    -2100.0,
+    7900,
+    1900.0
+  ],
+  "row_pitch_um": 600.0,
+  "straight_pnc_pitch_um": 10.0,
+  "bend_pnc_pitch_um": 10.0,
+  "pitch_definition": "center-to-center along meander centerline; symmetric bend end remainders",
+  "checks": [
+    {
+      "name": "D1_L6000_W1620_P10_width_sweep_preserves_layer2",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1620_P10_width_sweep_preserves_layer10",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1620_P10_width_sweep_preserves_layer11",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1620_P10_width_sweep_preserves_layer13",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1620_P10_width_sweep_preserves_layer14",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1620_P10_width_sweep_preserves_layer51",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1640_P10_width_sweep_preserves_layer2",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1640_P10_width_sweep_preserves_layer10",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1640_P10_width_sweep_preserves_layer11",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1640_P10_width_sweep_preserves_layer13",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1640_P10_width_sweep_preserves_layer14",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1640_P10_width_sweep_preserves_layer51",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1680_P10_width_sweep_preserves_layer2",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1680_P10_width_sweep_preserves_layer10",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1680_P10_width_sweep_preserves_layer11",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1680_P10_width_sweep_preserves_layer13",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1680_P10_width_sweep_preserves_layer14",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1680_P10_width_sweep_preserves_layer51",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "rows0_1_no_mask_overlaps",
+      "passed": true,
+      "overlap_um2": 0.0
+    },
+    {
+      "name": "rows0_2_no_mask_overlaps",
+      "passed": true,
+      "overlap_um2": 0.0
+    },
+    {
+      "name": "rows1_2_no_mask_overlaps",
+      "passed": true,
+      "overlap_um2": 0.0
+    },
+    {
+      "name": "label0_clear_of_all_devices",
+      "passed": true
+    },
+    {
+      "name": "label1_clear_of_all_devices",
+      "passed": true
+    },
+    {
+      "name": "label2_clear_of_all_devices",
+      "passed": true
+    },
+    {
+      "name": "global_L2_markers_clear",
+      "passed": true
+    },
+    {
+      "name": "global_L10_markers_clear",
+      "passed": true
+    },
+    {
+      "name": "three_complete_devices_and_three_labels",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_final_export_layer2",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1620_P10_final_export_layer10",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1620_P10_final_export_layer11",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1620_P10_final_export_layer13",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1620_P10_final_export_layer14",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1620_P10_final_export_layer15",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1620_P10_final_export_layer16",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1620_P10_final_export_layer51",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1620_P10_left_bend_aligned",
+      "passed": true,
+      "x_um": -900.0
+    },
+    {
+      "name": "D1_L6000_W1620_P10_actual_y_origin",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_final_export_layer2",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1640_P10_final_export_layer10",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1640_P10_final_export_layer11",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1640_P10_final_export_layer13",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1640_P10_final_export_layer14",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1640_P10_final_export_layer15",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1640_P10_final_export_layer16",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1640_P10_final_export_layer51",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1640_P10_left_bend_aligned",
+      "passed": true,
+      "x_um": -900.0
+    },
+    {
+      "name": "D1_L6000_W1640_P10_actual_y_origin",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_final_export_layer2",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1680_P10_final_export_layer10",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1680_P10_final_export_layer11",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1680_P10_final_export_layer13",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1680_P10_final_export_layer14",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1680_P10_final_export_layer15",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1680_P10_final_export_layer16",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1680_P10_final_export_layer51",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1680_P10_left_bend_aligned",
+      "passed": true,
+      "x_um": -900.0
+    },
+    {
+      "name": "D1_L6000_W1680_P10_actual_y_origin",
+      "passed": true
+    }
+  ],
+  "check_count": 246,
+  "gds_sha256": "9038c82b316f2c07a3f2a40024a4d5e741fc2c6dd18b9a4d3007f30def9adf3e",
+  "existing_files_unchanged": true,
+  "protected_file_count": 81
+}
