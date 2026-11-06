@@ -1,0 +1,39 @@
+name: Finalize long-width release previews
+on:
+  push:
+    branches: [layout/2611-design1-L6000-P10-widths]
+    paths: [.github/workflows/finalize_2611_L6000_preview.yml]
+jobs:
+  finalize:
+    if: github.event.head_commit.message == 'Finalize long-width release previews'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install preview-only dependencies
+        run: python -m pip install --quiet klayout==0.30.13 matplotlib numpy
+      - name: Correct full-bend crop and check GDS hash unchanged
+        run: python _finalize_2611_L6000_preview.py
+      - name: Upload final separate design release
+        uses: actions/upload-artifact@v4
+        with:
+          name: 2611-design1-L6000-P10-final
+          path: |
+            2611_design1_L6000_P10_width_sweep.py
+            2611_tapered_yue_dual_resist.py
+            DESIGN1_L6000_WIDTH_SWEEP_README.md
+            gds/2611_design1_L6000_P10_width_sweep.*
+            validation_2611_L6000_width_sweep/*.png
+      - name: Commit preview correction and remove temporary runners
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add 2611_design1_L6000_P10_width_sweep.py
+          git rm _finalize_2611_L6000_preview.py .github/workflows/verify_2611_L6000_widths.yml .github/workflows/finalize_2611_L6000_preview.yml
+          git commit -m 'Finalize long-width previews and remove temporary runners'
+          git pull --rebase origin layout/2611-design1-L6000-P10-widths
+          git push
