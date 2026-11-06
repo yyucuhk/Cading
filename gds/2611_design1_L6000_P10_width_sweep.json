@@ -1,7 +1,7 @@
 {
   "status": "PASS",
   "source_file": "2611_tapered_yue_dual_resist.py",
-  "source_sha256": "a3a5401fb6bbf23f14d5f628d64c7cf20121fb91619b1fa6e61d874cdb75a99a",
+  "source_sha256": "f4b5c2497b5c8ceef584413b2a0a755e2c3fa042d1a6548fbb71b8932841e64b",
   "devices": [
     {
       "case_id": "D1_L6000_W1620_P10",
@@ -121,6 +121,9 @@
           -200.0
         ]
       ],
+      "straight_pnc_period_um": 10.0,
+      "taper_pnc_period_um": 10.0,
+      "pnc_taper_length_um": 45.0,
       "post_pnc_taper_total_um": 80.0,
       "label": "D1_W1.62_T80_P10",
       "checks": [
@@ -407,7 +410,7 @@
           "expected_width_um": 0.1
         },
         {
-          "name": "separate_PNC_taper_unchanged",
+          "name": "taper_PNC_matches_straight_without_changing_length",
           "passed": true
         },
         {
@@ -583,6 +586,9 @@
           -200.0
         ]
       ],
+      "straight_pnc_period_um": 10.0,
+      "taper_pnc_period_um": 10.0,
+      "pnc_taper_length_um": 45.0,
       "post_pnc_taper_total_um": 80.0,
       "label": "D1_W1.64_T80_P10",
       "checks": [
@@ -869,7 +875,7 @@
           "expected_width_um": 0.1
         },
         {
-          "name": "separate_PNC_taper_unchanged",
+          "name": "taper_PNC_matches_straight_without_changing_length",
           "passed": true
         },
         {
@@ -1045,6 +1051,9 @@
           -200.0
         ]
       ],
+      "straight_pnc_period_um": 10.0,
+      "taper_pnc_period_um": 10.0,
+      "pnc_taper_length_um": 45.0,
       "post_pnc_taper_total_um": 80.0,
       "label": "D1_W1.68_T80_P10",
       "checks": [
@@ -1331,7 +1340,7 @@
           "expected_width_um": 0.1
         },
         {
-          "name": "separate_PNC_taper_unchanged",
+          "name": "taper_PNC_matches_straight_without_changing_length",
           "passed": true
         },
         {
@@ -1679,7 +1688,5 @@
     }
   ],
   "check_count": 246,
-  "gds_sha256": "9038c82b316f2c07a3f2a40024a4d5e741fc2c6dd18b9a4d3007f30def9adf3e",
-  "existing_files_unchanged": true,
-  "protected_file_count": 81
+  "gds_sha256": "2c9a2ded2a70e9fc4f6b630463a9323284906748d29f0fa9ef9de3eecb6746c7"
 }

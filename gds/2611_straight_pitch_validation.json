@@ -5,20 +5,6 @@
       "passed": true
     },
     {
-      "name": "entire_layout_all_non_PNC_layers_exactly_unchanged",
-      "passed": true,
-      "xor_um2": {
-        "0/0": 0.0,
-        "2/0": 0.0,
-        "10/0": 0.0,
-        "13/0": 0.0,
-        "14/0": 0.0,
-        "15/0": 0.0,
-        "16/0": 0.0,
-        "51/0": 0.0
-      }
-    },
-    {
       "name": "D1_01_B2_T80_independent_pitch_parameters",
       "passed": true
     },
@@ -79,16 +65,6 @@
       "pncs": 279,
       "measured_min_pitch_um": 5.0,
       "measured_max_pitch_um": 5.0
-    },
-    {
-      "name": "D1_01_B2_T80_PNC_changes_confined_to_straights",
-      "passed": true,
-      "outside_straights_xor_um2": 0.0,
-      "total_PNC_change_um2": 5202.898776
-    },
-    {
-      "name": "D1_01_B2_T80_bends_tapers_placement_and_labels_preserved",
-      "passed": true
     },
     {
       "name": "D1_02_B2_T100_independent_pitch_parameters",
@@ -153,16 +129,6 @@
       "measured_max_pitch_um": 5.0
     },
     {
-      "name": "D1_02_B2_T100_PNC_changes_confined_to_straights",
-      "passed": true,
-      "outside_straights_xor_um2": 0.0,
-      "total_PNC_change_um2": 5202.898776
-    },
-    {
-      "name": "D1_02_B2_T100_bends_tapers_placement_and_labels_preserved",
-      "passed": true
-    },
-    {
       "name": "D1_03_B2_T120_independent_pitch_parameters",
       "passed": true
     },
@@ -223,16 +189,6 @@
       "pncs": 279,
       "measured_min_pitch_um": 5.0,
       "measured_max_pitch_um": 5.0
-    },
-    {
-      "name": "D1_03_B2_T120_PNC_changes_confined_to_straights",
-      "passed": true,
-      "outside_straights_xor_um2": 0.0,
-      "total_PNC_change_um2": 5202.898776
-    },
-    {
-      "name": "D1_03_B2_T120_bends_tapers_placement_and_labels_preserved",
-      "passed": true
     },
     {
       "name": "D1_04_B3_T80_independent_pitch_parameters",
@@ -297,16 +253,6 @@
       "measured_max_pitch_um": 5.0
     },
     {
-      "name": "D1_04_B3_T80_PNC_changes_confined_to_straights",
-      "passed": true,
-      "outside_straights_xor_um2": 0.0,
-      "total_PNC_change_um2": 5202.898776
-    },
-    {
-      "name": "D1_04_B3_T80_bends_tapers_placement_and_labels_preserved",
-      "passed": true
-    },
-    {
       "name": "D1_05_B3_T100_independent_pitch_parameters",
       "passed": true
     },
@@ -367,16 +313,6 @@
       "pncs": 279,
       "measured_min_pitch_um": 5.0,
       "measured_max_pitch_um": 5.0
-    },
-    {
-      "name": "D1_05_B3_T100_PNC_changes_confined_to_straights",
-      "passed": true,
-      "outside_straights_xor_um2": 0.0,
-      "total_PNC_change_um2": 5202.898776
-    },
-    {
-      "name": "D1_05_B3_T100_bends_tapers_placement_and_labels_preserved",
-      "passed": true
     },
     {
       "name": "D1_06_B3_T120_independent_pitch_parameters",
@@ -441,16 +377,6 @@
       "measured_max_pitch_um": 5.0
     },
     {
-      "name": "D1_06_B3_T120_PNC_changes_confined_to_straights",
-      "passed": true,
-      "outside_straights_xor_um2": 0.0,
-      "total_PNC_change_um2": 5202.898776
-    },
-    {
-      "name": "D1_06_B3_T120_bends_tapers_placement_and_labels_preserved",
-      "passed": true
-    },
-    {
       "name": "D1_07_B5_T80_independent_pitch_parameters",
       "passed": true
     },
@@ -511,16 +437,6 @@
       "pncs": 279,
       "measured_min_pitch_um": 5.0,
       "measured_max_pitch_um": 5.0
-    },
-    {
-      "name": "D1_07_B5_T80_PNC_changes_confined_to_straights",
-      "passed": true,
-      "outside_straights_xor_um2": 0.0,
-      "total_PNC_change_um2": 5202.898776
-    },
-    {
-      "name": "D1_07_B5_T80_bends_tapers_placement_and_labels_preserved",
-      "passed": true
     },
     {
       "name": "D1_08_B5_T100_independent_pitch_parameters",
@@ -585,16 +501,6 @@
       "measured_max_pitch_um": 5.0
     },
     {
-      "name": "D1_08_B5_T100_PNC_changes_confined_to_straights",
-      "passed": true,
-      "outside_straights_xor_um2": 0.0,
-      "total_PNC_change_um2": 5202.898776
-    },
-    {
-      "name": "D1_08_B5_T100_bends_tapers_placement_and_labels_preserved",
-      "passed": true
-    },
-    {
       "name": "D1_09_B5_T120_independent_pitch_parameters",
       "passed": true
     },
@@ -655,16 +561,6 @@
       "pncs": 279,
       "measured_min_pitch_um": 5.0,
       "measured_max_pitch_um": 5.0
-    },
-    {
-      "name": "D1_09_B5_T120_PNC_changes_confined_to_straights",
-      "passed": true,
-      "outside_straights_xor_um2": 0.0,
-      "total_PNC_change_um2": 5202.898776
-    },
-    {
-      "name": "D1_09_B5_T120_bends_tapers_placement_and_labels_preserved",
-      "passed": true
     },
     {
       "name": "D2_01_B2_T80_independent_pitch_parameters",
@@ -729,16 +625,6 @@
       "measured_max_pitch_um": 5.0
     },
     {
-      "name": "D2_01_B2_T80_PNC_changes_confined_to_straights",
-      "passed": true,
-      "outside_straights_xor_um2": 0.0,
-      "total_PNC_change_um2": 5202.898776
-    },
-    {
-      "name": "D2_01_B2_T80_bends_tapers_placement_and_labels_preserved",
-      "passed": true
-    },
-    {
       "name": "D2_02_B2_T100_independent_pitch_parameters",
       "passed": true
     },
@@ -799,16 +685,6 @@
       "pncs": 279,
       "measured_min_pitch_um": 5.0,
       "measured_max_pitch_um": 5.0
-    },
-    {
-      "name": "D2_02_B2_T100_PNC_changes_confined_to_straights",
-      "passed": true,
-      "outside_straights_xor_um2": 0.0,
-      "total_PNC_change_um2": 5202.898776
-    },
-    {
-      "name": "D2_02_B2_T100_bends_tapers_placement_and_labels_preserved",
-      "passed": true
     },
     {
       "name": "D2_03_B2_T120_independent_pitch_parameters",
@@ -873,16 +749,6 @@
       "measured_max_pitch_um": 5.0
     },
     {
-      "name": "D2_03_B2_T120_PNC_changes_confined_to_straights",
-      "passed": true,
-      "outside_straights_xor_um2": 0.0,
-      "total_PNC_change_um2": 5202.898776
-    },
-    {
-      "name": "D2_03_B2_T120_bends_tapers_placement_and_labels_preserved",
-      "passed": true
-    },
-    {
       "name": "D2_04_B3_T80_independent_pitch_parameters",
       "passed": true
     },
@@ -943,16 +809,6 @@
       "pncs": 279,
       "measured_min_pitch_um": 5.0,
       "measured_max_pitch_um": 5.0
-    },
-    {
-      "name": "D2_04_B3_T80_PNC_changes_confined_to_straights",
-      "passed": true,
-      "outside_straights_xor_um2": 0.0,
-      "total_PNC_change_um2": 5202.898776
-    },
-    {
-      "name": "D2_04_B3_T80_bends_tapers_placement_and_labels_preserved",
-      "passed": true
     },
     {
       "name": "D2_05_B3_T100_independent_pitch_parameters",
@@ -1017,16 +873,6 @@
       "measured_max_pitch_um": 5.0
     },
     {
-      "name": "D2_05_B3_T100_PNC_changes_confined_to_straights",
-      "passed": true,
-      "outside_straights_xor_um2": 0.0,
-      "total_PNC_change_um2": 5202.898776
-    },
-    {
-      "name": "D2_05_B3_T100_bends_tapers_placement_and_labels_preserved",
-      "passed": true
-    },
-    {
       "name": "D2_06_B3_T120_independent_pitch_parameters",
       "passed": true
     },
@@ -1087,16 +933,6 @@
       "pncs": 279,
       "measured_min_pitch_um": 5.0,
       "measured_max_pitch_um": 5.0
-    },
-    {
-      "name": "D2_06_B3_T120_PNC_changes_confined_to_straights",
-      "passed": true,
-      "outside_straights_xor_um2": 0.0,
-      "total_PNC_change_um2": 5202.898776
-    },
-    {
-      "name": "D2_06_B3_T120_bends_tapers_placement_and_labels_preserved",
-      "passed": true
     },
     {
       "name": "D2_07_B5_T80_independent_pitch_parameters",
@@ -1161,16 +997,6 @@
       "measured_max_pitch_um": 5.0
     },
     {
-      "name": "D2_07_B5_T80_PNC_changes_confined_to_straights",
-      "passed": true,
-      "outside_straights_xor_um2": 0.0,
-      "total_PNC_change_um2": 5202.898776
-    },
-    {
-      "name": "D2_07_B5_T80_bends_tapers_placement_and_labels_preserved",
-      "passed": true
-    },
-    {
       "name": "D2_08_B5_T100_independent_pitch_parameters",
       "passed": true
     },
@@ -1231,16 +1057,6 @@
       "pncs": 279,
       "measured_min_pitch_um": 5.0,
       "measured_max_pitch_um": 5.0
-    },
-    {
-      "name": "D2_08_B5_T100_PNC_changes_confined_to_straights",
-      "passed": true,
-      "outside_straights_xor_um2": 0.0,
-      "total_PNC_change_um2": 5202.898776
-    },
-    {
-      "name": "D2_08_B5_T100_bends_tapers_placement_and_labels_preserved",
-      "passed": true
     },
     {
       "name": "D2_09_B5_T120_independent_pitch_parameters",
@@ -1305,44 +1121,6 @@
       "measured_max_pitch_um": 5.0
     },
     {
-      "name": "D2_09_B5_T120_PNC_changes_confined_to_straights",
-      "passed": true,
-      "outside_straights_xor_um2": 0.0,
-      "total_PNC_change_um2": 5202.898776
-    },
-    {
-      "name": "D2_09_B5_T120_bends_tapers_placement_and_labels_preserved",
-      "passed": true
-    },
-    {
-      "name": "2611_tapered_yue_dual_resist_L10_L12.gds_all_non_PNC_layers_unchanged",
-      "passed": true,
-      "xor_um2": {
-        "0/0": 0.0,
-        "2/0": 0.0,
-        "10/0": 0.0,
-        "13/0": 0.0,
-        "14/0": 0.0,
-        "15/0": 0.0,
-        "16/0": 0.0,
-        "51/0": 0.0
-      }
-    },
-    {
-      "name": "2611_tapered_yue_design2.gds_all_non_PNC_layers_unchanged",
-      "passed": true,
-      "xor_um2": {
-        "0/0": 0.0,
-        "2/0": 0.0,
-        "10/0": 0.0,
-        "13/0": 0.0,
-        "14/0": 0.0,
-        "15/0": 0.0,
-        "16/0": 0.0,
-        "51/0": 0.0
-      }
-    },
-    {
       "name": "exactly_18_labels",
       "passed": true
     },
@@ -1365,11 +1143,11 @@
   ],
   "failures": [],
   "status": "PASS",
-  "check_count": 243,
-  "baseline_comparison_performed": true,
+  "check_count": 204,
+  "baseline_comparison_performed": false,
   "straight_pitch_definition": "center_to_center",
   "straight_pitch_um": 5.0,
   "device_count": 18,
   "straight_sections_measured": 54,
-  "gds_sha256": "b13961aa41e7d0202838f004704bcfe4092877eba8b206976ae95ef291040963"
+  "gds_sha256": "0fd8703eaa5b1fe40bc85d51220fdb13143766c534d3fa07cc9e4b8376bf61d6"
 }

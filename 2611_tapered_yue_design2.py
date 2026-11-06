@@ -98,7 +98,8 @@ S_BEND_TAPER_LENGTH = 10.0  # legacy noncompact-route setting; compact path igno
 
 # --- 1D. Phononic-crystal (PNC) support pattern ---
 MEANDER_STRAIGHT_PNC_PERIOD = 5.0  # exact center-to-center pitch on all three straights
-REVIEW_SUPPORT_ANCHOR_PERIOD = 15.0  # PNC TAPER pitch only; preserves its 45 um length
+REVIEW_SUPPORT_ANCHOR_PERIOD = MEANDER_STRAIGHT_PNC_PERIOD  # taper follows straight pitch
+PNC_TAPER_TRANSITION_LENGTH = 45.0  # fixed 15 -> 3 um envelope; independent of PNC pitch
 REVIEW_SUPPORT_BEND_PERIOD = 3.0  # requested PNC pitch on bends
 PHONONIC_SUPPORT_SEGMENTS = (
     0.626,
@@ -110,7 +111,7 @@ PHONONIC_SUPPORT_SEGMENTS = (
 )  # six square-mass sizes in the PNC library cell
 PHONONIC_SUPPORT_GAPS = 0.25  # gap between PNC masses
 PNC_NARROW_END_EXTENSION = 0.5  # narrow neck extension at both radial ends
-# The PNC taper length is three straight periods; see Section 02.
+# PNC taper pitch follows the straight sections; its physical length stays fixed.
 
 # --- 1E. Butterfly tethers and support islands ---
 TETHER_VARIANT = 2  # 2 = split/forked butterfly in tether_variants.py
@@ -187,7 +188,7 @@ SLAB_TAPER_LENGTH = TAPER_STAGE3_LENGTH
 SLAB_EXTENSION_START_WIDTH = SLAB_STAGE1_END_WIDTH
 RIDGE_CONVERTER_LENGTH = TAPER_STAGE2_LENGTH
 S_BEND_VERTICAL_HALF_SPAN = 2 * S_BEND_COMPACT_180_RADIUS
-PNC_TAPER_LENGTH = 3 * REVIEW_SUPPORT_ANCHOR_PERIOD
+PNC_TAPER_LENGTH = PNC_TAPER_TRANSITION_LENGTH
 POST_PNC_TAPER_LENGTH = RIDGE_TAPER_LENGTH
 SLAB_EXTENSION_LENGTH = (
     PNC_TAPER_LENGTH + POST_PNC_TAPER_LENGTH
@@ -583,9 +584,9 @@ def design2_phononic_taper_shield(
     outer_bands = gf.Component()
     inner_edge = widths / 2
     outer_edge = inner_edge + tether_length
-    # Extend the PNC mask by half a cell at both longitudinal ends. The last
-    # cell remains centered exactly at the 3 um taper endpoint but is no
-    # longer cut in half by the end of the surrounding positive-resist band.
+    # Keep the approved continuous mask envelope, extended by half a cell
+    # at both longitudinal ends. PNC sampling does not change this mask;
+    # a cell on either endpoint is fully covered by the surrounding band.
     band_end_extension = cell_half_length
     band_x = np.concatenate(([-band_end_extension], x, [cutoff_x + band_end_extension]))
     band_inner_edge = np.concatenate(([inner_edge[0]], inner_edge, [inner_edge[-1]]))
@@ -612,7 +613,11 @@ def design2_phononic_taper_shield(
     outer_bands.add_polygon(lower_polygon, layer=Layers.wg_doubleetch)
 
     cuts = gf.Component()
-    support_positions = np.arange(pitch, cutoff_x + 1e-9, pitch)
+    # Continue the straight-section grid across the meander/taper interface.
+    # For the current integral-length straight grids, x=0 is not a duplicate.
+    # Keep the last full-pitch station; do not squeeze a final PNC onto the
+    # endpoint when cutoff_x is not an integer multiple of pitch.
+    support_positions = np.arange(0.0, cutoff_x + 1e-9, pitch)
     for support_x in support_positions:
         support_u = support_x / length
         support_weight = 6 * support_u**5 - 15 * support_u**4 + 10 * support_u**3

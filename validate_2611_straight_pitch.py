@@ -72,7 +72,7 @@ def run():
         inst = instances[ident]
         regs = regions(layout, inst.cell)
         check(ident + '_independent_pitch_parameters',
-              entry['straight_pnc_period_um'] == 5.0 and entry['taper_pnc_period_um'] == 15.0
+              entry['straight_pnc_period_um'] == 5.0 and entry['taper_pnc_period_um'] == 5.0
               and entry['pnc_taper_length_um'] == 45.0)
         check(ident + '_three_straight_sections', len(entry['straight_pnc_measurements']) == 3)
         allowed = kdb.Region()

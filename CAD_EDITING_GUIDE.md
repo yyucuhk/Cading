@@ -50,7 +50,7 @@ Every layer, label and support moves together. Nothing is clipped or spliced.
 ### 1B: Optical taper dimensions
 
 The following stages start AFTER the 15 -> 3 um PNC transition. The PNC region
-has its own derived length (currently 45 um).
+has its own fixed length (45 um), independent of its PNC pitch.
 
 #### Design 1
 
@@ -107,8 +107,8 @@ construction/support envelope and is NOT that optical width.
 `MEANDER_STRAIGHT_PNC_PERIOD` controls the exact center-to-center PNC pitch
 on the three meander straights (currently 5 um). `REVIEW_SUPPORT_BEND_PERIOD`
 independently controls the nominal fitted-to-arc bend pitch.
-`REVIEW_SUPPORT_ANCHOR_PERIOD` controls only the separate PNC-taper pattern
-(currently 15 um); the PNC taper length is three of those periods, or 45 um.
+`REVIEW_SUPPORT_ANCHOR_PERIOD` is an alias of `MEANDER_STRAIGHT_PNC_PERIOD`.
+The taper follows that pitch; `PNC_TAPER_TRANSITION_LENGTH = 45.0` independently fixes its length.
 Changing the straight-meander pitch does not change that taper's length. `PHONONIC_SUPPORT_SEGMENTS` and
 `PHONONIC_SUPPORT_GAPS` define the library cell's masses and gaps.
 `S_BEND_TAPER_LENGTH` belongs to the inherited noncompact route; it is not the
@@ -265,12 +265,33 @@ This is CENTER-TO-CENTER pitch, not edge-to-edge clearance. All three 1400 um
 straights use an exact 5 um grid, with 279 interior PNC pairs per straight.
 One shared PNC pair at each straight/bend junction is retained.
 
-`REVIEW_SUPPORT_ANCHOR_PERIOD = 15.0` is now explicitly the independent
-PNC-taper pitch. Its three-period 45 um transition and all optical taper
-lengths stay unchanged. Do not change it to edit straight-meander pitch.
+`REVIEW_SUPPORT_ANCHOR_PERIOD = MEANDER_STRAIGHT_PNC_PERIOD` makes the
+PNC taper follow the straight-section pitch. Its physical length is fixed
+separately by `PNC_TAPER_TRANSITION_LENGTH = 45.0`; optical tapers do not move.
 The bend sweep remains nominal 2/3/5 um with the existing fitted-to-arc
 sampler. Labels still report design, post-PNC taper length and bend period
 only; the common straight period is recorded separately in CSV/JSON.
 
 Run `python validate_2611_straight_pitch.py` after regenerating the combined
 sweep to measure every straight PNC population directly in the exported GDS.
+
+## Taper-junction pitch correction
+
+PNCs now continue on the straight-section grid through each 45 um PNC taper,
+including a pair at the connection port. The 1400 um designs use 5 um
+pitch on both straights and tapers; the separate 6000 um width sweep uses
+10 um on both. Bend samplers and all optical/release/protection geometry
+are unchanged. No extra cell is forced onto a non-grid taper endpoint.
+Run `python validate_2611_taper_pitch.py` after regenerating the four GDSs
+to check both taper ends and the junction-to-straight spacings. Historical
+baseline reports describe the previous geometry; the new report is
+`gds/2611_taper_pitch_validation.json`.
+
+### Reproducing the approved mask grid
+
+The short standalone designs and 18-device sweep were rebuilt with
+GDSFactory 9.45.0 and KLayout 0.30.12. The separate 6000 um sweep uses
+GDSFactory 9.45.0 and KLayout 0.30.13, matching its original export.
+Pin the matching versions for exact polygon comparisons; changing the
+geometry-engine version can change nanometre-grid rounding in offset masks.
+The taper-pitch report records both environments.
