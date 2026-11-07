@@ -1,0 +1,144 @@
+name: Build and verify 5 um PNC cutoff
+on:
+  push:
+    branches: [layout/2611-pnc5um-save-validated]
+    paths: [.github/workflows/verify_2611_pnc5um.yml]
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Preserve approved GDS files and support-library hashes
+        run: |
+          mkdir -p validation_2611_pnc5um/baseline
+          cp gds/2611_tapered_yue_dual_resist_L10_L12.gds gds/2611_tapered_yue_design2.gds gds/2611_design1_design2_L1400_18device_sweep.gds gds/2611_design1_L6000_P10_width_sweep.gds validation_2611_pnc5um/baseline/
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib,json
+          paths=['layers.py','markers.py','phononics.py','tapered_local.py','tether_variants.py','tether_variants.gds','text.py','extract_layer2_gdsfactory.py']
+          Path('validation_2611_pnc5um/protected_hashes.json').write_text(json.dumps({p:hashlib.sha256(Path(p).read_bytes()).hexdigest() for p in paths},indent=2))
+          PY
+      - name: Apply guarded source update and refresh related expectations
+        run: |
+          python _apply_pnc5um_once.py
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('2611_build_combined_sweep.py');s=p.read_text()
+          s=s.replace('full Layer-10 taper after the unchanged 45 um PNC','full Layer-10 taper after the shortened 5 um-width PNC endpoint')
+          s=s.replace('The taper grid starts at the connection port and its 45 um envelope is unchanged.','The taper grid starts at the connection port; its active length is 31.378626347 um on the original 45 um reference profile.')
+          p.write_text(s)
+          p=Path('validate_2611_straight_pitch.py');s=p.read_text()
+          old="entry['pnc_taper_length_um'] == 45.0"
+          assert s.count(old)==1
+          s=s.replace(old,"abs(entry['pnc_taper_length_um']-31.378626347)<1e-6 and entry['pnc_cutoff_width_um']==5.0")
+          p.write_text(s)
+          PY
+          python -m py_compile 2611_tapered_yue_dual_resist.py 2611_tapered_yue_design2.py 2611_build_combined_sweep.py 2611_design1_L6000_P10_width_sweep.py validate_2611_pnc5um.py
+      - name: Install approved short-layout geometry engine
+        run: python -m pip install gdsfactory==9.45.0 kfactory==2.6.1 klayout==0.30.12 numpy==2.4.6
+      - name: Regenerate both standalone designs and the 18-device sweep
+        run: |
+          python 2611_tapered_yue_dual_resist.py
+          python 2611_tapered_yue_design2.py
+          python 2611_build_combined_sweep.py
+      - name: Regenerate the separate 6000 um width sweep
+        run: |
+          python -m pip install klayout==0.30.13
+          python 2611_design1_L6000_P10_width_sweep.py
+      - name: Verify actual cutoff masks connectivity labels placement and pitches
+        run: |
+          python validate_2611_combined_sweep.py
+          python validate_2611_vertical_sweep.py
+          python validate_2611_straight_pitch.py
+          python validate_2611_pnc5um.py
+      - name: Render saved junction geometry and finalize current validation evidence
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib,json,importlib.metadata as md
+          import klayout.db as kdb
+          import matplotlib
+          matplotlib.use('Agg')
+          import matplotlib.pyplot as plt
+          work=Path('validation_2611_pnc5um')
+          for name,h in json.loads((work/'protected_hashes.json').read_text()).items():
+              assert hashlib.sha256(Path(name).read_bytes()).hexdigest()==h,name
+          for d,filename in [(1,'2611_tapered_yue_dual_resist_L10_L12.gds'),(2,'2611_tapered_yue_design2.gds')]:
+              ly=kdb.Layout();ly.read('gds/'+filename);top=ly.top_cell();dbu=ly.dbu
+              cells=[i.cell for i in top.each_inst() if not kdb.Region(i.cell.begin_shapes_rec(ly.layer(51,0))).is_empty() and not kdb.Region(i.cell.begin_shapes_rec(ly.layer(15,0))).is_empty()]
+              assert len(cells)==1
+              c=cells[0];bounds=(680,-220,800,-180)
+              roi=kdb.Region(kdb.Box(*(round(v/dbu) for v in bounds)))
+              fig,ax=plt.subplots(figsize=(12,5))
+              for n in (14,11,10,15,16):
+                  reg=(kdb.Region(c.begin_shapes_rec(ly.layer(n,0)))&roi).merged()
+                  x=[];y=[]
+                  for p in reg.each():
+                      pts=[(v.x*dbu,v.y*dbu) for v in p.each_point_hull()]
+                      if pts:
+                          pts=pts+[pts[0]]+[(float('nan'),float('nan'))]
+                          x.extend(a for a,b in pts);y.extend(b for a,b in pts)
+                  ax.plot(x,y,linewidth=.8,label='Layer '+str(n))
+              ax.axvline(731.378626347,linestyle='--',linewidth=.7)
+              ax.text(732,-184,'PNC ends at 5 um width',fontsize=9)
+              ax.set(xlim=(bounds[0],bounds[2]),ylim=(bounds[1],bounds[3]),xlabel='Device-local X (um)',ylabel='Device-local Y (um)',title=f'Design {d}: regenerated 5 um-cutoff junction')
+              ax.set_aspect('equal');ax.legend(loc='upper right',fontsize=8);fig.tight_layout();fig.savefig(work/f'design{d}_pnc5um.png',dpi=180);plt.close(fig)
+          report=json.loads((work/'validation_report.json').read_text())
+          assert report['status']=='PASS'
+          report['base_commit']='6d4fcb56e649e80e0270c3af37be16a102799c00'
+          report['support_libraries_unchanged']=True
+          report['build_engine_versions']={'gdsfactory':'9.45.0','kfactory':'2.6.1','numpy':'2.4.6','short_klayout':'0.30.12','long_klayout':'0.30.13'}
+          (work/'validation_report.json').write_text(json.dumps(report,indent=2))
+          Path('gds/2611_pnc5um_validation.json').write_text(json.dumps(report,indent=2))
+          Path('gds/2611_taper_pitch_validation.json').write_text(json.dumps({'status':'SUPERSEDED','current_report':'2611_pnc5um_validation.json','reason':'PNC endpoint changed from 3 um to 5 um; old taper tests target retired geometry.'},indent=2))
+          (work/'build_status.json').write_text(json.dumps({'status':'PASS','outputs':report['outputs']},indent=2))
+          PY
+      - name: Upload updated source and all four generated GDS files
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: 2611-pnc5um-saved-release
+          path: |
+            2611_tapered_yue_dual_resist.py
+            2611_tapered_yue_design2.py
+            2611_build_combined_sweep.py
+            2611_design1_L6000_P10_width_sweep.py
+            validate_2611_pnc5um.py
+            validate_2611_combined_sweep.py
+            validate_2611_vertical_sweep.py
+            validate_2611_straight_pitch.py
+            PNC5UM_README.txt
+            CAD_EDITING_GUIDE.md
+            COMBINED_SWEEP_README.md
+            DESIGN1_L6000_WIDTH_SWEEP_README.md
+            gds/2611_tapered_yue_dual_resist_L10_L12.gds
+            gds/2611_tapered_yue_design2.gds
+            gds/2611_design1_design2_L1400_18device_sweep.*
+            gds/2611_design1_L6000_P10_width_sweep.*
+            gds/2611_pnc5um_validation.json
+            gds/2611_combined_sweep_validation.json
+            gds/2611_vertical_sweep_validation.json
+            gds/2611_straight_pitch_validation.json
+            validation_2611_pnc5um/*.json
+            validation_2611_pnc5um/*.png
+            validation_2611_combined_sweep/*.log
+            validation_2611_combined_sweep/combined_sweep.png
+            validation_2611_L6000_width_sweep/*.log
+            validation_2611_L6000_width_sweep/overview.png
+      - name: Save passing code and GDS files on the working branch
+        run: |
+          git config user.name "chatgpt-runner"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          rm _apply_pnc5um_once.py .github/workflows/verify_2611_pnc5um.yml
+          git add -u
+          git add PNC5UM_README.txt gds/2611_pnc5um_validation.json
+          git commit -m "Save regenerated 5 um PNC cutoff layouts with exported geometry validation"
+          git push
