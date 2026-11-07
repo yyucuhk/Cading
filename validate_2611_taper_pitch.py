@@ -2,8 +2,9 @@
 
 Run 'python validate_2611_taper_pitch.py capture' BEFORE editing to retain a
 baseline, then run without arguments AFTER regenerating the four layouts.
-Only Layer 11 inside the first 5 um of each existing PNC taper may change.
-Five 1 um intervals are checked, along with the unchanged surrounding grid. This does not
+Correct the mistaken wide-end reinforcement and place five 1 um intervals
+in the LAST 5 um, at the 3 um-wide end of each PNC taper. Only Layer 11 in
+the old and new reinforcement neighborhoods may change. The rest is checked. This does not
 replace fabrication DRC or optical simulation.
 """
 from pathlib import Path
@@ -20,6 +21,8 @@ WORK = ROOT / 'validation_2611_taper_pitch'
 DENSE_PITCH = 1.0
 DENSE_PERIODS = 5
 DENSE_SPAN = DENSE_PITCH * DENSE_PERIODS
+DENSE_END = 45.0
+DENSE_START = DENSE_END - DENSE_SPAN
 BASE = WORK / 'baseline'
 FILES = [
     ('design1', '2611_tapered_yue_dual_resist_L10_L12.gds', 1400.0, 5.0, 1),
@@ -98,12 +101,15 @@ def run():
         check(tag+'_device_count', len(insts) == expected_count, count=len(insts))
         check(tag+'_database_grid', abs(dbu-.001) < 1e-12)
         regular = np.arange(0, 45+1e-9, pitch)
-        dense = DENSE_PITCH * np.arange(DENSE_PERIODS + 1)
-        expected = np.r_[np.arange(-3*pitch, -.0001, pitch), dense,
-                         regular[regular > DENSE_SPAN + 1e-9]]
-        allowed_global = kdb.Region()
-        local_allowed = box((L/2-.4, -230, L/2+DENSE_SPAN+.4, -170), dbu)
-        local_allowed += local_allowed.transformed(kdb.Trans(kdb.Trans.R180))
+        dense = DENSE_START + DENSE_PITCH * np.arange(DENSE_PERIODS + 1)
+        expected = np.r_[np.arange(-3*pitch, -.0001, pitch),
+                         regular[regular < DENSE_START - 1e-9], dense]
+        old_dense_global = kdb.Region()
+        new_dense_global = kdb.Region()
+        old_dense_local = box((L/2-.4, -230, L/2+DENSE_SPAN+.4, -170), dbu)
+        old_dense_local += old_dense_local.transformed(kdb.Trans(kdb.Trans.R180))
+        new_dense_local = box((L/2+DENSE_START-.4, -230, L/2+DENSE_END+.4, -170), dbu)
+        new_dense_local += new_dense_local.transformed(kdb.Trans(kdb.Trans.R180))
         old_layout = old_top = None
         if (BASE/filename).exists():
             old_layout, old_top = read(BASE/filename)
@@ -113,7 +119,8 @@ def run():
             count += 1
             ident = f'{tag}_{di+1}'
             reg = region(layout, inst.cell, (11,0))
-            allowed_global += local_allowed.transformed(inst.trans)
+            old_dense_global += old_dense_local.transformed(inst.trans)
+            new_dense_global += new_dense_local.transformed(inst.trans)
             origin = (inst.trans.disp.x, inst.trans.disp.y)
             old_inst = before_by_origin.get(origin)
             if old_layout is not None:
@@ -131,12 +138,17 @@ def run():
                           len(spacing) == len(expected)-1 and np.allclose(spacing, np.diff(expected), atol=.0011, rtol=0),
                           measured_min_um=float(min(spacing)) if len(spacing) else None,
                           measured_max_um=float(max(spacing)) if len(spacing) else None)
-                    dense_centers = centers[(centers >= -.0011) & (centers <= DENSE_SPAN+.0011)]
-                    check(f'{ident}_{end}_{side}_exactly_five_1um_periods',
+                    dense_centers = centers[(centers >= DENSE_START-.0011) & (centers <= DENSE_END+.0011)]
+                    check(f'{ident}_{end}_{side}_narrow_end_five_1um_periods',
                           len(dense_centers) == 6 and np.allclose(dense_centers, dense, atol=.0011, rtol=0),
                           stations_um=dense_centers.tolist())
                     check(f'{ident}_{end}_{side}_one_PNC_at_interface',
                           sum(abs(centers) < .0011) == 1)
+                    check(f'{ident}_{end}_{side}_wide_end_regular_grid_restored',
+                          np.array_equal(np.round(centers[(centers >= -.0011) & (centers <= DENSE_SPAN+.0011)],3),
+                                         regular[regular <= DENSE_SPAN+1e-9]))
+                    check(f'{ident}_{end}_{side}_one_PNC_at_3um_endpoint',
+                          sum(abs(centers-DENSE_END) < .0011) == 1)
                 previous = None
                 if old_inst is not None:
                     old_r = region(old_layout, old_inst.cell, (11,0))
@@ -146,6 +158,7 @@ def run():
                 REPORT['measurements'].append(dict(layout=tag,cell=inst.cell.name,end=end,
                     pitch_um=pitch,taper_length_um=45.0,
                     dense_pitch_um=DENSE_PITCH,dense_periods=DENSE_PERIODS,dense_span_um=DENSE_SPAN,
+                    dense_start_um=DENSE_START,dense_end_um=DENSE_END,region="narrow_pnc_end",
                     before_centers_from_port_um=previous,
                     after_centers_from_port_um={str(k):v.tolist() for k,v in values.items()}))
         labels = [i for i in top.each_inst() if i.cell.name.startswith('LABEL_')]
@@ -158,10 +171,11 @@ def run():
                    for n,d in sorted(set(old)|set(new)) if (n,d)!=(11,0)}
             check(tag+'_every_non_PNC_layer_exactly_unchanged', all(v==0 for v in xor.values()),xor_um2=xor)
             delta = (old[(11,0)] ^ new[(11,0)])
-            outside = (delta-allowed_global).area()*dbu**2
-            check(tag+'_PNC_changes_only_in_first_5um',outside==0,
+            outside = (delta-(old_dense_global | new_dense_global)).area()*dbu**2
+            check(tag+'_PNC_changes_only_in_old_and_new_dense_regions',outside==0,
                   outside_dense_region_xor_um2=float(outside),total_PNC_change_um2=float(delta.area()*dbu**2))
-            check(tag+'_no_existing_PNC_removed', (old[(11,0)]-new[(11,0)]).is_empty())
+            check(tag+'_only_mistaken_wide_end_additions_removed', ((old[(11,0)]-new[(11,0)])-old_dense_global).is_empty())
+            check(tag+'_new_supports_only_at_narrow_end', ((new[(11,0)]-old[(11,0)])-new_dense_global).is_empty())
             check(tag+'_physical_PNC_update_present',not delta.is_empty())
         REPORT['outputs'][filename] = {'sha256':hashlib.sha256((ROOT/'gds'/filename).read_bytes()).hexdigest(),
                                       'devices':len(insts),'pitch_um':pitch}
@@ -169,6 +183,7 @@ def run():
                   check_count=len(REPORT['checks']),devices_checked=count,
                   taper_ends_checked=2*count,
                   dense_pitch_um=DENSE_PITCH,dense_periods=DENSE_PERIODS,dense_span_um=DENSE_SPAN,
+                  dense_start_um=DENSE_START,dense_end_um=DENSE_END,region="narrow_pnc_end",
                   baseline_comparison_performed=all((BASE/f).exists() for _,f,_,_,_ in FILES))
     (ROOT/'gds/2611_taper_pitch_validation.json').write_text(json.dumps(REPORT,indent=2))
     (WORK/'validation_report.json').write_text(json.dumps(REPORT,indent=2))
@@ -207,10 +222,14 @@ def render():
                     collection.set_color(ax._get_lines.get_next_color())
                     ax.add_collection(collection)
             ax.axvline(x0,linestyle=':',linewidth=1)
-            ax.text(x0+.8,15,'Straight / taper junction',fontsize=9)
+            ax.text(x0+.8,15,'Wide PNC start: regular pitch restored',fontsize=9)
+            ax.axvline(x0+DENSE_END,linestyle=':',linewidth=1)
+            ax.annotate('3 um-wide end: five 1 um periods',
+                        xy=(x0+DENSE_END-2.5,6.5), xytext=(x0+15,12),
+                        arrowprops=dict(arrowstyle='->'),fontsize=9)
             ax.set(xlim=bounds[::2],ylim=(-17,17),xlabel='Global X (um)',
                    ylabel='Y relative to ridge (um)',
-                   title=f'Design {design}: {state} - '+('5 um regular pitch' if state=='before' else 'five 1 um periods at connection; rest unchanged'))
+                   title=f'Design {design}: {state} - '+('previous reinforcement at wrong (wide) end' if state=='before' else 'reinforcement moved to narrow PNC end'))
             ax.set_aspect('equal');ax.legend(loc='lower left');fig.tight_layout()
             fig.savefig(WORK/f'design{design}_{state}.png',dpi=180);plt.close(fig)
 

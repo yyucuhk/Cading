@@ -100,8 +100,8 @@ S_BEND_TAPER_LENGTH = 10.0  # legacy noncompact-route setting; compact path igno
 MEANDER_STRAIGHT_PNC_PERIOD = 5.0  # exact center-to-center pitch on all three straights
 REVIEW_SUPPORT_ANCHOR_PERIOD = MEANDER_STRAIGHT_PNC_PERIOD  # taper follows straight pitch
 PNC_TAPER_TRANSITION_LENGTH = 45.0  # fixed 15 -> 3 um envelope; independent of PNC pitch
-PNC_CONNECTION_PITCH = 1.0  # local longitudinal center-to-center pitch at BOTH taper starts
-PNC_CONNECTION_PERIODS = 5  # five intervals / six stations across the first 5 um; 0 disables
+PNC_CONNECTION_PITCH = 1.0  # longitudinal center-to-center pitch at BOTH narrow PNC ends
+PNC_CONNECTION_PERIODS = 5  # five intervals / six stations in the LAST 5 um, ending at 3 um width; 0 disables
 REVIEW_SUPPORT_BEND_PERIOD = 3.0  # requested PNC pitch on bends
 PHONONIC_SUPPORT_SEGMENTS = (
     0.626,
@@ -626,18 +626,19 @@ def design2_phononic_taper_shield(
         raise ValueError("connection_pitch must be finite and positive")
     if isinstance(connection_periods, bool) or not isinstance(connection_periods, int) or connection_periods < 0:
         raise ValueError("connection_periods must be a non-negative integer")
-    dense_end = connection_pitch * connection_periods
-    if dense_end > cutoff_x + 1e-9:
+    dense_span = connection_pitch * connection_periods
+    if dense_span > cutoff_x + 1e-9:
         raise ValueError("Dense connection segment must fit inside the existing PNC taper")
-    # Local +x is outward from the meander at BOTH input/output ends.
-    # Five 1 um periods mean stations 0,1,2,3,4,5 um, not a global pitch change.
-    # Retain the original grid/phase after this segment: do not shift or stretch
-    # any remaining PNC. With the approved 5/10 um regular grids this only adds
-    # supports, and does not remove or move any original station.
+    # Local +x points from the wide meander toward the narrow optical taper.
+    # Anchor reinforcement to cutoff_x (the 3 um-wide PNC end), NOT x=0.
+    # Five 1 um periods occupy x=40,41,42,43,44,45 um for a 45 um taper.
+    # Restore the regular grid at the wide end and retain its original phase
+    # everywhere before the final dense segment. Never shift optical geometry.
+    dense_start = max(0.0, cutoff_x - dense_span)
     if connection_periods:
-        dense_positions = np.arange(connection_periods + 1, dtype=float) * connection_pitch
+        dense_positions = cutoff_x - np.arange(connection_periods, -1, -1, dtype=float) * connection_pitch
         support_positions = np.concatenate((
-            dense_positions, regular_positions[regular_positions > dense_end + 1e-9]
+            regular_positions[regular_positions < dense_start - 1e-9], dense_positions
         ))
     else:
         support_positions = regular_positions
@@ -672,7 +673,10 @@ def design2_phononic_taper_shield(
     component.info["support_positions"] = [float(value) for value in support_positions]
     component.info["connection_pnc_pitch_um"] = float(connection_pitch)
     component.info["connection_pnc_periods"] = int(connection_periods)
-    component.info["connection_pnc_span_um"] = float(dense_end)
+    component.info["connection_pnc_span_um"] = float(dense_span)
+    component.info["connection_pnc_region"] = "narrow_pnc_end"
+    component.info["connection_pnc_start_um"] = float(dense_start)
+    component.info["connection_pnc_end_um"] = float(cutoff_x)
     component.info["pnc_ebl_layer"] = tuple(pnc_layer)
     component.info["pnc_mla_layer"] = tuple(layer)
     component.info["pnc_ebl_tone"] = "negative_solid_pnc"
