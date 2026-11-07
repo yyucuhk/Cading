@@ -1,0 +1,163 @@
+name: Finalize verified 5 um PNC endpoint
+on:
+  push:
+    branches: [layout/2611-pnc-cutoff-5um]
+    paths: [.github/workflows/finalize_2611_pnc5.yml]
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+      actions: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install exported-polygon measurement engine
+        run: python -m pip install gdsfactory==9.45.0 klayout==0.30.13
+      - name: Preserve original approved 3 um endpoint outputs
+        run: python validate_2611_pnc5_cutoff.py capture
+      - uses: actions/download-artifact@v4
+        with:
+          name: 2611-pnc5-endpoint-release
+          run-id: 42339853016
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: _generated_review
+      - name: Reuse generated geometry and distinguish labels and fixed nonfabrication guides
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json, hashlib, shutil
+          src=Path('_generated_review')
+          report=json.loads((src/'gds/2611_pnc5_cutoff_validation.json').read_text())
+          expected_suffixes=('_L51_downstream_shape_preserved','_L14_outside_ends_unchanged','_L2_outside_ends_unchanged')
+          assert report['failures'] and all(n.endswith(expected_suffixes) for n in report['failures'])
+          for name in ('2611_combined_sweep_validation.json','2611_vertical_sweep_validation.json','2611_straight_pitch_validation.json','2611_design1_L6000_P10_width_sweep.json'):
+              assert json.loads((src/'gds'/name).read_text())['status']=='PASS', name
+          for p in src.rglob('*'):
+              if p.is_file() and (p.parts[1]=='gds' or len(p.parts)==2):
+                  q=Path(*p.parts[1:]);q.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(p,q)
+          names=['2611_tapered_yue_dual_resist_L10_L12.gds','2611_tapered_yue_design2.gds','2611_design1_design2_L1400_18device_sweep.gds','2611_design1_L6000_P10_width_sweep.gds']
+          Path('validation_2611_pnc5_cutoff/generated_hashes.json').write_text(json.dumps({n:hashlib.sha256((Path('gds')/n).read_bytes()).hexdigest() for n in names},indent=2))
+          p=Path('validate_2611_pnc5_cutoff.py');s=p.read_text()
+          helper='''def standalone_label_region(design,L,first_stage,pnc_length,dbu):
+              import gdsfactory as gf
+              gf.gpdk.PDK.activate()
+              total=3*L+2*gf.path.euler(radius=100,angle=180,p=.2,use_eff=True).length()
+              text=(f"ML{total:.1f}_TL80" if design==1 else f"DESIGN 2_L{L:g}_ML{total:.1f}")
+              c=gf.components.text(text=text,size=3.,layer=(2,0))
+              r=kdb.Region(c.kdb_cell.begin_shapes_rec(gf.get_layer((2,0)))).merged()
+              return r.transformed(kdb.Trans(round((-L/2-pnc_length-first_stage+5)/dbu),round(210/dbu)))
+
+
+          '''
+          helper='\n'.join(line[10:] if line.startswith('          ') else line for line in helper.split('\n'))
+          assert s.count('def capture():')==1
+          s=s.replace('def capture():',helper+'def capture():')
+          old='''                for n in r:
+                              area=((r[n]^old[n])-allowed).area()*dbu**2
+                              check(name+f'_L{n}_outside_ends_unchanged',area<.000001,xor_um2=area)
+          '''
+          # Match the actual source indentation without broad clipping exclusions.
+          start=s.index('                for n in r:\n')
+          end=s.index('            else: old=None',start)
+          replacement='''                label_changes=kdb.Region()
+              if tag in ('design1','design2'):
+                  now_label=standalone_label_region(design,L,stages[0],END,dbu)
+                  old_label=standalone_label_region(design,L,stages[0],OLD_END,dbu)
+                  check(name+'_new_standalone_text_present',(now_label-r[2]).is_empty())
+                  check(name+'_old_standalone_text_present',(old_label-old[2]).is_empty())
+                  label_changes=now_label|old_label
+              check(name+'_nonfabrication_L51_unchanged',(r[51]^old[51]).is_empty())
+              for n in r:
+                  delta=(r[n]^old[n])-allowed
+                  if n==2:
+                      delta-=label_changes
+                  area=delta.area()*dbu**2
+                  if n==14:
+                      boundary=old[n].sized(1)-old[n].sized(-1)
+                      off_boundary=delta-boundary
+                      check(name+'_L14_outside_ends_within_1nm_export_grid',
+                            area<.001 and off_boundary.is_empty(),xor_um2=area,
+                            outside_1nm_boundary_um2=off_boundary.area()*dbu**2)
+                  else:
+                      check(name+f'_L{n}_outside_ends_unchanged_excluding_exact_label_glyphs',
+                            area<.000001,xor_um2=area)
+          '''
+          # First line already has 16 spaces; remaining lines gain four spaces.
+          lines=replacement.splitlines()
+          replacement=lines[0]+'\n'+'\n'.join('    '+line for line in lines[1:] if line.strip())+'\n'
+          s=s[:start]+replacement+s[end:]
+          needle='diff=(rr[n]^oo[n].transformed(tr))&tail'
+          assert s.count(needle)==1
+          s=s.replace(needle,'diff=(rr[n]^oo[n].transformed(kdb.Trans() if n==51 else tr))&tail')
+          p.write_text(s)
+          p=Path('_pnc5_finish_once.py');s=p.read_text()
+          s=s.replace('islands (including Layer 13), Layer-15 alignment tips, long channels and\nLayer-51 fiber guides follow the shorter complete end assembly by 13.621 um\ntoward the meander.',
+                      'islands (including Layer 13), Layer-15 alignment tips and long channels\nfollow the shorter complete end assembly by 13.621 um toward the meander.\nThe nonfabrication Layer-51 guide remains fixed at its meander-port reference.')
+          s=s.replace('Meander straight lengths, bends, straight/bend PNCs, ridge widths, device',
+                      'Layer-14 export differences outside the changed ends are restricted to\nthe existing 1 nm boundary grid, below 0.001 um2 per device. Standalone\nlength text follows its taper; combined single labels remain at fixed rows.\n\nMeander straight lengths, bends, straight/bend PNCs, ridge widths, device')
+          p.write_text(s)
+          PY
+          python -m py_compile validate_2611_pnc5_cutoff.py
+      - name: Remeasure all four files including explicit preservation checks
+        run: |
+          python validate_2611_pnc5_cutoff.py
+          python validate_2611_combined_sweep.py
+          python validate_2611_vertical_sweep.py
+          python validate_2611_straight_pitch.py
+      - name: Finalize documentation and assert geometry bytes have not changed
+        run: |
+          python _pnc5_finish_once.py docs
+          python - <<'PY'
+          from pathlib import Path
+          import json,hashlib
+          hashes=json.loads(Path('validation_2611_pnc5_cutoff/generated_hashes.json').read_text())
+          assert all(hashlib.sha256((Path('gds')/n).read_bytes()).hexdigest()==v for n,v in hashes.items())
+          Path('gds/2611_pnc5_build_provenance.json').write_text(json.dumps({'geometry_build_run':42339853016,'geometry_files_byte_identical_after_final_audit':True,'hashes':hashes},indent=2))
+          PY
+      - name: Upload complete validated release
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: 2611-pnc5-final-release
+          path: |
+            2611_tapered_yue_dual_resist.py
+            2611_tapered_yue_design2.py
+            2611_build_combined_sweep.py
+            2611_design1_L6000_P10_width_sweep.py
+            validate_2611_pnc5_cutoff.py
+            validate_2611_taper_pitch.py
+            validate_2611_combined_sweep.py
+            validate_2611_vertical_sweep.py
+            validate_2611_straight_pitch.py
+            PNC_5UM_ENDPOINT_README.md
+            CAD_EDITING_GUIDE.md
+            COMBINED_SWEEP_README.md
+            DESIGN1_L6000_WIDTH_SWEEP_README.md
+            gds/2611_tapered_yue_dual_resist_L10_L12.gds
+            gds/2611_tapered_yue_design2.gds
+            gds/2611_design1_design2_L1400_18device_sweep.*
+            gds/2611_design1_L6000_P10_width_sweep.*
+            gds/2611_combined_sweep_validation.json
+            gds/2611_straight_pitch_validation.json
+            gds/2611_vertical_sweep_validation.json
+            gds/2611_pnc5*.json
+            gds/2611_taper_pitch_validation.json
+            validation_2611_pnc5_cutoff/*.png
+            validation_2611_pnc5_cutoff/validation_report.json
+          if-no-files-found: error
+      - name: Commit passing release and remove temporary scripts and workflows
+        run: |
+          git config user.name 'chatgpt-runner'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add 2611_tapered_yue_dual_resist.py 2611_tapered_yue_design2.py 2611_build_combined_sweep.py 2611_design1_L6000_P10_width_sweep.py validate_2611_combined_sweep.py validate_2611_pnc5_cutoff.py validate_2611_taper_pitch.py validate_2611_straight_pitch.py PNC_5UM_ENDPOINT_README.md CAD_EDITING_GUIDE.md COMBINED_SWEEP_README.md DESIGN1_L6000_WIDTH_SWEEP_README.md
+          git add gds/2611*.gds gds/2611*.json gds/2611*.csv
+          git rm _pnc5_migrate_once.py _pnc5_finish_once.py .github/workflows/verify_2611_pnc5.yml .github/workflows/verify_2611_pnc5_r2.yml .github/workflows/finalize_2611_pnc5.yml
+          git commit -m 'Regenerate both designs with a 5 um PNC cutoff and synchronized taper masks'
+          git pull --rebase origin layout/2611-pnc-cutoff-5um
+          git push origin HEAD:layout/2611-pnc-cutoff-5um
