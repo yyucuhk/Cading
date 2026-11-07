@@ -19,7 +19,7 @@
         "removed_area_um2": 42.363,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "f4b5c2497b5c8ceef584413b2a0a755e2c3fa042d1a6548fbb71b8932841e64b",
+      "source_sha256": "6cd4cdefd7365fc6e811c435126c953fb9eb345280033df6c559152bb63703ba",
       "left_pnc_x_um": -842.287,
       "measured_straights_um": [
         1400.0,
@@ -85,6 +85,9 @@
       ],
       "taper_pnc_period_um": 5.0,
       "pnc_taper_length_um": 45.0,
+      "connection_pnc_pitch_um": 1.0,
+      "connection_pnc_periods": 5,
+      "connection_pnc_span_um": 5.0,
       "layer10_widths_um": [
         3.0,
         1.0,
@@ -178,7 +181,7 @@
         "removed_area_um2": 44.271,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "f4b5c2497b5c8ceef584413b2a0a755e2c3fa042d1a6548fbb71b8932841e64b",
+      "source_sha256": "6cd4cdefd7365fc6e811c435126c953fb9eb345280033df6c559152bb63703ba",
       "left_pnc_x_um": -842.287,
       "measured_straights_um": [
         1400.0,
@@ -244,6 +247,9 @@
       ],
       "taper_pnc_period_um": 5.0,
       "pnc_taper_length_um": 45.0,
+      "connection_pnc_pitch_um": 1.0,
+      "connection_pnc_periods": 5,
+      "connection_pnc_span_um": 5.0,
       "layer10_widths_um": [
         3.0,
         1.0,
@@ -337,7 +343,7 @@
         "removed_area_um2": 44.297999999999995,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "f4b5c2497b5c8ceef584413b2a0a755e2c3fa042d1a6548fbb71b8932841e64b",
+      "source_sha256": "6cd4cdefd7365fc6e811c435126c953fb9eb345280033df6c559152bb63703ba",
       "left_pnc_x_um": -842.287,
       "measured_straights_um": [
         1400.0,
@@ -403,6 +409,9 @@
       ],
       "taper_pnc_period_um": 5.0,
       "pnc_taper_length_um": 45.0,
+      "connection_pnc_pitch_um": 1.0,
+      "connection_pnc_periods": 5,
+      "connection_pnc_span_um": 5.0,
       "layer10_widths_um": [
         3.0,
         1.0,
@@ -496,7 +505,7 @@
         "removed_area_um2": 42.363,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "f4b5c2497b5c8ceef584413b2a0a755e2c3fa042d1a6548fbb71b8932841e64b",
+      "source_sha256": "6cd4cdefd7365fc6e811c435126c953fb9eb345280033df6c559152bb63703ba",
       "left_pnc_x_um": -842.28,
       "measured_straights_um": [
         1400.0,
@@ -562,6 +571,9 @@
       ],
       "taper_pnc_period_um": 5.0,
       "pnc_taper_length_um": 45.0,
+      "connection_pnc_pitch_um": 1.0,
+      "connection_pnc_periods": 5,
+      "connection_pnc_span_um": 5.0,
       "layer10_widths_um": [
         3.0,
         1.0,
@@ -655,7 +667,7 @@
         "removed_area_um2": 44.271,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "f4b5c2497b5c8ceef584413b2a0a755e2c3fa042d1a6548fbb71b8932841e64b",
+      "source_sha256": "6cd4cdefd7365fc6e811c435126c953fb9eb345280033df6c559152bb63703ba",
       "left_pnc_x_um": -842.28,
       "measured_straights_um": [
         1400.0,
@@ -721,6 +733,9 @@
       ],
       "taper_pnc_period_um": 5.0,
       "pnc_taper_length_um": 45.0,
+      "connection_pnc_pitch_um": 1.0,
+      "connection_pnc_periods": 5,
+      "connection_pnc_span_um": 5.0,
       "layer10_widths_um": [
         3.0,
         1.0,
@@ -814,7 +829,7 @@
         "removed_area_um2": 44.297999999999995,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "f4b5c2497b5c8ceef584413b2a0a755e2c3fa042d1a6548fbb71b8932841e64b",
+      "source_sha256": "6cd4cdefd7365fc6e811c435126c953fb9eb345280033df6c559152bb63703ba",
       "left_pnc_x_um": -842.28,
       "measured_straights_um": [
         1400.0,
@@ -880,6 +895,9 @@
       ],
       "taper_pnc_period_um": 5.0,
       "pnc_taper_length_um": 45.0,
+      "connection_pnc_pitch_um": 1.0,
+      "connection_pnc_periods": 5,
+      "connection_pnc_span_um": 5.0,
       "layer10_widths_um": [
         3.0,
         1.0,
@@ -973,7 +991,7 @@
         "removed_area_um2": 42.363,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "f4b5c2497b5c8ceef584413b2a0a755e2c3fa042d1a6548fbb71b8932841e64b",
+      "source_sha256": "6cd4cdefd7365fc6e811c435126c953fb9eb345280033df6c559152bb63703ba",
       "left_pnc_x_um": -842.291,
       "measured_straights_um": [
         1400.0,
@@ -1039,6 +1057,9 @@
       ],
       "taper_pnc_period_um": 5.0,
       "pnc_taper_length_um": 45.0,
+      "connection_pnc_pitch_um": 1.0,
+      "connection_pnc_periods": 5,
+      "connection_pnc_span_um": 5.0,
       "layer10_widths_um": [
         3.0,
         1.0,
@@ -1132,7 +1153,7 @@
         "removed_area_um2": 44.271,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "f4b5c2497b5c8ceef584413b2a0a755e2c3fa042d1a6548fbb71b8932841e64b",
+      "source_sha256": "6cd4cdefd7365fc6e811c435126c953fb9eb345280033df6c559152bb63703ba",
       "left_pnc_x_um": -842.291,
       "measured_straights_um": [
         1400.0,
@@ -1198,6 +1219,9 @@
       ],
       "taper_pnc_period_um": 5.0,
       "pnc_taper_length_um": 45.0,
+      "connection_pnc_pitch_um": 1.0,
+      "connection_pnc_periods": 5,
+      "connection_pnc_span_um": 5.0,
       "layer10_widths_um": [
         3.0,
         1.0,
@@ -1291,7 +1315,7 @@
         "removed_area_um2": 44.297999999999995,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "f4b5c2497b5c8ceef584413b2a0a755e2c3fa042d1a6548fbb71b8932841e64b",
+      "source_sha256": "6cd4cdefd7365fc6e811c435126c953fb9eb345280033df6c559152bb63703ba",
       "left_pnc_x_um": -842.291,
       "measured_straights_um": [
         1400.0,
@@ -1357,6 +1381,9 @@
       ],
       "taper_pnc_period_um": 5.0,
       "pnc_taper_length_um": 45.0,
+      "connection_pnc_pitch_um": 1.0,
+      "connection_pnc_periods": 5,
+      "connection_pnc_span_um": 5.0,
       "layer10_widths_um": [
         3.0,
         1.0,
@@ -1451,7 +1478,7 @@
         "removed_area_um2": 75.276,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "2a83a16e6ef7223a2d99ca26dc142ba1dc098f6323325c957c27a195db5b2a13",
+      "source_sha256": "a2e3daf4822c709e534dfb24bb2ddb8c7d66b9346b52f6a6c343605c4a98fbfd",
       "left_pnc_x_um": -842.287,
       "measured_straights_um": [
         1400.0,
@@ -1517,6 +1544,9 @@
       ],
       "taper_pnc_period_um": 5.0,
       "pnc_taper_length_um": 45.0,
+      "connection_pnc_pitch_um": 1.0,
+      "connection_pnc_periods": 5,
+      "connection_pnc_span_um": 5.0,
       "layer10_widths_um": [
         3.0,
         1.65,
@@ -1626,7 +1656,7 @@
         "removed_area_um2": 75.276,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "2a83a16e6ef7223a2d99ca26dc142ba1dc098f6323325c957c27a195db5b2a13",
+      "source_sha256": "a2e3daf4822c709e534dfb24bb2ddb8c7d66b9346b52f6a6c343605c4a98fbfd",
       "left_pnc_x_um": -842.287,
       "measured_straights_um": [
         1400.0,
@@ -1692,6 +1722,9 @@
       ],
       "taper_pnc_period_um": 5.0,
       "pnc_taper_length_um": 45.0,
+      "connection_pnc_pitch_um": 1.0,
+      "connection_pnc_periods": 5,
+      "connection_pnc_span_um": 5.0,
       "layer10_widths_um": [
         3.0,
         1.65,
@@ -1801,7 +1834,7 @@
         "removed_area_um2": 75.276,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "2a83a16e6ef7223a2d99ca26dc142ba1dc098f6323325c957c27a195db5b2a13",
+      "source_sha256": "a2e3daf4822c709e534dfb24bb2ddb8c7d66b9346b52f6a6c343605c4a98fbfd",
       "left_pnc_x_um": -842.287,
       "measured_straights_um": [
         1400.0,
@@ -1867,6 +1900,9 @@
       ],
       "taper_pnc_period_um": 5.0,
       "pnc_taper_length_um": 45.0,
+      "connection_pnc_pitch_um": 1.0,
+      "connection_pnc_periods": 5,
+      "connection_pnc_span_um": 5.0,
       "layer10_widths_um": [
         3.0,
         1.65,
@@ -1976,7 +2012,7 @@
         "removed_area_um2": 75.276,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "2a83a16e6ef7223a2d99ca26dc142ba1dc098f6323325c957c27a195db5b2a13",
+      "source_sha256": "a2e3daf4822c709e534dfb24bb2ddb8c7d66b9346b52f6a6c343605c4a98fbfd",
       "left_pnc_x_um": -842.28,
       "measured_straights_um": [
         1400.0,
@@ -2042,6 +2078,9 @@
       ],
       "taper_pnc_period_um": 5.0,
       "pnc_taper_length_um": 45.0,
+      "connection_pnc_pitch_um": 1.0,
+      "connection_pnc_periods": 5,
+      "connection_pnc_span_um": 5.0,
       "layer10_widths_um": [
         3.0,
         1.65,
@@ -2151,7 +2190,7 @@
         "removed_area_um2": 75.276,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "2a83a16e6ef7223a2d99ca26dc142ba1dc098f6323325c957c27a195db5b2a13",
+      "source_sha256": "a2e3daf4822c709e534dfb24bb2ddb8c7d66b9346b52f6a6c343605c4a98fbfd",
       "left_pnc_x_um": -842.28,
       "measured_straights_um": [
         1400.0,
@@ -2217,6 +2256,9 @@
       ],
       "taper_pnc_period_um": 5.0,
       "pnc_taper_length_um": 45.0,
+      "connection_pnc_pitch_um": 1.0,
+      "connection_pnc_periods": 5,
+      "connection_pnc_span_um": 5.0,
       "layer10_widths_um": [
         3.0,
         1.65,
@@ -2326,7 +2368,7 @@
         "removed_area_um2": 75.276,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "2a83a16e6ef7223a2d99ca26dc142ba1dc098f6323325c957c27a195db5b2a13",
+      "source_sha256": "a2e3daf4822c709e534dfb24bb2ddb8c7d66b9346b52f6a6c343605c4a98fbfd",
       "left_pnc_x_um": -842.28,
       "measured_straights_um": [
         1400.0,
@@ -2392,6 +2434,9 @@
       ],
       "taper_pnc_period_um": 5.0,
       "pnc_taper_length_um": 45.0,
+      "connection_pnc_pitch_um": 1.0,
+      "connection_pnc_periods": 5,
+      "connection_pnc_span_um": 5.0,
       "layer10_widths_um": [
         3.0,
         1.65,
@@ -2501,7 +2546,7 @@
         "removed_area_um2": 75.276,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "2a83a16e6ef7223a2d99ca26dc142ba1dc098f6323325c957c27a195db5b2a13",
+      "source_sha256": "a2e3daf4822c709e534dfb24bb2ddb8c7d66b9346b52f6a6c343605c4a98fbfd",
       "left_pnc_x_um": -842.291,
       "measured_straights_um": [
         1400.0,
@@ -2567,6 +2612,9 @@
       ],
       "taper_pnc_period_um": 5.0,
       "pnc_taper_length_um": 45.0,
+      "connection_pnc_pitch_um": 1.0,
+      "connection_pnc_periods": 5,
+      "connection_pnc_span_um": 5.0,
       "layer10_widths_um": [
         3.0,
         1.65,
@@ -2676,7 +2724,7 @@
         "removed_area_um2": 75.276,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "2a83a16e6ef7223a2d99ca26dc142ba1dc098f6323325c957c27a195db5b2a13",
+      "source_sha256": "a2e3daf4822c709e534dfb24bb2ddb8c7d66b9346b52f6a6c343605c4a98fbfd",
       "left_pnc_x_um": -842.291,
       "measured_straights_um": [
         1400.0,
@@ -2742,6 +2790,9 @@
       ],
       "taper_pnc_period_um": 5.0,
       "pnc_taper_length_um": 45.0,
+      "connection_pnc_pitch_um": 1.0,
+      "connection_pnc_periods": 5,
+      "connection_pnc_span_um": 5.0,
       "layer10_widths_um": [
         3.0,
         1.65,
@@ -2851,7 +2902,7 @@
         "removed_area_um2": 75.276,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "2a83a16e6ef7223a2d99ca26dc142ba1dc098f6323325c957c27a195db5b2a13",
+      "source_sha256": "a2e3daf4822c709e534dfb24bb2ddb8c7d66b9346b52f6a6c343605c4a98fbfd",
       "left_pnc_x_um": -842.291,
       "measured_straights_um": [
         1400.0,
@@ -2917,6 +2968,9 @@
       ],
       "taper_pnc_period_um": 5.0,
       "pnc_taper_length_um": 45.0,
+      "connection_pnc_pitch_um": 1.0,
+      "connection_pnc_periods": 5,
+      "connection_pnc_span_um": 5.0,
       "layer10_widths_um": [
         3.0,
         1.65,

@@ -1,7 +1,7 @@
 {
   "status": "PASS",
   "source_file": "2611_tapered_yue_dual_resist.py",
-  "source_sha256": "f4b5c2497b5c8ceef584413b2a0a755e2c3fa042d1a6548fbb71b8932841e64b",
+  "source_sha256": "6cd4cdefd7365fc6e811c435126c953fb9eb345280033df6c559152bb63703ba",
   "devices": [
     {
       "case_id": "D1_L6000_W1620_P10",
@@ -124,6 +124,9 @@
       "straight_pnc_period_um": 10.0,
       "taper_pnc_period_um": 10.0,
       "pnc_taper_length_um": 45.0,
+      "connection_pnc_pitch_um": 1.0,
+      "connection_pnc_periods": 5,
+      "connection_pnc_span_um": 5.0,
       "post_pnc_taper_total_um": 80.0,
       "label": "D1_W1.62_T80_P10",
       "checks": [
@@ -589,6 +592,9 @@
       "straight_pnc_period_um": 10.0,
       "taper_pnc_period_um": 10.0,
       "pnc_taper_length_um": 45.0,
+      "connection_pnc_pitch_um": 1.0,
+      "connection_pnc_periods": 5,
+      "connection_pnc_span_um": 5.0,
       "post_pnc_taper_total_um": 80.0,
       "label": "D1_W1.64_T80_P10",
       "checks": [
@@ -1054,6 +1060,9 @@
       "straight_pnc_period_um": 10.0,
       "taper_pnc_period_um": 10.0,
       "pnc_taper_length_um": 45.0,
+      "connection_pnc_pitch_um": 1.0,
+      "connection_pnc_periods": 5,
+      "connection_pnc_span_um": 5.0,
       "post_pnc_taper_total_um": 80.0,
       "label": "D1_W1.68_T80_P10",
       "checks": [
@@ -1688,5 +1697,5 @@
     }
   ],
   "check_count": 246,
-  "gds_sha256": "2c9a2ded2a70e9fc4f6b630463a9323284906748d29f0fa9ef9de3eecb6746c7"
+  "gds_sha256": "2549237634fd6b189872bedf858e3e6669d0e488ef28c7a35743b2c78b655b03"
 }

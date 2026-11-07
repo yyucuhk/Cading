@@ -180,3 +180,31 @@ GDSFactory 9.45.0 and KLayout 0.30.13, matching its original export.
 Pin the matching versions for exact polygon comparisons; changing the
 geometry-engine version can change nanometre-grid rounding in offset masks.
 The taper-pitch report records both environments.
+
+
+## Local input/output PNC reinforcement (current)
+
+At both input/output straight-to-PNC-taper connections, only the first 5 um
+on the taper side now uses five 1 um longitudinal center-to-center periods.
+This means six paired PNC stations at local distances 0, 1, 2, 3, 4, 5 um.
+The remaining PNCs retain their original positions, dimensions and grid phase.
+Short-layout stations continue at 10, 15, ..., 45 um (regular pitch 5 um).
+The 6000 um width-sweep stations continue at 10, 20, 30, 40 um (regular pitch
+10 um); its 5-to-10 um transition gap is deliberately retained to avoid moving
+any original station. Straight and bend PNC patterns are unchanged.
+
+Edit Section 01 / 1D in either underlying design generator:
+
+```python
+PNC_CONNECTION_PITCH = 1.0
+PNC_CONNECTION_PERIODS = 5  # intervals; six stations; 0 restores the regular grid
+```
+
+Both combined/long builders inherit these settings from the applicable source.
+The dense segment is mirrored by the normal whole-end construction; no local
+patch is applied to just one end. The 45 um envelope, optical tapers, windows,
+other layers, labels and placements stay unchanged. The JSON manifests record
+the separate connection pitch/count/span. Run `validate_2611_taper_pitch.py`
+after regenerating all four outputs; capture an approved baseline before the
+edit to enable exact polygon-difference checks. Increased support density is
+verified geometrically; mechanical robustness has not been simulated.
