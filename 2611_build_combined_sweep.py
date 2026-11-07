@@ -216,9 +216,10 @@ def worker(case):
     # Measure each actual straight population, including bend-boundary pitch.
     require(abs(capture['straight_pitch'] - STRAIGHT_PNC_PERIOD) < 1e-12,
             'Wrong straight PNC pitch sent to the shield')
-    require(m.PNC_TAPER_LENGTH == 45.0 and
+    require(0 < m.PNC_TAPER_LENGTH < m.PNC_TAPER_TRANSITION_LENGTH and
+            m.PNC_TAPER_SUPPORT_CUTOFF_WIDTH == 5.0 and
             m.REVIEW_SUPPORT_ANCHOR_PERIOD == STRAIGHT_PNC_PERIOD,
-            'Taper PNC pitch must match the straight pitch without changing its 45 um length')
+            'PNC pitch must match the straight pitch and stop at the 5 um cutoff')
     straight_measurements = []
     for a, b, is_bend in sections:
         if is_bend:
@@ -255,7 +256,7 @@ def worker(case):
     taper_regions = {n: kdb.Region(taper.kdb_cell.begin_shapes_rec(gf.get_layer((n, 0)))).merged()
                      for n in (10, 15)}
     stages = case['stage_lengths_um']
-    widths10 = [3., 1., .2] if case['design'] == 1 else [3., 1.65, .98, .2]
+    widths10 = [float(m.PNC_TAPER_END_WIDTH), 1., .2] if case['design'] == 1 else [float(m.PNC_TAPER_END_WIDTH), 1.65, .98, .2]
     widths15 = [1., .1] if case['design'] == 1 else [1., .5, .2]
     lengths15 = stages[:1] if case['design'] == 1 else stages[:2]
     samples = []
@@ -295,6 +296,8 @@ def worker(case):
                 straight_pnc_measurements=straight_measurements,
                 taper_pnc_period_um=float(m.REVIEW_SUPPORT_ANCHOR_PERIOD),
                 pnc_taper_length_um=float(m.PNC_TAPER_LENGTH),
+                pnc_cutoff_width_um=float(m.PNC_TAPER_SUPPORT_CUTOFF_WIDTH),
+                pnc_reference_profile_length_um=float(m.PNC_TAPER_TRANSITION_LENGTH),
                 connection_pnc_pitch_um=float(m.PNC_CONNECTION_PITCH),
                 connection_pnc_periods=int(m.PNC_CONNECTION_PERIODS),
                 connection_pnc_span_um=float(m.PNC_CONNECTION_PITCH*m.PNC_CONNECTION_PERIODS),
@@ -456,9 +459,9 @@ def combine(entries):
                   labels_per_device=1, label_format='D{design}_T{taper_um}_P{bend_period_um}',
                   design_y_offset_um=len(entries)//2*ROW_PITCH,
                   taper_allocation='proportional stage scaling', stage_ratios=STAGE_RATIOS,
-                  taper_length_definition='full Layer-10 taper after the unchanged 45 um PNC',
+                  taper_length_definition='full Layer-10 taper after the shortened 5 um-width PNC endpoint',
                   frame_bounds_um=[xmin,ymin,xmax,ymax], fabrication_mask_overlaps=overlaps,
-                  notes=['Straight and taper PNC center-to-center pitches match. The taper grid starts at the connection port and its 45 um envelope is unchanged.',
+                  notes=['Straight and taper PNC center-to-center pitches match. The taper grid starts at the connection port; its active length is 31.378626347 um on the original 45 um reference profile.',
                          'Bend period is the existing nominal parameter. Interior spacings are fitted to the arc; measured values are listed per case.',
                          'Layer 51 is a retained nonfabrication fiber guide. No fabrication layer is clipped.',
                          'Original length text is isolated on temporary 998/0 before flattening, then removed. Fabrication masks are never subtracted.'])

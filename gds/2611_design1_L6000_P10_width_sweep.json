@@ -1,7 +1,7 @@
 {
   "status": "PASS",
   "source_file": "2611_tapered_yue_dual_resist.py",
-  "source_sha256": "ce7256d90344668bc653244261a42e5e1582ad2bb1786e3efd737b6a6bac7c59",
+  "source_sha256": "f42f19a422cbc994a2a1ce6f90c2ff2a7dd21fbdcce036bf0ff941b33bb71fa5",
   "devices": [
     {
       "case_id": "D1_L6000_W1620_P10",
@@ -103,11 +103,11 @@
       "left_pnc_x_um": -3142.1530000000002,
       "tip_centers": [
         [
-          -3085.0,
+          -3071.3786263473726,
           200.0
         ],
         [
-          3085.0,
+          3071.3786263473726,
           -200.0
         ]
       ],
@@ -123,13 +123,15 @@
       ],
       "straight_pnc_period_um": 10.0,
       "taper_pnc_period_um": 10.0,
-      "pnc_taper_length_um": 45.0,
+      "pnc_taper_length_um": 31.378626347372645,
+      "pnc_cutoff_width_um": 5.0,
+      "pnc_reference_profile_length_um": 45.0,
       "connection_pnc_pitch_um": 1.0,
       "connection_pnc_periods": 5,
       "connection_pnc_span_um": 5.0,
       "connection_pnc_region": "narrow_pnc_end",
-      "connection_pnc_start_um": 40.0,
-      "connection_pnc_end_um": 45.0,
+      "connection_pnc_start_um": 26.378626347372645,
+      "connection_pnc_end_um": 31.378626347372645,
       "post_pnc_taper_total_um": 80.0,
       "label": "D1_W1.62_T80_P10",
       "checks": [
@@ -318,7 +320,7 @@
         {
           "name": "layer2_complete_end_symmetry",
           "passed": true,
-          "xor_um2": 3.5e-05
+          "xor_um2": 0.000185
         },
         {
           "name": "layer10_complete_end_symmetry",
@@ -338,7 +340,7 @@
         {
           "name": "layer14_complete_end_symmetry",
           "passed": true,
-          "xor_um2": 3.5e-05
+          "xor_um2": 0.000185
         },
         {
           "name": "layer15_complete_end_symmetry",
@@ -356,67 +358,67 @@
           "xor_um2": 0.0
         },
         {
-          "name": "end-1_L10_x3045_taper_width",
+          "name": "end-1_L10_x3031.38_taper_width",
           "passed": true,
-          "measured_width_um": 3.0,
-          "expected_width_um": 3.0
+          "measured_width_um": 5.0,
+          "expected_width_um": 5.0
         },
         {
-          "name": "end-1_L10_x3085_taper_width",
-          "passed": true,
-          "measured_width_um": 1.0,
-          "expected_width_um": 1.0
-        },
-        {
-          "name": "end-1_L10_x3125_taper_width",
-          "passed": true,
-          "measured_width_um": 0.2,
-          "expected_width_um": 0.2
-        },
-        {
-          "name": "end-1_L15_x3045_taper_width",
-          "passed": true,
-          "measured_width_um": 1.62,
-          "expected_width_um": 1.62
-        },
-        {
-          "name": "end-1_L15_x3085_taper_width",
-          "passed": true,
-          "measured_width_um": 0.1,
-          "expected_width_um": 0.1
-        },
-        {
-          "name": "end1_L10_x3045_taper_width",
-          "passed": true,
-          "measured_width_um": 3.0,
-          "expected_width_um": 3.0
-        },
-        {
-          "name": "end1_L10_x3085_taper_width",
+          "name": "end-1_L10_x3071.38_taper_width",
           "passed": true,
           "measured_width_um": 1.0,
           "expected_width_um": 1.0
         },
         {
-          "name": "end1_L10_x3125_taper_width",
+          "name": "end-1_L10_x3111.38_taper_width",
           "passed": true,
           "measured_width_um": 0.2,
           "expected_width_um": 0.2
         },
         {
-          "name": "end1_L15_x3045_taper_width",
+          "name": "end-1_L15_x3031.38_taper_width",
           "passed": true,
           "measured_width_um": 1.62,
           "expected_width_um": 1.62
         },
         {
-          "name": "end1_L15_x3085_taper_width",
+          "name": "end-1_L15_x3071.38_taper_width",
           "passed": true,
           "measured_width_um": 0.1,
           "expected_width_um": 0.1
         },
         {
-          "name": "taper_PNC_matches_straight_without_changing_length",
+          "name": "end1_L10_x3031.38_taper_width",
+          "passed": true,
+          "measured_width_um": 5.0,
+          "expected_width_um": 5.0
+        },
+        {
+          "name": "end1_L10_x3071.38_taper_width",
+          "passed": true,
+          "measured_width_um": 1.0,
+          "expected_width_um": 1.0
+        },
+        {
+          "name": "end1_L10_x3111.38_taper_width",
+          "passed": true,
+          "measured_width_um": 0.2,
+          "expected_width_um": 0.2
+        },
+        {
+          "name": "end1_L15_x3031.38_taper_width",
+          "passed": true,
+          "measured_width_um": 1.62,
+          "expected_width_um": 1.62
+        },
+        {
+          "name": "end1_L15_x3071.38_taper_width",
+          "passed": true,
+          "measured_width_um": 0.1,
+          "expected_width_um": 0.1
+        },
+        {
+          "name": "taper_PNC_stops_at_5um_and_matches_straight",
           "passed": true
         },
         {
@@ -426,7 +428,7 @@
         {
           "name": "export_layer2_unchanged",
           "passed": true,
-          "xor_um2": 9e-06
+          "xor_um2": 3e-06
         },
         {
           "name": "export_layer10_unchanged",
@@ -574,11 +576,11 @@
       "left_pnc_x_um": -3142.1530000000002,
       "tip_centers": [
         [
-          -3085.0,
+          -3071.3786263473726,
           200.0
         ],
         [
-          3085.0,
+          3071.3786263473726,
           -200.0
         ]
       ],
@@ -594,13 +596,15 @@
       ],
       "straight_pnc_period_um": 10.0,
       "taper_pnc_period_um": 10.0,
-      "pnc_taper_length_um": 45.0,
+      "pnc_taper_length_um": 31.378626347372645,
+      "pnc_cutoff_width_um": 5.0,
+      "pnc_reference_profile_length_um": 45.0,
       "connection_pnc_pitch_um": 1.0,
       "connection_pnc_periods": 5,
       "connection_pnc_span_um": 5.0,
       "connection_pnc_region": "narrow_pnc_end",
-      "connection_pnc_start_um": 40.0,
-      "connection_pnc_end_um": 45.0,
+      "connection_pnc_start_um": 26.378626347372645,
+      "connection_pnc_end_um": 31.378626347372645,
       "post_pnc_taper_total_um": 80.0,
       "label": "D1_W1.64_T80_P10",
       "checks": [
@@ -789,7 +793,7 @@
         {
           "name": "layer2_complete_end_symmetry",
           "passed": true,
-          "xor_um2": 3.5e-05
+          "xor_um2": 0.000185
         },
         {
           "name": "layer10_complete_end_symmetry",
@@ -809,7 +813,7 @@
         {
           "name": "layer14_complete_end_symmetry",
           "passed": true,
-          "xor_um2": 3.5e-05
+          "xor_um2": 0.000185
         },
         {
           "name": "layer15_complete_end_symmetry",
@@ -827,67 +831,67 @@
           "xor_um2": 0.0
         },
         {
-          "name": "end-1_L10_x3045_taper_width",
+          "name": "end-1_L10_x3031.38_taper_width",
           "passed": true,
-          "measured_width_um": 3.0,
-          "expected_width_um": 3.0
+          "measured_width_um": 5.0,
+          "expected_width_um": 5.0
         },
         {
-          "name": "end-1_L10_x3085_taper_width",
-          "passed": true,
-          "measured_width_um": 1.0,
-          "expected_width_um": 1.0
-        },
-        {
-          "name": "end-1_L10_x3125_taper_width",
-          "passed": true,
-          "measured_width_um": 0.2,
-          "expected_width_um": 0.2
-        },
-        {
-          "name": "end-1_L15_x3045_taper_width",
-          "passed": true,
-          "measured_width_um": 1.6400000000000001,
-          "expected_width_um": 1.64
-        },
-        {
-          "name": "end-1_L15_x3085_taper_width",
-          "passed": true,
-          "measured_width_um": 0.1,
-          "expected_width_um": 0.1
-        },
-        {
-          "name": "end1_L10_x3045_taper_width",
-          "passed": true,
-          "measured_width_um": 3.0,
-          "expected_width_um": 3.0
-        },
-        {
-          "name": "end1_L10_x3085_taper_width",
+          "name": "end-1_L10_x3071.38_taper_width",
           "passed": true,
           "measured_width_um": 1.0,
           "expected_width_um": 1.0
         },
         {
-          "name": "end1_L10_x3125_taper_width",
+          "name": "end-1_L10_x3111.38_taper_width",
           "passed": true,
           "measured_width_um": 0.2,
           "expected_width_um": 0.2
         },
         {
-          "name": "end1_L15_x3045_taper_width",
+          "name": "end-1_L15_x3031.38_taper_width",
           "passed": true,
           "measured_width_um": 1.6400000000000001,
           "expected_width_um": 1.64
         },
         {
-          "name": "end1_L15_x3085_taper_width",
+          "name": "end-1_L15_x3071.38_taper_width",
           "passed": true,
           "measured_width_um": 0.1,
           "expected_width_um": 0.1
         },
         {
-          "name": "taper_PNC_matches_straight_without_changing_length",
+          "name": "end1_L10_x3031.38_taper_width",
+          "passed": true,
+          "measured_width_um": 5.0,
+          "expected_width_um": 5.0
+        },
+        {
+          "name": "end1_L10_x3071.38_taper_width",
+          "passed": true,
+          "measured_width_um": 1.0,
+          "expected_width_um": 1.0
+        },
+        {
+          "name": "end1_L10_x3111.38_taper_width",
+          "passed": true,
+          "measured_width_um": 0.2,
+          "expected_width_um": 0.2
+        },
+        {
+          "name": "end1_L15_x3031.38_taper_width",
+          "passed": true,
+          "measured_width_um": 1.6400000000000001,
+          "expected_width_um": 1.64
+        },
+        {
+          "name": "end1_L15_x3071.38_taper_width",
+          "passed": true,
+          "measured_width_um": 0.1,
+          "expected_width_um": 0.1
+        },
+        {
+          "name": "taper_PNC_stops_at_5um_and_matches_straight",
           "passed": true
         },
         {
@@ -897,7 +901,7 @@
         {
           "name": "export_layer2_unchanged",
           "passed": true,
-          "xor_um2": 9e-06
+          "xor_um2": 3e-06
         },
         {
           "name": "export_layer10_unchanged",
@@ -1045,11 +1049,11 @@
       "left_pnc_x_um": -3142.1530000000002,
       "tip_centers": [
         [
-          -3085.0,
+          -3071.3786263473726,
           200.0
         ],
         [
-          3085.0,
+          3071.3786263473726,
           -200.0
         ]
       ],
@@ -1065,13 +1069,15 @@
       ],
       "straight_pnc_period_um": 10.0,
       "taper_pnc_period_um": 10.0,
-      "pnc_taper_length_um": 45.0,
+      "pnc_taper_length_um": 31.378626347372645,
+      "pnc_cutoff_width_um": 5.0,
+      "pnc_reference_profile_length_um": 45.0,
       "connection_pnc_pitch_um": 1.0,
       "connection_pnc_periods": 5,
       "connection_pnc_span_um": 5.0,
       "connection_pnc_region": "narrow_pnc_end",
-      "connection_pnc_start_um": 40.0,
-      "connection_pnc_end_um": 45.0,
+      "connection_pnc_start_um": 26.378626347372645,
+      "connection_pnc_end_um": 31.378626347372645,
       "post_pnc_taper_total_um": 80.0,
       "label": "D1_W1.68_T80_P10",
       "checks": [
@@ -1260,7 +1266,7 @@
         {
           "name": "layer2_complete_end_symmetry",
           "passed": true,
-          "xor_um2": 3.5e-05
+          "xor_um2": 0.000185
         },
         {
           "name": "layer10_complete_end_symmetry",
@@ -1280,7 +1286,7 @@
         {
           "name": "layer14_complete_end_symmetry",
           "passed": true,
-          "xor_um2": 3.5e-05
+          "xor_um2": 0.000185
         },
         {
           "name": "layer15_complete_end_symmetry",
@@ -1298,67 +1304,67 @@
           "xor_um2": 0.0
         },
         {
-          "name": "end-1_L10_x3045_taper_width",
+          "name": "end-1_L10_x3031.38_taper_width",
           "passed": true,
-          "measured_width_um": 3.0,
-          "expected_width_um": 3.0
+          "measured_width_um": 5.0,
+          "expected_width_um": 5.0
         },
         {
-          "name": "end-1_L10_x3085_taper_width",
-          "passed": true,
-          "measured_width_um": 1.0,
-          "expected_width_um": 1.0
-        },
-        {
-          "name": "end-1_L10_x3125_taper_width",
-          "passed": true,
-          "measured_width_um": 0.2,
-          "expected_width_um": 0.2
-        },
-        {
-          "name": "end-1_L15_x3045_taper_width",
-          "passed": true,
-          "measured_width_um": 1.68,
-          "expected_width_um": 1.68
-        },
-        {
-          "name": "end-1_L15_x3085_taper_width",
-          "passed": true,
-          "measured_width_um": 0.1,
-          "expected_width_um": 0.1
-        },
-        {
-          "name": "end1_L10_x3045_taper_width",
-          "passed": true,
-          "measured_width_um": 3.0,
-          "expected_width_um": 3.0
-        },
-        {
-          "name": "end1_L10_x3085_taper_width",
+          "name": "end-1_L10_x3071.38_taper_width",
           "passed": true,
           "measured_width_um": 1.0,
           "expected_width_um": 1.0
         },
         {
-          "name": "end1_L10_x3125_taper_width",
+          "name": "end-1_L10_x3111.38_taper_width",
           "passed": true,
           "measured_width_um": 0.2,
           "expected_width_um": 0.2
         },
         {
-          "name": "end1_L15_x3045_taper_width",
+          "name": "end-1_L15_x3031.38_taper_width",
           "passed": true,
           "measured_width_um": 1.68,
           "expected_width_um": 1.68
         },
         {
-          "name": "end1_L15_x3085_taper_width",
+          "name": "end-1_L15_x3071.38_taper_width",
           "passed": true,
           "measured_width_um": 0.1,
           "expected_width_um": 0.1
         },
         {
-          "name": "taper_PNC_matches_straight_without_changing_length",
+          "name": "end1_L10_x3031.38_taper_width",
+          "passed": true,
+          "measured_width_um": 5.0,
+          "expected_width_um": 5.0
+        },
+        {
+          "name": "end1_L10_x3071.38_taper_width",
+          "passed": true,
+          "measured_width_um": 1.0,
+          "expected_width_um": 1.0
+        },
+        {
+          "name": "end1_L10_x3111.38_taper_width",
+          "passed": true,
+          "measured_width_um": 0.2,
+          "expected_width_um": 0.2
+        },
+        {
+          "name": "end1_L15_x3031.38_taper_width",
+          "passed": true,
+          "measured_width_um": 1.68,
+          "expected_width_um": 1.68
+        },
+        {
+          "name": "end1_L15_x3071.38_taper_width",
+          "passed": true,
+          "measured_width_um": 0.1,
+          "expected_width_um": 0.1
+        },
+        {
+          "name": "taper_PNC_stops_at_5um_and_matches_straight",
           "passed": true
         },
         {
@@ -1368,7 +1374,7 @@
         {
           "name": "export_layer2_unchanged",
           "passed": true,
-          "xor_um2": 9e-06
+          "xor_um2": 3e-06
         },
         {
           "name": "export_layer10_unchanged",
@@ -1706,5 +1712,5 @@
     }
   ],
   "check_count": 246,
-  "gds_sha256": "64acbe997c40145f3d3e07aff72e3c01858d0261c92018bc5e6b34577d938523"
+  "gds_sha256": "64689bfaf57c8fa8ba2db36cc73078e319e0bcc6563d1e40ad15aa03ea94b77d"
 }
