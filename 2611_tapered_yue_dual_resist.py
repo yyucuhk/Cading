@@ -1,3 +1,4 @@
+# Current revision: active PNC stops at 5 um width; see PNC5UM_README.txt.
 """Design 1 - aligned ridge taper: editable, all-layer GDS generator.
 
 QUICK START
@@ -66,8 +67,8 @@ DEVICE_Y_PITCH = 600.0  # origin-to-origin vertical pitch
 BOTTOM_DEVICE_Y = -700.0  # first device origin, NOT its lower taper tip
 LEFT_BEND_ALIGNMENT_X = -900.0  # common leftmost Layer-11 PNC bend edge
 
-# --- 1B. Optical taper stages (outward from the 3 um PNC endpoint) ---
-# Layer 10: 3 -> 1 over RIDGE_TAPER_LENGTH, then 1 -> 0.2 over
+# --- 1B. Optical taper stages (outward from the 5 um PNC endpoint) ---
+# Layer 10: 5 -> 1 over RIDGE_TAPER_LENGTH, then 1 -> 0.2 over
 # SLAB_TAPER_LENGTH. Layer 15: 1 -> 0.1 over RIDGE_TAPER_LENGTH, then ends.
 # These are post-PNC lengths; the separate 15 -> 3 PNC region precedes them.
 RIDGE_TAPER_LENGTH = 40.0  # common first-stage length for Layers 10/15
@@ -76,7 +77,7 @@ SLAB_EXTENSION_START_WIDTH = 1.0  # Layer-10 intermediate width
 RIDGE_MEANDER_WIDTH = 1.0  # Layer-15 meander and taper input width
 RIDGE_EXTENSION_START_WIDTH = 0.1  # Layer-15 terminal width
 REVIEW_TETHER_CONNECTION_WIDTH = 0.2  # Layer-10 terminal width AND tether neck
-PNC_TAPER_SUPPORT_CUTOFF_WIDTH = 3.0  # Layer-10 input width after the PNC region
+PNC_TAPER_SUPPORT_CUTOFF_WIDTH = 5.0  # Layer-10 input width after the PNC region
 TAPER_ANGLE = 0.0  # paired taper placement angle; validated design uses 0
 ADIABATIC_TAPER_POINTS = 201  # polygon samples per quintic transition
 
@@ -93,9 +94,10 @@ S_BEND_TAPER_LENGTH = 10.0  # legacy noncompact-route setting; compact path igno
 # --- 1D. Phononic-crystal (PNC) support pattern ---
 MEANDER_STRAIGHT_PNC_PERIOD = 5.0  # exact center-to-center pitch on all three straights
 REVIEW_SUPPORT_ANCHOR_PERIOD = MEANDER_STRAIGHT_PNC_PERIOD  # taper follows straight pitch
-PNC_TAPER_TRANSITION_LENGTH = 45.0  # fixed 15 -> 3 um envelope; independent of PNC pitch
+PNC_TAPER_TRANSITION_LENGTH = 45.0  # REFERENCE 15 -> 3 um profile length
+PNC_TAPER_PROFILE_END_WIDTH = 3.0  # reference curve only; active PNC stops at 5 um
 PNC_CONNECTION_PITCH = 1.0  # longitudinal center-to-center pitch at BOTH narrow PNC ends
-PNC_CONNECTION_PERIODS = 5  # five intervals / six stations in the LAST 5 um, ending at 3 um width; 0 disables
+PNC_CONNECTION_PERIODS = 5  # five intervals / six stations in the LAST 5 um, ending at 5 um width; 0 disables
 REVIEW_SUPPORT_BEND_PERIOD = 3.0  # requested PNC pitch on bends
 PHONONIC_SUPPORT_SEGMENTS = (
     0.626,
@@ -177,7 +179,37 @@ MEANDER_CONSTRUCTION_LAYER = (999, 0)  # temporary; never exported
 # 13/0 (island fill), Layers.fiber = 51/0 (fiber guide), 0/0 = chip outline.
 
 S_BEND_VERTICAL_HALF_SPAN = 2 * S_BEND_COMPACT_180_RADIUS
-PNC_TAPER_LENGTH = PNC_TAPER_TRANSITION_LENGTH
+def pnc_transition_cutoff_length(length, width1, width2, cutoff_width):
+    """Find the requested width on the original quintic transition.
+
+    length is the 45 um REFERENCE profile, not the active PNC length.
+    All downstream geometry shares this root before database-grid rounding.
+    """
+    values = (length, width1, width2, cutoff_width)
+    if not all(np.isfinite(value) for value in values):
+        raise ValueError("PNC transition dimensions must be finite")
+    if length <= 0 or not 0 < width2 <= cutoff_width < width1:
+        raise ValueError("Require length > 0 and 0 < width2 <= cutoff < width1")
+    if abs(cutoff_width - width2) < 1e-12:
+        return float(length)
+    lo, hi = 0.0, 1.0
+    for _ in range(64):
+        mid = (lo + hi) / 2
+        weight = 6 * mid**5 - 15 * mid**4 + 10 * mid**3
+        width = width1 + (width2 - width1) * weight
+        if width > cutoff_width:
+            lo = mid
+        else:
+            hi = mid
+    return float(length * (lo + hi) / 2)
+
+
+PNC_TAPER_LENGTH = pnc_transition_cutoff_length(
+    PNC_TAPER_TRANSITION_LENGTH,
+    SLAB_EXTENSION_END_WIDTH,
+    PNC_TAPER_PROFILE_END_WIDTH,
+    PNC_TAPER_SUPPORT_CUTOFF_WIDTH,
+)
 POST_PNC_TAPER_LENGTH = RIDGE_TAPER_LENGTH
 SLAB_EXTENSION_LENGTH = (
     PNC_TAPER_LENGTH + POST_PNC_TAPER_LENGTH
@@ -478,9 +510,9 @@ def phononic_meander_shield(
 
 @gf.cell
 def phononic_taper_shield(
-    length: float = SLAB_EXTENSION_LENGTH,
+    length: float = PNC_TAPER_TRANSITION_LENGTH,
     width1: float = SLAB_EXTENSION_END_WIDTH,
-    width2: float = SLAB_EXTENSION_START_WIDTH,
+    width2: float = PNC_TAPER_PROFILE_END_WIDTH,
     cutoff_width: float = PNC_TAPER_SUPPORT_CUTOFF_WIDTH,
     pitch: float = REVIEW_SUPPORT_ANCHOR_PERIOD,
     tether_width: float = REVIEW_TETHER_CONNECTION_WIDTH,
@@ -503,22 +535,8 @@ def phononic_taper_shield(
     if end_extension < 0:
         raise ValueError("PNC narrow-end extension must be non-negative")
 
-    # Solve the same quintic width profile used by tapered_fiber_adiabatic.
-    # When the taper ends at the cutoff width, the PNC mask reaches the exact
-    # taper endpoint and the Layer-15 taper can start at that same coordinate.
-    if np.isclose(width2, cutoff_width):
-        cutoff_x = length
-    else:
-        lo, hi = 0.0, 1.0
-        for _ in range(60):
-            mid = (lo + hi) / 2
-            weight = 6 * mid**5 - 15 * mid**4 + 10 * mid**3
-            local_width = width1 + (width2 - width1) * weight
-            if local_width > cutoff_width:
-                lo = mid
-            else:
-                hi = mid
-        cutoff_x = length * (lo + hi) / 2
+    # Share the exact root with the optical tapers and exposure masks.
+    cutoff_x = pnc_transition_cutoff_length(length, width1, width2, cutoff_width)
 
     x = np.linspace(0.0, cutoff_x, npoints)
     u = x / length
@@ -580,8 +598,8 @@ def phononic_taper_shield(
     if dense_span > cutoff_x + 1e-9:
         raise ValueError("Dense connection segment must fit inside the existing PNC taper")
     # Local +x points from the wide meander toward the narrow optical taper.
-    # Anchor reinforcement to cutoff_x (the 3 um-wide PNC end), NOT x=0.
-    # Five 1 um periods occupy x=40,41,42,43,44,45 um for a 45 um taper.
+    # Anchor reinforcement to cutoff_x (the 5 um-wide PNC end), NOT x=0.
+    # Five 1 um periods occupy x=26.378626..31.378626 um at the shortened endpoint.
     # Restore the regular grid at the wide end and retain its original phase
     # everywhere before the final dense segment. Never shift optical geometry.
     dense_start = max(0.0, cutoff_x - dense_span)
@@ -778,9 +796,9 @@ def two_layer_tapered_fiber(
     if add_phononic_taper_support:
         component.add_ref(
             phononic_taper_shield(
-                length=PNC_TAPER_LENGTH,
+                length=PNC_TAPER_TRANSITION_LENGTH,
                 width1=SLAB_EXTENSION_END_WIDTH,
-                width2=PNC_TAPER_END_WIDTH,
+                width2=PNC_TAPER_PROFILE_END_WIDTH,
                 cutoff_width=PNC_TAPER_SUPPORT_CUTOFF_WIDTH,
                 pitch=REVIEW_SUPPORT_ANCHOR_PERIOD,
                 tether_width=tether_connection_width,
@@ -795,10 +813,10 @@ def two_layer_tapered_fiber(
     # tip overlaps the local slab edge slightly and extends away from both
     # sides of the waveguide.
     # --- 5G. Optional extra side-supports (disabled by current factory) ---
-    support_u = SUPPORT_TIP_POSITION / PNC_TAPER_LENGTH
+    support_u = SUPPORT_TIP_POSITION / PNC_TAPER_TRANSITION_LENGTH
     support_weight = 6 * support_u**5 - 15 * support_u**4 + 10 * support_u**3
     local_slab_width = (
-        SLAB_EXTENSION_END_WIDTH + (PNC_TAPER_END_WIDTH - SLAB_EXTENSION_END_WIDTH) * support_weight
+        SLAB_EXTENSION_END_WIDTH + (PNC_TAPER_PROFILE_END_WIDTH - SLAB_EXTENSION_END_WIDTH) * support_weight
     )
     support_size = (
         SUPPORT_TIP_WIDTH,
@@ -806,6 +824,8 @@ def two_layer_tapered_fiber(
     )
     support_center_y = local_slab_width / 2 + (SUPPORT_TIP_LENGTH - SUPPORT_TIP_OVERLAP) / 2
     if add_support_tips:
+        if not 0 <= SUPPORT_TIP_POSITION <= PNC_TAPER_LENGTH:
+            raise ValueError("Optional support tips must lie inside the active PNC region")
         for side in (-1, 1):
             support = component.add_ref(
                 gf.components.rectangle(
@@ -827,6 +847,8 @@ def two_layer_tapered_fiber(
     component.add_port("o2", port=outer_slab_taper.ports["o2"])
     component.info["profile"] = "two_layer_quintic_adiabatic"
     component.info["pnc_taper_length"] = PNC_TAPER_LENGTH
+    component.info["pnc_reference_profile_length_um"] = PNC_TAPER_TRANSITION_LENGTH
+    component.info["pnc_cutoff_width_um"] = PNC_TAPER_SUPPORT_CUTOFF_WIDTH
     component.info["post_pnc_taper_length"] = POST_PNC_TAPER_LENGTH
     component.info["slab_extension_length"] = PNC_TAPER_LENGTH + POST_PNC_TAPER_LENGTH
     component.info["slab_taper_length"] = SLAB_TAPER_LENGTH

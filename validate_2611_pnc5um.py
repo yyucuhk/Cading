@@ -121,8 +121,22 @@ def run():
                 core+=box((L/2-.3,-25,L/2+220,225))
                 core+=box((-L/2-220,-225,-L/2+.3,25))
                 for n in (2,10,11,14,15,16):
-                    delta=((regs[n]^region(old_ly,old.cell,n))&core).area()*dbu**2
-                    check(name+f'_L{n}_meander_preserved',delta<.005,xor_um2=delta)
+                    old_region=region(old_ly,old.cell,n)
+                    change=(regs[n]^old_region)&core
+                    raw_delta=change.area()*dbu**2
+                    delta=raw_delta
+                    if tag=='design2' and n==2:
+                        from validate_2611_pnc5um_label_shift import exact_standalone_text
+                        old_text=exact_standalone_text(L,45.,first_stage,dbu)
+                        new_text=exact_standalone_text(L,endpoint,first_stage,dbu)
+                        # Compare exact glyph regions, not a rectangular exclusion.
+                        # Restoring BOTH known labels must recover identical core masks.
+                        delta=(((regs[n]|old_text)^(old_region|new_text))&core).area()*dbu**2
+                        outside=(change-(old_text|new_text)).area()*dbu**2
+                        check(name+'_L2_difference_is_exact_label_translation',outside<.005,
+                              outside_glyph_xor_um2=outside,raw_xor_um2=raw_delta)
+                    check(name+f'_L{n}_meander_preserved',delta<.005,
+                          xor_um2=delta,raw_xor_um2=raw_delta)
             rows.append(inst.trans.disp.y*dbu)
             lefts.append((regs[11].bbox().left+inst.trans.disp.x)*dbu)
         check(tag+'_left_bends_aligned',all(abs(x+900)<.0011 for x in lefts))

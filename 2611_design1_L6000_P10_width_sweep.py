@@ -3,8 +3,8 @@
 All dimensions are um. Each of THREE meander straights is 6000 um.
 Layer 15 optical ridge widths: 1.62, 1.64, 1.68. Both meander straight
 and bend PNC pitches are 10 um. Existing Design-1 tapers are preserved:
-L10 3 -> 1 -> 0.2 over 40/40; L15 W -> 0.1 over 40 after the 45 um PNC.
-The PNC-taper pitch follows the 10 um straight pitch; its length stays 45 um.
+L10 5 -> 1 -> 0.2 over 40/40; L15 W -> 0.1 over 40 after the shortened PNC.
+The PNC ends at the 5 um width point of the original 45 um reference profile.
 This builder does not rewrite the source or the other GDS outputs.
 
 Bend pitch is exact CENTERLINE ARC-LENGTH pitch between interior PNC pairs.
@@ -278,15 +278,22 @@ def worker(width):
         check(checks, f'layer{layer[0]}_complete_end_symmetry', area < .005, xor_um2=area)
     for side in (-1,1):
         rr = r if side==1 else {k:v.transformed(kdb.Trans(kdb.Trans.R180)) for k,v in r.items()}
-        for layer,x,w in ((10,45.002,3.),(10,84.998,1.),(10,124.998,.2),
-                          (15,45.002,width),(15,84.998,.1)):
+        pnc_end = float(m.PNC_TAPER_LENGTH)
+        first_end = pnc_end + float(m.RIDGE_TAPER_LENGTH)
+        last_end = first_end + float(m.SLAB_TAPER_LENGTH)
+        for layer,x,w in ((10,pnc_end+.002,float(m.PNC_TAPER_END_WIDTH)),
+                          (10,first_end-.002,1.),(10,last_end-.002,.2),
+                          (15,pnc_end+.002,width),(15,first_end-.002,.1)):
             x += STRAIGHT_LENGTH/2
-            section = (rr[(layer,0)] & box((x,-202,x+DBU,-198))).merged()
+            half_clip = max(2.0, w/2 + .02)
+            section = (rr[(layer,0)] & box((x,-200-half_clip,x+DBU,-200+half_clip))).merged()
             measured = section.bbox().height()*DBU
             check(checks, f'end{side}_L{layer}_x{x:g}_taper_width', section.count()==1 and abs(measured-w)<.0041,
                   measured_width_um=measured, expected_width_um=w)
-    check(checks, 'taper_PNC_matches_straight_without_changing_length',
-          m.PNC_TAPER_LENGTH==45 and m.REVIEW_SUPPORT_ANCHOR_PERIOD==STRAIGHT_PNC_PERIOD)
+    check(checks, 'taper_PNC_stops_at_5um_and_matches_straight',
+          0 < m.PNC_TAPER_LENGTH < m.PNC_TAPER_TRANSITION_LENGTH and
+          m.PNC_TAPER_SUPPORT_CUTOFF_WIDTH == 5.0 and
+          m.REVIEW_SUPPORT_ANCHOR_PERIOD == STRAIGHT_PNC_PERIOD)
     check(checks, 'Design1_taper_lengths_preserved', m.RIDGE_TAPER_LENGTH==40 and m.SLAB_TAPER_LENGTH==40)
     options = kdb.SaveLayoutOptions(); options.gds2_max_vertex_count=2000
     WORK.mkdir(exist_ok=True)
@@ -304,6 +311,8 @@ def worker(width):
                 straight_pnc_period_um=float(m.MEANDER_STRAIGHT_PNC_PERIOD),
                 taper_pnc_period_um=float(m.REVIEW_SUPPORT_ANCHOR_PERIOD),
                 pnc_taper_length_um=float(m.PNC_TAPER_LENGTH),
+                pnc_cutoff_width_um=float(m.PNC_TAPER_SUPPORT_CUTOFF_WIDTH),
+                pnc_reference_profile_length_um=float(m.PNC_TAPER_TRANSITION_LENGTH),
                 connection_pnc_pitch_um=float(m.PNC_CONNECTION_PITCH),
                 connection_pnc_periods=int(m.PNC_CONNECTION_PERIODS),
                 connection_pnc_span_um=float(m.PNC_CONNECTION_PITCH*m.PNC_CONNECTION_PERIODS),

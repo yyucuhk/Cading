@@ -1,3 +1,5 @@
+> CURRENT REVISION: PNC terminates at 5 um width, at 31.378626347 um on the reference profile. See `PNC5UM_README.txt` and `validate_2611_pnc5um.py`. Earlier 45 um active-length / 3 um cutoff descriptions below are historical.
+
 # Editing Design 1 and Design 2
 
 Both generators use the same section numbers. The latest meander update uses

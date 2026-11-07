@@ -71,12 +71,13 @@ def run():
             for n,lengths,widths in ((10,e['stage_lengths_um'],e['layer10_widths_um']),
                                      (15,e['layer15_lengths_um'],e['layer15_widths_um'])):
                 r=regs[n] if side=='right' else regs[n].transformed(kdb.Trans(kdb.Trans.R180))
-                x=e['straight_um']/2+45.
+                x=e['straight_um']/2+e['pnc_taper_length_um']
                 coords=[x]
                 for length in lengths: coords.append(coords[-1]+length)
                 for j,(x,width) in enumerate(zip(coords,widths)):
                     ix=round((x+(.002 if j==0 else -.002))/dbu)
-                    cr=(r & kdb.Region(kdb.Box(ix,round(-202/dbu),ix+1,round(-198/dbu)))).merged()
+                    half_clip=max(2.0,float(width)/2+.02)
+                    cr=(r & kdb.Region(kdb.Box(ix,round((-200-half_clip)/dbu),ix+1,round((-200+half_clip)/dbu)))).merged()
                     measured=cr.bbox().height()*dbu if cr.count()==1 else None
                     check(name+f'_{side}_L{n}_junction{j}',
                           measured is not None and abs(measured-width)<.0041,

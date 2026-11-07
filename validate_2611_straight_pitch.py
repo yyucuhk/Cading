@@ -73,7 +73,7 @@ def run():
         regs = regions(layout, inst.cell)
         check(ident + '_independent_pitch_parameters',
               entry['straight_pnc_period_um'] == 5.0 and entry['taper_pnc_period_um'] == 5.0
-              and entry['pnc_taper_length_um'] == 45.0)
+              and abs(entry['pnc_taper_length_um']-31.378626347)<1e-6 and entry['pnc_cutoff_width_um']==5.0)
         check(ident + '_three_straight_sections', len(entry['straight_pnc_measurements']) == 3)
         allowed = kdb.Region()
         for index, section in enumerate(entry['straight_pnc_measurements']):
