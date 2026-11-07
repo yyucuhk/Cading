@@ -1,0 +1,109 @@
+name: Verify smooth 5 um taper junctions
+on:
+  push:
+    branches: [layout/2611-c2-5um-junction]
+    paths: [.github/workflows/verify_2611_c2_junction.yml]
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Preserve all four approved layouts
+        run: |
+          mkdir -p validation_2611_smooth_junction/baseline
+          cp gds/2611_tapered_yue_dual_resist_L10_L12.gds validation_2611_smooth_junction/baseline/
+          cp gds/2611_tapered_yue_design2.gds validation_2611_smooth_junction/baseline/
+          cp gds/2611_design1_design2_L1400_18device_sweep.gds validation_2611_smooth_junction/baseline/
+          cp gds/2611_design1_L6000_P10_width_sweep.gds validation_2611_smooth_junction/baseline/
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib,json
+          files=['layers.py','markers.py','phononics.py','tapered_local.py','tether_variants.py','tether_variants.gds']
+          Path('validation_2611_smooth_junction/support_hashes.json').write_text(json.dumps({p:hashlib.sha256(Path(p).read_bytes()).hexdigest() for p in files},indent=2))
+          PY
+      - name: Apply guarded C2 profile and mask update
+        run: |
+          python _apply_2611_c2_transition.py
+          python -m py_compile 2611_tapered_yue_dual_resist.py 2611_tapered_yue_design2.py 2611_build_combined_sweep.py 2611_design1_L6000_P10_width_sweep.py validate_2611_smooth_junction.py
+      - name: Install approved short-layout engine
+        run: python -m pip install gdsfactory==9.45.0 klayout==0.30.12 numpy==2.4.6
+      - name: Regenerate both short designs and the 18-device sweep
+        run: |
+          python 2611_tapered_yue_dual_resist.py
+          python 2611_tapered_yue_design2.py
+          python 2611_build_combined_sweep.py
+      - name: Regenerate long-width sweep with its approved engine
+        run: |
+          python -m pip install klayout==0.30.13
+          python 2611_design1_L6000_P10_width_sweep.py
+      - name: Verify all complete ends widths connectivity pitch and placement
+        run: |
+          python validate_2611_combined_sweep.py
+          python validate_2611_vertical_sweep.py
+          python validate_2611_straight_pitch.py
+          python validate_2611_pnc5um.py
+      - name: Independently check C2 joins actual polygons and unchanged geometry
+        run: python validate_2611_smooth_junction.py
+      - name: Confirm unchanged support libraries and record engine versions
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib,json
+          p=Path('validation_2611_smooth_junction/support_hashes.json')
+          hashes=json.loads(p.read_text())
+          assert all(hashlib.sha256(Path(f).read_bytes()).hexdigest()==h for f,h in hashes.items())
+          report=Path('gds/2611_smooth_junction_validation.json')
+          d=json.loads(report.read_text())
+          assert d['status']=='PASS' and not d['failures']
+          d['base_commit']='21bf82e2a85b02986810f0247ec3f90ff7086603'
+          d['support_libraries_unchanged']=True
+          d['build_engine_versions']={'gdsfactory':'9.45.0','numpy':'2.4.6','short_klayout':'0.30.12','long_klayout':'0.30.13'}
+          report.write_text(json.dumps(d,indent=2))
+          Path('validation_2611_smooth_junction/validation_report.json').write_text(json.dumps(d,indent=2))
+          PY
+      - name: Upload generated sources layouts and validation evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: 2611-smooth-5um-junction-release
+          path: |
+            2611_tapered_yue_dual_resist.py
+            2611_tapered_yue_design2.py
+            2611_build_combined_sweep.py
+            2611_design1_L6000_P10_width_sweep.py
+            validate_2611_smooth_junction.py
+            validate_2611_pnc5um.py
+            validate_2611_combined_sweep.py
+            validate_2611_straight_pitch.py
+            validate_2611_vertical_sweep.py
+            SMOOTH_5UM_JUNCTION_README.md
+            PNC5UM_README.txt
+            gds/2611_tapered_yue_dual_resist_L10_L12.gds
+            gds/2611_tapered_yue_design2.gds
+            gds/2611_design1_design2_L1400_18device_sweep.*
+            gds/2611_design1_L6000_P10_width_sweep.*
+            gds/2611_smooth_junction_validation.json
+            gds/2611_pnc5um_validation.json
+            gds/2611_combined_sweep_validation.json
+            gds/2611_vertical_sweep_validation.json
+            gds/2611_straight_pitch_validation.json
+            validation_2611_smooth_junction/*.png
+            validation_2611_smooth_junction/*.json
+            validation_2611_combined_sweep/*.log
+          if-no-files-found: error
+      - name: Commit only passing code and layouts and remove temporary migration
+        run: |
+          git config user.name "chatgpt-runner"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add 2611_tapered_yue_dual_resist.py 2611_tapered_yue_design2.py 2611_build_combined_sweep.py 2611_design1_L6000_P10_width_sweep.py SMOOTH_5UM_JUNCTION_README.md
+          git add gds/2611_tapered_yue_dual_resist_L10_L12.gds gds/2611_tapered_yue_design2.gds gds/2611_design1_design2_L1400_18device_sweep.* gds/2611_design1_L6000_P10_width_sweep.*
+          git add gds/2611_smooth_junction_validation.json gds/2611_pnc5um_validation.json gds/2611_combined_sweep_validation.json gds/2611_vertical_sweep_validation.json gds/2611_straight_pitch_validation.json
+          git rm _apply_2611_c2_transition.py .github/workflows/verify_2611_c2_junction.yml
+          git commit -m "Save verified C2-matched 5 um junctions and regenerated GDSs"
+          git push
