@@ -1,0 +1,166 @@
+name: Verify earlier 5 um PNC cutoff
+on:
+  push:
+    branches: [layout/2611-pnc-cutoff-5um]
+    paths: [.github/workflows/verify_2611_pnc5.yml]
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install approved short-layout geometry engine
+        run: python -m pip install gdsfactory==9.45.0 klayout==0.30.12
+      - name: Capture approved four-file baseline
+        run: python validate_2611_pnc5_cutoff.py capture
+      - name: Apply shared 5 um cutoff and corresponding stage-mask endpoints
+        run: |
+          python _pnc5_migrate_once.py
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('2611_design1_L6000_P10_width_sweep.py')
+          s=p.read_text(); old='box((x,-204,x+DBU,-196))'
+          assert s.count(old)==1
+          p.write_text(s.replace(old,'box((x,-200-(3 if layer==10 else 2),x+DBU,-200+(3 if layer==10 else 2)))'))
+          p=Path('validate_2611_combined_sweep.py');s=p.read_text()
+          old='round(-204/dbu),ix+1,round(-196/dbu)'
+          assert s.count(old)==1
+          p.write_text(s.replace(old,'round((-200-(3 if n==10 else 2))/dbu),ix+1,round((-200+(3 if n==10 else 2))/dbu)'))
+          p=Path('validate_2611_pnc5_cutoff.py');s=p.read_text()
+          s=s.replace("            c=next(ax._get_lines._cycler_items)['color'] if False else None\n",'')
+          s=s.replace("    for n,alpha in ((14,.12),(2,.18),(10,.55),(11,.85),(15,.9)):","    from itertools import cycle\n    colors=cycle(plt.rcParams['axes.prop_cycle'].by_key()['color'])\n    for n,alpha in ((14,.12),(2,.18),(10,.55),(11,.85),(15,.9)):")
+          s=s.replace("PolyCollection(vertices,alpha=alpha,label=f'Layer {n}')","PolyCollection(vertices,alpha=alpha,facecolors=[next(colors)],label=f'Layer {n}')")
+          p.write_text(s)
+          Path('validate_2611_taper_pitch.py').write_text('''"""Compatibility entry point for the current 5 um PNC-end geometry checks.
+          Historical 3 um endpoint results remain in git history, not as current tests.
+          """
+          import sys
+          from validate_2611_pnc5_cutoff import capture, run
+          if __name__ == "__main__":
+              capture() if len(sys.argv)>1 and sys.argv[1]=="capture" else run()
+          '''.replace('\n          ','\n'))
+          PY
+          python -m py_compile 2611_tapered_yue_dual_resist.py 2611_tapered_yue_design2.py 2611_build_combined_sweep.py 2611_design1_L6000_P10_width_sweep.py validate_2611_pnc5_cutoff.py validate_2611_taper_pitch.py
+      - name: Regenerate both standalone designs and all 18 short sweep devices
+        run: |
+          python 2611_tapered_yue_dual_resist.py
+          python 2611_tapered_yue_design2.py
+          python 2611_build_combined_sweep.py
+      - name: Verify complete ends connectivity placement labels and straight PNCs
+        run: |
+          python validate_2611_combined_sweep.py
+          python validate_2611_vertical_sweep.py
+          python validate_2611_straight_pitch.py
+      - name: Regenerate long-width sweep using its approved engine
+        run: |
+          python -m pip install klayout==0.30.13
+          python 2611_design1_L6000_P10_width_sweep.py
+      - name: Independently measure 5 um endpoints and corresponding masks in all four files
+        run: python validate_2611_pnc5_cutoff.py
+      - name: Record controls and intentional geometry changes
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json
+          note='''# PNC endpoint at 5 um width - current geometry
+
+          Both designs now terminate the PNC-supported transition at a 5 um-wide
+          central envelope. This does not change the optical ridge to 5 um.
+          The original 45 um quintic reference profile remains 15 -> 3 um;
+          it is TRUNCATED where it reaches 5 um, at 31.378626 um, snapped to
+          31.379 um on the 1 nm CAD grid. The retained transition is 13.621 um
+          shorter. This is not a 15 -> 5 profile stretched over 45 um.
+
+          Five 1 um intervals remain at the narrow PNC endpoint: paired stations
+          26.379, 27.379, 28.379, 29.379, 30.379, 31.379 um. Earlier regular
+          stations keep their original 5/10 um phase. The last regular-to-dense
+          interval is 1.379 um for the short designs and 6.379 um for the long
+          sweep; both exceed the 0.626 um cell extent. No PNC remains beyond
+          the new endpoint except its existing half-cell longitudinal extent.
+
+          Layer 10 begins at this endpoint with width 5 um. Design 1 is now
+          5 -> 1 -> 0.2 um, with unchanged 40/40 um default stage lengths.
+          Design 2 is 5 -> 1.65 -> 0.980 -> 0.200 um, with unchanged 20/100/10
+          um defaults. The combined 80/100/120 um post-PNC taper totals and
+          stage ratios remain unchanged. Layer 15 keeps its original widths,
+          stage lengths and Design-2 0.840 um centerline shift; its constant
+          PNC section ends earlier and the optical taper follows that junction.
+
+          Layer 2 side bands and release transitions, Layer 14 full opening,
+          and Layer 16 ridge protection are rebuilt from the new endpoint.
+          Tethers, support islands (including Layer 13), alignment tips on
+          Layer 15, long channels and Layer-51 fiber guides follow the shorter
+          complete end assemblies by 13.621 um toward the meander. Nothing is
+          clipped/spliced. Both ends use the same factory and are rotated.
+          Meander straight lengths, bends, straight/bend PNCs, ridge widths,
+          device counts, 600 um Y pitch and left-bend alignment are unchanged.
+          Existing label contents and output filenames remain unchanged.
+
+          Edit in Section 01 of either generator:
+          PNC_TAPER_SUPPORT_CUTOFF_WIDTH = 5.0
+          PNC_TAPER_TRANSITION_LENGTH = 45.0  # uncut REFERENCE length
+          PNC_TAPER_PROFILE_END_WIDTH = 3.0  # uncut REFERENCE end width
+          PNC_CONNECTION_PITCH = 1.0
+          PNC_CONNECTION_PERIODS = 5
+          PNC_TAPER_LENGTH is derived; do not set it independently.
+
+          Run the existing generator/builder commands to regenerate outputs.
+          Run python validate_2611_pnc5_cutoff.py for exported geometry checks.
+          To compare with an approved baseline, run the same command with
+          capture BEFORE modifying/rebuilding the layout. The compatibility
+          entry point validate_2611_taper_pitch.py invokes the same checks.
+          Use GDSFactory 9.45.0 / KLayout 0.30.12 for short outputs and
+          KLayout 0.30.13 for the long-width sweep, matching approved engines.
+
+          These checks do not establish lower optical loss or mechanical
+          robustness. Those require simulation/measurement and fabrication DRC.
+          '''.replace('\n          ','\n')
+          Path('PNC_5UM_ENDPOINT_README.md').write_text(note)
+          for name in ('CAD_EDITING_GUIDE.md','COMBINED_SWEEP_README.md','DESIGN1_L6000_WIDTH_SWEEP_README.md'):
+              p=Path(name)
+              p.write_text('> CURRENT UPDATE: PNC stops at 5 um width after 31.379 um.\n> See PNC_5UM_ENDPOINT_README.md for the current geometry and controls.\n> Older 3 um / full-45 um PNC descriptions below are historical.\n\n'+p.read_text())
+          p=Path('gds/2611_pnc5_cutoff_validation.json');r=json.loads(p.read_text())
+          r['base_commit']='6d4fcb56e649e80e0270c3af37be16a102799c00'
+          r['build_engine_versions']={'gdsfactory':'9.45.0','short_klayout':'0.30.12','long_klayout':'0.30.13'}
+          p.write_text(json.dumps(r,indent=2))
+          Path('gds/2611_taper_pitch_validation.json').write_text(json.dumps(r,indent=2))
+          PY
+      - name: Upload measured output source and reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: 2611-pnc5-endpoint-release
+          path: |
+            2611_tapered_yue_dual_resist.py
+            2611_tapered_yue_design2.py
+            2611_build_combined_sweep.py
+            2611_design1_L6000_P10_width_sweep.py
+            validate_2611_*.py
+            PNC_5UM_ENDPOINT_README.md
+            CAD_EDITING_GUIDE.md
+            COMBINED_SWEEP_README.md
+            DESIGN1_L6000_WIDTH_SWEEP_README.md
+            gds/2611*.gds
+            gds/2611*.json
+            gds/2611*.csv
+            validation_2611_pnc5_cutoff/*.png
+            validation_2611_pnc5_cutoff/validation_report.json
+            validation_2611_combined_sweep/*.log
+          if-no-files-found: error
+      - name: Commit only passing outputs and remove temporary migration workflow
+        run: |
+          git config user.name 'chatgpt-runner'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add 2611_tapered_yue_dual_resist.py 2611_tapered_yue_design2.py 2611_build_combined_sweep.py 2611_design1_L6000_P10_width_sweep.py validate_2611_combined_sweep.py validate_2611_pnc5_cutoff.py validate_2611_taper_pitch.py PNC_5UM_ENDPOINT_README.md CAD_EDITING_GUIDE.md COMBINED_SWEEP_README.md DESIGN1_L6000_WIDTH_SWEEP_README.md
+          git add gds/2611*.gds gds/2611*.json gds/2611*.csv
+          git rm _pnc5_migrate_once.py .github/workflows/verify_2611_pnc5.yml
+          git commit -m 'End PNC at 5 um width and regenerate adjoining tapers and masks'
+          git pull --rebase origin layout/2611-pnc-cutoff-5um
+          git push origin HEAD:layout/2611-pnc-cutoff-5um
