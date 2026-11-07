@@ -223,6 +223,65 @@ MLA_CHANNEL_START_OFFSET = POSITIVE_WINDOW_END_EXTENSION
 # %% [03] TAPER POLYGON PRIMITIVES
 # =============================================================================
 # Edit profiles here only when changing the taper law, not dimensions.
+def pnc_endpoint_width_derivatives():
+    """Derivatives of the FULL slab width at the active PNC cutoff.
+
+    The 15 -> 3 um reference quintic is truncated at width 5 um. Its
+    derivative is not zero there. Units: dw/dx is dimensionless; d2w/dx2
+    is 1/um. The two sidewall derivatives are +/- one half these values.
+    """
+    u = PNC_TAPER_LENGTH / PNC_TAPER_TRANSITION_LENGTH
+    delta = PNC_TAPER_PROFILE_END_WIDTH - SLAB_EXTENSION_END_WIDTH
+    slope = delta * 30 * u**2 * (1 - u)**2 / PNC_TAPER_TRANSITION_LENGTH
+    curvature = delta * 60 * u * (1 - u) * (1 - 2*u) / PNC_TAPER_TRANSITION_LENGTH**2
+    return float(slope), float(curvature)
+
+
+def quintic_taper_coefficients(length, width1, width2, start_slope=0.0, start_curvature=0.0):
+    """C2 Hermite polynomial in t=x/length, with a flat final cross-section.
+
+    Match width, slope AND curvature at the entrance; set first and second
+    derivatives to zero at the exit. Check all derivative extrema, not only
+    sampled points, so unsupported parameter edits fail rather than create
+    a neck/overshoot. This is a geometric check, not an optical-loss model.
+    """
+    values = (length, width1, width2, start_slope, start_curvature)
+    if not all(np.isfinite(v) for v in values) or length <= 0 or min(width1, width2) < 0:
+        raise ValueError("Taper dimensions/derivatives must be finite and widths nonnegative")
+    delta = width2 - width1
+    a = length * start_slope
+    b = 0.5 * length**2 * start_curvature
+    coeff = np.array([width1, a, b, 10*delta - 6*a - 3*b,
+                      -15*delta + 8*a + 3*b, 6*delta - 3*a - b], dtype=float)
+    d1 = np.polynomial.polynomial.polyder(coeff)
+    roots = np.polynomial.polynomial.polyroots(np.polynomial.polynomial.polyder(d1))
+    test_t = [0.0, 1.0] + [float(r.real) for r in roots
+                           if abs(r.imag) < 1e-8 and 0 < r.real < 1]
+    slopes = np.polynomial.polynomial.polyval(test_t, d1) / length
+    if delta < 0 and max(slopes) > 1e-10:
+        raise ValueError("Matched taper is not monotonic; revise its length or endpoint widths")
+    if delta > 0 and min(slopes) < -1e-10:
+        raise ValueError("Matched taper is not monotonic; revise its length or endpoint widths")
+    if delta == 0 and max(abs(slopes)) > 1e-10:
+        raise ValueError("Equal-width section cannot have nonzero matched derivatives")
+    return coeff
+
+
+def quintic_taper_widths(x, length, width1, width2, start_slope=0.0, start_curvature=0.0):
+    """Shared profile for Layer 10 and the corresponding positive-mask edges."""
+    t = np.asarray(x, dtype=float) / length
+    if np.any(t < -1e-12) or np.any(t > 1 + 1e-12):
+        raise ValueError("Sample coordinates must stay inside the taper")
+    if start_slope == 0.0 and start_curvature == 0.0:
+        # Preserve the exact approved arithmetic for all unaffected tapers.
+        weight = 6*t**5 - 15*t**4 + 10*t**3
+        return width1 + (width2 - width1) * weight
+    coeff = quintic_taper_coefficients(length, width1, width2, start_slope, start_curvature)
+    values = np.polynomial.polynomial.polyval(t, coeff)
+    values = np.where(t == 0, width1, values)
+    return np.where(t == 1, width2, values)
+
+
 @gf.cell
 def tapered_fiber_adiabatic(
     length: float = 50.0,
@@ -231,8 +290,13 @@ def tapered_fiber_adiabatic(
     taper_length: float | None = None,
     npoints: int = ADIABATIC_TAPER_POINTS,
     layer=NEGATIVE_RESIST_LAYER,
+    start_slope: float = 0.0,
+    start_curvature: float = 0.0,
 ) -> gf.Component:
-    """Quintic adiabatic taper with zero slope/curvature at both ends."""
+    """Smooth geometric taper; optional C2 entrance matching, flat exit.
+
+    Optical adiabaticity must be checked with local modes/EME or FDTD.
+    """
     if taper_length is None:
         taper_length = length
     if length <= 0 or taper_length <= 0 or taper_length > length:
@@ -243,11 +307,13 @@ def tapered_fiber_adiabatic(
         raise ValueError("npoints must be at least 8")
 
     straight_length = length - taper_length
+    if straight_length > 0 and (start_slope != 0 or start_curvature != 0):
+        raise ValueError("Matched entrance cannot follow an internal flat lead")
     transition_x = np.linspace(0.0, taper_length, npoints)
     u = transition_x / taper_length
-    # Quintic smootherstep: first and second derivatives vanish at u=0,1.
-    weight = 6 * u**5 - 15 * u**4 + 10 * u**3
-    transition_width = width1 + (width2 - width1) * weight
+    transition_width = quintic_taper_widths(
+        transition_x, taper_length, width1, width2, start_slope, start_curvature
+    )
     x = transition_x + straight_length
     widths = transition_width
     if straight_length > 0:
@@ -272,7 +338,9 @@ def tapered_fiber_adiabatic(
         orientation=0,
         layer=layer,
     )
-    component.info["profile"] = "quintic_adiabatic"
+    component.info["profile"] = ("quintic_C2_matched" if start_slope or start_curvature
+                                 else "quintic_adiabatic")
+    component.info["start_width_derivatives"] = [float(start_slope), float(start_curvature)]
     component.info["npoints"] = npoints
     return component
 
@@ -677,9 +745,10 @@ def two_layer_tapered_fiber(
     component = gf.Component()
 
     # The first transition is intentionally not drawn on Layer 10 because its
-    # width is greater than 3 um. Keep its longitudinal distance so all PNC,
+    # width is greater than 5 um. Keep its longitudinal distance so all PNC,
     # ridge, and downstream taper coordinates remain unchanged.
     # --- 5A. Layer 10: first post-PNC slab stage ---
+    pnc_slope, pnc_curvature = pnc_endpoint_width_derivatives()
     post_pnc_slab_taper = component.add_ref(
         tapered_fiber_adiabatic(
             length=POST_PNC_TAPER_LENGTH,
@@ -687,6 +756,8 @@ def two_layer_tapered_fiber(
             width2=SLAB_EXTENSION_START_WIDTH,
             taper_length=POST_PNC_TAPER_LENGTH,
             layer=slab_layer,
+            start_slope=pnc_slope,
+            start_curvature=pnc_curvature,
         )
     )
     post_pnc_slab_taper.move((PNC_TAPER_LENGTH, 0.0))
@@ -746,14 +817,15 @@ def two_layer_tapered_fiber(
         RIDGE_TAPER_LENGTH,
         ADIABATIC_TAPER_POINTS,
     )
-    transition_u = transition_x / RIDGE_TAPER_LENGTH
-    transition_weight = 6 * transition_u**5 - 15 * transition_u**4 + 10 * transition_u**3
     release_x = PNC_TAPER_LENGTH + transition_x
     start_inner = PNC_TAPER_END_WIDTH / 2
     start_outer = start_inner + release_band_width
     release_target_half_y = SLAB_EXTENSION_START_WIDTH / 2 + (POSITIVE_WINDOW_MARGIN)
-    release_inner = start_inner * (1 - transition_weight)
-    release_outer = start_outer + (release_target_half_y - start_outer) * transition_weight
+    # Match the existing PNC-band edges, then flatten at the stage exit.
+    release_inner = quintic_taper_widths(transition_x, RIDGE_TAPER_LENGTH,
+        start_inner, 0.0, pnc_slope/2, pnc_curvature/2)
+    release_outer = quintic_taper_widths(transition_x, RIDGE_TAPER_LENGTH,
+        start_outer, release_target_half_y, pnc_slope/2, pnc_curvature/2)
     upper_release = list(zip(release_x, release_inner, strict=True)) + list(
         zip(release_x[::-1], release_outer[::-1], strict=True)
     )
@@ -769,10 +841,9 @@ def two_layer_tapered_fiber(
         POST_PNC_TAPER_LENGTH,
         ADIABATIC_TAPER_POINTS,
     )
-    copy_u = copy_x_local / POST_PNC_TAPER_LENGTH
-    copy_weight = 6 * copy_u**5 - 15 * copy_u**4 + 10 * copy_u**3
-    copy_width = (
-        PNC_TAPER_END_WIDTH + (SLAB_EXTENSION_START_WIDTH - PNC_TAPER_END_WIDTH) * copy_weight
+    copy_width = quintic_taper_widths(
+        copy_x_local, POST_PNC_TAPER_LENGTH, PNC_TAPER_END_WIDTH,
+        SLAB_EXTENSION_START_WIDTH, pnc_slope, pnc_curvature
     )
     copy_x = PNC_TAPER_LENGTH + copy_x_local
     copy_upper = [
@@ -849,6 +920,9 @@ def two_layer_tapered_fiber(
     component.info["pnc_taper_length"] = PNC_TAPER_LENGTH
     component.info["pnc_reference_profile_length_um"] = PNC_TAPER_TRANSITION_LENGTH
     component.info["pnc_cutoff_width_um"] = PNC_TAPER_SUPPORT_CUTOFF_WIDTH
+    component.info["pnc_junction_continuity"] = "C2: matched width, slope and curvature"
+    component.info["pnc_junction_width_derivatives"] = [pnc_slope, pnc_curvature]
+    component.info["optical_adiabaticity_simulated"] = False
     component.info["post_pnc_taper_length"] = POST_PNC_TAPER_LENGTH
     component.info["slab_extension_length"] = PNC_TAPER_LENGTH + POST_PNC_TAPER_LENGTH
     component.info["slab_taper_length"] = SLAB_TAPER_LENGTH
