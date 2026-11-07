@@ -116,27 +116,31 @@ The taper-pitch report records both environments.
 
 ## Local input/output PNC reinforcement (current)
 
-At both input/output straight-to-PNC-taper connections, only the first 5 um
-on the taper side now uses five 1 um longitudinal center-to-center periods.
-This means six paired PNC stations at local distances 0, 1, 2, 3, 4, 5 um.
-The remaining PNCs retain their original positions, dimensions and grid phase.
-Short-layout stations continue at 10, 15, ..., 45 um (regular pitch 5 um).
-The 6000 um width-sweep stations continue at 10, 20, 30, 40 um (regular pitch
-10 um); its 5-to-10 um transition gap is deliberately retained to avoid moving
-any original station. Straight and bend PNC patterns are unchanged.
+The reinforcement is at the NARROW, 3 um-wide END of the PNC taper, directly
+before the optical taper, not at the wide meander-to-PNC transition.
+For the unchanged 45 um PNC taper, five 1 um periods occupy the final 5 um:
+six paired stations at local x = 40, 41, 42, 43, 44, 45 um.
+Coordinates are measured outward from each meander connection port.
+The normal whole-end rotation applies the same geometry at both ends.
+
+The erroneously added wide-end stations at x=1,2,3,4 (and x=5 in the long
+layout) are removed. The wide end and all regular stations before x=40 keep
+their original pitch and phase. Short-layout stations are 0,5,10,...,35,
+then 40,41,42,43,44,45 um. The long-layout stations are 0,10,20,30,
+then 40,41,42,43,44,45 um. Straight and bend PNCs are unchanged.
 
 Edit Section 01 / 1D in either underlying design generator:
 
 ```python
 PNC_CONNECTION_PITCH = 1.0
-PNC_CONNECTION_PERIODS = 5  # intervals; six stations; 0 restores the regular grid
+PNC_CONNECTION_PERIODS = 5  # five intervals / six stations; 0 disables
 ```
 
-Both combined/long builders inherit these settings from the applicable source.
-The dense segment is mirrored by the normal whole-end construction; no local
-patch is applied to just one end. The 45 um envelope, optical tapers, windows,
-other layers, labels and placements stay unchanged. The JSON manifests record
-the separate connection pitch/count/span. Run `validate_2611_taper_pitch.py`
-after regenerating all four outputs; capture an approved baseline before the
-edit to enable exact polygon-difference checks. Increased support density is
-verified geometrically; mechanical robustness has not been simulated.
+The dense group is anchored to the narrow endpoint (cutoff_x); its start is
+cutoff_x minus pitch times periods. Both derived builders inherit these
+controls and record the region and start/end distances in their manifests.
+The 45 um PNC envelope, optical taper dimensions, other layers, labels and
+placements remain unchanged. Run validate_2611_taper_pitch.py after
+regenerating all four GDSs. Capture a baseline before editing to compare all
+non-PNC layers and confine changes to the old/new reinforcement regions.
+Mechanical robustness has not been simulated; checks are geometric only.

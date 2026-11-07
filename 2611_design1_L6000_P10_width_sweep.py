@@ -307,6 +307,9 @@ def worker(width):
                 connection_pnc_pitch_um=float(m.PNC_CONNECTION_PITCH),
                 connection_pnc_periods=int(m.PNC_CONNECTION_PERIODS),
                 connection_pnc_span_um=float(m.PNC_CONNECTION_PITCH*m.PNC_CONNECTION_PERIODS),
+                connection_pnc_region="narrow_pnc_end",
+                connection_pnc_start_um=float(m.PNC_TAPER_LENGTH-m.PNC_CONNECTION_PITCH*m.PNC_CONNECTION_PERIODS),
+                connection_pnc_end_um=float(m.PNC_TAPER_LENGTH),
                 post_pnc_taper_total_um=80., label=f'D1_W{width:.2f}_T80_P{BEND_PNC_PERIOD:g}',
                 checks=checks,status='PASS')
     (WORK/(device.name+'.json')).write_text(json.dumps(data,indent=2))
