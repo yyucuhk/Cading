@@ -2,7 +2,8 @@
 
 Run 'python validate_2611_taper_pitch.py capture' BEFORE editing to retain a
 baseline, then run without arguments AFTER regenerating the four layouts.
-Only Layer 11 inside each existing 45 um PNC taper may change. This does not
+Only Layer 11 inside the first 5 um of each existing PNC taper may change.
+Five 1 um intervals are checked, along with the unchanged surrounding grid. This does not
 replace fabrication DRC or optical simulation.
 """
 from pathlib import Path
@@ -16,6 +17,9 @@ import numpy as np
 
 ROOT = Path(__file__).resolve().parent
 WORK = ROOT / 'validation_2611_taper_pitch'
+DENSE_PITCH = 1.0
+DENSE_PERIODS = 5
+DENSE_SPAN = DENSE_PITCH * DENSE_PERIODS
 BASE = WORK / 'baseline'
 FILES = [
     ('design1', '2611_tapered_yue_dual_resist_L10_L12.gds', 1400.0, 5.0, 1),
@@ -93,9 +97,12 @@ def run():
         insts = devices(layout, top)
         check(tag+'_device_count', len(insts) == expected_count, count=len(insts))
         check(tag+'_database_grid', abs(dbu-.001) < 1e-12)
-        expected = np.r_[np.arange(-3*pitch, -.0001, pitch), np.arange(0, 45+1e-9, pitch)]
+        regular = np.arange(0, 45+1e-9, pitch)
+        dense = DENSE_PITCH * np.arange(DENSE_PERIODS + 1)
+        expected = np.r_[np.arange(-3*pitch, -.0001, pitch), dense,
+                         regular[regular > DENSE_SPAN + 1e-9]]
         allowed_global = kdb.Region()
-        local_allowed = box((L/2-.4, -230, L/2+45.4, -170), dbu)
+        local_allowed = box((L/2-.4, -230, L/2+DENSE_SPAN+.4, -170), dbu)
         local_allowed += local_allowed.transformed(kdb.Trans(kdb.Trans.R180))
         old_layout = old_top = None
         if (BASE/filename).exists():
@@ -120,10 +127,14 @@ def run():
                     check(f'{ident}_{end}_{side}_actual_PNC_grid', ok,
                           measured_centers_from_port_um=centers.tolist(),
                           expected_pitch_um=pitch)
-                    check(f'{ident}_{end}_{side}_no_compressed_or_missing_interval',
-                          len(spacing) > 0 and np.allclose(spacing, pitch, atol=.0011, rtol=0),
+                    check(f'{ident}_{end}_{side}_correct_piecewise_intervals',
+                          len(spacing) == len(expected)-1 and np.allclose(spacing, np.diff(expected), atol=.0011, rtol=0),
                           measured_min_um=float(min(spacing)) if len(spacing) else None,
                           measured_max_um=float(max(spacing)) if len(spacing) else None)
+                    dense_centers = centers[(centers >= -.0011) & (centers <= DENSE_SPAN+.0011)]
+                    check(f'{ident}_{end}_{side}_exactly_five_1um_periods',
+                          len(dense_centers) == 6 and np.allclose(dense_centers, dense, atol=.0011, rtol=0),
+                          stations_um=dense_centers.tolist())
                     check(f'{ident}_{end}_{side}_one_PNC_at_interface',
                           sum(abs(centers) < .0011) == 1)
                 previous = None
@@ -134,6 +145,7 @@ def run():
                     previous = {str(k): v.tolist() for k,v in pnc_centers(old_r,L,pitch,dbu).items()}
                 REPORT['measurements'].append(dict(layout=tag,cell=inst.cell.name,end=end,
                     pitch_um=pitch,taper_length_um=45.0,
+                    dense_pitch_um=DENSE_PITCH,dense_periods=DENSE_PERIODS,dense_span_um=DENSE_SPAN,
                     before_centers_from_port_um=previous,
                     after_centers_from_port_um={str(k):v.tolist() for k,v in values.items()}))
         labels = [i for i in top.each_inst() if i.cell.name.startswith('LABEL_')]
@@ -147,14 +159,16 @@ def run():
             check(tag+'_every_non_PNC_layer_exactly_unchanged', all(v==0 for v in xor.values()),xor_um2=xor)
             delta = (old[(11,0)] ^ new[(11,0)])
             outside = (delta-allowed_global).area()*dbu**2
-            check(tag+'_PNC_changes_only_in_tapers',outside==0,
-                  outside_tapers_xor_um2=float(outside),total_PNC_change_um2=float(delta.area()*dbu**2))
+            check(tag+'_PNC_changes_only_in_first_5um',outside==0,
+                  outside_dense_region_xor_um2=float(outside),total_PNC_change_um2=float(delta.area()*dbu**2))
+            check(tag+'_no_existing_PNC_removed', (old[(11,0)]-new[(11,0)]).is_empty())
             check(tag+'_physical_PNC_update_present',not delta.is_empty())
         REPORT['outputs'][filename] = {'sha256':hashlib.sha256((ROOT/'gds'/filename).read_bytes()).hexdigest(),
                                       'devices':len(insts),'pitch_um':pitch}
     REPORT.update(status='PASS' if not REPORT['failures'] else 'FAIL',
                   check_count=len(REPORT['checks']),devices_checked=count,
                   taper_ends_checked=2*count,
+                  dense_pitch_um=DENSE_PITCH,dense_periods=DENSE_PERIODS,dense_span_um=DENSE_SPAN,
                   baseline_comparison_performed=all((BASE/f).exists() for _,f,_,_,_ in FILES))
     (ROOT/'gds/2611_taper_pitch_validation.json').write_text(json.dumps(REPORT,indent=2))
     (WORK/'validation_report.json').write_text(json.dumps(REPORT,indent=2))
@@ -196,7 +210,7 @@ def render():
             ax.text(x0+.8,15,'Straight / taper junction',fontsize=9)
             ax.set(xlim=bounds[::2],ylim=(-17,17),xlabel='Global X (um)',
                    ylabel='Y relative to ridge (um)',
-                   title=f'Design {design}: {state} - taper PNC pitch '+('15 um' if state=='before' else '5 um, matching straight'))
+                   title=f'Design {design}: {state} - '+('5 um regular pitch' if state=='before' else 'five 1 um periods at connection; rest unchanged'))
             ax.set_aspect('equal');ax.legend(loc='lower left');fig.tight_layout()
             fig.savefig(WORK/f'design{design}_{state}.png',dpi=180);plt.close(fig)
 
