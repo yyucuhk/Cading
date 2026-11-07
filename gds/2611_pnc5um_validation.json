@@ -255,7 +255,7 @@
     {
       "name": "design1_1_L14_end_symmetry",
       "passed": true,
-      "xor_um2": 0.00015
+      "xor_um2": 0.0
     },
     {
       "name": "design1_1_L15_end_symmetry",
@@ -271,46 +271,6 @@
       "name": "design1_1_L51_end_symmetry",
       "passed": true,
       "xor_um2": 0.0
-    },
-    {
-      "name": "design1_1_baseline_placement_matches",
-      "passed": true
-    },
-    {
-      "name": "design1_1_L2_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "design1_1_L10_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "design1_1_L11_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "design1_1_L14_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.000269,
-      "raw_xor_um2": 0.000269
-    },
-    {
-      "name": "design1_1_L15_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "design1_1_L16_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
     },
     {
       "name": "design1_left_bends_aligned",
@@ -588,52 +548,6 @@
       "xor_um2": 0.0
     },
     {
-      "name": "design2_1_baseline_placement_matches",
-      "passed": true
-    },
-    {
-      "name": "design2_1_L2_difference_is_exact_label_translation",
-      "passed": true,
-      "outside_glyph_xor_um2": 0.0,
-      "raw_xor_um2": 0.929292
-    },
-    {
-      "name": "design2_1_L2_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.929292
-    },
-    {
-      "name": "design2_1_L10_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "design2_1_L11_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "design2_1_L14_meander_preserved",
-      "passed": true,
-      "xor_um2": 6.4e-05,
-      "raw_xor_um2": 6.4e-05
-    },
-    {
-      "name": "design2_1_L15_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "design2_1_L16_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
       "name": "design2_left_bends_aligned",
       "passed": true
     },
@@ -891,7 +805,7 @@
     {
       "name": "combined_1_L14_end_symmetry",
       "passed": true,
-      "xor_um2": 0.00015
+      "xor_um2": 0.0
     },
     {
       "name": "combined_1_L15_end_symmetry",
@@ -907,46 +821,6 @@
       "name": "combined_1_L51_end_symmetry",
       "passed": true,
       "xor_um2": 0.0
-    },
-    {
-      "name": "combined_1_baseline_placement_matches",
-      "passed": true
-    },
-    {
-      "name": "combined_1_L2_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "combined_1_L10_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "combined_1_L11_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "combined_1_L14_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.000269,
-      "raw_xor_um2": 0.000269
-    },
-    {
-      "name": "combined_1_L15_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "combined_1_L16_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
     },
     {
       "name": "combined_2_all_layers",
@@ -1210,46 +1084,6 @@
       "xor_um2": 0.0
     },
     {
-      "name": "combined_2_baseline_placement_matches",
-      "passed": true
-    },
-    {
-      "name": "combined_2_L2_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "combined_2_L10_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "combined_2_L11_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "combined_2_L14_meander_preserved",
-      "passed": true,
-      "xor_um2": 1.9999999999999998e-05,
-      "raw_xor_um2": 1.9999999999999998e-05
-    },
-    {
-      "name": "combined_2_L15_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "combined_2_L16_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
       "name": "combined_3_all_layers",
       "passed": true
     },
@@ -1511,46 +1345,6 @@
       "xor_um2": 0.0
     },
     {
-      "name": "combined_3_baseline_placement_matches",
-      "passed": true
-    },
-    {
-      "name": "combined_3_L2_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "combined_3_L10_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "combined_3_L11_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "combined_3_L14_meander_preserved",
-      "passed": true,
-      "xor_um2": 8e-06,
-      "raw_xor_um2": 8e-06
-    },
-    {
-      "name": "combined_3_L15_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "combined_3_L16_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
       "name": "combined_4_all_layers",
       "passed": true
     },
@@ -1794,7 +1588,7 @@
     {
       "name": "combined_4_L14_end_symmetry",
       "passed": true,
-      "xor_um2": 0.00015
+      "xor_um2": 0.0
     },
     {
       "name": "combined_4_L15_end_symmetry",
@@ -1810,46 +1604,6 @@
       "name": "combined_4_L51_end_symmetry",
       "passed": true,
       "xor_um2": 0.0
-    },
-    {
-      "name": "combined_4_baseline_placement_matches",
-      "passed": true
-    },
-    {
-      "name": "combined_4_L2_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "combined_4_L10_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "combined_4_L11_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "combined_4_L14_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.000269,
-      "raw_xor_um2": 0.000269
-    },
-    {
-      "name": "combined_4_L15_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "combined_4_L16_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
     },
     {
       "name": "combined_5_all_layers",
@@ -2113,46 +1867,6 @@
       "xor_um2": 0.0
     },
     {
-      "name": "combined_5_baseline_placement_matches",
-      "passed": true
-    },
-    {
-      "name": "combined_5_L2_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "combined_5_L10_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "combined_5_L11_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "combined_5_L14_meander_preserved",
-      "passed": true,
-      "xor_um2": 1.9999999999999998e-05,
-      "raw_xor_um2": 1.9999999999999998e-05
-    },
-    {
-      "name": "combined_5_L15_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "combined_5_L16_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
       "name": "combined_6_all_layers",
       "passed": true
     },
@@ -2414,46 +2128,6 @@
       "xor_um2": 0.0
     },
     {
-      "name": "combined_6_baseline_placement_matches",
-      "passed": true
-    },
-    {
-      "name": "combined_6_L2_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "combined_6_L10_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "combined_6_L11_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "combined_6_L14_meander_preserved",
-      "passed": true,
-      "xor_um2": 8e-06,
-      "raw_xor_um2": 8e-06
-    },
-    {
-      "name": "combined_6_L15_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "combined_6_L16_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
       "name": "combined_7_all_layers",
       "passed": true
     },
@@ -2697,7 +2371,7 @@
     {
       "name": "combined_7_L14_end_symmetry",
       "passed": true,
-      "xor_um2": 0.00015
+      "xor_um2": 0.0
     },
     {
       "name": "combined_7_L15_end_symmetry",
@@ -2713,46 +2387,6 @@
       "name": "combined_7_L51_end_symmetry",
       "passed": true,
       "xor_um2": 0.0
-    },
-    {
-      "name": "combined_7_baseline_placement_matches",
-      "passed": true
-    },
-    {
-      "name": "combined_7_L2_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "combined_7_L10_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "combined_7_L11_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "combined_7_L14_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.000269,
-      "raw_xor_um2": 0.000269
-    },
-    {
-      "name": "combined_7_L15_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "combined_7_L16_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
     },
     {
       "name": "combined_8_all_layers",
@@ -3016,46 +2650,6 @@
       "xor_um2": 0.0
     },
     {
-      "name": "combined_8_baseline_placement_matches",
-      "passed": true
-    },
-    {
-      "name": "combined_8_L2_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "combined_8_L10_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "combined_8_L11_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "combined_8_L14_meander_preserved",
-      "passed": true,
-      "xor_um2": 1.9999999999999998e-05,
-      "raw_xor_um2": 1.9999999999999998e-05
-    },
-    {
-      "name": "combined_8_L15_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "combined_8_L16_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
       "name": "combined_9_all_layers",
       "passed": true
     },
@@ -3315,46 +2909,6 @@
       "name": "combined_9_L51_end_symmetry",
       "passed": true,
       "xor_um2": 0.0
-    },
-    {
-      "name": "combined_9_baseline_placement_matches",
-      "passed": true
-    },
-    {
-      "name": "combined_9_L2_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "combined_9_L10_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "combined_9_L11_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "combined_9_L14_meander_preserved",
-      "passed": true,
-      "xor_um2": 8e-06,
-      "raw_xor_um2": 8e-06
-    },
-    {
-      "name": "combined_9_L15_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "combined_9_L16_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
     },
     {
       "name": "combined_10_all_layers",
@@ -3618,46 +3172,6 @@
       "xor_um2": 0.0
     },
     {
-      "name": "combined_10_baseline_placement_matches",
-      "passed": true
-    },
-    {
-      "name": "combined_10_L2_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "combined_10_L10_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "combined_10_L11_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "combined_10_L14_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.000108,
-      "raw_xor_um2": 0.000108
-    },
-    {
-      "name": "combined_10_L15_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "combined_10_L16_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
       "name": "combined_11_all_layers",
       "passed": true
     },
@@ -3917,46 +3431,6 @@
       "name": "combined_11_L51_end_symmetry",
       "passed": true,
       "xor_um2": 0.0
-    },
-    {
-      "name": "combined_11_baseline_placement_matches",
-      "passed": true
-    },
-    {
-      "name": "combined_11_L2_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "combined_11_L10_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "combined_11_L11_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "combined_11_L14_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.000104,
-      "raw_xor_um2": 0.000104
-    },
-    {
-      "name": "combined_11_L15_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "combined_11_L16_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
     },
     {
       "name": "combined_12_all_layers",
@@ -4220,46 +3694,6 @@
       "xor_um2": 0.0
     },
     {
-      "name": "combined_12_baseline_placement_matches",
-      "passed": true
-    },
-    {
-      "name": "combined_12_L2_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "combined_12_L10_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "combined_12_L11_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "combined_12_L14_meander_preserved",
-      "passed": true,
-      "xor_um2": 3.6e-05,
-      "raw_xor_um2": 3.6e-05
-    },
-    {
-      "name": "combined_12_L15_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "combined_12_L16_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
       "name": "combined_13_all_layers",
       "passed": true
     },
@@ -4519,46 +3953,6 @@
       "name": "combined_13_L51_end_symmetry",
       "passed": true,
       "xor_um2": 0.0
-    },
-    {
-      "name": "combined_13_baseline_placement_matches",
-      "passed": true
-    },
-    {
-      "name": "combined_13_L2_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "combined_13_L10_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "combined_13_L11_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "combined_13_L14_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.000108,
-      "raw_xor_um2": 0.000108
-    },
-    {
-      "name": "combined_13_L15_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "combined_13_L16_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
     },
     {
       "name": "combined_14_all_layers",
@@ -4822,46 +4216,6 @@
       "xor_um2": 0.0
     },
     {
-      "name": "combined_14_baseline_placement_matches",
-      "passed": true
-    },
-    {
-      "name": "combined_14_L2_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "combined_14_L10_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "combined_14_L11_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "combined_14_L14_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.000104,
-      "raw_xor_um2": 0.000104
-    },
-    {
-      "name": "combined_14_L15_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "combined_14_L16_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
       "name": "combined_15_all_layers",
       "passed": true
     },
@@ -5121,46 +4475,6 @@
       "name": "combined_15_L51_end_symmetry",
       "passed": true,
       "xor_um2": 0.0
-    },
-    {
-      "name": "combined_15_baseline_placement_matches",
-      "passed": true
-    },
-    {
-      "name": "combined_15_L2_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "combined_15_L10_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "combined_15_L11_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "combined_15_L14_meander_preserved",
-      "passed": true,
-      "xor_um2": 3.6e-05,
-      "raw_xor_um2": 3.6e-05
-    },
-    {
-      "name": "combined_15_L15_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "combined_15_L16_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
     },
     {
       "name": "combined_16_all_layers",
@@ -5424,46 +4738,6 @@
       "xor_um2": 0.0
     },
     {
-      "name": "combined_16_baseline_placement_matches",
-      "passed": true
-    },
-    {
-      "name": "combined_16_L2_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "combined_16_L10_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "combined_16_L11_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "combined_16_L14_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.000108,
-      "raw_xor_um2": 0.000108
-    },
-    {
-      "name": "combined_16_L15_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "combined_16_L16_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
       "name": "combined_17_all_layers",
       "passed": true
     },
@@ -5723,46 +4997,6 @@
       "name": "combined_17_L51_end_symmetry",
       "passed": true,
       "xor_um2": 0.0
-    },
-    {
-      "name": "combined_17_baseline_placement_matches",
-      "passed": true
-    },
-    {
-      "name": "combined_17_L2_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "combined_17_L10_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "combined_17_L11_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "combined_17_L14_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.000104,
-      "raw_xor_um2": 0.000104
-    },
-    {
-      "name": "combined_17_L15_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "combined_17_L16_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
     },
     {
       "name": "combined_18_all_layers",
@@ -6026,46 +5260,6 @@
       "xor_um2": 0.0
     },
     {
-      "name": "combined_18_baseline_placement_matches",
-      "passed": true
-    },
-    {
-      "name": "combined_18_L2_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "combined_18_L10_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "combined_18_L11_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "combined_18_L14_meander_preserved",
-      "passed": true,
-      "xor_um2": 3.6e-05,
-      "raw_xor_um2": 3.6e-05
-    },
-    {
-      "name": "combined_18_L15_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "combined_18_L16_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
       "name": "combined_left_bends_aligned",
       "passed": true
     },
@@ -6307,7 +5501,7 @@
     {
       "name": "long_1_L14_end_symmetry",
       "passed": true,
-      "xor_um2": 0.000185
+      "xor_um2": 3.5e-05
     },
     {
       "name": "long_1_L15_end_symmetry",
@@ -6323,46 +5517,6 @@
       "name": "long_1_L51_end_symmetry",
       "passed": true,
       "xor_um2": 0.0
-    },
-    {
-      "name": "long_1_baseline_placement_matches",
-      "passed": true
-    },
-    {
-      "name": "long_1_L2_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "long_1_L10_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "long_1_L11_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "long_1_L14_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.000269,
-      "raw_xor_um2": 0.000269
-    },
-    {
-      "name": "long_1_L15_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "long_1_L16_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
     },
     {
       "name": "long_2_all_layers",
@@ -6584,7 +5738,7 @@
     {
       "name": "long_2_L14_end_symmetry",
       "passed": true,
-      "xor_um2": 0.000185
+      "xor_um2": 3.5e-05
     },
     {
       "name": "long_2_L15_end_symmetry",
@@ -6600,46 +5754,6 @@
       "name": "long_2_L51_end_symmetry",
       "passed": true,
       "xor_um2": 0.0
-    },
-    {
-      "name": "long_2_baseline_placement_matches",
-      "passed": true
-    },
-    {
-      "name": "long_2_L2_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "long_2_L10_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "long_2_L11_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "long_2_L14_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.000269,
-      "raw_xor_um2": 0.000269
-    },
-    {
-      "name": "long_2_L15_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "long_2_L16_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
     },
     {
       "name": "long_3_all_layers",
@@ -6861,7 +5975,7 @@
     {
       "name": "long_3_L14_end_symmetry",
       "passed": true,
-      "xor_um2": 0.000185
+      "xor_um2": 3.5e-05
     },
     {
       "name": "long_3_L15_end_symmetry",
@@ -6879,46 +5993,6 @@
       "xor_um2": 0.0
     },
     {
-      "name": "long_3_baseline_placement_matches",
-      "passed": true
-    },
-    {
-      "name": "long_3_L2_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "long_3_L10_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "long_3_L11_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "long_3_L14_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.000269,
-      "raw_xor_um2": 0.000269
-    },
-    {
-      "name": "long_3_L15_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
-      "name": "long_3_L16_meander_preserved",
-      "passed": true,
-      "xor_um2": 0.0,
-      "raw_xor_um2": 0.0
-    },
-    {
       "name": "long_left_bends_aligned",
       "passed": true
     },
@@ -6934,64 +6008,26 @@
   "failures": [],
   "outputs": {
     "2611_tapered_yue_dual_resist_L10_L12.gds": {
-      "sha256": "9f280e2e9519e84d9ce65565d88d49a169b5fe13d6e20d6d4b8d3a2c8c04f989",
+      "sha256": "6c587a25b73e107cdf0f75cab9b3e4ea05ba13f016a084a4be447aa52d32f89b",
       "devices": 1
     },
     "2611_tapered_yue_design2.gds": {
-      "sha256": "15352f42a4f57fb70a8225a156131f81ead474fac4566bb7bfa3910655716b96",
+      "sha256": "034598c78c3578b051319ce895885fc2e226b408a53cc73a7caed328bbcfc105",
       "devices": 1
     },
     "2611_design1_design2_L1400_18device_sweep.gds": {
-      "sha256": "e7f1eb2fc32f3cf12206cb4f5a65505d4cd93fe70ba995b2d448ed20d098e831",
+      "sha256": "2440c9c727768a26b01254d0d1b270aad324300a1822139df33191c9037c0353",
       "devices": 18
     },
     "2611_design1_L6000_P10_width_sweep.gds": {
-      "sha256": "64689bfaf57c8fa8ba2db36cc73078e319e0bcc6563d1e40ad15aa03ea94b77d",
+      "sha256": "82070a2c912debfb0d09c8ead41330538f6ab9e340bfa94f5192be8eb8ade46b",
       "devices": 3
     }
   },
-  "baseline_files": [
-    "2611_tapered_yue_dual_resist_L10_L12.gds",
-    "2611_tapered_yue_design2.gds",
-    "2611_design1_design2_L1400_18device_sweep.gds",
-    "2611_design1_L6000_P10_width_sweep.gds"
-  ],
+  "baseline_files": [],
   "cutoff_width_um": 5.0,
   "active_pnc_length_um": 31.378626347372645,
   "dense_start_um": 26.378626347372645,
   "dense_end_um": 31.378626347372645,
-  "check_count": 822,
-  "base_commit": "6d4fcb56e649e80e0270c3af37be16a102799c00",
-  "support_libraries_unchanged": true,
-  "generation_run_id": 42341227214,
-  "verification_run_id": 42341777657,
-  "standalone_label_physical_mask_audit": {
-    "status": "PASS",
-    "checks": [
-      {
-        "name": "label_free_physical_L2_meander_unchanged",
-        "passed": true,
-        "xor_um2": 0.0
-      },
-      {
-        "name": "before_export_equals_physical_mask_union_exact_label",
-        "passed": true,
-        "xor_um2": 0.0
-      },
-      {
-        "name": "after_export_equals_physical_mask_union_exact_label",
-        "passed": true,
-        "xor_um2": 0.0
-      }
-    ],
-    "check_count": 3,
-    "method": "Two fresh processes; isolate final label on temporary layer 998 before flattening; compare physical masks independently. Production GDS files are read only."
-  },
-  "build_engine_versions": {
-    "gdsfactory": "9.45.0",
-    "kfactory": "2.6.1",
-    "numpy": "2.4.6",
-    "short_klayout": "0.30.12",
-    "long_klayout": "0.30.13"
-  }
+  "check_count": 660
 }
