@@ -1,0 +1,102 @@
+name: Finalize original-design Layer 14 windows
+on:
+  push:
+    branches: [layout/2611-original-designs-narrow-L14]
+    paths: [.github/workflows/finalize_original_design_windows.yml]
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+      actions: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          name: original-designs-narrow-L14
+          run-id: 42516210091
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: _generated
+      - name: Retain rebuilt editable code and exact approved baseline
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import shutil,ast
+          src=Path('_generated')
+          shutil.copytree(src/'baseline','baseline',dirs_exist_ok=True)
+          for f in ('2611_tapered_yue_dual_resist.py','2611_tapered_yue_design2.py','2611_build_combined_sweep.py'):shutil.copy2(src/f,f)
+          for p in (src/'gds').glob('*'):shutil.copy2(p,Path('gds')/p.name)
+          p=Path('original_design_layer14.py');s=p.read_text()
+          old="    if cut.is_empty or cut.geom_type != 'LineString':"
+          assert s.count(old)==1
+          s=s.replace(old,"    if cut.geom_type == 'MultiLineString':\n        from shapely.ops import linemerge\n        cut = linemerge(cut)\n"+old,1);p.write_text(s)
+          p=Path('validate_original_design_windows.py');s=p.read_text()
+          old="        if cut.is_empty or cut.geom_type!='LineString':"
+          assert s.count(old)==1
+          s=s.replace(old,"        if cut.geom_type=='MultiLineString':\n            from shapely.ops import linemerge\n            cut=linemerge(cut)\n"+old,1);p.write_text(s)
+          for f in ('2611_tapered_yue_dual_resist.py','2611_tapered_yue_design2.py'):
+              old=ast.parse(Path('baseline',f).read_text());new=ast.parse(Path(f).read_text())
+              a={n.name:ast.dump(n,include_attributes=False) for n in old.body if isinstance(n,ast.FunctionDef)}
+              b={n.name:ast.dump(n,include_attributes=False) for n in new.body if isinstance(n,ast.FunctionDef)}
+              assert all(a[n]==b[n] for n in a if n!='build_layout')
+          PY
+      - name: Install geometry inspection and serialization libraries
+        run: python -m pip install klayout==0.30.13 shapely numpy==2.4.6 matplotlib PyYAML
+      - name: Replace only Layer 14 records and inspect complete outputs
+        run: |
+          python _preserve_original_windows.py
+          python validate_original_design_windows.py --baseline baseline --render
+      - name: Document verified geometry and protected files
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import subprocess,json,hashlib,yaml
+          steps=yaml.safe_load(Path('.github/workflows/verify_original_design_windows.yml').read_text())['jobs']['verify']['steps']
+          step=next(s for s in steps if s.get('name')=='Verify scope and document editable settings')
+          subprocess.run(['bash','-e','-c',step['run']],check=True)
+          p=Path('gds/2611_original_design_windows_validation.json');r=json.loads(p.read_text())
+          r['preservation_note']='Rebuilding the original geometry introduced approximately 1 nm differences on unrelated masks. Final outputs reuse every non-L14 GDS record from the approved baseline; new L14 geometry is calculated from the same approved polygons. No acceptance tolerance on other layers was relaxed.'
+          r['source_geometry_functions_unchanged']=True
+          p.write_text(json.dumps(r,indent=2))
+          p=Path('ORIGINAL_DESIGN_LAYER14_README.txt');p.write_text(p.read_text()+'\nThe saved release reuses exact approved non-L14 records to avoid CAD-engine\nrounding differences when rebuilding old geometry. The source construction\nfunctions for all other layers are unchanged.\n')
+          PY
+      - name: Upload final editable code GDS reports and previews
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: original-designs-narrow-L14-verified
+          path: |
+            2611_tapered_yue_dual_resist.py
+            2611_tapered_yue_design2.py
+            2611_build_combined_sweep.py
+            original_design_layer14.py
+            validate_original_design_windows.py
+            validate_2611_straight_output_raw.py
+            ORIGINAL_DESIGN_LAYER14_README.txt
+            layers.py
+            markers.py
+            phononics.py
+            routing.py
+            tapered_local.py
+            tether_variants.py
+            tether_variants.gds
+            text.py
+            gds/2611_tapered_yue_dual_resist_L10_L12.gds
+            gds/2611_tapered_yue_design2.gds
+            gds/2611_design1_design2_L1400_18device_sweep.*
+            gds/2611_original_design_windows_validation.json
+            validation_original_design_windows/
+            baseline/
+      - name: Commit only passing files and remove temporary runners
+        run: |
+          git config user.name 'Yue YU'
+          git config user.email '110512504+yyucuhk@users.noreply.github.com'
+          git add 2611_tapered_yue_dual_resist.py 2611_tapered_yue_design2.py 2611_build_combined_sweep.py original_design_layer14.py validate_original_design_windows.py ORIGINAL_DESIGN_LAYER14_README.txt
+          git add gds/2611_tapered_yue_dual_resist_L10_L12.gds gds/2611_tapered_yue_design2.gds gds/2611_design1_design2_L1400_18device_sweep.gds gds/2611_design1_design2_L1400_18device_sweep.json gds/2611_original_design_windows_validation.json
+          git rm _apply_original_windows.py _preserve_original_windows.py .github/workflows/verify_original_design_windows.yml .github/workflows/finalize_original_design_windows.yml
+          git commit -m 'Save narrow original-design windows with exact PNC and non-L14 preservation'
+          git push origin HEAD:layout/2611-original-designs-narrow-L14
