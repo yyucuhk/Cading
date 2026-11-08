@@ -14,9 +14,9 @@ new bend-free route, excluding the retained input transition/taper.
 Layer 2 starts 0.5 um outward from Layer 10: global input X=-803.347 um
 and output X=5287.653 um. Layer 14 starts with L10: -802.847/5287.153 um.
 The 0.5 um original delayed-copy interface is retained, not doubled.
-Entrance widths are TOTAL widths: L2=15 um, L14=8 um. Both downstream
-expansions are 2.5 um per side. These margins do not add another 5 um
-to the stated entrance widths. The smooth entrance blend joins the
+Entrance widths are TOTAL widths: L2=15 um, L14=8 um. Downstream
+expansions are 2.5 um per side on L2 and 1.0 um per side on L14.
+These margins are not added again to the stated entrance widths. The smooth entrance blend joins the
 original downstream mask generator; distant channels and pads stay unchanged.
 
 Section 01 controls widths, start offsets and margins. The default width

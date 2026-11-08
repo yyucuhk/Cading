@@ -4,8 +4,8 @@ Two meander sets and two single-straight sets. New single straights are 6000 um
 with two couplers, or one input coupler plus the retained 2000 um bare output.
 Complete optical terminal assemblies are copied, never redrawn.
 L2 starts 0.5 um outward from L10, at TOTAL width 15 um.
-L14 starts with L10, at TOTAL width 8 um. Both downstream margins are 2.5 um
-per side. First-stage window envelopes blend smoothly over the original stage.
+L14 starts with L10, at TOTAL width 8 um. Downstream margins are 2.5 um
+per side on L2 and 1.0 um per side on L14. First-stage window envelopes blend smoothly over the original stage.
 L11/L16/L51 are absent; global marks are on L15 and labels on L2.
 Requires the existing source modules and source width-sweep GDS/manifest.
 """
@@ -37,7 +37,7 @@ PNC_PITCH = 10.0                     # straight/bend; also added straight
 INCLUDE_REFERENCE_DEVICES = True     # two-coupler set first, straight outputs above
 COUPLER_END_WINDOWS_ONLY = True       # applies to BOTH device sets; crops L2 and L14
 LAYER2_WINDOW_MARGIN = 2.5            # per-side taper-window expansion on Layer 2
-LAYER14_WINDOW_MARGIN = 2.5           # independent Layer 14 expansion
+LAYER14_WINDOW_MARGIN = 1.0           # independent Layer 14 expansion
 RELEASE_WINDOW_START_OFFSET = 0.0     # legacy construction setting; see independent offsets below
 LAYER2_START_OFFSET = 0.5             # preserve original L10-to-L2 delayed-copy interface
 LAYER14_START_OFFSET = 0.0            # same entrance as L10
@@ -155,7 +155,7 @@ def finalize_coupler_windows(layout, entries):
 
     L2 starts 0.5 um outward from L10, preserving the original delayed-copy
     interface. L14 starts with L10. Entrance widths are TOTAL widths, not
-    extra clearances: L2=15 um and L14=8 um. Both downstream margins=2.5 um.
+    extra clearances: L2=15 um and L14=8 um. Downstream margins: L2=2.5 um, L14=1 um.
     Only the first 40 um window envelope is replaced; downstream mask
     candidates still come from the original mask generator.
     """

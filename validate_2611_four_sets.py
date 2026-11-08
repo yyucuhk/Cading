@@ -35,7 +35,7 @@ def validate(root: Path, baseline: Path | None = None) -> dict:
     check('600um_row_pitch',sorted(p[1] for p in devices.values())==[-700000+i*600000 for i in range(12)])
     check('original_x_alignment_preserved',all(p[0]==2242153 for p in devices.values()))
     check('metadata_requested_dimensions',meta['layer2_start_width_um']==15 and meta['layer14_start_width_um']==8 and
-          meta['layer2_window_margin_um']==meta['layer14_window_margin_um']==2.5 and
+          meta['layer2_window_margin_um']==2.5 and meta['layer14_window_margin_um']==1.0 and
           meta['layer2_start_offset_um']==.5 and meta['layer14_start_offset_um']==0)
     for n,c in cells.items():
         check(n+'_removed_layers_absent',not ({11,16,51}&set(c['polys'])))
@@ -43,13 +43,28 @@ def validate(root: Path, baseline: Path | None = None) -> dict:
     check('global_markers_on15_not2',bool(cells['FRAME_AND_MARKERS']['polys'].get(15)) and not cells['FRAME_AND_MARKERS']['polys'].get(2))
     if old:
         for name,pos in old[oldtop]['refs']:
-            if name=='FRAME_AND_MARKERS':continue
             check(name+'_original_placement',refs[name]==pos)
             for layer in old[name]['polys']:
-                if name in devices and layer in (2,14):continue
+                if name in devices and layer == 14:continue
                 a=sorted(tuple(x) for x in old[name]['polys'][layer])
                 b=sorted(tuple(x) for x in cells[name]['polys'].get(layer,[]))
                 check(name+f'_L{layer}_original_raw_coordinates',a==b)
+    if old:
+        check('all_cell_names_preserved', set(cells)==set(old))
+        check('all_cell_references_preserved', all(cells[n]['refs']==old[n]['refs'] for n in cells))
+        for name in devices:
+            before=union(old[name],14)
+            after=geom(name,14)
+            check(name+'_L14_margin_really_reduced', before.difference(after).area>1.)
+            # Offset polygons are quantized on a 1 nm database grid.
+            check(name+'_L14_no_widening_beyond_grid', after.difference(before.buffer(DBU)).area<1e-6)
+            single=name.startswith('D1_SINGLE_')
+            one=('_1T_' in name) if single else name.endswith('_OUT2000')
+            allowed=Polygon()
+            for sign,cy in [(-1,0 if single else 200)]+([] if one else [(1,0 if single else -200)]):
+                sx=sign*3045
+                allowed=allowed.union(box(min(sx,sx+sign*96),cy-30,max(sx,sx+sign*96),cy+30))
+            exact(name+'_L14_unchanged_outside_taper_window', after.difference(allowed), before.difference(allowed))
     for name,pos in devices.items():
         single=name.startswith('D1_SINGLE_')
         one=('_1T_' in name) if single else name.endswith('_OUT2000')
@@ -59,7 +74,7 @@ def validate(root: Path, baseline: Path | None = None) -> dict:
         keep={2:Polygon(),14:Polygon()}
         for side,sign,cy in ends:
             key=name+'_'+side;sx=sign*3045
-            expected_widths={2:15.,14:8.};offsets={2:.5,14:0.}
+            expected_widths={2:15.,14:8.};offsets={2:.5,14:0.};margins={2:2.5,14:1.0}
             search=box(-20000,-1000 if single else 25,-3000,1000) if sign<0 else box(3000,-1000,20000,1000 if single else -25)
             slab=geom(name,10).intersection(search)
             actual_sx=slab.bounds[2] if sign<0 else slab.bounds[0]
@@ -77,7 +92,7 @@ def validate(root: Path, baseline: Path | None = None) -> dict:
                     x=sx+sign*dist
                     cut=geom(name,layer).intersection(LineString([(x,cy-20),(x,cy+20)]))
                     t=(dist-offset)/(40-offset);f=t**3*(10-15*t+6*t*t)
-                    expected=expected_widths[layer]+(6-expected_widths[layer])*f
+                    expected=expected_widths[layer]+(1+2*margins[layer]-expected_widths[layer])*f
                     check(key+f'_L{layer}_profile_{dist:g}',cut.geom_type=='LineString' and abs(cut.length-expected)<.0025,
                           width_um=cut.length,expected_um=expected)
                 entrance=geom(name,layer).intersection(LineString([(start,cy-20),(start,cy+20)]))
@@ -86,7 +101,7 @@ def validate(root: Path, baseline: Path | None = None) -> dict:
                     x=sx+sign*dist;line=LineString([(x,cy-20),(x,cy+20)])
                     optical=geom(name,10).intersection(line);m=geom(name,layer).intersection(line)
                     lower=optical.bounds[1]-m.bounds[1];upper=m.bounds[3]-optical.bounds[3]
-                    check(key+f'_L{layer}_margin_{dist}',abs(lower-2.5)<.0025 and abs(upper-2.5)<.0025,
+                    check(key+f'_L{layer}_margin_{dist}',abs(lower-margins[layer])<.0025 and abs(upper-margins[layer])<.0025,
                           lower_um=lower,upper_um=upper)
                 measured.append(dict(case_id=name,side=side,layer=layer,start_global_x_um=edge+pos[0]*DBU,
                                      start_width_um=entrance.length,offset_um=offset))
@@ -135,7 +150,7 @@ def validate(root: Path, baseline: Path | None = None) -> dict:
         if single:check(e['case_id']+'_single_path_length',e['path_length_excluding_tapers_um']==(8000 if one else 6000))
     report=dict(status='PASS',check_count=len(checks),checks=checks,measured_entrances=measured,
                 device_count=12,coupler_count=18,removed_layers=[11,16,51],
-                layer2_start_width_um=15.,layer14_start_width_um=8.,downstream_margin_per_side_um=2.5,
+                layer2_start_width_um=15.,layer14_start_width_um=8.,downstream_margin_per_side_um={'2':2.5,'14':1.0},
                 layer2_outward_offset_um=.5,layer14_outward_offset_um=0.,
                 baseline_compared=bool(old),gds_sha256=hashlib.sha256(path.read_bytes()).hexdigest(),
                 method='Independent raw GDSII parser and Shapely; no CAD generator or KLayout',
@@ -165,7 +180,7 @@ def render(root: Path):
         for layer,style in ((2,'--'),(14,'-'),(10,':'),(15,'-')):
             draw(ax,union(cells[name],layer).intersection(box(min(sx-5,sx+sign*82),cy-10,max(sx+5,sx+sign*82),cy+10)),f'Layer {layer}',style)
         ax.axvline(sx,linestyle=':',linewidth=.8);ax.axvline(sx+sign*.5,linestyle='--',linewidth=.8)
-        ax.set(xlabel='Local X (um)',ylabel='Local Y (um)',title=f'{side.title()}: L2 15 um inlet, 0.5 um offset; L14 8 um inlet; downstream margins 2.5 um')
+        ax.set(xlabel='Local X (um)',ylabel='Local Y (um)',title=f'{side.title()}: L2 15 um inlet, 0.5 um offset; L14 8 um inlet; downstream margins L2=2.5 um / L14=1 um')
         ax.legend(loc='lower right');fig.tight_layout();fig.savefig(dest/f'{side}_masks.png',dpi=180);plt.close(fig)
     fig,ax=plt.subplots(figsize=(16,10))
     meta=json.loads((root/'gds'/(STEM+'.json')).read_text())

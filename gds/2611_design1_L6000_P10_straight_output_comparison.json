@@ -16,7 +16,7 @@
       "bend_count": 2,
       "added_length_um": 0.0,
       "path_length_excluding_tapers_um": 18741.822610417224,
-      "release_window_file": "RELEASE_M2_2p5_M14_2p5_D1_L6000_W1620_P10.gds",
+      "release_window_file": "RELEASE_M2_2p5_M14_1p0_D1_L6000_W1620_P10.gds",
       "input_port_local_um": [
         -3000.0,
         200.0
@@ -33,7 +33,7 @@
       "final_pnc_present": false,
       "final_release_window_count": 2,
       "layer2_margin_um": 2.5,
-      "layer14_margin_um": 2.5,
+      "layer14_margin_um": 1.0,
       "layer2_start_offset_um": 0.5,
       "layer14_start_offset_um": 0.0,
       "layer2_start_width_um": 15.0,
@@ -54,7 +54,7 @@
       "bend_count": 2,
       "added_length_um": 0.0,
       "path_length_excluding_tapers_um": 18741.822610417224,
-      "release_window_file": "RELEASE_M2_2p5_M14_2p5_D1_L6000_W1640_P10.gds",
+      "release_window_file": "RELEASE_M2_2p5_M14_1p0_D1_L6000_W1640_P10.gds",
       "input_port_local_um": [
         -3000.0,
         200.0
@@ -71,7 +71,7 @@
       "final_pnc_present": false,
       "final_release_window_count": 2,
       "layer2_margin_um": 2.5,
-      "layer14_margin_um": 2.5,
+      "layer14_margin_um": 1.0,
       "layer2_start_offset_um": 0.5,
       "layer14_start_offset_um": 0.0,
       "layer2_start_width_um": 15.0,
@@ -92,7 +92,7 @@
       "bend_count": 2,
       "added_length_um": 0.0,
       "path_length_excluding_tapers_um": 18741.822610417224,
-      "release_window_file": "RELEASE_M2_2p5_M14_2p5_D1_L6000_W1680_P10.gds",
+      "release_window_file": "RELEASE_M2_2p5_M14_1p0_D1_L6000_W1680_P10.gds",
       "input_port_local_um": [
         -3000.0,
         200.0
@@ -109,7 +109,7 @@
       "final_pnc_present": false,
       "final_release_window_count": 2,
       "layer2_margin_um": 2.5,
-      "layer14_margin_um": 2.5,
+      "layer14_margin_um": 1.0,
       "layer2_start_offset_um": 0.5,
       "layer14_start_offset_um": 0.0,
       "layer2_start_width_um": 15.0,
@@ -130,7 +130,7 @@
       "bend_count": 2,
       "added_length_um": 2000.0,
       "path_length_excluding_tapers_um": 20741.822610417224,
-      "release_window_file": "RELEASE_M2_2p5_M14_2p5_D1_L6000_W1620_P10.gds",
+      "release_window_file": "RELEASE_M2_2p5_M14_1p0_D1_L6000_W1620_P10.gds",
       "input_port_local_um": [
         -3000.0,
         200.0
@@ -147,7 +147,7 @@
       "final_pnc_present": false,
       "final_release_window_count": 1,
       "layer2_margin_um": 2.5,
-      "layer14_margin_um": 2.5,
+      "layer14_margin_um": 1.0,
       "layer2_start_offset_um": 0.5,
       "layer14_start_offset_um": 0.0,
       "layer2_start_width_um": 15.0,
@@ -168,7 +168,7 @@
       "bend_count": 2,
       "added_length_um": 2000.0,
       "path_length_excluding_tapers_um": 20741.822610417224,
-      "release_window_file": "RELEASE_M2_2p5_M14_2p5_D1_L6000_W1640_P10.gds",
+      "release_window_file": "RELEASE_M2_2p5_M14_1p0_D1_L6000_W1640_P10.gds",
       "input_port_local_um": [
         -3000.0,
         200.0
@@ -185,7 +185,7 @@
       "final_pnc_present": false,
       "final_release_window_count": 1,
       "layer2_margin_um": 2.5,
-      "layer14_margin_um": 2.5,
+      "layer14_margin_um": 1.0,
       "layer2_start_offset_um": 0.5,
       "layer14_start_offset_um": 0.0,
       "layer2_start_width_um": 15.0,
@@ -206,7 +206,7 @@
       "bend_count": 2,
       "added_length_um": 2000.0,
       "path_length_excluding_tapers_um": 20741.822610417224,
-      "release_window_file": "RELEASE_M2_2p5_M14_2p5_D1_L6000_W1680_P10.gds",
+      "release_window_file": "RELEASE_M2_2p5_M14_1p0_D1_L6000_W1680_P10.gds",
       "input_port_local_um": [
         -3000.0,
         200.0
@@ -223,7 +223,7 @@
       "final_pnc_present": false,
       "final_release_window_count": 1,
       "layer2_margin_um": 2.5,
-      "layer14_margin_um": 2.5,
+      "layer14_margin_um": 1.0,
       "layer2_start_offset_um": 0.5,
       "layer14_start_offset_um": 0.0,
       "layer2_start_width_um": 15.0,
@@ -244,7 +244,7 @@
       "bend_count": 0,
       "added_length_um": 0.0,
       "path_length_excluding_tapers_um": 6000.0,
-      "release_window_file": "RELEASE_M2_2p5_M14_2p5_D1_L6000_W1620_P10.gds",
+      "release_window_file": "RELEASE_M2_2p5_M14_1p0_D1_L6000_W1620_P10.gds",
       "input_port_local_um": [
         -3000.0,
         0.0
@@ -261,7 +261,7 @@
       "final_pnc_present": false,
       "final_release_window_count": 2,
       "layer2_margin_um": 2.5,
-      "layer14_margin_um": 2.5,
+      "layer14_margin_um": 1.0,
       "layer2_start_offset_um": 0.5,
       "layer14_start_offset_um": 0.0,
       "layer2_start_width_um": 15.0,
@@ -283,7 +283,7 @@
       "bend_count": 0,
       "added_length_um": 0.0,
       "path_length_excluding_tapers_um": 6000.0,
-      "release_window_file": "RELEASE_M2_2p5_M14_2p5_D1_L6000_W1640_P10.gds",
+      "release_window_file": "RELEASE_M2_2p5_M14_1p0_D1_L6000_W1640_P10.gds",
       "input_port_local_um": [
         -3000.0,
         0.0
@@ -300,7 +300,7 @@
       "final_pnc_present": false,
       "final_release_window_count": 2,
       "layer2_margin_um": 2.5,
-      "layer14_margin_um": 2.5,
+      "layer14_margin_um": 1.0,
       "layer2_start_offset_um": 0.5,
       "layer14_start_offset_um": 0.0,
       "layer2_start_width_um": 15.0,
@@ -322,7 +322,7 @@
       "bend_count": 0,
       "added_length_um": 0.0,
       "path_length_excluding_tapers_um": 6000.0,
-      "release_window_file": "RELEASE_M2_2p5_M14_2p5_D1_L6000_W1680_P10.gds",
+      "release_window_file": "RELEASE_M2_2p5_M14_1p0_D1_L6000_W1680_P10.gds",
       "input_port_local_um": [
         -3000.0,
         0.0
@@ -339,7 +339,7 @@
       "final_pnc_present": false,
       "final_release_window_count": 2,
       "layer2_margin_um": 2.5,
-      "layer14_margin_um": 2.5,
+      "layer14_margin_um": 1.0,
       "layer2_start_offset_um": 0.5,
       "layer14_start_offset_um": 0.0,
       "layer2_start_width_um": 15.0,
@@ -361,7 +361,7 @@
       "bend_count": 0,
       "added_length_um": 2000.0,
       "path_length_excluding_tapers_um": 8000.0,
-      "release_window_file": "RELEASE_M2_2p5_M14_2p5_D1_L6000_W1620_P10.gds",
+      "release_window_file": "RELEASE_M2_2p5_M14_1p0_D1_L6000_W1620_P10.gds",
       "input_port_local_um": [
         -3000.0,
         0.0
@@ -378,7 +378,7 @@
       "final_pnc_present": false,
       "final_release_window_count": 1,
       "layer2_margin_um": 2.5,
-      "layer14_margin_um": 2.5,
+      "layer14_margin_um": 1.0,
       "layer2_start_offset_um": 0.5,
       "layer14_start_offset_um": 0.0,
       "layer2_start_width_um": 15.0,
@@ -400,7 +400,7 @@
       "bend_count": 0,
       "added_length_um": 2000.0,
       "path_length_excluding_tapers_um": 8000.0,
-      "release_window_file": "RELEASE_M2_2p5_M14_2p5_D1_L6000_W1640_P10.gds",
+      "release_window_file": "RELEASE_M2_2p5_M14_1p0_D1_L6000_W1640_P10.gds",
       "input_port_local_um": [
         -3000.0,
         0.0
@@ -417,7 +417,7 @@
       "final_pnc_present": false,
       "final_release_window_count": 1,
       "layer2_margin_um": 2.5,
-      "layer14_margin_um": 2.5,
+      "layer14_margin_um": 1.0,
       "layer2_start_offset_um": 0.5,
       "layer14_start_offset_um": 0.0,
       "layer2_start_width_um": 15.0,
@@ -439,7 +439,7 @@
       "bend_count": 0,
       "added_length_um": 2000.0,
       "path_length_excluding_tapers_um": 8000.0,
-      "release_window_file": "RELEASE_M2_2p5_M14_2p5_D1_L6000_W1680_P10.gds",
+      "release_window_file": "RELEASE_M2_2p5_M14_1p0_D1_L6000_W1680_P10.gds",
       "input_port_local_um": [
         -3000.0,
         0.0
@@ -456,7 +456,7 @@
       "final_pnc_present": false,
       "final_release_window_count": 1,
       "layer2_margin_um": 2.5,
-      "layer14_margin_um": 2.5,
+      "layer14_margin_um": 1.0,
       "layer2_start_offset_um": 0.5,
       "layer14_start_offset_um": 0.0,
       "layer2_start_width_um": 15.0,
@@ -485,7 +485,7 @@
   "layer2_start_width_um": 15.0,
   "layer14_start_width_um": 8.0,
   "layer2_window_margin_um": 2.5,
-  "layer14_window_margin_um": 2.5,
+  "layer14_window_margin_um": 1.0,
   "layer2_start_offset_um": 0.5,
   "layer14_start_offset_um": 0.0,
   "final_layer_policy": {
@@ -544,7 +544,7 @@
         }
       ],
       "layer2_margin_um": 2.5,
-      "layer14_margin_um": 2.5
+      "layer14_margin_um": 1.0
     },
     "D1_L6000_W1640_P10": {
       "ends": [
@@ -576,7 +576,7 @@
         }
       ],
       "layer2_margin_um": 2.5,
-      "layer14_margin_um": 2.5
+      "layer14_margin_um": 1.0
     },
     "D1_L6000_W1680_P10": {
       "ends": [
@@ -608,7 +608,7 @@
         }
       ],
       "layer2_margin_um": 2.5,
-      "layer14_margin_um": 2.5
+      "layer14_margin_um": 1.0
     },
     "D1_L6000_W1620_P10_OUT2000": {
       "ends": [
@@ -627,7 +627,7 @@
         }
       ],
       "layer2_margin_um": 2.5,
-      "layer14_margin_um": 2.5
+      "layer14_margin_um": 1.0
     },
     "D1_L6000_W1640_P10_OUT2000": {
       "ends": [
@@ -646,7 +646,7 @@
         }
       ],
       "layer2_margin_um": 2.5,
-      "layer14_margin_um": 2.5
+      "layer14_margin_um": 1.0
     },
     "D1_L6000_W1680_P10_OUT2000": {
       "ends": [
@@ -665,7 +665,7 @@
         }
       ],
       "layer2_margin_um": 2.5,
-      "layer14_margin_um": 2.5
+      "layer14_margin_um": 1.0
     },
     "D1_SINGLE_L6000_W1620_2T": {
       "ends": [
@@ -697,7 +697,7 @@
         }
       ],
       "layer2_margin_um": 2.5,
-      "layer14_margin_um": 2.5
+      "layer14_margin_um": 1.0
     },
     "D1_SINGLE_L6000_W1640_2T": {
       "ends": [
@@ -729,7 +729,7 @@
         }
       ],
       "layer2_margin_um": 2.5,
-      "layer14_margin_um": 2.5
+      "layer14_margin_um": 1.0
     },
     "D1_SINGLE_L6000_W1680_2T": {
       "ends": [
@@ -761,7 +761,7 @@
         }
       ],
       "layer2_margin_um": 2.5,
-      "layer14_margin_um": 2.5
+      "layer14_margin_um": 1.0
     },
     "D1_SINGLE_L6000_W1620_1T_OUT2000": {
       "ends": [
@@ -780,7 +780,7 @@
         }
       ],
       "layer2_margin_um": 2.5,
-      "layer14_margin_um": 2.5
+      "layer14_margin_um": 1.0
     },
     "D1_SINGLE_L6000_W1640_1T_OUT2000": {
       "ends": [
@@ -799,7 +799,7 @@
         }
       ],
       "layer2_margin_um": 2.5,
-      "layer14_margin_um": 2.5
+      "layer14_margin_um": 1.0
     },
     "D1_SINGLE_L6000_W1680_1T_OUT2000": {
       "ends": [
@@ -818,7 +818,7 @@
         }
       ],
       "layer2_margin_um": 2.5,
-      "layer14_margin_um": 2.5
+      "layer14_margin_um": 1.0
     }
   },
   "checks": [
@@ -1558,9 +1558,9 @@
       "width_um": 1.62,
       "reference_id": "D1_L6000_W1620_P10",
       "variant_id": "D1_L6000_W1620_P10_OUT2000",
-      "release_window_file": "RELEASE_M2_2p5_M14_2p5_D1_L6000_W1620_P10.gds",
+      "release_window_file": "RELEASE_M2_2p5_M14_1p0_D1_L6000_W1620_P10.gds",
       "layer2_margin_um": 2.5,
-      "layer14_margin_um": 2.5,
+      "layer14_margin_um": 1.0,
       "release_start_offset_um": 0.0,
       "input_port_um": [
         -3000.0,
@@ -1900,9 +1900,9 @@
       "width_um": 1.64,
       "reference_id": "D1_L6000_W1640_P10",
       "variant_id": "D1_L6000_W1640_P10_OUT2000",
-      "release_window_file": "RELEASE_M2_2p5_M14_2p5_D1_L6000_W1640_P10.gds",
+      "release_window_file": "RELEASE_M2_2p5_M14_1p0_D1_L6000_W1640_P10.gds",
       "layer2_margin_um": 2.5,
-      "layer14_margin_um": 2.5,
+      "layer14_margin_um": 1.0,
       "release_start_offset_um": 0.0,
       "input_port_um": [
         -3000.0,
@@ -2242,9 +2242,9 @@
       "width_um": 1.68,
       "reference_id": "D1_L6000_W1680_P10",
       "variant_id": "D1_L6000_W1680_P10_OUT2000",
-      "release_window_file": "RELEASE_M2_2p5_M14_2p5_D1_L6000_W1680_P10.gds",
+      "release_window_file": "RELEASE_M2_2p5_M14_1p0_D1_L6000_W1680_P10.gds",
       "layer2_margin_um": 2.5,
-      "layer14_margin_um": 2.5,
+      "layer14_margin_um": 1.0,
       "release_start_offset_um": 0.0,
       "input_port_um": [
         -3000.0,
@@ -2583,6 +2583,6 @@
   ],
   "check_count": 352,
   "original_gds_sha256": "ecf200c2886cf8a4492528fd09e5736a488df6ac63bc93ea93490d0b11e27889",
-  "gds_sha256": "a95a396b8a67e62c1ba393482da518b6298d221f5b7afff09b3fbe651632ca72",
+  "gds_sha256": "c4867b24c1b372d891cf40de41288c40a89653a57c9548bcc251fab8d00c904f",
   "optical_or_mechanical_simulation_performed": false
 }
