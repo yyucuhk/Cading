@@ -1,7 +1,15 @@
 {
   "status": "PASS",
-  "check_count": 120,
+  "check_count": 107,
   "checks": [
+    {
+      "name": "layers16_and51_absent_in_all_cells",
+      "passed": true
+    },
+    {
+      "name": "global_marker_cell_on15_not2",
+      "passed": true
+    },
     {
       "name": "six_devices_six_labels_one_frame",
       "passed": true
@@ -15,11 +23,11 @@
       "passed": true
     },
     {
-      "name": "D1_L6000_W1620_P10_eight_layers",
+      "name": "D1_L6000_W1620_P10_six_output_layers",
       "passed": true
     },
     {
-      "name": "D1_L6000_W1620_P10_OUT2000_eight_layers",
+      "name": "D1_L6000_W1620_P10_OUT2000_six_output_layers",
       "passed": true
     },
     {
@@ -83,26 +91,6 @@
       "xor_um2": 0.0
     },
     {
-      "name": "D1_L6000_W1620_P10_reference_L16_unchanged",
-      "passed": true,
-      "xor_um2": 0.0
-    },
-    {
-      "name": "D1_L6000_W1620_P10_OUT2000_outside_output_L16_unchanged",
-      "passed": true,
-      "xor_um2": 0.0
-    },
-    {
-      "name": "D1_L6000_W1620_P10_reference_L51_unchanged",
-      "passed": true,
-      "xor_um2": 0.0
-    },
-    {
-      "name": "D1_L6000_W1620_P10_OUT2000_outside_output_L51_unchanged",
-      "passed": true,
-      "xor_um2": 0.0
-    },
-    {
       "name": "D1_L6000_W1620_P10_OUT2000_exact_full_2000um_constant_ridge",
       "passed": true,
       "xor_um2": 0.0
@@ -147,11 +135,7 @@
       "passed": true
     },
     {
-      "name": "D1_L6000_W1620_P10_OUT2000_protection_connected",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1620_P10_OUT2000_ridge_covered_by_protection",
+      "name": "D1_L6000_W1620_P10_OUT2000_protection_and_fiber_layers_removed",
       "passed": true
     },
     {
@@ -197,11 +181,11 @@
       "measured_x_um": -900.0
     },
     {
-      "name": "D1_L6000_W1640_P10_eight_layers",
+      "name": "D1_L6000_W1640_P10_six_output_layers",
       "passed": true
     },
     {
-      "name": "D1_L6000_W1640_P10_OUT2000_eight_layers",
+      "name": "D1_L6000_W1640_P10_OUT2000_six_output_layers",
       "passed": true
     },
     {
@@ -265,26 +249,6 @@
       "xor_um2": 0.0
     },
     {
-      "name": "D1_L6000_W1640_P10_reference_L16_unchanged",
-      "passed": true,
-      "xor_um2": 0.0
-    },
-    {
-      "name": "D1_L6000_W1640_P10_OUT2000_outside_output_L16_unchanged",
-      "passed": true,
-      "xor_um2": 0.0
-    },
-    {
-      "name": "D1_L6000_W1640_P10_reference_L51_unchanged",
-      "passed": true,
-      "xor_um2": 0.0
-    },
-    {
-      "name": "D1_L6000_W1640_P10_OUT2000_outside_output_L51_unchanged",
-      "passed": true,
-      "xor_um2": 0.0
-    },
-    {
       "name": "D1_L6000_W1640_P10_OUT2000_exact_full_2000um_constant_ridge",
       "passed": true,
       "xor_um2": 0.0
@@ -329,11 +293,7 @@
       "passed": true
     },
     {
-      "name": "D1_L6000_W1640_P10_OUT2000_protection_connected",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1640_P10_OUT2000_ridge_covered_by_protection",
+      "name": "D1_L6000_W1640_P10_OUT2000_protection_and_fiber_layers_removed",
       "passed": true
     },
     {
@@ -379,11 +339,11 @@
       "measured_x_um": -900.0
     },
     {
-      "name": "D1_L6000_W1680_P10_eight_layers",
+      "name": "D1_L6000_W1680_P10_six_output_layers",
       "passed": true
     },
     {
-      "name": "D1_L6000_W1680_P10_OUT2000_eight_layers",
+      "name": "D1_L6000_W1680_P10_OUT2000_six_output_layers",
       "passed": true
     },
     {
@@ -447,26 +407,6 @@
       "xor_um2": 0.0
     },
     {
-      "name": "D1_L6000_W1680_P10_reference_L16_unchanged",
-      "passed": true,
-      "xor_um2": 0.0
-    },
-    {
-      "name": "D1_L6000_W1680_P10_OUT2000_outside_output_L16_unchanged",
-      "passed": true,
-      "xor_um2": 0.0
-    },
-    {
-      "name": "D1_L6000_W1680_P10_reference_L51_unchanged",
-      "passed": true,
-      "xor_um2": 0.0
-    },
-    {
-      "name": "D1_L6000_W1680_P10_OUT2000_outside_output_L51_unchanged",
-      "passed": true,
-      "xor_um2": 0.0
-    },
-    {
       "name": "D1_L6000_W1680_P10_OUT2000_exact_full_2000um_constant_ridge",
       "passed": true,
       "xor_um2": 0.0
@@ -511,11 +451,7 @@
       "passed": true
     },
     {
-      "name": "D1_L6000_W1680_P10_OUT2000_protection_connected",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1680_P10_OUT2000_ridge_covered_by_protection",
+      "name": "D1_L6000_W1680_P10_OUT2000_protection_and_fiber_layers_removed",
       "passed": true
     },
     {

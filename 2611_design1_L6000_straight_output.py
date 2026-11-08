@@ -1,6 +1,9 @@
 """Design 1: original L6000 devices plus a one-sided 2000 um straight-output set.
 
-Run from the Cading root. Existing source/GDS files are never overwritten.
+Run from the Cading root. Only this comparison output is overwritten.
+Other saved designs are not modified. Final output omits Layers 16 and 51;
+only global alignment markers move from Layer 2 to Layer 15. Device Layer-2
+release windows and the six text labels stay on Layer 2.
 The lower-right output is replaced; the upper-left input remains unchanged.
 A straight output continues the existing constant-width Layer-15 ridge and
 15 um support envelope, with 10 um PNC pitch and matching release/protection
@@ -45,7 +48,10 @@ LABEL_SIZE = 5.0
 FRAME_MARGIN = 500.0
 MIN_FRAME_HEIGHT = 4000.0
 DBU = 0.001
-FAB_LAYERS = (2, 10, 11, 13, 14, 15, 16)
+FAB_LAYERS = (2, 10, 11, 13, 14, 15, 16)  # pre-export construction checks
+REMOVED_OUTPUT_LAYERS = (16, 51)  # remove all datatypes from every output cell
+ALIGNMENT_MARKER_SOURCE_LAYER = (2, 0)
+ALIGNMENT_MARKER_TARGET_LAYER = (15, 0)  # global alignment markers ONLY
 
 
 def require(ok, message):
@@ -105,6 +111,41 @@ def write_layout(ly, path):
     options.gds2_max_vertex_count = 2000
     path.parent.mkdir(parents=True, exist_ok=True)
     ly.write(str(path), options)
+
+
+def finalize_output_layers(layout, frame_cell):
+    """Apply only the requested layer changes to the independently owned layout.
+
+    The frame cell contains chip outline and alignment marks, never device
+    windows or labels. Delete excluded layers across every cell, including
+    unreferenced cells. Never remap all of Layer 2: it also carries release
+    windows and device labels. Original source/baseline layouts are read-only.
+    """
+    import klayout.db as kdb
+    require(not list(frame_cell.each_inst()), 'Expected an owned flat frame cell')
+    source = layout.layer(*ALIGNMENT_MARKER_SOURCE_LAYER)
+    target = layout.layer(*ALIGNMENT_MARKER_TARGET_LAYER)
+    moved = kdb.Region(frame_cell.shapes(source)).merged()
+    require(not moved.is_empty(), 'No source alignment markers were found')
+    existing = kdb.Region(frame_cell.shapes(target)).merged()
+    frame_cell.shapes(target).clear()
+    frame_cell.shapes(target).insert((existing | moved).merged())
+    frame_cell.shapes(source).clear()
+    removed_shapes = {}
+    for index in tuple(layout.layer_indexes()):
+        info = layout.get_info(index)
+        if info.layer in REMOVED_OUTPUT_LAYERS:
+            key = str(info.layer) + '/' + str(info.datatype)
+            removed_shapes[key] = sum(cell.shapes(index).size() for cell in layout.each_cell())
+            layout.delete_layer(index)
+    return dict(removed_layers=list(REMOVED_OUTPUT_LAYERS),
+                removed_shape_counts=removed_shapes,
+                marker_source_layer=list(ALIGNMENT_MARKER_SOURCE_LAYER),
+                marker_target_layer=list(ALIGNMENT_MARKER_TARGET_LAYER),
+                marker_cell=frame_cell.name,
+                moved_marker_polygon_count=moved.count(),
+                moved_marker_area_um2=moved.area() * layout.dbu ** 2,
+                layer2_windows_and_labels_preserved=True)
 
 
 # %% [02] Complete all-layer straight-output factory
@@ -349,14 +390,32 @@ def combine():
     for n in (2,10):
         markers=fr[(n,0)].transformed(ft)
         check(checks,f'global_L{n}_markers_clear',all((markers&p[n]).is_empty() for p in placed))
+    # Apply the layer policy only after placement and frame size are fixed.
+    # Internal construction checks above still inspect the approved reference
+    # masks; all checks below inspect the final deliverable without L16/L51.
+    layer_policy = finalize_output_layers(ly, fc)
+    final_frame = regions(ly, fc)
+    check(checks, 'global_markers_moved_2_to_15_exactly',
+          (final_frame[ALIGNMENT_MARKER_TARGET_LAYER] ^ fr[ALIGNMENT_MARKER_SOURCE_LAYER]).is_empty())
+    check(checks, 'no_marker_copies_left_in_frame_layer2', (2, 0) not in final_frame)
+    target_marks = final_frame[ALIGNMENT_MARKER_TARGET_LAYER].transformed(ft)
+    check(checks, 'moved_markers_clear_of_devices_and_labels',
+          all((target_marks & p[15]).is_empty() for p in placed)
+          and all((target_marks & t).is_empty() for t in texts))
     write_layout(ly,OUTPUT)
     final,top=read_gds(OUTPUT)
+    exported_layers = {final.get_info(i).layer for i in final.layer_indexes()}
+    check(checks, 'layers16_and51_absent_from_entire_export',
+          not (exported_layers & set(REMOVED_OUTPUT_LAYERS)))
     insts={i.cell.name:i for i in top.each_inst()}
     check(checks,'correct_device_and_label_count',
           len(insts)==2*len(entries)+1 and sum(n.startswith('LABEL_') for n in insts)==len(entries))
     for i,e in enumerate(entries):
         inst=insts[e['case_id']]; rr=regions(final,inst.cell)
-        for layer,r in snapshots[e['case_id']].items():
+        expected = {layer: r for layer, r in snapshots[e['case_id']].items()
+                    if layer[0] not in REMOVED_OUTPUT_LAYERS}
+        check(checks, e['case_id'] + '_exported_layer_set', set(rr) == set(expected))
+        for layer,r in expected.items():
             check(checks,e['case_id']+f'_saved_L{layer[0]}_exact',(r^rr[layer]).is_empty())
         check(checks,e['case_id']+'_actual_x_alignment',
               abs((rr[(11,0)].bbox().left+inst.trans.disp.x)*DBU-LEFT_BEND_X)<1e-8)
@@ -369,7 +428,9 @@ def combine():
                 meander_straight_length_um=STRAIGHT_LENGTH,extension_length_um=OUTPUT_EXTENSION_LENGTH,
                 pnc_pitch_um=PNC_PITCH,row_pitch_um=ROW_PITCH,left_bend_x_um=LEFT_BEND_X,
                 side='lower-right output; upper-left input unchanged',
-                extension_layers=[2,11,14,15,16],frame_bounds_um=[xmin,ymin,xmax,ymax],
+                extension_layers=[2,11,14,15],frame_bounds_um=[xmin,ymin,xmax,ymax],
+                final_layer_policy=layer_policy,
+                worker_checks_scope='Unfiltered construction/reference masks; final export checks exclude Layers 16 and 51', 
                 original_gds_sha256=hashlib.sha256(BASE_GDS.read_bytes()).hexdigest(),
                 gds_sha256=hashlib.sha256(OUTPUT.read_bytes()).hexdigest(),
                 checks=checks,workers=workers,
@@ -412,12 +473,17 @@ def render(ly,top,result):
     e=next(e for e in result['devices'] if e['mode']=='straight_output')
     c=ly.cell(e['case_id']);px,py=e['output_port_local_um']
     view(c,'output_connection',(px-30,py-23,px+180,py+23),
-         'No output taper: constant-width ridge and 10 um PNC supports (axes expanded)',layers=(2,10,11,14,15,16))
+         'No output taper: constant-width ridge and 10 um PNC supports (axes expanded)',layers=(2,10,11,14,15))
     view(c,'full_output',(px-20,py-40,px+OUTPUT_EXTENSION_LENGTH+30,py+40),
          'New straight output: 2000 um from the original meander port',layers=(14,11,15))
     ix,iy=e['input_port_local_um']
     view(c,'preserved_input',(ix-310,iy-35,ix+20,iy+35),
-         'Input preserved: 15-to-5 um PNC transition, dense end group, original optical taper',layers=(2,10,11,14,15,16))
+         'Input preserved: 15-to-5 um PNC transition, dense end group, original optical taper',layers=(2,10,11,14,15))
+    xmin, ymin, _, _ = result['frame_bounds_um']
+    view(top, 'alignment_markers_layer15',
+         (xmin-120, ymin-120, xmin+120, ymin+120),
+         'Alignment marks moved from Layer 2 to Layer 15; Layer 10 unchanged',
+         layers=(2,10,15))
 
 
 # %% [06] Entry point: one isolated process per width
