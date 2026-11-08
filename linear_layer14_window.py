@@ -26,8 +26,12 @@ def linearize_layer14_windows(layout, entries, policies, start_distance_um=58.84
         ys = []
         for poly in region.each():
             pts = list(poly.each_point_hull())
-            if poly.holes():
-                raise ValueError('Unexpected hole in the terminal release window')
+            # The obsolete middle frame has holes; they are removed downstream.
+            # Reject a hole only if it actually crosses a measured endpoint.
+            for h in range(poly.holes()):
+                hp = list(poly.each_point_hole(h))
+                if min(p.x for p in hp) <= x <= max(p.x for p in hp):
+                    raise ValueError('A hole intersects the measured channel endpoint')
             for a, b in zip(pts, pts[1:] + pts[:1]):
                 if a.x == b.x:
                     if a.x == x:
