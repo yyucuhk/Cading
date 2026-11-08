@@ -1,3 +1,6 @@
+SUPERSEDED: see ORIGINAL_TAPER_PROFILE_README.txt for the current full-length profiles.
+The contents below describe the historical truncated revision.
+
 # Smooth 5 um PNC-to-optical-taper junction
 
 The truncated reference PNC envelope arrives at width 5 um with nonzero

@@ -1,3 +1,6 @@
+SUPERSEDED: see ORIGINAL_TAPER_PROFILE_README.txt for the current full-length profiles.
+The contents below describe the historical truncated revision.
+
 PNC CUTOFF AT 5 UM - CURRENT GEOMETRY
 ====================================
 The original 45 um quintic 15-to-3 um reference profile is truncated at

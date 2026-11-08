@@ -14,15 +14,8 @@ FILES = [
 
 
 def cutoff():
-    # Independent bisection on 15 - 12*smootherstep(x/45) = 5.
-    a, b = 0., 45.
-    for _ in range(80):
-        x = (a+b)/2
-        u = x/45
-        w = 15-12*(6*u**5-15*u**4+10*u**3)
-        if w > 5: a = x
-        else: b = x
-    return (a+b)/2
+    # Full original profile now ends at 5 um; no interior-width root.
+    return 45.0
 
 
 def run():

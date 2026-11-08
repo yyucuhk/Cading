@@ -1,0 +1,4083 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "name": "original_quintic_endpoint_derivative_0",
+      "passed": true
+    },
+    {
+      "name": "original_quintic_endpoint_derivative_1",
+      "passed": true
+    },
+    {
+      "name": "original_quintic_endpoint_derivative_2",
+      "passed": true
+    },
+    {
+      "name": "original_quintic_monotonic",
+      "passed": true
+    },
+    {
+      "name": "design1_no_truncation_or_matched_Hermite_helpers",
+      "passed": true
+    },
+    {
+      "name": "design1_full_45um_PNC",
+      "passed": true
+    },
+    {
+      "name": "design1_5um_endpoint",
+      "passed": true
+    },
+    {
+      "name": "design2_no_truncation_or_matched_Hermite_helpers",
+      "passed": true
+    },
+    {
+      "name": "design2_full_45um_PNC",
+      "passed": true
+    },
+    {
+      "name": "design2_5um_endpoint",
+      "passed": true
+    },
+    {
+      "name": "2611_tapered_yue_dual_resist.py_original_drawing_functions_preserved",
+      "passed": true
+    },
+    {
+      "name": "2611_tapered_yue_design2.py_original_drawing_functions_preserved",
+      "passed": true
+    },
+    {
+      "name": "design1_single_top",
+      "passed": true
+    },
+    {
+      "name": "design1_1nm_grid",
+      "passed": true
+    },
+    {
+      "name": "design1_device_count",
+      "passed": true
+    },
+    {
+      "name": "design1_L0_exactly_matches_original_layout",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "design1_L13_exactly_matches_original_layout",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "design1_L15_exactly_matches_original_layout",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "design1_L16_exactly_matches_original_layout",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "design1_L51_exactly_matches_original_layout",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "design1_1_all_device_layers",
+      "passed": true
+    },
+    {
+      "name": "design1_1_origin_unchanged_from_latest",
+      "passed": true
+    },
+    {
+      "name": "design1_1_origin_matches_original",
+      "passed": true
+    },
+    {
+      "name": "design1_1_L2_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "design1_1_L10_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "design1_1_L11_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "design1_1_L14_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "design1_1_right_first_stage_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.0013962377971585838,
+      "sample_count": 61
+    },
+    {
+      "name": "design1_1_right_monotonic_first_stage",
+      "passed": true
+    },
+    {
+      "name": "design1_1_right_PNC_envelope_full_15to5_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.001752210408373145
+    },
+    {
+      "name": "design1_1_right_PNC_stations_side1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "design1_1_right_PNC_stations_side-1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "design1_1_left_first_stage_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.0013962377971585838,
+      "sample_count": 61
+    },
+    {
+      "name": "design1_1_left_monotonic_first_stage",
+      "passed": true
+    },
+    {
+      "name": "design1_1_left_PNC_envelope_full_15to5_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.001752210408373145
+    },
+    {
+      "name": "design1_1_left_PNC_stations_side1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "design1_1_left_PNC_stations_side-1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "design2_single_top",
+      "passed": true
+    },
+    {
+      "name": "design2_1nm_grid",
+      "passed": true
+    },
+    {
+      "name": "design2_device_count",
+      "passed": true
+    },
+    {
+      "name": "design2_L0_exactly_matches_original_layout",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "design2_L13_exactly_matches_original_layout",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "design2_L15_exactly_matches_original_layout",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "design2_L16_exactly_matches_original_layout",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "design2_L51_exactly_matches_original_layout",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "design2_1_all_device_layers",
+      "passed": true
+    },
+    {
+      "name": "design2_1_origin_unchanged_from_latest",
+      "passed": true
+    },
+    {
+      "name": "design2_1_origin_matches_original",
+      "passed": true
+    },
+    {
+      "name": "design2_1_L2_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "design2_1_L10_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "design2_1_L11_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "design2_1_L14_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "design2_1_right_first_stage_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.0017496870514381868,
+      "sample_count": 61
+    },
+    {
+      "name": "design2_1_right_monotonic_first_stage",
+      "passed": true
+    },
+    {
+      "name": "design2_1_right_PNC_envelope_full_15to5_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.001752210408373145
+    },
+    {
+      "name": "design2_1_right_PNC_stations_side1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "design2_1_right_PNC_stations_side-1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "design2_1_left_first_stage_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.0017496870514381868,
+      "sample_count": 61
+    },
+    {
+      "name": "design2_1_left_monotonic_first_stage",
+      "passed": true
+    },
+    {
+      "name": "design2_1_left_PNC_envelope_full_15to5_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.001752210408373145
+    },
+    {
+      "name": "design2_1_left_PNC_stations_side1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "design2_1_left_PNC_stations_side-1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "combined_single_top",
+      "passed": true
+    },
+    {
+      "name": "combined_1nm_grid",
+      "passed": true
+    },
+    {
+      "name": "combined_device_count",
+      "passed": true
+    },
+    {
+      "name": "combined_L0_exactly_matches_original_layout",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "combined_L13_exactly_matches_original_layout",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "combined_L15_exactly_matches_original_layout",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "combined_L16_exactly_matches_original_layout",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "combined_L51_exactly_matches_original_layout",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "combined_1_all_device_layers",
+      "passed": true
+    },
+    {
+      "name": "combined_1_origin_unchanged_from_latest",
+      "passed": true
+    },
+    {
+      "name": "combined_1_origin_matches_original",
+      "passed": true
+    },
+    {
+      "name": "combined_1_L2_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "combined_1_L10_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "combined_1_L11_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "combined_1_L14_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "combined_1_right_first_stage_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.0013962377971585838,
+      "sample_count": 61
+    },
+    {
+      "name": "combined_1_right_monotonic_first_stage",
+      "passed": true
+    },
+    {
+      "name": "combined_1_right_PNC_envelope_full_15to5_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.001752210408373145
+    },
+    {
+      "name": "combined_1_right_PNC_stations_side1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "combined_1_right_PNC_stations_side-1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "combined_1_left_first_stage_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.0013962377971585838,
+      "sample_count": 61
+    },
+    {
+      "name": "combined_1_left_monotonic_first_stage",
+      "passed": true
+    },
+    {
+      "name": "combined_1_left_PNC_envelope_full_15to5_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.001752210408373145
+    },
+    {
+      "name": "combined_1_left_PNC_stations_side1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "combined_1_left_PNC_stations_side-1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "combined_2_all_device_layers",
+      "passed": true
+    },
+    {
+      "name": "combined_2_origin_unchanged_from_latest",
+      "passed": true
+    },
+    {
+      "name": "combined_2_origin_matches_original",
+      "passed": true
+    },
+    {
+      "name": "combined_2_L2_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "combined_2_L10_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "combined_2_L11_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "combined_2_L14_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "combined_2_right_first_stage_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.0013235154300197394,
+      "sample_count": 61
+    },
+    {
+      "name": "combined_2_right_monotonic_first_stage",
+      "passed": true
+    },
+    {
+      "name": "combined_2_right_PNC_envelope_full_15to5_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.001752210408373145
+    },
+    {
+      "name": "combined_2_right_PNC_stations_side1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "combined_2_right_PNC_stations_side-1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "combined_2_left_first_stage_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.0013235154300197394,
+      "sample_count": 61
+    },
+    {
+      "name": "combined_2_left_monotonic_first_stage",
+      "passed": true
+    },
+    {
+      "name": "combined_2_left_PNC_envelope_full_15to5_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.001752210408373145
+    },
+    {
+      "name": "combined_2_left_PNC_stations_side1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "combined_2_left_PNC_stations_side-1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "combined_3_all_device_layers",
+      "passed": true
+    },
+    {
+      "name": "combined_3_origin_unchanged_from_latest",
+      "passed": true
+    },
+    {
+      "name": "combined_3_origin_matches_original",
+      "passed": true
+    },
+    {
+      "name": "combined_3_L2_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "combined_3_L10_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "combined_3_L11_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "combined_3_L14_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "combined_3_right_first_stage_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.0011022502777242593,
+      "sample_count": 61
+    },
+    {
+      "name": "combined_3_right_monotonic_first_stage",
+      "passed": true
+    },
+    {
+      "name": "combined_3_right_PNC_envelope_full_15to5_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.001752210408373145
+    },
+    {
+      "name": "combined_3_right_PNC_stations_side1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "combined_3_right_PNC_stations_side-1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "combined_3_left_first_stage_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.0011022502777242593,
+      "sample_count": 61
+    },
+    {
+      "name": "combined_3_left_monotonic_first_stage",
+      "passed": true
+    },
+    {
+      "name": "combined_3_left_PNC_envelope_full_15to5_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.001752210408373145
+    },
+    {
+      "name": "combined_3_left_PNC_stations_side1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "combined_3_left_PNC_stations_side-1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "combined_4_all_device_layers",
+      "passed": true
+    },
+    {
+      "name": "combined_4_origin_unchanged_from_latest",
+      "passed": true
+    },
+    {
+      "name": "combined_4_origin_matches_original",
+      "passed": true
+    },
+    {
+      "name": "combined_4_L2_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "combined_4_L10_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "combined_4_L11_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "combined_4_L14_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "combined_4_right_first_stage_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.0013962377971585838,
+      "sample_count": 61
+    },
+    {
+      "name": "combined_4_right_monotonic_first_stage",
+      "passed": true
+    },
+    {
+      "name": "combined_4_right_PNC_envelope_full_15to5_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.001752210408373145
+    },
+    {
+      "name": "combined_4_right_PNC_stations_side1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "combined_4_right_PNC_stations_side-1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "combined_4_left_first_stage_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.0013962377971585838,
+      "sample_count": 61
+    },
+    {
+      "name": "combined_4_left_monotonic_first_stage",
+      "passed": true
+    },
+    {
+      "name": "combined_4_left_PNC_envelope_full_15to5_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.001752210408373145
+    },
+    {
+      "name": "combined_4_left_PNC_stations_side1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "combined_4_left_PNC_stations_side-1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "combined_5_all_device_layers",
+      "passed": true
+    },
+    {
+      "name": "combined_5_origin_unchanged_from_latest",
+      "passed": true
+    },
+    {
+      "name": "combined_5_origin_matches_original",
+      "passed": true
+    },
+    {
+      "name": "combined_5_L2_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "combined_5_L10_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "combined_5_L11_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "combined_5_L14_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "combined_5_right_first_stage_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.0013235154300197394,
+      "sample_count": 61
+    },
+    {
+      "name": "combined_5_right_monotonic_first_stage",
+      "passed": true
+    },
+    {
+      "name": "combined_5_right_PNC_envelope_full_15to5_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.001752210408373145
+    },
+    {
+      "name": "combined_5_right_PNC_stations_side1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "combined_5_right_PNC_stations_side-1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "combined_5_left_first_stage_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.0013235154300197394,
+      "sample_count": 61
+    },
+    {
+      "name": "combined_5_left_monotonic_first_stage",
+      "passed": true
+    },
+    {
+      "name": "combined_5_left_PNC_envelope_full_15to5_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.001752210408373145
+    },
+    {
+      "name": "combined_5_left_PNC_stations_side1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "combined_5_left_PNC_stations_side-1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "combined_6_all_device_layers",
+      "passed": true
+    },
+    {
+      "name": "combined_6_origin_unchanged_from_latest",
+      "passed": true
+    },
+    {
+      "name": "combined_6_origin_matches_original",
+      "passed": true
+    },
+    {
+      "name": "combined_6_L2_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "combined_6_L10_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "combined_6_L11_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "combined_6_L14_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "combined_6_right_first_stage_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.0011022502777242593,
+      "sample_count": 61
+    },
+    {
+      "name": "combined_6_right_monotonic_first_stage",
+      "passed": true
+    },
+    {
+      "name": "combined_6_right_PNC_envelope_full_15to5_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.001752210408373145
+    },
+    {
+      "name": "combined_6_right_PNC_stations_side1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "combined_6_right_PNC_stations_side-1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "combined_6_left_first_stage_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.0011022502777242593,
+      "sample_count": 61
+    },
+    {
+      "name": "combined_6_left_monotonic_first_stage",
+      "passed": true
+    },
+    {
+      "name": "combined_6_left_PNC_envelope_full_15to5_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.001752210408373145
+    },
+    {
+      "name": "combined_6_left_PNC_stations_side1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "combined_6_left_PNC_stations_side-1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "combined_7_all_device_layers",
+      "passed": true
+    },
+    {
+      "name": "combined_7_origin_unchanged_from_latest",
+      "passed": true
+    },
+    {
+      "name": "combined_7_origin_matches_original",
+      "passed": true
+    },
+    {
+      "name": "combined_7_L2_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "combined_7_L10_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "combined_7_L11_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "combined_7_L14_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "combined_7_right_first_stage_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.0013962377971585838,
+      "sample_count": 61
+    },
+    {
+      "name": "combined_7_right_monotonic_first_stage",
+      "passed": true
+    },
+    {
+      "name": "combined_7_right_PNC_envelope_full_15to5_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.001752210408373145
+    },
+    {
+      "name": "combined_7_right_PNC_stations_side1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "combined_7_right_PNC_stations_side-1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "combined_7_left_first_stage_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.0013962377971585838,
+      "sample_count": 61
+    },
+    {
+      "name": "combined_7_left_monotonic_first_stage",
+      "passed": true
+    },
+    {
+      "name": "combined_7_left_PNC_envelope_full_15to5_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.001752210408373145
+    },
+    {
+      "name": "combined_7_left_PNC_stations_side1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "combined_7_left_PNC_stations_side-1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "combined_8_all_device_layers",
+      "passed": true
+    },
+    {
+      "name": "combined_8_origin_unchanged_from_latest",
+      "passed": true
+    },
+    {
+      "name": "combined_8_origin_matches_original",
+      "passed": true
+    },
+    {
+      "name": "combined_8_L2_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "combined_8_L10_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "combined_8_L11_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "combined_8_L14_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "combined_8_right_first_stage_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.0013235154300197394,
+      "sample_count": 61
+    },
+    {
+      "name": "combined_8_right_monotonic_first_stage",
+      "passed": true
+    },
+    {
+      "name": "combined_8_right_PNC_envelope_full_15to5_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.001752210408373145
+    },
+    {
+      "name": "combined_8_right_PNC_stations_side1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "combined_8_right_PNC_stations_side-1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "combined_8_left_first_stage_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.0013235154300197394,
+      "sample_count": 61
+    },
+    {
+      "name": "combined_8_left_monotonic_first_stage",
+      "passed": true
+    },
+    {
+      "name": "combined_8_left_PNC_envelope_full_15to5_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.001752210408373145
+    },
+    {
+      "name": "combined_8_left_PNC_stations_side1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "combined_8_left_PNC_stations_side-1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "combined_9_all_device_layers",
+      "passed": true
+    },
+    {
+      "name": "combined_9_origin_unchanged_from_latest",
+      "passed": true
+    },
+    {
+      "name": "combined_9_origin_matches_original",
+      "passed": true
+    },
+    {
+      "name": "combined_9_L2_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "combined_9_L10_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "combined_9_L11_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "combined_9_L14_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "combined_9_right_first_stage_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.0011022502777242593,
+      "sample_count": 61
+    },
+    {
+      "name": "combined_9_right_monotonic_first_stage",
+      "passed": true
+    },
+    {
+      "name": "combined_9_right_PNC_envelope_full_15to5_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.001752210408373145
+    },
+    {
+      "name": "combined_9_right_PNC_stations_side1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "combined_9_right_PNC_stations_side-1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "combined_9_left_first_stage_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.0011022502777242593,
+      "sample_count": 61
+    },
+    {
+      "name": "combined_9_left_monotonic_first_stage",
+      "passed": true
+    },
+    {
+      "name": "combined_9_left_PNC_envelope_full_15to5_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.001752210408373145
+    },
+    {
+      "name": "combined_9_left_PNC_stations_side1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "combined_9_left_PNC_stations_side-1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "combined_10_all_device_layers",
+      "passed": true
+    },
+    {
+      "name": "combined_10_origin_unchanged_from_latest",
+      "passed": true
+    },
+    {
+      "name": "combined_10_origin_matches_original",
+      "passed": true
+    },
+    {
+      "name": "combined_10_L2_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "combined_10_L10_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "combined_10_L11_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "combined_10_L14_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "combined_10_right_first_stage_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.0014506606962902957,
+      "sample_count": 61
+    },
+    {
+      "name": "combined_10_right_monotonic_first_stage",
+      "passed": true
+    },
+    {
+      "name": "combined_10_right_PNC_envelope_full_15to5_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.001752210408373145
+    },
+    {
+      "name": "combined_10_right_PNC_stations_side1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "combined_10_right_PNC_stations_side-1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "combined_10_left_first_stage_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.0014506606962902957,
+      "sample_count": 61
+    },
+    {
+      "name": "combined_10_left_monotonic_first_stage",
+      "passed": true
+    },
+    {
+      "name": "combined_10_left_PNC_envelope_full_15to5_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.001752210408373145
+    },
+    {
+      "name": "combined_10_left_PNC_stations_side1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "combined_10_left_PNC_stations_side-1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "combined_11_all_device_layers",
+      "passed": true
+    },
+    {
+      "name": "combined_11_origin_unchanged_from_latest",
+      "passed": true
+    },
+    {
+      "name": "combined_11_origin_matches_original",
+      "passed": true
+    },
+    {
+      "name": "combined_11_L2_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "combined_11_L10_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "combined_11_L11_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "combined_11_L14_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "combined_11_right_first_stage_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.0015012444306052863,
+      "sample_count": 61
+    },
+    {
+      "name": "combined_11_right_monotonic_first_stage",
+      "passed": true
+    },
+    {
+      "name": "combined_11_right_PNC_envelope_full_15to5_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.001752210408373145
+    },
+    {
+      "name": "combined_11_right_PNC_stations_side1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "combined_11_right_PNC_stations_side-1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "combined_11_left_first_stage_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.0015012444306052863,
+      "sample_count": 61
+    },
+    {
+      "name": "combined_11_left_monotonic_first_stage",
+      "passed": true
+    },
+    {
+      "name": "combined_11_left_PNC_envelope_full_15to5_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.001752210408373145
+    },
+    {
+      "name": "combined_11_left_PNC_stations_side1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "combined_11_left_PNC_stations_side-1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "combined_12_all_device_layers",
+      "passed": true
+    },
+    {
+      "name": "combined_12_origin_unchanged_from_latest",
+      "passed": true
+    },
+    {
+      "name": "combined_12_origin_matches_original",
+      "passed": true
+    },
+    {
+      "name": "combined_12_L2_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "combined_12_L10_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "combined_12_L11_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "combined_12_L14_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "combined_12_right_first_stage_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.0017570587260768988,
+      "sample_count": 61
+    },
+    {
+      "name": "combined_12_right_monotonic_first_stage",
+      "passed": true
+    },
+    {
+      "name": "combined_12_right_PNC_envelope_full_15to5_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.001752210408373145
+    },
+    {
+      "name": "combined_12_right_PNC_stations_side1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "combined_12_right_PNC_stations_side-1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "combined_12_left_first_stage_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.0017570587260768988,
+      "sample_count": 61
+    },
+    {
+      "name": "combined_12_left_monotonic_first_stage",
+      "passed": true
+    },
+    {
+      "name": "combined_12_left_PNC_envelope_full_15to5_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.001752210408373145
+    },
+    {
+      "name": "combined_12_left_PNC_stations_side1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "combined_12_left_PNC_stations_side-1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "combined_13_all_device_layers",
+      "passed": true
+    },
+    {
+      "name": "combined_13_origin_unchanged_from_latest",
+      "passed": true
+    },
+    {
+      "name": "combined_13_origin_matches_original",
+      "passed": true
+    },
+    {
+      "name": "combined_13_L2_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "combined_13_L10_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "combined_13_L11_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "combined_13_L14_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "combined_13_right_first_stage_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.0014506606962902957,
+      "sample_count": 61
+    },
+    {
+      "name": "combined_13_right_monotonic_first_stage",
+      "passed": true
+    },
+    {
+      "name": "combined_13_right_PNC_envelope_full_15to5_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.001752210408373145
+    },
+    {
+      "name": "combined_13_right_PNC_stations_side1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "combined_13_right_PNC_stations_side-1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "combined_13_left_first_stage_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.0014506606962902957,
+      "sample_count": 61
+    },
+    {
+      "name": "combined_13_left_monotonic_first_stage",
+      "passed": true
+    },
+    {
+      "name": "combined_13_left_PNC_envelope_full_15to5_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.001752210408373145
+    },
+    {
+      "name": "combined_13_left_PNC_stations_side1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "combined_13_left_PNC_stations_side-1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "combined_14_all_device_layers",
+      "passed": true
+    },
+    {
+      "name": "combined_14_origin_unchanged_from_latest",
+      "passed": true
+    },
+    {
+      "name": "combined_14_origin_matches_original",
+      "passed": true
+    },
+    {
+      "name": "combined_14_L2_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "combined_14_L10_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "combined_14_L11_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "combined_14_L14_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "combined_14_right_first_stage_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.0015012444306052863,
+      "sample_count": 61
+    },
+    {
+      "name": "combined_14_right_monotonic_first_stage",
+      "passed": true
+    },
+    {
+      "name": "combined_14_right_PNC_envelope_full_15to5_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.001752210408373145
+    },
+    {
+      "name": "combined_14_right_PNC_stations_side1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "combined_14_right_PNC_stations_side-1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "combined_14_left_first_stage_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.0015012444306052863,
+      "sample_count": 61
+    },
+    {
+      "name": "combined_14_left_monotonic_first_stage",
+      "passed": true
+    },
+    {
+      "name": "combined_14_left_PNC_envelope_full_15to5_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.001752210408373145
+    },
+    {
+      "name": "combined_14_left_PNC_stations_side1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "combined_14_left_PNC_stations_side-1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "combined_15_all_device_layers",
+      "passed": true
+    },
+    {
+      "name": "combined_15_origin_unchanged_from_latest",
+      "passed": true
+    },
+    {
+      "name": "combined_15_origin_matches_original",
+      "passed": true
+    },
+    {
+      "name": "combined_15_L2_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "combined_15_L10_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "combined_15_L11_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "combined_15_L14_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "combined_15_right_first_stage_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.0017570587260768988,
+      "sample_count": 61
+    },
+    {
+      "name": "combined_15_right_monotonic_first_stage",
+      "passed": true
+    },
+    {
+      "name": "combined_15_right_PNC_envelope_full_15to5_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.001752210408373145
+    },
+    {
+      "name": "combined_15_right_PNC_stations_side1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "combined_15_right_PNC_stations_side-1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "combined_15_left_first_stage_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.0017570587260768988,
+      "sample_count": 61
+    },
+    {
+      "name": "combined_15_left_monotonic_first_stage",
+      "passed": true
+    },
+    {
+      "name": "combined_15_left_PNC_envelope_full_15to5_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.001752210408373145
+    },
+    {
+      "name": "combined_15_left_PNC_stations_side1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "combined_15_left_PNC_stations_side-1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "combined_16_all_device_layers",
+      "passed": true
+    },
+    {
+      "name": "combined_16_origin_unchanged_from_latest",
+      "passed": true
+    },
+    {
+      "name": "combined_16_origin_matches_original",
+      "passed": true
+    },
+    {
+      "name": "combined_16_L2_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "combined_16_L10_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "combined_16_L11_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "combined_16_L14_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "combined_16_right_first_stage_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.0014506606962902957,
+      "sample_count": 61
+    },
+    {
+      "name": "combined_16_right_monotonic_first_stage",
+      "passed": true
+    },
+    {
+      "name": "combined_16_right_PNC_envelope_full_15to5_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.001752210408373145
+    },
+    {
+      "name": "combined_16_right_PNC_stations_side1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "combined_16_right_PNC_stations_side-1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "combined_16_left_first_stage_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.0014506606962902957,
+      "sample_count": 61
+    },
+    {
+      "name": "combined_16_left_monotonic_first_stage",
+      "passed": true
+    },
+    {
+      "name": "combined_16_left_PNC_envelope_full_15to5_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.001752210408373145
+    },
+    {
+      "name": "combined_16_left_PNC_stations_side1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "combined_16_left_PNC_stations_side-1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "combined_17_all_device_layers",
+      "passed": true
+    },
+    {
+      "name": "combined_17_origin_unchanged_from_latest",
+      "passed": true
+    },
+    {
+      "name": "combined_17_origin_matches_original",
+      "passed": true
+    },
+    {
+      "name": "combined_17_L2_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "combined_17_L10_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "combined_17_L11_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "combined_17_L14_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "combined_17_right_first_stage_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.0015012444306052863,
+      "sample_count": 61
+    },
+    {
+      "name": "combined_17_right_monotonic_first_stage",
+      "passed": true
+    },
+    {
+      "name": "combined_17_right_PNC_envelope_full_15to5_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.001752210408373145
+    },
+    {
+      "name": "combined_17_right_PNC_stations_side1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "combined_17_right_PNC_stations_side-1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "combined_17_left_first_stage_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.0015012444306052863,
+      "sample_count": 61
+    },
+    {
+      "name": "combined_17_left_monotonic_first_stage",
+      "passed": true
+    },
+    {
+      "name": "combined_17_left_PNC_envelope_full_15to5_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.001752210408373145
+    },
+    {
+      "name": "combined_17_left_PNC_stations_side1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "combined_17_left_PNC_stations_side-1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "combined_18_all_device_layers",
+      "passed": true
+    },
+    {
+      "name": "combined_18_origin_unchanged_from_latest",
+      "passed": true
+    },
+    {
+      "name": "combined_18_origin_matches_original",
+      "passed": true
+    },
+    {
+      "name": "combined_18_L2_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "combined_18_L10_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "combined_18_L11_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "combined_18_L14_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "combined_18_right_first_stage_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.0017570587260768988,
+      "sample_count": 61
+    },
+    {
+      "name": "combined_18_right_monotonic_first_stage",
+      "passed": true
+    },
+    {
+      "name": "combined_18_right_PNC_envelope_full_15to5_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.001752210408373145
+    },
+    {
+      "name": "combined_18_right_PNC_stations_side1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "combined_18_right_PNC_stations_side-1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "combined_18_left_first_stage_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.0017570587260768988,
+      "sample_count": 61
+    },
+    {
+      "name": "combined_18_left_monotonic_first_stage",
+      "passed": true
+    },
+    {
+      "name": "combined_18_left_PNC_envelope_full_15to5_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.001752210408373145
+    },
+    {
+      "name": "combined_18_left_PNC_stations_side1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "combined_18_left_PNC_stations_side-1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "combined_600um_y_pitch",
+      "passed": true
+    },
+    {
+      "name": "combined_single_label_per_device",
+      "passed": true
+    },
+    {
+      "name": "long_single_top",
+      "passed": true
+    },
+    {
+      "name": "long_1nm_grid",
+      "passed": true
+    },
+    {
+      "name": "long_device_count",
+      "passed": true
+    },
+    {
+      "name": "long_L0_exactly_matches_original_layout",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "long_L13_exactly_matches_original_layout",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "long_L15_exactly_matches_original_layout",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "long_L16_exactly_matches_original_layout",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "long_L51_exactly_matches_original_layout",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "long_1_all_device_layers",
+      "passed": true
+    },
+    {
+      "name": "long_1_origin_unchanged_from_latest",
+      "passed": true
+    },
+    {
+      "name": "long_1_origin_matches_original",
+      "passed": true
+    },
+    {
+      "name": "long_1_L2_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "long_1_L10_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "long_1_L11_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "long_1_L14_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "long_1_right_first_stage_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.001396237797140376,
+      "sample_count": 61
+    },
+    {
+      "name": "long_1_right_monotonic_first_stage",
+      "passed": true
+    },
+    {
+      "name": "long_1_right_PNC_envelope_full_15to5_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.001752210408373145
+    },
+    {
+      "name": "long_1_right_PNC_stations_side1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        10.0,
+        20.0,
+        30.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "long_1_right_PNC_stations_side-1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        10.0,
+        20.0,
+        30.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "long_1_left_first_stage_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.001396237797140376,
+      "sample_count": 61
+    },
+    {
+      "name": "long_1_left_monotonic_first_stage",
+      "passed": true
+    },
+    {
+      "name": "long_1_left_PNC_envelope_full_15to5_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.001752210408373145
+    },
+    {
+      "name": "long_1_left_PNC_stations_side1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        10.0,
+        20.0,
+        30.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "long_1_left_PNC_stations_side-1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        10.0,
+        20.0,
+        30.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "long_2_all_device_layers",
+      "passed": true
+    },
+    {
+      "name": "long_2_origin_unchanged_from_latest",
+      "passed": true
+    },
+    {
+      "name": "long_2_origin_matches_original",
+      "passed": true
+    },
+    {
+      "name": "long_2_L2_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "long_2_L10_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "long_2_L11_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "long_2_L14_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "long_2_right_first_stage_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.001396237797140376,
+      "sample_count": 61
+    },
+    {
+      "name": "long_2_right_monotonic_first_stage",
+      "passed": true
+    },
+    {
+      "name": "long_2_right_PNC_envelope_full_15to5_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.001752210408373145
+    },
+    {
+      "name": "long_2_right_PNC_stations_side1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        10.0,
+        20.0,
+        30.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "long_2_right_PNC_stations_side-1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        10.0,
+        20.0,
+        30.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "long_2_left_first_stage_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.001396237797140376,
+      "sample_count": 61
+    },
+    {
+      "name": "long_2_left_monotonic_first_stage",
+      "passed": true
+    },
+    {
+      "name": "long_2_left_PNC_envelope_full_15to5_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.001752210408373145
+    },
+    {
+      "name": "long_2_left_PNC_stations_side1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        10.0,
+        20.0,
+        30.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "long_2_left_PNC_stations_side-1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        10.0,
+        20.0,
+        30.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "long_3_all_device_layers",
+      "passed": true
+    },
+    {
+      "name": "long_3_origin_unchanged_from_latest",
+      "passed": true
+    },
+    {
+      "name": "long_3_origin_matches_original",
+      "passed": true
+    },
+    {
+      "name": "long_3_L2_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "long_3_L10_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "long_3_L11_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "long_3_L14_changes_confined_to_width_transitions",
+      "passed": true,
+      "outside_um2": 0.0
+    },
+    {
+      "name": "long_3_right_first_stage_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.001396237797140376,
+      "sample_count": 61
+    },
+    {
+      "name": "long_3_right_monotonic_first_stage",
+      "passed": true
+    },
+    {
+      "name": "long_3_right_PNC_envelope_full_15to5_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.001752210408373145
+    },
+    {
+      "name": "long_3_right_PNC_stations_side1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        10.0,
+        20.0,
+        30.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "long_3_right_PNC_stations_side-1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        10.0,
+        20.0,
+        30.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "long_3_left_first_stage_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.001396237797140376,
+      "sample_count": 61
+    },
+    {
+      "name": "long_3_left_monotonic_first_stage",
+      "passed": true
+    },
+    {
+      "name": "long_3_left_PNC_envelope_full_15to5_original_profile",
+      "passed": true,
+      "max_width_error_um": 0.001752210408373145
+    },
+    {
+      "name": "long_3_left_PNC_stations_side1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        10.0,
+        20.0,
+        30.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "long_3_left_PNC_stations_side-1",
+      "passed": true,
+      "measured_um": [
+        0.0,
+        10.0,
+        20.0,
+        30.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0
+      ]
+    },
+    {
+      "name": "long_600um_y_pitch",
+      "passed": true
+    },
+    {
+      "name": "long_single_label_per_device",
+      "passed": true
+    }
+  ],
+  "failures": [],
+  "outputs": {
+    "2611_tapered_yue_dual_resist_L10_L12.gds": {
+      "sha256": "5ac5cc8095b5a12e0bab43a9cee42f5b074cad5674b2cf7fb6176e53ff6e3c65",
+      "devices": 1
+    },
+    "2611_tapered_yue_design2.gds": {
+      "sha256": "733f61a6cfe59da2348d6debe81d3431122c73ab91e58e124d682f80e150f888",
+      "devices": 1
+    },
+    "2611_design1_design2_L1400_18device_sweep.gds": {
+      "sha256": "b16a68a8ba9ef99764ddc78ddf0782638499d06931ab088c6948d6cb201effe9",
+      "devices": 18
+    },
+    "2611_design1_L6000_P10_width_sweep.gds": {
+      "sha256": "ecf200c2886cf8a4492528fd09e5736a488df6ac63bc93ea93490d0b11e27889",
+      "devices": 3
+    }
+  },
+  "profiles": [
+    {
+      "device": "design1_1",
+      "end": "right",
+      "design": 1,
+      "pnc_length_um": 45.0,
+      "first_stage_length_um": 40.0,
+      "widths_um": [
+        15.0,
+        5.0,
+        1.0
+      ],
+      "max_first_stage_error_um": 0.0013962377971585838
+    },
+    {
+      "device": "design1_1",
+      "end": "left",
+      "design": 1,
+      "pnc_length_um": 45.0,
+      "first_stage_length_um": 40.0,
+      "widths_um": [
+        15.0,
+        5.0,
+        1.0
+      ],
+      "max_first_stage_error_um": 0.0013962377971585838
+    },
+    {
+      "device": "design2_1",
+      "end": "right",
+      "design": 2,
+      "pnc_length_um": 45.0,
+      "first_stage_length_um": 20.0,
+      "widths_um": [
+        15.0,
+        5.0,
+        1.65
+      ],
+      "max_first_stage_error_um": 0.0017496870514381868
+    },
+    {
+      "device": "design2_1",
+      "end": "left",
+      "design": 2,
+      "pnc_length_um": 45.0,
+      "first_stage_length_um": 20.0,
+      "widths_um": [
+        15.0,
+        5.0,
+        1.65
+      ],
+      "max_first_stage_error_um": 0.0017496870514381868
+    },
+    {
+      "device": "combined_1",
+      "end": "right",
+      "design": 1,
+      "pnc_length_um": 45.0,
+      "first_stage_length_um": 40.0,
+      "widths_um": [
+        15.0,
+        5.0,
+        1.0
+      ],
+      "max_first_stage_error_um": 0.0013962377971585838
+    },
+    {
+      "device": "combined_1",
+      "end": "left",
+      "design": 1,
+      "pnc_length_um": 45.0,
+      "first_stage_length_um": 40.0,
+      "widths_um": [
+        15.0,
+        5.0,
+        1.0
+      ],
+      "max_first_stage_error_um": 0.0013962377971585838
+    },
+    {
+      "device": "combined_2",
+      "end": "right",
+      "design": 1,
+      "pnc_length_um": 45.0,
+      "first_stage_length_um": 50.0,
+      "widths_um": [
+        15.0,
+        5.0,
+        1.0
+      ],
+      "max_first_stage_error_um": 0.0013235154300197394
+    },
+    {
+      "device": "combined_2",
+      "end": "left",
+      "design": 1,
+      "pnc_length_um": 45.0,
+      "first_stage_length_um": 50.0,
+      "widths_um": [
+        15.0,
+        5.0,
+        1.0
+      ],
+      "max_first_stage_error_um": 0.0013235154300197394
+    },
+    {
+      "device": "combined_3",
+      "end": "right",
+      "design": 1,
+      "pnc_length_um": 45.0,
+      "first_stage_length_um": 60.0,
+      "widths_um": [
+        15.0,
+        5.0,
+        1.0
+      ],
+      "max_first_stage_error_um": 0.0011022502777242593
+    },
+    {
+      "device": "combined_3",
+      "end": "left",
+      "design": 1,
+      "pnc_length_um": 45.0,
+      "first_stage_length_um": 60.0,
+      "widths_um": [
+        15.0,
+        5.0,
+        1.0
+      ],
+      "max_first_stage_error_um": 0.0011022502777242593
+    },
+    {
+      "device": "combined_4",
+      "end": "right",
+      "design": 1,
+      "pnc_length_um": 45.0,
+      "first_stage_length_um": 40.0,
+      "widths_um": [
+        15.0,
+        5.0,
+        1.0
+      ],
+      "max_first_stage_error_um": 0.0013962377971585838
+    },
+    {
+      "device": "combined_4",
+      "end": "left",
+      "design": 1,
+      "pnc_length_um": 45.0,
+      "first_stage_length_um": 40.0,
+      "widths_um": [
+        15.0,
+        5.0,
+        1.0
+      ],
+      "max_first_stage_error_um": 0.0013962377971585838
+    },
+    {
+      "device": "combined_5",
+      "end": "right",
+      "design": 1,
+      "pnc_length_um": 45.0,
+      "first_stage_length_um": 50.0,
+      "widths_um": [
+        15.0,
+        5.0,
+        1.0
+      ],
+      "max_first_stage_error_um": 0.0013235154300197394
+    },
+    {
+      "device": "combined_5",
+      "end": "left",
+      "design": 1,
+      "pnc_length_um": 45.0,
+      "first_stage_length_um": 50.0,
+      "widths_um": [
+        15.0,
+        5.0,
+        1.0
+      ],
+      "max_first_stage_error_um": 0.0013235154300197394
+    },
+    {
+      "device": "combined_6",
+      "end": "right",
+      "design": 1,
+      "pnc_length_um": 45.0,
+      "first_stage_length_um": 60.0,
+      "widths_um": [
+        15.0,
+        5.0,
+        1.0
+      ],
+      "max_first_stage_error_um": 0.0011022502777242593
+    },
+    {
+      "device": "combined_6",
+      "end": "left",
+      "design": 1,
+      "pnc_length_um": 45.0,
+      "first_stage_length_um": 60.0,
+      "widths_um": [
+        15.0,
+        5.0,
+        1.0
+      ],
+      "max_first_stage_error_um": 0.0011022502777242593
+    },
+    {
+      "device": "combined_7",
+      "end": "right",
+      "design": 1,
+      "pnc_length_um": 45.0,
+      "first_stage_length_um": 40.0,
+      "widths_um": [
+        15.0,
+        5.0,
+        1.0
+      ],
+      "max_first_stage_error_um": 0.0013962377971585838
+    },
+    {
+      "device": "combined_7",
+      "end": "left",
+      "design": 1,
+      "pnc_length_um": 45.0,
+      "first_stage_length_um": 40.0,
+      "widths_um": [
+        15.0,
+        5.0,
+        1.0
+      ],
+      "max_first_stage_error_um": 0.0013962377971585838
+    },
+    {
+      "device": "combined_8",
+      "end": "right",
+      "design": 1,
+      "pnc_length_um": 45.0,
+      "first_stage_length_um": 50.0,
+      "widths_um": [
+        15.0,
+        5.0,
+        1.0
+      ],
+      "max_first_stage_error_um": 0.0013235154300197394
+    },
+    {
+      "device": "combined_8",
+      "end": "left",
+      "design": 1,
+      "pnc_length_um": 45.0,
+      "first_stage_length_um": 50.0,
+      "widths_um": [
+        15.0,
+        5.0,
+        1.0
+      ],
+      "max_first_stage_error_um": 0.0013235154300197394
+    },
+    {
+      "device": "combined_9",
+      "end": "right",
+      "design": 1,
+      "pnc_length_um": 45.0,
+      "first_stage_length_um": 60.0,
+      "widths_um": [
+        15.0,
+        5.0,
+        1.0
+      ],
+      "max_first_stage_error_um": 0.0011022502777242593
+    },
+    {
+      "device": "combined_9",
+      "end": "left",
+      "design": 1,
+      "pnc_length_um": 45.0,
+      "first_stage_length_um": 60.0,
+      "widths_um": [
+        15.0,
+        5.0,
+        1.0
+      ],
+      "max_first_stage_error_um": 0.0011022502777242593
+    },
+    {
+      "device": "combined_10",
+      "end": "right",
+      "design": 2,
+      "pnc_length_um": 45.0,
+      "first_stage_length_um": 12.307692307692308,
+      "widths_um": [
+        15.0,
+        5.0,
+        1.65
+      ],
+      "max_first_stage_error_um": 0.0014506606962902957
+    },
+    {
+      "device": "combined_10",
+      "end": "left",
+      "design": 2,
+      "pnc_length_um": 45.0,
+      "first_stage_length_um": 12.307692307692308,
+      "widths_um": [
+        15.0,
+        5.0,
+        1.65
+      ],
+      "max_first_stage_error_um": 0.0014506606962902957
+    },
+    {
+      "device": "combined_11",
+      "end": "right",
+      "design": 2,
+      "pnc_length_um": 45.0,
+      "first_stage_length_um": 15.384615384615385,
+      "widths_um": [
+        15.0,
+        5.0,
+        1.65
+      ],
+      "max_first_stage_error_um": 0.0015012444306052863
+    },
+    {
+      "device": "combined_11",
+      "end": "left",
+      "design": 2,
+      "pnc_length_um": 45.0,
+      "first_stage_length_um": 15.384615384615385,
+      "widths_um": [
+        15.0,
+        5.0,
+        1.65
+      ],
+      "max_first_stage_error_um": 0.0015012444306052863
+    },
+    {
+      "device": "combined_12",
+      "end": "right",
+      "design": 2,
+      "pnc_length_um": 45.0,
+      "first_stage_length_um": 18.46153846153846,
+      "widths_um": [
+        15.0,
+        5.0,
+        1.65
+      ],
+      "max_first_stage_error_um": 0.0017570587260768988
+    },
+    {
+      "device": "combined_12",
+      "end": "left",
+      "design": 2,
+      "pnc_length_um": 45.0,
+      "first_stage_length_um": 18.46153846153846,
+      "widths_um": [
+        15.0,
+        5.0,
+        1.65
+      ],
+      "max_first_stage_error_um": 0.0017570587260768988
+    },
+    {
+      "device": "combined_13",
+      "end": "right",
+      "design": 2,
+      "pnc_length_um": 45.0,
+      "first_stage_length_um": 12.307692307692308,
+      "widths_um": [
+        15.0,
+        5.0,
+        1.65
+      ],
+      "max_first_stage_error_um": 0.0014506606962902957
+    },
+    {
+      "device": "combined_13",
+      "end": "left",
+      "design": 2,
+      "pnc_length_um": 45.0,
+      "first_stage_length_um": 12.307692307692308,
+      "widths_um": [
+        15.0,
+        5.0,
+        1.65
+      ],
+      "max_first_stage_error_um": 0.0014506606962902957
+    },
+    {
+      "device": "combined_14",
+      "end": "right",
+      "design": 2,
+      "pnc_length_um": 45.0,
+      "first_stage_length_um": 15.384615384615385,
+      "widths_um": [
+        15.0,
+        5.0,
+        1.65
+      ],
+      "max_first_stage_error_um": 0.0015012444306052863
+    },
+    {
+      "device": "combined_14",
+      "end": "left",
+      "design": 2,
+      "pnc_length_um": 45.0,
+      "first_stage_length_um": 15.384615384615385,
+      "widths_um": [
+        15.0,
+        5.0,
+        1.65
+      ],
+      "max_first_stage_error_um": 0.0015012444306052863
+    },
+    {
+      "device": "combined_15",
+      "end": "right",
+      "design": 2,
+      "pnc_length_um": 45.0,
+      "first_stage_length_um": 18.46153846153846,
+      "widths_um": [
+        15.0,
+        5.0,
+        1.65
+      ],
+      "max_first_stage_error_um": 0.0017570587260768988
+    },
+    {
+      "device": "combined_15",
+      "end": "left",
+      "design": 2,
+      "pnc_length_um": 45.0,
+      "first_stage_length_um": 18.46153846153846,
+      "widths_um": [
+        15.0,
+        5.0,
+        1.65
+      ],
+      "max_first_stage_error_um": 0.0017570587260768988
+    },
+    {
+      "device": "combined_16",
+      "end": "right",
+      "design": 2,
+      "pnc_length_um": 45.0,
+      "first_stage_length_um": 12.307692307692308,
+      "widths_um": [
+        15.0,
+        5.0,
+        1.65
+      ],
+      "max_first_stage_error_um": 0.0014506606962902957
+    },
+    {
+      "device": "combined_16",
+      "end": "left",
+      "design": 2,
+      "pnc_length_um": 45.0,
+      "first_stage_length_um": 12.307692307692308,
+      "widths_um": [
+        15.0,
+        5.0,
+        1.65
+      ],
+      "max_first_stage_error_um": 0.0014506606962902957
+    },
+    {
+      "device": "combined_17",
+      "end": "right",
+      "design": 2,
+      "pnc_length_um": 45.0,
+      "first_stage_length_um": 15.384615384615385,
+      "widths_um": [
+        15.0,
+        5.0,
+        1.65
+      ],
+      "max_first_stage_error_um": 0.0015012444306052863
+    },
+    {
+      "device": "combined_17",
+      "end": "left",
+      "design": 2,
+      "pnc_length_um": 45.0,
+      "first_stage_length_um": 15.384615384615385,
+      "widths_um": [
+        15.0,
+        5.0,
+        1.65
+      ],
+      "max_first_stage_error_um": 0.0015012444306052863
+    },
+    {
+      "device": "combined_18",
+      "end": "right",
+      "design": 2,
+      "pnc_length_um": 45.0,
+      "first_stage_length_um": 18.46153846153846,
+      "widths_um": [
+        15.0,
+        5.0,
+        1.65
+      ],
+      "max_first_stage_error_um": 0.0017570587260768988
+    },
+    {
+      "device": "combined_18",
+      "end": "left",
+      "design": 2,
+      "pnc_length_um": 45.0,
+      "first_stage_length_um": 18.46153846153846,
+      "widths_um": [
+        15.0,
+        5.0,
+        1.65
+      ],
+      "max_first_stage_error_um": 0.0017570587260768988
+    },
+    {
+      "device": "long_1",
+      "end": "right",
+      "design": 1,
+      "pnc_length_um": 45.0,
+      "first_stage_length_um": 40.0,
+      "widths_um": [
+        15.0,
+        5.0,
+        1.0
+      ],
+      "max_first_stage_error_um": 0.001396237797140376
+    },
+    {
+      "device": "long_1",
+      "end": "left",
+      "design": 1,
+      "pnc_length_um": 45.0,
+      "first_stage_length_um": 40.0,
+      "widths_um": [
+        15.0,
+        5.0,
+        1.0
+      ],
+      "max_first_stage_error_um": 0.001396237797140376
+    },
+    {
+      "device": "long_2",
+      "end": "right",
+      "design": 1,
+      "pnc_length_um": 45.0,
+      "first_stage_length_um": 40.0,
+      "widths_um": [
+        15.0,
+        5.0,
+        1.0
+      ],
+      "max_first_stage_error_um": 0.001396237797140376
+    },
+    {
+      "device": "long_2",
+      "end": "left",
+      "design": 1,
+      "pnc_length_um": 45.0,
+      "first_stage_length_um": 40.0,
+      "widths_um": [
+        15.0,
+        5.0,
+        1.0
+      ],
+      "max_first_stage_error_um": 0.001396237797140376
+    },
+    {
+      "device": "long_3",
+      "end": "right",
+      "design": 1,
+      "pnc_length_um": 45.0,
+      "first_stage_length_um": 40.0,
+      "widths_um": [
+        15.0,
+        5.0,
+        1.0
+      ],
+      "max_first_stage_error_um": 0.001396237797140376
+    },
+    {
+      "device": "long_3",
+      "end": "left",
+      "design": 1,
+      "pnc_length_um": 45.0,
+      "first_stage_length_um": 40.0,
+      "widths_um": [
+        15.0,
+        5.0,
+        1.0
+      ],
+      "max_first_stage_error_um": 0.001396237797140376
+    }
+  ],
+  "check_count": 439,
+  "geometry_profile": "original quintic smootherstep",
+  "pnc_length_um": 45.0,
+  "pnc_widths_um": [
+    15.0,
+    5.0
+  ],
+  "junction_width_slope": 0.0,
+  "junction_width_curvature_per_um": 0.0,
+  "dense_station_positions_um": [
+    40,
+    41,
+    42,
+    43,
+    44,
+    45
+  ],
+  "original_reference_commit": "6d4fcb56e649e80e0270c3af37be16a102799c00",
+  "optical_adiabaticity_simulated": false,
+  "support_libraries_unchanged": true,
+  "GDS_bytes_unchanged_during_final_checks": true,
+  "generation_run_id": 42437243253,
+  "build_engine_versions": {
+    "gdsfactory": "9.45.0",
+    "kfactory": "2.6.1",
+    "numpy": "2.4.6",
+    "short_klayout": "0.30.12",
+    "long_klayout": "0.30.13"
+  }
+}

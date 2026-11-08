@@ -19,7 +19,7 @@
         "removed_area_um2": 42.363,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "f90d74de3f368d05e7f99a90d936e608c63bf1128c31a96c08a087db802d7dd5",
+      "source_sha256": "fdbda0d7394c898a39240f438225cc36f800c027bc365775d7b864f49d4d0331",
       "left_pnc_x_um": -842.287,
       "measured_straights_um": [
         1400.0,
@@ -84,12 +84,13 @@
         }
       ],
       "taper_pnc_period_um": 5.0,
-      "pnc_taper_length_um": 31.378626347372645,
+      "pnc_taper_length_um": 45.0,
       "pnc_cutoff_width_um": 5.0,
       "pnc_junction_continuity": "C2",
+      "taper_profile": "original_quintic_smootherstep",
       "pnc_junction_width_derivatives": [
-        -0.35640976958981335,
-        0.02961423624352771
+        0.0,
+        0.0
       ],
       "optical_adiabaticity_simulated": false,
       "pnc_reference_profile_length_um": 45.0,
@@ -97,8 +98,8 @@
       "connection_pnc_periods": 5,
       "connection_pnc_span_um": 5.0,
       "connection_pnc_region": "narrow_pnc_end",
-      "connection_pnc_start_um": 26.378626347372645,
-      "connection_pnc_end_um": 31.378626347372645,
+      "connection_pnc_start_um": 40.0,
+      "connection_pnc_end_um": 45.0,
       "layer10_widths_um": [
         5.0,
         1.0,
@@ -145,11 +146,11 @@
       ],
       "tip_centers": [
         [
-          -771.3786263473727,
+          -785.0,
           200.0
         ],
         [
-          771.3786263473727,
+          785.0,
           -200.0
         ]
       ],
@@ -192,7 +193,7 @@
         "removed_area_um2": 44.271,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "f90d74de3f368d05e7f99a90d936e608c63bf1128c31a96c08a087db802d7dd5",
+      "source_sha256": "fdbda0d7394c898a39240f438225cc36f800c027bc365775d7b864f49d4d0331",
       "left_pnc_x_um": -842.287,
       "measured_straights_um": [
         1400.0,
@@ -257,12 +258,13 @@
         }
       ],
       "taper_pnc_period_um": 5.0,
-      "pnc_taper_length_um": 31.378626347372645,
+      "pnc_taper_length_um": 45.0,
       "pnc_cutoff_width_um": 5.0,
       "pnc_junction_continuity": "C2",
+      "taper_profile": "original_quintic_smootherstep",
       "pnc_junction_width_derivatives": [
-        -0.35640976958981335,
-        0.02961423624352771
+        0.0,
+        0.0
       ],
       "optical_adiabaticity_simulated": false,
       "pnc_reference_profile_length_um": 45.0,
@@ -270,8 +272,8 @@
       "connection_pnc_periods": 5,
       "connection_pnc_span_um": 5.0,
       "connection_pnc_region": "narrow_pnc_end",
-      "connection_pnc_start_um": 26.378626347372645,
-      "connection_pnc_end_um": 31.378626347372645,
+      "connection_pnc_start_um": 40.0,
+      "connection_pnc_end_um": 45.0,
       "layer10_widths_um": [
         5.0,
         1.0,
@@ -299,7 +301,7 @@
         },
         {
           "layer": 10,
-          "distance_um": 99.99999999999999,
+          "distance_um": 100.0,
           "measured_width_um": 0.2,
           "target_width_um": 0.2
         },
@@ -318,11 +320,11 @@
       ],
       "tip_centers": [
         [
-          -781.3786263473727,
+          -795.0,
           200.0
         ],
         [
-          781.3786263473727,
+          795.0,
           -200.0
         ]
       ],
@@ -365,7 +367,7 @@
         "removed_area_um2": 44.297999999999995,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "f90d74de3f368d05e7f99a90d936e608c63bf1128c31a96c08a087db802d7dd5",
+      "source_sha256": "fdbda0d7394c898a39240f438225cc36f800c027bc365775d7b864f49d4d0331",
       "left_pnc_x_um": -842.287,
       "measured_straights_um": [
         1400.0,
@@ -430,12 +432,13 @@
         }
       ],
       "taper_pnc_period_um": 5.0,
-      "pnc_taper_length_um": 31.378626347372645,
+      "pnc_taper_length_um": 45.0,
       "pnc_cutoff_width_um": 5.0,
       "pnc_junction_continuity": "C2",
+      "taper_profile": "original_quintic_smootherstep",
       "pnc_junction_width_derivatives": [
-        -0.35640976958981335,
-        0.02961423624352771
+        0.0,
+        0.0
       ],
       "optical_adiabaticity_simulated": false,
       "pnc_reference_profile_length_um": 45.0,
@@ -443,8 +446,8 @@
       "connection_pnc_periods": 5,
       "connection_pnc_span_um": 5.0,
       "connection_pnc_region": "narrow_pnc_end",
-      "connection_pnc_start_um": 26.378626347372645,
-      "connection_pnc_end_um": 31.378626347372645,
+      "connection_pnc_start_um": 40.0,
+      "connection_pnc_end_um": 45.0,
       "layer10_widths_um": [
         5.0,
         1.0,
@@ -472,7 +475,7 @@
         },
         {
           "layer": 10,
-          "distance_um": 119.99999999999999,
+          "distance_um": 120.0,
           "measured_width_um": 0.2,
           "target_width_um": 0.2
         },
@@ -491,11 +494,11 @@
       ],
       "tip_centers": [
         [
-          -791.3786263473727,
+          -805.0,
           200.0
         ],
         [
-          791.3786263473727,
+          805.0,
           -200.0
         ]
       ],
@@ -538,7 +541,7 @@
         "removed_area_um2": 42.363,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "f90d74de3f368d05e7f99a90d936e608c63bf1128c31a96c08a087db802d7dd5",
+      "source_sha256": "fdbda0d7394c898a39240f438225cc36f800c027bc365775d7b864f49d4d0331",
       "left_pnc_x_um": -842.28,
       "measured_straights_um": [
         1400.0,
@@ -603,12 +606,13 @@
         }
       ],
       "taper_pnc_period_um": 5.0,
-      "pnc_taper_length_um": 31.378626347372645,
+      "pnc_taper_length_um": 45.0,
       "pnc_cutoff_width_um": 5.0,
       "pnc_junction_continuity": "C2",
+      "taper_profile": "original_quintic_smootherstep",
       "pnc_junction_width_derivatives": [
-        -0.35640976958981335,
-        0.02961423624352771
+        0.0,
+        0.0
       ],
       "optical_adiabaticity_simulated": false,
       "pnc_reference_profile_length_um": 45.0,
@@ -616,8 +620,8 @@
       "connection_pnc_periods": 5,
       "connection_pnc_span_um": 5.0,
       "connection_pnc_region": "narrow_pnc_end",
-      "connection_pnc_start_um": 26.378626347372645,
-      "connection_pnc_end_um": 31.378626347372645,
+      "connection_pnc_start_um": 40.0,
+      "connection_pnc_end_um": 45.0,
       "layer10_widths_um": [
         5.0,
         1.0,
@@ -664,11 +668,11 @@
       ],
       "tip_centers": [
         [
-          -771.3786263473727,
+          -785.0,
           200.0
         ],
         [
-          771.3786263473727,
+          785.0,
           -200.0
         ]
       ],
@@ -711,7 +715,7 @@
         "removed_area_um2": 44.271,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "f90d74de3f368d05e7f99a90d936e608c63bf1128c31a96c08a087db802d7dd5",
+      "source_sha256": "fdbda0d7394c898a39240f438225cc36f800c027bc365775d7b864f49d4d0331",
       "left_pnc_x_um": -842.28,
       "measured_straights_um": [
         1400.0,
@@ -776,12 +780,13 @@
         }
       ],
       "taper_pnc_period_um": 5.0,
-      "pnc_taper_length_um": 31.378626347372645,
+      "pnc_taper_length_um": 45.0,
       "pnc_cutoff_width_um": 5.0,
       "pnc_junction_continuity": "C2",
+      "taper_profile": "original_quintic_smootherstep",
       "pnc_junction_width_derivatives": [
-        -0.35640976958981335,
-        0.02961423624352771
+        0.0,
+        0.0
       ],
       "optical_adiabaticity_simulated": false,
       "pnc_reference_profile_length_um": 45.0,
@@ -789,8 +794,8 @@
       "connection_pnc_periods": 5,
       "connection_pnc_span_um": 5.0,
       "connection_pnc_region": "narrow_pnc_end",
-      "connection_pnc_start_um": 26.378626347372645,
-      "connection_pnc_end_um": 31.378626347372645,
+      "connection_pnc_start_um": 40.0,
+      "connection_pnc_end_um": 45.0,
       "layer10_widths_um": [
         5.0,
         1.0,
@@ -818,7 +823,7 @@
         },
         {
           "layer": 10,
-          "distance_um": 99.99999999999999,
+          "distance_um": 100.0,
           "measured_width_um": 0.2,
           "target_width_um": 0.2
         },
@@ -837,11 +842,11 @@
       ],
       "tip_centers": [
         [
-          -781.3786263473727,
+          -795.0,
           200.0
         ],
         [
-          781.3786263473727,
+          795.0,
           -200.0
         ]
       ],
@@ -884,7 +889,7 @@
         "removed_area_um2": 44.297999999999995,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "f90d74de3f368d05e7f99a90d936e608c63bf1128c31a96c08a087db802d7dd5",
+      "source_sha256": "fdbda0d7394c898a39240f438225cc36f800c027bc365775d7b864f49d4d0331",
       "left_pnc_x_um": -842.28,
       "measured_straights_um": [
         1400.0,
@@ -949,12 +954,13 @@
         }
       ],
       "taper_pnc_period_um": 5.0,
-      "pnc_taper_length_um": 31.378626347372645,
+      "pnc_taper_length_um": 45.0,
       "pnc_cutoff_width_um": 5.0,
       "pnc_junction_continuity": "C2",
+      "taper_profile": "original_quintic_smootherstep",
       "pnc_junction_width_derivatives": [
-        -0.35640976958981335,
-        0.02961423624352771
+        0.0,
+        0.0
       ],
       "optical_adiabaticity_simulated": false,
       "pnc_reference_profile_length_um": 45.0,
@@ -962,8 +968,8 @@
       "connection_pnc_periods": 5,
       "connection_pnc_span_um": 5.0,
       "connection_pnc_region": "narrow_pnc_end",
-      "connection_pnc_start_um": 26.378626347372645,
-      "connection_pnc_end_um": 31.378626347372645,
+      "connection_pnc_start_um": 40.0,
+      "connection_pnc_end_um": 45.0,
       "layer10_widths_um": [
         5.0,
         1.0,
@@ -991,7 +997,7 @@
         },
         {
           "layer": 10,
-          "distance_um": 119.99999999999999,
+          "distance_um": 120.0,
           "measured_width_um": 0.2,
           "target_width_um": 0.2
         },
@@ -1010,11 +1016,11 @@
       ],
       "tip_centers": [
         [
-          -791.3786263473727,
+          -805.0,
           200.0
         ],
         [
-          791.3786263473727,
+          805.0,
           -200.0
         ]
       ],
@@ -1057,7 +1063,7 @@
         "removed_area_um2": 42.363,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "f90d74de3f368d05e7f99a90d936e608c63bf1128c31a96c08a087db802d7dd5",
+      "source_sha256": "fdbda0d7394c898a39240f438225cc36f800c027bc365775d7b864f49d4d0331",
       "left_pnc_x_um": -842.291,
       "measured_straights_um": [
         1400.0,
@@ -1122,12 +1128,13 @@
         }
       ],
       "taper_pnc_period_um": 5.0,
-      "pnc_taper_length_um": 31.378626347372645,
+      "pnc_taper_length_um": 45.0,
       "pnc_cutoff_width_um": 5.0,
       "pnc_junction_continuity": "C2",
+      "taper_profile": "original_quintic_smootherstep",
       "pnc_junction_width_derivatives": [
-        -0.35640976958981335,
-        0.02961423624352771
+        0.0,
+        0.0
       ],
       "optical_adiabaticity_simulated": false,
       "pnc_reference_profile_length_um": 45.0,
@@ -1135,8 +1142,8 @@
       "connection_pnc_periods": 5,
       "connection_pnc_span_um": 5.0,
       "connection_pnc_region": "narrow_pnc_end",
-      "connection_pnc_start_um": 26.378626347372645,
-      "connection_pnc_end_um": 31.378626347372645,
+      "connection_pnc_start_um": 40.0,
+      "connection_pnc_end_um": 45.0,
       "layer10_widths_um": [
         5.0,
         1.0,
@@ -1183,11 +1190,11 @@
       ],
       "tip_centers": [
         [
-          -771.3786263473727,
+          -785.0,
           200.0
         ],
         [
-          771.3786263473727,
+          785.0,
           -200.0
         ]
       ],
@@ -1230,7 +1237,7 @@
         "removed_area_um2": 44.271,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "f90d74de3f368d05e7f99a90d936e608c63bf1128c31a96c08a087db802d7dd5",
+      "source_sha256": "fdbda0d7394c898a39240f438225cc36f800c027bc365775d7b864f49d4d0331",
       "left_pnc_x_um": -842.291,
       "measured_straights_um": [
         1400.0,
@@ -1295,12 +1302,13 @@
         }
       ],
       "taper_pnc_period_um": 5.0,
-      "pnc_taper_length_um": 31.378626347372645,
+      "pnc_taper_length_um": 45.0,
       "pnc_cutoff_width_um": 5.0,
       "pnc_junction_continuity": "C2",
+      "taper_profile": "original_quintic_smootherstep",
       "pnc_junction_width_derivatives": [
-        -0.35640976958981335,
-        0.02961423624352771
+        0.0,
+        0.0
       ],
       "optical_adiabaticity_simulated": false,
       "pnc_reference_profile_length_um": 45.0,
@@ -1308,8 +1316,8 @@
       "connection_pnc_periods": 5,
       "connection_pnc_span_um": 5.0,
       "connection_pnc_region": "narrow_pnc_end",
-      "connection_pnc_start_um": 26.378626347372645,
-      "connection_pnc_end_um": 31.378626347372645,
+      "connection_pnc_start_um": 40.0,
+      "connection_pnc_end_um": 45.0,
       "layer10_widths_um": [
         5.0,
         1.0,
@@ -1337,7 +1345,7 @@
         },
         {
           "layer": 10,
-          "distance_um": 99.99999999999999,
+          "distance_um": 100.0,
           "measured_width_um": 0.2,
           "target_width_um": 0.2
         },
@@ -1356,11 +1364,11 @@
       ],
       "tip_centers": [
         [
-          -781.3786263473727,
+          -795.0,
           200.0
         ],
         [
-          781.3786263473727,
+          795.0,
           -200.0
         ]
       ],
@@ -1403,7 +1411,7 @@
         "removed_area_um2": 44.297999999999995,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "f90d74de3f368d05e7f99a90d936e608c63bf1128c31a96c08a087db802d7dd5",
+      "source_sha256": "fdbda0d7394c898a39240f438225cc36f800c027bc365775d7b864f49d4d0331",
       "left_pnc_x_um": -842.291,
       "measured_straights_um": [
         1400.0,
@@ -1468,12 +1476,13 @@
         }
       ],
       "taper_pnc_period_um": 5.0,
-      "pnc_taper_length_um": 31.378626347372645,
+      "pnc_taper_length_um": 45.0,
       "pnc_cutoff_width_um": 5.0,
       "pnc_junction_continuity": "C2",
+      "taper_profile": "original_quintic_smootherstep",
       "pnc_junction_width_derivatives": [
-        -0.35640976958981335,
-        0.02961423624352771
+        0.0,
+        0.0
       ],
       "optical_adiabaticity_simulated": false,
       "pnc_reference_profile_length_um": 45.0,
@@ -1481,8 +1490,8 @@
       "connection_pnc_periods": 5,
       "connection_pnc_span_um": 5.0,
       "connection_pnc_region": "narrow_pnc_end",
-      "connection_pnc_start_um": 26.378626347372645,
-      "connection_pnc_end_um": 31.378626347372645,
+      "connection_pnc_start_um": 40.0,
+      "connection_pnc_end_um": 45.0,
       "layer10_widths_um": [
         5.0,
         1.0,
@@ -1510,7 +1519,7 @@
         },
         {
           "layer": 10,
-          "distance_um": 119.99999999999999,
+          "distance_um": 120.0,
           "measured_width_um": 0.2,
           "target_width_um": 0.2
         },
@@ -1529,11 +1538,11 @@
       ],
       "tip_centers": [
         [
-          -791.3786263473727,
+          -805.0,
           200.0
         ],
         [
-          791.3786263473727,
+          805.0,
           -200.0
         ]
       ],
@@ -1577,7 +1586,7 @@
         "removed_area_um2": 75.276,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "2b0f55bb8832678f9fa63d2409dc563aa2216342398518d0d3788fbc4a3d82dd",
+      "source_sha256": "4230444baf30a7489e612c3372bd61d999aa8eee579eea5978e74834717ebb46",
       "left_pnc_x_um": -842.287,
       "measured_straights_um": [
         1400.0,
@@ -1642,12 +1651,13 @@
         }
       ],
       "taper_pnc_period_um": 5.0,
-      "pnc_taper_length_um": 31.378626347372645,
+      "pnc_taper_length_um": 45.0,
       "pnc_cutoff_width_um": 5.0,
       "pnc_junction_continuity": "C2",
+      "taper_profile": "original_quintic_smootherstep",
       "pnc_junction_width_derivatives": [
-        -0.35640976958981335,
-        0.02961423624352771
+        0.0,
+        0.0
       ],
       "optical_adiabaticity_simulated": false,
       "pnc_reference_profile_length_um": 45.0,
@@ -1655,8 +1665,8 @@
       "connection_pnc_periods": 5,
       "connection_pnc_span_um": 5.0,
       "connection_pnc_region": "narrow_pnc_end",
-      "connection_pnc_start_um": 26.378626347372645,
-      "connection_pnc_end_um": 31.378626347372645,
+      "connection_pnc_start_um": 40.0,
+      "connection_pnc_end_um": 45.0,
       "layer10_widths_um": [
         5.0,
         1.65,
@@ -1718,11 +1728,11 @@
       ],
       "tip_centers": [
         [
-          -743.686318655065,
+          -757.3076923076923,
           200.0
         ],
         [
-          743.686318655065,
+          757.3076923076923,
           -200.0
         ]
       ],
@@ -1766,7 +1776,7 @@
         "removed_area_um2": 75.276,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "2b0f55bb8832678f9fa63d2409dc563aa2216342398518d0d3788fbc4a3d82dd",
+      "source_sha256": "4230444baf30a7489e612c3372bd61d999aa8eee579eea5978e74834717ebb46",
       "left_pnc_x_um": -842.287,
       "measured_straights_um": [
         1400.0,
@@ -1831,12 +1841,13 @@
         }
       ],
       "taper_pnc_period_um": 5.0,
-      "pnc_taper_length_um": 31.378626347372645,
+      "pnc_taper_length_um": 45.0,
       "pnc_cutoff_width_um": 5.0,
       "pnc_junction_continuity": "C2",
+      "taper_profile": "original_quintic_smootherstep",
       "pnc_junction_width_derivatives": [
-        -0.35640976958981335,
-        0.02961423624352771
+        0.0,
+        0.0
       ],
       "optical_adiabaticity_simulated": false,
       "pnc_reference_profile_length_um": 45.0,
@@ -1844,8 +1855,8 @@
       "connection_pnc_periods": 5,
       "connection_pnc_span_um": 5.0,
       "connection_pnc_region": "narrow_pnc_end",
-      "connection_pnc_start_um": 26.378626347372645,
-      "connection_pnc_end_um": 31.378626347372645,
+      "connection_pnc_start_um": 40.0,
+      "connection_pnc_end_um": 45.0,
       "layer10_widths_um": [
         5.0,
         1.65,
@@ -1876,13 +1887,13 @@
         },
         {
           "layer": 10,
-          "distance_um": 92.3076923076923,
+          "distance_um": 92.30769230769232,
           "measured_width_um": 0.98,
           "target_width_um": 0.98
         },
         {
           "layer": 10,
-          "distance_um": 99.99999999999999,
+          "distance_um": 100.0,
           "measured_width_um": 0.2,
           "target_width_um": 0.2
         },
@@ -1900,18 +1911,18 @@
         },
         {
           "layer": 15,
-          "distance_um": 92.3076923076923,
+          "distance_um": 92.30769230769232,
           "measured_width_um": 0.2,
           "target_width_um": 0.2
         }
       ],
       "tip_centers": [
         [
-          -746.763241731988,
+          -760.3846153846154,
           200.0
         ],
         [
-          746.763241731988,
+          760.3846153846154,
           -200.0
         ]
       ],
@@ -1955,7 +1966,7 @@
         "removed_area_um2": 75.276,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "2b0f55bb8832678f9fa63d2409dc563aa2216342398518d0d3788fbc4a3d82dd",
+      "source_sha256": "4230444baf30a7489e612c3372bd61d999aa8eee579eea5978e74834717ebb46",
       "left_pnc_x_um": -842.287,
       "measured_straights_um": [
         1400.0,
@@ -2020,12 +2031,13 @@
         }
       ],
       "taper_pnc_period_um": 5.0,
-      "pnc_taper_length_um": 31.378626347372645,
+      "pnc_taper_length_um": 45.0,
       "pnc_cutoff_width_um": 5.0,
       "pnc_junction_continuity": "C2",
+      "taper_profile": "original_quintic_smootherstep",
       "pnc_junction_width_derivatives": [
-        -0.35640976958981335,
-        0.02961423624352771
+        0.0,
+        0.0
       ],
       "optical_adiabaticity_simulated": false,
       "pnc_reference_profile_length_um": 45.0,
@@ -2033,8 +2045,8 @@
       "connection_pnc_periods": 5,
       "connection_pnc_span_um": 5.0,
       "connection_pnc_region": "narrow_pnc_end",
-      "connection_pnc_start_um": 26.378626347372645,
-      "connection_pnc_end_um": 31.378626347372645,
+      "connection_pnc_start_um": 40.0,
+      "connection_pnc_end_um": 45.0,
       "layer10_widths_um": [
         5.0,
         1.65,
@@ -2065,13 +2077,13 @@
         },
         {
           "layer": 10,
-          "distance_um": 110.76923076923076,
+          "distance_um": 110.76923076923077,
           "measured_width_um": 0.98,
           "target_width_um": 0.98
         },
         {
           "layer": 10,
-          "distance_um": 119.99999999999999,
+          "distance_um": 120.0,
           "measured_width_um": 0.2,
           "target_width_um": 0.2
         },
@@ -2089,18 +2101,18 @@
         },
         {
           "layer": 15,
-          "distance_um": 110.76923076923076,
+          "distance_um": 110.76923076923077,
           "measured_width_um": 0.2,
           "target_width_um": 0.2
         }
       ],
       "tip_centers": [
         [
-          -749.8401648089111,
+          -763.4615384615385,
           200.0
         ],
         [
-          749.8401648089111,
+          763.4615384615385,
           -200.0
         ]
       ],
@@ -2144,7 +2156,7 @@
         "removed_area_um2": 75.276,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "2b0f55bb8832678f9fa63d2409dc563aa2216342398518d0d3788fbc4a3d82dd",
+      "source_sha256": "4230444baf30a7489e612c3372bd61d999aa8eee579eea5978e74834717ebb46",
       "left_pnc_x_um": -842.28,
       "measured_straights_um": [
         1400.0,
@@ -2209,12 +2221,13 @@
         }
       ],
       "taper_pnc_period_um": 5.0,
-      "pnc_taper_length_um": 31.378626347372645,
+      "pnc_taper_length_um": 45.0,
       "pnc_cutoff_width_um": 5.0,
       "pnc_junction_continuity": "C2",
+      "taper_profile": "original_quintic_smootherstep",
       "pnc_junction_width_derivatives": [
-        -0.35640976958981335,
-        0.02961423624352771
+        0.0,
+        0.0
       ],
       "optical_adiabaticity_simulated": false,
       "pnc_reference_profile_length_um": 45.0,
@@ -2222,8 +2235,8 @@
       "connection_pnc_periods": 5,
       "connection_pnc_span_um": 5.0,
       "connection_pnc_region": "narrow_pnc_end",
-      "connection_pnc_start_um": 26.378626347372645,
-      "connection_pnc_end_um": 31.378626347372645,
+      "connection_pnc_start_um": 40.0,
+      "connection_pnc_end_um": 45.0,
       "layer10_widths_um": [
         5.0,
         1.65,
@@ -2285,11 +2298,11 @@
       ],
       "tip_centers": [
         [
-          -743.686318655065,
+          -757.3076923076923,
           200.0
         ],
         [
-          743.686318655065,
+          757.3076923076923,
           -200.0
         ]
       ],
@@ -2333,7 +2346,7 @@
         "removed_area_um2": 75.276,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "2b0f55bb8832678f9fa63d2409dc563aa2216342398518d0d3788fbc4a3d82dd",
+      "source_sha256": "4230444baf30a7489e612c3372bd61d999aa8eee579eea5978e74834717ebb46",
       "left_pnc_x_um": -842.28,
       "measured_straights_um": [
         1400.0,
@@ -2398,12 +2411,13 @@
         }
       ],
       "taper_pnc_period_um": 5.0,
-      "pnc_taper_length_um": 31.378626347372645,
+      "pnc_taper_length_um": 45.0,
       "pnc_cutoff_width_um": 5.0,
       "pnc_junction_continuity": "C2",
+      "taper_profile": "original_quintic_smootherstep",
       "pnc_junction_width_derivatives": [
-        -0.35640976958981335,
-        0.02961423624352771
+        0.0,
+        0.0
       ],
       "optical_adiabaticity_simulated": false,
       "pnc_reference_profile_length_um": 45.0,
@@ -2411,8 +2425,8 @@
       "connection_pnc_periods": 5,
       "connection_pnc_span_um": 5.0,
       "connection_pnc_region": "narrow_pnc_end",
-      "connection_pnc_start_um": 26.378626347372645,
-      "connection_pnc_end_um": 31.378626347372645,
+      "connection_pnc_start_um": 40.0,
+      "connection_pnc_end_um": 45.0,
       "layer10_widths_um": [
         5.0,
         1.65,
@@ -2443,13 +2457,13 @@
         },
         {
           "layer": 10,
-          "distance_um": 92.3076923076923,
+          "distance_um": 92.30769230769232,
           "measured_width_um": 0.98,
           "target_width_um": 0.98
         },
         {
           "layer": 10,
-          "distance_um": 99.99999999999999,
+          "distance_um": 100.0,
           "measured_width_um": 0.2,
           "target_width_um": 0.2
         },
@@ -2467,18 +2481,18 @@
         },
         {
           "layer": 15,
-          "distance_um": 92.3076923076923,
+          "distance_um": 92.30769230769232,
           "measured_width_um": 0.2,
           "target_width_um": 0.2
         }
       ],
       "tip_centers": [
         [
-          -746.763241731988,
+          -760.3846153846154,
           200.0
         ],
         [
-          746.763241731988,
+          760.3846153846154,
           -200.0
         ]
       ],
@@ -2522,7 +2536,7 @@
         "removed_area_um2": 75.276,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "2b0f55bb8832678f9fa63d2409dc563aa2216342398518d0d3788fbc4a3d82dd",
+      "source_sha256": "4230444baf30a7489e612c3372bd61d999aa8eee579eea5978e74834717ebb46",
       "left_pnc_x_um": -842.28,
       "measured_straights_um": [
         1400.0,
@@ -2587,12 +2601,13 @@
         }
       ],
       "taper_pnc_period_um": 5.0,
-      "pnc_taper_length_um": 31.378626347372645,
+      "pnc_taper_length_um": 45.0,
       "pnc_cutoff_width_um": 5.0,
       "pnc_junction_continuity": "C2",
+      "taper_profile": "original_quintic_smootherstep",
       "pnc_junction_width_derivatives": [
-        -0.35640976958981335,
-        0.02961423624352771
+        0.0,
+        0.0
       ],
       "optical_adiabaticity_simulated": false,
       "pnc_reference_profile_length_um": 45.0,
@@ -2600,8 +2615,8 @@
       "connection_pnc_periods": 5,
       "connection_pnc_span_um": 5.0,
       "connection_pnc_region": "narrow_pnc_end",
-      "connection_pnc_start_um": 26.378626347372645,
-      "connection_pnc_end_um": 31.378626347372645,
+      "connection_pnc_start_um": 40.0,
+      "connection_pnc_end_um": 45.0,
       "layer10_widths_um": [
         5.0,
         1.65,
@@ -2632,13 +2647,13 @@
         },
         {
           "layer": 10,
-          "distance_um": 110.76923076923076,
+          "distance_um": 110.76923076923077,
           "measured_width_um": 0.98,
           "target_width_um": 0.98
         },
         {
           "layer": 10,
-          "distance_um": 119.99999999999999,
+          "distance_um": 120.0,
           "measured_width_um": 0.2,
           "target_width_um": 0.2
         },
@@ -2656,18 +2671,18 @@
         },
         {
           "layer": 15,
-          "distance_um": 110.76923076923076,
+          "distance_um": 110.76923076923077,
           "measured_width_um": 0.2,
           "target_width_um": 0.2
         }
       ],
       "tip_centers": [
         [
-          -749.8401648089111,
+          -763.4615384615385,
           200.0
         ],
         [
-          749.8401648089111,
+          763.4615384615385,
           -200.0
         ]
       ],
@@ -2711,7 +2726,7 @@
         "removed_area_um2": 75.276,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "2b0f55bb8832678f9fa63d2409dc563aa2216342398518d0d3788fbc4a3d82dd",
+      "source_sha256": "4230444baf30a7489e612c3372bd61d999aa8eee579eea5978e74834717ebb46",
       "left_pnc_x_um": -842.291,
       "measured_straights_um": [
         1400.0,
@@ -2776,12 +2791,13 @@
         }
       ],
       "taper_pnc_period_um": 5.0,
-      "pnc_taper_length_um": 31.378626347372645,
+      "pnc_taper_length_um": 45.0,
       "pnc_cutoff_width_um": 5.0,
       "pnc_junction_continuity": "C2",
+      "taper_profile": "original_quintic_smootherstep",
       "pnc_junction_width_derivatives": [
-        -0.35640976958981335,
-        0.02961423624352771
+        0.0,
+        0.0
       ],
       "optical_adiabaticity_simulated": false,
       "pnc_reference_profile_length_um": 45.0,
@@ -2789,8 +2805,8 @@
       "connection_pnc_periods": 5,
       "connection_pnc_span_um": 5.0,
       "connection_pnc_region": "narrow_pnc_end",
-      "connection_pnc_start_um": 26.378626347372645,
-      "connection_pnc_end_um": 31.378626347372645,
+      "connection_pnc_start_um": 40.0,
+      "connection_pnc_end_um": 45.0,
       "layer10_widths_um": [
         5.0,
         1.65,
@@ -2852,11 +2868,11 @@
       ],
       "tip_centers": [
         [
-          -743.686318655065,
+          -757.3076923076923,
           200.0
         ],
         [
-          743.686318655065,
+          757.3076923076923,
           -200.0
         ]
       ],
@@ -2900,7 +2916,7 @@
         "removed_area_um2": 75.276,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "2b0f55bb8832678f9fa63d2409dc563aa2216342398518d0d3788fbc4a3d82dd",
+      "source_sha256": "4230444baf30a7489e612c3372bd61d999aa8eee579eea5978e74834717ebb46",
       "left_pnc_x_um": -842.291,
       "measured_straights_um": [
         1400.0,
@@ -2965,12 +2981,13 @@
         }
       ],
       "taper_pnc_period_um": 5.0,
-      "pnc_taper_length_um": 31.378626347372645,
+      "pnc_taper_length_um": 45.0,
       "pnc_cutoff_width_um": 5.0,
       "pnc_junction_continuity": "C2",
+      "taper_profile": "original_quintic_smootherstep",
       "pnc_junction_width_derivatives": [
-        -0.35640976958981335,
-        0.02961423624352771
+        0.0,
+        0.0
       ],
       "optical_adiabaticity_simulated": false,
       "pnc_reference_profile_length_um": 45.0,
@@ -2978,8 +2995,8 @@
       "connection_pnc_periods": 5,
       "connection_pnc_span_um": 5.0,
       "connection_pnc_region": "narrow_pnc_end",
-      "connection_pnc_start_um": 26.378626347372645,
-      "connection_pnc_end_um": 31.378626347372645,
+      "connection_pnc_start_um": 40.0,
+      "connection_pnc_end_um": 45.0,
       "layer10_widths_um": [
         5.0,
         1.65,
@@ -3010,13 +3027,13 @@
         },
         {
           "layer": 10,
-          "distance_um": 92.3076923076923,
+          "distance_um": 92.30769230769232,
           "measured_width_um": 0.98,
           "target_width_um": 0.98
         },
         {
           "layer": 10,
-          "distance_um": 99.99999999999999,
+          "distance_um": 100.0,
           "measured_width_um": 0.2,
           "target_width_um": 0.2
         },
@@ -3034,18 +3051,18 @@
         },
         {
           "layer": 15,
-          "distance_um": 92.3076923076923,
+          "distance_um": 92.30769230769232,
           "measured_width_um": 0.2,
           "target_width_um": 0.2
         }
       ],
       "tip_centers": [
         [
-          -746.763241731988,
+          -760.3846153846154,
           200.0
         ],
         [
-          746.763241731988,
+          760.3846153846154,
           -200.0
         ]
       ],
@@ -3089,7 +3106,7 @@
         "removed_area_um2": 75.276,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "2b0f55bb8832678f9fa63d2409dc563aa2216342398518d0d3788fbc4a3d82dd",
+      "source_sha256": "4230444baf30a7489e612c3372bd61d999aa8eee579eea5978e74834717ebb46",
       "left_pnc_x_um": -842.291,
       "measured_straights_um": [
         1400.0,
@@ -3154,12 +3171,13 @@
         }
       ],
       "taper_pnc_period_um": 5.0,
-      "pnc_taper_length_um": 31.378626347372645,
+      "pnc_taper_length_um": 45.0,
       "pnc_cutoff_width_um": 5.0,
       "pnc_junction_continuity": "C2",
+      "taper_profile": "original_quintic_smootherstep",
       "pnc_junction_width_derivatives": [
-        -0.35640976958981335,
-        0.02961423624352771
+        0.0,
+        0.0
       ],
       "optical_adiabaticity_simulated": false,
       "pnc_reference_profile_length_um": 45.0,
@@ -3167,8 +3185,8 @@
       "connection_pnc_periods": 5,
       "connection_pnc_span_um": 5.0,
       "connection_pnc_region": "narrow_pnc_end",
-      "connection_pnc_start_um": 26.378626347372645,
-      "connection_pnc_end_um": 31.378626347372645,
+      "connection_pnc_start_um": 40.0,
+      "connection_pnc_end_um": 45.0,
       "layer10_widths_um": [
         5.0,
         1.65,
@@ -3199,13 +3217,13 @@
         },
         {
           "layer": 10,
-          "distance_um": 110.76923076923076,
+          "distance_um": 110.76923076923077,
           "measured_width_um": 0.98,
           "target_width_um": 0.98
         },
         {
           "layer": 10,
-          "distance_um": 119.99999999999999,
+          "distance_um": 120.0,
           "measured_width_um": 0.2,
           "target_width_um": 0.2
         },
@@ -3223,18 +3241,18 @@
         },
         {
           "layer": 15,
-          "distance_um": 110.76923076923076,
+          "distance_um": 110.76923076923077,
           "measured_width_um": 0.2,
           "target_width_um": 0.2
         }
       ],
       "tip_centers": [
         [
-          -749.8401648089111,
+          -763.4615384615385,
           200.0
         ],
         [
-          749.8401648089111,
+          763.4615384615385,
           -200.0
         ]
       ],

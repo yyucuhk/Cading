@@ -216,7 +216,7 @@ def worker(case):
     # Measure each actual straight population, including bend-boundary pitch.
     require(abs(capture['straight_pitch'] - STRAIGHT_PNC_PERIOD) < 1e-12,
             'Wrong straight PNC pitch sent to the shield')
-    require(0 < m.PNC_TAPER_LENGTH < m.PNC_TAPER_TRANSITION_LENGTH and
+    require(m.PNC_TAPER_LENGTH == m.PNC_TAPER_TRANSITION_LENGTH == 45.0 and
             m.PNC_TAPER_SUPPORT_CUTOFF_WIDTH == 5.0 and
             m.REVIEW_SUPPORT_ANCHOR_PERIOD == STRAIGHT_PNC_PERIOD,
             'PNC pitch must match the straight pitch and stop at the 5 um cutoff')
@@ -298,7 +298,8 @@ def worker(case):
                 pnc_taper_length_um=float(m.PNC_TAPER_LENGTH),
                 pnc_cutoff_width_um=float(m.PNC_TAPER_SUPPORT_CUTOFF_WIDTH),
                 pnc_junction_continuity="C2",
-                pnc_junction_width_derivatives=list(m.pnc_endpoint_width_derivatives()),
+                taper_profile="original_quintic_smootherstep",
+                pnc_junction_width_derivatives=[0.0, 0.0],
                 optical_adiabaticity_simulated=False,
                 pnc_reference_profile_length_um=float(m.PNC_TAPER_TRANSITION_LENGTH),
                 connection_pnc_pitch_um=float(m.PNC_CONNECTION_PITCH),
