@@ -51,8 +51,18 @@ def validate(root: Path, baseline: Path):
             expected=before.intersection(box(0,-175,JOIN,175)).union(channel).union(circles)
             area=now.symmetric_difference(expected).area
             distance=now.boundary.hausdorff_distance(expected.boundary)
-            check(key+'_only_prefix_linear_channel_two_circles',area<.05 and distance<.0015,
-                  xor_um2=area,boundary_distance_um=distance)
+            # Boolean intersections are snapped to the 1 nm GDS grid. A
+            # sub-grid edge displacement can accumulate area over millimetres;
+            # bound both pointwise error and area using the same grid scale.
+            grid_tolerance = .0011
+            difference = now.symmetric_difference(expected)
+            outside_grid_band = difference.difference(
+                expected.boundary.buffer(grid_tolerance)).area
+            area_bound = expected.boundary.length * grid_tolerance
+            check(key+'_only_prefix_linear_channel_two_circles',
+                  area <= area_bound and distance < grid_tolerance and outside_grid_band < 1e-8,
+                  xor_um2=area, area_bound_um2=area_bound,
+                  boundary_distance_um=distance, outside_grid_band_um2=outside_grid_band)
             upstream=box(0,-175,JOIN-.5,175)
             check(key+'_upstream_exact',now.intersection(upstream).symmetric_difference(before.intersection(upstream)).area<1e-7)
             actual=now.intersection(LineString([(JOIN,-175),(JOIN,175)]))
@@ -88,7 +98,8 @@ def validate(root: Path, baseline: Path):
                 method='Independent raw GDSII parser and Shapely; no generator or KLayout import',
                 baseline_sha256=hashlib.sha256(baseline.read_bytes()).hexdigest(),
                 gds_sha256=hashlib.sha256(path.read_bytes()).hexdigest(),
-                optical_or_mechanical_simulation_performed=False)
+                optical_or_mechanical_simulation_performed=False,
+                grid_note='Independent unsnapped geometry compared to 1 nm GDS polygons; max edge error and the entire difference region are bounded within 1.1 nm.')
     (root/'gds/2611_linear_window_validation.json').write_text(json.dumps(report,indent=2))
     print('PASS',len(checks),'independent linear-window checks')
     return report
