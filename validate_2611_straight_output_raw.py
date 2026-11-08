@@ -57,13 +57,15 @@ def main(root):
     roi=box(3000,-400,20000,-25)
     for w in (1.62,1.64,1.68):
         n=f'D1_L6000_W{round(w*1000)}_P10';v=n+'_OUT2000'
-        check(n+'_six_output_layers',set(new[n]['polys'])=={2,10,11,13,14,15})
+        check(n+'_five_output_layers',set(new[n]['polys'])=={2,10,13,14,15})
         check(v+'_six_output_layers',set(new[v]['polys'])=={2,10,11,13,14,15})
         for l in (2,10,11,13,14,15):
             a=union(old[n],l);b=union(new[n],l);c=union(new[v],l)
-            ar=a.symmetric_difference(b).area
-            check(n+f'_reference_L{l}_unchanged',ar<1e-7,xor_um2=ar)
-            ar=b.symmetric_difference(c).difference(roi).area
+            expected = (a.intersection(box(-10000,25,-3045,10000).union(box(3045,-10000,10000,-25))) if l == 14 else a)
+            if l == 11: expected = Polygon()
+            ar=expected.symmetric_difference(b).area
+            check(n+f'_two_coupler_L{l}_matches_policy',ar<1e-7,xor_um2=ar)
+            ar=a.symmetric_difference(c).difference(roi).area
             check(v+f'_outside_output_L{l}_unchanged',ar<1e-7,xor_um2=ar)
         optical=union(new[v],15)
         expected=box(3000,-200-w/2,5000,-200+w/2)
@@ -91,8 +93,8 @@ def main(root):
             check(v+f'_200_PNCs_side{side}',len(centers)==200)
             check(v+f'_exact10um_PNC_side{side}',all(abs(x-i*10)<1e-7 for i,x in enumerate(centers)))
         for c in (n,v):
-            x=union(new[c],11).bounds[0]+devrefs[c][0]*.001
-            check(c+'_left_bend_minus900',abs(x+900)<1e-7,measured_x_um=x)
+            x=union(old[n] if c == n else new[c],11).bounds[0]+devrefs[c][0]*.001
+            check(c+'_original_left_bend_reference_minus900',abs(x+900)<1e-7,measured_x_um=x)
     result=dict(status='PASS',check_count=len(checks),checks=checks,
                 method='Independent raw GDS record parser and Shapely polygons; no generator or KLayout imported')
     out=root/'validation_2611_straight_output/raw_gds_audit.json';out.write_text(json.dumps(result,indent=2))

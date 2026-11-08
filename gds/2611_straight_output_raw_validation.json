@@ -23,7 +23,7 @@
       "passed": true
     },
     {
-      "name": "D1_L6000_W1620_P10_six_output_layers",
+      "name": "D1_L6000_W1620_P10_five_output_layers",
       "passed": true
     },
     {
@@ -31,7 +31,7 @@
       "passed": true
     },
     {
-      "name": "D1_L6000_W1620_P10_reference_L2_unchanged",
+      "name": "D1_L6000_W1620_P10_two_coupler_L2_matches_policy",
       "passed": true,
       "xor_um2": 0.0
     },
@@ -41,7 +41,7 @@
       "xor_um2": 0.0
     },
     {
-      "name": "D1_L6000_W1620_P10_reference_L10_unchanged",
+      "name": "D1_L6000_W1620_P10_two_coupler_L10_matches_policy",
       "passed": true,
       "xor_um2": 0.0
     },
@@ -51,7 +51,7 @@
       "xor_um2": 0.0
     },
     {
-      "name": "D1_L6000_W1620_P10_reference_L11_unchanged",
+      "name": "D1_L6000_W1620_P10_two_coupler_L11_matches_policy",
       "passed": true,
       "xor_um2": 0.0
     },
@@ -61,7 +61,7 @@
       "xor_um2": 0.0
     },
     {
-      "name": "D1_L6000_W1620_P10_reference_L13_unchanged",
+      "name": "D1_L6000_W1620_P10_two_coupler_L13_matches_policy",
       "passed": true,
       "xor_um2": 0.0
     },
@@ -71,7 +71,7 @@
       "xor_um2": 0.0
     },
     {
-      "name": "D1_L6000_W1620_P10_reference_L14_unchanged",
+      "name": "D1_L6000_W1620_P10_two_coupler_L14_matches_policy",
       "passed": true,
       "xor_um2": 0.0
     },
@@ -81,7 +81,7 @@
       "xor_um2": 0.0
     },
     {
-      "name": "D1_L6000_W1620_P10_reference_L15_unchanged",
+      "name": "D1_L6000_W1620_P10_two_coupler_L15_matches_policy",
       "passed": true,
       "xor_um2": 0.0
     },
@@ -171,17 +171,17 @@
       "passed": true
     },
     {
-      "name": "D1_L6000_W1620_P10_left_bend_minus900",
+      "name": "D1_L6000_W1620_P10_original_left_bend_reference_minus900",
       "passed": true,
       "measured_x_um": -900.0
     },
     {
-      "name": "D1_L6000_W1620_P10_OUT2000_left_bend_minus900",
+      "name": "D1_L6000_W1620_P10_OUT2000_original_left_bend_reference_minus900",
       "passed": true,
       "measured_x_um": -900.0
     },
     {
-      "name": "D1_L6000_W1640_P10_six_output_layers",
+      "name": "D1_L6000_W1640_P10_five_output_layers",
       "passed": true
     },
     {
@@ -189,7 +189,7 @@
       "passed": true
     },
     {
-      "name": "D1_L6000_W1640_P10_reference_L2_unchanged",
+      "name": "D1_L6000_W1640_P10_two_coupler_L2_matches_policy",
       "passed": true,
       "xor_um2": 0.0
     },
@@ -199,7 +199,7 @@
       "xor_um2": 0.0
     },
     {
-      "name": "D1_L6000_W1640_P10_reference_L10_unchanged",
+      "name": "D1_L6000_W1640_P10_two_coupler_L10_matches_policy",
       "passed": true,
       "xor_um2": 0.0
     },
@@ -209,7 +209,7 @@
       "xor_um2": 0.0
     },
     {
-      "name": "D1_L6000_W1640_P10_reference_L11_unchanged",
+      "name": "D1_L6000_W1640_P10_two_coupler_L11_matches_policy",
       "passed": true,
       "xor_um2": 0.0
     },
@@ -219,7 +219,7 @@
       "xor_um2": 0.0
     },
     {
-      "name": "D1_L6000_W1640_P10_reference_L13_unchanged",
+      "name": "D1_L6000_W1640_P10_two_coupler_L13_matches_policy",
       "passed": true,
       "xor_um2": 0.0
     },
@@ -229,7 +229,7 @@
       "xor_um2": 0.0
     },
     {
-      "name": "D1_L6000_W1640_P10_reference_L14_unchanged",
+      "name": "D1_L6000_W1640_P10_two_coupler_L14_matches_policy",
       "passed": true,
       "xor_um2": 0.0
     },
@@ -239,7 +239,7 @@
       "xor_um2": 0.0
     },
     {
-      "name": "D1_L6000_W1640_P10_reference_L15_unchanged",
+      "name": "D1_L6000_W1640_P10_two_coupler_L15_matches_policy",
       "passed": true,
       "xor_um2": 0.0
     },
@@ -329,17 +329,17 @@
       "passed": true
     },
     {
-      "name": "D1_L6000_W1640_P10_left_bend_minus900",
+      "name": "D1_L6000_W1640_P10_original_left_bend_reference_minus900",
       "passed": true,
       "measured_x_um": -900.0
     },
     {
-      "name": "D1_L6000_W1640_P10_OUT2000_left_bend_minus900",
+      "name": "D1_L6000_W1640_P10_OUT2000_original_left_bend_reference_minus900",
       "passed": true,
       "measured_x_um": -900.0
     },
     {
-      "name": "D1_L6000_W1680_P10_six_output_layers",
+      "name": "D1_L6000_W1680_P10_five_output_layers",
       "passed": true
     },
     {
@@ -347,7 +347,7 @@
       "passed": true
     },
     {
-      "name": "D1_L6000_W1680_P10_reference_L2_unchanged",
+      "name": "D1_L6000_W1680_P10_two_coupler_L2_matches_policy",
       "passed": true,
       "xor_um2": 0.0
     },
@@ -357,7 +357,7 @@
       "xor_um2": 0.0
     },
     {
-      "name": "D1_L6000_W1680_P10_reference_L10_unchanged",
+      "name": "D1_L6000_W1680_P10_two_coupler_L10_matches_policy",
       "passed": true,
       "xor_um2": 0.0
     },
@@ -367,7 +367,7 @@
       "xor_um2": 0.0
     },
     {
-      "name": "D1_L6000_W1680_P10_reference_L11_unchanged",
+      "name": "D1_L6000_W1680_P10_two_coupler_L11_matches_policy",
       "passed": true,
       "xor_um2": 0.0
     },
@@ -377,7 +377,7 @@
       "xor_um2": 0.0
     },
     {
-      "name": "D1_L6000_W1680_P10_reference_L13_unchanged",
+      "name": "D1_L6000_W1680_P10_two_coupler_L13_matches_policy",
       "passed": true,
       "xor_um2": 0.0
     },
@@ -387,7 +387,7 @@
       "xor_um2": 0.0
     },
     {
-      "name": "D1_L6000_W1680_P10_reference_L14_unchanged",
+      "name": "D1_L6000_W1680_P10_two_coupler_L14_matches_policy",
       "passed": true,
       "xor_um2": 0.0
     },
@@ -397,7 +397,7 @@
       "xor_um2": 0.0
     },
     {
-      "name": "D1_L6000_W1680_P10_reference_L15_unchanged",
+      "name": "D1_L6000_W1680_P10_two_coupler_L15_matches_policy",
       "passed": true,
       "xor_um2": 0.0
     },
@@ -487,12 +487,12 @@
       "passed": true
     },
     {
-      "name": "D1_L6000_W1680_P10_left_bend_minus900",
+      "name": "D1_L6000_W1680_P10_original_left_bend_reference_minus900",
       "passed": true,
       "measured_x_um": -900.0
     },
     {
-      "name": "D1_L6000_W1680_P10_OUT2000_left_bend_minus900",
+      "name": "D1_L6000_W1680_P10_OUT2000_original_left_bend_reference_minus900",
       "passed": true,
       "measured_x_um": -900.0
     }
