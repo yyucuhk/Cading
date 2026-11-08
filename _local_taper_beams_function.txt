@@ -1,0 +1,63 @@
+def add_local_taper_beams(layout, entries, policies):
+    """Add plain transverse beam pairs only at the optical taper entrances.
+
+    Old PNCs have already been cleared. Layer 11 now contains these rectangles
+    only: three stations at 0, 1 and 2 um outward from L10, on both sides.
+    The 5.096 um anchor span and 0.5 um end overlap match the old PNC support.
+    No optical polygon or release-mask boundary is edited here.
+    """
+    import klayout.db as kdb
+    require(LOCAL_TAPER_BEAM_LAYER == (11, 0), 'Use the original solid support layer')
+    require(LOCAL_TAPER_BEAM_COUNT >= 1 and isinstance(LOCAL_TAPER_BEAM_COUNT, int),
+            'Beam count must be a positive integer')
+    require(0 < LOCAL_TAPER_BEAM_WIDTH < LOCAL_TAPER_BEAM_PITCH,
+            'Beam width must be positive and smaller than its pitch')
+    require(LOCAL_TAPER_BEAM_START >= 0 and LOCAL_TAPER_ANCHOR_SPAN > 0 and
+            LOCAL_TAPER_ANCHOR_OVERLAP > 0, 'Invalid support dimensions')
+    last = LOCAL_TAPER_BEAM_START + (LOCAL_TAPER_BEAM_COUNT-1)*LOCAL_TAPER_BEAM_PITCH
+    require(last+LOCAL_TAPER_BEAM_WIDTH/2 < 40, 'Support group must stay in the first taper stage')
+    li = layout.layer(*LOCAL_TAPER_BEAM_LAYER)
+    records = []
+    for entry in entries:
+        cell = layout.cell(entry['case_id'])
+        require(cell.shapes(li).size()==0, 'Unexpected pre-existing PNC/support geometry')
+        rr = regions(layout, cell)
+        supports = kdb.Region()
+        for end in policies[entry['case_id']]['ends']:
+            sx, cy = float(end['l10_start_local_x_um']), float(end['center_y_um'])
+            direction = -1.0 if end['side']=='input' else 1.0
+            for station in range(LOCAL_TAPER_BEAM_COUNT):
+                distance = LOCAL_TAPER_BEAM_START + station*LOCAL_TAPER_BEAM_PITCH
+                x = sx + direction*distance
+                x1, x2 = x-LOCAL_TAPER_BEAM_WIDTH/2, x+LOCAL_TAPER_BEAM_WIDTH/2
+                slab = (rr[(10, 0)] & box((x1,cy-10,x2,cy+10))).merged()
+                require(not slab.is_empty(), 'No L10 slab at the beam attachment')
+                bb = slab.bbox()
+                for side in (-1, 1):
+                    edge = (bb.top if side > 0 else bb.bottom)*DBU
+                    inner = edge-side*LOCAL_TAPER_ANCHOR_OVERLAP
+                    outer = edge+side*(LOCAL_TAPER_ANCHOR_SPAN+LOCAL_TAPER_ANCHOR_OVERLAP)
+                    bounds = (x1, min(inner,outer), x2, max(inner,outer))
+                    beam = box(bounds)
+                    require(not (beam & rr[(10,0)]).is_empty(), 'Beam is detached from L10')
+                    require(not (beam - rr[(2,0)] - rr[(14,0)]).is_empty(),
+                            'Beam does not reach the outer anchor beyond the release windows')
+                    require((beam & rr[(15,0)]).is_empty(), 'Beam touches the optical ridge')
+                    require((beam & supports).is_empty(), 'Adjacent beams intersect')
+                    supports |= beam
+                    records.append(dict(case_id=entry['case_id'],end=end['side'],side=side,
+                        station=station,distance_from_l10_um=distance,center_local_x_um=x,
+                        center_global_x_um=x+entry['origin_um'][0],bounds_local_um=list(bounds)))
+        cell.shapes(li).insert(supports)
+        expected = 2*LOCAL_TAPER_BEAM_COUNT*len(policies[entry['case_id']]['ends'])
+        require(supports.count()==expected, 'Incorrect local beam population')
+        entry['local_taper_beam_count'] = expected
+        entry['local_taper_beam_layer'] = list(LOCAL_TAPER_BEAM_LAYER)
+    expected_total = 2*LOCAL_TAPER_BEAM_COUNT*sum(len(p['ends']) for p in policies.values())
+    require(len(records)==expected_total, 'Wrong total support count')
+    return dict(layer=list(LOCAL_TAPER_BEAM_LAYER),width_um=LOCAL_TAPER_BEAM_WIDTH,
+        pitch_um=LOCAL_TAPER_BEAM_PITCH,stations_per_end=LOCAL_TAPER_BEAM_COUNT,
+        start_um=LOCAL_TAPER_BEAM_START,anchor_span_um=LOCAL_TAPER_ANCHOR_SPAN,
+        anchor_overlap_um=LOCAL_TAPER_ANCHOR_OVERLAP,total_beams=len(records),beams=records)
+
+
