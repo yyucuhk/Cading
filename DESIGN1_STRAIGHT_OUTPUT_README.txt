@@ -81,3 +81,21 @@ for baseline checks; they are not the final export.
 This change applies ONLY to the comparison builder/output. The source
 three-device width sweep, standalone designs and 18-device sweep are not
 modified. The original baseline GDS must retain its manifest hash.
+
+
+TWO-COUPLER LAYER POLICY (current)
+Only the three two-coupler devices in this comparison omit Layer 11.
+Layer 14 is retained only at the two existing terminal assemblies, starting
+at the actual Layer-10 taper entrance (local X=-3045 and +3045 um).
+Both outward channels and their existing pads/openings are preserved.
+The meander and preceding 15-to-5 um PNC-transition openings are removed
+from Layer 14; no other device layer is edited. All three straight-output
+variants remain identical to the preceding comparison.
+The global removal of Layers 16/51 and L2-to-L15 marker move remain active.
+Device labels are intentionally unchanged; P10 in the two-coupler labels
+is a legacy source identifier, NOT a remaining Layer-11 pattern.
+The original three-device source GDS remains unchanged because it is the
+shared source for constructing the straight-output variants.
+Control: TWO_COUPLER_END_WINDOWS_ONLY in Section 01 of the builder.
+Current exported-mask audit: gds/2611_two_coupler_windows_validation.json.
+The old layer-cleanup report is superseded by this current report.

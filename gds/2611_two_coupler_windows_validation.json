@@ -1,0 +1,664 @@
+{
+  "status": "PASS",
+  "check_count": 144,
+  "checks": [
+    {
+      "name": "same_top_cell",
+      "passed": true
+    },
+    {
+      "name": "same_complete_cell_inventory",
+      "passed": true
+    },
+    {
+      "name": "six_devices_and_six_labels",
+      "passed": true
+    },
+    {
+      "name": "same_600um_y_pitch",
+      "passed": true
+    },
+    {
+      "name": "FRAME_AND_MARKERS_same_references_and_transforms",
+      "passed": true
+    },
+    {
+      "name": "FRAME_AND_MARKERS_no_L16_L51",
+      "passed": true
+    },
+    {
+      "name": "FRAME_AND_MARKERS_exact_layer_inventory",
+      "passed": true
+    },
+    {
+      "name": "FRAME_AND_MARKERS_L0_raw_polygons_identical",
+      "passed": true
+    },
+    {
+      "name": "FRAME_AND_MARKERS_L10_raw_polygons_identical",
+      "passed": true
+    },
+    {
+      "name": "FRAME_AND_MARKERS_L15_raw_polygons_identical",
+      "passed": true
+    },
+    {
+      "name": "LABEL_D1_L6000_W1680_P10_OUT2000_same_references_and_transforms",
+      "passed": true
+    },
+    {
+      "name": "LABEL_D1_L6000_W1680_P10_OUT2000_no_L16_L51",
+      "passed": true
+    },
+    {
+      "name": "LABEL_D1_L6000_W1680_P10_OUT2000_exact_layer_inventory",
+      "passed": true
+    },
+    {
+      "name": "LABEL_D1_L6000_W1680_P10_OUT2000_L2_raw_polygons_identical",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_same_references_and_transforms",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_no_L16_L51",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_exact_layer_inventory",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_L2_raw_polygons_identical",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_L10_raw_polygons_identical",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_L11_raw_polygons_identical",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_L13_raw_polygons_identical",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_L14_raw_polygons_identical",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_L15_raw_polygons_identical",
+      "passed": true
+    },
+    {
+      "name": "LABEL_D1_L6000_W1640_P10_OUT2000_same_references_and_transforms",
+      "passed": true
+    },
+    {
+      "name": "LABEL_D1_L6000_W1640_P10_OUT2000_no_L16_L51",
+      "passed": true
+    },
+    {
+      "name": "LABEL_D1_L6000_W1640_P10_OUT2000_exact_layer_inventory",
+      "passed": true
+    },
+    {
+      "name": "LABEL_D1_L6000_W1640_P10_OUT2000_L2_raw_polygons_identical",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_same_references_and_transforms",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_no_L16_L51",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_exact_layer_inventory",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_L2_raw_polygons_identical",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_L10_raw_polygons_identical",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_L11_raw_polygons_identical",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_L13_raw_polygons_identical",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_L14_raw_polygons_identical",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_L15_raw_polygons_identical",
+      "passed": true
+    },
+    {
+      "name": "LABEL_D1_L6000_W1620_P10_OUT2000_same_references_and_transforms",
+      "passed": true
+    },
+    {
+      "name": "LABEL_D1_L6000_W1620_P10_OUT2000_no_L16_L51",
+      "passed": true
+    },
+    {
+      "name": "LABEL_D1_L6000_W1620_P10_OUT2000_exact_layer_inventory",
+      "passed": true
+    },
+    {
+      "name": "LABEL_D1_L6000_W1620_P10_OUT2000_L2_raw_polygons_identical",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_same_references_and_transforms",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_no_L16_L51",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_exact_layer_inventory",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_L2_raw_polygons_identical",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_L10_raw_polygons_identical",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_L11_raw_polygons_identical",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_L13_raw_polygons_identical",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_L14_raw_polygons_identical",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_L15_raw_polygons_identical",
+      "passed": true
+    },
+    {
+      "name": "LABEL_D1_L6000_W1680_P10_same_references_and_transforms",
+      "passed": true
+    },
+    {
+      "name": "LABEL_D1_L6000_W1680_P10_no_L16_L51",
+      "passed": true
+    },
+    {
+      "name": "LABEL_D1_L6000_W1680_P10_exact_layer_inventory",
+      "passed": true
+    },
+    {
+      "name": "LABEL_D1_L6000_W1680_P10_L2_raw_polygons_identical",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_same_references_and_transforms",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_no_L16_L51",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_exact_layer_inventory",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_L2_raw_polygons_identical",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_L10_raw_polygons_identical",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_L13_raw_polygons_identical",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_L15_raw_polygons_identical",
+      "passed": true
+    },
+    {
+      "name": "LABEL_D1_L6000_W1640_P10_same_references_and_transforms",
+      "passed": true
+    },
+    {
+      "name": "LABEL_D1_L6000_W1640_P10_no_L16_L51",
+      "passed": true
+    },
+    {
+      "name": "LABEL_D1_L6000_W1640_P10_exact_layer_inventory",
+      "passed": true
+    },
+    {
+      "name": "LABEL_D1_L6000_W1640_P10_L2_raw_polygons_identical",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_same_references_and_transforms",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_no_L16_L51",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_exact_layer_inventory",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_L2_raw_polygons_identical",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_L10_raw_polygons_identical",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_L13_raw_polygons_identical",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_L15_raw_polygons_identical",
+      "passed": true
+    },
+    {
+      "name": "LABEL_D1_L6000_W1620_P10_same_references_and_transforms",
+      "passed": true
+    },
+    {
+      "name": "LABEL_D1_L6000_W1620_P10_no_L16_L51",
+      "passed": true
+    },
+    {
+      "name": "LABEL_D1_L6000_W1620_P10_exact_layer_inventory",
+      "passed": true
+    },
+    {
+      "name": "LABEL_D1_L6000_W1620_P10_L2_raw_polygons_identical",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_same_references_and_transforms",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_no_L16_L51",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_exact_layer_inventory",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_L2_raw_polygons_identical",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_L10_raw_polygons_identical",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_L13_raw_polygons_identical",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_L15_raw_polygons_identical",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_STRAIGHT_OUT_COMPARISON_same_references_and_transforms",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_STRAIGHT_OUT_COMPARISON_no_L16_L51",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_STRAIGHT_OUT_COMPARISON_exact_layer_inventory",
+      "passed": true
+    },
+    {
+      "name": "markers_still_on_L15_not_L2",
+      "passed": true
+    },
+    {
+      "name": "all_labels_preserved_on_L2",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_both_L10_tapers_present",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_actual_L10_entrances",
+      "passed": true,
+      "input_local_x_um": -3045.0,
+      "output_local_x_um": 3045.0
+    },
+    {
+      "name": "D1_L6000_W1620_P10_L14_equals_old_end_windows_exactly",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1620_P10_L14_no_new_area",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_L14_no_geometry_outside_end_windows",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_L14_no_meander_or_PNC_transition",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_L14_no_left_or_right_bend_fragments",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_L11_absent",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_two_complete_terminal_regions",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_input_L14_start_equals_L10_start",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_input_unchanged_5um_L10_entrance",
+      "passed": true,
+      "measured_width_um": 5.0
+    },
+    {
+      "name": "D1_L6000_W1620_P10_input_all_downstream_L14_preserved",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1620_P10_output_L14_start_equals_L10_start",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_output_unchanged_5um_L10_entrance",
+      "passed": true,
+      "measured_width_um": 5.0
+    },
+    {
+      "name": "D1_L6000_W1620_P10_output_all_downstream_L14_preserved",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1620_P10_straight_ridge_width_y-200",
+      "passed": true,
+      "measured_um": 1.6200000000000045
+    },
+    {
+      "name": "D1_L6000_W1620_P10_straight_ridge_width_y0",
+      "passed": true,
+      "measured_um": 1.62
+    },
+    {
+      "name": "D1_L6000_W1620_P10_straight_ridge_width_y200",
+      "passed": true,
+      "measured_um": 1.6200000000000045
+    },
+    {
+      "name": "D1_L6000_W1620_P10_one_optical_body_four_existing_ticks",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_both_L10_tapers_present",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_actual_L10_entrances",
+      "passed": true,
+      "input_local_x_um": -3045.0,
+      "output_local_x_um": 3045.0
+    },
+    {
+      "name": "D1_L6000_W1640_P10_L14_equals_old_end_windows_exactly",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1640_P10_L14_no_new_area",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_L14_no_geometry_outside_end_windows",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_L14_no_meander_or_PNC_transition",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_L14_no_left_or_right_bend_fragments",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_L11_absent",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_two_complete_terminal_regions",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_input_L14_start_equals_L10_start",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_input_unchanged_5um_L10_entrance",
+      "passed": true,
+      "measured_width_um": 5.0
+    },
+    {
+      "name": "D1_L6000_W1640_P10_input_all_downstream_L14_preserved",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1640_P10_output_L14_start_equals_L10_start",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_output_unchanged_5um_L10_entrance",
+      "passed": true,
+      "measured_width_um": 5.0
+    },
+    {
+      "name": "D1_L6000_W1640_P10_output_all_downstream_L14_preserved",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1640_P10_straight_ridge_width_y-200",
+      "passed": true,
+      "measured_um": 1.6399999999999864
+    },
+    {
+      "name": "D1_L6000_W1640_P10_straight_ridge_width_y0",
+      "passed": true,
+      "measured_um": 1.6400000000000001
+    },
+    {
+      "name": "D1_L6000_W1640_P10_straight_ridge_width_y200",
+      "passed": true,
+      "measured_um": 1.6399999999999864
+    },
+    {
+      "name": "D1_L6000_W1640_P10_one_optical_body_four_existing_ticks",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_both_L10_tapers_present",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_actual_L10_entrances",
+      "passed": true,
+      "input_local_x_um": -3045.0,
+      "output_local_x_um": 3045.0
+    },
+    {
+      "name": "D1_L6000_W1680_P10_L14_equals_old_end_windows_exactly",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1680_P10_L14_no_new_area",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_L14_no_geometry_outside_end_windows",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_L14_no_meander_or_PNC_transition",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_L14_no_left_or_right_bend_fragments",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_L11_absent",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_two_complete_terminal_regions",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_input_L14_start_equals_L10_start",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_input_unchanged_5um_L10_entrance",
+      "passed": true,
+      "measured_width_um": 5.0
+    },
+    {
+      "name": "D1_L6000_W1680_P10_input_all_downstream_L14_preserved",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1680_P10_output_L14_start_equals_L10_start",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_output_unchanged_5um_L10_entrance",
+      "passed": true,
+      "measured_width_um": 5.0
+    },
+    {
+      "name": "D1_L6000_W1680_P10_output_all_downstream_L14_preserved",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1680_P10_straight_ridge_width_y-200",
+      "passed": true,
+      "measured_um": 1.6800000000000068
+    },
+    {
+      "name": "D1_L6000_W1680_P10_straight_ridge_width_y0",
+      "passed": true,
+      "measured_um": 1.68
+    },
+    {
+      "name": "D1_L6000_W1680_P10_straight_ridge_width_y200",
+      "passed": true,
+      "measured_um": 1.6800000000000068
+    },
+    {
+      "name": "D1_L6000_W1680_P10_one_optical_body_four_existing_ticks",
+      "passed": true
+    }
+  ],
+  "measurements": [
+    {
+      "case_id": "D1_L6000_W1620_P10",
+      "removed_layer11": true,
+      "input_L14_start_global_x_um": -802.8469999999998,
+      "output_L14_start_global_x_um": 5287.153,
+      "origin_um": [
+        2242.1530000000002,
+        -700.0
+      ],
+      "old_L14_area_um2": 878342.4461370053,
+      "new_L14_area_um2": 404381.1737989999,
+      "removed_L14_area_um2": 473961.2723380054
+    },
+    {
+      "case_id": "D1_L6000_W1640_P10",
+      "removed_layer11": true,
+      "input_L14_start_global_x_um": -802.8469999999998,
+      "output_L14_start_global_x_um": 5287.153,
+      "origin_um": [
+        2242.1530000000002,
+        -100.0
+      ],
+      "old_L14_area_um2": 878342.4461370053,
+      "new_L14_area_um2": 404381.1737989999,
+      "removed_L14_area_um2": 473961.2723380054
+    },
+    {
+      "case_id": "D1_L6000_W1680_P10",
+      "removed_layer11": true,
+      "input_L14_start_global_x_um": -802.8469999999998,
+      "output_L14_start_global_x_um": 5287.153,
+      "origin_um": [
+        2242.1530000000002,
+        500.0
+      ],
+      "old_L14_area_um2": 878342.4461370053,
+      "new_L14_area_um2": 404381.1737989999,
+      "removed_L14_area_um2": 473961.2723380054
+    }
+  ],
+  "scope": "Only three two-coupler devices in the six-device L6000 comparison",
+  "straight_output_variants_unchanged": true,
+  "all_other_layers_and_labels_unchanged": true,
+  "original_source_GDS_unchanged": true,
+  "baseline_sha256": "5a31d110a0c605597668108865ef9ba67372a0ccecc3d353936071828e3e9bdd",
+  "gds_sha256": "a4b919e480ce6526ff563a829fe6f4805feed296be230fa63a7377dd6562dfbd",
+  "method": "Independent raw GDSII records and Shapely; no generator or KLayout",
+  "optical_or_mechanical_simulation_performed": false,
+  "base_commit": "f211d6cac8437495e961864e0d8ee604c7b0ccdc",
+  "protected_unrelated_file_count": 100,
+  "unrelated_files_unchanged": true
+}
