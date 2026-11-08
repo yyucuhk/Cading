@@ -2,13 +2,13 @@
 
 The final six-device output omits Layers 11, 16 and 51 everywhere.
 Both Layer 2 and Layer 14 release masks are retained only outward from
-a configurable offset after Layer-10 entrances: two windows on two-coupler devices and one
+the Layer-10 entrances: two windows on two-coupler devices and one
 input window on straight-output variants. No release mask remains along
 the meander, preceding transition, or the taper-free output extension.
 
 Both release layers use a 1 um taper-window expansion, with independent
-controls. Their retained masks begin 10 um outward from each Layer-10
-entrance, not at a 10 um waveguide width or at a global X coordinate.
+controls. Both masks begin exactly at each Layer-10 entrance (zero setback).
+The optical taper and all downstream mask shapes remain unchanged.
 Long channels and pads keep their original definitions. All other geometry
 comes from the approved saved polygons, not a new reconstruction.
 Labels remain on Layer 2; global alignment marks remain on Layer 15.
@@ -43,7 +43,7 @@ INCLUDE_REFERENCE_DEVICES = True     # two-coupler set first, straight outputs a
 COUPLER_END_WINDOWS_ONLY = True       # applies to BOTH device sets; crops L2 and L14
 LAYER2_WINDOW_MARGIN = 1.0            # per-side taper-window expansion on Layer 2
 LAYER14_WINDOW_MARGIN = 1.0           # independent Layer 14 expansion
-RELEASE_WINDOW_START_OFFSET = 10.0    # um OUTWARD after L10 starts; applies to BOTH masks
+RELEASE_WINDOW_START_OFFSET = 0.0     # start BOTH masks exactly at the Layer 10 entrance
 ROW_PITCH = 600.0
 FIRST_ROW_Y = -700.0
 LEFT_BEND_X = -900.0
@@ -152,7 +152,7 @@ def finalize_output_layers(layout, frame_cell):
 
 
 def finalize_coupler_windows(layout, entries):
-    """Narrow L2/L14 and start both masks after the L10 entrance.
+    """Narrow L2/L14 and align both masks with the L10 entrance by default.
 
     Optical/device cells are flat and privately owned. Labels and frame are
     separate cells and are not edited. The lower-right straight output has
@@ -566,7 +566,7 @@ def combine():
                 layer2_window_margin_um=LAYER2_WINDOW_MARGIN,
                 layer14_window_margin_um=LAYER14_WINDOW_MARGIN,
                 release_window_start_offset_um=RELEASE_WINDOW_START_OFFSET,
-                worker_checks_scope='Pre-export source geometry; final checks remove L11/L16/L51, narrow both masks and apply a 10 um outward start offset', 
+                worker_checks_scope='Pre-export source geometry; final checks remove L11/L16/L51, narrow both masks and align their starts with the L10 entrances', 
                 original_gds_sha256=hashlib.sha256(BASE_GDS.read_bytes()).hexdigest(),
                 gds_sha256=hashlib.sha256(OUTPUT.read_bytes()).hexdigest(),
                 checks=checks,workers=workers,
@@ -614,7 +614,7 @@ def render(ly,top,result):
          'New straight output: 2000 um from the original meander port',layers=(14,11,15))
     ix,iy=e['input_port_local_um']
     view(c,'preserved_input',(ix-310,iy-35,ix+20,iy+35),
-         'Input: unchanged optical taper; both masks 1 um expansion, start offset 10 um',layers=(2,10,11,14,15))
+         'Input: unchanged optical taper; both masks 1 um expansion, starts aligned to L10',layers=(2,10,11,14,15))
     xmin, ymin, _, _ = result['frame_bounds_um']
     view(top, 'alignment_markers_layer15',
          (xmin-120, ymin-120, xmin+120, ymin+120),
