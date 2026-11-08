@@ -174,7 +174,7 @@
     3200
   ],
   "original_gds_sha256": "ecf200c2886cf8a4492528fd09e5736a488df6ac63bc93ea93490d0b11e27889",
-  "gds_sha256": "41f6832365bdb34495077513cf2454688e765d16901220a8f9cfef0827a3fce4",
+  "gds_sha256": "799563ddfaa63f7fdb826f71415ebf238850ccb49adc5725075c37673a00ea84",
   "checks": [
     {
       "name": "rows0_1_no_fabrication_overlap",
@@ -589,7 +589,7 @@
         3000.0,
         -360.0,
         13010.0,
-        -100.0
+        -25.0
       ],
       "checks": [
         {
@@ -927,7 +927,7 @@
         3000.0,
         -360.0,
         13010.0,
-        -100.0
+        -25.0
       ],
       "checks": [
         {
@@ -1265,7 +1265,7 @@
         3000.0,
         -360.0,
         13010.0,
-        -100.0
+        -25.0
       ],
       "checks": [
         {
@@ -1572,5 +1572,6 @@
   "optical_or_mechanical_simulation_performed": false,
   "protected_original_file_count": 98,
   "original_files_unchanged": true,
-  "base_commit": "4dd360c60c826fd2f3e6604378bd2e40592a715f"
+  "base_commit": "4dd360c60c826fd2f3e6604378bd2e40592a715f",
+  "independent_raw_gds_check_count": 120
 }

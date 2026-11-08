@@ -1,0 +1,565 @@
+{
+  "status": "PASS",
+  "check_count": 120,
+  "checks": [
+    {
+      "name": "six_devices_six_labels_one_frame",
+      "passed": true
+    },
+    {
+      "name": "six_complete_device_cells",
+      "passed": true
+    },
+    {
+      "name": "600um_vertical_pitch",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_eight_layers",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_eight_layers",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_reference_L2_unchanged",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_outside_output_L2_unchanged",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1620_P10_reference_L10_unchanged",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_outside_output_L10_unchanged",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1620_P10_reference_L11_unchanged",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_outside_output_L11_unchanged",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1620_P10_reference_L13_unchanged",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_outside_output_L13_unchanged",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1620_P10_reference_L14_unchanged",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_outside_output_L14_unchanged",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1620_P10_reference_L15_unchanged",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_outside_output_L15_unchanged",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1620_P10_reference_L16_unchanged",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_outside_output_L16_unchanged",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1620_P10_reference_L51_unchanged",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_outside_output_L51_unchanged",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_exact_full_2000um_constant_ridge",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_width_2999.99",
+      "passed": true,
+      "measured_um": 1.6200000000000045
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_width_3000.01",
+      "passed": true,
+      "measured_um": 1.6200000000000045
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_width_3050",
+      "passed": true,
+      "measured_um": 1.6200000000000045
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_width_3500",
+      "passed": true,
+      "measured_um": 1.6200000000000045
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_width_4000",
+      "passed": true,
+      "measured_um": 1.6200000000000045
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_width_4500",
+      "passed": true,
+      "measured_um": 1.6200000000000045
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_width_4999.99",
+      "passed": true,
+      "measured_um": 1.6200000000000045
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_one_optical_body_two_input_ticks",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_protection_connected",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_ridge_covered_by_protection",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_ridge_covered_by_release",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_no_output_taper_hardware_L10",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_no_output_taper_hardware_L13",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_no_output_taper_hardware_L51",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_200_PNCs_side1",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_exact10um_PNC_side1",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_200_PNCs_side-1",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_exact10um_PNC_side-1",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_left_bend_minus900",
+      "passed": true,
+      "measured_x_um": -900.0
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_left_bend_minus900",
+      "passed": true,
+      "measured_x_um": -900.0
+    },
+    {
+      "name": "D1_L6000_W1640_P10_eight_layers",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_eight_layers",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_reference_L2_unchanged",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_outside_output_L2_unchanged",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1640_P10_reference_L10_unchanged",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_outside_output_L10_unchanged",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1640_P10_reference_L11_unchanged",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_outside_output_L11_unchanged",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1640_P10_reference_L13_unchanged",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_outside_output_L13_unchanged",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1640_P10_reference_L14_unchanged",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_outside_output_L14_unchanged",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1640_P10_reference_L15_unchanged",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_outside_output_L15_unchanged",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1640_P10_reference_L16_unchanged",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_outside_output_L16_unchanged",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1640_P10_reference_L51_unchanged",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_outside_output_L51_unchanged",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_exact_full_2000um_constant_ridge",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_width_2999.99",
+      "passed": true,
+      "measured_um": 1.6399999999999864
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_width_3000.01",
+      "passed": true,
+      "measured_um": 1.6399999999999864
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_width_3050",
+      "passed": true,
+      "measured_um": 1.6399999999999864
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_width_3500",
+      "passed": true,
+      "measured_um": 1.6399999999999864
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_width_4000",
+      "passed": true,
+      "measured_um": 1.6399999999999864
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_width_4500",
+      "passed": true,
+      "measured_um": 1.6399999999999864
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_width_4999.99",
+      "passed": true,
+      "measured_um": 1.6399999999999864
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_one_optical_body_two_input_ticks",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_protection_connected",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_ridge_covered_by_protection",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_ridge_covered_by_release",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_no_output_taper_hardware_L10",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_no_output_taper_hardware_L13",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_no_output_taper_hardware_L51",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_200_PNCs_side1",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_exact10um_PNC_side1",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_200_PNCs_side-1",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_exact10um_PNC_side-1",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_left_bend_minus900",
+      "passed": true,
+      "measured_x_um": -900.0
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_left_bend_minus900",
+      "passed": true,
+      "measured_x_um": -900.0
+    },
+    {
+      "name": "D1_L6000_W1680_P10_eight_layers",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_eight_layers",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_reference_L2_unchanged",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_outside_output_L2_unchanged",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1680_P10_reference_L10_unchanged",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_outside_output_L10_unchanged",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1680_P10_reference_L11_unchanged",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_outside_output_L11_unchanged",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1680_P10_reference_L13_unchanged",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_outside_output_L13_unchanged",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1680_P10_reference_L14_unchanged",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_outside_output_L14_unchanged",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1680_P10_reference_L15_unchanged",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_outside_output_L15_unchanged",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1680_P10_reference_L16_unchanged",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_outside_output_L16_unchanged",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1680_P10_reference_L51_unchanged",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_outside_output_L51_unchanged",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_exact_full_2000um_constant_ridge",
+      "passed": true,
+      "xor_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_width_2999.99",
+      "passed": true,
+      "measured_um": 1.6800000000000068
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_width_3000.01",
+      "passed": true,
+      "measured_um": 1.6800000000000068
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_width_3050",
+      "passed": true,
+      "measured_um": 1.6800000000000068
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_width_3500",
+      "passed": true,
+      "measured_um": 1.6800000000000068
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_width_4000",
+      "passed": true,
+      "measured_um": 1.6800000000000068
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_width_4500",
+      "passed": true,
+      "measured_um": 1.6800000000000068
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_width_4999.99",
+      "passed": true,
+      "measured_um": 1.6800000000000068
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_one_optical_body_two_input_ticks",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_protection_connected",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_ridge_covered_by_protection",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_ridge_covered_by_release",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_no_output_taper_hardware_L10",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_no_output_taper_hardware_L13",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_no_output_taper_hardware_L51",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_200_PNCs_side1",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_exact10um_PNC_side1",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_200_PNCs_side-1",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_exact10um_PNC_side-1",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_left_bend_minus900",
+      "passed": true,
+      "measured_x_um": -900.0
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_left_bend_minus900",
+      "passed": true,
+      "measured_x_um": -900.0
+    }
+  ],
+  "method": "Independent raw GDS record parser and Shapely polygons; no generator or KLayout imported"
+}

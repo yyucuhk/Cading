@@ -124,9 +124,10 @@ def make_straight_output(reference, model, width, port, length):
         bounds += r.bbox()
     # Exactly at the final meander port, below the middle arm. The right bend
     # occupies y >= 0; the lower output sits at y=-200. Nothing inside the
-    # meander or input assembly is replaced. This is NOT a whole-device splice.
+    # meander or input assembly is replaced. At y=-25 this also includes the
+    # complete output glue pads (whose top is y=-50), not clipped pad caps.
     roi = box((px, bounds.bottom * DBU - 10,
-               max(bounds.right * DBU, px + length) + 10, py / 2))
+               max(bounds.right * DBU, px + length) + 10, py / 8))
     end_x = px + length
     half = model.S_BEND_WIDTH / 2
     margin = model.RIDGE_PROTECTION_MARGIN
