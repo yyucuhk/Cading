@@ -42,7 +42,8 @@
       "local_taper_beam_layer": [
         11,
         0
-      ]
+      ],
+      "layer14_linear_start_distance_um": 58.847
     },
     {
       "mode": "original_two_tapers",
@@ -85,7 +86,8 @@
       "local_taper_beam_layer": [
         11,
         0
-      ]
+      ],
+      "layer14_linear_start_distance_um": 58.847
     },
     {
       "mode": "original_two_tapers",
@@ -128,7 +130,8 @@
       "local_taper_beam_layer": [
         11,
         0
-      ]
+      ],
+      "layer14_linear_start_distance_um": 58.847
     },
     {
       "mode": "straight_output",
@@ -171,7 +174,8 @@
       "local_taper_beam_layer": [
         11,
         0
-      ]
+      ],
+      "layer14_linear_start_distance_um": 58.847
     },
     {
       "mode": "straight_output",
@@ -214,7 +218,8 @@
       "local_taper_beam_layer": [
         11,
         0
-      ]
+      ],
+      "layer14_linear_start_distance_um": 58.847
     },
     {
       "mode": "straight_output",
@@ -257,7 +262,8 @@
       "local_taper_beam_layer": [
         11,
         0
-      ]
+      ],
+      "layer14_linear_start_distance_um": 58.847
     },
     {
       "mode": "single_straight_two_couplers",
@@ -301,7 +307,8 @@
       "local_taper_beam_layer": [
         11,
         0
-      ]
+      ],
+      "layer14_linear_start_distance_um": 58.847
     },
     {
       "mode": "single_straight_two_couplers",
@@ -345,7 +352,8 @@
       "local_taper_beam_layer": [
         11,
         0
-      ]
+      ],
+      "layer14_linear_start_distance_um": 58.847
     },
     {
       "mode": "single_straight_two_couplers",
@@ -389,7 +397,8 @@
       "local_taper_beam_layer": [
         11,
         0
-      ]
+      ],
+      "layer14_linear_start_distance_um": 58.847
     },
     {
       "mode": "single_straight_one_coupler",
@@ -433,7 +442,8 @@
       "local_taper_beam_layer": [
         11,
         0
-      ]
+      ],
+      "layer14_linear_start_distance_um": 58.847
     },
     {
       "mode": "single_straight_one_coupler",
@@ -477,7 +487,8 @@
       "local_taper_beam_layer": [
         11,
         0
-      ]
+      ],
+      "layer14_linear_start_distance_um": 58.847
     },
     {
       "mode": "single_straight_one_coupler",
@@ -521,7 +532,8 @@
       "local_taper_beam_layer": [
         11,
         0
-      ]
+      ],
+      "layer14_linear_start_distance_um": 58.847
     }
   ],
   "device_count": 12,
@@ -2518,6 +2530,608 @@
       }
     ]
   },
+  "linear_layer14_windows": {
+    "enabled": true,
+    "window_count": 18,
+    "circle_count": 36,
+    "preserved_upstream_margin_um": 1.0,
+    "windows": [
+      {
+        "case_id": "D1_L6000_W1620_P10",
+        "end": "input",
+        "start_distance_from_l10_um": 58.847,
+        "start_local_x_um": -3103.847,
+        "start_global_x_um": -861.6939999999997,
+        "start_width_um": 2.644,
+        "start_edges_local_normalized_um": [
+          -1.322,
+          1.322
+        ],
+        "outer_endpoint_distance_um": 2095.0,
+        "outer_edges_local_normalized_um": [
+          -32.921,
+          36.921
+        ],
+        "circle_diameter_um": 300.0,
+        "circle_center_distances_from_l10_um": [
+          530.0,
+          1030.0
+        ],
+        "circle_centers_global_um": [
+          [
+            -1332.8469999999998,
+            -500.0
+          ],
+          [
+            -1832.8469999999998,
+            -500.0
+          ]
+        ],
+        "middle_frame_removed": true
+      },
+      {
+        "case_id": "D1_L6000_W1620_P10",
+        "end": "output",
+        "start_distance_from_l10_um": 58.847,
+        "start_local_x_um": 3103.847,
+        "start_global_x_um": 5346.0,
+        "start_width_um": 2.644,
+        "start_edges_local_normalized_um": [
+          -1.322,
+          1.322
+        ],
+        "outer_endpoint_distance_um": 2095.0,
+        "outer_edges_local_normalized_um": [
+          -32.921,
+          36.921
+        ],
+        "circle_diameter_um": 300.0,
+        "circle_center_distances_from_l10_um": [
+          530.0,
+          1030.0
+        ],
+        "circle_centers_global_um": [
+          [
+            5817.153,
+            -900.0
+          ],
+          [
+            6317.153,
+            -900.0
+          ]
+        ],
+        "middle_frame_removed": true
+      },
+      {
+        "case_id": "D1_L6000_W1640_P10",
+        "end": "input",
+        "start_distance_from_l10_um": 58.847,
+        "start_local_x_um": -3103.847,
+        "start_global_x_um": -861.6939999999997,
+        "start_width_um": 2.644,
+        "start_edges_local_normalized_um": [
+          -1.322,
+          1.322
+        ],
+        "outer_endpoint_distance_um": 2095.0,
+        "outer_edges_local_normalized_um": [
+          -32.921,
+          36.921
+        ],
+        "circle_diameter_um": 300.0,
+        "circle_center_distances_from_l10_um": [
+          530.0,
+          1030.0
+        ],
+        "circle_centers_global_um": [
+          [
+            -1332.8469999999998,
+            100.0
+          ],
+          [
+            -1832.8469999999998,
+            100.0
+          ]
+        ],
+        "middle_frame_removed": true
+      },
+      {
+        "case_id": "D1_L6000_W1640_P10",
+        "end": "output",
+        "start_distance_from_l10_um": 58.847,
+        "start_local_x_um": 3103.847,
+        "start_global_x_um": 5346.0,
+        "start_width_um": 2.644,
+        "start_edges_local_normalized_um": [
+          -1.322,
+          1.322
+        ],
+        "outer_endpoint_distance_um": 2095.0,
+        "outer_edges_local_normalized_um": [
+          -32.921,
+          36.921
+        ],
+        "circle_diameter_um": 300.0,
+        "circle_center_distances_from_l10_um": [
+          530.0,
+          1030.0
+        ],
+        "circle_centers_global_um": [
+          [
+            5817.153,
+            -300.0
+          ],
+          [
+            6317.153,
+            -300.0
+          ]
+        ],
+        "middle_frame_removed": true
+      },
+      {
+        "case_id": "D1_L6000_W1680_P10",
+        "end": "input",
+        "start_distance_from_l10_um": 58.847,
+        "start_local_x_um": -3103.847,
+        "start_global_x_um": -861.6939999999997,
+        "start_width_um": 2.644,
+        "start_edges_local_normalized_um": [
+          -1.322,
+          1.322
+        ],
+        "outer_endpoint_distance_um": 2095.0,
+        "outer_edges_local_normalized_um": [
+          -32.921,
+          36.921
+        ],
+        "circle_diameter_um": 300.0,
+        "circle_center_distances_from_l10_um": [
+          530.0,
+          1030.0
+        ],
+        "circle_centers_global_um": [
+          [
+            -1332.8469999999998,
+            700.0
+          ],
+          [
+            -1832.8469999999998,
+            700.0
+          ]
+        ],
+        "middle_frame_removed": true
+      },
+      {
+        "case_id": "D1_L6000_W1680_P10",
+        "end": "output",
+        "start_distance_from_l10_um": 58.847,
+        "start_local_x_um": 3103.847,
+        "start_global_x_um": 5346.0,
+        "start_width_um": 2.644,
+        "start_edges_local_normalized_um": [
+          -1.322,
+          1.322
+        ],
+        "outer_endpoint_distance_um": 2095.0,
+        "outer_edges_local_normalized_um": [
+          -32.921,
+          36.921
+        ],
+        "circle_diameter_um": 300.0,
+        "circle_center_distances_from_l10_um": [
+          530.0,
+          1030.0
+        ],
+        "circle_centers_global_um": [
+          [
+            5817.153,
+            300.0
+          ],
+          [
+            6317.153,
+            300.0
+          ]
+        ],
+        "middle_frame_removed": true
+      },
+      {
+        "case_id": "D1_L6000_W1620_P10_OUT2000",
+        "end": "input",
+        "start_distance_from_l10_um": 58.847,
+        "start_local_x_um": -3103.847,
+        "start_global_x_um": -861.6939999999997,
+        "start_width_um": 2.644,
+        "start_edges_local_normalized_um": [
+          -1.322,
+          1.322
+        ],
+        "outer_endpoint_distance_um": 2095.0,
+        "outer_edges_local_normalized_um": [
+          -32.921,
+          36.921
+        ],
+        "circle_diameter_um": 300.0,
+        "circle_center_distances_from_l10_um": [
+          530.0,
+          1030.0
+        ],
+        "circle_centers_global_um": [
+          [
+            -1332.8469999999998,
+            1300.0
+          ],
+          [
+            -1832.8469999999998,
+            1300.0
+          ]
+        ],
+        "middle_frame_removed": true
+      },
+      {
+        "case_id": "D1_L6000_W1640_P10_OUT2000",
+        "end": "input",
+        "start_distance_from_l10_um": 58.847,
+        "start_local_x_um": -3103.847,
+        "start_global_x_um": -861.6939999999997,
+        "start_width_um": 2.644,
+        "start_edges_local_normalized_um": [
+          -1.322,
+          1.322
+        ],
+        "outer_endpoint_distance_um": 2095.0,
+        "outer_edges_local_normalized_um": [
+          -32.921,
+          36.921
+        ],
+        "circle_diameter_um": 300.0,
+        "circle_center_distances_from_l10_um": [
+          530.0,
+          1030.0
+        ],
+        "circle_centers_global_um": [
+          [
+            -1332.8469999999998,
+            1900.0
+          ],
+          [
+            -1832.8469999999998,
+            1900.0
+          ]
+        ],
+        "middle_frame_removed": true
+      },
+      {
+        "case_id": "D1_L6000_W1680_P10_OUT2000",
+        "end": "input",
+        "start_distance_from_l10_um": 58.847,
+        "start_local_x_um": -3103.847,
+        "start_global_x_um": -861.6939999999997,
+        "start_width_um": 2.644,
+        "start_edges_local_normalized_um": [
+          -1.322,
+          1.322
+        ],
+        "outer_endpoint_distance_um": 2095.0,
+        "outer_edges_local_normalized_um": [
+          -32.921,
+          36.921
+        ],
+        "circle_diameter_um": 300.0,
+        "circle_center_distances_from_l10_um": [
+          530.0,
+          1030.0
+        ],
+        "circle_centers_global_um": [
+          [
+            -1332.8469999999998,
+            2500.0
+          ],
+          [
+            -1832.8469999999998,
+            2500.0
+          ]
+        ],
+        "middle_frame_removed": true
+      },
+      {
+        "case_id": "D1_SINGLE_L6000_W1620_2T",
+        "end": "input",
+        "start_distance_from_l10_um": 58.847,
+        "start_local_x_um": -3103.847,
+        "start_global_x_um": -861.6939999999997,
+        "start_width_um": 2.644,
+        "start_edges_local_normalized_um": [
+          -1.322,
+          1.322
+        ],
+        "outer_endpoint_distance_um": 2095.0,
+        "outer_edges_local_normalized_um": [
+          -32.921,
+          36.921
+        ],
+        "circle_diameter_um": 300.0,
+        "circle_center_distances_from_l10_um": [
+          530.0,
+          1030.0
+        ],
+        "circle_centers_global_um": [
+          [
+            -1332.8469999999998,
+            2900.0
+          ],
+          [
+            -1832.8469999999998,
+            2900.0
+          ]
+        ],
+        "middle_frame_removed": true
+      },
+      {
+        "case_id": "D1_SINGLE_L6000_W1620_2T",
+        "end": "output",
+        "start_distance_from_l10_um": 58.847,
+        "start_local_x_um": 3103.847,
+        "start_global_x_um": 5346.0,
+        "start_width_um": 2.644,
+        "start_edges_local_normalized_um": [
+          -1.322,
+          1.322
+        ],
+        "outer_endpoint_distance_um": 2095.0,
+        "outer_edges_local_normalized_um": [
+          -32.921,
+          36.921
+        ],
+        "circle_diameter_um": 300.0,
+        "circle_center_distances_from_l10_um": [
+          530.0,
+          1030.0
+        ],
+        "circle_centers_global_um": [
+          [
+            5817.153,
+            2900.0
+          ],
+          [
+            6317.153,
+            2900.0
+          ]
+        ],
+        "middle_frame_removed": true
+      },
+      {
+        "case_id": "D1_SINGLE_L6000_W1640_2T",
+        "end": "input",
+        "start_distance_from_l10_um": 58.847,
+        "start_local_x_um": -3103.847,
+        "start_global_x_um": -861.6939999999997,
+        "start_width_um": 2.644,
+        "start_edges_local_normalized_um": [
+          -1.322,
+          1.322
+        ],
+        "outer_endpoint_distance_um": 2095.0,
+        "outer_edges_local_normalized_um": [
+          -32.921,
+          36.921
+        ],
+        "circle_diameter_um": 300.0,
+        "circle_center_distances_from_l10_um": [
+          530.0,
+          1030.0
+        ],
+        "circle_centers_global_um": [
+          [
+            -1332.8469999999998,
+            3500.0
+          ],
+          [
+            -1832.8469999999998,
+            3500.0
+          ]
+        ],
+        "middle_frame_removed": true
+      },
+      {
+        "case_id": "D1_SINGLE_L6000_W1640_2T",
+        "end": "output",
+        "start_distance_from_l10_um": 58.847,
+        "start_local_x_um": 3103.847,
+        "start_global_x_um": 5346.0,
+        "start_width_um": 2.644,
+        "start_edges_local_normalized_um": [
+          -1.322,
+          1.322
+        ],
+        "outer_endpoint_distance_um": 2095.0,
+        "outer_edges_local_normalized_um": [
+          -32.921,
+          36.921
+        ],
+        "circle_diameter_um": 300.0,
+        "circle_center_distances_from_l10_um": [
+          530.0,
+          1030.0
+        ],
+        "circle_centers_global_um": [
+          [
+            5817.153,
+            3500.0
+          ],
+          [
+            6317.153,
+            3500.0
+          ]
+        ],
+        "middle_frame_removed": true
+      },
+      {
+        "case_id": "D1_SINGLE_L6000_W1680_2T",
+        "end": "input",
+        "start_distance_from_l10_um": 58.847,
+        "start_local_x_um": -3103.847,
+        "start_global_x_um": -861.6939999999997,
+        "start_width_um": 2.644,
+        "start_edges_local_normalized_um": [
+          -1.322,
+          1.322
+        ],
+        "outer_endpoint_distance_um": 2095.0,
+        "outer_edges_local_normalized_um": [
+          -32.921,
+          36.921
+        ],
+        "circle_diameter_um": 300.0,
+        "circle_center_distances_from_l10_um": [
+          530.0,
+          1030.0
+        ],
+        "circle_centers_global_um": [
+          [
+            -1332.8469999999998,
+            4100.0
+          ],
+          [
+            -1832.8469999999998,
+            4100.0
+          ]
+        ],
+        "middle_frame_removed": true
+      },
+      {
+        "case_id": "D1_SINGLE_L6000_W1680_2T",
+        "end": "output",
+        "start_distance_from_l10_um": 58.847,
+        "start_local_x_um": 3103.847,
+        "start_global_x_um": 5346.0,
+        "start_width_um": 2.644,
+        "start_edges_local_normalized_um": [
+          -1.322,
+          1.322
+        ],
+        "outer_endpoint_distance_um": 2095.0,
+        "outer_edges_local_normalized_um": [
+          -32.921,
+          36.921
+        ],
+        "circle_diameter_um": 300.0,
+        "circle_center_distances_from_l10_um": [
+          530.0,
+          1030.0
+        ],
+        "circle_centers_global_um": [
+          [
+            5817.153,
+            4100.0
+          ],
+          [
+            6317.153,
+            4100.0
+          ]
+        ],
+        "middle_frame_removed": true
+      },
+      {
+        "case_id": "D1_SINGLE_L6000_W1620_1T_OUT2000",
+        "end": "input",
+        "start_distance_from_l10_um": 58.847,
+        "start_local_x_um": -3103.847,
+        "start_global_x_um": -861.6939999999997,
+        "start_width_um": 2.644,
+        "start_edges_local_normalized_um": [
+          -1.322,
+          1.322
+        ],
+        "outer_endpoint_distance_um": 2095.0,
+        "outer_edges_local_normalized_um": [
+          -32.921,
+          36.921
+        ],
+        "circle_diameter_um": 300.0,
+        "circle_center_distances_from_l10_um": [
+          530.0,
+          1030.0
+        ],
+        "circle_centers_global_um": [
+          [
+            -1332.8469999999998,
+            4700.0
+          ],
+          [
+            -1832.8469999999998,
+            4700.0
+          ]
+        ],
+        "middle_frame_removed": true
+      },
+      {
+        "case_id": "D1_SINGLE_L6000_W1640_1T_OUT2000",
+        "end": "input",
+        "start_distance_from_l10_um": 58.847,
+        "start_local_x_um": -3103.847,
+        "start_global_x_um": -861.6939999999997,
+        "start_width_um": 2.644,
+        "start_edges_local_normalized_um": [
+          -1.322,
+          1.322
+        ],
+        "outer_endpoint_distance_um": 2095.0,
+        "outer_edges_local_normalized_um": [
+          -32.921,
+          36.921
+        ],
+        "circle_diameter_um": 300.0,
+        "circle_center_distances_from_l10_um": [
+          530.0,
+          1030.0
+        ],
+        "circle_centers_global_um": [
+          [
+            -1332.8469999999998,
+            5300.0
+          ],
+          [
+            -1832.8469999999998,
+            5300.0
+          ]
+        ],
+        "middle_frame_removed": true
+      },
+      {
+        "case_id": "D1_SINGLE_L6000_W1680_1T_OUT2000",
+        "end": "input",
+        "start_distance_from_l10_um": 58.847,
+        "start_local_x_um": -3103.847,
+        "start_global_x_um": -861.6939999999997,
+        "start_width_um": 2.644,
+        "start_edges_local_normalized_um": [
+          -1.322,
+          1.322
+        ],
+        "outer_endpoint_distance_um": 2095.0,
+        "outer_edges_local_normalized_um": [
+          -32.921,
+          36.921
+        ],
+        "circle_diameter_um": 300.0,
+        "circle_center_distances_from_l10_um": [
+          530.0,
+          1030.0
+        ],
+        "circle_centers_global_um": [
+          [
+            -1332.8469999999998,
+            5900.0
+          ],
+          [
+            -1832.8469999999998,
+            5900.0
+          ]
+        ],
+        "middle_frame_removed": true
+      }
+    ]
+  },
   "checks": [
     {
       "name": "rows_0_1_no_overlap",
@@ -4328,6 +4942,6 @@
   ],
   "check_count": 364,
   "original_gds_sha256": "ecf200c2886cf8a4492528fd09e5736a488df6ac63bc93ea93490d0b11e27889",
-  "gds_sha256": "51cc8a71b03bb7b966a18c39e6616f25e95669338e1aeceb04e125300a9d365b",
+  "gds_sha256": "f63d6c40c5bbf872dd7774ef70b7ed315a473ed0fa3e2f0bc1d2b99afa677baf",
   "optical_or_mechanical_simulation_performed": false
 }

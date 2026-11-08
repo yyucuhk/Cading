@@ -84,6 +84,10 @@ def validate(root: Path, baseline: Path | None = None) -> dict:
                 entrance=geom(name,layer).intersection(LineString([(start,cy-20),(start,cy+20)]))
                 check(key+f'_L{layer}_exact_entrance_width',abs(entrance.length-expected_widths[layer])<1e-8,width_um=entrance.length)
                 for dist in (50,60,70,75):
+                    # The requested linear L14 continuation replaces constant
+                    # clearance here; its edges receive an independent full audit.
+                    if layer==14 and meta.get('linear_layer14_windows',{}).get('enabled') and dist>=58.847:
+                        continue
                     x=sx+sign*dist;line=LineString([(x,cy-20),(x,cy+20)])
                     optical=geom(name,10).intersection(line);m=geom(name,layer).intersection(line)
                     lower=optical.bounds[1]-m.bounds[1];upper=m.bounds[3]-optical.bounds[3]

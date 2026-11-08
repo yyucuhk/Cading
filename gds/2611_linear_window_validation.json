@@ -1,0 +1,5207 @@
+{
+  "status": "PASS",
+  "check_count": 1021,
+  "checks": [
+    {
+      "name": "linear_revision_metadata",
+      "passed": true
+    },
+    {
+      "name": "all_cells_and_top_preserved",
+      "passed": true
+    },
+    {
+      "name": "FRAME_AND_MARKERS_references_preserved",
+      "passed": true
+    },
+    {
+      "name": "FRAME_AND_MARKERS_layer_set_preserved",
+      "passed": true
+    },
+    {
+      "name": "FRAME_AND_MARKERS_L10_raw_coordinates_exact",
+      "passed": true
+    },
+    {
+      "name": "FRAME_AND_MARKERS_L15_raw_coordinates_exact",
+      "passed": true
+    },
+    {
+      "name": "FRAME_AND_MARKERS_L0_raw_coordinates_exact",
+      "passed": true
+    },
+    {
+      "name": "FRAME_AND_MARKERS_no_L16_L51",
+      "passed": true
+    },
+    {
+      "name": "LABEL_D1_SINGLE_L6000_W1680_1T_OUT2000_references_preserved",
+      "passed": true
+    },
+    {
+      "name": "LABEL_D1_SINGLE_L6000_W1680_1T_OUT2000_layer_set_preserved",
+      "passed": true
+    },
+    {
+      "name": "LABEL_D1_SINGLE_L6000_W1680_1T_OUT2000_L2_raw_coordinates_exact",
+      "passed": true
+    },
+    {
+      "name": "LABEL_D1_SINGLE_L6000_W1680_1T_OUT2000_no_L16_L51",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_1T_OUT2000_references_preserved",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_1T_OUT2000_layer_set_preserved",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_1T_OUT2000_L2_raw_coordinates_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_1T_OUT2000_L10_raw_coordinates_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_1T_OUT2000_L13_raw_coordinates_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_1T_OUT2000_L15_raw_coordinates_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_1T_OUT2000_L11_raw_coordinates_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_1T_OUT2000_no_L16_L51",
+      "passed": true
+    },
+    {
+      "name": "LABEL_D1_SINGLE_L6000_W1640_1T_OUT2000_references_preserved",
+      "passed": true
+    },
+    {
+      "name": "LABEL_D1_SINGLE_L6000_W1640_1T_OUT2000_layer_set_preserved",
+      "passed": true
+    },
+    {
+      "name": "LABEL_D1_SINGLE_L6000_W1640_1T_OUT2000_L2_raw_coordinates_exact",
+      "passed": true
+    },
+    {
+      "name": "LABEL_D1_SINGLE_L6000_W1640_1T_OUT2000_no_L16_L51",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_1T_OUT2000_references_preserved",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_1T_OUT2000_layer_set_preserved",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_1T_OUT2000_L2_raw_coordinates_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_1T_OUT2000_L10_raw_coordinates_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_1T_OUT2000_L13_raw_coordinates_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_1T_OUT2000_L15_raw_coordinates_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_1T_OUT2000_L11_raw_coordinates_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_1T_OUT2000_no_L16_L51",
+      "passed": true
+    },
+    {
+      "name": "LABEL_D1_SINGLE_L6000_W1620_1T_OUT2000_references_preserved",
+      "passed": true
+    },
+    {
+      "name": "LABEL_D1_SINGLE_L6000_W1620_1T_OUT2000_layer_set_preserved",
+      "passed": true
+    },
+    {
+      "name": "LABEL_D1_SINGLE_L6000_W1620_1T_OUT2000_L2_raw_coordinates_exact",
+      "passed": true
+    },
+    {
+      "name": "LABEL_D1_SINGLE_L6000_W1620_1T_OUT2000_no_L16_L51",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_1T_OUT2000_references_preserved",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_1T_OUT2000_layer_set_preserved",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_1T_OUT2000_L2_raw_coordinates_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_1T_OUT2000_L10_raw_coordinates_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_1T_OUT2000_L13_raw_coordinates_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_1T_OUT2000_L15_raw_coordinates_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_1T_OUT2000_L11_raw_coordinates_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_1T_OUT2000_no_L16_L51",
+      "passed": true
+    },
+    {
+      "name": "LABEL_D1_SINGLE_L6000_W1680_2T_references_preserved",
+      "passed": true
+    },
+    {
+      "name": "LABEL_D1_SINGLE_L6000_W1680_2T_layer_set_preserved",
+      "passed": true
+    },
+    {
+      "name": "LABEL_D1_SINGLE_L6000_W1680_2T_L2_raw_coordinates_exact",
+      "passed": true
+    },
+    {
+      "name": "LABEL_D1_SINGLE_L6000_W1680_2T_no_L16_L51",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_references_preserved",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_layer_set_preserved",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_L2_raw_coordinates_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_L10_raw_coordinates_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_L13_raw_coordinates_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_L15_raw_coordinates_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_L11_raw_coordinates_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_no_L16_L51",
+      "passed": true
+    },
+    {
+      "name": "LABEL_D1_SINGLE_L6000_W1640_2T_references_preserved",
+      "passed": true
+    },
+    {
+      "name": "LABEL_D1_SINGLE_L6000_W1640_2T_layer_set_preserved",
+      "passed": true
+    },
+    {
+      "name": "LABEL_D1_SINGLE_L6000_W1640_2T_L2_raw_coordinates_exact",
+      "passed": true
+    },
+    {
+      "name": "LABEL_D1_SINGLE_L6000_W1640_2T_no_L16_L51",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_references_preserved",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_layer_set_preserved",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_L2_raw_coordinates_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_L10_raw_coordinates_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_L13_raw_coordinates_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_L15_raw_coordinates_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_L11_raw_coordinates_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_no_L16_L51",
+      "passed": true
+    },
+    {
+      "name": "LABEL_D1_SINGLE_L6000_W1620_2T_references_preserved",
+      "passed": true
+    },
+    {
+      "name": "LABEL_D1_SINGLE_L6000_W1620_2T_layer_set_preserved",
+      "passed": true
+    },
+    {
+      "name": "LABEL_D1_SINGLE_L6000_W1620_2T_L2_raw_coordinates_exact",
+      "passed": true
+    },
+    {
+      "name": "LABEL_D1_SINGLE_L6000_W1620_2T_no_L16_L51",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_references_preserved",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_layer_set_preserved",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_L2_raw_coordinates_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_L10_raw_coordinates_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_L13_raw_coordinates_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_L15_raw_coordinates_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_L11_raw_coordinates_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_no_L16_L51",
+      "passed": true
+    },
+    {
+      "name": "LABEL_D1_L6000_W1680_P10_OUT2000_references_preserved",
+      "passed": true
+    },
+    {
+      "name": "LABEL_D1_L6000_W1680_P10_OUT2000_layer_set_preserved",
+      "passed": true
+    },
+    {
+      "name": "LABEL_D1_L6000_W1680_P10_OUT2000_L2_raw_coordinates_exact",
+      "passed": true
+    },
+    {
+      "name": "LABEL_D1_L6000_W1680_P10_OUT2000_no_L16_L51",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_references_preserved",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_layer_set_preserved",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_L2_raw_coordinates_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_L10_raw_coordinates_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_L13_raw_coordinates_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_L15_raw_coordinates_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_L11_raw_coordinates_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_no_L16_L51",
+      "passed": true
+    },
+    {
+      "name": "LABEL_D1_L6000_W1640_P10_OUT2000_references_preserved",
+      "passed": true
+    },
+    {
+      "name": "LABEL_D1_L6000_W1640_P10_OUT2000_layer_set_preserved",
+      "passed": true
+    },
+    {
+      "name": "LABEL_D1_L6000_W1640_P10_OUT2000_L2_raw_coordinates_exact",
+      "passed": true
+    },
+    {
+      "name": "LABEL_D1_L6000_W1640_P10_OUT2000_no_L16_L51",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_references_preserved",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_layer_set_preserved",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_L2_raw_coordinates_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_L10_raw_coordinates_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_L13_raw_coordinates_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_L15_raw_coordinates_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_L11_raw_coordinates_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_no_L16_L51",
+      "passed": true
+    },
+    {
+      "name": "LABEL_D1_L6000_W1620_P10_OUT2000_references_preserved",
+      "passed": true
+    },
+    {
+      "name": "LABEL_D1_L6000_W1620_P10_OUT2000_layer_set_preserved",
+      "passed": true
+    },
+    {
+      "name": "LABEL_D1_L6000_W1620_P10_OUT2000_L2_raw_coordinates_exact",
+      "passed": true
+    },
+    {
+      "name": "LABEL_D1_L6000_W1620_P10_OUT2000_no_L16_L51",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_references_preserved",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_layer_set_preserved",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_L2_raw_coordinates_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_L10_raw_coordinates_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_L13_raw_coordinates_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_L15_raw_coordinates_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_L11_raw_coordinates_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_no_L16_L51",
+      "passed": true
+    },
+    {
+      "name": "LABEL_D1_L6000_W1680_P10_references_preserved",
+      "passed": true
+    },
+    {
+      "name": "LABEL_D1_L6000_W1680_P10_layer_set_preserved",
+      "passed": true
+    },
+    {
+      "name": "LABEL_D1_L6000_W1680_P10_L2_raw_coordinates_exact",
+      "passed": true
+    },
+    {
+      "name": "LABEL_D1_L6000_W1680_P10_no_L16_L51",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_references_preserved",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_layer_set_preserved",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_L2_raw_coordinates_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_L10_raw_coordinates_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_L13_raw_coordinates_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_L15_raw_coordinates_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_L11_raw_coordinates_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_no_L16_L51",
+      "passed": true
+    },
+    {
+      "name": "LABEL_D1_L6000_W1640_P10_references_preserved",
+      "passed": true
+    },
+    {
+      "name": "LABEL_D1_L6000_W1640_P10_layer_set_preserved",
+      "passed": true
+    },
+    {
+      "name": "LABEL_D1_L6000_W1640_P10_L2_raw_coordinates_exact",
+      "passed": true
+    },
+    {
+      "name": "LABEL_D1_L6000_W1640_P10_no_L16_L51",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_references_preserved",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_layer_set_preserved",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_L2_raw_coordinates_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_L10_raw_coordinates_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_L13_raw_coordinates_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_L15_raw_coordinates_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_L11_raw_coordinates_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_no_L16_L51",
+      "passed": true
+    },
+    {
+      "name": "LABEL_D1_L6000_W1620_P10_references_preserved",
+      "passed": true
+    },
+    {
+      "name": "LABEL_D1_L6000_W1620_P10_layer_set_preserved",
+      "passed": true
+    },
+    {
+      "name": "LABEL_D1_L6000_W1620_P10_L2_raw_coordinates_exact",
+      "passed": true
+    },
+    {
+      "name": "LABEL_D1_L6000_W1620_P10_no_L16_L51",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_references_preserved",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_layer_set_preserved",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_L2_raw_coordinates_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_L10_raw_coordinates_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_L13_raw_coordinates_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_L15_raw_coordinates_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_L11_raw_coordinates_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_no_L16_L51",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_STRAIGHT_OUT_COMPARISON_references_preserved",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_STRAIGHT_OUT_COMPARISON_layer_set_preserved",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_STRAIGHT_OUT_COMPARISON_no_L16_L51",
+      "passed": true
+    },
+    {
+      "name": "12_devices_and_12_labels",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_input_single_connected_window",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_input_only_prefix_linear_channel_two_circles",
+      "passed": true,
+      "xor_um2": 0.38387994748581555,
+      "area_bound_um2": 5.3380681884416035,
+      "boundary_distance_um": 0.00041116751268965857,
+      "outside_grid_band_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1620_P10_input_upstream_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_input_no_width_step_at_join",
+      "passed": true,
+      "preserved_width_um": 2.644
+    },
+    {
+      "name": "D1_L6000_W1620_P10_input_outer_endpoint_unchanged",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_input_linear_edges_58.947",
+      "passed": true,
+      "lower_um": -1.3235518641978763,
+      "upper_um": 1.3237484019145895
+    },
+    {
+      "name": "D1_L6000_W1620_P10_input_linear_edges_60",
+      "passed": true,
+      "lower_um": -1.3398929942015176,
+      "upper_um": 1.3421590740752258
+    },
+    {
+      "name": "D1_L6000_W1620_P10_input_linear_edges_65",
+      "passed": true,
+      "lower_um": -1.4174862040953522,
+      "upper_um": 1.4295791698047433
+    },
+    {
+      "name": "D1_L6000_W1620_P10_input_linear_edges_75",
+      "passed": true,
+      "lower_um": -1.572672623883021,
+      "upper_um": 1.6044193612637783
+    },
+    {
+      "name": "D1_L6000_W1620_P10_input_linear_edges_80",
+      "passed": true,
+      "lower_um": -1.6502658337768557,
+      "upper_um": 1.6918394569932955
+    },
+    {
+      "name": "D1_L6000_W1620_P10_input_linear_edges_90",
+      "passed": true,
+      "lower_um": -1.8054522535645245,
+      "upper_um": 1.8666796484523305
+    },
+    {
+      "name": "D1_L6000_W1620_P10_input_linear_edges_95",
+      "passed": true,
+      "lower_um": -1.883045463458359,
+      "upper_um": 1.954099744181848
+    },
+    {
+      "name": "D1_L6000_W1620_P10_input_linear_edges_100",
+      "passed": true,
+      "lower_um": -1.9606386733521934,
+      "upper_um": 2.0415198399113654
+    },
+    {
+      "name": "D1_L6000_W1620_P10_input_linear_edges_150",
+      "passed": true,
+      "lower_um": -2.736570772290538,
+      "upper_um": 2.9157207972065398
+    },
+    {
+      "name": "D1_L6000_W1620_P10_input_linear_edges_175",
+      "passed": true,
+      "lower_um": -3.1245368217597105,
+      "upper_um": 3.352821275854127
+    },
+    {
+      "name": "D1_L6000_W1620_P10_input_linear_edges_200",
+      "passed": true,
+      "lower_um": -3.512502871228883,
+      "upper_um": 3.789921754501714
+    },
+    {
+      "name": "D1_L6000_W1620_P10_input_linear_edges_250",
+      "passed": true,
+      "lower_um": -4.288434970167228,
+      "upper_um": 4.664122711796889
+    },
+    {
+      "name": "D1_L6000_W1620_P10_input_linear_edges_300",
+      "passed": true,
+      "lower_um": -5.064367069105573,
+      "upper_um": 5.538323669092064
+    },
+    {
+      "name": "D1_L6000_W1620_P10_input_linear_edges_750",
+      "passed": true,
+      "lower_um": -12.048008766216011,
+      "upper_um": 13.40591826985151
+    },
+    {
+      "name": "D1_L6000_W1620_P10_input_linear_edges_800",
+      "passed": true,
+      "lower_um": -12.823940704976803,
+      "upper_um": 14.280179579877826
+    },
+    {
+      "name": "D1_L6000_W1620_P10_input_linear_edges_1250",
+      "passed": true,
+      "lower_um": -19.807727272925725,
+      "upper_um": 22.14779560844355
+    },
+    {
+      "name": "D1_L6000_W1620_P10_input_linear_edges_1500",
+      "passed": true,
+      "lower_um": -23.687393760225802,
+      "upper_um": 26.518566138489835
+    },
+    {
+      "name": "D1_L6000_W1620_P10_input_linear_edges_2000",
+      "passed": true,
+      "lower_um": -31.446726734825962,
+      "upper_um": 35.2601071985824
+    },
+    {
+      "name": "D1_L6000_W1620_P10_input_linear_edges_2095",
+      "passed": true,
+      "lower_um": -32.92099999999999,
+      "upper_um": 36.92099999999999
+    },
+    {
+      "name": "D1_L6000_W1620_P10_input_no_intermediate_frame",
+      "passed": true,
+      "extra_area_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1620_P10_input_circle_530_diameter_300",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_input_circle_530_arc_30",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_input_circle_530_arc_60",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_input_circle_530_arc_90",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_input_circle_530_arc_120",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_input_circle_530_arc_150",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_input_circle_530_arc_210",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_input_circle_530_arc_240",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_input_circle_530_arc_270",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_input_circle_530_arc_300",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_input_circle_530_arc_330",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_input_circle_1030_diameter_300",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_input_circle_1030_arc_30",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_input_circle_1030_arc_60",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_input_circle_1030_arc_90",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_input_circle_1030_arc_120",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_input_circle_1030_arc_150",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_input_circle_1030_arc_210",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_input_circle_1030_arc_240",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_input_circle_1030_arc_270",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_input_circle_1030_arc_300",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_input_circle_1030_arc_330",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_input_circle_extents_unchanged",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_output_single_connected_window",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_output_only_prefix_linear_channel_two_circles",
+      "passed": true,
+      "xor_um2": 0.3838799474858155,
+      "area_bound_um2": 5.338068188444151,
+      "boundary_distance_um": 0.00041116751268965857,
+      "outside_grid_band_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1620_P10_output_upstream_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_output_no_width_step_at_join",
+      "passed": true,
+      "preserved_width_um": 2.644
+    },
+    {
+      "name": "D1_L6000_W1620_P10_output_outer_endpoint_unchanged",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_output_linear_edges_58.947",
+      "passed": true,
+      "lower_um": -1.3235518641978763,
+      "upper_um": 1.3237484019145895
+    },
+    {
+      "name": "D1_L6000_W1620_P10_output_linear_edges_60",
+      "passed": true,
+      "lower_um": -1.3398929942015176,
+      "upper_um": 1.3421590740752258
+    },
+    {
+      "name": "D1_L6000_W1620_P10_output_linear_edges_65",
+      "passed": true,
+      "lower_um": -1.4174862040953522,
+      "upper_um": 1.4295791698047433
+    },
+    {
+      "name": "D1_L6000_W1620_P10_output_linear_edges_75",
+      "passed": true,
+      "lower_um": -1.572672623883021,
+      "upper_um": 1.6044193612637783
+    },
+    {
+      "name": "D1_L6000_W1620_P10_output_linear_edges_80",
+      "passed": true,
+      "lower_um": -1.6502658337768557,
+      "upper_um": 1.6918394569932955
+    },
+    {
+      "name": "D1_L6000_W1620_P10_output_linear_edges_90",
+      "passed": true,
+      "lower_um": -1.8054522535645245,
+      "upper_um": 1.8666796484523305
+    },
+    {
+      "name": "D1_L6000_W1620_P10_output_linear_edges_95",
+      "passed": true,
+      "lower_um": -1.883045463458359,
+      "upper_um": 1.954099744181848
+    },
+    {
+      "name": "D1_L6000_W1620_P10_output_linear_edges_100",
+      "passed": true,
+      "lower_um": -1.9606386733521934,
+      "upper_um": 2.0415198399113654
+    },
+    {
+      "name": "D1_L6000_W1620_P10_output_linear_edges_150",
+      "passed": true,
+      "lower_um": -2.736570772290538,
+      "upper_um": 2.9157207972065398
+    },
+    {
+      "name": "D1_L6000_W1620_P10_output_linear_edges_175",
+      "passed": true,
+      "lower_um": -3.1245368217597105,
+      "upper_um": 3.352821275854127
+    },
+    {
+      "name": "D1_L6000_W1620_P10_output_linear_edges_200",
+      "passed": true,
+      "lower_um": -3.512502871228883,
+      "upper_um": 3.789921754501714
+    },
+    {
+      "name": "D1_L6000_W1620_P10_output_linear_edges_250",
+      "passed": true,
+      "lower_um": -4.288434970167228,
+      "upper_um": 4.664122711796889
+    },
+    {
+      "name": "D1_L6000_W1620_P10_output_linear_edges_300",
+      "passed": true,
+      "lower_um": -5.064367069105573,
+      "upper_um": 5.538323669092064
+    },
+    {
+      "name": "D1_L6000_W1620_P10_output_linear_edges_750",
+      "passed": true,
+      "lower_um": -12.048008766216011,
+      "upper_um": 13.40591826985151
+    },
+    {
+      "name": "D1_L6000_W1620_P10_output_linear_edges_800",
+      "passed": true,
+      "lower_um": -12.823940704976803,
+      "upper_um": 14.280179579877826
+    },
+    {
+      "name": "D1_L6000_W1620_P10_output_linear_edges_1250",
+      "passed": true,
+      "lower_um": -19.807727272925725,
+      "upper_um": 22.14779560844355
+    },
+    {
+      "name": "D1_L6000_W1620_P10_output_linear_edges_1500",
+      "passed": true,
+      "lower_um": -23.687393760225802,
+      "upper_um": 26.518566138489835
+    },
+    {
+      "name": "D1_L6000_W1620_P10_output_linear_edges_2000",
+      "passed": true,
+      "lower_um": -31.446726734825962,
+      "upper_um": 35.2601071985824
+    },
+    {
+      "name": "D1_L6000_W1620_P10_output_linear_edges_2095",
+      "passed": true,
+      "lower_um": -32.92099999999999,
+      "upper_um": 36.92099999999999
+    },
+    {
+      "name": "D1_L6000_W1620_P10_output_no_intermediate_frame",
+      "passed": true,
+      "extra_area_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1620_P10_output_circle_530_diameter_300",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_output_circle_530_arc_30",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_output_circle_530_arc_60",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_output_circle_530_arc_90",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_output_circle_530_arc_120",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_output_circle_530_arc_150",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_output_circle_530_arc_210",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_output_circle_530_arc_240",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_output_circle_530_arc_270",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_output_circle_530_arc_300",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_output_circle_530_arc_330",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_output_circle_1030_diameter_300",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_output_circle_1030_arc_30",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_output_circle_1030_arc_60",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_output_circle_1030_arc_90",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_output_circle_1030_arc_120",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_output_circle_1030_arc_150",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_output_circle_1030_arc_210",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_output_circle_1030_arc_240",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_output_circle_1030_arc_270",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_output_circle_1030_arc_300",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_output_circle_1030_arc_330",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_output_circle_extents_unchanged",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_input_single_connected_window",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_input_only_prefix_linear_channel_two_circles",
+      "passed": true,
+      "xor_um2": 0.38387994748581555,
+      "area_bound_um2": 5.3380681884416035,
+      "boundary_distance_um": 0.00041116751268965857,
+      "outside_grid_band_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1640_P10_input_upstream_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_input_no_width_step_at_join",
+      "passed": true,
+      "preserved_width_um": 2.644
+    },
+    {
+      "name": "D1_L6000_W1640_P10_input_outer_endpoint_unchanged",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_input_linear_edges_58.947",
+      "passed": true,
+      "lower_um": -1.3235518641978763,
+      "upper_um": 1.3237484019145895
+    },
+    {
+      "name": "D1_L6000_W1640_P10_input_linear_edges_60",
+      "passed": true,
+      "lower_um": -1.3398929942015176,
+      "upper_um": 1.3421590740752258
+    },
+    {
+      "name": "D1_L6000_W1640_P10_input_linear_edges_65",
+      "passed": true,
+      "lower_um": -1.4174862040953522,
+      "upper_um": 1.4295791698047433
+    },
+    {
+      "name": "D1_L6000_W1640_P10_input_linear_edges_75",
+      "passed": true,
+      "lower_um": -1.572672623883021,
+      "upper_um": 1.6044193612637783
+    },
+    {
+      "name": "D1_L6000_W1640_P10_input_linear_edges_80",
+      "passed": true,
+      "lower_um": -1.6502658337768557,
+      "upper_um": 1.6918394569932955
+    },
+    {
+      "name": "D1_L6000_W1640_P10_input_linear_edges_90",
+      "passed": true,
+      "lower_um": -1.8054522535645245,
+      "upper_um": 1.8666796484523305
+    },
+    {
+      "name": "D1_L6000_W1640_P10_input_linear_edges_95",
+      "passed": true,
+      "lower_um": -1.883045463458359,
+      "upper_um": 1.954099744181848
+    },
+    {
+      "name": "D1_L6000_W1640_P10_input_linear_edges_100",
+      "passed": true,
+      "lower_um": -1.9606386733521934,
+      "upper_um": 2.0415198399113654
+    },
+    {
+      "name": "D1_L6000_W1640_P10_input_linear_edges_150",
+      "passed": true,
+      "lower_um": -2.736570772290538,
+      "upper_um": 2.9157207972065398
+    },
+    {
+      "name": "D1_L6000_W1640_P10_input_linear_edges_175",
+      "passed": true,
+      "lower_um": -3.1245368217597105,
+      "upper_um": 3.352821275854127
+    },
+    {
+      "name": "D1_L6000_W1640_P10_input_linear_edges_200",
+      "passed": true,
+      "lower_um": -3.512502871228883,
+      "upper_um": 3.789921754501714
+    },
+    {
+      "name": "D1_L6000_W1640_P10_input_linear_edges_250",
+      "passed": true,
+      "lower_um": -4.288434970167228,
+      "upper_um": 4.664122711796889
+    },
+    {
+      "name": "D1_L6000_W1640_P10_input_linear_edges_300",
+      "passed": true,
+      "lower_um": -5.064367069105573,
+      "upper_um": 5.538323669092064
+    },
+    {
+      "name": "D1_L6000_W1640_P10_input_linear_edges_750",
+      "passed": true,
+      "lower_um": -12.048008766216011,
+      "upper_um": 13.40591826985151
+    },
+    {
+      "name": "D1_L6000_W1640_P10_input_linear_edges_800",
+      "passed": true,
+      "lower_um": -12.823940704976803,
+      "upper_um": 14.280179579877826
+    },
+    {
+      "name": "D1_L6000_W1640_P10_input_linear_edges_1250",
+      "passed": true,
+      "lower_um": -19.807727272925725,
+      "upper_um": 22.14779560844355
+    },
+    {
+      "name": "D1_L6000_W1640_P10_input_linear_edges_1500",
+      "passed": true,
+      "lower_um": -23.687393760225802,
+      "upper_um": 26.518566138489835
+    },
+    {
+      "name": "D1_L6000_W1640_P10_input_linear_edges_2000",
+      "passed": true,
+      "lower_um": -31.446726734825962,
+      "upper_um": 35.2601071985824
+    },
+    {
+      "name": "D1_L6000_W1640_P10_input_linear_edges_2095",
+      "passed": true,
+      "lower_um": -32.92099999999999,
+      "upper_um": 36.92099999999999
+    },
+    {
+      "name": "D1_L6000_W1640_P10_input_no_intermediate_frame",
+      "passed": true,
+      "extra_area_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1640_P10_input_circle_530_diameter_300",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_input_circle_530_arc_30",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_input_circle_530_arc_60",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_input_circle_530_arc_90",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_input_circle_530_arc_120",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_input_circle_530_arc_150",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_input_circle_530_arc_210",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_input_circle_530_arc_240",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_input_circle_530_arc_270",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_input_circle_530_arc_300",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_input_circle_530_arc_330",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_input_circle_1030_diameter_300",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_input_circle_1030_arc_30",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_input_circle_1030_arc_60",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_input_circle_1030_arc_90",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_input_circle_1030_arc_120",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_input_circle_1030_arc_150",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_input_circle_1030_arc_210",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_input_circle_1030_arc_240",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_input_circle_1030_arc_270",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_input_circle_1030_arc_300",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_input_circle_1030_arc_330",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_input_circle_extents_unchanged",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_output_single_connected_window",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_output_only_prefix_linear_channel_two_circles",
+      "passed": true,
+      "xor_um2": 0.3838799474858155,
+      "area_bound_um2": 5.338068188444151,
+      "boundary_distance_um": 0.00041116751268965857,
+      "outside_grid_band_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1640_P10_output_upstream_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_output_no_width_step_at_join",
+      "passed": true,
+      "preserved_width_um": 2.644
+    },
+    {
+      "name": "D1_L6000_W1640_P10_output_outer_endpoint_unchanged",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_output_linear_edges_58.947",
+      "passed": true,
+      "lower_um": -1.3235518641978763,
+      "upper_um": 1.3237484019145895
+    },
+    {
+      "name": "D1_L6000_W1640_P10_output_linear_edges_60",
+      "passed": true,
+      "lower_um": -1.3398929942015176,
+      "upper_um": 1.3421590740752258
+    },
+    {
+      "name": "D1_L6000_W1640_P10_output_linear_edges_65",
+      "passed": true,
+      "lower_um": -1.4174862040953522,
+      "upper_um": 1.4295791698047433
+    },
+    {
+      "name": "D1_L6000_W1640_P10_output_linear_edges_75",
+      "passed": true,
+      "lower_um": -1.572672623883021,
+      "upper_um": 1.6044193612637783
+    },
+    {
+      "name": "D1_L6000_W1640_P10_output_linear_edges_80",
+      "passed": true,
+      "lower_um": -1.6502658337768557,
+      "upper_um": 1.6918394569932955
+    },
+    {
+      "name": "D1_L6000_W1640_P10_output_linear_edges_90",
+      "passed": true,
+      "lower_um": -1.8054522535645245,
+      "upper_um": 1.8666796484523305
+    },
+    {
+      "name": "D1_L6000_W1640_P10_output_linear_edges_95",
+      "passed": true,
+      "lower_um": -1.883045463458359,
+      "upper_um": 1.954099744181848
+    },
+    {
+      "name": "D1_L6000_W1640_P10_output_linear_edges_100",
+      "passed": true,
+      "lower_um": -1.9606386733521934,
+      "upper_um": 2.0415198399113654
+    },
+    {
+      "name": "D1_L6000_W1640_P10_output_linear_edges_150",
+      "passed": true,
+      "lower_um": -2.736570772290538,
+      "upper_um": 2.9157207972065398
+    },
+    {
+      "name": "D1_L6000_W1640_P10_output_linear_edges_175",
+      "passed": true,
+      "lower_um": -3.1245368217597105,
+      "upper_um": 3.352821275854127
+    },
+    {
+      "name": "D1_L6000_W1640_P10_output_linear_edges_200",
+      "passed": true,
+      "lower_um": -3.512502871228883,
+      "upper_um": 3.789921754501714
+    },
+    {
+      "name": "D1_L6000_W1640_P10_output_linear_edges_250",
+      "passed": true,
+      "lower_um": -4.288434970167228,
+      "upper_um": 4.664122711796889
+    },
+    {
+      "name": "D1_L6000_W1640_P10_output_linear_edges_300",
+      "passed": true,
+      "lower_um": -5.064367069105573,
+      "upper_um": 5.538323669092064
+    },
+    {
+      "name": "D1_L6000_W1640_P10_output_linear_edges_750",
+      "passed": true,
+      "lower_um": -12.048008766216011,
+      "upper_um": 13.40591826985151
+    },
+    {
+      "name": "D1_L6000_W1640_P10_output_linear_edges_800",
+      "passed": true,
+      "lower_um": -12.823940704976803,
+      "upper_um": 14.280179579877826
+    },
+    {
+      "name": "D1_L6000_W1640_P10_output_linear_edges_1250",
+      "passed": true,
+      "lower_um": -19.807727272925725,
+      "upper_um": 22.14779560844355
+    },
+    {
+      "name": "D1_L6000_W1640_P10_output_linear_edges_1500",
+      "passed": true,
+      "lower_um": -23.687393760225802,
+      "upper_um": 26.518566138489835
+    },
+    {
+      "name": "D1_L6000_W1640_P10_output_linear_edges_2000",
+      "passed": true,
+      "lower_um": -31.446726734825962,
+      "upper_um": 35.2601071985824
+    },
+    {
+      "name": "D1_L6000_W1640_P10_output_linear_edges_2095",
+      "passed": true,
+      "lower_um": -32.92099999999999,
+      "upper_um": 36.92099999999999
+    },
+    {
+      "name": "D1_L6000_W1640_P10_output_no_intermediate_frame",
+      "passed": true,
+      "extra_area_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1640_P10_output_circle_530_diameter_300",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_output_circle_530_arc_30",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_output_circle_530_arc_60",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_output_circle_530_arc_90",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_output_circle_530_arc_120",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_output_circle_530_arc_150",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_output_circle_530_arc_210",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_output_circle_530_arc_240",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_output_circle_530_arc_270",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_output_circle_530_arc_300",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_output_circle_530_arc_330",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_output_circle_1030_diameter_300",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_output_circle_1030_arc_30",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_output_circle_1030_arc_60",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_output_circle_1030_arc_90",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_output_circle_1030_arc_120",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_output_circle_1030_arc_150",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_output_circle_1030_arc_210",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_output_circle_1030_arc_240",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_output_circle_1030_arc_270",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_output_circle_1030_arc_300",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_output_circle_1030_arc_330",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_output_circle_extents_unchanged",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_input_single_connected_window",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_input_only_prefix_linear_channel_two_circles",
+      "passed": true,
+      "xor_um2": 0.38387994748581555,
+      "area_bound_um2": 5.3380681884416035,
+      "boundary_distance_um": 0.00041116751268965857,
+      "outside_grid_band_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1680_P10_input_upstream_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_input_no_width_step_at_join",
+      "passed": true,
+      "preserved_width_um": 2.644
+    },
+    {
+      "name": "D1_L6000_W1680_P10_input_outer_endpoint_unchanged",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_input_linear_edges_58.947",
+      "passed": true,
+      "lower_um": -1.3235518641978763,
+      "upper_um": 1.3237484019145895
+    },
+    {
+      "name": "D1_L6000_W1680_P10_input_linear_edges_60",
+      "passed": true,
+      "lower_um": -1.3398929942015176,
+      "upper_um": 1.3421590740752258
+    },
+    {
+      "name": "D1_L6000_W1680_P10_input_linear_edges_65",
+      "passed": true,
+      "lower_um": -1.4174862040953522,
+      "upper_um": 1.4295791698047433
+    },
+    {
+      "name": "D1_L6000_W1680_P10_input_linear_edges_75",
+      "passed": true,
+      "lower_um": -1.572672623883021,
+      "upper_um": 1.6044193612637783
+    },
+    {
+      "name": "D1_L6000_W1680_P10_input_linear_edges_80",
+      "passed": true,
+      "lower_um": -1.6502658337768557,
+      "upper_um": 1.6918394569932955
+    },
+    {
+      "name": "D1_L6000_W1680_P10_input_linear_edges_90",
+      "passed": true,
+      "lower_um": -1.8054522535645245,
+      "upper_um": 1.8666796484523305
+    },
+    {
+      "name": "D1_L6000_W1680_P10_input_linear_edges_95",
+      "passed": true,
+      "lower_um": -1.883045463458359,
+      "upper_um": 1.954099744181848
+    },
+    {
+      "name": "D1_L6000_W1680_P10_input_linear_edges_100",
+      "passed": true,
+      "lower_um": -1.9606386733521934,
+      "upper_um": 2.0415198399113654
+    },
+    {
+      "name": "D1_L6000_W1680_P10_input_linear_edges_150",
+      "passed": true,
+      "lower_um": -2.736570772290538,
+      "upper_um": 2.9157207972065398
+    },
+    {
+      "name": "D1_L6000_W1680_P10_input_linear_edges_175",
+      "passed": true,
+      "lower_um": -3.1245368217597105,
+      "upper_um": 3.352821275854127
+    },
+    {
+      "name": "D1_L6000_W1680_P10_input_linear_edges_200",
+      "passed": true,
+      "lower_um": -3.512502871228883,
+      "upper_um": 3.789921754501714
+    },
+    {
+      "name": "D1_L6000_W1680_P10_input_linear_edges_250",
+      "passed": true,
+      "lower_um": -4.288434970167228,
+      "upper_um": 4.664122711796889
+    },
+    {
+      "name": "D1_L6000_W1680_P10_input_linear_edges_300",
+      "passed": true,
+      "lower_um": -5.064367069105573,
+      "upper_um": 5.538323669092064
+    },
+    {
+      "name": "D1_L6000_W1680_P10_input_linear_edges_750",
+      "passed": true,
+      "lower_um": -12.048008766216011,
+      "upper_um": 13.40591826985151
+    },
+    {
+      "name": "D1_L6000_W1680_P10_input_linear_edges_800",
+      "passed": true,
+      "lower_um": -12.823940704976803,
+      "upper_um": 14.280179579877826
+    },
+    {
+      "name": "D1_L6000_W1680_P10_input_linear_edges_1250",
+      "passed": true,
+      "lower_um": -19.807727272925725,
+      "upper_um": 22.14779560844355
+    },
+    {
+      "name": "D1_L6000_W1680_P10_input_linear_edges_1500",
+      "passed": true,
+      "lower_um": -23.687393760225802,
+      "upper_um": 26.518566138489835
+    },
+    {
+      "name": "D1_L6000_W1680_P10_input_linear_edges_2000",
+      "passed": true,
+      "lower_um": -31.446726734825962,
+      "upper_um": 35.2601071985824
+    },
+    {
+      "name": "D1_L6000_W1680_P10_input_linear_edges_2095",
+      "passed": true,
+      "lower_um": -32.92099999999999,
+      "upper_um": 36.92099999999999
+    },
+    {
+      "name": "D1_L6000_W1680_P10_input_no_intermediate_frame",
+      "passed": true,
+      "extra_area_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1680_P10_input_circle_530_diameter_300",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_input_circle_530_arc_30",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_input_circle_530_arc_60",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_input_circle_530_arc_90",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_input_circle_530_arc_120",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_input_circle_530_arc_150",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_input_circle_530_arc_210",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_input_circle_530_arc_240",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_input_circle_530_arc_270",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_input_circle_530_arc_300",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_input_circle_530_arc_330",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_input_circle_1030_diameter_300",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_input_circle_1030_arc_30",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_input_circle_1030_arc_60",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_input_circle_1030_arc_90",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_input_circle_1030_arc_120",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_input_circle_1030_arc_150",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_input_circle_1030_arc_210",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_input_circle_1030_arc_240",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_input_circle_1030_arc_270",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_input_circle_1030_arc_300",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_input_circle_1030_arc_330",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_input_circle_extents_unchanged",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_output_single_connected_window",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_output_only_prefix_linear_channel_two_circles",
+      "passed": true,
+      "xor_um2": 0.3838799474858155,
+      "area_bound_um2": 5.338068188444151,
+      "boundary_distance_um": 0.00041116751268965857,
+      "outside_grid_band_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1680_P10_output_upstream_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_output_no_width_step_at_join",
+      "passed": true,
+      "preserved_width_um": 2.644
+    },
+    {
+      "name": "D1_L6000_W1680_P10_output_outer_endpoint_unchanged",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_output_linear_edges_58.947",
+      "passed": true,
+      "lower_um": -1.3235518641978763,
+      "upper_um": 1.3237484019145895
+    },
+    {
+      "name": "D1_L6000_W1680_P10_output_linear_edges_60",
+      "passed": true,
+      "lower_um": -1.3398929942015176,
+      "upper_um": 1.3421590740752258
+    },
+    {
+      "name": "D1_L6000_W1680_P10_output_linear_edges_65",
+      "passed": true,
+      "lower_um": -1.4174862040953522,
+      "upper_um": 1.4295791698047433
+    },
+    {
+      "name": "D1_L6000_W1680_P10_output_linear_edges_75",
+      "passed": true,
+      "lower_um": -1.572672623883021,
+      "upper_um": 1.6044193612637783
+    },
+    {
+      "name": "D1_L6000_W1680_P10_output_linear_edges_80",
+      "passed": true,
+      "lower_um": -1.6502658337768557,
+      "upper_um": 1.6918394569932955
+    },
+    {
+      "name": "D1_L6000_W1680_P10_output_linear_edges_90",
+      "passed": true,
+      "lower_um": -1.8054522535645245,
+      "upper_um": 1.8666796484523305
+    },
+    {
+      "name": "D1_L6000_W1680_P10_output_linear_edges_95",
+      "passed": true,
+      "lower_um": -1.883045463458359,
+      "upper_um": 1.954099744181848
+    },
+    {
+      "name": "D1_L6000_W1680_P10_output_linear_edges_100",
+      "passed": true,
+      "lower_um": -1.9606386733521934,
+      "upper_um": 2.0415198399113654
+    },
+    {
+      "name": "D1_L6000_W1680_P10_output_linear_edges_150",
+      "passed": true,
+      "lower_um": -2.736570772290538,
+      "upper_um": 2.9157207972065398
+    },
+    {
+      "name": "D1_L6000_W1680_P10_output_linear_edges_175",
+      "passed": true,
+      "lower_um": -3.1245368217597105,
+      "upper_um": 3.352821275854127
+    },
+    {
+      "name": "D1_L6000_W1680_P10_output_linear_edges_200",
+      "passed": true,
+      "lower_um": -3.512502871228883,
+      "upper_um": 3.789921754501714
+    },
+    {
+      "name": "D1_L6000_W1680_P10_output_linear_edges_250",
+      "passed": true,
+      "lower_um": -4.288434970167228,
+      "upper_um": 4.664122711796889
+    },
+    {
+      "name": "D1_L6000_W1680_P10_output_linear_edges_300",
+      "passed": true,
+      "lower_um": -5.064367069105573,
+      "upper_um": 5.538323669092064
+    },
+    {
+      "name": "D1_L6000_W1680_P10_output_linear_edges_750",
+      "passed": true,
+      "lower_um": -12.048008766216011,
+      "upper_um": 13.40591826985151
+    },
+    {
+      "name": "D1_L6000_W1680_P10_output_linear_edges_800",
+      "passed": true,
+      "lower_um": -12.823940704976803,
+      "upper_um": 14.280179579877826
+    },
+    {
+      "name": "D1_L6000_W1680_P10_output_linear_edges_1250",
+      "passed": true,
+      "lower_um": -19.807727272925725,
+      "upper_um": 22.14779560844355
+    },
+    {
+      "name": "D1_L6000_W1680_P10_output_linear_edges_1500",
+      "passed": true,
+      "lower_um": -23.687393760225802,
+      "upper_um": 26.518566138489835
+    },
+    {
+      "name": "D1_L6000_W1680_P10_output_linear_edges_2000",
+      "passed": true,
+      "lower_um": -31.446726734825962,
+      "upper_um": 35.2601071985824
+    },
+    {
+      "name": "D1_L6000_W1680_P10_output_linear_edges_2095",
+      "passed": true,
+      "lower_um": -32.92099999999999,
+      "upper_um": 36.92099999999999
+    },
+    {
+      "name": "D1_L6000_W1680_P10_output_no_intermediate_frame",
+      "passed": true,
+      "extra_area_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1680_P10_output_circle_530_diameter_300",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_output_circle_530_arc_30",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_output_circle_530_arc_60",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_output_circle_530_arc_90",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_output_circle_530_arc_120",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_output_circle_530_arc_150",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_output_circle_530_arc_210",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_output_circle_530_arc_240",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_output_circle_530_arc_270",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_output_circle_530_arc_300",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_output_circle_530_arc_330",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_output_circle_1030_diameter_300",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_output_circle_1030_arc_30",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_output_circle_1030_arc_60",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_output_circle_1030_arc_90",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_output_circle_1030_arc_120",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_output_circle_1030_arc_150",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_output_circle_1030_arc_210",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_output_circle_1030_arc_240",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_output_circle_1030_arc_270",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_output_circle_1030_arc_300",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_output_circle_1030_arc_330",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_output_circle_extents_unchanged",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_input_single_connected_window",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_input_only_prefix_linear_channel_two_circles",
+      "passed": true,
+      "xor_um2": 0.38387994748581555,
+      "area_bound_um2": 5.3380681884416035,
+      "boundary_distance_um": 0.00041116751268965857,
+      "outside_grid_band_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_input_upstream_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_input_no_width_step_at_join",
+      "passed": true,
+      "preserved_width_um": 2.644
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_input_outer_endpoint_unchanged",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_input_linear_edges_58.947",
+      "passed": true,
+      "lower_um": -1.3235518641978763,
+      "upper_um": 1.3237484019145895
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_input_linear_edges_60",
+      "passed": true,
+      "lower_um": -1.3398929942015176,
+      "upper_um": 1.3421590740752258
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_input_linear_edges_65",
+      "passed": true,
+      "lower_um": -1.4174862040953522,
+      "upper_um": 1.4295791698047433
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_input_linear_edges_75",
+      "passed": true,
+      "lower_um": -1.572672623883021,
+      "upper_um": 1.6044193612637783
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_input_linear_edges_80",
+      "passed": true,
+      "lower_um": -1.6502658337768557,
+      "upper_um": 1.6918394569932955
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_input_linear_edges_90",
+      "passed": true,
+      "lower_um": -1.8054522535645245,
+      "upper_um": 1.8666796484523305
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_input_linear_edges_95",
+      "passed": true,
+      "lower_um": -1.883045463458359,
+      "upper_um": 1.954099744181848
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_input_linear_edges_100",
+      "passed": true,
+      "lower_um": -1.9606386733521934,
+      "upper_um": 2.0415198399113654
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_input_linear_edges_150",
+      "passed": true,
+      "lower_um": -2.736570772290538,
+      "upper_um": 2.9157207972065398
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_input_linear_edges_175",
+      "passed": true,
+      "lower_um": -3.1245368217597105,
+      "upper_um": 3.352821275854127
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_input_linear_edges_200",
+      "passed": true,
+      "lower_um": -3.512502871228883,
+      "upper_um": 3.789921754501714
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_input_linear_edges_250",
+      "passed": true,
+      "lower_um": -4.288434970167228,
+      "upper_um": 4.664122711796889
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_input_linear_edges_300",
+      "passed": true,
+      "lower_um": -5.064367069105573,
+      "upper_um": 5.538323669092064
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_input_linear_edges_750",
+      "passed": true,
+      "lower_um": -12.048008766216011,
+      "upper_um": 13.40591826985151
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_input_linear_edges_800",
+      "passed": true,
+      "lower_um": -12.823940704976803,
+      "upper_um": 14.280179579877826
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_input_linear_edges_1250",
+      "passed": true,
+      "lower_um": -19.807727272925725,
+      "upper_um": 22.14779560844355
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_input_linear_edges_1500",
+      "passed": true,
+      "lower_um": -23.687393760225802,
+      "upper_um": 26.518566138489835
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_input_linear_edges_2000",
+      "passed": true,
+      "lower_um": -31.446726734825962,
+      "upper_um": 35.2601071985824
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_input_linear_edges_2095",
+      "passed": true,
+      "lower_um": -32.92099999999999,
+      "upper_um": 36.92099999999999
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_input_no_intermediate_frame",
+      "passed": true,
+      "extra_area_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_input_circle_530_diameter_300",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_input_circle_530_arc_30",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_input_circle_530_arc_60",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_input_circle_530_arc_90",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_input_circle_530_arc_120",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_input_circle_530_arc_150",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_input_circle_530_arc_210",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_input_circle_530_arc_240",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_input_circle_530_arc_270",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_input_circle_530_arc_300",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_input_circle_530_arc_330",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_input_circle_1030_diameter_300",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_input_circle_1030_arc_30",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_input_circle_1030_arc_60",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_input_circle_1030_arc_90",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_input_circle_1030_arc_120",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_input_circle_1030_arc_150",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_input_circle_1030_arc_210",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_input_circle_1030_arc_240",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_input_circle_1030_arc_270",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_input_circle_1030_arc_300",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_input_circle_1030_arc_330",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_input_circle_extents_unchanged",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_input_single_connected_window",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_input_only_prefix_linear_channel_two_circles",
+      "passed": true,
+      "xor_um2": 0.38387994748581555,
+      "area_bound_um2": 5.3380681884416035,
+      "boundary_distance_um": 0.00041116751268965857,
+      "outside_grid_band_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_input_upstream_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_input_no_width_step_at_join",
+      "passed": true,
+      "preserved_width_um": 2.644
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_input_outer_endpoint_unchanged",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_input_linear_edges_58.947",
+      "passed": true,
+      "lower_um": -1.3235518641978763,
+      "upper_um": 1.3237484019145895
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_input_linear_edges_60",
+      "passed": true,
+      "lower_um": -1.3398929942015176,
+      "upper_um": 1.3421590740752258
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_input_linear_edges_65",
+      "passed": true,
+      "lower_um": -1.4174862040953522,
+      "upper_um": 1.4295791698047433
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_input_linear_edges_75",
+      "passed": true,
+      "lower_um": -1.572672623883021,
+      "upper_um": 1.6044193612637783
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_input_linear_edges_80",
+      "passed": true,
+      "lower_um": -1.6502658337768557,
+      "upper_um": 1.6918394569932955
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_input_linear_edges_90",
+      "passed": true,
+      "lower_um": -1.8054522535645245,
+      "upper_um": 1.8666796484523305
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_input_linear_edges_95",
+      "passed": true,
+      "lower_um": -1.883045463458359,
+      "upper_um": 1.954099744181848
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_input_linear_edges_100",
+      "passed": true,
+      "lower_um": -1.9606386733521934,
+      "upper_um": 2.0415198399113654
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_input_linear_edges_150",
+      "passed": true,
+      "lower_um": -2.736570772290538,
+      "upper_um": 2.9157207972065398
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_input_linear_edges_175",
+      "passed": true,
+      "lower_um": -3.1245368217597105,
+      "upper_um": 3.352821275854127
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_input_linear_edges_200",
+      "passed": true,
+      "lower_um": -3.512502871228883,
+      "upper_um": 3.789921754501714
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_input_linear_edges_250",
+      "passed": true,
+      "lower_um": -4.288434970167228,
+      "upper_um": 4.664122711796889
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_input_linear_edges_300",
+      "passed": true,
+      "lower_um": -5.064367069105573,
+      "upper_um": 5.538323669092064
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_input_linear_edges_750",
+      "passed": true,
+      "lower_um": -12.048008766216011,
+      "upper_um": 13.40591826985151
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_input_linear_edges_800",
+      "passed": true,
+      "lower_um": -12.823940704976803,
+      "upper_um": 14.280179579877826
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_input_linear_edges_1250",
+      "passed": true,
+      "lower_um": -19.807727272925725,
+      "upper_um": 22.14779560844355
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_input_linear_edges_1500",
+      "passed": true,
+      "lower_um": -23.687393760225802,
+      "upper_um": 26.518566138489835
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_input_linear_edges_2000",
+      "passed": true,
+      "lower_um": -31.446726734825962,
+      "upper_um": 35.2601071985824
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_input_linear_edges_2095",
+      "passed": true,
+      "lower_um": -32.92099999999999,
+      "upper_um": 36.92099999999999
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_input_no_intermediate_frame",
+      "passed": true,
+      "extra_area_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_input_circle_530_diameter_300",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_input_circle_530_arc_30",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_input_circle_530_arc_60",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_input_circle_530_arc_90",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_input_circle_530_arc_120",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_input_circle_530_arc_150",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_input_circle_530_arc_210",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_input_circle_530_arc_240",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_input_circle_530_arc_270",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_input_circle_530_arc_300",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_input_circle_530_arc_330",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_input_circle_1030_diameter_300",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_input_circle_1030_arc_30",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_input_circle_1030_arc_60",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_input_circle_1030_arc_90",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_input_circle_1030_arc_120",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_input_circle_1030_arc_150",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_input_circle_1030_arc_210",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_input_circle_1030_arc_240",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_input_circle_1030_arc_270",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_input_circle_1030_arc_300",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_input_circle_1030_arc_330",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_input_circle_extents_unchanged",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_input_single_connected_window",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_input_only_prefix_linear_channel_two_circles",
+      "passed": true,
+      "xor_um2": 0.38387994748581555,
+      "area_bound_um2": 5.3380681884416035,
+      "boundary_distance_um": 0.00041116751268965857,
+      "outside_grid_band_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_input_upstream_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_input_no_width_step_at_join",
+      "passed": true,
+      "preserved_width_um": 2.644
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_input_outer_endpoint_unchanged",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_input_linear_edges_58.947",
+      "passed": true,
+      "lower_um": -1.3235518641978763,
+      "upper_um": 1.3237484019145895
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_input_linear_edges_60",
+      "passed": true,
+      "lower_um": -1.3398929942015176,
+      "upper_um": 1.3421590740752258
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_input_linear_edges_65",
+      "passed": true,
+      "lower_um": -1.4174862040953522,
+      "upper_um": 1.4295791698047433
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_input_linear_edges_75",
+      "passed": true,
+      "lower_um": -1.572672623883021,
+      "upper_um": 1.6044193612637783
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_input_linear_edges_80",
+      "passed": true,
+      "lower_um": -1.6502658337768557,
+      "upper_um": 1.6918394569932955
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_input_linear_edges_90",
+      "passed": true,
+      "lower_um": -1.8054522535645245,
+      "upper_um": 1.8666796484523305
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_input_linear_edges_95",
+      "passed": true,
+      "lower_um": -1.883045463458359,
+      "upper_um": 1.954099744181848
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_input_linear_edges_100",
+      "passed": true,
+      "lower_um": -1.9606386733521934,
+      "upper_um": 2.0415198399113654
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_input_linear_edges_150",
+      "passed": true,
+      "lower_um": -2.736570772290538,
+      "upper_um": 2.9157207972065398
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_input_linear_edges_175",
+      "passed": true,
+      "lower_um": -3.1245368217597105,
+      "upper_um": 3.352821275854127
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_input_linear_edges_200",
+      "passed": true,
+      "lower_um": -3.512502871228883,
+      "upper_um": 3.789921754501714
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_input_linear_edges_250",
+      "passed": true,
+      "lower_um": -4.288434970167228,
+      "upper_um": 4.664122711796889
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_input_linear_edges_300",
+      "passed": true,
+      "lower_um": -5.064367069105573,
+      "upper_um": 5.538323669092064
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_input_linear_edges_750",
+      "passed": true,
+      "lower_um": -12.048008766216011,
+      "upper_um": 13.40591826985151
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_input_linear_edges_800",
+      "passed": true,
+      "lower_um": -12.823940704976803,
+      "upper_um": 14.280179579877826
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_input_linear_edges_1250",
+      "passed": true,
+      "lower_um": -19.807727272925725,
+      "upper_um": 22.14779560844355
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_input_linear_edges_1500",
+      "passed": true,
+      "lower_um": -23.687393760225802,
+      "upper_um": 26.518566138489835
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_input_linear_edges_2000",
+      "passed": true,
+      "lower_um": -31.446726734825962,
+      "upper_um": 35.2601071985824
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_input_linear_edges_2095",
+      "passed": true,
+      "lower_um": -32.92099999999999,
+      "upper_um": 36.92099999999999
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_input_no_intermediate_frame",
+      "passed": true,
+      "extra_area_um2": 0.0
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_input_circle_530_diameter_300",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_input_circle_530_arc_30",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_input_circle_530_arc_60",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_input_circle_530_arc_90",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_input_circle_530_arc_120",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_input_circle_530_arc_150",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_input_circle_530_arc_210",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_input_circle_530_arc_240",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_input_circle_530_arc_270",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_input_circle_530_arc_300",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_input_circle_530_arc_330",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_input_circle_1030_diameter_300",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_input_circle_1030_arc_30",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_input_circle_1030_arc_60",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_input_circle_1030_arc_90",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_input_circle_1030_arc_120",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_input_circle_1030_arc_150",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_input_circle_1030_arc_210",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_input_circle_1030_arc_240",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_input_circle_1030_arc_270",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_input_circle_1030_arc_300",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_input_circle_1030_arc_330",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_input_circle_extents_unchanged",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_input_single_connected_window",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_input_only_prefix_linear_channel_two_circles",
+      "passed": true,
+      "xor_um2": 0.38387994760082184,
+      "area_bound_um2": 5.3380681884416035,
+      "boundary_distance_um": 0.00041116751268766016,
+      "outside_grid_band_um2": 0.0
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_input_upstream_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_input_no_width_step_at_join",
+      "passed": true,
+      "preserved_width_um": 2.644
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_input_outer_endpoint_unchanged",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_input_linear_edges_58.947",
+      "passed": true,
+      "lower_um": -1.3235518641978736,
+      "upper_um": 1.3237484019145869
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_input_linear_edges_60",
+      "passed": true,
+      "lower_um": -1.3398929942015152,
+      "upper_um": 1.3421590740752232
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_input_linear_edges_65",
+      "passed": true,
+      "lower_um": -1.4174862040953498,
+      "upper_um": 1.4295791698047406
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_input_linear_edges_75",
+      "passed": true,
+      "lower_um": -1.572672623883019,
+      "upper_um": 1.6044193612637758
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_input_linear_edges_80",
+      "passed": true,
+      "lower_um": -1.6502658337768537,
+      "upper_um": 1.6918394569932933
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_input_linear_edges_90",
+      "passed": true,
+      "lower_um": -1.8054522535645228,
+      "upper_um": 1.8666796484523283
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_input_linear_edges_95",
+      "passed": true,
+      "lower_um": -1.8830454634583575,
+      "upper_um": 1.954099744181846
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_input_linear_edges_100",
+      "passed": true,
+      "lower_um": -1.960638673352192,
+      "upper_um": 2.041519839911363
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_input_linear_edges_150",
+      "passed": true,
+      "lower_um": -2.7365707722905386,
+      "upper_um": 2.915720797206539
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_input_linear_edges_175",
+      "passed": true,
+      "lower_um": -3.1245368217597114,
+      "upper_um": 3.3528212758541263
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_input_linear_edges_200",
+      "passed": true,
+      "lower_um": -3.5125028712288846,
+      "upper_um": 3.789921754501714
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_input_linear_edges_250",
+      "passed": true,
+      "lower_um": -4.288434970167231,
+      "upper_um": 4.664122711796889
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_input_linear_edges_300",
+      "passed": true,
+      "lower_um": -5.064367069105577,
+      "upper_um": 5.5383236690920645
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_input_linear_edges_750",
+      "passed": true,
+      "lower_um": -12.048008766216006,
+      "upper_um": 13.405918269851513
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_input_linear_edges_800",
+      "passed": true,
+      "lower_um": -12.823940704976803,
+      "upper_um": 14.280179579877833
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_input_linear_edges_1250",
+      "passed": true,
+      "lower_um": -19.80772727292572,
+      "upper_um": 22.147795608443552
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_input_linear_edges_1500",
+      "passed": true,
+      "lower_um": -23.687393760225802,
+      "upper_um": 26.518566138489838
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_input_linear_edges_2000",
+      "passed": true,
+      "lower_um": -31.44672673482597,
+      "upper_um": 35.26010719858241
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_input_linear_edges_2095",
+      "passed": true,
+      "lower_um": -32.921,
+      "upper_um": 36.921
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_input_no_intermediate_frame",
+      "passed": true,
+      "extra_area_um2": 0.0
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_input_circle_530_diameter_300",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_input_circle_530_arc_30",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_input_circle_530_arc_60",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_input_circle_530_arc_90",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_input_circle_530_arc_120",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_input_circle_530_arc_150",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_input_circle_530_arc_210",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_input_circle_530_arc_240",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_input_circle_530_arc_270",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_input_circle_530_arc_300",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_input_circle_530_arc_330",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_input_circle_1030_diameter_300",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_input_circle_1030_arc_30",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_input_circle_1030_arc_60",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_input_circle_1030_arc_90",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_input_circle_1030_arc_120",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_input_circle_1030_arc_150",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_input_circle_1030_arc_210",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_input_circle_1030_arc_240",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_input_circle_1030_arc_270",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_input_circle_1030_arc_300",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_input_circle_1030_arc_330",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_input_circle_extents_unchanged",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_output_single_connected_window",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_output_only_prefix_linear_channel_two_circles",
+      "passed": true,
+      "xor_um2": 0.38387994760082195,
+      "area_bound_um2": 5.338068188444151,
+      "boundary_distance_um": 0.00041116751268766016,
+      "outside_grid_band_um2": 0.0
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_output_upstream_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_output_no_width_step_at_join",
+      "passed": true,
+      "preserved_width_um": 2.644
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_output_outer_endpoint_unchanged",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_output_linear_edges_58.947",
+      "passed": true,
+      "lower_um": -1.3235518641978736,
+      "upper_um": 1.3237484019145869
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_output_linear_edges_60",
+      "passed": true,
+      "lower_um": -1.3398929942015152,
+      "upper_um": 1.3421590740752232
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_output_linear_edges_65",
+      "passed": true,
+      "lower_um": -1.4174862040953498,
+      "upper_um": 1.4295791698047406
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_output_linear_edges_75",
+      "passed": true,
+      "lower_um": -1.572672623883019,
+      "upper_um": 1.6044193612637758
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_output_linear_edges_80",
+      "passed": true,
+      "lower_um": -1.6502658337768537,
+      "upper_um": 1.6918394569932933
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_output_linear_edges_90",
+      "passed": true,
+      "lower_um": -1.8054522535645228,
+      "upper_um": 1.8666796484523283
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_output_linear_edges_95",
+      "passed": true,
+      "lower_um": -1.8830454634583575,
+      "upper_um": 1.954099744181846
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_output_linear_edges_100",
+      "passed": true,
+      "lower_um": -1.960638673352192,
+      "upper_um": 2.041519839911363
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_output_linear_edges_150",
+      "passed": true,
+      "lower_um": -2.7365707722905386,
+      "upper_um": 2.915720797206539
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_output_linear_edges_175",
+      "passed": true,
+      "lower_um": -3.1245368217597114,
+      "upper_um": 3.3528212758541263
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_output_linear_edges_200",
+      "passed": true,
+      "lower_um": -3.5125028712288846,
+      "upper_um": 3.789921754501714
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_output_linear_edges_250",
+      "passed": true,
+      "lower_um": -4.288434970167231,
+      "upper_um": 4.664122711796889
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_output_linear_edges_300",
+      "passed": true,
+      "lower_um": -5.064367069105577,
+      "upper_um": 5.5383236690920645
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_output_linear_edges_750",
+      "passed": true,
+      "lower_um": -12.048008766216006,
+      "upper_um": 13.405918269851513
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_output_linear_edges_800",
+      "passed": true,
+      "lower_um": -12.823940704976803,
+      "upper_um": 14.280179579877833
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_output_linear_edges_1250",
+      "passed": true,
+      "lower_um": -19.80772727292572,
+      "upper_um": 22.147795608443552
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_output_linear_edges_1500",
+      "passed": true,
+      "lower_um": -23.687393760225802,
+      "upper_um": 26.518566138489838
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_output_linear_edges_2000",
+      "passed": true,
+      "lower_um": -31.44672673482597,
+      "upper_um": 35.26010719858241
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_output_linear_edges_2095",
+      "passed": true,
+      "lower_um": -32.921,
+      "upper_um": 36.921
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_output_no_intermediate_frame",
+      "passed": true,
+      "extra_area_um2": 0.0
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_output_circle_530_diameter_300",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_output_circle_530_arc_30",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_output_circle_530_arc_60",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_output_circle_530_arc_90",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_output_circle_530_arc_120",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_output_circle_530_arc_150",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_output_circle_530_arc_210",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_output_circle_530_arc_240",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_output_circle_530_arc_270",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_output_circle_530_arc_300",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_output_circle_530_arc_330",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_output_circle_1030_diameter_300",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_output_circle_1030_arc_30",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_output_circle_1030_arc_60",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_output_circle_1030_arc_90",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_output_circle_1030_arc_120",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_output_circle_1030_arc_150",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_output_circle_1030_arc_210",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_output_circle_1030_arc_240",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_output_circle_1030_arc_270",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_output_circle_1030_arc_300",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_output_circle_1030_arc_330",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_2T_output_circle_extents_unchanged",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_input_single_connected_window",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_input_only_prefix_linear_channel_two_circles",
+      "passed": true,
+      "xor_um2": 0.38387994760082184,
+      "area_bound_um2": 5.3380681884416035,
+      "boundary_distance_um": 0.00041116751268766016,
+      "outside_grid_band_um2": 0.0
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_input_upstream_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_input_no_width_step_at_join",
+      "passed": true,
+      "preserved_width_um": 2.644
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_input_outer_endpoint_unchanged",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_input_linear_edges_58.947",
+      "passed": true,
+      "lower_um": -1.3235518641978736,
+      "upper_um": 1.3237484019145869
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_input_linear_edges_60",
+      "passed": true,
+      "lower_um": -1.3398929942015152,
+      "upper_um": 1.3421590740752232
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_input_linear_edges_65",
+      "passed": true,
+      "lower_um": -1.4174862040953498,
+      "upper_um": 1.4295791698047406
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_input_linear_edges_75",
+      "passed": true,
+      "lower_um": -1.572672623883019,
+      "upper_um": 1.6044193612637758
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_input_linear_edges_80",
+      "passed": true,
+      "lower_um": -1.6502658337768537,
+      "upper_um": 1.6918394569932933
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_input_linear_edges_90",
+      "passed": true,
+      "lower_um": -1.8054522535645228,
+      "upper_um": 1.8666796484523283
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_input_linear_edges_95",
+      "passed": true,
+      "lower_um": -1.8830454634583575,
+      "upper_um": 1.954099744181846
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_input_linear_edges_100",
+      "passed": true,
+      "lower_um": -1.960638673352192,
+      "upper_um": 2.041519839911363
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_input_linear_edges_150",
+      "passed": true,
+      "lower_um": -2.7365707722905386,
+      "upper_um": 2.915720797206539
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_input_linear_edges_175",
+      "passed": true,
+      "lower_um": -3.1245368217597114,
+      "upper_um": 3.3528212758541263
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_input_linear_edges_200",
+      "passed": true,
+      "lower_um": -3.5125028712288846,
+      "upper_um": 3.789921754501714
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_input_linear_edges_250",
+      "passed": true,
+      "lower_um": -4.288434970167231,
+      "upper_um": 4.664122711796889
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_input_linear_edges_300",
+      "passed": true,
+      "lower_um": -5.064367069105577,
+      "upper_um": 5.5383236690920645
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_input_linear_edges_750",
+      "passed": true,
+      "lower_um": -12.048008766216006,
+      "upper_um": 13.405918269851513
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_input_linear_edges_800",
+      "passed": true,
+      "lower_um": -12.823940704976803,
+      "upper_um": 14.280179579877833
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_input_linear_edges_1250",
+      "passed": true,
+      "lower_um": -19.80772727292572,
+      "upper_um": 22.147795608443552
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_input_linear_edges_1500",
+      "passed": true,
+      "lower_um": -23.687393760225802,
+      "upper_um": 26.518566138489838
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_input_linear_edges_2000",
+      "passed": true,
+      "lower_um": -31.44672673482597,
+      "upper_um": 35.26010719858241
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_input_linear_edges_2095",
+      "passed": true,
+      "lower_um": -32.921,
+      "upper_um": 36.921
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_input_no_intermediate_frame",
+      "passed": true,
+      "extra_area_um2": 0.0
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_input_circle_530_diameter_300",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_input_circle_530_arc_30",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_input_circle_530_arc_60",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_input_circle_530_arc_90",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_input_circle_530_arc_120",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_input_circle_530_arc_150",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_input_circle_530_arc_210",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_input_circle_530_arc_240",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_input_circle_530_arc_270",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_input_circle_530_arc_300",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_input_circle_530_arc_330",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_input_circle_1030_diameter_300",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_input_circle_1030_arc_30",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_input_circle_1030_arc_60",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_input_circle_1030_arc_90",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_input_circle_1030_arc_120",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_input_circle_1030_arc_150",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_input_circle_1030_arc_210",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_input_circle_1030_arc_240",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_input_circle_1030_arc_270",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_input_circle_1030_arc_300",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_input_circle_1030_arc_330",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_input_circle_extents_unchanged",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_output_single_connected_window",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_output_only_prefix_linear_channel_two_circles",
+      "passed": true,
+      "xor_um2": 0.38387994760082195,
+      "area_bound_um2": 5.338068188444151,
+      "boundary_distance_um": 0.00041116751268766016,
+      "outside_grid_band_um2": 0.0
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_output_upstream_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_output_no_width_step_at_join",
+      "passed": true,
+      "preserved_width_um": 2.644
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_output_outer_endpoint_unchanged",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_output_linear_edges_58.947",
+      "passed": true,
+      "lower_um": -1.3235518641978736,
+      "upper_um": 1.3237484019145869
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_output_linear_edges_60",
+      "passed": true,
+      "lower_um": -1.3398929942015152,
+      "upper_um": 1.3421590740752232
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_output_linear_edges_65",
+      "passed": true,
+      "lower_um": -1.4174862040953498,
+      "upper_um": 1.4295791698047406
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_output_linear_edges_75",
+      "passed": true,
+      "lower_um": -1.572672623883019,
+      "upper_um": 1.6044193612637758
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_output_linear_edges_80",
+      "passed": true,
+      "lower_um": -1.6502658337768537,
+      "upper_um": 1.6918394569932933
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_output_linear_edges_90",
+      "passed": true,
+      "lower_um": -1.8054522535645228,
+      "upper_um": 1.8666796484523283
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_output_linear_edges_95",
+      "passed": true,
+      "lower_um": -1.8830454634583575,
+      "upper_um": 1.954099744181846
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_output_linear_edges_100",
+      "passed": true,
+      "lower_um": -1.960638673352192,
+      "upper_um": 2.041519839911363
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_output_linear_edges_150",
+      "passed": true,
+      "lower_um": -2.7365707722905386,
+      "upper_um": 2.915720797206539
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_output_linear_edges_175",
+      "passed": true,
+      "lower_um": -3.1245368217597114,
+      "upper_um": 3.3528212758541263
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_output_linear_edges_200",
+      "passed": true,
+      "lower_um": -3.5125028712288846,
+      "upper_um": 3.789921754501714
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_output_linear_edges_250",
+      "passed": true,
+      "lower_um": -4.288434970167231,
+      "upper_um": 4.664122711796889
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_output_linear_edges_300",
+      "passed": true,
+      "lower_um": -5.064367069105577,
+      "upper_um": 5.5383236690920645
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_output_linear_edges_750",
+      "passed": true,
+      "lower_um": -12.048008766216006,
+      "upper_um": 13.405918269851513
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_output_linear_edges_800",
+      "passed": true,
+      "lower_um": -12.823940704976803,
+      "upper_um": 14.280179579877833
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_output_linear_edges_1250",
+      "passed": true,
+      "lower_um": -19.80772727292572,
+      "upper_um": 22.147795608443552
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_output_linear_edges_1500",
+      "passed": true,
+      "lower_um": -23.687393760225802,
+      "upper_um": 26.518566138489838
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_output_linear_edges_2000",
+      "passed": true,
+      "lower_um": -31.44672673482597,
+      "upper_um": 35.26010719858241
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_output_linear_edges_2095",
+      "passed": true,
+      "lower_um": -32.921,
+      "upper_um": 36.921
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_output_no_intermediate_frame",
+      "passed": true,
+      "extra_area_um2": 0.0
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_output_circle_530_diameter_300",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_output_circle_530_arc_30",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_output_circle_530_arc_60",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_output_circle_530_arc_90",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_output_circle_530_arc_120",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_output_circle_530_arc_150",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_output_circle_530_arc_210",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_output_circle_530_arc_240",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_output_circle_530_arc_270",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_output_circle_530_arc_300",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_output_circle_530_arc_330",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_output_circle_1030_diameter_300",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_output_circle_1030_arc_30",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_output_circle_1030_arc_60",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_output_circle_1030_arc_90",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_output_circle_1030_arc_120",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_output_circle_1030_arc_150",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_output_circle_1030_arc_210",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_output_circle_1030_arc_240",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_output_circle_1030_arc_270",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_output_circle_1030_arc_300",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_output_circle_1030_arc_330",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_2T_output_circle_extents_unchanged",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_input_single_connected_window",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_input_only_prefix_linear_channel_two_circles",
+      "passed": true,
+      "xor_um2": 0.38387994760082184,
+      "area_bound_um2": 5.3380681884416035,
+      "boundary_distance_um": 0.00041116751268766016,
+      "outside_grid_band_um2": 0.0
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_input_upstream_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_input_no_width_step_at_join",
+      "passed": true,
+      "preserved_width_um": 2.644
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_input_outer_endpoint_unchanged",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_input_linear_edges_58.947",
+      "passed": true,
+      "lower_um": -1.3235518641978736,
+      "upper_um": 1.3237484019145869
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_input_linear_edges_60",
+      "passed": true,
+      "lower_um": -1.3398929942015152,
+      "upper_um": 1.3421590740752232
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_input_linear_edges_65",
+      "passed": true,
+      "lower_um": -1.4174862040953498,
+      "upper_um": 1.4295791698047406
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_input_linear_edges_75",
+      "passed": true,
+      "lower_um": -1.572672623883019,
+      "upper_um": 1.6044193612637758
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_input_linear_edges_80",
+      "passed": true,
+      "lower_um": -1.6502658337768537,
+      "upper_um": 1.6918394569932933
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_input_linear_edges_90",
+      "passed": true,
+      "lower_um": -1.8054522535645228,
+      "upper_um": 1.8666796484523283
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_input_linear_edges_95",
+      "passed": true,
+      "lower_um": -1.8830454634583575,
+      "upper_um": 1.954099744181846
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_input_linear_edges_100",
+      "passed": true,
+      "lower_um": -1.960638673352192,
+      "upper_um": 2.041519839911363
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_input_linear_edges_150",
+      "passed": true,
+      "lower_um": -2.7365707722905386,
+      "upper_um": 2.915720797206539
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_input_linear_edges_175",
+      "passed": true,
+      "lower_um": -3.1245368217597114,
+      "upper_um": 3.3528212758541263
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_input_linear_edges_200",
+      "passed": true,
+      "lower_um": -3.5125028712288846,
+      "upper_um": 3.789921754501714
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_input_linear_edges_250",
+      "passed": true,
+      "lower_um": -4.288434970167231,
+      "upper_um": 4.664122711796889
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_input_linear_edges_300",
+      "passed": true,
+      "lower_um": -5.064367069105577,
+      "upper_um": 5.5383236690920645
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_input_linear_edges_750",
+      "passed": true,
+      "lower_um": -12.048008766216006,
+      "upper_um": 13.405918269851513
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_input_linear_edges_800",
+      "passed": true,
+      "lower_um": -12.823940704976803,
+      "upper_um": 14.280179579877833
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_input_linear_edges_1250",
+      "passed": true,
+      "lower_um": -19.80772727292572,
+      "upper_um": 22.147795608443552
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_input_linear_edges_1500",
+      "passed": true,
+      "lower_um": -23.687393760225802,
+      "upper_um": 26.518566138489838
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_input_linear_edges_2000",
+      "passed": true,
+      "lower_um": -31.44672673482597,
+      "upper_um": 35.26010719858241
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_input_linear_edges_2095",
+      "passed": true,
+      "lower_um": -32.921,
+      "upper_um": 36.921
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_input_no_intermediate_frame",
+      "passed": true,
+      "extra_area_um2": 0.0
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_input_circle_530_diameter_300",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_input_circle_530_arc_30",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_input_circle_530_arc_60",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_input_circle_530_arc_90",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_input_circle_530_arc_120",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_input_circle_530_arc_150",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_input_circle_530_arc_210",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_input_circle_530_arc_240",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_input_circle_530_arc_270",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_input_circle_530_arc_300",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_input_circle_530_arc_330",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_input_circle_1030_diameter_300",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_input_circle_1030_arc_30",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_input_circle_1030_arc_60",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_input_circle_1030_arc_90",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_input_circle_1030_arc_120",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_input_circle_1030_arc_150",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_input_circle_1030_arc_210",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_input_circle_1030_arc_240",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_input_circle_1030_arc_270",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_input_circle_1030_arc_300",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_input_circle_1030_arc_330",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_input_circle_extents_unchanged",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_output_single_connected_window",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_output_only_prefix_linear_channel_two_circles",
+      "passed": true,
+      "xor_um2": 0.38387994760082195,
+      "area_bound_um2": 5.338068188444151,
+      "boundary_distance_um": 0.00041116751268766016,
+      "outside_grid_band_um2": 0.0
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_output_upstream_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_output_no_width_step_at_join",
+      "passed": true,
+      "preserved_width_um": 2.644
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_output_outer_endpoint_unchanged",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_output_linear_edges_58.947",
+      "passed": true,
+      "lower_um": -1.3235518641978736,
+      "upper_um": 1.3237484019145869
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_output_linear_edges_60",
+      "passed": true,
+      "lower_um": -1.3398929942015152,
+      "upper_um": 1.3421590740752232
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_output_linear_edges_65",
+      "passed": true,
+      "lower_um": -1.4174862040953498,
+      "upper_um": 1.4295791698047406
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_output_linear_edges_75",
+      "passed": true,
+      "lower_um": -1.572672623883019,
+      "upper_um": 1.6044193612637758
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_output_linear_edges_80",
+      "passed": true,
+      "lower_um": -1.6502658337768537,
+      "upper_um": 1.6918394569932933
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_output_linear_edges_90",
+      "passed": true,
+      "lower_um": -1.8054522535645228,
+      "upper_um": 1.8666796484523283
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_output_linear_edges_95",
+      "passed": true,
+      "lower_um": -1.8830454634583575,
+      "upper_um": 1.954099744181846
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_output_linear_edges_100",
+      "passed": true,
+      "lower_um": -1.960638673352192,
+      "upper_um": 2.041519839911363
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_output_linear_edges_150",
+      "passed": true,
+      "lower_um": -2.7365707722905386,
+      "upper_um": 2.915720797206539
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_output_linear_edges_175",
+      "passed": true,
+      "lower_um": -3.1245368217597114,
+      "upper_um": 3.3528212758541263
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_output_linear_edges_200",
+      "passed": true,
+      "lower_um": -3.5125028712288846,
+      "upper_um": 3.789921754501714
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_output_linear_edges_250",
+      "passed": true,
+      "lower_um": -4.288434970167231,
+      "upper_um": 4.664122711796889
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_output_linear_edges_300",
+      "passed": true,
+      "lower_um": -5.064367069105577,
+      "upper_um": 5.5383236690920645
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_output_linear_edges_750",
+      "passed": true,
+      "lower_um": -12.048008766216006,
+      "upper_um": 13.405918269851513
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_output_linear_edges_800",
+      "passed": true,
+      "lower_um": -12.823940704976803,
+      "upper_um": 14.280179579877833
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_output_linear_edges_1250",
+      "passed": true,
+      "lower_um": -19.80772727292572,
+      "upper_um": 22.147795608443552
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_output_linear_edges_1500",
+      "passed": true,
+      "lower_um": -23.687393760225802,
+      "upper_um": 26.518566138489838
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_output_linear_edges_2000",
+      "passed": true,
+      "lower_um": -31.44672673482597,
+      "upper_um": 35.26010719858241
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_output_linear_edges_2095",
+      "passed": true,
+      "lower_um": -32.921,
+      "upper_um": 36.921
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_output_no_intermediate_frame",
+      "passed": true,
+      "extra_area_um2": 0.0
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_output_circle_530_diameter_300",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_output_circle_530_arc_30",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_output_circle_530_arc_60",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_output_circle_530_arc_90",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_output_circle_530_arc_120",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_output_circle_530_arc_150",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_output_circle_530_arc_210",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_output_circle_530_arc_240",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_output_circle_530_arc_270",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_output_circle_530_arc_300",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_output_circle_530_arc_330",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_output_circle_1030_diameter_300",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_output_circle_1030_arc_30",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_output_circle_1030_arc_60",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_output_circle_1030_arc_90",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_output_circle_1030_arc_120",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_output_circle_1030_arc_150",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_output_circle_1030_arc_210",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_output_circle_1030_arc_240",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_output_circle_1030_arc_270",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_output_circle_1030_arc_300",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_output_circle_1030_arc_330",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_2T_output_circle_extents_unchanged",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_1T_OUT2000_input_single_connected_window",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_1T_OUT2000_input_only_prefix_linear_channel_two_circles",
+      "passed": true,
+      "xor_um2": 0.3838799476008219,
+      "area_bound_um2": 5.3380681884416035,
+      "boundary_distance_um": 0.00041116751268766016,
+      "outside_grid_band_um2": 0.0
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_1T_OUT2000_input_upstream_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_1T_OUT2000_input_no_width_step_at_join",
+      "passed": true,
+      "preserved_width_um": 2.644
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_1T_OUT2000_input_outer_endpoint_unchanged",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_1T_OUT2000_input_linear_edges_58.947",
+      "passed": true,
+      "lower_um": -1.3235518641978736,
+      "upper_um": 1.3237484019145869
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_1T_OUT2000_input_linear_edges_60",
+      "passed": true,
+      "lower_um": -1.3398929942015152,
+      "upper_um": 1.3421590740752232
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_1T_OUT2000_input_linear_edges_65",
+      "passed": true,
+      "lower_um": -1.4174862040953498,
+      "upper_um": 1.4295791698047406
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_1T_OUT2000_input_linear_edges_75",
+      "passed": true,
+      "lower_um": -1.572672623883019,
+      "upper_um": 1.6044193612637758
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_1T_OUT2000_input_linear_edges_80",
+      "passed": true,
+      "lower_um": -1.6502658337768537,
+      "upper_um": 1.6918394569932933
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_1T_OUT2000_input_linear_edges_90",
+      "passed": true,
+      "lower_um": -1.8054522535645228,
+      "upper_um": 1.8666796484523283
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_1T_OUT2000_input_linear_edges_95",
+      "passed": true,
+      "lower_um": -1.8830454634583575,
+      "upper_um": 1.954099744181846
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_1T_OUT2000_input_linear_edges_100",
+      "passed": true,
+      "lower_um": -1.960638673352192,
+      "upper_um": 2.041519839911363
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_1T_OUT2000_input_linear_edges_150",
+      "passed": true,
+      "lower_um": -2.7365707722905386,
+      "upper_um": 2.915720797206539
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_1T_OUT2000_input_linear_edges_175",
+      "passed": true,
+      "lower_um": -3.1245368217597114,
+      "upper_um": 3.3528212758541263
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_1T_OUT2000_input_linear_edges_200",
+      "passed": true,
+      "lower_um": -3.5125028712288846,
+      "upper_um": 3.789921754501714
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_1T_OUT2000_input_linear_edges_250",
+      "passed": true,
+      "lower_um": -4.288434970167231,
+      "upper_um": 4.664122711796889
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_1T_OUT2000_input_linear_edges_300",
+      "passed": true,
+      "lower_um": -5.064367069105577,
+      "upper_um": 5.5383236690920645
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_1T_OUT2000_input_linear_edges_750",
+      "passed": true,
+      "lower_um": -12.048008766216006,
+      "upper_um": 13.405918269851513
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_1T_OUT2000_input_linear_edges_800",
+      "passed": true,
+      "lower_um": -12.823940704976803,
+      "upper_um": 14.280179579877833
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_1T_OUT2000_input_linear_edges_1250",
+      "passed": true,
+      "lower_um": -19.80772727292572,
+      "upper_um": 22.147795608443552
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_1T_OUT2000_input_linear_edges_1500",
+      "passed": true,
+      "lower_um": -23.687393760225802,
+      "upper_um": 26.518566138489838
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_1T_OUT2000_input_linear_edges_2000",
+      "passed": true,
+      "lower_um": -31.44672673482597,
+      "upper_um": 35.26010719858241
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_1T_OUT2000_input_linear_edges_2095",
+      "passed": true,
+      "lower_um": -32.921,
+      "upper_um": 36.921
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_1T_OUT2000_input_no_intermediate_frame",
+      "passed": true,
+      "extra_area_um2": 0.0
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_1T_OUT2000_input_circle_530_diameter_300",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_1T_OUT2000_input_circle_530_arc_30",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_1T_OUT2000_input_circle_530_arc_60",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_1T_OUT2000_input_circle_530_arc_90",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_1T_OUT2000_input_circle_530_arc_120",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_1T_OUT2000_input_circle_530_arc_150",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_1T_OUT2000_input_circle_530_arc_210",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_1T_OUT2000_input_circle_530_arc_240",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_1T_OUT2000_input_circle_530_arc_270",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_1T_OUT2000_input_circle_530_arc_300",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_1T_OUT2000_input_circle_530_arc_330",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_1T_OUT2000_input_circle_1030_diameter_300",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_1T_OUT2000_input_circle_1030_arc_30",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_1T_OUT2000_input_circle_1030_arc_60",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_1T_OUT2000_input_circle_1030_arc_90",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_1T_OUT2000_input_circle_1030_arc_120",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_1T_OUT2000_input_circle_1030_arc_150",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_1T_OUT2000_input_circle_1030_arc_210",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_1T_OUT2000_input_circle_1030_arc_240",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_1T_OUT2000_input_circle_1030_arc_270",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_1T_OUT2000_input_circle_1030_arc_300",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_1T_OUT2000_input_circle_1030_arc_330",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1620_1T_OUT2000_input_circle_extents_unchanged",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_1T_OUT2000_input_single_connected_window",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_1T_OUT2000_input_only_prefix_linear_channel_two_circles",
+      "passed": true,
+      "xor_um2": 0.3838799476008219,
+      "area_bound_um2": 5.3380681884416035,
+      "boundary_distance_um": 0.00041116751268766016,
+      "outside_grid_band_um2": 0.0
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_1T_OUT2000_input_upstream_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_1T_OUT2000_input_no_width_step_at_join",
+      "passed": true,
+      "preserved_width_um": 2.644
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_1T_OUT2000_input_outer_endpoint_unchanged",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_1T_OUT2000_input_linear_edges_58.947",
+      "passed": true,
+      "lower_um": -1.3235518641978736,
+      "upper_um": 1.3237484019145869
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_1T_OUT2000_input_linear_edges_60",
+      "passed": true,
+      "lower_um": -1.3398929942015152,
+      "upper_um": 1.3421590740752232
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_1T_OUT2000_input_linear_edges_65",
+      "passed": true,
+      "lower_um": -1.4174862040953498,
+      "upper_um": 1.4295791698047406
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_1T_OUT2000_input_linear_edges_75",
+      "passed": true,
+      "lower_um": -1.572672623883019,
+      "upper_um": 1.6044193612637758
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_1T_OUT2000_input_linear_edges_80",
+      "passed": true,
+      "lower_um": -1.6502658337768537,
+      "upper_um": 1.6918394569932933
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_1T_OUT2000_input_linear_edges_90",
+      "passed": true,
+      "lower_um": -1.8054522535645228,
+      "upper_um": 1.8666796484523283
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_1T_OUT2000_input_linear_edges_95",
+      "passed": true,
+      "lower_um": -1.8830454634583575,
+      "upper_um": 1.954099744181846
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_1T_OUT2000_input_linear_edges_100",
+      "passed": true,
+      "lower_um": -1.960638673352192,
+      "upper_um": 2.041519839911363
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_1T_OUT2000_input_linear_edges_150",
+      "passed": true,
+      "lower_um": -2.7365707722905386,
+      "upper_um": 2.915720797206539
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_1T_OUT2000_input_linear_edges_175",
+      "passed": true,
+      "lower_um": -3.1245368217597114,
+      "upper_um": 3.3528212758541263
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_1T_OUT2000_input_linear_edges_200",
+      "passed": true,
+      "lower_um": -3.5125028712288846,
+      "upper_um": 3.789921754501714
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_1T_OUT2000_input_linear_edges_250",
+      "passed": true,
+      "lower_um": -4.288434970167231,
+      "upper_um": 4.664122711796889
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_1T_OUT2000_input_linear_edges_300",
+      "passed": true,
+      "lower_um": -5.064367069105577,
+      "upper_um": 5.5383236690920645
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_1T_OUT2000_input_linear_edges_750",
+      "passed": true,
+      "lower_um": -12.048008766216006,
+      "upper_um": 13.405918269851513
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_1T_OUT2000_input_linear_edges_800",
+      "passed": true,
+      "lower_um": -12.823940704976803,
+      "upper_um": 14.280179579877833
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_1T_OUT2000_input_linear_edges_1250",
+      "passed": true,
+      "lower_um": -19.80772727292572,
+      "upper_um": 22.147795608443552
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_1T_OUT2000_input_linear_edges_1500",
+      "passed": true,
+      "lower_um": -23.687393760225802,
+      "upper_um": 26.518566138489838
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_1T_OUT2000_input_linear_edges_2000",
+      "passed": true,
+      "lower_um": -31.44672673482597,
+      "upper_um": 35.26010719858241
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_1T_OUT2000_input_linear_edges_2095",
+      "passed": true,
+      "lower_um": -32.921,
+      "upper_um": 36.921
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_1T_OUT2000_input_no_intermediate_frame",
+      "passed": true,
+      "extra_area_um2": 0.0
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_1T_OUT2000_input_circle_530_diameter_300",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_1T_OUT2000_input_circle_530_arc_30",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_1T_OUT2000_input_circle_530_arc_60",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_1T_OUT2000_input_circle_530_arc_90",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_1T_OUT2000_input_circle_530_arc_120",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_1T_OUT2000_input_circle_530_arc_150",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_1T_OUT2000_input_circle_530_arc_210",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_1T_OUT2000_input_circle_530_arc_240",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_1T_OUT2000_input_circle_530_arc_270",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_1T_OUT2000_input_circle_530_arc_300",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_1T_OUT2000_input_circle_530_arc_330",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_1T_OUT2000_input_circle_1030_diameter_300",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_1T_OUT2000_input_circle_1030_arc_30",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_1T_OUT2000_input_circle_1030_arc_60",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_1T_OUT2000_input_circle_1030_arc_90",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_1T_OUT2000_input_circle_1030_arc_120",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_1T_OUT2000_input_circle_1030_arc_150",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_1T_OUT2000_input_circle_1030_arc_210",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_1T_OUT2000_input_circle_1030_arc_240",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_1T_OUT2000_input_circle_1030_arc_270",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_1T_OUT2000_input_circle_1030_arc_300",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_1T_OUT2000_input_circle_1030_arc_330",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1640_1T_OUT2000_input_circle_extents_unchanged",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_1T_OUT2000_input_single_connected_window",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_1T_OUT2000_input_only_prefix_linear_channel_two_circles",
+      "passed": true,
+      "xor_um2": 0.3838799476008219,
+      "area_bound_um2": 5.3380681884416035,
+      "boundary_distance_um": 0.00041116751268766016,
+      "outside_grid_band_um2": 0.0
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_1T_OUT2000_input_upstream_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_1T_OUT2000_input_no_width_step_at_join",
+      "passed": true,
+      "preserved_width_um": 2.644
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_1T_OUT2000_input_outer_endpoint_unchanged",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_1T_OUT2000_input_linear_edges_58.947",
+      "passed": true,
+      "lower_um": -1.3235518641978736,
+      "upper_um": 1.3237484019145869
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_1T_OUT2000_input_linear_edges_60",
+      "passed": true,
+      "lower_um": -1.3398929942015152,
+      "upper_um": 1.3421590740752232
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_1T_OUT2000_input_linear_edges_65",
+      "passed": true,
+      "lower_um": -1.4174862040953498,
+      "upper_um": 1.4295791698047406
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_1T_OUT2000_input_linear_edges_75",
+      "passed": true,
+      "lower_um": -1.572672623883019,
+      "upper_um": 1.6044193612637758
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_1T_OUT2000_input_linear_edges_80",
+      "passed": true,
+      "lower_um": -1.6502658337768537,
+      "upper_um": 1.6918394569932933
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_1T_OUT2000_input_linear_edges_90",
+      "passed": true,
+      "lower_um": -1.8054522535645228,
+      "upper_um": 1.8666796484523283
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_1T_OUT2000_input_linear_edges_95",
+      "passed": true,
+      "lower_um": -1.8830454634583575,
+      "upper_um": 1.954099744181846
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_1T_OUT2000_input_linear_edges_100",
+      "passed": true,
+      "lower_um": -1.960638673352192,
+      "upper_um": 2.041519839911363
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_1T_OUT2000_input_linear_edges_150",
+      "passed": true,
+      "lower_um": -2.7365707722905386,
+      "upper_um": 2.915720797206539
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_1T_OUT2000_input_linear_edges_175",
+      "passed": true,
+      "lower_um": -3.1245368217597114,
+      "upper_um": 3.3528212758541263
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_1T_OUT2000_input_linear_edges_200",
+      "passed": true,
+      "lower_um": -3.5125028712288846,
+      "upper_um": 3.789921754501714
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_1T_OUT2000_input_linear_edges_250",
+      "passed": true,
+      "lower_um": -4.288434970167231,
+      "upper_um": 4.664122711796889
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_1T_OUT2000_input_linear_edges_300",
+      "passed": true,
+      "lower_um": -5.064367069105577,
+      "upper_um": 5.5383236690920645
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_1T_OUT2000_input_linear_edges_750",
+      "passed": true,
+      "lower_um": -12.048008766216006,
+      "upper_um": 13.405918269851513
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_1T_OUT2000_input_linear_edges_800",
+      "passed": true,
+      "lower_um": -12.823940704976803,
+      "upper_um": 14.280179579877833
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_1T_OUT2000_input_linear_edges_1250",
+      "passed": true,
+      "lower_um": -19.80772727292572,
+      "upper_um": 22.147795608443552
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_1T_OUT2000_input_linear_edges_1500",
+      "passed": true,
+      "lower_um": -23.687393760225802,
+      "upper_um": 26.518566138489838
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_1T_OUT2000_input_linear_edges_2000",
+      "passed": true,
+      "lower_um": -31.44672673482597,
+      "upper_um": 35.26010719858241
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_1T_OUT2000_input_linear_edges_2095",
+      "passed": true,
+      "lower_um": -32.921,
+      "upper_um": 36.921
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_1T_OUT2000_input_no_intermediate_frame",
+      "passed": true,
+      "extra_area_um2": 0.0
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_1T_OUT2000_input_circle_530_diameter_300",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_1T_OUT2000_input_circle_530_arc_30",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_1T_OUT2000_input_circle_530_arc_60",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_1T_OUT2000_input_circle_530_arc_90",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_1T_OUT2000_input_circle_530_arc_120",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_1T_OUT2000_input_circle_530_arc_150",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_1T_OUT2000_input_circle_530_arc_210",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_1T_OUT2000_input_circle_530_arc_240",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_1T_OUT2000_input_circle_530_arc_270",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_1T_OUT2000_input_circle_530_arc_300",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_1T_OUT2000_input_circle_530_arc_330",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_1T_OUT2000_input_circle_1030_diameter_300",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_1T_OUT2000_input_circle_1030_arc_30",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_1T_OUT2000_input_circle_1030_arc_60",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_1T_OUT2000_input_circle_1030_arc_90",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_1T_OUT2000_input_circle_1030_arc_120",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_1T_OUT2000_input_circle_1030_arc_150",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_1T_OUT2000_input_circle_1030_arc_210",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_1T_OUT2000_input_circle_1030_arc_240",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_1T_OUT2000_input_circle_1030_arc_270",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_1T_OUT2000_input_circle_1030_arc_300",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_1T_OUT2000_input_circle_1030_arc_330",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L6000_W1680_1T_OUT2000_input_circle_extents_unchanged",
+      "passed": true
+    },
+    {
+      "name": "18_windows_36_circles",
+      "passed": true
+    }
+  ],
+  "windows": [
+    {
+      "case_id": "D1_L6000_W1620_P10",
+      "end": "input",
+      "start_global_x_um": -861.6939999999997,
+      "start_width_um": 2.644,
+      "circle_diameter_um": 300.0,
+      "circle_centers_global_um": [
+        [
+          -1332.8469999999998,
+          -500.0
+        ],
+        [
+          -1832.8469999999998,
+          -500.0
+        ]
+      ]
+    },
+    {
+      "case_id": "D1_L6000_W1620_P10",
+      "end": "output",
+      "start_global_x_um": 5346.0,
+      "start_width_um": 2.644,
+      "circle_diameter_um": 300.0,
+      "circle_centers_global_um": [
+        [
+          5817.153,
+          -900.0
+        ],
+        [
+          6317.153,
+          -900.0
+        ]
+      ]
+    },
+    {
+      "case_id": "D1_L6000_W1640_P10",
+      "end": "input",
+      "start_global_x_um": -861.6939999999997,
+      "start_width_um": 2.644,
+      "circle_diameter_um": 300.0,
+      "circle_centers_global_um": [
+        [
+          -1332.8469999999998,
+          100.0
+        ],
+        [
+          -1832.8469999999998,
+          100.0
+        ]
+      ]
+    },
+    {
+      "case_id": "D1_L6000_W1640_P10",
+      "end": "output",
+      "start_global_x_um": 5346.0,
+      "start_width_um": 2.644,
+      "circle_diameter_um": 300.0,
+      "circle_centers_global_um": [
+        [
+          5817.153,
+          -300.0
+        ],
+        [
+          6317.153,
+          -300.0
+        ]
+      ]
+    },
+    {
+      "case_id": "D1_L6000_W1680_P10",
+      "end": "input",
+      "start_global_x_um": -861.6939999999997,
+      "start_width_um": 2.644,
+      "circle_diameter_um": 300.0,
+      "circle_centers_global_um": [
+        [
+          -1332.8469999999998,
+          700.0
+        ],
+        [
+          -1832.8469999999998,
+          700.0
+        ]
+      ]
+    },
+    {
+      "case_id": "D1_L6000_W1680_P10",
+      "end": "output",
+      "start_global_x_um": 5346.0,
+      "start_width_um": 2.644,
+      "circle_diameter_um": 300.0,
+      "circle_centers_global_um": [
+        [
+          5817.153,
+          300.0
+        ],
+        [
+          6317.153,
+          300.0
+        ]
+      ]
+    },
+    {
+      "case_id": "D1_L6000_W1620_P10_OUT2000",
+      "end": "input",
+      "start_global_x_um": -861.6939999999997,
+      "start_width_um": 2.644,
+      "circle_diameter_um": 300.0,
+      "circle_centers_global_um": [
+        [
+          -1332.8469999999998,
+          1300.0
+        ],
+        [
+          -1832.8469999999998,
+          1300.0
+        ]
+      ]
+    },
+    {
+      "case_id": "D1_L6000_W1640_P10_OUT2000",
+      "end": "input",
+      "start_global_x_um": -861.6939999999997,
+      "start_width_um": 2.644,
+      "circle_diameter_um": 300.0,
+      "circle_centers_global_um": [
+        [
+          -1332.8469999999998,
+          1900.0
+        ],
+        [
+          -1832.8469999999998,
+          1900.0
+        ]
+      ]
+    },
+    {
+      "case_id": "D1_L6000_W1680_P10_OUT2000",
+      "end": "input",
+      "start_global_x_um": -861.6939999999997,
+      "start_width_um": 2.644,
+      "circle_diameter_um": 300.0,
+      "circle_centers_global_um": [
+        [
+          -1332.8469999999998,
+          2500.0
+        ],
+        [
+          -1832.8469999999998,
+          2500.0
+        ]
+      ]
+    },
+    {
+      "case_id": "D1_SINGLE_L6000_W1620_2T",
+      "end": "input",
+      "start_global_x_um": -861.6939999999997,
+      "start_width_um": 2.644,
+      "circle_diameter_um": 300.0,
+      "circle_centers_global_um": [
+        [
+          -1332.8469999999998,
+          2900.0
+        ],
+        [
+          -1832.8469999999998,
+          2900.0
+        ]
+      ]
+    },
+    {
+      "case_id": "D1_SINGLE_L6000_W1620_2T",
+      "end": "output",
+      "start_global_x_um": 5346.0,
+      "start_width_um": 2.644,
+      "circle_diameter_um": 300.0,
+      "circle_centers_global_um": [
+        [
+          5817.153,
+          2900.0
+        ],
+        [
+          6317.153,
+          2900.0
+        ]
+      ]
+    },
+    {
+      "case_id": "D1_SINGLE_L6000_W1640_2T",
+      "end": "input",
+      "start_global_x_um": -861.6939999999997,
+      "start_width_um": 2.644,
+      "circle_diameter_um": 300.0,
+      "circle_centers_global_um": [
+        [
+          -1332.8469999999998,
+          3500.0
+        ],
+        [
+          -1832.8469999999998,
+          3500.0
+        ]
+      ]
+    },
+    {
+      "case_id": "D1_SINGLE_L6000_W1640_2T",
+      "end": "output",
+      "start_global_x_um": 5346.0,
+      "start_width_um": 2.644,
+      "circle_diameter_um": 300.0,
+      "circle_centers_global_um": [
+        [
+          5817.153,
+          3500.0
+        ],
+        [
+          6317.153,
+          3500.0
+        ]
+      ]
+    },
+    {
+      "case_id": "D1_SINGLE_L6000_W1680_2T",
+      "end": "input",
+      "start_global_x_um": -861.6939999999997,
+      "start_width_um": 2.644,
+      "circle_diameter_um": 300.0,
+      "circle_centers_global_um": [
+        [
+          -1332.8469999999998,
+          4100.0
+        ],
+        [
+          -1832.8469999999998,
+          4100.0
+        ]
+      ]
+    },
+    {
+      "case_id": "D1_SINGLE_L6000_W1680_2T",
+      "end": "output",
+      "start_global_x_um": 5346.0,
+      "start_width_um": 2.644,
+      "circle_diameter_um": 300.0,
+      "circle_centers_global_um": [
+        [
+          5817.153,
+          4100.0
+        ],
+        [
+          6317.153,
+          4100.0
+        ]
+      ]
+    },
+    {
+      "case_id": "D1_SINGLE_L6000_W1620_1T_OUT2000",
+      "end": "input",
+      "start_global_x_um": -861.6939999999997,
+      "start_width_um": 2.644,
+      "circle_diameter_um": 300.0,
+      "circle_centers_global_um": [
+        [
+          -1332.8469999999998,
+          4700.0
+        ],
+        [
+          -1832.8469999999998,
+          4700.0
+        ]
+      ]
+    },
+    {
+      "case_id": "D1_SINGLE_L6000_W1640_1T_OUT2000",
+      "end": "input",
+      "start_global_x_um": -861.6939999999997,
+      "start_width_um": 2.644,
+      "circle_diameter_um": 300.0,
+      "circle_centers_global_um": [
+        [
+          -1332.8469999999998,
+          5300.0
+        ],
+        [
+          -1832.8469999999998,
+          5300.0
+        ]
+      ]
+    },
+    {
+      "case_id": "D1_SINGLE_L6000_W1680_1T_OUT2000",
+      "end": "input",
+      "start_global_x_um": -861.6939999999997,
+      "start_width_um": 2.644,
+      "circle_diameter_um": 300.0,
+      "circle_centers_global_um": [
+        [
+          -1332.8469999999998,
+          5900.0
+        ],
+        [
+          -1832.8469999999998,
+          5900.0
+        ]
+      ]
+    }
+  ],
+  "scope": "Layer 14 only, all 18 existing coupler ends in the 12-device comparison",
+  "unchanged_layers": "Every non-L14 raw polygon and every cell transform",
+  "linear_start_from_l10_um": 58.847,
+  "circle_diameter_um": 300.0,
+  "method": "Independent raw GDSII parser and Shapely; no generator or KLayout import",
+  "baseline_sha256": "51cc8a71b03bb7b966a18c39e6616f25e95669338e1aeceb04e125300a9d365b",
+  "gds_sha256": "f63d6c40c5bbf872dd7774ef70b7ed315a473ed0fa3e2f0bc1d2b99afa677baf",
+  "optical_or_mechanical_simulation_performed": false,
+  "grid_note": "Independent unsnapped geometry compared to 1 nm GDS polygons; max edge error and the entire difference region are bounded within 1.1 nm.",
+  "base_commit": "5e495403f32c3ae5344b9e85aa75bcc463853b40",
+  "protected_unrelated_file_count": 111,
+  "unrelated_files_unchanged": true,
+  "generated_GDS_bytes_unchanged": true,
+  "generation_run_id": 42513442093,
+  "negative_control_rejected": true,
+  "maximum_measured_boundary_error_um": 0.00041116751268965857,
+  "validation_note": "Initial fixed-area test was replaced after measuring 0.411 nm maximum edge displacement from grid snapping. Pointwise edge distance and all symmetric-difference regions are checked within 1.1 nm; geometry was not changed."
+}

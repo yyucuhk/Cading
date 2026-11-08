@@ -8,6 +8,9 @@ L14 starts with L10, at TOTAL width 8 um. Downstream margins are 2.5 um
 per side on L2 and 1.0 um per side on L14. First-stage window envelopes blend smoothly over the original stage.
 L16/L51 and the old PNC patterns are absent. L11 contains only local plain
 beam supports at taper entrances; global marks are on L15 and labels on L2.
+After 58.847 um from each Layer-10 entrance, only L14 continues as a
+straight-sided channel through the two existing 300 um glue circles.
+The intermediate L14 frame is omitted; Layer 2 and optics are unchanged.
 Requires the existing source modules and source width-sweep GDS/manifest.
 """
 from __future__ import annotations
@@ -38,7 +41,9 @@ PNC_PITCH = 10.0                     # straight/bend; also added straight
 INCLUDE_REFERENCE_DEVICES = True     # two-coupler set first, straight outputs above
 COUPLER_END_WINDOWS_ONLY = True       # applies to BOTH device sets; crops L2 and L14
 LAYER2_WINDOW_MARGIN = 2.5            # per-side taper-window expansion on Layer 2
-LAYER14_WINDOW_MARGIN = 1.0           # independent Layer 14 expansion
+LAYER14_WINDOW_MARGIN = 1.0           # retained upstream taper-window clearance
+LAYER14_LINEAR_START_FROM_L10 = 58.847 # gives global output X=5346 um in this layout
+LAYER14_GLUE_DIAMETER = 300.0         # preserve both existing circular windows
 RELEASE_WINDOW_START_OFFSET = 0.0     # legacy construction setting; see independent offsets below
 LAYER2_START_OFFSET = 0.5             # preserve original L10-to-L2 delayed-copy interface
 LAYER14_START_OFFSET = 0.0            # same entrance as L10
@@ -587,6 +592,10 @@ def combine():
     top.insert(kdb.CellInstArray(fc.cell_index(),ft))
     layer_policy=finalize_output_layers(ly,fc)
     beam_policy=add_local_taper_beams(ly,entries,policies)
+    from linear_layer14_window import linearize_layer14_windows
+    linear_policy=linearize_layer14_windows(ly,entries,policies,
+        start_distance_um=LAYER14_LINEAR_START_FROM_L10,
+        circle_diameter_um=LAYER14_GLUE_DIAMETER)
     snapshots={e['case_id']:regions(ly,ly.cell(e['case_id'])) for e in entries}
     placed=[{n:r.transformed(kdb.Trans(round(e['origin_um'][0]/DBU),round(e['origin_um'][1]/DBU)))
              for (n,d),r in snapshots[e['case_id']].items()} for e in entries]
@@ -619,7 +628,7 @@ def combine():
         layer2_start_width_um=LAYER2_START_WIDTH,layer14_start_width_um=LAYER14_START_WIDTH,
         layer2_window_margin_um=LAYER2_WINDOW_MARGIN,layer14_window_margin_um=LAYER14_WINDOW_MARGIN,
         layer2_start_offset_um=LAYER2_START_OFFSET,layer14_start_offset_um=LAYER14_START_OFFSET,
-        final_layer_policy=layer_policy,coupler_layer_policy=policies,local_taper_beams=beam_policy,checks=checks,workers=workers,
+        final_layer_policy=layer_policy,coupler_layer_policy=policies,local_taper_beams=beam_policy,linear_layer14_windows=linear_policy,checks=checks,workers=workers,
         check_count=len(checks)+sum(len(w['checks']) for w in workers),
         original_gds_sha256=hashlib.sha256(BASE_GDS.read_bytes()).hexdigest(),
         gds_sha256=hashlib.sha256(OUTPUT.read_bytes()).hexdigest(),
