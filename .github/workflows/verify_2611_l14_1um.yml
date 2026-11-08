@@ -1,0 +1,88 @@
+name: Verify isolated Layer 14 margin correction
+on:
+  push:
+    branches: [layout/2611-L6000-L14-margin-1um]
+    paths: [.github/workflows/verify_2611_l14_1um.yml]
+jobs:
+  verify:
+    if: github.event.head_commit.message == 'Build only Layer 14 with 1 um margins'
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Preserve approved twelve-device layout and unrelated sources
+        run: |
+          git fetch origin 12f08da523caddb7940bb8395000c0c073bc38d6 --depth=1
+          mkdir -p baseline
+          cp gds/2611_design1_L6000_P10_straight_output_comparison.gds baseline/comparison.gds
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib,json,subprocess
+          names=subprocess.check_output(['git','ls-tree','-r','--name-only','12f08da523caddb7940bb8395000c0c073bc38d6'],text=True).splitlines()
+          mutable={'2611_design1_L6000_straight_output.py','validate_2611_four_sets.py','DESIGN1_STRAIGHT_OUTPUT_README.txt','gds/2611_design1_L6000_P10_straight_output_comparison.gds','gds/2611_design1_L6000_P10_straight_output_comparison.json','gds/2611_four_sets_validation.json'}
+          protected={n:hashlib.sha256(Path(n).read_bytes()).hexdigest() for n in names if n not in mutable}
+          Path('baseline/protected.json').write_text(json.dumps(protected))
+          assert hashlib.sha256(Path('baseline/comparison.gds').read_bytes()).hexdigest()=='a95a396b8a67e62c1ba393482da518b6298d221f5b7afff09b3fbe651632ca72'
+          PY
+      - name: Change only the Layer 14 setting and corresponding checks
+        run: |
+          python _apply_2611_l14_1um.py
+          python -m py_compile 2611_design1_L6000_straight_output.py validate_2611_four_sets.py
+      - name: Install approved long-layout engine
+        run: python -m pip install gdsfactory==9.45.0 klayout==0.30.13 numpy==2.4.6 shapely matplotlib > baseline/install.log 2>&1
+      - name: Regenerate all twelve devices
+        run: python 2611_design1_L6000_straight_output.py
+      - name: Compare every non-L14 polygon and measure all eighteen couplers
+        run: python validate_2611_four_sets.py --baseline baseline/comparison.gds --render
+      - name: Verify unrelated files and record saved-output evidence
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib,json,os
+          protected=json.loads(Path('baseline/protected.json').read_text())
+          for n,h in protected.items():
+              assert hashlib.sha256(Path(n).read_bytes()).hexdigest()==h,n
+          p=Path('gds/2611_four_sets_validation.json')
+          r=json.loads(p.read_text())
+          assert r['status']=='PASS' and all(c['passed'] for c in r['checks'])
+          r.update(base_commit='12f08da523caddb7940bb8395000c0c073bc38d6',protected_unrelated_file_count=len(protected),unrelated_files_unchanged=True,generation_run_id=int(os.environ['GITHUB_RUN_ID']),change_scope='Only Layer 14 taper-window margin, from 2.5 to 1.0 um per side')
+          p.write_text(json.dumps(r,indent=2))
+          print('Verified',len(protected),'unchanged source/output files;',r['check_count'],'independent checks')
+          PY
+      - name: Upload source GDS reports and measured previews
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: 2611-L6000-L14-1um-release
+          path: |
+            2611_design1_L6000_straight_output.py
+            2611_design1_L6000_P10_width_sweep.py
+            2611_tapered_yue_dual_resist.py
+            DESIGN1_STRAIGHT_OUTPUT_README.txt
+            validate_2611_four_sets.py
+            validate_2611_straight_output_raw.py
+            validate_2611_coupler_release.py
+            validate_2611_release_offset.py
+            layers.py
+            markers.py
+            phononics.py
+            routing.py
+            tapered_local.py
+            tether_variants.py
+            tether_variants.gds
+            text.py
+            gds/2611_design1_L6000_P10_straight_output_comparison.*
+            gds/2611_design1_L6000_P10_width_sweep.*
+            gds/2611_four_sets_validation.json
+            validation_2611_four_sets/*.png
+      - name: Save passing files and remove temporary build helpers
+        run: |
+          git add 2611_design1_L6000_straight_output.py validate_2611_four_sets.py DESIGN1_STRAIGHT_OUTPUT_README.txt gds/2611_design1_L6000_P10_straight_output_comparison.gds gds/2611_design1_L6000_P10_straight_output_comparison.json gds/2611_four_sets_validation.json
+          git rm _apply_2611_l14_1um.py .github/workflows/verify_2611_l14_1um.yml
+          git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' commit -m 'Keep L14 at 1 um per side and preserve Layer 2 and all twelve devices'
+          git push origin HEAD:layout/2611-L6000-L14-margin-1um
