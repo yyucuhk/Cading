@@ -1,46 +1,51 @@
-L6000 FOUR-SET COMPARISON
+L6000 DESIGN 1: FOUR-SET COMPARISON
 
 Run: python 2611_design1_L6000_straight_output.py
 Output: gds/2611_design1_L6000_P10_straight_output_comparison.gds
+Keep linear_layer14_window.py alongside the main builder.
 
-Bottom to top: three meander/two-coupler devices, three meander/one-coupler
-devices, three single-straight/two-coupler devices, three single-straight/
-one-coupler devices. Each set sweeps widths 1.62, 1.64, 1.68 um.
-600 um row pitch; original six origins unchanged. New straight center
-sections are 6000 um, NOT the approximately 18.742 mm total meander path.
-One-coupler sets retain a 2000 um bare extension, giving 8000 um in the
-new bend-free route, excluding the retained input transition/taper.
+DEVICE SETS (bottom to top)
+1. Three meanders with two couplers.
+2. Three meanders with one coupler and a 2000 um bare output extension.
+3. Three single 6000 um straights with two couplers, no bends.
+4. Three single 6000 um straights with one coupler and a 2000 um bare output.
+All sets sweep ridge widths 1.62, 1.64, 1.68 um; vertical pitch is 600 um.
+The 6000 um value is each original meander straight, not total meander length.
+No optical taper or waveguide routing changes in this revision.
 
-Layer 2 starts 0.5 um outward from Layer 10: global input X=-803.347 um
-and output X=5287.653 um. Layer 14 starts with L10: -802.847/5287.153 um.
-The 0.5 um original delayed-copy interface is retained, not doubled.
-Entrance widths are TOTAL widths: L2=15 um, L14=8 um. Downstream
-expansions are 2.5 um per side on L2 and 1.0 um per side on L14.
-These margins are not added again to the stated entrance widths. The
-smooth entrance blend joins the original downstream mask generator;
-distant channels and pads stay unchanged.
+RELEASE ENTRANCES
+Layer 2: total entrance width 15 um, 2.5 um downstream margins, and the
+original 0.5 um outward interface offset from Layer 10. Global input start
+is -803.347 um; two-coupler output start is 5287.653 um.
+Layer 14: total entrance width 8 um, starting with Layer 10 at global
+-802.847/5287.153 um. Its upstream taper profile retains 1 um clearance.
+Entrance widths are total widths: do not add the margins a second time.
+The taper-free 2000 um outputs have no release windows.
 
-Section 01 controls widths, start offsets, margins and local beam settings.
-The default width sweep uses the approved source GDS; new widths require
-regenerating that source and manifest first. Four-set default requires
-reference devices. Layers 16 and 51 remain absent. Layer 11 contains only
-the plain taper-support beams described below; the original PNC pattern
-remains removed. Labels remain L2; global markers remain L15.
-Old P10 text in the existing six labels is only a legacy source identifier.
-Frame height and all twelve device placements are unchanged by this update.
+LAYER 14 LINEAR CONTINUATION
+Keep existing L14 through 58.847 um from the Layer-10 entrance. This is
+output X=5346 um, or input X=-861.694 um. Its measured opening width at
+that location is 2.644 um on the 1 nm layout grid.
+Beyond that location, draw ONE linear trapezoid to the original outer
+channel endpoint, joined to the two 300 um circles at their existing centers.
+Remove the old intermediate rectangular frame and its cutouts entirely.
+Circles use the original 2.5 degree sampling. The 1 um clearance applies to
+the preserved upstream profile, not the downstream widening linear channel.
+Layer 2, including its own original frame/channel shapes, is NOT changed.
 
-Independent check: python validate_2611_four_sets.py --render
-Beam detail check: python validate_2611_taper_beams.py --render
-Geometry checks are not optical, mechanical or full fabrication DRC.
+LOCAL SUPPORTS AND LAYERS
+Each of the 18 tapered ends retains three paired plain beams on Layer 11,
+with 0.5 um longitudinal width and 1 um pitch (stations 0, 1, 2 um).
+Their 5.096 um anchor span and 0.5 um overlap at each end are unchanged.
+No PNC masses, meander supports or bare-output supports are restored.
+Layers 16/51 stay absent. Labels remain on Layer 2; global markers on Layer 15.
 
-LOCAL PLAIN TAPER SUPPORTS
-At each retained taper entrance: 3 paired beam stations at 0, 1 and 2 um
-outward from the Layer-10 start. Each transverse beam is 0.5 um wide.
-Layer 11 contains ONLY these 108 plain rectangular beams (18 ends,
-3 stations per end, 2 sides); no square masses or meander PNCs are restored.
-The anchor-to-anchor span is the original PNC span, 5.096 um, with 0.5 um
-overlap into each anchor. Outer anchors extend beyond both release masks.
-The bare 2000 um outputs receive no tethers. Layer 2 retains its 15 um
-entrance, 2.5 um downstream margins and 0.5 um interface offset. Layer 14
-retains its 8 um entrance, shared L10 start and 1 um downstream margins.
-These geometry checks do not establish mechanical strength or optical loss.
+EDITING AND CHECKS
+Section 01 exposes LAYER14_LINEAR_START_FROM_L10=58.847 and
+LAYER14_GLUE_DIAMETER=300.0. The main builder imports the isolated L14 helper.
+Use the existing source width-sweep GDS/manifest and supporting Python modules.
+python validate_2611_four_sets.py --render
+python validate_2611_linear_window.py --baseline <previous-comparison.gds> --render
+The package includes baseline/comparison.gds for the latter comparison.
+These are geometry checks, not optical/mechanical qualification or full DRC.
+The straight-sided opening is width-continuous; no C2 continuity is claimed.

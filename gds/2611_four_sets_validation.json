@@ -1,6 +1,6 @@
 {
   "status": "PASS",
-  "check_count": 2257,
+  "check_count": 1955,
   "checks": [
     {
       "name": "12_devices_12_labels_one_frame",
@@ -131,414 +131,6 @@
       "passed": true
     },
     {
-      "name": "D1_L6000_W1620_P10_original_placement",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1620_P10_L2_original_raw_coordinates",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1620_P10_L10_original_raw_coordinates",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1620_P10_L13_original_raw_coordinates",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1620_P10_L14_original_raw_coordinates",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1620_P10_L15_original_raw_coordinates",
-      "passed": true
-    },
-    {
-      "name": "LABEL_D1_L6000_W1620_P10_original_placement",
-      "passed": true
-    },
-    {
-      "name": "LABEL_D1_L6000_W1620_P10_L2_original_raw_coordinates",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1640_P10_original_placement",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1640_P10_L2_original_raw_coordinates",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1640_P10_L10_original_raw_coordinates",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1640_P10_L13_original_raw_coordinates",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1640_P10_L14_original_raw_coordinates",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1640_P10_L15_original_raw_coordinates",
-      "passed": true
-    },
-    {
-      "name": "LABEL_D1_L6000_W1640_P10_original_placement",
-      "passed": true
-    },
-    {
-      "name": "LABEL_D1_L6000_W1640_P10_L2_original_raw_coordinates",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1680_P10_original_placement",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1680_P10_L2_original_raw_coordinates",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1680_P10_L10_original_raw_coordinates",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1680_P10_L13_original_raw_coordinates",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1680_P10_L14_original_raw_coordinates",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1680_P10_L15_original_raw_coordinates",
-      "passed": true
-    },
-    {
-      "name": "LABEL_D1_L6000_W1680_P10_original_placement",
-      "passed": true
-    },
-    {
-      "name": "LABEL_D1_L6000_W1680_P10_L2_original_raw_coordinates",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1620_P10_OUT2000_original_placement",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1620_P10_OUT2000_L2_original_raw_coordinates",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1620_P10_OUT2000_L10_original_raw_coordinates",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1620_P10_OUT2000_L13_original_raw_coordinates",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1620_P10_OUT2000_L14_original_raw_coordinates",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1620_P10_OUT2000_L15_original_raw_coordinates",
-      "passed": true
-    },
-    {
-      "name": "LABEL_D1_L6000_W1620_P10_OUT2000_original_placement",
-      "passed": true
-    },
-    {
-      "name": "LABEL_D1_L6000_W1620_P10_OUT2000_L2_original_raw_coordinates",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1640_P10_OUT2000_original_placement",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1640_P10_OUT2000_L2_original_raw_coordinates",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1640_P10_OUT2000_L10_original_raw_coordinates",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1640_P10_OUT2000_L13_original_raw_coordinates",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1640_P10_OUT2000_L14_original_raw_coordinates",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1640_P10_OUT2000_L15_original_raw_coordinates",
-      "passed": true
-    },
-    {
-      "name": "LABEL_D1_L6000_W1640_P10_OUT2000_original_placement",
-      "passed": true
-    },
-    {
-      "name": "LABEL_D1_L6000_W1640_P10_OUT2000_L2_original_raw_coordinates",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1680_P10_OUT2000_original_placement",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1680_P10_OUT2000_L2_original_raw_coordinates",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1680_P10_OUT2000_L10_original_raw_coordinates",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1680_P10_OUT2000_L13_original_raw_coordinates",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1680_P10_OUT2000_L14_original_raw_coordinates",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1680_P10_OUT2000_L15_original_raw_coordinates",
-      "passed": true
-    },
-    {
-      "name": "LABEL_D1_L6000_W1680_P10_OUT2000_original_placement",
-      "passed": true
-    },
-    {
-      "name": "LABEL_D1_L6000_W1680_P10_OUT2000_L2_original_raw_coordinates",
-      "passed": true
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1620_2T_original_placement",
-      "passed": true
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1620_2T_L2_original_raw_coordinates",
-      "passed": true
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1620_2T_L10_original_raw_coordinates",
-      "passed": true
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1620_2T_L13_original_raw_coordinates",
-      "passed": true
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1620_2T_L14_original_raw_coordinates",
-      "passed": true
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1620_2T_L15_original_raw_coordinates",
-      "passed": true
-    },
-    {
-      "name": "LABEL_D1_SINGLE_L6000_W1620_2T_original_placement",
-      "passed": true
-    },
-    {
-      "name": "LABEL_D1_SINGLE_L6000_W1620_2T_L2_original_raw_coordinates",
-      "passed": true
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1640_2T_original_placement",
-      "passed": true
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1640_2T_L2_original_raw_coordinates",
-      "passed": true
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1640_2T_L10_original_raw_coordinates",
-      "passed": true
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1640_2T_L13_original_raw_coordinates",
-      "passed": true
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1640_2T_L14_original_raw_coordinates",
-      "passed": true
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1640_2T_L15_original_raw_coordinates",
-      "passed": true
-    },
-    {
-      "name": "LABEL_D1_SINGLE_L6000_W1640_2T_original_placement",
-      "passed": true
-    },
-    {
-      "name": "LABEL_D1_SINGLE_L6000_W1640_2T_L2_original_raw_coordinates",
-      "passed": true
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1680_2T_original_placement",
-      "passed": true
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1680_2T_L2_original_raw_coordinates",
-      "passed": true
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1680_2T_L10_original_raw_coordinates",
-      "passed": true
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1680_2T_L13_original_raw_coordinates",
-      "passed": true
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1680_2T_L14_original_raw_coordinates",
-      "passed": true
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1680_2T_L15_original_raw_coordinates",
-      "passed": true
-    },
-    {
-      "name": "LABEL_D1_SINGLE_L6000_W1680_2T_original_placement",
-      "passed": true
-    },
-    {
-      "name": "LABEL_D1_SINGLE_L6000_W1680_2T_L2_original_raw_coordinates",
-      "passed": true
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1620_1T_OUT2000_original_placement",
-      "passed": true
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1620_1T_OUT2000_L2_original_raw_coordinates",
-      "passed": true
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1620_1T_OUT2000_L10_original_raw_coordinates",
-      "passed": true
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1620_1T_OUT2000_L13_original_raw_coordinates",
-      "passed": true
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1620_1T_OUT2000_L14_original_raw_coordinates",
-      "passed": true
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1620_1T_OUT2000_L15_original_raw_coordinates",
-      "passed": true
-    },
-    {
-      "name": "LABEL_D1_SINGLE_L6000_W1620_1T_OUT2000_original_placement",
-      "passed": true
-    },
-    {
-      "name": "LABEL_D1_SINGLE_L6000_W1620_1T_OUT2000_L2_original_raw_coordinates",
-      "passed": true
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1640_1T_OUT2000_original_placement",
-      "passed": true
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1640_1T_OUT2000_L2_original_raw_coordinates",
-      "passed": true
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1640_1T_OUT2000_L10_original_raw_coordinates",
-      "passed": true
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1640_1T_OUT2000_L13_original_raw_coordinates",
-      "passed": true
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1640_1T_OUT2000_L14_original_raw_coordinates",
-      "passed": true
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1640_1T_OUT2000_L15_original_raw_coordinates",
-      "passed": true
-    },
-    {
-      "name": "LABEL_D1_SINGLE_L6000_W1640_1T_OUT2000_original_placement",
-      "passed": true
-    },
-    {
-      "name": "LABEL_D1_SINGLE_L6000_W1640_1T_OUT2000_L2_original_raw_coordinates",
-      "passed": true
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1680_1T_OUT2000_original_placement",
-      "passed": true
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1680_1T_OUT2000_L2_original_raw_coordinates",
-      "passed": true
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1680_1T_OUT2000_L10_original_raw_coordinates",
-      "passed": true
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1680_1T_OUT2000_L13_original_raw_coordinates",
-      "passed": true
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1680_1T_OUT2000_L14_original_raw_coordinates",
-      "passed": true
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1680_1T_OUT2000_L15_original_raw_coordinates",
-      "passed": true
-    },
-    {
-      "name": "LABEL_D1_SINGLE_L6000_W1680_1T_OUT2000_original_placement",
-      "passed": true
-    },
-    {
-      "name": "LABEL_D1_SINGLE_L6000_W1680_1T_OUT2000_L2_original_raw_coordinates",
-      "passed": true
-    },
-    {
-      "name": "FRAME_AND_MARKERS_original_placement",
-      "passed": true
-    },
-    {
-      "name": "FRAME_AND_MARKERS_L10_original_raw_coordinates",
-      "passed": true
-    },
-    {
-      "name": "FRAME_AND_MARKERS_L15_original_raw_coordinates",
-      "passed": true
-    },
-    {
-      "name": "FRAME_AND_MARKERS_L0_original_raw_coordinates",
-      "passed": true
-    },
-    {
-      "name": "all_cell_names_preserved",
-      "passed": true
-    },
-    {
-      "name": "all_cell_references_preserved",
-      "passed": true
-    },
-    {
       "name": "D1_L6000_W1620_P10_requested_layers",
       "passed": true
     },
@@ -635,11 +227,6 @@
       "upper_um": 2.5000599999999906
     },
     {
-      "name": "D1_L6000_W1620_P10_input_L2_far_channel_pad_preserved",
-      "passed": true,
-      "xor_um2": 0.0
-    },
-    {
       "name": "D1_L6000_W1620_P10_input_L14_start",
       "passed": true,
       "local_x_um": -3045.0,
@@ -707,29 +294,6 @@
       "passed": true,
       "lower_um": 1.0000996264010098,
       "upper_um": 1.0001197007481437
-    },
-    {
-      "name": "D1_L6000_W1620_P10_input_L14_margin_60",
-      "passed": true,
-      "lower_um": 1.000367245657543,
-      "upper_um": 1.0003999999999849
-    },
-    {
-      "name": "D1_L6000_W1620_P10_input_L14_margin_70",
-      "passed": true,
-      "lower_um": 1.000219512195116,
-      "upper_um": 1.000151515151515
-    },
-    {
-      "name": "D1_L6000_W1620_P10_input_L14_margin_75",
-      "passed": true,
-      "lower_um": 1.0000250569476066,
-      "upper_um": 1.0000249999999937
-    },
-    {
-      "name": "D1_L6000_W1620_P10_input_L14_far_channel_pad_preserved",
-      "passed": true,
-      "xor_um2": 0.0
     },
     {
       "name": "D1_L6000_W1620_P10_output_L10_entrance",
@@ -824,11 +388,6 @@
       "upper_um": 2.500060356652938
     },
     {
-      "name": "D1_L6000_W1620_P10_output_L2_far_channel_pad_preserved",
-      "passed": true,
-      "xor_um2": 0.0
-    },
-    {
       "name": "D1_L6000_W1620_P10_output_L14_start",
       "passed": true,
       "local_x_um": 3045.0,
@@ -896,29 +455,6 @@
       "passed": true,
       "lower_um": 1.0001197007481437,
       "upper_um": 1.0000996264010098
-    },
-    {
-      "name": "D1_L6000_W1620_P10_output_L14_margin_60",
-      "passed": true,
-      "lower_um": 1.0003999999999849,
-      "upper_um": 1.000367245657543
-    },
-    {
-      "name": "D1_L6000_W1620_P10_output_L14_margin_70",
-      "passed": true,
-      "lower_um": 1.000151515151515,
-      "upper_um": 1.000219512195116
-    },
-    {
-      "name": "D1_L6000_W1620_P10_output_L14_margin_75",
-      "passed": true,
-      "lower_um": 1.0,
-      "upper_um": 1.0000250569476066
-    },
-    {
-      "name": "D1_L6000_W1620_P10_output_L14_far_channel_pad_preserved",
-      "passed": true,
-      "xor_um2": 0.0
     },
     {
       "name": "D1_L6000_W1620_P10_L2_terminal_only",
@@ -1086,11 +622,6 @@
       "upper_um": 2.5000599999999906
     },
     {
-      "name": "D1_L6000_W1640_P10_input_L2_far_channel_pad_preserved",
-      "passed": true,
-      "xor_um2": 0.0
-    },
-    {
       "name": "D1_L6000_W1640_P10_input_L14_start",
       "passed": true,
       "local_x_um": -3045.0,
@@ -1158,29 +689,6 @@
       "passed": true,
       "lower_um": 1.0000996264010098,
       "upper_um": 1.0001197007481437
-    },
-    {
-      "name": "D1_L6000_W1640_P10_input_L14_margin_60",
-      "passed": true,
-      "lower_um": 1.000367245657543,
-      "upper_um": 1.0003999999999849
-    },
-    {
-      "name": "D1_L6000_W1640_P10_input_L14_margin_70",
-      "passed": true,
-      "lower_um": 1.000219512195116,
-      "upper_um": 1.000151515151515
-    },
-    {
-      "name": "D1_L6000_W1640_P10_input_L14_margin_75",
-      "passed": true,
-      "lower_um": 1.0000250569476066,
-      "upper_um": 1.0000249999999937
-    },
-    {
-      "name": "D1_L6000_W1640_P10_input_L14_far_channel_pad_preserved",
-      "passed": true,
-      "xor_um2": 0.0
     },
     {
       "name": "D1_L6000_W1640_P10_output_L10_entrance",
@@ -1275,11 +783,6 @@
       "upper_um": 2.500060356652938
     },
     {
-      "name": "D1_L6000_W1640_P10_output_L2_far_channel_pad_preserved",
-      "passed": true,
-      "xor_um2": 0.0
-    },
-    {
       "name": "D1_L6000_W1640_P10_output_L14_start",
       "passed": true,
       "local_x_um": 3045.0,
@@ -1347,29 +850,6 @@
       "passed": true,
       "lower_um": 1.0001197007481437,
       "upper_um": 1.0000996264010098
-    },
-    {
-      "name": "D1_L6000_W1640_P10_output_L14_margin_60",
-      "passed": true,
-      "lower_um": 1.0003999999999849,
-      "upper_um": 1.000367245657543
-    },
-    {
-      "name": "D1_L6000_W1640_P10_output_L14_margin_70",
-      "passed": true,
-      "lower_um": 1.000151515151515,
-      "upper_um": 1.000219512195116
-    },
-    {
-      "name": "D1_L6000_W1640_P10_output_L14_margin_75",
-      "passed": true,
-      "lower_um": 1.0,
-      "upper_um": 1.0000250569476066
-    },
-    {
-      "name": "D1_L6000_W1640_P10_output_L14_far_channel_pad_preserved",
-      "passed": true,
-      "xor_um2": 0.0
     },
     {
       "name": "D1_L6000_W1640_P10_L2_terminal_only",
@@ -1537,11 +1017,6 @@
       "upper_um": 2.5000599999999906
     },
     {
-      "name": "D1_L6000_W1680_P10_input_L2_far_channel_pad_preserved",
-      "passed": true,
-      "xor_um2": 0.0
-    },
-    {
       "name": "D1_L6000_W1680_P10_input_L14_start",
       "passed": true,
       "local_x_um": -3045.0,
@@ -1609,29 +1084,6 @@
       "passed": true,
       "lower_um": 1.0000996264010098,
       "upper_um": 1.0001197007481437
-    },
-    {
-      "name": "D1_L6000_W1680_P10_input_L14_margin_60",
-      "passed": true,
-      "lower_um": 1.000367245657543,
-      "upper_um": 1.0003999999999849
-    },
-    {
-      "name": "D1_L6000_W1680_P10_input_L14_margin_70",
-      "passed": true,
-      "lower_um": 1.000219512195116,
-      "upper_um": 1.000151515151515
-    },
-    {
-      "name": "D1_L6000_W1680_P10_input_L14_margin_75",
-      "passed": true,
-      "lower_um": 1.0000250569476066,
-      "upper_um": 1.0000249999999937
-    },
-    {
-      "name": "D1_L6000_W1680_P10_input_L14_far_channel_pad_preserved",
-      "passed": true,
-      "xor_um2": 0.0
     },
     {
       "name": "D1_L6000_W1680_P10_output_L10_entrance",
@@ -1726,11 +1178,6 @@
       "upper_um": 2.500060356652938
     },
     {
-      "name": "D1_L6000_W1680_P10_output_L2_far_channel_pad_preserved",
-      "passed": true,
-      "xor_um2": 0.0
-    },
-    {
       "name": "D1_L6000_W1680_P10_output_L14_start",
       "passed": true,
       "local_x_um": 3045.0,
@@ -1798,29 +1245,6 @@
       "passed": true,
       "lower_um": 1.0001197007481437,
       "upper_um": 1.0000996264010098
-    },
-    {
-      "name": "D1_L6000_W1680_P10_output_L14_margin_60",
-      "passed": true,
-      "lower_um": 1.0003999999999849,
-      "upper_um": 1.000367245657543
-    },
-    {
-      "name": "D1_L6000_W1680_P10_output_L14_margin_70",
-      "passed": true,
-      "lower_um": 1.000151515151515,
-      "upper_um": 1.000219512195116
-    },
-    {
-      "name": "D1_L6000_W1680_P10_output_L14_margin_75",
-      "passed": true,
-      "lower_um": 1.0,
-      "upper_um": 1.0000250569476066
-    },
-    {
-      "name": "D1_L6000_W1680_P10_output_L14_far_channel_pad_preserved",
-      "passed": true,
-      "xor_um2": 0.0
     },
     {
       "name": "D1_L6000_W1680_P10_L2_terminal_only",
@@ -1988,11 +1412,6 @@
       "upper_um": 2.5000599999999906
     },
     {
-      "name": "D1_L6000_W1620_P10_OUT2000_input_L2_far_channel_pad_preserved",
-      "passed": true,
-      "xor_um2": 0.0
-    },
-    {
       "name": "D1_L6000_W1620_P10_OUT2000_input_L14_start",
       "passed": true,
       "local_x_um": -3045.0,
@@ -2060,29 +1479,6 @@
       "passed": true,
       "lower_um": 1.0000996264010098,
       "upper_um": 1.0001197007481437
-    },
-    {
-      "name": "D1_L6000_W1620_P10_OUT2000_input_L14_margin_60",
-      "passed": true,
-      "lower_um": 1.000367245657543,
-      "upper_um": 1.0003999999999849
-    },
-    {
-      "name": "D1_L6000_W1620_P10_OUT2000_input_L14_margin_70",
-      "passed": true,
-      "lower_um": 1.000219512195116,
-      "upper_um": 1.000151515151515
-    },
-    {
-      "name": "D1_L6000_W1620_P10_OUT2000_input_L14_margin_75",
-      "passed": true,
-      "lower_um": 1.0000250569476066,
-      "upper_um": 1.0000249999999937
-    },
-    {
-      "name": "D1_L6000_W1620_P10_OUT2000_input_L14_far_channel_pad_preserved",
-      "passed": true,
-      "xor_um2": 0.0
     },
     {
       "name": "D1_L6000_W1620_P10_OUT2000_L2_terminal_only",
@@ -2240,11 +1636,6 @@
       "upper_um": 2.5000599999999906
     },
     {
-      "name": "D1_L6000_W1640_P10_OUT2000_input_L2_far_channel_pad_preserved",
-      "passed": true,
-      "xor_um2": 0.0
-    },
-    {
       "name": "D1_L6000_W1640_P10_OUT2000_input_L14_start",
       "passed": true,
       "local_x_um": -3045.0,
@@ -2312,29 +1703,6 @@
       "passed": true,
       "lower_um": 1.0000996264010098,
       "upper_um": 1.0001197007481437
-    },
-    {
-      "name": "D1_L6000_W1640_P10_OUT2000_input_L14_margin_60",
-      "passed": true,
-      "lower_um": 1.000367245657543,
-      "upper_um": 1.0003999999999849
-    },
-    {
-      "name": "D1_L6000_W1640_P10_OUT2000_input_L14_margin_70",
-      "passed": true,
-      "lower_um": 1.000219512195116,
-      "upper_um": 1.000151515151515
-    },
-    {
-      "name": "D1_L6000_W1640_P10_OUT2000_input_L14_margin_75",
-      "passed": true,
-      "lower_um": 1.0000250569476066,
-      "upper_um": 1.0000249999999937
-    },
-    {
-      "name": "D1_L6000_W1640_P10_OUT2000_input_L14_far_channel_pad_preserved",
-      "passed": true,
-      "xor_um2": 0.0
     },
     {
       "name": "D1_L6000_W1640_P10_OUT2000_L2_terminal_only",
@@ -2492,11 +1860,6 @@
       "upper_um": 2.5000599999999906
     },
     {
-      "name": "D1_L6000_W1680_P10_OUT2000_input_L2_far_channel_pad_preserved",
-      "passed": true,
-      "xor_um2": 0.0
-    },
-    {
       "name": "D1_L6000_W1680_P10_OUT2000_input_L14_start",
       "passed": true,
       "local_x_um": -3045.0,
@@ -2564,29 +1927,6 @@
       "passed": true,
       "lower_um": 1.0000996264010098,
       "upper_um": 1.0001197007481437
-    },
-    {
-      "name": "D1_L6000_W1680_P10_OUT2000_input_L14_margin_60",
-      "passed": true,
-      "lower_um": 1.000367245657543,
-      "upper_um": 1.0003999999999849
-    },
-    {
-      "name": "D1_L6000_W1680_P10_OUT2000_input_L14_margin_70",
-      "passed": true,
-      "lower_um": 1.000219512195116,
-      "upper_um": 1.000151515151515
-    },
-    {
-      "name": "D1_L6000_W1680_P10_OUT2000_input_L14_margin_75",
-      "passed": true,
-      "lower_um": 1.0000250569476066,
-      "upper_um": 1.0000249999999937
-    },
-    {
-      "name": "D1_L6000_W1680_P10_OUT2000_input_L14_far_channel_pad_preserved",
-      "passed": true,
-      "xor_um2": 0.0
     },
     {
       "name": "D1_L6000_W1680_P10_OUT2000_L2_terminal_only",
@@ -2813,24 +2153,6 @@
       "upper_um": 1.0001197007481313
     },
     {
-      "name": "D1_SINGLE_L6000_W1620_2T_input_L14_margin_60",
-      "passed": true,
-      "lower_um": 1.000367245657566,
-      "upper_um": 1.0003999999999997
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1620_2T_input_L14_margin_70",
-      "passed": true,
-      "lower_um": 1.00021951219512,
-      "upper_um": 1.0001515151515181
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1620_2T_input_L14_margin_75",
-      "passed": true,
-      "lower_um": 1.0000250569476088,
-      "upper_um": 1.0000250000000006
-    },
-    {
       "name": "D1_SINGLE_L6000_W1620_2T_output_L10_entrance",
       "passed": true,
       "x_um": 3045.0
@@ -2992,24 +2314,6 @@
       "upper_um": 1.0000996264009985
     },
     {
-      "name": "D1_SINGLE_L6000_W1620_2T_output_L14_margin_60",
-      "passed": true,
-      "lower_um": 1.0003999999999997,
-      "upper_um": 1.000367245657566
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1620_2T_output_L14_margin_70",
-      "passed": true,
-      "lower_um": 1.0001515151515181,
-      "upper_um": 1.00021951219512
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1620_2T_output_L14_margin_75",
-      "passed": true,
-      "lower_um": 1.0,
-      "upper_um": 1.0000250569476088
-    },
-    {
       "name": "D1_SINGLE_L6000_W1620_2T_L2_terminal_only",
       "passed": true,
       "xor_um2": 0.0
@@ -3046,7 +2350,7 @@
     {
       "name": "D1_SINGLE_L6000_W1620_2T_L14_exact_ends_and_single_route",
       "passed": true,
-      "xor_um2": 3.907335259713014e-11
+      "xor_um2": 3.9595375425785375e-11
     },
     {
       "name": "D1_SINGLE_L6000_W1620_2T_L15_exact_ends_and_single_route",
@@ -3265,24 +2569,6 @@
       "upper_um": 1.0001197007481313
     },
     {
-      "name": "D1_SINGLE_L6000_W1640_2T_input_L14_margin_60",
-      "passed": true,
-      "lower_um": 1.000367245657566,
-      "upper_um": 1.0003999999999997
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1640_2T_input_L14_margin_70",
-      "passed": true,
-      "lower_um": 1.00021951219512,
-      "upper_um": 1.0001515151515181
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1640_2T_input_L14_margin_75",
-      "passed": true,
-      "lower_um": 1.0000250569476088,
-      "upper_um": 1.0000250000000006
-    },
-    {
       "name": "D1_SINGLE_L6000_W1640_2T_output_L10_entrance",
       "passed": true,
       "x_um": 3045.0
@@ -3444,24 +2730,6 @@
       "upper_um": 1.0000996264009985
     },
     {
-      "name": "D1_SINGLE_L6000_W1640_2T_output_L14_margin_60",
-      "passed": true,
-      "lower_um": 1.0003999999999997,
-      "upper_um": 1.000367245657566
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1640_2T_output_L14_margin_70",
-      "passed": true,
-      "lower_um": 1.0001515151515181,
-      "upper_um": 1.00021951219512
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1640_2T_output_L14_margin_75",
-      "passed": true,
-      "lower_um": 1.0,
-      "upper_um": 1.0000250569476088
-    },
-    {
       "name": "D1_SINGLE_L6000_W1640_2T_L2_terminal_only",
       "passed": true,
       "xor_um2": 0.0
@@ -3498,7 +2766,7 @@
     {
       "name": "D1_SINGLE_L6000_W1640_2T_L14_exact_ends_and_single_route",
       "passed": true,
-      "xor_um2": 3.907335259713014e-11
+      "xor_um2": 3.9595375425785375e-11
     },
     {
       "name": "D1_SINGLE_L6000_W1640_2T_L15_exact_ends_and_single_route",
@@ -3717,24 +2985,6 @@
       "upper_um": 1.0001197007481313
     },
     {
-      "name": "D1_SINGLE_L6000_W1680_2T_input_L14_margin_60",
-      "passed": true,
-      "lower_um": 1.000367245657566,
-      "upper_um": 1.0003999999999997
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1680_2T_input_L14_margin_70",
-      "passed": true,
-      "lower_um": 1.00021951219512,
-      "upper_um": 1.0001515151515181
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1680_2T_input_L14_margin_75",
-      "passed": true,
-      "lower_um": 1.0000250569476088,
-      "upper_um": 1.0000250000000006
-    },
-    {
       "name": "D1_SINGLE_L6000_W1680_2T_output_L10_entrance",
       "passed": true,
       "x_um": 3045.0
@@ -3896,24 +3146,6 @@
       "upper_um": 1.0000996264009985
     },
     {
-      "name": "D1_SINGLE_L6000_W1680_2T_output_L14_margin_60",
-      "passed": true,
-      "lower_um": 1.0003999999999997,
-      "upper_um": 1.000367245657566
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1680_2T_output_L14_margin_70",
-      "passed": true,
-      "lower_um": 1.0001515151515181,
-      "upper_um": 1.00021951219512
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1680_2T_output_L14_margin_75",
-      "passed": true,
-      "lower_um": 1.0,
-      "upper_um": 1.0000250569476088
-    },
-    {
       "name": "D1_SINGLE_L6000_W1680_2T_L2_terminal_only",
       "passed": true,
       "xor_um2": 0.0
@@ -3950,7 +3182,7 @@
     {
       "name": "D1_SINGLE_L6000_W1680_2T_L14_exact_ends_and_single_route",
       "passed": true,
-      "xor_um2": 3.907335259713014e-11
+      "xor_um2": 3.9595375425785375e-11
     },
     {
       "name": "D1_SINGLE_L6000_W1680_2T_L15_exact_ends_and_single_route",
@@ -4169,24 +3401,6 @@
       "upper_um": 1.0001197007481313
     },
     {
-      "name": "D1_SINGLE_L6000_W1620_1T_OUT2000_input_L14_margin_60",
-      "passed": true,
-      "lower_um": 1.000367245657566,
-      "upper_um": 1.0003999999999997
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1620_1T_OUT2000_input_L14_margin_70",
-      "passed": true,
-      "lower_um": 1.00021951219512,
-      "upper_um": 1.0001515151515181
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1620_1T_OUT2000_input_L14_margin_75",
-      "passed": true,
-      "lower_um": 1.0000250569476088,
-      "upper_um": 1.0000250000000006
-    },
-    {
       "name": "D1_SINGLE_L6000_W1620_1T_OUT2000_L2_terminal_only",
       "passed": true,
       "xor_um2": 0.0
@@ -4223,7 +3437,7 @@
     {
       "name": "D1_SINGLE_L6000_W1620_1T_OUT2000_L14_exact_ends_and_single_route",
       "passed": true,
-      "xor_um2": 1.95363749200256e-11
+      "xor_um2": 1.979770463999911e-11
     },
     {
       "name": "D1_SINGLE_L6000_W1620_1T_OUT2000_L15_exact_ends_and_single_route",
@@ -4437,24 +3651,6 @@
       "upper_um": 1.0001197007481313
     },
     {
-      "name": "D1_SINGLE_L6000_W1640_1T_OUT2000_input_L14_margin_60",
-      "passed": true,
-      "lower_um": 1.000367245657566,
-      "upper_um": 1.0003999999999997
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1640_1T_OUT2000_input_L14_margin_70",
-      "passed": true,
-      "lower_um": 1.00021951219512,
-      "upper_um": 1.0001515151515181
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1640_1T_OUT2000_input_L14_margin_75",
-      "passed": true,
-      "lower_um": 1.0000250569476088,
-      "upper_um": 1.0000250000000006
-    },
-    {
       "name": "D1_SINGLE_L6000_W1640_1T_OUT2000_L2_terminal_only",
       "passed": true,
       "xor_um2": 0.0
@@ -4491,7 +3687,7 @@
     {
       "name": "D1_SINGLE_L6000_W1640_1T_OUT2000_L14_exact_ends_and_single_route",
       "passed": true,
-      "xor_um2": 1.95363749200256e-11
+      "xor_um2": 1.979770463999911e-11
     },
     {
       "name": "D1_SINGLE_L6000_W1640_1T_OUT2000_L15_exact_ends_and_single_route",
@@ -4705,24 +3901,6 @@
       "upper_um": 1.0001197007481313
     },
     {
-      "name": "D1_SINGLE_L6000_W1680_1T_OUT2000_input_L14_margin_60",
-      "passed": true,
-      "lower_um": 1.000367245657566,
-      "upper_um": 1.0003999999999997
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1680_1T_OUT2000_input_L14_margin_70",
-      "passed": true,
-      "lower_um": 1.00021951219512,
-      "upper_um": 1.0001515151515181
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1680_1T_OUT2000_input_L14_margin_75",
-      "passed": true,
-      "lower_um": 1.0000250569476088,
-      "upper_um": 1.0000250000000006
-    },
-    {
       "name": "D1_SINGLE_L6000_W1680_1T_OUT2000_L2_terminal_only",
       "passed": true,
       "xor_um2": 0.0
@@ -4759,7 +3937,7 @@
     {
       "name": "D1_SINGLE_L6000_W1680_1T_OUT2000_L14_exact_ends_and_single_route",
       "passed": true,
-      "xor_um2": 1.95363749200256e-11
+      "xor_um2": 1.979770463999911e-11
     },
     {
       "name": "D1_SINGLE_L6000_W1680_1T_OUT2000_L15_exact_ends_and_single_route",
@@ -10130,518 +9308,6 @@
       "name": "108_plain_beams",
       "passed": true,
       "count": 108
-    },
-    {
-      "name": "all_cells_preserved",
-      "passed": true
-    },
-    {
-      "name": "FRAME_AND_MARKERS_references_unchanged",
-      "passed": true
-    },
-    {
-      "name": "FRAME_AND_MARKERS_L10_raw_polygons_unchanged",
-      "passed": true
-    },
-    {
-      "name": "FRAME_AND_MARKERS_L15_raw_polygons_unchanged",
-      "passed": true
-    },
-    {
-      "name": "FRAME_AND_MARKERS_L0_raw_polygons_unchanged",
-      "passed": true
-    },
-    {
-      "name": "FRAME_AND_MARKERS_only_L11_added",
-      "passed": true
-    },
-    {
-      "name": "LABEL_D1_SINGLE_L6000_W1680_1T_OUT2000_references_unchanged",
-      "passed": true
-    },
-    {
-      "name": "LABEL_D1_SINGLE_L6000_W1680_1T_OUT2000_L2_raw_polygons_unchanged",
-      "passed": true
-    },
-    {
-      "name": "LABEL_D1_SINGLE_L6000_W1680_1T_OUT2000_only_L11_added",
-      "passed": true
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1680_1T_OUT2000_references_unchanged",
-      "passed": true
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1680_1T_OUT2000_L2_raw_polygons_unchanged",
-      "passed": true
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1680_1T_OUT2000_L10_raw_polygons_unchanged",
-      "passed": true
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1680_1T_OUT2000_L13_raw_polygons_unchanged",
-      "passed": true
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1680_1T_OUT2000_L14_raw_polygons_unchanged",
-      "passed": true
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1680_1T_OUT2000_L15_raw_polygons_unchanged",
-      "passed": true
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1680_1T_OUT2000_only_L11_added",
-      "passed": true
-    },
-    {
-      "name": "LABEL_D1_SINGLE_L6000_W1640_1T_OUT2000_references_unchanged",
-      "passed": true
-    },
-    {
-      "name": "LABEL_D1_SINGLE_L6000_W1640_1T_OUT2000_L2_raw_polygons_unchanged",
-      "passed": true
-    },
-    {
-      "name": "LABEL_D1_SINGLE_L6000_W1640_1T_OUT2000_only_L11_added",
-      "passed": true
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1640_1T_OUT2000_references_unchanged",
-      "passed": true
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1640_1T_OUT2000_L2_raw_polygons_unchanged",
-      "passed": true
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1640_1T_OUT2000_L10_raw_polygons_unchanged",
-      "passed": true
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1640_1T_OUT2000_L13_raw_polygons_unchanged",
-      "passed": true
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1640_1T_OUT2000_L14_raw_polygons_unchanged",
-      "passed": true
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1640_1T_OUT2000_L15_raw_polygons_unchanged",
-      "passed": true
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1640_1T_OUT2000_only_L11_added",
-      "passed": true
-    },
-    {
-      "name": "LABEL_D1_SINGLE_L6000_W1620_1T_OUT2000_references_unchanged",
-      "passed": true
-    },
-    {
-      "name": "LABEL_D1_SINGLE_L6000_W1620_1T_OUT2000_L2_raw_polygons_unchanged",
-      "passed": true
-    },
-    {
-      "name": "LABEL_D1_SINGLE_L6000_W1620_1T_OUT2000_only_L11_added",
-      "passed": true
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1620_1T_OUT2000_references_unchanged",
-      "passed": true
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1620_1T_OUT2000_L2_raw_polygons_unchanged",
-      "passed": true
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1620_1T_OUT2000_L10_raw_polygons_unchanged",
-      "passed": true
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1620_1T_OUT2000_L13_raw_polygons_unchanged",
-      "passed": true
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1620_1T_OUT2000_L14_raw_polygons_unchanged",
-      "passed": true
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1620_1T_OUT2000_L15_raw_polygons_unchanged",
-      "passed": true
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1620_1T_OUT2000_only_L11_added",
-      "passed": true
-    },
-    {
-      "name": "LABEL_D1_SINGLE_L6000_W1680_2T_references_unchanged",
-      "passed": true
-    },
-    {
-      "name": "LABEL_D1_SINGLE_L6000_W1680_2T_L2_raw_polygons_unchanged",
-      "passed": true
-    },
-    {
-      "name": "LABEL_D1_SINGLE_L6000_W1680_2T_only_L11_added",
-      "passed": true
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1680_2T_references_unchanged",
-      "passed": true
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1680_2T_L2_raw_polygons_unchanged",
-      "passed": true
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1680_2T_L10_raw_polygons_unchanged",
-      "passed": true
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1680_2T_L13_raw_polygons_unchanged",
-      "passed": true
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1680_2T_L14_raw_polygons_unchanged",
-      "passed": true
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1680_2T_L15_raw_polygons_unchanged",
-      "passed": true
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1680_2T_only_L11_added",
-      "passed": true
-    },
-    {
-      "name": "LABEL_D1_SINGLE_L6000_W1640_2T_references_unchanged",
-      "passed": true
-    },
-    {
-      "name": "LABEL_D1_SINGLE_L6000_W1640_2T_L2_raw_polygons_unchanged",
-      "passed": true
-    },
-    {
-      "name": "LABEL_D1_SINGLE_L6000_W1640_2T_only_L11_added",
-      "passed": true
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1640_2T_references_unchanged",
-      "passed": true
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1640_2T_L2_raw_polygons_unchanged",
-      "passed": true
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1640_2T_L10_raw_polygons_unchanged",
-      "passed": true
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1640_2T_L13_raw_polygons_unchanged",
-      "passed": true
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1640_2T_L14_raw_polygons_unchanged",
-      "passed": true
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1640_2T_L15_raw_polygons_unchanged",
-      "passed": true
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1640_2T_only_L11_added",
-      "passed": true
-    },
-    {
-      "name": "LABEL_D1_SINGLE_L6000_W1620_2T_references_unchanged",
-      "passed": true
-    },
-    {
-      "name": "LABEL_D1_SINGLE_L6000_W1620_2T_L2_raw_polygons_unchanged",
-      "passed": true
-    },
-    {
-      "name": "LABEL_D1_SINGLE_L6000_W1620_2T_only_L11_added",
-      "passed": true
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1620_2T_references_unchanged",
-      "passed": true
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1620_2T_L2_raw_polygons_unchanged",
-      "passed": true
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1620_2T_L10_raw_polygons_unchanged",
-      "passed": true
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1620_2T_L13_raw_polygons_unchanged",
-      "passed": true
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1620_2T_L14_raw_polygons_unchanged",
-      "passed": true
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1620_2T_L15_raw_polygons_unchanged",
-      "passed": true
-    },
-    {
-      "name": "D1_SINGLE_L6000_W1620_2T_only_L11_added",
-      "passed": true
-    },
-    {
-      "name": "LABEL_D1_L6000_W1680_P10_OUT2000_references_unchanged",
-      "passed": true
-    },
-    {
-      "name": "LABEL_D1_L6000_W1680_P10_OUT2000_L2_raw_polygons_unchanged",
-      "passed": true
-    },
-    {
-      "name": "LABEL_D1_L6000_W1680_P10_OUT2000_only_L11_added",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1680_P10_OUT2000_references_unchanged",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1680_P10_OUT2000_L2_raw_polygons_unchanged",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1680_P10_OUT2000_L10_raw_polygons_unchanged",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1680_P10_OUT2000_L13_raw_polygons_unchanged",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1680_P10_OUT2000_L14_raw_polygons_unchanged",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1680_P10_OUT2000_L15_raw_polygons_unchanged",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1680_P10_OUT2000_only_L11_added",
-      "passed": true
-    },
-    {
-      "name": "LABEL_D1_L6000_W1640_P10_OUT2000_references_unchanged",
-      "passed": true
-    },
-    {
-      "name": "LABEL_D1_L6000_W1640_P10_OUT2000_L2_raw_polygons_unchanged",
-      "passed": true
-    },
-    {
-      "name": "LABEL_D1_L6000_W1640_P10_OUT2000_only_L11_added",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1640_P10_OUT2000_references_unchanged",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1640_P10_OUT2000_L2_raw_polygons_unchanged",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1640_P10_OUT2000_L10_raw_polygons_unchanged",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1640_P10_OUT2000_L13_raw_polygons_unchanged",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1640_P10_OUT2000_L14_raw_polygons_unchanged",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1640_P10_OUT2000_L15_raw_polygons_unchanged",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1640_P10_OUT2000_only_L11_added",
-      "passed": true
-    },
-    {
-      "name": "LABEL_D1_L6000_W1620_P10_OUT2000_references_unchanged",
-      "passed": true
-    },
-    {
-      "name": "LABEL_D1_L6000_W1620_P10_OUT2000_L2_raw_polygons_unchanged",
-      "passed": true
-    },
-    {
-      "name": "LABEL_D1_L6000_W1620_P10_OUT2000_only_L11_added",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1620_P10_OUT2000_references_unchanged",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1620_P10_OUT2000_L2_raw_polygons_unchanged",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1620_P10_OUT2000_L10_raw_polygons_unchanged",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1620_P10_OUT2000_L13_raw_polygons_unchanged",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1620_P10_OUT2000_L14_raw_polygons_unchanged",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1620_P10_OUT2000_L15_raw_polygons_unchanged",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1620_P10_OUT2000_only_L11_added",
-      "passed": true
-    },
-    {
-      "name": "LABEL_D1_L6000_W1680_P10_references_unchanged",
-      "passed": true
-    },
-    {
-      "name": "LABEL_D1_L6000_W1680_P10_L2_raw_polygons_unchanged",
-      "passed": true
-    },
-    {
-      "name": "LABEL_D1_L6000_W1680_P10_only_L11_added",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1680_P10_references_unchanged",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1680_P10_L2_raw_polygons_unchanged",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1680_P10_L10_raw_polygons_unchanged",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1680_P10_L13_raw_polygons_unchanged",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1680_P10_L14_raw_polygons_unchanged",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1680_P10_L15_raw_polygons_unchanged",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1680_P10_only_L11_added",
-      "passed": true
-    },
-    {
-      "name": "LABEL_D1_L6000_W1640_P10_references_unchanged",
-      "passed": true
-    },
-    {
-      "name": "LABEL_D1_L6000_W1640_P10_L2_raw_polygons_unchanged",
-      "passed": true
-    },
-    {
-      "name": "LABEL_D1_L6000_W1640_P10_only_L11_added",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1640_P10_references_unchanged",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1640_P10_L2_raw_polygons_unchanged",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1640_P10_L10_raw_polygons_unchanged",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1640_P10_L13_raw_polygons_unchanged",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1640_P10_L14_raw_polygons_unchanged",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1640_P10_L15_raw_polygons_unchanged",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1640_P10_only_L11_added",
-      "passed": true
-    },
-    {
-      "name": "LABEL_D1_L6000_W1620_P10_references_unchanged",
-      "passed": true
-    },
-    {
-      "name": "LABEL_D1_L6000_W1620_P10_L2_raw_polygons_unchanged",
-      "passed": true
-    },
-    {
-      "name": "LABEL_D1_L6000_W1620_P10_only_L11_added",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1620_P10_references_unchanged",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1620_P10_L2_raw_polygons_unchanged",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1620_P10_L10_raw_polygons_unchanged",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1620_P10_L13_raw_polygons_unchanged",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1620_P10_L14_raw_polygons_unchanged",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1620_P10_L15_raw_polygons_unchanged",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1620_P10_only_L11_added",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_STRAIGHT_OUT_COMPARISON_references_unchanged",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_STRAIGHT_OUT_COMPARISON_only_L11_added",
-      "passed": true
     }
   ],
   "measured_entrances": [
@@ -10948,13 +9614,8 @@
   },
   "layer2_outward_offset_um": 0.5,
   "layer14_outward_offset_um": 0.0,
-  "baseline_compared": true,
-  "gds_sha256": "51cc8a71b03bb7b966a18c39e6616f25e95669338e1aeceb04e125300a9d365b",
+  "baseline_compared": false,
+  "gds_sha256": "f63d6c40c5bbf872dd7774ef70b7ed315a473ed0fa3e2f0bc1d2b99afa677baf",
   "method": "Independent raw GDSII parser and Shapely; no CAD generator or KLayout",
-  "optical_or_mechanical_simulation_performed": false,
-  "base_commit": "1681853199a75cb805b49080b5bde4a0bbb8ff9d",
-  "protected_unrelated_file_count": 109,
-  "unrelated_files_unchanged": true,
-  "negative_control_rejected": true,
-  "generation_run_id": 42511892744
+  "optical_or_mechanical_simulation_performed": false
 }
