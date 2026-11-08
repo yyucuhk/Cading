@@ -1,0 +1,84 @@
+name: Verify two-coupler terminal windows
+on:
+  push:
+    branches: [layout/2611-L6000-two-coupler-end-windows]
+    paths: [.github/workflows/verify_2611_two_coupler_windows.yml]
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Preserve comparison and hash every existing file
+        run: |
+          mkdir -p validation_2611_two_coupler_windows/baseline
+          cp gds/2611_design1_L6000_P10_straight_output_comparison.gds validation_2611_two_coupler_windows/baseline/comparison.gds
+          python - <<'PY'
+          import hashlib,json,subprocess
+          from pathlib import Path
+          paths=subprocess.check_output(['git','ls-tree','-r','--name-only','f211d6cac8437495e961864e0d8ee604c7b0ccdc'],text=True).splitlines()
+          Path('validation_2611_two_coupler_windows/protected_hashes.json').write_text(json.dumps({p:hashlib.sha256(Path(p).read_bytes()).hexdigest() for p in paths},indent=2))
+          PY
+      - name: Apply only selective export-layer changes
+        run: |
+          python patch_2611_two_coupler_windows_once.py
+          python -m py_compile 2611_design1_L6000_straight_output.py validate_2611_straight_output_raw.py validate_2611_two_coupler_windows.py
+      - name: Install approved long-layout engine
+        run: python -m pip install gdsfactory==9.45.0 klayout==0.30.13
+      - name: Regenerate comparison without altering the original source GDS
+        run: python 2611_design1_L6000_straight_output.py
+      - name: Audit actual polygons and unchanged straight-output variants
+        run: |
+          python validate_2611_straight_output_raw.py
+          cp validation_2611_straight_output/raw_gds_audit.json gds/2611_straight_output_raw_validation.json
+          python validate_2611_two_coupler_windows.py --baseline validation_2611_two_coupler_windows/baseline/comparison.gds --render
+      - name: Verify scope and record final hashes
+        run: |
+          python - <<'PY'
+          import hashlib,json
+          from pathlib import Path
+          allowed={'2611_design1_L6000_straight_output.py','DESIGN1_STRAIGHT_OUTPUT_README.txt','validate_2611_straight_output_raw.py','gds/2611_design1_L6000_P10_straight_output_comparison.gds','gds/2611_design1_L6000_P10_straight_output_comparison.json','gds/2611_layer_cleanup_validation.json','gds/2611_straight_output_raw_validation.json'}
+          old=json.loads(Path('validation_2611_two_coupler_windows/protected_hashes.json').read_text())
+          unexpected=[p for p,h in old.items() if p not in allowed and hashlib.sha256(Path(p).read_bytes()).hexdigest()!=h]
+          assert not unexpected,unexpected
+          p=Path('gds/2611_two_coupler_windows_validation.json');r=json.loads(p.read_text())
+          r['base_commit']='f211d6cac8437495e961864e0d8ee604c7b0ccdc'
+          r['protected_unrelated_file_count']=sum(p not in allowed for p in old)
+          r['unrelated_files_unchanged']=True
+          p.write_text(json.dumps(r,indent=2))
+          print('PASS: all unrelated original files unchanged; final GDS',r['gds_sha256'])
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: 2611-L6000-two-coupler-end-windows
+          path: |
+            2611_design1_L6000_straight_output.py
+            2611_design1_L6000_P10_width_sweep.py
+            2611_tapered_yue_dual_resist.py
+            DESIGN1_STRAIGHT_OUTPUT_README.txt
+            validate_2611_two_coupler_windows.py
+            validate_2611_straight_output_raw.py
+            gds/2611_design1_L6000_P10_straight_output_comparison.*
+            gds/2611_design1_L6000_P10_width_sweep.*
+            gds/2611_two_coupler_windows_validation.json
+            gds/2611_straight_output_raw_validation.json
+            gds/2611_layer_cleanup_validation.json
+            validation_2611_two_coupler_windows/
+            validation_2611_straight_output/*.png
+          if-no-files-found: error
+      - name: Save validated source and output and remove one-use workflow
+        run: |
+          git config user.name "chatgpt-runner"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add 2611_design1_L6000_straight_output.py DESIGN1_STRAIGHT_OUTPUT_README.txt validate_2611_straight_output_raw.py validate_2611_two_coupler_windows.py gds/2611_design1_L6000_P10_straight_output_comparison.gds gds/2611_design1_L6000_P10_straight_output_comparison.json gds/2611_layer_cleanup_validation.json gds/2611_straight_output_raw_validation.json gds/2611_two_coupler_windows_validation.json
+          git rm patch_2611_two_coupler_windows_once.py .github/workflows/verify_2611_two_coupler_windows.yml
+          git commit -m "Remove two-coupler PNC layer and retain only terminal L14 windows"
+          git push
