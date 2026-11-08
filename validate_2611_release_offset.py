@@ -1,8 +1,8 @@
-"""Measure both 1 um release margins and the 10 um longitudinal mask setback.
+"""Measure both 1 um release margins and exact L2/L14/L10 start alignment.
 
 Reads actual GDSII polygons through the independent raw parser, not the CAD
 builder. Optional --baseline additionally verifies exact preservation of all
-non-mask layers, labels, markers, transforms, and the remaining Layer14 shape.
+non-mask layers, labels, markers, transforms, and mask shapes beyond the former setback.
 """
 from __future__ import annotations
 import argparse
@@ -14,7 +14,8 @@ from shapely.affinity import scale
 from validate_2611_straight_output_raw import read, union
 
 STEM = '2611_design1_L6000_P10_straight_output_comparison'
-OFFSET = 10.0
+OFFSET = 0.0
+PREVIOUS_OFFSET = 10.0  # baseline from the superseded setback revision
 MARGIN = 1.0
 
 
@@ -63,6 +64,7 @@ def validate(root: Path, baseline: Path | None = None) -> dict:
         check(name+'_correct_remaining_device_layers', set(cell['polys'])=={2,10,13,14,15})
         ends = [('input',-1,200)] + ([] if variant else [('output',1,-200)])
         keep = Polygon()
+        previous_keep = Polygon()
         end_boxes = []
         for side, sign, y in ends:
             key = name+'_'+side
@@ -75,24 +77,41 @@ def validate(root: Path, baseline: Path | None = None) -> dict:
             end = box(-20000,25,start,20000) if sign<0 else box(start,-20000,20000,-25)
             end_boxes.append(end)
             keep = keep.union(end)
+            previous_start = sx + sign*PREVIOUS_OFFSET
+            previous_end = (box(-20000,25,previous_start,20000) if sign<0
+                            else box(previous_start,-20000,20000,-25))
+            previous_keep = previous_keep.union(previous_end)
             margins = {2:[],14:[]}
             for layer in (2,14):
                 region = rs[layer].intersection(end)
                 check(key+f'_L{layer}_terminal_window_present', not region.is_empty)
                 edge = region.bounds[2] if sign<0 else region.bounds[0]
-                check(key+f'_L{layer}_exact_10um_start', abs(edge-start)<1e-9,
+                check(key+f'_L{layer}_starts_exactly_at_L10', abs(edge-start)<1e-9,
                       l10_entrance_um=sx, mask_start_um=edge, setback_um=abs(edge-sx))
-                lead = box(min(sx,start)+.001,y-20,max(sx,start)-.001,y+20)
-                check(key+f'_L{layer}_no_mask_in_first10um', rs[layer].intersection(lead).area<1e-9)
-                for distance in (10.1,15,20,30,35,39):
+                ahead = sx-sign*10
+                upstream = box(min(sx,ahead)+.001,y-20,max(sx,ahead)-.001,y+20)
+                check(key+f'_L{layer}_no_mask_before_L10', rs[layer].intersection(upstream).area<1e-9)
+                for distance in (.001,.1,1,5,9.9,10.1,15,20,30,35,39):
                     x = sx+sign*distance
                     cut = rs[layer].intersection(LineString([(x,y-20),(x,y+20)]))
                     u = distance/40
                     f = 6*u**5-15*u**4+10*u**3
                     expected = 7.596*(1-f)+1.5*f
+                    # Layer 2 intentionally retains two side bands before the
+                    # existing 0.5 um delayed slab copy. Test the OUTER envelope
+                    # and this original center gap; do not fill it to pass a test.
+                    split = layer == 2 and distance < .5
+                    kind = 'MultiLineString' if split else 'LineString'
+                    halfwidth = (cut.bounds[3]-cut.bounds[1])/2
                     check(key+f'_L{layer}_smooth_first_stage_{distance}',
-                          cut.geom_type=='LineString' and abs(cut.length/2-expected)<.0021,
-                          measured_halfwidth_um=cut.length/2, expected_halfwidth_um=expected)
+                          cut.geom_type==kind and abs(halfwidth-expected)<.0021,
+                          measured_halfwidth_um=halfwidth, expected_halfwidth_um=expected)
+                    if split:
+                        spans=sorted((g.bounds[1],g.bounds[3]) for g in cut.geoms)
+                        gap=spans[1][0]-spans[0][1]
+                        check(key+f'_L2_original_entrance_gap_{distance}',
+                              len(spans)==2 and abs(gap-5*(1-f))<.0021,
+                              gap_um=gap, expected_gap_um=5*(1-f))
                 for distance in (50,60,70,75):
                     x = sx+sign*distance
                     line = LineString([(x,y-20),(x,y+20)])
@@ -122,13 +141,15 @@ def validate(root: Path, baseline: Path | None = None) -> dict:
             check(name+f'_L{layer}_no_mask_elsewhere', rs[layer].difference(keep).area<1e-6)
             if old:
                 before = union(old[name],layer)
-                check(name+f'_L{layer}_only_reduced',rs[layer].difference(before).area<1e-6)
-                if layer==14:
-                    exact(name+'_L14_only10um_setback_no_other_change',rs[14],before.intersection(keep))
-                else:
-                    check(name+'_L2_expansion_reduced_not_just_cropped',
-                          before.intersection(keep).area-rs[2].area>100,
-                          removed_after_crop_um2=before.intersection(keep).area-rs[2].area)
+                exact(name+f'_L{layer}_existing_mask_not_removed',before.difference(rs[layer]),Polygon())
+                exact(name+f'_L{layer}_downstream_of_former10um_start_unchanged',
+                      rs[layer].intersection(previous_keep),before)
+                added = rs[layer].difference(before)
+                restored_zone = keep.difference(previous_keep)
+                exact(name+f'_L{layer}_additions_only_in_restored_first10um',
+                      added.difference(restored_zone),Polygon())
+                check(name+f'_L{layer}_former_setback_restored',added.area>1,
+                      restored_area_um2=added.area)
         for y in (-200,0,200):
             length = rs[15].intersection(LineString([(0,y-4),(0,y+4)])).length
             check(name+f'_ridge_width_{y}',abs(length-width)<1e-8,width_um=length)
@@ -152,14 +173,14 @@ def validate(root: Path, baseline: Path | None = None) -> dict:
     check('all_nine_retained_windows_measured',len(measured)==9)
     report = dict(status='PASS',check_count=len(checks),checks=checks,measurements=measured,
         device_count=6,retained_coupler_windows=9,layer2_margin_um=MARGIN,layer14_margin_um=MARGIN,
-        release_start_offset_um=OFFSET,offset_reference='Outward along taper from actual Layer10 entrance',
+        release_start_offset_um=OFFSET,offset_reference='Zero: both masks start exactly at actual Layer10 entrance',
         removed_layers=[11,16,51],baseline_comparison_performed=bool(old),
         baseline_sha256=hashlib.sha256(baseline.read_bytes()).hexdigest() if baseline else None,
         gds_sha256=hashlib.sha256(path.read_bytes()).hexdigest(),
         method='Independent raw GDSII polygons and Shapely; no CAD builder or KLayout import',
         optical_or_mechanical_simulation_performed=False)
     (root/'gds/2611_release_offset_validation.json').write_text(json.dumps(report,indent=2))
-    print('PASS',len(checks),'independent mask-margin and setback checks')
+    print('PASS',len(checks),'independent mask-margin and common-start checks')
     return report
 
 
@@ -184,11 +205,10 @@ def render(root: Path):
                     x,z=ring.xy;xs+=list(x)+[float('nan')];ys+=list(z)+[float('nan')]
             if xs:ax.plot(xs,ys,style,label=f'Layer {layer}',linewidth=1.2)
         ax.axvline(sx,linestyle='--',linewidth=.6)
-        ax.axvline(sx+sign*10,linestyle=':',linewidth=.6)
-        ax.annotate('10 um mask setback',xy=(sx+sign*5,y+8),xytext=(sx+sign*45,y+8),
+        ax.annotate('L2 / L14 / L10 common start',xy=(sx,y+6),xytext=(sx+sign*45,y+8),
                     arrowprops={'arrowstyle':'->'},fontsize=10)
         ax.set(xlim=(bounds[0],bounds[2]),ylim=(bounds[1],bounds[3]),xlabel='Local X (um)',ylabel='Local Y (um)',
-               title='Both release masks: 1 um expansion; start 10 um after Layer 10 begins')
+               title='Both release masks: 1 um expansion; start aligned with Layer 10')
         ax.legend(loc='lower right');fig.tight_layout();fig.savefig(dest/(name+'.png'),dpi=180);plt.close(fig)
 
 
