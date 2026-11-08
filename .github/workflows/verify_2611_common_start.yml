@@ -1,0 +1,101 @@
+name: Verify release masks start with Layer 10
+on:
+  push:
+    branches: [layout/2611-L6000-release-common-start]
+    paths: [.github/workflows/verify_2611_common_start.yml]
+jobs:
+  verify:
+    if: github.event.head_commit.message == 'Build zero-setback release windows aligned with Layer 10'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Preserve approved comparison and all unrelated files
+        run: |
+          git fetch origin 1683db53f6184134710859ce3375e5f77573ed80 --depth=1
+          mkdir -p baseline
+          cp gds/2611_design1_L6000_P10_straight_output_comparison.gds baseline/comparison.gds
+          python - <<'PY'
+          import subprocess, hashlib, json
+          from pathlib import Path
+          base='1683db53f6184134710859ce3375e5f77573ed80'
+          mutable={'2611_design1_L6000_straight_output.py','DESIGN1_STRAIGHT_OUTPUT_README.txt','validate_2611_release_offset.py','gds/2611_design1_L6000_P10_straight_output_comparison.gds','gds/2611_design1_L6000_P10_straight_output_comparison.json','gds/2611_release_offset_validation.json'}
+          paths=subprocess.check_output(['git','ls-tree','-r','--name-only',base],text=True).splitlines()
+          protected={p:hashlib.sha256(Path(p).read_bytes()).hexdigest() for p in paths if p not in mutable}
+          Path('baseline/protected.json').write_text(json.dumps(protected))
+          assert hashlib.sha256(Path('baseline/comparison.gds').read_bytes()).hexdigest()=='7c3cff27b8f008cba37179ac0ebe861457e1c2e46f628c1ec672f1879f660bee'
+          PY
+      - name: Set shared start offset to zero and update independent expectations
+        run: python _apply_2611_common_start.py
+      - name: Install approved long-layout geometry engine
+        run: python -m pip install gdsfactory==9.45.0 klayout==0.30.13 numpy==2.4.6 shapely matplotlib
+      - name: Regenerate all six devices with aligned release-window starts
+        run: python 2611_design1_L6000_straight_output.py
+      - name: Measure all nine starts and compare exact downstream geometry
+        run: python validate_2611_release_offset.py --baseline baseline/comparison.gds --render
+      - name: Reject the previous setback layout and verify protected-file hashes
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib, json, shutil, tempfile
+          from validate_2611_release_offset import validate, STEM
+          with tempfile.TemporaryDirectory() as temp:
+              root=Path(temp);(root/'gds').mkdir()
+              shutil.copy2('baseline/comparison.gds',root/'gds'/(STEM+'.gds'))
+              try:
+                  validate(root)
+              except AssertionError as exc:
+                  assert 'starts_exactly_at_L10' in str(exc), str(exc)
+              else:
+                  raise AssertionError('Negative control incorrectly accepted old setback layout')
+          protected=json.loads(Path('baseline/protected.json').read_text())
+          assert all(hashlib.sha256(Path(p).read_bytes()).hexdigest()==h for p,h in protected.items())
+          report=Path('gds/2611_release_offset_validation.json')
+          data=json.loads(report.read_text())
+          data.update(base_commit='1683db53f6184134710859ce3375e5f77573ed80',
+                      protected_unrelated_file_count=len(protected),unrelated_files_unchanged=True,
+                      negative_control_rejects_previous_10um_setback=True,
+                      builder_numeric_change='RELEASE_WINDOW_START_OFFSET: 10.0 to 0.0; both margins remain 1.0')
+          report.write_text(json.dumps(data,indent=2))
+          print('PASS: old setback rejected;',len(protected),'unrelated files unchanged')
+          PY
+      - name: Upload updated code GDS and measured previews
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: 2611-L6000-common-start-release
+          path: |
+            2611_design1_L6000_straight_output.py
+            2611_design1_L6000_P10_width_sweep.py
+            2611_tapered_yue_dual_resist.py
+            DESIGN1_STRAIGHT_OUTPUT_README.txt
+            validate_2611_release_offset.py
+            validate_2611_straight_output_raw.py
+            validate_2611_coupler_release.py
+            validate_2611_two_coupler_windows.py
+            layers.py
+            markers.py
+            phononics.py
+            routing.py
+            tapered_local.py
+            tether_variants.py
+            tether_variants.gds
+            text.py
+            gds/2611_design1_L6000_P10_straight_output_comparison.*
+            gds/2611_design1_L6000_P10_width_sweep.*
+            gds/2611_release_offset_validation.json
+            validation_2611_release_offset/*.png
+            validation_2611_straight_output/*.png
+      - name: Commit only passing changes and remove temporary runner
+        run: |
+          git config user.name 'chatgpt-runner'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add 2611_design1_L6000_straight_output.py DESIGN1_STRAIGHT_OUTPUT_README.txt validate_2611_release_offset.py gds/2611_design1_L6000_P10_straight_output_comparison.gds gds/2611_design1_L6000_P10_straight_output_comparison.json gds/2611_release_offset_validation.json
+          git rm _apply_2611_common_start.py .github/workflows/verify_2611_common_start.yml
+          git commit -m 'Align Layer 2 and Layer 14 release starts exactly with Layer 10'
+          git push
