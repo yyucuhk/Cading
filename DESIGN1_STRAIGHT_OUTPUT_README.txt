@@ -1,46 +1,34 @@
-DESIGN 1 L6000: CURRENT SIX-DEVICE COMPARISON
-=============================================
-Run: python 2611_design1_L6000_straight_output.py
+CURRENT SIX-DEVICE L6000 COMPARISON
+
+Run from the existing Cading folder:
+    python 2611_design1_L6000_straight_output.py
+
+Section 01 controls:
+    LAYER2_WINDOW_MARGIN = 1.0
+    LAYER14_WINDOW_MARGIN = 1.0
+    RELEASE_WINDOW_START_OFFSET = 10.0
+
+Margin settings are in um per side. Both use the original smooth first-stage
+mask blend and 1 um expansion on the downstream narrow taper. This does not
+replace the entire first-stage opening with a constant offset.
+The 10 um offset is measured OUTWARD along the taper from its Layer10 entrance.
+It does not move or shorten Layer10 or Layer15. The first 10 um has no L2/L14 mask.
+Local starts: -3055 um (input), +3055 um (output).
+Global starts: -812.847 um and +5297.153 um, respectively.
+
+Applies to both sets: six devices and nine coupler windows. Two windows are kept
+on each two-coupler device; only the input window on each straight-output device.
+The 2000 um straight outputs remain unchanged and have no release windows.
+Long channels and pads keep their original definitions. Optical profiles, widths,
+alignment tips, all six labels, device origins and 600 um Y pitch are unchanged.
+Layers 11/16/51 remain absent; global markers remain on L15; labels stay on L2.
+P10 in labels is a historical identifier, not an exported PNC pattern.
+
 Output: gds/2611_design1_L6000_P10_straight_output_comparison.gds
+Audit: python validate_2611_release_offset.py --baseline PREVIOUS.gds --render
+Current report: gds/2611_release_offset_validation.json
 
-Bottom three: two couplers, ridge widths 1.62 / 1.64 / 1.68 um.
-Top three: tapered input and 2000 um constant-width straight output.
-Each meander straight is 6000 um. Y pitch stays 600 um. All placements,
-optical tapers, waveguides, support islands and alignment tips are retained.
-
-CURRENT FINAL-EXPORT POLICY (BOTH SETS)
-Layers 11, 16 and 51 are removed, every datatype in every cell.
-Both Layer 2 and Layer 14 release masks begin at the actual Layer-10
-entrance and extend outward through the existing terminal assemblies.
-Two-coupler devices retain two windows; straight-output devices retain
-only their tapered input window. No mask remains along the meander,
-preceding transition, bends, or taper-free 2000 um output extension.
-The straight output ridge itself is unchanged on Layer 15.
-
-Layer 14 ONLY uses LAYER14_WINDOW_MARGIN = 1.0 um, instead of 3.0.
-It is rebuilt using the original smooth mask construction with an
-isolated margin setting. The broad first-stage entrance still joins
-the inherited band and narrows smoothly into the 1 um-expanded taper.
-Long channel and pad definitions are unchanged. Intersection with the
-approved mask prevents any widening. Layer 2 is only cropped, not
-resized. Its surviving terminal polygons are unchanged.
-
-Labels remain on Layer 2, global alignment markers on Layer 15,
-and Layer-10 markers and the frame remain unchanged. P10 in the
-preserved labels is a legacy identifier; there are no exported PNCs.
-Controls are in Section 01. Intermediate worker masks still contain
-construction layers for baseline checks; only the final GDS is the
-deliverable. Existing standalone designs, 18-device sweep and the
-original three-device source GDS are NOT modified.
-
-Current independent audit:
-python validate_2611_coupler_release.py --render
-Add --baseline PATH for before/after preservation checks.
-Report: gds/2611_coupler_release_validation.json
-Old raw/two-coupler validator entrypoints delegate to this audit.
-Geometry checks do not establish optical loss, mechanical stability,
-or full fabrication-rule compliance.
-
-Engine: Python 3.11, gdsfactory 9.45.0, KLayout 0.30.13, NumPy 2.4.6.
-Keep the source width-sweep GDS/manifest, two source builders, local
-support modules and tether_variants.gds in the Cading directory.
+The source GDS, standalone designs and 18-device sweep are not modified.
+Keep supporting modules, source GDS and its manifest in the existing Cading folder.
+Engine: gdsfactory 9.45.0, KLayout 0.30.13, kfactory 2.6.1, NumPy 2.4.6.
+Geometry checks are not optical/mechanical simulation or full fabrication DRC.
