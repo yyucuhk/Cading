@@ -1,3 +1,20 @@
+# Current revision: original full-length taper profiles
+
+The original quintic smootherstep construction is restored. The PNC envelope
+is 15 -> 5 um over the full 45 um; no truncation at 31.379 um and no
+nonzero-slope Hermite matching remains. Design 1 then uses 5 -> 1 -> 0.2 um.
+Design 2 retains 5 -> 1.65 -> 0.980 -> 0.200 um. Existing post-PNC stage
+lengths and ratios are unchanged. Both sides of the 5 um join have zero
+first and second width derivatives. The final five 1 um reinforcement
+periods occupy stations 40,41,42,43,44,45 um. The downstream assemblies
+move outward by 13.621373653 um relative to the truncated version.
+Meanders, PNC pitches outside the transition, widths, labels and device
+origins are otherwise retained. See ORIGINAL_TAPER_PROFILE_README.txt
+and gds/2611_original_profile_validation.json for current verification.
+Optical loss has not been simulated for these revised widths.
+
+---
+
 > CURRENT REVISION: PNC terminates at 5 um width, at 31.378626347 um on the reference profile. See `PNC5UM_README.txt` and `validate_2611_pnc5um.py`. Earlier 45 um active-length / 3 um cutoff descriptions below are historical.
 
 # Separate Design 1: 6000 um straight sections, 10 um PNCs, three ridge widths

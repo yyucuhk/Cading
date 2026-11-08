@@ -3,8 +3,8 @@
 All dimensions are um. Each of THREE meander straights is 6000 um.
 Layer 15 optical ridge widths: 1.62, 1.64, 1.68. Both meander straight
 and bend PNC pitches are 10 um. Existing Design-1 tapers are preserved:
-L10 5 -> 1 -> 0.2 over 40/40; L15 W -> 0.1 over 40 after the shortened PNC.
-The PNC ends at the 5 um width point of the original 45 um reference profile.
+L10 5 -> 1 -> 0.2 over 40/40; L15 W -> 0.1 over 40 after the full 45 um PNC transition.
+The PNC uses the original full-length 45 um quintic, now narrowing 15 -> 5 um.
 This builder does not rewrite the source or the other GDS outputs.
 
 Bend pitch is exact CENTERLINE ARC-LENGTH pitch between interior PNC pairs.
@@ -291,7 +291,7 @@ def worker(width):
             check(checks, f'end{side}_L{layer}_x{x:g}_taper_width', section.count()==1 and abs(measured-w)<.0041,
                   measured_width_um=measured, expected_width_um=w)
     check(checks, 'taper_PNC_stops_at_5um_and_matches_straight',
-          0 < m.PNC_TAPER_LENGTH < m.PNC_TAPER_TRANSITION_LENGTH and
+          m.PNC_TAPER_LENGTH == m.PNC_TAPER_TRANSITION_LENGTH == 45.0 and
           m.PNC_TAPER_SUPPORT_CUTOFF_WIDTH == 5.0 and
           m.REVIEW_SUPPORT_ANCHOR_PERIOD == STRAIGHT_PNC_PERIOD)
     check(checks, 'Design1_taper_lengths_preserved', m.RIDGE_TAPER_LENGTH==40 and m.SLAB_TAPER_LENGTH==40)
@@ -313,7 +313,8 @@ def worker(width):
                 pnc_taper_length_um=float(m.PNC_TAPER_LENGTH),
                 pnc_cutoff_width_um=float(m.PNC_TAPER_SUPPORT_CUTOFF_WIDTH),
                 pnc_junction_continuity="C2",
-                pnc_junction_width_derivatives=list(m.pnc_endpoint_width_derivatives()),
+                taper_profile="original_quintic_smootherstep",
+                pnc_junction_width_derivatives=[0.0, 0.0],
                 optical_adiabaticity_simulated=False,
                 pnc_reference_profile_length_um=float(m.PNC_TAPER_TRANSITION_LENGTH),
                 connection_pnc_pitch_um=float(m.PNC_CONNECTION_PITCH),

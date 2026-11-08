@@ -46,7 +46,7 @@
     {
       "name": "D1_01_B2_T80_L2_both_complete_ends_symmetric",
       "passed": true,
-      "xor_um2": 0.000104
+      "xor_um2": 0.000153
     },
     {
       "name": "D1_01_B2_T80_L10_both_complete_ends_symmetric",
@@ -66,7 +66,7 @@
     {
       "name": "D1_01_B2_T80_L14_both_complete_ends_symmetric",
       "passed": true,
-      "xor_um2": 0.0
+      "xor_um2": 0.00015
     },
     {
       "name": "D1_01_B2_T80_L15_both_complete_ends_symmetric",
@@ -181,7 +181,7 @@
     {
       "name": "D1_02_B2_T100_L2_both_complete_ends_symmetric",
       "passed": true,
-      "xor_um2": 7e-06
+      "xor_um2": 1.8999999999999998e-05
     },
     {
       "name": "D1_02_B2_T100_L10_both_complete_ends_symmetric",
@@ -316,7 +316,7 @@
     {
       "name": "D1_03_B2_T120_L2_both_complete_ends_symmetric",
       "passed": true,
-      "xor_um2": 7e-06
+      "xor_um2": 0.0
     },
     {
       "name": "D1_03_B2_T120_L10_both_complete_ends_symmetric",
@@ -451,7 +451,7 @@
     {
       "name": "D1_04_B3_T80_L2_both_complete_ends_symmetric",
       "passed": true,
-      "xor_um2": 0.000104
+      "xor_um2": 0.000153
     },
     {
       "name": "D1_04_B3_T80_L10_both_complete_ends_symmetric",
@@ -471,7 +471,7 @@
     {
       "name": "D1_04_B3_T80_L14_both_complete_ends_symmetric",
       "passed": true,
-      "xor_um2": 0.0
+      "xor_um2": 0.00015
     },
     {
       "name": "D1_04_B3_T80_L15_both_complete_ends_symmetric",
@@ -586,7 +586,7 @@
     {
       "name": "D1_05_B3_T100_L2_both_complete_ends_symmetric",
       "passed": true,
-      "xor_um2": 7e-06
+      "xor_um2": 1.8999999999999998e-05
     },
     {
       "name": "D1_05_B3_T100_L10_both_complete_ends_symmetric",
@@ -721,7 +721,7 @@
     {
       "name": "D1_06_B3_T120_L2_both_complete_ends_symmetric",
       "passed": true,
-      "xor_um2": 7e-06
+      "xor_um2": 0.0
     },
     {
       "name": "D1_06_B3_T120_L10_both_complete_ends_symmetric",
@@ -856,7 +856,7 @@
     {
       "name": "D1_07_B5_T80_L2_both_complete_ends_symmetric",
       "passed": true,
-      "xor_um2": 0.000104
+      "xor_um2": 0.000153
     },
     {
       "name": "D1_07_B5_T80_L10_both_complete_ends_symmetric",
@@ -876,7 +876,7 @@
     {
       "name": "D1_07_B5_T80_L14_both_complete_ends_symmetric",
       "passed": true,
-      "xor_um2": 0.0
+      "xor_um2": 0.00015
     },
     {
       "name": "D1_07_B5_T80_L15_both_complete_ends_symmetric",
@@ -991,7 +991,7 @@
     {
       "name": "D1_08_B5_T100_L2_both_complete_ends_symmetric",
       "passed": true,
-      "xor_um2": 7e-06
+      "xor_um2": 1.8999999999999998e-05
     },
     {
       "name": "D1_08_B5_T100_L10_both_complete_ends_symmetric",
@@ -1126,7 +1126,7 @@
     {
       "name": "D1_09_B5_T120_L2_both_complete_ends_symmetric",
       "passed": true,
-      "xor_um2": 7e-06
+      "xor_um2": 0.0
     },
     {
       "name": "D1_09_B5_T120_L10_both_complete_ends_symmetric",
@@ -1261,7 +1261,7 @@
     {
       "name": "D2_01_B2_T80_L2_both_complete_ends_symmetric",
       "passed": true,
-      "xor_um2": 3e-06
+      "xor_um2": 4e-06
     },
     {
       "name": "D2_01_B2_T80_L10_both_complete_ends_symmetric",
@@ -1420,7 +1420,7 @@
     {
       "name": "D2_02_B2_T100_L2_both_complete_ends_symmetric",
       "passed": true,
-      "xor_um2": 4.2999999999999995e-05
+      "xor_um2": 2.4999999999999998e-05
     },
     {
       "name": "D2_02_B2_T100_L10_both_complete_ends_symmetric",
@@ -1579,7 +1579,7 @@
     {
       "name": "D2_03_B2_T120_L2_both_complete_ends_symmetric",
       "passed": true,
-      "xor_um2": 2.4999999999999998e-05
+      "xor_um2": 2.1e-05
     },
     {
       "name": "D2_03_B2_T120_L10_both_complete_ends_symmetric",
@@ -1738,7 +1738,7 @@
     {
       "name": "D2_04_B3_T80_L2_both_complete_ends_symmetric",
       "passed": true,
-      "xor_um2": 3e-06
+      "xor_um2": 4e-06
     },
     {
       "name": "D2_04_B3_T80_L10_both_complete_ends_symmetric",
@@ -1897,7 +1897,7 @@
     {
       "name": "D2_05_B3_T100_L2_both_complete_ends_symmetric",
       "passed": true,
-      "xor_um2": 4.2999999999999995e-05
+      "xor_um2": 2.4999999999999998e-05
     },
     {
       "name": "D2_05_B3_T100_L10_both_complete_ends_symmetric",
@@ -2056,7 +2056,7 @@
     {
       "name": "D2_06_B3_T120_L2_both_complete_ends_symmetric",
       "passed": true,
-      "xor_um2": 2.4999999999999998e-05
+      "xor_um2": 2.1e-05
     },
     {
       "name": "D2_06_B3_T120_L10_both_complete_ends_symmetric",
@@ -2215,7 +2215,7 @@
     {
       "name": "D2_07_B5_T80_L2_both_complete_ends_symmetric",
       "passed": true,
-      "xor_um2": 3e-06
+      "xor_um2": 4e-06
     },
     {
       "name": "D2_07_B5_T80_L10_both_complete_ends_symmetric",
@@ -2374,7 +2374,7 @@
     {
       "name": "D2_08_B5_T100_L2_both_complete_ends_symmetric",
       "passed": true,
-      "xor_um2": 4.2999999999999995e-05
+      "xor_um2": 2.4999999999999998e-05
     },
     {
       "name": "D2_08_B5_T100_L10_both_complete_ends_symmetric",
@@ -2533,7 +2533,7 @@
     {
       "name": "D2_09_B5_T120_L2_both_complete_ends_symmetric",
       "passed": true,
-      "xor_um2": 2.4999999999999998e-05
+      "xor_um2": 2.1e-05
     },
     {
       "name": "D2_09_B5_T120_L10_both_complete_ends_symmetric",
