@@ -1,0 +1,99 @@
+name: Verify linear Layer 14 coupler windows
+on:
+  push:
+    branches: [layout/2611-L6000-linear-L14-window]
+    paths: [.github/workflows/verify_2611_linear_window.yml]
+jobs:
+  verify:
+    if: github.event.head_commit.message == 'Build and verify linear Layer 14 windows'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Preserve approved output and protect unrelated files
+        run: |
+          git fetch origin 5e495403f32c3ae5344b9e85aa75bcc463853b40 --depth=1
+          mkdir -p baseline
+          cp gds/2611_design1_L6000_P10_straight_output_comparison.gds baseline/comparison.gds
+          python - <<'PY'
+          from pathlib import Path
+          import subprocess,hashlib,json
+          base='5e495403f32c3ae5344b9e85aa75bcc463853b40'
+          assert hashlib.sha256(Path('baseline/comparison.gds').read_bytes()).hexdigest()=='51cc8a71b03bb7b966a18c39e6616f25e95669338e1aeceb04e125300a9d365b'
+          mutable={'2611_design1_L6000_straight_output.py','DESIGN1_STRAIGHT_OUTPUT_README.txt','validate_2611_four_sets.py','gds/2611_design1_L6000_P10_straight_output_comparison.gds','gds/2611_design1_L6000_P10_straight_output_comparison.json','gds/2611_four_sets_validation.json','gds/2611_taper_beams_validation.json'}
+          paths=subprocess.check_output(['git','ls-tree','-r','--name-only',base],text=True).splitlines()
+          protected={p:hashlib.sha256(Path(p).read_bytes()).hexdigest() for p in paths if p not in mutable}
+          Path('baseline/protected.json').write_text(json.dumps(protected))
+          PY
+      - name: Apply isolated Layer 14 continuation
+        run: |
+          python _apply_2611_linear_window.py
+          python -m py_compile linear_layer14_window.py validate_2611_linear_window.py 2611_design1_L6000_straight_output.py
+      - name: Install approved long-layout CAD engine
+        run: python -m pip install gdsfactory==9.45.0 klayout==0.30.13 numpy==2.4.6 shapely matplotlib
+      - name: Rebuild twelve devices and check original couplers and supports
+        run: python 2611_design1_L6000_straight_output.py
+      - name: Independently audit straight edges circles and unchanged layers
+        run: python validate_2611_linear_window.py --baseline baseline/comparison.gds --render
+      - name: Verify protected files and saved output evidence
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib,json
+          protected=json.loads(Path('baseline/protected.json').read_text())
+          for p,h in protected.items():assert hashlib.sha256(Path(p).read_bytes()).hexdigest()==h,p
+          p=Path('gds/2611_linear_window_validation.json');r=json.loads(p.read_text())
+          r['protected_unrelated_file_count']=len(protected);r['unrelated_files_unchanged']=True
+          r['base_commit']='5e495403f32c3ae5344b9e85aa75bcc463853b40'
+          assert r['gds_sha256']==hashlib.sha256(Path('gds/2611_design1_L6000_P10_straight_output_comparison.gds').read_bytes()).hexdigest()
+          p.write_text(json.dumps(r,indent=2))
+          print('Protected',len(protected),'unrelated files; all hashes unchanged')
+          PY
+      - name: Upload editable source GDS and measured previews
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: 2611-L6000-linear-L14-release
+          path: |
+            2611_design1_L6000_straight_output.py
+            2611_design1_L6000_P10_width_sweep.py
+            2611_tapered_yue_dual_resist.py
+            linear_layer14_window.py
+            validate_2611_linear_window.py
+            validate_2611_four_sets.py
+            validate_2611_taper_beams.py
+            validate_2611_straight_output_raw.py
+            validate_2611_release_offset.py
+            validate_2611_coupler_release.py
+            DESIGN1_STRAIGHT_OUTPUT_README.txt
+            layers.py
+            markers.py
+            phononics.py
+            routing.py
+            tapered_local.py
+            tether_variants.py
+            tether_variants.gds
+            text.py
+            gds/2611_design1_L6000_P10_straight_output_comparison.*
+            gds/2611_design1_L6000_P10_width_sweep.*
+            gds/2611_linear_window_validation.json
+            gds/2611_four_sets_validation.json
+            gds/2611_taper_beams_validation.json
+            validation_2611_linear_window/*.png
+            validation_2611_four_sets/*.png
+            validation_2611_straight_output/*.log
+            baseline/comparison.gds
+      - name: Save only passing changes and remove temporary workflow
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add 2611_design1_L6000_straight_output.py DESIGN1_STRAIGHT_OUTPUT_README.txt validate_2611_four_sets.py linear_layer14_window.py validate_2611_linear_window.py
+          git add gds/2611_design1_L6000_P10_straight_output_comparison.gds gds/2611_design1_L6000_P10_straight_output_comparison.json gds/2611_four_sets_validation.json gds/2611_taper_beams_validation.json gds/2611_linear_window_validation.json
+          git rm _apply_2611_linear_window.py .github/workflows/verify_2611_linear_window.yml
+          git commit -m 'Save verified Layer 14 linear channels with no intermediate frames'
+          git push origin HEAD:layout/2611-L6000-linear-L14-window
