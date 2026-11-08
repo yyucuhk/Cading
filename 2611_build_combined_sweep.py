@@ -184,6 +184,7 @@ def worker(case):
     setattr(m, shield_name, measured_shield)
     d = m.make_device(case['straight_um'])
     removed_label = remove_original_length_label(d, m)
+    m.apply_layer14_post_pnc_window(d)
     d.flatten()
     d.name = case['case_id']
     dbu = float(d.kcl.dbu)
@@ -310,6 +311,7 @@ def worker(case):
                 connection_pnc_end_um=float(m.PNC_TAPER_LENGTH),
                 layer10_widths_um=widths10, layer15_widths_um=widths15,
                 layer15_lengths_um=lengths15, taper_samples=samples,
+                layer14_post_pnc_windows=d.info['layer14_post_pnc_windows'],
                 tip_centers=d.info['tip_centers'], orientations=d.info['connection_orientations'],
                 status='PASS')
     (out/(case['case_id']+'.json')).write_text(json.dumps(data, indent=2))
