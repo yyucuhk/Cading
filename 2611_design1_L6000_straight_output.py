@@ -4,9 +4,10 @@ Two meander sets and two single-straight sets. New single straights are 6000 um
 with two couplers, or one input coupler plus the retained 2000 um bare output.
 Complete optical terminal assemblies are copied, never redrawn.
 L2 starts 0.5 um outward from L10, at TOTAL width 15 um.
-L14 starts with L10, at TOTAL width 8 um. Both downstream margins are 2.5 um
-per side. First-stage window envelopes blend smoothly over the original stage.
-L11/L16/L51 are absent; global marks are on L15 and labels on L2.
+L14 starts with L10, at TOTAL width 8 um. Downstream margins are 2.5 um
+per side on L2 and 1.0 um per side on L14. First-stage window envelopes blend smoothly over the original stage.
+L16/L51 and the old PNC patterns are absent. L11 contains only local plain
+beam supports at taper entrances; global marks are on L15 and labels on L2.
 Requires the existing source modules and source width-sweep GDS/manifest.
 """
 from __future__ import annotations
@@ -37,7 +38,7 @@ PNC_PITCH = 10.0                     # straight/bend; also added straight
 INCLUDE_REFERENCE_DEVICES = True     # two-coupler set first, straight outputs above
 COUPLER_END_WINDOWS_ONLY = True       # applies to BOTH device sets; crops L2 and L14
 LAYER2_WINDOW_MARGIN = 2.5            # per-side taper-window expansion on Layer 2
-LAYER14_WINDOW_MARGIN = 2.5           # independent Layer 14 expansion
+LAYER14_WINDOW_MARGIN = 1.0           # independent Layer 14 expansion
 RELEASE_WINDOW_START_OFFSET = 0.0     # legacy construction setting; see independent offsets below
 LAYER2_START_OFFSET = 0.5             # preserve original L10-to-L2 delayed-copy interface
 LAYER14_START_OFFSET = 0.0            # same entrance as L10
@@ -51,7 +52,15 @@ FRAME_MARGIN = 500.0
 MIN_FRAME_HEIGHT = 4000.0
 DBU = 0.001
 FAB_LAYERS = (2, 10, 11, 13, 14, 15, 16)  # pre-export construction checks
-REMOVED_OUTPUT_LAYERS = (11, 16, 51)  # all datatypes, every final output cell
+REMOVED_OUTPUT_LAYERS = (16, 51)       # absent from every final output cell
+CLEARED_SOURCE_PNC_LAYERS = (11,)     # remove all old PNCs before adding local beams
+LOCAL_TAPER_BEAM_LAYER = (11, 0)      # same solid-support mask as original PNCs
+LOCAL_TAPER_BEAM_WIDTH = 0.5          # longitudinal width of each transverse beam
+LOCAL_TAPER_BEAM_PITCH = 1.0          # center-to-center, measured along the taper
+LOCAL_TAPER_BEAM_COUNT = 3            # three stations; TWO beams per station
+LOCAL_TAPER_BEAM_START = 0.0          # first center aligned with the L10 entrance
+LOCAL_TAPER_ANCHOR_SPAN = 5.096       # original PNC anchor-to-anchor span
+LOCAL_TAPER_ANCHOR_OVERLAP = 0.5      # overlap into slab and outer anchor
 ALIGNMENT_MARKER_SOURCE_LAYER = (2, 0)
 ALIGNMENT_MARKER_TARGET_LAYER = (15, 0)  # global alignment markers ONLY
 
@@ -136,11 +145,12 @@ def finalize_output_layers(layout, frame_cell):
     removed_shapes = {}
     for index in tuple(layout.layer_indexes()):
         info = layout.get_info(index)
-        if info.layer in REMOVED_OUTPUT_LAYERS:
+        if info.layer in (*REMOVED_OUTPUT_LAYERS, *CLEARED_SOURCE_PNC_LAYERS):
             key = str(info.layer) + '/' + str(info.datatype)
             removed_shapes[key] = sum(cell.shapes(index).size() for cell in layout.each_cell())
             layout.delete_layer(index)
     return dict(removed_layers=list(REMOVED_OUTPUT_LAYERS),
+                cleared_source_pnc_layers=list(CLEARED_SOURCE_PNC_LAYERS),
                 removed_shape_counts=removed_shapes,
                 marker_source_layer=list(ALIGNMENT_MARKER_SOURCE_LAYER),
                 marker_target_layer=list(ALIGNMENT_MARKER_TARGET_LAYER),
@@ -155,7 +165,7 @@ def finalize_coupler_windows(layout, entries):
 
     L2 starts 0.5 um outward from L10, preserving the original delayed-copy
     interface. L14 starts with L10. Entrance widths are TOTAL widths, not
-    extra clearances: L2=15 um and L14=8 um. Both downstream margins=2.5 um.
+    extra clearances: L2=15 um and L14=8 um. Downstream margins: L2=2.5 um, L14=1 um.
     Only the first 40 um window envelope is replaced; downstream mask
     candidates still come from the original mask generator.
     """
@@ -241,6 +251,69 @@ def build_release_window_candidate(base, width):
     insert_regions(ly, name, candidates)
     write_layout(ly, WORK/(name+'.gds'))
     return name+'.gds'
+
+
+def add_local_taper_beams(layout, entries, policies):
+    """Add plain transverse beam pairs only at the optical taper entrances.
+
+    Old PNCs have already been cleared. Layer 11 now contains these rectangles
+    only: three stations at 0, 1 and 2 um outward from L10, on both sides.
+    The 5.096 um anchor span and 0.5 um end overlap match the old PNC support.
+    No optical polygon or release-mask boundary is edited here.
+    """
+    import klayout.db as kdb
+    require(LOCAL_TAPER_BEAM_LAYER == (11, 0), 'Use the original solid support layer')
+    require(LOCAL_TAPER_BEAM_COUNT >= 1 and isinstance(LOCAL_TAPER_BEAM_COUNT, int),
+            'Beam count must be a positive integer')
+    require(0 < LOCAL_TAPER_BEAM_WIDTH < LOCAL_TAPER_BEAM_PITCH,
+            'Beam width must be positive and smaller than its pitch')
+    require(LOCAL_TAPER_BEAM_START >= 0 and LOCAL_TAPER_ANCHOR_SPAN > 0 and
+            LOCAL_TAPER_ANCHOR_OVERLAP > 0, 'Invalid support dimensions')
+    last = LOCAL_TAPER_BEAM_START + (LOCAL_TAPER_BEAM_COUNT-1)*LOCAL_TAPER_BEAM_PITCH
+    require(last+LOCAL_TAPER_BEAM_WIDTH/2 < 40, 'Support group must stay in the first taper stage')
+    li = layout.layer(*LOCAL_TAPER_BEAM_LAYER)
+    records = []
+    for entry in entries:
+        cell = layout.cell(entry['case_id'])
+        require(cell.shapes(li).size()==0, 'Unexpected pre-existing PNC/support geometry')
+        rr = regions(layout, cell)
+        supports = kdb.Region()
+        for end in policies[entry['case_id']]['ends']:
+            sx, cy = float(end['l10_start_local_x_um']), float(end['center_y_um'])
+            direction = -1.0 if end['side']=='input' else 1.0
+            for station in range(LOCAL_TAPER_BEAM_COUNT):
+                distance = LOCAL_TAPER_BEAM_START + station*LOCAL_TAPER_BEAM_PITCH
+                x = sx + direction*distance
+                x1, x2 = x-LOCAL_TAPER_BEAM_WIDTH/2, x+LOCAL_TAPER_BEAM_WIDTH/2
+                slab = (rr[(10, 0)] & box((x1,cy-10,x2,cy+10))).merged()
+                require(not slab.is_empty(), 'No L10 slab at the beam attachment')
+                bb = slab.bbox()
+                for side in (-1, 1):
+                    edge = (bb.top if side > 0 else bb.bottom)*DBU
+                    inner = edge-side*LOCAL_TAPER_ANCHOR_OVERLAP
+                    outer = edge+side*(LOCAL_TAPER_ANCHOR_SPAN+LOCAL_TAPER_ANCHOR_OVERLAP)
+                    bounds = (x1, min(inner,outer), x2, max(inner,outer))
+                    beam = box(bounds)
+                    require(not (beam & rr[(10,0)]).is_empty(), 'Beam is detached from L10')
+                    require(not (beam - rr[(2,0)] - rr[(14,0)]).is_empty(),
+                            'Beam does not reach the outer anchor beyond the release windows')
+                    require((beam & rr[(15,0)]).is_empty(), 'Beam touches the optical ridge')
+                    require((beam & supports).is_empty(), 'Adjacent beams intersect')
+                    supports |= beam
+                    records.append(dict(case_id=entry['case_id'],end=end['side'],side=side,
+                        station=station,distance_from_l10_um=distance,center_local_x_um=x,
+                        center_global_x_um=x+entry['origin_um'][0],bounds_local_um=list(bounds)))
+        cell.shapes(li).insert(supports)
+        expected = 2*LOCAL_TAPER_BEAM_COUNT*len(policies[entry['case_id']]['ends'])
+        require(supports.count()==expected, 'Incorrect local beam population')
+        entry['local_taper_beam_count'] = expected
+        entry['local_taper_beam_layer'] = list(LOCAL_TAPER_BEAM_LAYER)
+    expected_total = 2*LOCAL_TAPER_BEAM_COUNT*sum(len(p['ends']) for p in policies.values())
+    require(len(records)==expected_total, 'Wrong total support count')
+    return dict(layer=list(LOCAL_TAPER_BEAM_LAYER),width_um=LOCAL_TAPER_BEAM_WIDTH,
+        pitch_um=LOCAL_TAPER_BEAM_PITCH,stations_per_end=LOCAL_TAPER_BEAM_COUNT,
+        start_um=LOCAL_TAPER_BEAM_START,anchor_span_um=LOCAL_TAPER_ANCHOR_SPAN,
+        anchor_overlap_um=LOCAL_TAPER_ANCHOR_OVERLAP,total_beams=len(records),beams=records)
 
 
 # %% [02] Complete all-layer straight-output factory
@@ -513,12 +586,13 @@ def combine():
     ft=kdb.Trans(round((xmin+xmax)/2/DBU),round((ymin+ymax)/2/DBU))
     top.insert(kdb.CellInstArray(fc.cell_index(),ft))
     layer_policy=finalize_output_layers(ly,fc)
+    beam_policy=add_local_taper_beams(ly,entries,policies)
     snapshots={e['case_id']:regions(ly,ly.cell(e['case_id'])) for e in entries}
     placed=[{n:r.transformed(kdb.Trans(round(e['origin_um'][0]/DBU),round(e['origin_um'][1]/DBU)))
              for (n,d),r in snapshots[e['case_id']].items()} for e in entries]
     for i,a in enumerate(placed):
         for j,b in enumerate(placed[i+1:],i+1):
-            area=sum((a.get(n,kdb.Region())&b.get(n,kdb.Region())).area()*DBU**2 for n in (2,10,13,14,15))
+            area=sum((a.get(n,kdb.Region())&b.get(n,kdb.Region())).area()*DBU**2 for n in (2,10,11,13,14,15))
             check(checks,f'rows_{i}_{j}_no_overlap',area==0,area_um2=area)
     for i,t in enumerate(texts):
         check(checks,f'label{i}_clear',all((t&r).is_empty() for p in placed for r in p.values()))
@@ -545,7 +619,7 @@ def combine():
         layer2_start_width_um=LAYER2_START_WIDTH,layer14_start_width_um=LAYER14_START_WIDTH,
         layer2_window_margin_um=LAYER2_WINDOW_MARGIN,layer14_window_margin_um=LAYER14_WINDOW_MARGIN,
         layer2_start_offset_um=LAYER2_START_OFFSET,layer14_start_offset_um=LAYER14_START_OFFSET,
-        final_layer_policy=layer_policy,coupler_layer_policy=policies,checks=checks,workers=workers,
+        final_layer_policy=layer_policy,coupler_layer_policy=policies,local_taper_beams=beam_policy,checks=checks,workers=workers,
         check_count=len(checks)+sum(len(w['checks']) for w in workers),
         original_gds_sha256=hashlib.sha256(BASE_GDS.read_bytes()).hexdigest(),
         gds_sha256=hashlib.sha256(OUTPUT.read_bytes()).hexdigest(),
@@ -594,7 +668,7 @@ def make_single_straight(source_regions, width, single_coupler):
     up = kdb.Trans(0,round(200/DBU))
     out={}
     for key,r in source_regions.items():
-        if key[0] in REMOVED_OUTPUT_LAYERS:
+        if key[0] in (*REMOVED_OUTPUT_LAYERS, *CLEARED_SOURCE_PNC_LAYERS):
             continue
         out[key]=((r&left).transformed(down) | (r&right).transformed(up)).merged()
     ridge=box((-STRAIGHT_LENGTH/2,-width/2,STRAIGHT_LENGTH/2,width/2))
