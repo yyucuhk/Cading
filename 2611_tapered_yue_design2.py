@@ -132,6 +132,8 @@ SUPPORT_TIP_OVERLAP = 0.2
 
 # --- 1F. Layer 2 / 14 release windows and Layer 16 protection ---
 POSITIVE_WINDOW_MARGIN = 3.0  # Layer-2 taper-window expansion
+LAYER14_POST_PNC_MARGIN = 1.0  # per-side optical-taper clearance; PNC unchanged
+LAYER14_SIMPLE_TERMINAL_WINDOW = True  # remove terminal frame on L14 only
 POSITIVE_WINDOW_END_EXTENSION = 15.0  # must be >= POSITIVE_WINDOW_MARGIN
 LAYER2_LAYER10_COPY_DELAY = 0.5  # inset of L10 copy from the PNC boundary
 RIDGE_PROTECTION_MARGIN = 0.2  # Layer-16 offset around ridge; excludes alignment ticks
@@ -1729,6 +1731,20 @@ def add_chip_outline_and_markers(component: gf.Component, device_count: int) -> 
         )
 
 
+def apply_layer14_post_pnc_window(component: gf.Component) -> gf.Component:
+    """Final L14 policy for original layouts; raw make_device stays unchanged.
+
+    Keep the full PNC support window, narrow the optical-taper window only,
+    and replace the downstream rectangular frame with a linear channel.
+    The L6000 family uses make_device and its own independent final policy.
+    """
+    if LAYER14_SIMPLE_TERMINAL_WINDOW:
+        from original_design_layer14 import apply_post_pnc_layer14
+        apply_post_pnc_layer14(component, PNC_TAPER_LENGTH,
+                              (TAPER_STAGE1_LENGTH, TAPER_STAGE2_LENGTH, TAPER_STAGE3_LENGTH), LAYER14_POST_PNC_MARGIN)
+    return component
+
+
 def build_layout() -> gf.Component:
     """Call make_device for each length; align entire devices, then add chip marks."""
     validate_settings()
@@ -1736,6 +1752,8 @@ def build_layout() -> gf.Component:
     fin = gf.Component(TOP_CELL_NAME)
     lengths = tuple(float(length) for length in MEANDER_STRAIGHT_LENGTHS)
     devices = [make_device(length) for length in lengths]
+    for device in devices:
+        apply_layer14_post_pnc_window(device)
     # Translate each COMPLETE device. Do not edit, clip, or remap any layer.
     # The reference is the leftmost Layer-11 PNC edge at the left Euler bend.
     # Device 1 stays in place; the longer devices move right to align here.

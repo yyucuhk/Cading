@@ -23,6 +23,9 @@ def validate(root,baseline,render=False):
         area=a.symmetric_difference(b).area;ck(name,area<tol,xor_um2=area)
     def edges(shape,x):
         cut=shape.intersection(LineString([(x,-175),(x,175)]))
+        if cut.geom_type=='MultiLineString':
+            from shapely.ops import linemerge
+            cut=linemerge(cut)
         if cut.is_empty or cut.geom_type!='LineString':raise AssertionError((x,cut.geom_type))
         return cut.bounds[1],cut.bounds[3]
     manifest=json.loads((root/'gds'/FILES[2]).with_suffix('.json').read_text())

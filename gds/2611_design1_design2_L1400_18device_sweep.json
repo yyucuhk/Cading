@@ -19,7 +19,7 @@
         "removed_area_um2": 42.363,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "fdbda0d7394c898a39240f438225cc36f800c027bc365775d7b864f49d4d0331",
+      "source_sha256": "79ef943810758910e01e241d13c4f1231e3a37a406566ee5afb6a590fe557da6",
       "left_pnc_x_um": -842.287,
       "measured_straights_um": [
         1400.0,
@@ -142,6 +142,62 @@
           "distance_um": 40.0,
           "measured_width_um": 0.1,
           "target_width_um": 0.1
+        }
+      ],
+      "layer14_post_pnc_windows": [
+        {
+          "stage_lengths_um": [
+            40.0,
+            40.0
+          ],
+          "post_pnc_margin_um": 1.0,
+          "pnc_end_width_um": 15.192000000000007,
+          "first_stage_end_width_um": 3.0,
+          "linear_start_from_l10_um": 80.0,
+          "linear_start_width_um": 2.1999999999999886,
+          "far_end_from_l10_um": 2095.0,
+          "far_edges_um": [
+            -32.92099999999999,
+            36.92099999999999
+          ],
+          "circle_centers_from_l10_um": [
+            530.0,
+            1030.0
+          ],
+          "circle_diameter_um": 300.0,
+          "intermediate_frame_removed": true,
+          "side": "input",
+          "l10_start_local_x_um": -745.0,
+          "center_y_um": 200.0,
+          "pnc_length_um": 45.0,
+          "outward_sign": -1
+        },
+        {
+          "stage_lengths_um": [
+            40.0,
+            40.0
+          ],
+          "post_pnc_margin_um": 1.0,
+          "pnc_end_width_um": 15.192000000000007,
+          "first_stage_end_width_um": 3.0,
+          "linear_start_from_l10_um": 80.0,
+          "linear_start_width_um": 2.1999999999999886,
+          "far_end_from_l10_um": 2095.0,
+          "far_edges_um": [
+            -32.92099999999999,
+            36.92099999999999
+          ],
+          "circle_centers_from_l10_um": [
+            530.0,
+            1030.0
+          ],
+          "circle_diameter_um": 300.0,
+          "intermediate_frame_removed": true,
+          "side": "output",
+          "l10_start_local_x_um": 745.0,
+          "center_y_um": -200.0,
+          "pnc_length_um": 45.0,
+          "outward_sign": 1
         }
       ],
       "tip_centers": [
@@ -193,7 +249,7 @@
         "removed_area_um2": 44.271,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "fdbda0d7394c898a39240f438225cc36f800c027bc365775d7b864f49d4d0331",
+      "source_sha256": "79ef943810758910e01e241d13c4f1231e3a37a406566ee5afb6a590fe557da6",
       "left_pnc_x_um": -842.287,
       "measured_straights_um": [
         1400.0,
@@ -316,6 +372,62 @@
           "distance_um": 50.0,
           "measured_width_um": 0.1,
           "target_width_um": 0.1
+        }
+      ],
+      "layer14_post_pnc_windows": [
+        {
+          "stage_lengths_um": [
+            50.0,
+            50.0
+          ],
+          "post_pnc_margin_um": 1.0,
+          "pnc_end_width_um": 15.192000000000007,
+          "first_stage_end_width_um": 3.0,
+          "linear_start_from_l10_um": 100.0,
+          "linear_start_width_um": 2.1999999999999886,
+          "far_end_from_l10_um": 2115.0,
+          "far_edges_um": [
+            -32.92099999999999,
+            36.92099999999999
+          ],
+          "circle_centers_from_l10_um": [
+            550.0,
+            1050.0
+          ],
+          "circle_diameter_um": 300.0,
+          "intermediate_frame_removed": true,
+          "side": "input",
+          "l10_start_local_x_um": -745.0,
+          "center_y_um": 200.0,
+          "pnc_length_um": 45.0,
+          "outward_sign": -1
+        },
+        {
+          "stage_lengths_um": [
+            50.0,
+            50.0
+          ],
+          "post_pnc_margin_um": 1.0,
+          "pnc_end_width_um": 15.192000000000007,
+          "first_stage_end_width_um": 3.0,
+          "linear_start_from_l10_um": 100.0,
+          "linear_start_width_um": 2.1999999999999886,
+          "far_end_from_l10_um": 2115.0,
+          "far_edges_um": [
+            -32.92099999999999,
+            36.92099999999999
+          ],
+          "circle_centers_from_l10_um": [
+            550.0,
+            1050.0
+          ],
+          "circle_diameter_um": 300.0,
+          "intermediate_frame_removed": true,
+          "side": "output",
+          "l10_start_local_x_um": 745.0,
+          "center_y_um": -200.0,
+          "pnc_length_um": 45.0,
+          "outward_sign": 1
         }
       ],
       "tip_centers": [
@@ -367,7 +479,7 @@
         "removed_area_um2": 44.297999999999995,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "fdbda0d7394c898a39240f438225cc36f800c027bc365775d7b864f49d4d0331",
+      "source_sha256": "79ef943810758910e01e241d13c4f1231e3a37a406566ee5afb6a590fe557da6",
       "left_pnc_x_um": -842.287,
       "measured_straights_um": [
         1400.0,
@@ -492,6 +604,62 @@
           "target_width_um": 0.1
         }
       ],
+      "layer14_post_pnc_windows": [
+        {
+          "stage_lengths_um": [
+            60.0,
+            60.0
+          ],
+          "post_pnc_margin_um": 1.0,
+          "pnc_end_width_um": 15.192000000000007,
+          "first_stage_end_width_um": 3.0,
+          "linear_start_from_l10_um": 120.0,
+          "linear_start_width_um": 2.1999999999999886,
+          "far_end_from_l10_um": 2135.0,
+          "far_edges_um": [
+            -32.92099999999999,
+            36.92099999999999
+          ],
+          "circle_centers_from_l10_um": [
+            570.0,
+            1070.0
+          ],
+          "circle_diameter_um": 300.0,
+          "intermediate_frame_removed": true,
+          "side": "input",
+          "l10_start_local_x_um": -745.0,
+          "center_y_um": 200.0,
+          "pnc_length_um": 45.0,
+          "outward_sign": -1
+        },
+        {
+          "stage_lengths_um": [
+            60.0,
+            60.0
+          ],
+          "post_pnc_margin_um": 1.0,
+          "pnc_end_width_um": 15.192000000000007,
+          "first_stage_end_width_um": 3.0,
+          "linear_start_from_l10_um": 120.0,
+          "linear_start_width_um": 2.1999999999999886,
+          "far_end_from_l10_um": 2135.0,
+          "far_edges_um": [
+            -32.92099999999999,
+            36.92099999999999
+          ],
+          "circle_centers_from_l10_um": [
+            570.0,
+            1070.0
+          ],
+          "circle_diameter_um": 300.0,
+          "intermediate_frame_removed": true,
+          "side": "output",
+          "l10_start_local_x_um": 745.0,
+          "center_y_um": -200.0,
+          "pnc_length_um": 45.0,
+          "outward_sign": 1
+        }
+      ],
       "tip_centers": [
         [
           -805.0,
@@ -541,7 +709,7 @@
         "removed_area_um2": 42.363,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "fdbda0d7394c898a39240f438225cc36f800c027bc365775d7b864f49d4d0331",
+      "source_sha256": "79ef943810758910e01e241d13c4f1231e3a37a406566ee5afb6a590fe557da6",
       "left_pnc_x_um": -842.28,
       "measured_straights_um": [
         1400.0,
@@ -664,6 +832,62 @@
           "distance_um": 40.0,
           "measured_width_um": 0.1,
           "target_width_um": 0.1
+        }
+      ],
+      "layer14_post_pnc_windows": [
+        {
+          "stage_lengths_um": [
+            40.0,
+            40.0
+          ],
+          "post_pnc_margin_um": 1.0,
+          "pnc_end_width_um": 15.192000000000007,
+          "first_stage_end_width_um": 3.0,
+          "linear_start_from_l10_um": 80.0,
+          "linear_start_width_um": 2.1999999999999886,
+          "far_end_from_l10_um": 2095.0,
+          "far_edges_um": [
+            -32.92099999999999,
+            36.92099999999999
+          ],
+          "circle_centers_from_l10_um": [
+            530.0,
+            1030.0
+          ],
+          "circle_diameter_um": 300.0,
+          "intermediate_frame_removed": true,
+          "side": "input",
+          "l10_start_local_x_um": -745.0,
+          "center_y_um": 200.0,
+          "pnc_length_um": 45.0,
+          "outward_sign": -1
+        },
+        {
+          "stage_lengths_um": [
+            40.0,
+            40.0
+          ],
+          "post_pnc_margin_um": 1.0,
+          "pnc_end_width_um": 15.192000000000007,
+          "first_stage_end_width_um": 3.0,
+          "linear_start_from_l10_um": 80.0,
+          "linear_start_width_um": 2.1999999999999886,
+          "far_end_from_l10_um": 2095.0,
+          "far_edges_um": [
+            -32.92099999999999,
+            36.92099999999999
+          ],
+          "circle_centers_from_l10_um": [
+            530.0,
+            1030.0
+          ],
+          "circle_diameter_um": 300.0,
+          "intermediate_frame_removed": true,
+          "side": "output",
+          "l10_start_local_x_um": 745.0,
+          "center_y_um": -200.0,
+          "pnc_length_um": 45.0,
+          "outward_sign": 1
         }
       ],
       "tip_centers": [
@@ -715,7 +939,7 @@
         "removed_area_um2": 44.271,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "fdbda0d7394c898a39240f438225cc36f800c027bc365775d7b864f49d4d0331",
+      "source_sha256": "79ef943810758910e01e241d13c4f1231e3a37a406566ee5afb6a590fe557da6",
       "left_pnc_x_um": -842.28,
       "measured_straights_um": [
         1400.0,
@@ -840,6 +1064,62 @@
           "target_width_um": 0.1
         }
       ],
+      "layer14_post_pnc_windows": [
+        {
+          "stage_lengths_um": [
+            50.0,
+            50.0
+          ],
+          "post_pnc_margin_um": 1.0,
+          "pnc_end_width_um": 15.192000000000007,
+          "first_stage_end_width_um": 3.0,
+          "linear_start_from_l10_um": 100.0,
+          "linear_start_width_um": 2.1999999999999886,
+          "far_end_from_l10_um": 2115.0,
+          "far_edges_um": [
+            -32.92099999999999,
+            36.92099999999999
+          ],
+          "circle_centers_from_l10_um": [
+            550.0,
+            1050.0
+          ],
+          "circle_diameter_um": 300.0,
+          "intermediate_frame_removed": true,
+          "side": "input",
+          "l10_start_local_x_um": -745.0,
+          "center_y_um": 200.0,
+          "pnc_length_um": 45.0,
+          "outward_sign": -1
+        },
+        {
+          "stage_lengths_um": [
+            50.0,
+            50.0
+          ],
+          "post_pnc_margin_um": 1.0,
+          "pnc_end_width_um": 15.192000000000007,
+          "first_stage_end_width_um": 3.0,
+          "linear_start_from_l10_um": 100.0,
+          "linear_start_width_um": 2.1999999999999886,
+          "far_end_from_l10_um": 2115.0,
+          "far_edges_um": [
+            -32.92099999999999,
+            36.92099999999999
+          ],
+          "circle_centers_from_l10_um": [
+            550.0,
+            1050.0
+          ],
+          "circle_diameter_um": 300.0,
+          "intermediate_frame_removed": true,
+          "side": "output",
+          "l10_start_local_x_um": 745.0,
+          "center_y_um": -200.0,
+          "pnc_length_um": 45.0,
+          "outward_sign": 1
+        }
+      ],
       "tip_centers": [
         [
           -795.0,
@@ -889,7 +1169,7 @@
         "removed_area_um2": 44.297999999999995,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "fdbda0d7394c898a39240f438225cc36f800c027bc365775d7b864f49d4d0331",
+      "source_sha256": "79ef943810758910e01e241d13c4f1231e3a37a406566ee5afb6a590fe557da6",
       "left_pnc_x_um": -842.28,
       "measured_straights_um": [
         1400.0,
@@ -1014,6 +1294,62 @@
           "target_width_um": 0.1
         }
       ],
+      "layer14_post_pnc_windows": [
+        {
+          "stage_lengths_um": [
+            60.0,
+            60.0
+          ],
+          "post_pnc_margin_um": 1.0,
+          "pnc_end_width_um": 15.192000000000007,
+          "first_stage_end_width_um": 3.0,
+          "linear_start_from_l10_um": 120.0,
+          "linear_start_width_um": 2.1999999999999886,
+          "far_end_from_l10_um": 2135.0,
+          "far_edges_um": [
+            -32.92099999999999,
+            36.92099999999999
+          ],
+          "circle_centers_from_l10_um": [
+            570.0,
+            1070.0
+          ],
+          "circle_diameter_um": 300.0,
+          "intermediate_frame_removed": true,
+          "side": "input",
+          "l10_start_local_x_um": -745.0,
+          "center_y_um": 200.0,
+          "pnc_length_um": 45.0,
+          "outward_sign": -1
+        },
+        {
+          "stage_lengths_um": [
+            60.0,
+            60.0
+          ],
+          "post_pnc_margin_um": 1.0,
+          "pnc_end_width_um": 15.192000000000007,
+          "first_stage_end_width_um": 3.0,
+          "linear_start_from_l10_um": 120.0,
+          "linear_start_width_um": 2.1999999999999886,
+          "far_end_from_l10_um": 2135.0,
+          "far_edges_um": [
+            -32.92099999999999,
+            36.92099999999999
+          ],
+          "circle_centers_from_l10_um": [
+            570.0,
+            1070.0
+          ],
+          "circle_diameter_um": 300.0,
+          "intermediate_frame_removed": true,
+          "side": "output",
+          "l10_start_local_x_um": 745.0,
+          "center_y_um": -200.0,
+          "pnc_length_um": 45.0,
+          "outward_sign": 1
+        }
+      ],
       "tip_centers": [
         [
           -805.0,
@@ -1063,7 +1399,7 @@
         "removed_area_um2": 42.363,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "fdbda0d7394c898a39240f438225cc36f800c027bc365775d7b864f49d4d0331",
+      "source_sha256": "79ef943810758910e01e241d13c4f1231e3a37a406566ee5afb6a590fe557da6",
       "left_pnc_x_um": -842.291,
       "measured_straights_um": [
         1400.0,
@@ -1188,6 +1524,62 @@
           "target_width_um": 0.1
         }
       ],
+      "layer14_post_pnc_windows": [
+        {
+          "stage_lengths_um": [
+            40.0,
+            40.0
+          ],
+          "post_pnc_margin_um": 1.0,
+          "pnc_end_width_um": 15.192000000000007,
+          "first_stage_end_width_um": 3.0,
+          "linear_start_from_l10_um": 80.0,
+          "linear_start_width_um": 2.1999999999999886,
+          "far_end_from_l10_um": 2095.0,
+          "far_edges_um": [
+            -32.92099999999999,
+            36.92099999999999
+          ],
+          "circle_centers_from_l10_um": [
+            530.0,
+            1030.0
+          ],
+          "circle_diameter_um": 300.0,
+          "intermediate_frame_removed": true,
+          "side": "input",
+          "l10_start_local_x_um": -745.0,
+          "center_y_um": 200.0,
+          "pnc_length_um": 45.0,
+          "outward_sign": -1
+        },
+        {
+          "stage_lengths_um": [
+            40.0,
+            40.0
+          ],
+          "post_pnc_margin_um": 1.0,
+          "pnc_end_width_um": 15.192000000000007,
+          "first_stage_end_width_um": 3.0,
+          "linear_start_from_l10_um": 80.0,
+          "linear_start_width_um": 2.1999999999999886,
+          "far_end_from_l10_um": 2095.0,
+          "far_edges_um": [
+            -32.92099999999999,
+            36.92099999999999
+          ],
+          "circle_centers_from_l10_um": [
+            530.0,
+            1030.0
+          ],
+          "circle_diameter_um": 300.0,
+          "intermediate_frame_removed": true,
+          "side": "output",
+          "l10_start_local_x_um": 745.0,
+          "center_y_um": -200.0,
+          "pnc_length_um": 45.0,
+          "outward_sign": 1
+        }
+      ],
       "tip_centers": [
         [
           -785.0,
@@ -1237,7 +1629,7 @@
         "removed_area_um2": 44.271,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "fdbda0d7394c898a39240f438225cc36f800c027bc365775d7b864f49d4d0331",
+      "source_sha256": "79ef943810758910e01e241d13c4f1231e3a37a406566ee5afb6a590fe557da6",
       "left_pnc_x_um": -842.291,
       "measured_straights_um": [
         1400.0,
@@ -1362,6 +1754,62 @@
           "target_width_um": 0.1
         }
       ],
+      "layer14_post_pnc_windows": [
+        {
+          "stage_lengths_um": [
+            50.0,
+            50.0
+          ],
+          "post_pnc_margin_um": 1.0,
+          "pnc_end_width_um": 15.192000000000007,
+          "first_stage_end_width_um": 3.0,
+          "linear_start_from_l10_um": 100.0,
+          "linear_start_width_um": 2.1999999999999886,
+          "far_end_from_l10_um": 2115.0,
+          "far_edges_um": [
+            -32.92099999999999,
+            36.92099999999999
+          ],
+          "circle_centers_from_l10_um": [
+            550.0,
+            1050.0
+          ],
+          "circle_diameter_um": 300.0,
+          "intermediate_frame_removed": true,
+          "side": "input",
+          "l10_start_local_x_um": -745.0,
+          "center_y_um": 200.0,
+          "pnc_length_um": 45.0,
+          "outward_sign": -1
+        },
+        {
+          "stage_lengths_um": [
+            50.0,
+            50.0
+          ],
+          "post_pnc_margin_um": 1.0,
+          "pnc_end_width_um": 15.192000000000007,
+          "first_stage_end_width_um": 3.0,
+          "linear_start_from_l10_um": 100.0,
+          "linear_start_width_um": 2.1999999999999886,
+          "far_end_from_l10_um": 2115.0,
+          "far_edges_um": [
+            -32.92099999999999,
+            36.92099999999999
+          ],
+          "circle_centers_from_l10_um": [
+            550.0,
+            1050.0
+          ],
+          "circle_diameter_um": 300.0,
+          "intermediate_frame_removed": true,
+          "side": "output",
+          "l10_start_local_x_um": 745.0,
+          "center_y_um": -200.0,
+          "pnc_length_um": 45.0,
+          "outward_sign": 1
+        }
+      ],
       "tip_centers": [
         [
           -795.0,
@@ -1411,7 +1859,7 @@
         "removed_area_um2": 44.297999999999995,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "fdbda0d7394c898a39240f438225cc36f800c027bc365775d7b864f49d4d0331",
+      "source_sha256": "79ef943810758910e01e241d13c4f1231e3a37a406566ee5afb6a590fe557da6",
       "left_pnc_x_um": -842.291,
       "measured_straights_um": [
         1400.0,
@@ -1534,6 +1982,62 @@
           "distance_um": 60.0,
           "measured_width_um": 0.1,
           "target_width_um": 0.1
+        }
+      ],
+      "layer14_post_pnc_windows": [
+        {
+          "stage_lengths_um": [
+            60.0,
+            60.0
+          ],
+          "post_pnc_margin_um": 1.0,
+          "pnc_end_width_um": 15.192000000000007,
+          "first_stage_end_width_um": 3.0,
+          "linear_start_from_l10_um": 120.0,
+          "linear_start_width_um": 2.1999999999999886,
+          "far_end_from_l10_um": 2135.0,
+          "far_edges_um": [
+            -32.92099999999999,
+            36.92099999999999
+          ],
+          "circle_centers_from_l10_um": [
+            570.0,
+            1070.0
+          ],
+          "circle_diameter_um": 300.0,
+          "intermediate_frame_removed": true,
+          "side": "input",
+          "l10_start_local_x_um": -745.0,
+          "center_y_um": 200.0,
+          "pnc_length_um": 45.0,
+          "outward_sign": -1
+        },
+        {
+          "stage_lengths_um": [
+            60.0,
+            60.0
+          ],
+          "post_pnc_margin_um": 1.0,
+          "pnc_end_width_um": 15.192000000000007,
+          "first_stage_end_width_um": 3.0,
+          "linear_start_from_l10_um": 120.0,
+          "linear_start_width_um": 2.1999999999999886,
+          "far_end_from_l10_um": 2135.0,
+          "far_edges_um": [
+            -32.92099999999999,
+            36.92099999999999
+          ],
+          "circle_centers_from_l10_um": [
+            570.0,
+            1070.0
+          ],
+          "circle_diameter_um": 300.0,
+          "intermediate_frame_removed": true,
+          "side": "output",
+          "l10_start_local_x_um": 745.0,
+          "center_y_um": -200.0,
+          "pnc_length_um": 45.0,
+          "outward_sign": 1
         }
       ],
       "tip_centers": [
@@ -1586,7 +2090,7 @@
         "removed_area_um2": 75.276,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "4230444baf30a7489e612c3372bd61d999aa8eee579eea5978e74834717ebb46",
+      "source_sha256": "2640b2e3cbbc942b74cad3af0ca8bcb8f64963afb6a3ab63f9609bdf60f69b2a",
       "left_pnc_x_um": -842.287,
       "measured_straights_um": [
         1400.0,
@@ -1724,6 +2228,64 @@
           "distance_um": 73.84615384615385,
           "measured_width_um": 0.2,
           "target_width_um": 0.2
+        }
+      ],
+      "layer14_post_pnc_windows": [
+        {
+          "stage_lengths_um": [
+            12.307692307692308,
+            61.53846153846154,
+            6.153846153846154
+          ],
+          "post_pnc_margin_um": 1.0,
+          "pnc_end_width_um": 15.192000000000007,
+          "first_stage_end_width_um": 3.6500000000000057,
+          "linear_start_from_l10_um": 80.00000000000001,
+          "linear_start_width_um": 2.1999999999999886,
+          "far_end_from_l10_um": 2095.0,
+          "far_edges_um": [
+            -32.92099999999999,
+            36.92099999999999
+          ],
+          "circle_centers_from_l10_um": [
+            530.0,
+            1030.0
+          ],
+          "circle_diameter_um": 300.0,
+          "intermediate_frame_removed": true,
+          "side": "input",
+          "l10_start_local_x_um": -745.0,
+          "center_y_um": 200.0,
+          "pnc_length_um": 45.0,
+          "outward_sign": -1
+        },
+        {
+          "stage_lengths_um": [
+            12.307692307692308,
+            61.53846153846154,
+            6.153846153846154
+          ],
+          "post_pnc_margin_um": 1.0,
+          "pnc_end_width_um": 15.192000000000007,
+          "first_stage_end_width_um": 3.6500000000000057,
+          "linear_start_from_l10_um": 80.00000000000001,
+          "linear_start_width_um": 2.1999999999999886,
+          "far_end_from_l10_um": 2095.0,
+          "far_edges_um": [
+            -32.92099999999999,
+            36.92099999999999
+          ],
+          "circle_centers_from_l10_um": [
+            530.0,
+            1030.0
+          ],
+          "circle_diameter_um": 300.0,
+          "intermediate_frame_removed": true,
+          "side": "output",
+          "l10_start_local_x_um": 745.0,
+          "center_y_um": -200.0,
+          "pnc_length_um": 45.0,
+          "outward_sign": 1
         }
       ],
       "tip_centers": [
@@ -1776,7 +2338,7 @@
         "removed_area_um2": 75.276,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "4230444baf30a7489e612c3372bd61d999aa8eee579eea5978e74834717ebb46",
+      "source_sha256": "2640b2e3cbbc942b74cad3af0ca8bcb8f64963afb6a3ab63f9609bdf60f69b2a",
       "left_pnc_x_um": -842.287,
       "measured_straights_um": [
         1400.0,
@@ -1914,6 +2476,64 @@
           "distance_um": 92.30769230769232,
           "measured_width_um": 0.2,
           "target_width_um": 0.2
+        }
+      ],
+      "layer14_post_pnc_windows": [
+        {
+          "stage_lengths_um": [
+            15.384615384615385,
+            76.92307692307692,
+            7.6923076923076925
+          ],
+          "post_pnc_margin_um": 1.0,
+          "pnc_end_width_um": 15.192000000000007,
+          "first_stage_end_width_um": 3.6500000000000057,
+          "linear_start_from_l10_um": 100.0,
+          "linear_start_width_um": 2.1999999999999886,
+          "far_end_from_l10_um": 2115.0,
+          "far_edges_um": [
+            -32.92099999999999,
+            36.92099999999999
+          ],
+          "circle_centers_from_l10_um": [
+            550.0,
+            1050.0
+          ],
+          "circle_diameter_um": 300.0,
+          "intermediate_frame_removed": true,
+          "side": "input",
+          "l10_start_local_x_um": -745.0,
+          "center_y_um": 200.0,
+          "pnc_length_um": 45.0,
+          "outward_sign": -1
+        },
+        {
+          "stage_lengths_um": [
+            15.384615384615385,
+            76.92307692307692,
+            7.6923076923076925
+          ],
+          "post_pnc_margin_um": 1.0,
+          "pnc_end_width_um": 15.192000000000007,
+          "first_stage_end_width_um": 3.6500000000000057,
+          "linear_start_from_l10_um": 100.0,
+          "linear_start_width_um": 2.1999999999999886,
+          "far_end_from_l10_um": 2115.0,
+          "far_edges_um": [
+            -32.92099999999999,
+            36.92099999999999
+          ],
+          "circle_centers_from_l10_um": [
+            550.0,
+            1050.0
+          ],
+          "circle_diameter_um": 300.0,
+          "intermediate_frame_removed": true,
+          "side": "output",
+          "l10_start_local_x_um": 745.0,
+          "center_y_um": -200.0,
+          "pnc_length_um": 45.0,
+          "outward_sign": 1
         }
       ],
       "tip_centers": [
@@ -1966,7 +2586,7 @@
         "removed_area_um2": 75.276,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "4230444baf30a7489e612c3372bd61d999aa8eee579eea5978e74834717ebb46",
+      "source_sha256": "2640b2e3cbbc942b74cad3af0ca8bcb8f64963afb6a3ab63f9609bdf60f69b2a",
       "left_pnc_x_um": -842.287,
       "measured_straights_um": [
         1400.0,
@@ -2106,6 +2726,64 @@
           "target_width_um": 0.2
         }
       ],
+      "layer14_post_pnc_windows": [
+        {
+          "stage_lengths_um": [
+            18.46153846153846,
+            92.3076923076923,
+            9.23076923076923
+          ],
+          "post_pnc_margin_um": 1.0,
+          "pnc_end_width_um": 15.192000000000007,
+          "first_stage_end_width_um": 3.6500000000000057,
+          "linear_start_from_l10_um": 120.0,
+          "linear_start_width_um": 2.1999999999999886,
+          "far_end_from_l10_um": 2135.001,
+          "far_edges_um": [
+            -32.92099999999999,
+            36.92099999999999
+          ],
+          "circle_centers_from_l10_um": [
+            570.001,
+            1070.001
+          ],
+          "circle_diameter_um": 300.0,
+          "intermediate_frame_removed": true,
+          "side": "input",
+          "l10_start_local_x_um": -745.0,
+          "center_y_um": 200.0,
+          "pnc_length_um": 45.0,
+          "outward_sign": -1
+        },
+        {
+          "stage_lengths_um": [
+            18.46153846153846,
+            92.3076923076923,
+            9.23076923076923
+          ],
+          "post_pnc_margin_um": 1.0,
+          "pnc_end_width_um": 15.192000000000007,
+          "first_stage_end_width_um": 3.6500000000000057,
+          "linear_start_from_l10_um": 120.0,
+          "linear_start_width_um": 2.1999999999999886,
+          "far_end_from_l10_um": 2135.001,
+          "far_edges_um": [
+            -32.92099999999999,
+            36.92099999999999
+          ],
+          "circle_centers_from_l10_um": [
+            570.001,
+            1070.001
+          ],
+          "circle_diameter_um": 300.0,
+          "intermediate_frame_removed": true,
+          "side": "output",
+          "l10_start_local_x_um": 745.0,
+          "center_y_um": -200.0,
+          "pnc_length_um": 45.0,
+          "outward_sign": 1
+        }
+      ],
       "tip_centers": [
         [
           -763.4615384615385,
@@ -2156,7 +2834,7 @@
         "removed_area_um2": 75.276,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "4230444baf30a7489e612c3372bd61d999aa8eee579eea5978e74834717ebb46",
+      "source_sha256": "2640b2e3cbbc942b74cad3af0ca8bcb8f64963afb6a3ab63f9609bdf60f69b2a",
       "left_pnc_x_um": -842.28,
       "measured_straights_um": [
         1400.0,
@@ -2294,6 +2972,64 @@
           "distance_um": 73.84615384615385,
           "measured_width_um": 0.2,
           "target_width_um": 0.2
+        }
+      ],
+      "layer14_post_pnc_windows": [
+        {
+          "stage_lengths_um": [
+            12.307692307692308,
+            61.53846153846154,
+            6.153846153846154
+          ],
+          "post_pnc_margin_um": 1.0,
+          "pnc_end_width_um": 15.192000000000007,
+          "first_stage_end_width_um": 3.6500000000000057,
+          "linear_start_from_l10_um": 80.00000000000001,
+          "linear_start_width_um": 2.1999999999999886,
+          "far_end_from_l10_um": 2095.0,
+          "far_edges_um": [
+            -32.92099999999999,
+            36.92099999999999
+          ],
+          "circle_centers_from_l10_um": [
+            530.0,
+            1030.0
+          ],
+          "circle_diameter_um": 300.0,
+          "intermediate_frame_removed": true,
+          "side": "input",
+          "l10_start_local_x_um": -745.0,
+          "center_y_um": 200.0,
+          "pnc_length_um": 45.0,
+          "outward_sign": -1
+        },
+        {
+          "stage_lengths_um": [
+            12.307692307692308,
+            61.53846153846154,
+            6.153846153846154
+          ],
+          "post_pnc_margin_um": 1.0,
+          "pnc_end_width_um": 15.192000000000007,
+          "first_stage_end_width_um": 3.6500000000000057,
+          "linear_start_from_l10_um": 80.00000000000001,
+          "linear_start_width_um": 2.1999999999999886,
+          "far_end_from_l10_um": 2095.0,
+          "far_edges_um": [
+            -32.92099999999999,
+            36.92099999999999
+          ],
+          "circle_centers_from_l10_um": [
+            530.0,
+            1030.0
+          ],
+          "circle_diameter_um": 300.0,
+          "intermediate_frame_removed": true,
+          "side": "output",
+          "l10_start_local_x_um": 745.0,
+          "center_y_um": -200.0,
+          "pnc_length_um": 45.0,
+          "outward_sign": 1
         }
       ],
       "tip_centers": [
@@ -2346,7 +3082,7 @@
         "removed_area_um2": 75.276,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "4230444baf30a7489e612c3372bd61d999aa8eee579eea5978e74834717ebb46",
+      "source_sha256": "2640b2e3cbbc942b74cad3af0ca8bcb8f64963afb6a3ab63f9609bdf60f69b2a",
       "left_pnc_x_um": -842.28,
       "measured_straights_um": [
         1400.0,
@@ -2486,6 +3222,64 @@
           "target_width_um": 0.2
         }
       ],
+      "layer14_post_pnc_windows": [
+        {
+          "stage_lengths_um": [
+            15.384615384615385,
+            76.92307692307692,
+            7.6923076923076925
+          ],
+          "post_pnc_margin_um": 1.0,
+          "pnc_end_width_um": 15.192000000000007,
+          "first_stage_end_width_um": 3.6500000000000057,
+          "linear_start_from_l10_um": 100.0,
+          "linear_start_width_um": 2.1999999999999886,
+          "far_end_from_l10_um": 2115.0,
+          "far_edges_um": [
+            -32.92099999999999,
+            36.92099999999999
+          ],
+          "circle_centers_from_l10_um": [
+            550.0,
+            1050.0
+          ],
+          "circle_diameter_um": 300.0,
+          "intermediate_frame_removed": true,
+          "side": "input",
+          "l10_start_local_x_um": -745.0,
+          "center_y_um": 200.0,
+          "pnc_length_um": 45.0,
+          "outward_sign": -1
+        },
+        {
+          "stage_lengths_um": [
+            15.384615384615385,
+            76.92307692307692,
+            7.6923076923076925
+          ],
+          "post_pnc_margin_um": 1.0,
+          "pnc_end_width_um": 15.192000000000007,
+          "first_stage_end_width_um": 3.6500000000000057,
+          "linear_start_from_l10_um": 100.0,
+          "linear_start_width_um": 2.1999999999999886,
+          "far_end_from_l10_um": 2115.0,
+          "far_edges_um": [
+            -32.92099999999999,
+            36.92099999999999
+          ],
+          "circle_centers_from_l10_um": [
+            550.0,
+            1050.0
+          ],
+          "circle_diameter_um": 300.0,
+          "intermediate_frame_removed": true,
+          "side": "output",
+          "l10_start_local_x_um": 745.0,
+          "center_y_um": -200.0,
+          "pnc_length_um": 45.0,
+          "outward_sign": 1
+        }
+      ],
       "tip_centers": [
         [
           -760.3846153846154,
@@ -2536,7 +3330,7 @@
         "removed_area_um2": 75.276,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "4230444baf30a7489e612c3372bd61d999aa8eee579eea5978e74834717ebb46",
+      "source_sha256": "2640b2e3cbbc942b74cad3af0ca8bcb8f64963afb6a3ab63f9609bdf60f69b2a",
       "left_pnc_x_um": -842.28,
       "measured_straights_um": [
         1400.0,
@@ -2676,6 +3470,64 @@
           "target_width_um": 0.2
         }
       ],
+      "layer14_post_pnc_windows": [
+        {
+          "stage_lengths_um": [
+            18.46153846153846,
+            92.3076923076923,
+            9.23076923076923
+          ],
+          "post_pnc_margin_um": 1.0,
+          "pnc_end_width_um": 15.192000000000007,
+          "first_stage_end_width_um": 3.6500000000000057,
+          "linear_start_from_l10_um": 120.0,
+          "linear_start_width_um": 2.1999999999999886,
+          "far_end_from_l10_um": 2135.001,
+          "far_edges_um": [
+            -32.92099999999999,
+            36.92099999999999
+          ],
+          "circle_centers_from_l10_um": [
+            570.001,
+            1070.001
+          ],
+          "circle_diameter_um": 300.0,
+          "intermediate_frame_removed": true,
+          "side": "input",
+          "l10_start_local_x_um": -745.0,
+          "center_y_um": 200.0,
+          "pnc_length_um": 45.0,
+          "outward_sign": -1
+        },
+        {
+          "stage_lengths_um": [
+            18.46153846153846,
+            92.3076923076923,
+            9.23076923076923
+          ],
+          "post_pnc_margin_um": 1.0,
+          "pnc_end_width_um": 15.192000000000007,
+          "first_stage_end_width_um": 3.6500000000000057,
+          "linear_start_from_l10_um": 120.0,
+          "linear_start_width_um": 2.1999999999999886,
+          "far_end_from_l10_um": 2135.001,
+          "far_edges_um": [
+            -32.92099999999999,
+            36.92099999999999
+          ],
+          "circle_centers_from_l10_um": [
+            570.001,
+            1070.001
+          ],
+          "circle_diameter_um": 300.0,
+          "intermediate_frame_removed": true,
+          "side": "output",
+          "l10_start_local_x_um": 745.0,
+          "center_y_um": -200.0,
+          "pnc_length_um": 45.0,
+          "outward_sign": 1
+        }
+      ],
       "tip_centers": [
         [
           -763.4615384615385,
@@ -2726,7 +3578,7 @@
         "removed_area_um2": 75.276,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "4230444baf30a7489e612c3372bd61d999aa8eee579eea5978e74834717ebb46",
+      "source_sha256": "2640b2e3cbbc942b74cad3af0ca8bcb8f64963afb6a3ab63f9609bdf60f69b2a",
       "left_pnc_x_um": -842.291,
       "measured_straights_um": [
         1400.0,
@@ -2866,6 +3718,64 @@
           "target_width_um": 0.2
         }
       ],
+      "layer14_post_pnc_windows": [
+        {
+          "stage_lengths_um": [
+            12.307692307692308,
+            61.53846153846154,
+            6.153846153846154
+          ],
+          "post_pnc_margin_um": 1.0,
+          "pnc_end_width_um": 15.192000000000007,
+          "first_stage_end_width_um": 3.6500000000000057,
+          "linear_start_from_l10_um": 80.00000000000001,
+          "linear_start_width_um": 2.1999999999999886,
+          "far_end_from_l10_um": 2095.0,
+          "far_edges_um": [
+            -32.92099999999999,
+            36.92099999999999
+          ],
+          "circle_centers_from_l10_um": [
+            530.0,
+            1030.0
+          ],
+          "circle_diameter_um": 300.0,
+          "intermediate_frame_removed": true,
+          "side": "input",
+          "l10_start_local_x_um": -745.0,
+          "center_y_um": 200.0,
+          "pnc_length_um": 45.0,
+          "outward_sign": -1
+        },
+        {
+          "stage_lengths_um": [
+            12.307692307692308,
+            61.53846153846154,
+            6.153846153846154
+          ],
+          "post_pnc_margin_um": 1.0,
+          "pnc_end_width_um": 15.192000000000007,
+          "first_stage_end_width_um": 3.6500000000000057,
+          "linear_start_from_l10_um": 80.00000000000001,
+          "linear_start_width_um": 2.1999999999999886,
+          "far_end_from_l10_um": 2095.0,
+          "far_edges_um": [
+            -32.92099999999999,
+            36.92099999999999
+          ],
+          "circle_centers_from_l10_um": [
+            530.0,
+            1030.0
+          ],
+          "circle_diameter_um": 300.0,
+          "intermediate_frame_removed": true,
+          "side": "output",
+          "l10_start_local_x_um": 745.0,
+          "center_y_um": -200.0,
+          "pnc_length_um": 45.0,
+          "outward_sign": 1
+        }
+      ],
       "tip_centers": [
         [
           -757.3076923076923,
@@ -2916,7 +3826,7 @@
         "removed_area_um2": 75.276,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "4230444baf30a7489e612c3372bd61d999aa8eee579eea5978e74834717ebb46",
+      "source_sha256": "2640b2e3cbbc942b74cad3af0ca8bcb8f64963afb6a3ab63f9609bdf60f69b2a",
       "left_pnc_x_um": -842.291,
       "measured_straights_um": [
         1400.0,
@@ -3056,6 +3966,64 @@
           "target_width_um": 0.2
         }
       ],
+      "layer14_post_pnc_windows": [
+        {
+          "stage_lengths_um": [
+            15.384615384615385,
+            76.92307692307692,
+            7.6923076923076925
+          ],
+          "post_pnc_margin_um": 1.0,
+          "pnc_end_width_um": 15.192000000000007,
+          "first_stage_end_width_um": 3.6500000000000057,
+          "linear_start_from_l10_um": 100.0,
+          "linear_start_width_um": 2.1999999999999886,
+          "far_end_from_l10_um": 2115.0,
+          "far_edges_um": [
+            -32.92099999999999,
+            36.92099999999999
+          ],
+          "circle_centers_from_l10_um": [
+            550.0,
+            1050.0
+          ],
+          "circle_diameter_um": 300.0,
+          "intermediate_frame_removed": true,
+          "side": "input",
+          "l10_start_local_x_um": -745.0,
+          "center_y_um": 200.0,
+          "pnc_length_um": 45.0,
+          "outward_sign": -1
+        },
+        {
+          "stage_lengths_um": [
+            15.384615384615385,
+            76.92307692307692,
+            7.6923076923076925
+          ],
+          "post_pnc_margin_um": 1.0,
+          "pnc_end_width_um": 15.192000000000007,
+          "first_stage_end_width_um": 3.6500000000000057,
+          "linear_start_from_l10_um": 100.0,
+          "linear_start_width_um": 2.1999999999999886,
+          "far_end_from_l10_um": 2115.0,
+          "far_edges_um": [
+            -32.92099999999999,
+            36.92099999999999
+          ],
+          "circle_centers_from_l10_um": [
+            550.0,
+            1050.0
+          ],
+          "circle_diameter_um": 300.0,
+          "intermediate_frame_removed": true,
+          "side": "output",
+          "l10_start_local_x_um": 745.0,
+          "center_y_um": -200.0,
+          "pnc_length_um": 45.0,
+          "outward_sign": 1
+        }
+      ],
       "tip_centers": [
         [
           -760.3846153846154,
@@ -3106,7 +4074,7 @@
         "removed_area_um2": 75.276,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "4230444baf30a7489e612c3372bd61d999aa8eee579eea5978e74834717ebb46",
+      "source_sha256": "2640b2e3cbbc942b74cad3af0ca8bcb8f64963afb6a3ab63f9609bdf60f69b2a",
       "left_pnc_x_um": -842.291,
       "measured_straights_um": [
         1400.0,
@@ -3244,6 +4212,64 @@
           "distance_um": 110.76923076923077,
           "measured_width_um": 0.2,
           "target_width_um": 0.2
+        }
+      ],
+      "layer14_post_pnc_windows": [
+        {
+          "stage_lengths_um": [
+            18.46153846153846,
+            92.3076923076923,
+            9.23076923076923
+          ],
+          "post_pnc_margin_um": 1.0,
+          "pnc_end_width_um": 15.192000000000007,
+          "first_stage_end_width_um": 3.6500000000000057,
+          "linear_start_from_l10_um": 120.0,
+          "linear_start_width_um": 2.1999999999999886,
+          "far_end_from_l10_um": 2135.001,
+          "far_edges_um": [
+            -32.92099999999999,
+            36.92099999999999
+          ],
+          "circle_centers_from_l10_um": [
+            570.001,
+            1070.001
+          ],
+          "circle_diameter_um": 300.0,
+          "intermediate_frame_removed": true,
+          "side": "input",
+          "l10_start_local_x_um": -745.0,
+          "center_y_um": 200.0,
+          "pnc_length_um": 45.0,
+          "outward_sign": -1
+        },
+        {
+          "stage_lengths_um": [
+            18.46153846153846,
+            92.3076923076923,
+            9.23076923076923
+          ],
+          "post_pnc_margin_um": 1.0,
+          "pnc_end_width_um": 15.192000000000007,
+          "first_stage_end_width_um": 3.6500000000000057,
+          "linear_start_from_l10_um": 120.0,
+          "linear_start_width_um": 2.1999999999999886,
+          "far_end_from_l10_um": 2135.001,
+          "far_edges_um": [
+            -32.92099999999999,
+            36.92099999999999
+          ],
+          "circle_centers_from_l10_um": [
+            570.001,
+            1070.001
+          ],
+          "circle_diameter_um": 300.0,
+          "intermediate_frame_removed": true,
+          "side": "output",
+          "l10_start_local_x_um": 745.0,
+          "center_y_um": -200.0,
+          "pnc_length_um": 45.0,
+          "outward_sign": 1
         }
       ],
       "tip_centers": [

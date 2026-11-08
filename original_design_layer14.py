@@ -13,6 +13,9 @@ import math
 def _cross_section(shape, x):
     from shapely.geometry import LineString
     cut = shape.intersection(LineString([(x, -1000), (x, 1000)]))
+    if cut.geom_type == 'MultiLineString':
+        from shapely.ops import linemerge
+        cut = linemerge(cut)
     if cut.is_empty or cut.geom_type != 'LineString':
         raise ValueError(f'Expected one solid window cross-section at {x}: {cut.geom_type}')
     return cut.bounds[1], cut.bounds[3]
