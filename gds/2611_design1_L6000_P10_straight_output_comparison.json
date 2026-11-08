@@ -16,6 +16,7 @@
       ],
       "added_length_um": 0.0,
       "path_length_excluding_tapers_um": 18741.822610417224,
+      "layer14_window_file": "L14_M1p0_D1_L6000_W1620_P10.gds",
       "input_port_local_um": [
         -3000.0,
         200.0
@@ -25,7 +26,10 @@
         -200.0
       ],
       "final_pnc_present": false,
-      "final_layer14_scope": "two_terminal_windows_only"
+      "final_release_window_count": 2,
+      "final_layer2_scope": "L10_entrances_outward_only",
+      "final_layer14_scope": "L10_entrances_outward_only",
+      "layer14_margin_um": 1.0
     },
     {
       "case_id": "D1_L6000_W1640_P10",
@@ -42,6 +46,7 @@
       ],
       "added_length_um": 0.0,
       "path_length_excluding_tapers_um": 18741.822610417224,
+      "layer14_window_file": "L14_M1p0_D1_L6000_W1640_P10.gds",
       "input_port_local_um": [
         -3000.0,
         200.0
@@ -51,7 +56,10 @@
         -200.0
       ],
       "final_pnc_present": false,
-      "final_layer14_scope": "two_terminal_windows_only"
+      "final_release_window_count": 2,
+      "final_layer2_scope": "L10_entrances_outward_only",
+      "final_layer14_scope": "L10_entrances_outward_only",
+      "layer14_margin_um": 1.0
     },
     {
       "case_id": "D1_L6000_W1680_P10",
@@ -68,6 +76,7 @@
       ],
       "added_length_um": 0.0,
       "path_length_excluding_tapers_um": 18741.822610417224,
+      "layer14_window_file": "L14_M1p0_D1_L6000_W1680_P10.gds",
       "input_port_local_um": [
         -3000.0,
         200.0
@@ -77,7 +86,10 @@
         -200.0
       ],
       "final_pnc_present": false,
-      "final_layer14_scope": "two_terminal_windows_only"
+      "final_release_window_count": 2,
+      "final_layer2_scope": "L10_entrances_outward_only",
+      "final_layer14_scope": "L10_entrances_outward_only",
+      "layer14_margin_um": 1.0
     },
     {
       "case_id": "D1_L6000_W1620_P10_OUT2000",
@@ -94,6 +106,7 @@
       ],
       "added_length_um": 2000.0,
       "path_length_excluding_tapers_um": 20741.822610417224,
+      "layer14_window_file": "L14_M1p0_D1_L6000_W1620_P10.gds",
       "input_port_local_um": [
         -3000.0,
         200.0
@@ -101,7 +114,12 @@
       "output_port_local_um": [
         3000.0,
         -200.0
-      ]
+      ],
+      "final_pnc_present": false,
+      "final_release_window_count": 1,
+      "final_layer2_scope": "L10_entrances_outward_only",
+      "final_layer14_scope": "L10_entrances_outward_only",
+      "layer14_margin_um": 1.0
     },
     {
       "case_id": "D1_L6000_W1640_P10_OUT2000",
@@ -118,6 +136,7 @@
       ],
       "added_length_um": 2000.0,
       "path_length_excluding_tapers_um": 20741.822610417224,
+      "layer14_window_file": "L14_M1p0_D1_L6000_W1640_P10.gds",
       "input_port_local_um": [
         -3000.0,
         200.0
@@ -125,7 +144,12 @@
       "output_port_local_um": [
         3000.0,
         -200.0
-      ]
+      ],
+      "final_pnc_present": false,
+      "final_release_window_count": 1,
+      "final_layer2_scope": "L10_entrances_outward_only",
+      "final_layer14_scope": "L10_entrances_outward_only",
+      "layer14_margin_um": 1.0
     },
     {
       "case_id": "D1_L6000_W1680_P10_OUT2000",
@@ -142,6 +166,7 @@
       ],
       "added_length_um": 2000.0,
       "path_length_excluding_tapers_um": 20741.822610417224,
+      "layer14_window_file": "L14_M1p0_D1_L6000_W1680_P10.gds",
       "input_port_local_um": [
         -3000.0,
         200.0
@@ -149,7 +174,12 @@
       "output_port_local_um": [
         3000.0,
         -200.0
-      ]
+      ],
+      "final_pnc_present": false,
+      "final_release_window_count": 1,
+      "final_layer2_scope": "L10_entrances_outward_only",
+      "final_layer14_scope": "L10_entrances_outward_only",
+      "layer14_margin_um": 1.0
     }
   ],
   "device_count": 6,
@@ -167,9 +197,6 @@
   "left_bend_x_um": -900.0,
   "side": "lower-right output; upper-left input unchanged",
   "extension_layers": [
-    2,
-    11,
-    14,
     15
   ],
   "frame_bounds_um": [
@@ -180,10 +207,12 @@
   ],
   "final_layer_policy": {
     "removed_layers": [
+      11,
       16,
       51
     ],
     "removed_shape_counts": {
+      "11/0": 23856,
       "16/0": 6,
       "51/0": 9
     },
@@ -198,15 +227,11 @@
     "marker_cell": "FRAME_AND_MARKERS",
     "moved_marker_polygon_count": 40,
     "moved_marker_area_um2": 7088.0,
-    "layer2_windows_and_labels_preserved": true
+    "layer2_labels_preserved": true,
+    "release_masks_handled_separately": true
   },
-  "two_coupler_layer_policy": {
+  "coupler_layer_policy": {
     "D1_L6000_W1620_P10": {
-      "removed_layer": 11,
-      "removed_l11_shapes": 3786,
-      "layer14_before_area_um2": 878342.446137,
-      "layer14_after_area_um2": 404381.173799,
-      "layer14_region": "Both existing end windows from the L10 entrance outward",
       "ends": [
         {
           "side": "input",
@@ -230,14 +255,16 @@
             -25.0
           ]
         }
-      ]
+      ],
+      "removed_layer": 11,
+      "layer2_before_area_um2": 596310.0977619999,
+      "layer2_after_area_um2": 404376.17379599996,
+      "layer14_before_area_um2": 878342.446137,
+      "layer14_after_area_um2": 403783.26357899996,
+      "layer14_margin_um": 1.0,
+      "layer14_window_file": "L14_M1p0_D1_L6000_W1620_P10.gds"
     },
     "D1_L6000_W1640_P10": {
-      "removed_layer": 11,
-      "removed_l11_shapes": 3786,
-      "layer14_before_area_um2": 878342.446137,
-      "layer14_after_area_um2": 404381.173799,
-      "layer14_region": "Both existing end windows from the L10 entrance outward",
       "ends": [
         {
           "side": "input",
@@ -261,14 +288,16 @@
             -25.0
           ]
         }
-      ]
+      ],
+      "removed_layer": 11,
+      "layer2_before_area_um2": 596310.0977619999,
+      "layer2_after_area_um2": 404376.17379599996,
+      "layer14_before_area_um2": 878342.446137,
+      "layer14_after_area_um2": 403783.26357899996,
+      "layer14_margin_um": 1.0,
+      "layer14_window_file": "L14_M1p0_D1_L6000_W1640_P10.gds"
     },
     "D1_L6000_W1680_P10": {
-      "removed_layer": 11,
-      "removed_l11_shapes": 3786,
-      "layer14_before_area_um2": 878342.446137,
-      "layer14_after_area_um2": 404381.173799,
-      "layer14_region": "Both existing end windows from the L10 entrance outward",
       "ends": [
         {
           "side": "input",
@@ -292,12 +321,86 @@
             -25.0
           ]
         }
-      ]
+      ],
+      "removed_layer": 11,
+      "layer2_before_area_um2": 596310.0977619999,
+      "layer2_after_area_um2": 404376.17379599996,
+      "layer14_before_area_um2": 878342.446137,
+      "layer14_after_area_um2": 403783.26357899996,
+      "layer14_margin_um": 1.0,
+      "layer14_window_file": "L14_M1p0_D1_L6000_W1680_P10.gds"
+    },
+    "D1_L6000_W1620_P10_OUT2000": {
+      "ends": [
+        {
+          "side": "input",
+          "l10_start_local_x_um": -3045.0,
+          "center_y_um": 200.0,
+          "keep_box_local_um": [
+            -5141.0,
+            25.0,
+            -3045.0,
+            351.0
+          ]
+        }
+      ],
+      "removed_layer": 11,
+      "layer2_before_area_um2": 414047.3709,
+      "layer2_after_area_um2": 202188.086934,
+      "layer14_before_area_um2": 725627.2192749999,
+      "layer14_after_area_um2": 201891.631802,
+      "layer14_margin_um": 1.0,
+      "layer14_window_file": "L14_M1p0_D1_L6000_W1620_P10.gds"
+    },
+    "D1_L6000_W1640_P10_OUT2000": {
+      "ends": [
+        {
+          "side": "input",
+          "l10_start_local_x_um": -3045.0,
+          "center_y_um": 200.0,
+          "keep_box_local_um": [
+            -5141.0,
+            25.0,
+            -3045.0,
+            351.0
+          ]
+        }
+      ],
+      "removed_layer": 11,
+      "layer2_before_area_um2": 414047.3709,
+      "layer2_after_area_um2": 202188.086934,
+      "layer14_before_area_um2": 725627.2192749999,
+      "layer14_after_area_um2": 201891.631802,
+      "layer14_margin_um": 1.0,
+      "layer14_window_file": "L14_M1p0_D1_L6000_W1640_P10.gds"
+    },
+    "D1_L6000_W1680_P10_OUT2000": {
+      "ends": [
+        {
+          "side": "input",
+          "l10_start_local_x_um": -3045.0,
+          "center_y_um": 200.0,
+          "keep_box_local_um": [
+            -5141.0,
+            25.0,
+            -3045.0,
+            351.0
+          ]
+        }
+      ],
+      "removed_layer": 11,
+      "layer2_before_area_um2": 414047.3709,
+      "layer2_after_area_um2": 202188.086934,
+      "layer14_before_area_um2": 725627.2192749999,
+      "layer14_after_area_um2": 201891.631802,
+      "layer14_margin_um": 1.0,
+      "layer14_window_file": "L14_M1p0_D1_L6000_W1680_P10.gds"
     }
   },
-  "worker_checks_scope": "Unfiltered source masks; final checks enforce global removal of L16/L51 and selective two-coupler L11 removal/L14 cropping",
+  "layer14_window_margin_um": 1.0,
+  "worker_checks_scope": "Pre-export source geometry checks; final checks remove L11/L16/L51 and crop L2/L14 on BOTH sets with isolated 1 um L14 margin",
   "original_gds_sha256": "ecf200c2886cf8a4492528fd09e5736a488df6ac63bc93ea93490d0b11e27889",
-  "gds_sha256": "a4b919e480ce6526ff563a829fe6f4805feed296be230fa63a7377dd6562dfbd",
+  "gds_sha256": "daa4d7fe327d21af2b4e6da7827731ac3b8546aea02a6c7553664ef8168ad56c",
   "checks": [
     {
       "name": "rows0_1_no_fabrication_overlap",
@@ -443,7 +546,7 @@
       "passed": true
     },
     {
-      "name": "layers16_and51_absent_from_entire_export",
+      "name": "layers11_16_51_absent_from_entire_export",
       "passed": true
     },
     {
@@ -451,11 +554,15 @@
       "passed": true
     },
     {
-      "name": "D1_L6000_W1620_P10_no_layer11_on_two_coupler_device",
+      "name": "D1_L6000_W1620_P10_no_layer11",
       "passed": true
     },
     {
-      "name": "D1_L6000_W1620_P10_layer14_only_outward_end_windows",
+      "name": "D1_L6000_W1620_P10_L2_terminal_windows_only",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_L14_terminal_windows_only",
       "passed": true
     },
     {
@@ -491,11 +598,15 @@
       "passed": true
     },
     {
-      "name": "D1_L6000_W1640_P10_no_layer11_on_two_coupler_device",
+      "name": "D1_L6000_W1640_P10_no_layer11",
       "passed": true
     },
     {
-      "name": "D1_L6000_W1640_P10_layer14_only_outward_end_windows",
+      "name": "D1_L6000_W1640_P10_L2_terminal_windows_only",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_L14_terminal_windows_only",
       "passed": true
     },
     {
@@ -531,11 +642,15 @@
       "passed": true
     },
     {
-      "name": "D1_L6000_W1680_P10_no_layer11_on_two_coupler_device",
+      "name": "D1_L6000_W1680_P10_no_layer11",
       "passed": true
     },
     {
-      "name": "D1_L6000_W1680_P10_layer14_only_outward_end_windows",
+      "name": "D1_L6000_W1680_P10_L2_terminal_windows_only",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_L14_terminal_windows_only",
       "passed": true
     },
     {
@@ -571,6 +686,18 @@
       "passed": true
     },
     {
+      "name": "D1_L6000_W1620_P10_OUT2000_no_layer11",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_L2_terminal_windows_only",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_L14_terminal_windows_only",
+      "passed": true
+    },
+    {
       "name": "D1_L6000_W1620_P10_OUT2000_exported_layer_set",
       "passed": true
     },
@@ -580,10 +707,6 @@
     },
     {
       "name": "D1_L6000_W1620_P10_OUT2000_saved_L10_exact",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1620_P10_OUT2000_saved_L11_exact",
       "passed": true
     },
     {
@@ -607,6 +730,18 @@
       "passed": true
     },
     {
+      "name": "D1_L6000_W1640_P10_OUT2000_no_layer11",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_L2_terminal_windows_only",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_L14_terminal_windows_only",
+      "passed": true
+    },
+    {
       "name": "D1_L6000_W1640_P10_OUT2000_exported_layer_set",
       "passed": true
     },
@@ -616,10 +751,6 @@
     },
     {
       "name": "D1_L6000_W1640_P10_OUT2000_saved_L10_exact",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1640_P10_OUT2000_saved_L11_exact",
       "passed": true
     },
     {
@@ -643,6 +774,18 @@
       "passed": true
     },
     {
+      "name": "D1_L6000_W1680_P10_OUT2000_no_layer11",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_L2_terminal_windows_only",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_L14_terminal_windows_only",
+      "passed": true
+    },
+    {
       "name": "D1_L6000_W1680_P10_OUT2000_exported_layer_set",
       "passed": true
     },
@@ -652,10 +795,6 @@
     },
     {
       "name": "D1_L6000_W1680_P10_OUT2000_saved_L10_exact",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1680_P10_OUT2000_saved_L11_exact",
       "passed": true
     },
     {
@@ -684,6 +823,8 @@
       "width_um": 1.62,
       "reference_id": "D1_L6000_W1620_P10",
       "variant_id": "D1_L6000_W1620_P10_OUT2000",
+      "layer14_window_file": "L14_M1p0_D1_L6000_W1620_P10.gds",
+      "layer14_margin_um": 1.0,
       "input_port_um": [
         -3000.0,
         200.0
@@ -1022,6 +1163,8 @@
       "width_um": 1.64,
       "reference_id": "D1_L6000_W1640_P10",
       "variant_id": "D1_L6000_W1640_P10_OUT2000",
+      "layer14_window_file": "L14_M1p0_D1_L6000_W1640_P10.gds",
+      "layer14_margin_um": 1.0,
       "input_port_um": [
         -3000.0,
         200.0
@@ -1360,6 +1503,8 @@
       "width_um": 1.68,
       "reference_id": "D1_L6000_W1680_P10",
       "variant_id": "D1_L6000_W1680_P10_OUT2000",
+      "layer14_window_file": "L14_M1p0_D1_L6000_W1680_P10.gds",
+      "layer14_margin_um": 1.0,
       "input_port_um": [
         -3000.0,
         200.0
@@ -1695,6 +1840,6 @@
       "status": "PASS"
     }
   ],
-  "check_count": 277,
+  "check_count": 286,
   "optical_or_mechanical_simulation_performed": false
 }
