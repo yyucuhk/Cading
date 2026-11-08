@@ -4,7 +4,7 @@ DESIGN 1: 6000 um MEANDER WITH A 2000 um STRAIGHT OUTPUT
 Run from the Cading root:
     python 2611_design1_L6000_straight_output.py
 
-New output (existing layouts are not overwritten):
+Output (this file is overwritten; other saved layouts are unchanged):
     gds/2611_design1_L6000_P10_straight_output_comparison.gds
 
 The default file contains six devices in one vertical column:
@@ -16,7 +16,7 @@ The default file contains six devices in one vertical column:
 The new variants replace the LOWER-RIGHT output assembly only. The opposite
 UPPER-LEFT input retains the current 45 um 15-to-5 um PNC transition, five
 1 um dense PNC periods at its narrow end, original optical taper, butterfly
-tether, support island, alignment tips, release windows and fiber guide.
+tether, support island, alignment tips, release windows. Its Layer-51 fiber guide is omitted from this comparison.
 
 Each original meander straight remains 6000 um. A separate 2000 um straight
 is added outward from its original output port (local X=3000, Y=-200 um).
@@ -24,7 +24,7 @@ The new optical endpoint is local X=5000, Y=-200 um. This is NOT an extension
 measured from the old taper tip, and does not change either Euler bend.
 
 The extension is the same constant-width Layer-15 guide as the meander,
-with Layer-16 protection. To retain the existing suspended-waveguide support
+without Layer-16 protection in the exported file. To retain the existing suspended-waveguide support
 construction, it continues the 15 um support envelope with 10 um PNC pitch,
 Layer-2 side release bands and the complete Layer-14 opening. Layer 10 does
 not carry a taper in this extension, just as it does not carry the original
@@ -49,7 +49,7 @@ outside the replacement region. The original cells are not mutated.
 
 Checks include exact original-device polygon comparison, exact preservation
 outside the output assembly on every layer, measured output widths, exact
-2000 um length, output PNC populations, connected ridge/protection, mask
+2000 um length, output PNC populations, connected ridge and release-mask
 coverage, retained input ticks, absence of output taper/tether/pads/guides,
 correct device/label counts, alignment, spacing and overlaps. The generated
 JSON records these checks. Geometry checks are not optical-loss simulation,
@@ -63,3 +63,21 @@ Reproduction environment:
 Keep the existing Design-1 and long-width builder, local support modules,
 and tether_variants.gds in this directory. The downloadable release also
 includes these dependencies; it never changes their contents.
+
+OUTPUT LAYER CLEANUP
+====================
+Layers 16 and 51 are omitted everywhere in the six-device comparison GDS.
+Global alignment markers formerly on Layer 2 are moved (not copied) to
+Layer 15 at exactly the same positions, with the same shapes. Layer-10
+markers are retained. Device Layer-2 release windows and all six device
+labels remain unchanged on Layer 2. Alignment tips already on Layer 15
+remain unchanged. No waveguide, PNC, taper, placement, or frame changes.
+
+The policy is explicit in Section 01 and finalize_output_layers(). It runs
+after all construction/placement, on an independent KLayout layout, before
+writing the deliverable. Intermediate worker masks may include Layer 16
+for baseline checks; they are not the final export.
+
+This change applies ONLY to the comparison builder/output. The source
+three-device width sweep, standalone designs and 18-device sweep are not
+modified. The original baseline GDS must retain its manifest hash.

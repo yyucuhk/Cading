@@ -44,6 +44,11 @@ def main(root):
     checks=[]
     def check(name,ok,**kw):
         checks.append(dict(name=name,passed=bool(ok),**kw));assert ok,(name,kw)
+    check('layers16_and51_absent_in_all_cells',
+          all(not c['polys'].get(16) and not c['polys'].get(51) for c in new.values()))
+    check('global_marker_cell_on15_not2',
+          bool(new['FRAME_AND_MARKERS']['polys'].get(15))
+          and not new['FRAME_AND_MARKERS']['polys'].get(2))
     refs=new[top]['refs']
     check('six_devices_six_labels_one_frame',len(refs)==13 and sum(n.startswith('LABEL_') for n,_ in refs)==6)
     devrefs={n:p for n,p in refs if n.startswith('D1_L')}
@@ -52,9 +57,9 @@ def main(root):
     roi=box(3000,-400,20000,-25)
     for w in (1.62,1.64,1.68):
         n=f'D1_L6000_W{round(w*1000)}_P10';v=n+'_OUT2000'
-        check(n+'_eight_layers',set(new[n]['polys'])=={2,10,11,13,14,15,16,51})
-        check(v+'_eight_layers',set(new[v]['polys'])=={2,10,11,13,14,15,16,51})
-        for l in (2,10,11,13,14,15,16,51):
+        check(n+'_six_output_layers',set(new[n]['polys'])=={2,10,11,13,14,15})
+        check(v+'_six_output_layers',set(new[v]['polys'])=={2,10,11,13,14,15})
+        for l in (2,10,11,13,14,15):
             a=union(old[n],l);b=union(new[n],l);c=union(new[v],l)
             ar=a.symmetric_difference(b).area
             check(n+f'_reference_L{l}_unchanged',ar<1e-7,xor_um2=ar)
@@ -69,10 +74,9 @@ def main(root):
             check(v+f'_width_{x}',abs(seg.length-w)<1e-7,measured_um=seg.length)
         geoms=list(optical.geoms) if hasattr(optical,'geoms') else [optical]
         check(v+'_one_optical_body_two_input_ticks',len(geoms)==3)
-        protection=union(new[v],16)
-        check(v+'_protection_connected',protection.geom_type=='Polygon')
+        check(v+'_protection_and_fiber_layers_removed',
+              not new[v]['polys'].get(16) and not new[v]['polys'].get(51))
         body=max(geoms,key=lambda p:p.area)
-        check(v+'_ridge_covered_by_protection',body.difference(protection).area<1e-7)
         check(v+'_ridge_covered_by_release',body.difference(union(new[v],14)).area<1e-7)
         for l in (10,13,51):
             check(v+f'_no_output_taper_hardware_L{l}',union(new[v],l).intersection(roi).area==0)

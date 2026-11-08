@@ -164,8 +164,7 @@
     2,
     11,
     14,
-    15,
-    16
+    15
   ],
   "frame_bounds_um": [
     -3400,
@@ -173,8 +172,31 @@
     7900,
     3200
   ],
+  "final_layer_policy": {
+    "removed_layers": [
+      16,
+      51
+    ],
+    "removed_shape_counts": {
+      "16/0": 6,
+      "51/0": 9
+    },
+    "marker_source_layer": [
+      2,
+      0
+    ],
+    "marker_target_layer": [
+      15,
+      0
+    ],
+    "marker_cell": "FRAME_AND_MARKERS",
+    "moved_marker_polygon_count": 40,
+    "moved_marker_area_um2": 7088.0,
+    "layer2_windows_and_labels_preserved": true
+  },
+  "worker_checks_scope": "Unfiltered construction/reference masks; final export checks exclude Layers 16 and 51",
   "original_gds_sha256": "ecf200c2886cf8a4492528fd09e5736a488df6ac63bc93ea93490d0b11e27889",
-  "gds_sha256": "799563ddfaa63f7fdb826f71415ebf238850ccb49adc5725075c37673a00ea84",
+  "gds_sha256": "5a31d110a0c605597668108865ef9ba67372a0ccecc3d353936071828e3e9bdd",
   "checks": [
     {
       "name": "rows0_1_no_fabrication_overlap",
@@ -308,7 +330,27 @@
       "passed": true
     },
     {
+      "name": "global_markers_moved_2_to_15_exactly",
+      "passed": true
+    },
+    {
+      "name": "no_marker_copies_left_in_frame_layer2",
+      "passed": true
+    },
+    {
+      "name": "moved_markers_clear_of_devices_and_labels",
+      "passed": true
+    },
+    {
+      "name": "layers16_and51_absent_from_entire_export",
+      "passed": true
+    },
+    {
       "name": "correct_device_and_label_count",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_exported_layer_set",
       "passed": true
     },
     {
@@ -336,19 +378,15 @@
       "passed": true
     },
     {
-      "name": "D1_L6000_W1620_P10_saved_L16_exact",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1620_P10_saved_L51_exact",
-      "passed": true
-    },
-    {
       "name": "D1_L6000_W1620_P10_actual_x_alignment",
       "passed": true
     },
     {
       "name": "D1_L6000_W1620_P10_actual_y_position",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_exported_layer_set",
       "passed": true
     },
     {
@@ -376,19 +414,15 @@
       "passed": true
     },
     {
-      "name": "D1_L6000_W1640_P10_saved_L16_exact",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1640_P10_saved_L51_exact",
-      "passed": true
-    },
-    {
       "name": "D1_L6000_W1640_P10_actual_x_alignment",
       "passed": true
     },
     {
       "name": "D1_L6000_W1640_P10_actual_y_position",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_exported_layer_set",
       "passed": true
     },
     {
@@ -416,19 +450,15 @@
       "passed": true
     },
     {
-      "name": "D1_L6000_W1680_P10_saved_L16_exact",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1680_P10_saved_L51_exact",
-      "passed": true
-    },
-    {
       "name": "D1_L6000_W1680_P10_actual_x_alignment",
       "passed": true
     },
     {
       "name": "D1_L6000_W1680_P10_actual_y_position",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1620_P10_OUT2000_exported_layer_set",
       "passed": true
     },
     {
@@ -456,19 +486,15 @@
       "passed": true
     },
     {
-      "name": "D1_L6000_W1620_P10_OUT2000_saved_L16_exact",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1620_P10_OUT2000_saved_L51_exact",
-      "passed": true
-    },
-    {
       "name": "D1_L6000_W1620_P10_OUT2000_actual_x_alignment",
       "passed": true
     },
     {
       "name": "D1_L6000_W1620_P10_OUT2000_actual_y_position",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1640_P10_OUT2000_exported_layer_set",
       "passed": true
     },
     {
@@ -496,19 +522,15 @@
       "passed": true
     },
     {
-      "name": "D1_L6000_W1640_P10_OUT2000_saved_L16_exact",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1640_P10_OUT2000_saved_L51_exact",
-      "passed": true
-    },
-    {
       "name": "D1_L6000_W1640_P10_OUT2000_actual_x_alignment",
       "passed": true
     },
     {
       "name": "D1_L6000_W1640_P10_OUT2000_actual_y_position",
+      "passed": true
+    },
+    {
+      "name": "D1_L6000_W1680_P10_OUT2000_exported_layer_set",
       "passed": true
     },
     {
@@ -533,14 +555,6 @@
     },
     {
       "name": "D1_L6000_W1680_P10_OUT2000_saved_L15_exact",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1680_P10_OUT2000_saved_L16_exact",
-      "passed": true
-    },
-    {
-      "name": "D1_L6000_W1680_P10_OUT2000_saved_L51_exact",
       "passed": true
     },
     {
@@ -1568,10 +1582,6 @@
       "status": "PASS"
     }
   ],
-  "check_count": 276,
-  "optical_or_mechanical_simulation_performed": false,
-  "protected_original_file_count": 98,
-  "original_files_unchanged": true,
-  "base_commit": "4dd360c60c826fd2f3e6604378bd2e40592a715f",
-  "independent_raw_gds_check_count": 120
+  "check_count": 274,
+  "optical_or_mechanical_simulation_performed": false
 }
