@@ -38,38 +38,24 @@ def validate(root: Path, baseline: Path | None = None) -> dict:
           meta['layer2_window_margin_um']==2.5 and meta['layer14_window_margin_um']==1.0 and
           meta['layer2_start_offset_um']==.5 and meta['layer14_start_offset_um']==0)
     for n,c in cells.items():
-        check(n+'_removed_layers_absent',not ({11,16,51}&set(c['polys'])))
+        check(n+'_removed_layers_absent',not ({16,51}&set(c['polys'])))
     check('labels_on_layer2',all(set(cells[n]['polys'])=={2} for n in labels))
     check('global_markers_on15_not2',bool(cells['FRAME_AND_MARKERS']['polys'].get(15)) and not cells['FRAME_AND_MARKERS']['polys'].get(2))
     if old:
         for name,pos in old[oldtop]['refs']:
             check(name+'_original_placement',refs[name]==pos)
             for layer in old[name]['polys']:
-                if name in devices and layer == 14:continue
                 a=sorted(tuple(x) for x in old[name]['polys'][layer])
                 b=sorted(tuple(x) for x in cells[name]['polys'].get(layer,[]))
                 check(name+f'_L{layer}_original_raw_coordinates',a==b)
     if old:
-        check('all_cell_names_preserved', set(cells)==set(old))
-        check('all_cell_references_preserved', all(cells[n]['refs']==old[n]['refs'] for n in cells))
-        for name in devices:
-            before=union(old[name],14)
-            after=geom(name,14)
-            check(name+'_L14_margin_really_reduced', before.difference(after).area>1.)
-            # Offset polygons are quantized on a 1 nm database grid.
-            check(name+'_L14_no_widening_beyond_grid', after.difference(before.buffer(DBU)).area<1e-6)
-            single=name.startswith('D1_SINGLE_')
-            one=('_1T_' in name) if single else name.endswith('_OUT2000')
-            allowed=Polygon()
-            for sign,cy in [(-1,0 if single else 200)]+([] if one else [(1,0 if single else -200)]):
-                sx=sign*3045
-                allowed=allowed.union(box(min(sx,sx+sign*96),cy-30,max(sx,sx+sign*96),cy+30))
-            exact(name+'_L14_unchanged_outside_taper_window', after.difference(allowed), before.difference(allowed))
+        check('all_cell_names_preserved',set(cells)==set(old))
+        check('all_cell_references_preserved',all(cells[n]['refs']==old[n]['refs'] for n in cells))
     for name,pos in devices.items():
         single=name.startswith('D1_SINGLE_')
         one=('_1T_' in name) if single else name.endswith('_OUT2000')
         width=int(name.split('_W')[1].split('_')[0])/1000
-        check(name+'_requested_layers',set(cells[name]['polys'])=={2,10,13,14,15})
+        check(name+'_requested_layers',set(cells[name]['polys'])=={2,10,11,13,14,15})
         ends=[('input',-1,0 if single else 200)]+([] if one else [('output',1,0 if single else -200)])
         keep={2:Polygon(),14:Polygon()}
         for side,sign,cy in ends:
@@ -114,7 +100,7 @@ def validate(root: Path, baseline: Path | None = None) -> dict:
         check(name+'_connected_path_and_ticks',len(parts)==(3 if one else 5))
         if single:
             source='D1_L6000_W'+str(round(width*1000))+'_P10'+('_OUT2000' if one else '')
-            for layer in (2,10,13,14,15):
+            for layer in (2,10,11,13,14,15):
                 left=translate(geom(source,layer).intersection(box(-20000,25,-3000,20000)),yoff=-200)
                 right=translate(geom(source,layer).intersection(box(3000,-20000,20000,-25)),yoff=200)
                 expected=left.union(right)
@@ -137,7 +123,7 @@ def validate(root: Path, baseline: Path | None = None) -> dict:
                 err=scale(left,xfact=-1,yfact=-1,origin=(0,0)).hausdorff_distance(right)
                 check(name+f'_L{layer}_symmetric_on_grid',err<.0011,edge_error_um=err)
     check('18_coupler_windows_36_mask_entrances',len(measured)==36)
-    placed={n:unary_union([translate(geom(n,l),xoff=p[0]*DBU,yoff=p[1]*DBU) for l in (2,10,13,14,15)]) for n,p in devices.items()}
+    placed={n:unary_union([translate(geom(n,l),xoff=p[0]*DBU,yoff=p[1]*DBU) for l in (2,10,11,13,14,15)]) for n,p in devices.items()}
     pairs=list(placed.items())
     for i,(n,a) in enumerate(pairs):
         for m,b in pairs[i+1:]:check(n+'_'+m+'_no_overlap',a.intersection(b).area<1e-6)
@@ -148,8 +134,11 @@ def validate(root: Path, baseline: Path | None = None) -> dict:
         single=e['topology']=='single_straight';one=e['added_length_um']>0
         check(e['case_id']+'_path_metadata',e['straight_section_count']==(1 if single else 3) and e['bend_count']==(0 if single else 2))
         if single:check(e['case_id']+'_single_path_length',e['path_length_excluding_tapers_um']==(8000 if one else 6000))
+    from validate_2611_taper_beams import validate as validate_beams
+    beam_report=validate_beams(root,baseline)
+    checks.extend(beam_report['checks'])
     report=dict(status='PASS',check_count=len(checks),checks=checks,measured_entrances=measured,
-                device_count=12,coupler_count=18,removed_layers=[11,16,51],
+                device_count=12,coupler_count=18,removed_layers=[16,51],
                 layer2_start_width_um=15.,layer14_start_width_um=8.,downstream_margin_per_side_um={'2':2.5,'14':1.0},
                 layer2_outward_offset_um=.5,layer14_outward_offset_um=0.,
                 baseline_compared=bool(old),gds_sha256=hashlib.sha256(path.read_bytes()).hexdigest(),

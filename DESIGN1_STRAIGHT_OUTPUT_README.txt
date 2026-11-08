@@ -29,3 +29,15 @@ first six device placements remain unchanged.
 
 Independent check: python validate_2611_four_sets.py --render
 Geometry checks are not optical, mechanical or full fabrication DRC.
+
+LOCAL PLAIN TAPER SUPPORTS
+At each retained taper entrance: 3 paired beam stations at 0, 1 and 2 um
+outward from the Layer-10 start. Each transverse beam is 0.5 um wide.
+Layer 11 contains ONLY these 108 plain rectangular beams (18 ends,
+3 stations per end, 2 sides); no square masses or meander PNCs are restored.
+The anchor-to-anchor span is the original PNC span, 5.096 um, with 0.5 um
+overlap into each anchor. Outer anchors extend beyond both release masks.
+The bare 2000 um outputs receive no tethers. Layer 2 retains its 15 um
+entrance, 2.5 um downstream margins and 0.5 um interface offset. Layer 14
+retains its 8 um entrance, shared L10 start and 1 um downstream margins.
+These geometry checks do not establish mechanical strength or optical loss.
