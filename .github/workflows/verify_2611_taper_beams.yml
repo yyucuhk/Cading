@@ -1,0 +1,107 @@
+name: Verify local plain taper beam supports
+on:
+  push:
+    branches: [layout/2611-L6000-L14-margin-1um]
+    paths: [.github/workflows/verify_2611_taper_beams.yml]
+jobs:
+  verify:
+    if: github.event.head_commit.message == 'Build and verify local 0.5 um taper beams at 1 um pitch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Preserve validated 1 um L14 baseline and unrelated files
+        run: |
+          git fetch origin 1681853199a75cb805b49080b5bde4a0bbb8ff9d --depth=1
+          mkdir -p baseline
+          cp gds/2611_design1_L6000_P10_straight_output_comparison.gds baseline/comparison.gds
+          cp gds/2611_four_sets_validation.json baseline/l14_margin_validation.json
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib,json,subprocess
+          names=subprocess.check_output(['git','ls-tree','-r','--name-only','1681853199a75cb805b49080b5bde4a0bbb8ff9d'],text=True).splitlines()
+          mutable={'2611_design1_L6000_straight_output.py','validate_2611_four_sets.py','DESIGN1_STRAIGHT_OUTPUT_README.txt','gds/2611_design1_L6000_P10_straight_output_comparison.gds','gds/2611_design1_L6000_P10_straight_output_comparison.json','gds/2611_four_sets_validation.json'}
+          protected={n:hashlib.sha256(Path(n).read_bytes()).hexdigest() for n in names if n not in mutable}
+          Path('baseline/protected.json').write_text(json.dumps(protected))
+          manifest=json.loads(Path('gds/2611_design1_L6000_P10_straight_output_comparison.json').read_text())
+          assert manifest['layer14_window_margin_um']==1.0
+          assert hashlib.sha256(Path('baseline/comparison.gds').read_bytes()).hexdigest()==manifest['gds_sha256']
+          PY
+      - name: Add only local plain supports after clearing old PNCs
+        run: |
+          python _apply_taper_beams.py
+          python -m py_compile 2611_design1_L6000_straight_output.py validate_2611_four_sets.py validate_2611_taper_beams.py
+      - name: Install approved CAD engine
+        run: python -m pip install gdsfactory==9.45.0 klayout==0.30.13 numpy==2.4.6 shapely matplotlib > baseline/install.log 2>&1
+      - name: Regenerate twelve devices with isolated taper supports
+        run: python 2611_design1_L6000_straight_output.py
+      - name: Independently measure beams masks and unchanged polygons
+        run: |
+          python validate_2611_four_sets.py --baseline baseline/comparison.gds --render
+          python validate_2611_taper_beams.py --baseline baseline/comparison.gds --render
+      - name: Reject beam-free negative control and verify scope
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib,json,os,shutil
+          from validate_2611_taper_beams import validate
+          p=Path('negative_control/gds');p.mkdir(parents=True,exist_ok=True)
+          shutil.copy2('baseline/comparison.gds',p/'2611_design1_L6000_P10_straight_output_comparison.gds')
+          try:
+              validate(Path('negative_control'))
+          except AssertionError as exc:
+              assert 'beam_count' in str(exc),str(exc)
+          else:
+              raise AssertionError('Beam-free layout incorrectly accepted')
+          protected=json.loads(Path('baseline/protected.json').read_text())
+          for n,h in protected.items():
+              assert hashlib.sha256(Path(n).read_bytes()).hexdigest()==h,n
+          shutil.copy2('baseline/l14_margin_validation.json','gds/2611_l14_margin_validation.json')
+          for name in ('2611_four_sets_validation.json','2611_taper_beams_validation.json'):
+              p=Path('gds')/name;r=json.loads(p.read_text())
+              assert r['status']=='PASS' and all(c['passed'] for c in r['checks'])
+              r.update(base_commit='1681853199a75cb805b49080b5bde4a0bbb8ff9d',protected_unrelated_file_count=len(protected),unrelated_files_unchanged=True,negative_control_rejected=True,generation_run_id=int(os.environ['GITHUB_RUN_ID']))
+              p.write_text(json.dumps(r,indent=2))
+          print('PASS: non-support geometry preserved; beam-free negative control rejected')
+          PY
+      - name: Upload code GDS reports and actual beam previews
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: 2611-L6000-local-taper-beams-release
+          path: |
+            2611_design1_L6000_straight_output.py
+            2611_design1_L6000_P10_width_sweep.py
+            2611_tapered_yue_dual_resist.py
+            DESIGN1_STRAIGHT_OUTPUT_README.txt
+            validate_2611_four_sets.py
+            validate_2611_taper_beams.py
+            validate_2611_straight_output_raw.py
+            validate_2611_coupler_release.py
+            validate_2611_release_offset.py
+            layers.py
+            markers.py
+            phononics.py
+            routing.py
+            tapered_local.py
+            tether_variants.py
+            tether_variants.gds
+            text.py
+            gds/2611_design1_L6000_P10_straight_output_comparison.*
+            gds/2611_design1_L6000_P10_width_sweep.*
+            gds/2611_four_sets_validation.json
+            gds/2611_taper_beams_validation.json
+            gds/2611_l14_margin_validation.json
+            validation_2611_four_sets/*.png
+            validation_2611_taper_beams/*.png
+      - name: Save only passing code and layout and remove temporary helpers
+        run: |
+          git add 2611_design1_L6000_straight_output.py validate_2611_four_sets.py validate_2611_taper_beams.py DESIGN1_STRAIGHT_OUTPUT_README.txt gds/2611_design1_L6000_P10_straight_output_comparison.gds gds/2611_design1_L6000_P10_straight_output_comparison.json gds/2611_four_sets_validation.json gds/2611_taper_beams_validation.json gds/2611_l14_margin_validation.json
+          git rm _apply_taper_beams.py _local_taper_beams_function.txt .github/workflows/verify_2611_taper_beams.yml
+          git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' commit -m 'Add three plain beam pairs at every taper entrance, preserving L14 1 um margins'
+          git push origin HEAD:layout/2611-L6000-L14-margin-1um
