@@ -166,16 +166,33 @@ def build_case(width):
     import gdsfactory as gf
     import klayout.db as kdb
     import numpy as np
+    gf.gpdk.PDK.activate()
     base = load_base()
     m = base.configured_design(width)
     m.validate_settings()
-    device = m.make_device(STRAIGHT_LENGTH)
-    device.flatten()
-    require(not kdb.Region(device.kdb_cell.begin_shapes_rec(gf.get_layer((998, 0)))).is_empty(),
-            'Original label was not isolated')
-    device.remove_layers([(998, 0)], recursive=False)
-    original = regions(device.kcl.layout, device.kdb_cell)
-    info = device.info
+    # The approved GDS is the exact reference, not a new reconstruction.
+    # Reading its independently owned polygons avoids export-grid differences
+    # in unchanged corners and preserves every existing layer exactly.
+    ref_id = base.case_id(width)
+    baseline, _ = read_gds(BASE_GDS)
+    saved = baseline.cell(ref_id)
+    require(saved is not None, 'Reference GDS does not contain the requested width')
+    manifest = json.loads(BASE_GDS.with_suffix('.json').read_text())
+    require(manifest['gds_sha256'] == hashlib.sha256(BASE_GDS.read_bytes()).hexdigest(),
+            'Approved GDS and manifest hashes disagree')
+    record = next(v for v in manifest['devices'] if v['case_id'] == ref_id)
+    require(record['width_um'] == width and record['straight_length_um'] == STRAIGHT_LENGTH,
+            'Approved reference dimensions differ from requested dimensions')
+    require(record['straight_pnc_period_um'] == PNC_PITCH,
+            'Approved reference has a different straight PNC pitch')
+    original = regions(baseline, saved)
+    centers0 = record['connection_centers']
+    tips0 = record['tip_centers']
+    orientations = [math.degrees(math.atan2(c[1]-t[1], c[0]-t[0])) % 360
+                    for c, t in zip(centers0, tips0, strict=True)]
+    info = dict(connection_centers=centers0, tip_centers=tips0,
+                connection_orientations=orientations,
+                total_meander_length_um=record['total_meander_um'])
     centers = [list(map(float, p)) for p in info['connection_centers']]
     oi = int(np.argmax([p[0] for p in centers]))
     ii = 1 - oi
@@ -194,7 +211,7 @@ def build_case(width):
     check(checks, 'all_reference_layers_present', set(original) == set(saved_regions))
     for layer, r in original.items():
         area = (r ^ saved_regions[layer]).area() * DBU ** 2
-        check(checks, f'regenerated_reference_L{layer[0]}_exact', area == 0, xor_um2=area)
+        check(checks, f'approved_reference_L{layer[0]}_exact', area == 0, xor_um2=area)
         area = ((changed[layer] ^ r) - roi).area() * DBU ** 2
         check(checks, f'input_meander_bends_L{layer[0]}_unchanged', area == 0, xor_um2=area)
         area = ((changed[layer] ^ extra.get(layer, kdb.Region())) & roi).area() * DBU ** 2
