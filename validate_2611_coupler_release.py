@@ -121,7 +121,19 @@ def validate(root: Path, baseline: Path | None = None) -> dict:
             for n in (2,10,14):check(name+f'_straight_output_no_L{n}',rs[n].intersection(roi).area<1e-6)
         else:
             left=rs[14].intersection(end_regions[0]);right=rs[14].intersection(end_regions[1])
-            exact(name+'_L14_two_ends_rotationally_symmetric',scale(left,xfact=-1,yfact=-1,origin=(0,0)),right)
+            reflected=scale(left,xfact=-1,yfact=-1,origin=(0,0))
+            edge_error=reflected.hausdorff_distance(right)
+            area_error=reflected.symmetric_difference(right).area
+            check(name+'_L14_ends_match_within_1nm_grid',
+                  edge_error<=.00101 and area_error<.001,
+                  max_edge_error_um=edge_error,xor_um2=area_error)
+            if old:
+                prior=union(old[name],14)
+                prior_left=scale(prior.intersection(end_regions[0]),xfact=-1,yfact=-1,origin=(0,0))
+                prior_right=prior.intersection(end_regions[1])
+                check(name+'_L14_symmetry_no_worse_than_approved',
+                      edge_error<=prior_left.hausdorff_distance(prior_right)+1e-9,
+                      old_max_edge_error_um=prior_left.hausdorff_distance(prior_right))
     for w in (1620,1640,1680):
         n=f'D1_L6000_W{w}_P10';v=n+'_OUT2000';input_roi=box(-20000,25,-3045,20000)
         for layer in (2,10,14,15):exact(n+f'_both_sets_same_input_L{layer}',cache[n][layer].intersection(input_roi),cache[v][layer].intersection(input_roi))

@@ -1,5 +1,5 @@
 {
   "status": "SUPERSEDED",
-  "superseded_by": "gds/2611_two_coupler_windows_validation.json",
-  "note": "The L16/L51 removal and marker move remain active; current two-coupler cells additionally omit L11 and crop L14."
+  "current_report": "gds/2611_coupler_release_validation.json",
+  "reason": "Both sets now omit L11 and retain L2/L14 only at couplers; L14 margin is 1 um."
 }

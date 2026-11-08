@@ -38,67 +38,8 @@ def union(c,l):
 
 
 def main(root):
-    root=Path(root)
-    old,_=read(root/'gds/2611_design1_L6000_P10_width_sweep.gds')
-    new,top=read(root/'gds/2611_design1_L6000_P10_straight_output_comparison.gds')
-    checks=[]
-    def check(name,ok,**kw):
-        checks.append(dict(name=name,passed=bool(ok),**kw));assert ok,(name,kw)
-    check('layers16_and51_absent_in_all_cells',
-          all(not c['polys'].get(16) and not c['polys'].get(51) for c in new.values()))
-    check('global_marker_cell_on15_not2',
-          bool(new['FRAME_AND_MARKERS']['polys'].get(15))
-          and not new['FRAME_AND_MARKERS']['polys'].get(2))
-    refs=new[top]['refs']
-    check('six_devices_six_labels_one_frame',len(refs)==13 and sum(n.startswith('LABEL_') for n,_ in refs)==6)
-    devrefs={n:p for n,p in refs if n.startswith('D1_L')}
-    check('six_complete_device_cells',len(devrefs)==6)
-    check('600um_vertical_pitch',sorted(p[1] for p in devrefs.values())==[-700000,-100000,500000,1100000,1700000,2300000])
-    roi=box(3000,-400,20000,-25)
-    for w in (1.62,1.64,1.68):
-        n=f'D1_L6000_W{round(w*1000)}_P10';v=n+'_OUT2000'
-        check(n+'_five_output_layers',set(new[n]['polys'])=={2,10,13,14,15})
-        check(v+'_six_output_layers',set(new[v]['polys'])=={2,10,11,13,14,15})
-        for l in (2,10,11,13,14,15):
-            a=union(old[n],l);b=union(new[n],l);c=union(new[v],l)
-            expected = (a.intersection(box(-10000,25,-3045,10000).union(box(3045,-10000,10000,-25))) if l == 14 else a)
-            if l == 11: expected = Polygon()
-            ar=expected.symmetric_difference(b).area
-            check(n+f'_two_coupler_L{l}_matches_policy',ar<1e-7,xor_um2=ar)
-            ar=a.symmetric_difference(c).difference(roi).area
-            check(v+f'_outside_output_L{l}_unchanged',ar<1e-7,xor_um2=ar)
-        optical=union(new[v],15)
-        expected=box(3000,-200-w/2,5000,-200+w/2)
-        ar=optical.intersection(roi).symmetric_difference(expected).area
-        check(v+'_exact_full_2000um_constant_ridge',ar<1e-7,xor_um2=ar)
-        for x in (2999.99,3000.01,3050,3500,4000,4500,4999.99):
-            seg=optical.intersection(LineString([(x,-203),(x,-197)]))
-            check(v+f'_width_{x}',abs(seg.length-w)<1e-7,measured_um=seg.length)
-        geoms=list(optical.geoms) if hasattr(optical,'geoms') else [optical]
-        check(v+'_one_optical_body_two_input_ticks',len(geoms)==3)
-        check(v+'_protection_and_fiber_layers_removed',
-              not new[v]['polys'].get(16) and not new[v]['polys'].get(51))
-        body=max(geoms,key=lambda p:p.area)
-        check(v+'_ridge_covered_by_release',body.difference(union(new[v],14)).area<1e-7)
-        for l in (10,13,51):
-            check(v+f'_no_output_taper_hardware_L{l}',union(new[v],l).intersection(roi).area==0)
-        pnc=union(new[v],11)
-        out=pnc.intersection(box(2999,-230,5001,-170))
-        pairs={1:[],-1:[]}
-        for p in out.geoms:
-            xmin,ymin,xmax,ymax=p.bounds
-            pairs[1 if (ymin+ymax)/2>-200 else -1].append((xmin+xmax)/2-3000)
-        for side,centers in pairs.items():
-            centers.sort()
-            check(v+f'_200_PNCs_side{side}',len(centers)==200)
-            check(v+f'_exact10um_PNC_side{side}',all(abs(x-i*10)<1e-7 for i,x in enumerate(centers)))
-        for c in (n,v):
-            x=union(old[n] if c == n else new[c],11).bounds[0]+devrefs[c][0]*.001
-            check(c+'_original_left_bend_reference_minus900',abs(x+900)<1e-7,measured_x_um=x)
-    result=dict(status='PASS',check_count=len(checks),checks=checks,
-                method='Independent raw GDS record parser and Shapely polygons; no generator or KLayout imported')
-    out=root/'validation_2611_straight_output/raw_gds_audit.json';out.write_text(json.dumps(result,indent=2))
-    print('PASS',len(checks),'raw GDS checks')
+    from validate_2611_coupler_release import validate
+    validate(Path(root))
 
 
 if __name__=='__main__':

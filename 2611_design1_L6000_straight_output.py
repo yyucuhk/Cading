@@ -1,21 +1,18 @@
-"""Design 1: original L6000 devices plus a one-sided 2000 um straight-output set.
+"""Design 1 L6000: two-coupler and 2000 um straight-output comparison.
 
-Run from the Cading root. Only this comparison output is overwritten.
-Other saved designs are not modified. The two-coupler set also omits Layer 11
-and keeps Layer 14 only outward from both Layer 10 entrances. Straight-output
-variants are unchanged. Final output omits Layers 16 and 51;
-only global alignment markers move from Layer 2 to Layer 15. Device Layer-2
-release windows and the six text labels stay on Layer 2.
-The lower-right output is replaced; the upper-left input remains unchanged.
-A straight output continues the existing constant-width Layer-15 ridge and
-15 um support envelope, with 10 um PNC pitch and matching release/protection
-masks. It has NO 15-to-5 transition, optical taper, dense end cluster,
-butterfly tether, output support island, alignment ticks, or fiber guide.
+The final six-device output omits Layers 11, 16 and 51 everywhere.
+Both Layer 2 and Layer 14 release masks are retained only outward from
+actual Layer-10 entrances: two windows on two-coupler devices and one
+input window on straight-output variants. No release mask remains along
+the meander, preceding transition, or the taper-free output extension.
 
-Only owned, flattened polygons beyond the output port are replaced. The
-replacement window is below the middle arm, so neither Euler bend is cut.
-Every polygon outside this terminal window is compared against the reference.
-All dimensions are micrometres. Optical/fabrication performance is not simulated.
+Layer 14 alone uses a 1 um taper-window expansion. Its mask is rebuilt
+with the original mask construction and an isolated margin parameter;
+Layer 2 retains its original shape inside the terminal windows. Long
+channels and pads keep their original definitions. All other geometry
+comes from the approved saved polygons, not a new reconstruction.
+Labels remain on Layer 2; global alignment marks remain on Layer 15.
+These are geometry checks, not optical, mechanical or fabrication qualification.
 """
 from __future__ import annotations
 
@@ -43,7 +40,8 @@ WG_WIDTHS = (1.62, 1.64, 1.68)        # Layer 15; bottom to top in each set
 OUTPUT_EXTENSION_LENGTH = 2000.0     # from the lower-right meander port
 PNC_PITCH = 10.0                     # straight/bend; also added straight
 INCLUDE_REFERENCE_DEVICES = True     # two-coupler set first, straight outputs above
-TWO_COUPLER_END_WINDOWS_ONLY = True   # remove L11; keep L14 outward of each L10 entrance
+COUPLER_END_WINDOWS_ONLY = True       # applies to BOTH device sets; crops L2 and L14
+LAYER14_WINDOW_MARGIN = 1.0           # per-side expansion; independent of original L2 margin
 ROW_PITCH = 600.0
 FIRST_ROW_Y = -700.0
 LEFT_BEND_X = -900.0
@@ -52,7 +50,7 @@ FRAME_MARGIN = 500.0
 MIN_FRAME_HEIGHT = 4000.0
 DBU = 0.001
 FAB_LAYERS = (2, 10, 11, 13, 14, 15, 16)  # pre-export construction checks
-REMOVED_OUTPUT_LAYERS = (16, 51)  # remove all datatypes from every output cell
+REMOVED_OUTPUT_LAYERS = (11, 16, 51)  # all datatypes, every final output cell
 ALIGNMENT_MARKER_SOURCE_LAYER = (2, 0)
 ALIGNMENT_MARKER_TARGET_LAYER = (15, 0)  # global alignment markers ONLY
 
@@ -148,71 +146,94 @@ def finalize_output_layers(layout, frame_cell):
                 marker_cell=frame_cell.name,
                 moved_marker_polygon_count=moved.count(),
                 moved_marker_area_um2=moved.area() * layout.dbu ** 2,
-                layer2_windows_and_labels_preserved=True)
+                layer2_labels_preserved=True, release_masks_handled_separately=True)
 
 
-def finalize_two_coupler_windows(layout, entries):
-    """Restrict ONLY the two-coupler cells, after all placements are fixed.
+def finalize_coupler_windows(layout, entries):
+    """Crop L2/L14 in both sets and independently narrow only L14.
 
-    L10's actual polygon edge locates each entrance. Transverse half-planes
-    isolate the complete terminal assemblies from the nearby Euler bends.
-    L14 is intersected, never expanded or redrawn; L11 is removed in every
-    datatype. Other layers and all straight-output cells are read-only.
+    Optical/device cells are flat and privately owned. Labels and frame are
+    separate cells and are not edited. The lower-right straight output has
+    no L10 taper, so no release window is retained at that end.
     """
     import klayout.db as kdb
     policies = {}
-    if not TWO_COUPLER_END_WINDOWS_ONLY:
+    if not COUPLER_END_WINDOWS_ONLY:
         return policies
     for e in entries:
-        if e['mode'] != 'original_two_tapers':
-            continue
         cell = layout.cell(e['case_id'])
-        require(not list(cell.each_inst()), 'Expected independently owned flat device cell')
-        r10 = kdb.Region(cell.shapes(layout.layer(10, 0))).merged()
-        r14 = kdb.Region(cell.shapes(layout.layer(14, 0))).merged()
-        require(not r10.is_empty() and not r14.is_empty(), 'Missing taper or release geometry')
-        b = r14.bbox() + r10.bbox()
-        xmin, ymin, xmax, ymax = (b.left*DBU-1, b.bottom*DBU-1,
-                                 b.right*DBU+1, b.top*DBU+1)
-        keep = kdb.Region()
-        ends = []
-        for side, port in (('input', e['input_port_local_um']),
-                           ('output', e['output_port_local_um'])):
-            px, py = map(float, port)
-            require((px < 0 < py) or (py < 0 < px), 'Unexpected terminal orientation')
-            split_y = py / 8.0
-            search_bounds = ((xmin, split_y, px, ymax) if px < 0 else
-                             (px, ymin, xmax, split_y))
-            taper = (r10 & box(search_bounds)).merged()
-            require(not taper.is_empty(), 'No L10 taper found at '+side)
-            start_x = (taper.bbox().right if px < 0 else taper.bbox().left)*DBU
-            require((start_x-px)*(-1 if px < 0 else 1) > 0, 'Entrance is not outward of port')
-            limits = ((xmin, split_y, start_x, ymax) if px < 0 else
-                      (start_x, ymin, xmax, split_y))
-            terminal = box(limits)
-            require(not (r14 & terminal).is_empty(), 'Empty retained '+side+' window')
-            keep |= terminal
-            ends.append(dict(side=side, l10_start_local_x_um=start_x,
+        require(not list(cell.each_inst()), 'Expected an owned flat device cell')
+        rr = regions(layout, cell)
+        require(all((n,0) in rr for n in (2,10,14)), 'Missing device masks/taper')
+        require(all(d == 0 for n,d in rr if n in (2,14)), 'Unexpected mask datatype')
+        r10, r2, r14 = (rr[(n,0)] for n in (10,2,14))
+        ml, mc = read_gds(WORK/e['layer14_window_file'])
+        candidate = regions(ml,mc)[(14,0)]
+        bounds = r14.bbox() + r2.bbox() + r10.bbox()
+        xmin,ymin,xmax,ymax = (bounds.left*DBU-1, bounds.bottom*DBU-1,
+                              bounds.right*DBU+1, bounds.top*DBU+1)
+        keep, ends = kdb.Region(), []
+        for side, port in (('input',e['input_port_local_um']),
+                           ('output',e['output_port_local_um'])):
+            px,py = map(float,port)
+            require((px < 0 < py) or (py < 0 < px), 'Unexpected end orientation')
+            split_y = py/8.0
+            search = box((xmin,split_y,px,ymax) if px < 0 else (px,ymin,xmax,split_y))
+            taper = (r10 & search).merged()
+            if taper.is_empty():
+                require(side == 'output' and e['mode']=='straight_output',
+                        'Unexpected missing L10 taper at '+side)
+                continue
+            sx = (taper.bbox().right if px < 0 else taper.bbox().left)*DBU
+            require((sx-px)*(-1 if px<0 else 1)>0, 'L10 entrance must be outward')
+            limits = (xmin,split_y,sx,ymax) if px<0 else (sx,ymin,xmax,split_y)
+            keep |= box(limits)
+            ends.append(dict(side=side, l10_start_local_x_um=sx,
                              center_y_um=py, keep_box_local_um=list(limits)))
-        before_area = r14.area()*DBU**2
-        removed_l11 = 0
-        for li in tuple(layout.layer_indexes()):
-            info = layout.get_info(li)
-            if info.layer == 11:
-                removed_l11 += cell.shapes(li).size()
-                cell.shapes(li).clear()
-            elif info.layer == 14:
-                original = kdb.Region(cell.shapes(li)).merged()
-                retained = (original & keep).merged()
-                cell.shapes(li).clear()
-                cell.shapes(li).insert(retained)
-        after = kdb.Region(cell.shapes(layout.layer(14, 0))).merged()
-        policies[e['case_id']] = dict(removed_layer=11, removed_l11_shapes=removed_l11,
-            layer14_before_area_um2=before_area, layer14_after_area_um2=after.area()*DBU**2,
-            layer14_region='Both existing end windows from the L10 entrance outward', ends=ends)
-        e['final_pnc_present'] = False
-        e['final_layer14_scope'] = 'two_terminal_windows_only'
+        require(len(ends)==(1 if e['mode']=='straight_output' else 2), 'Wrong end count')
+        # Intersection with the approved mask forbids widening anywhere.
+        # Only L14 uses the fresh 1 um-margin candidate; L2 is a pure crop.
+        retained2 = (r2 & keep).merged()
+        retained14 = (r14 & candidate & keep).merged()
+        for layer,r in ((2,retained2),(14,retained14)):
+            require(not r.is_empty(), 'Empty retained mask')
+            cell.shapes(layout.layer(layer,0)).clear()
+            cell.shapes(layout.layer(layer,0)).insert(r)
+        policies[e['case_id']] = dict(ends=ends,
+            removed_layer=11, layer2_before_area_um2=r2.area()*DBU**2,
+            layer2_after_area_um2=retained2.area()*DBU**2,
+            layer14_before_area_um2=r14.area()*DBU**2,
+            layer14_after_area_um2=retained14.area()*DBU**2,
+            layer14_margin_um=LAYER14_WINDOW_MARGIN,
+            layer14_window_file=e['layer14_window_file'])
+        e['final_pnc_present']=False
+        e['final_release_window_count']=len(ends)
+        e['final_layer2_scope']=e['final_layer14_scope']='L10_entrances_outward_only'
+        e['layer14_margin_um']=LAYER14_WINDOW_MARGIN
     return policies
+
+
+def build_layer14_window_candidate(base, width):
+    """Use the original mask code with an isolated L14-only margin override.
+
+    This creates a separate candidate mask; all its other layers are discarded.
+    The original L2 polygons and all optical polygons are never replaced.
+    Input/output positions and channel/pad definitions stay unchanged.
+    """
+    import gdsfactory as gf
+    import klayout.db as kdb
+    require(math.isfinite(LAYER14_WINDOW_MARGIN) and 0 < LAYER14_WINDOW_MARGIN <= 3.0,
+            'L14 margin must be finite, positive and at most the original 3 um')
+    mask_model=base.configured_design(width, {'POSITIVE_WINDOW_MARGIN': LAYER14_WINDOW_MARGIN})
+    mask_model.validate_settings()
+    component=mask_model.make_device(STRAIGHT_LENGTH)
+    r14=kdb.Region(component.kdb_cell.begin_shapes_rec(gf.get_layer((14,0)))).merged()
+    require(not r14.is_empty(), 'No Layer14 candidate was generated')
+    name='L14_M'+str(LAYER14_WINDOW_MARGIN).replace('.','p')+'_'+base.case_id(width)
+    ly=kdb.Layout();ly.dbu=DBU
+    insert_regions(ly,name,{(14,0):r14})
+    write_layout(ly,WORK/(name+'.gds'))
+    return name+'.gds'
 
 
 # %% [02] Complete all-layer straight-output factory
@@ -367,7 +388,9 @@ def build_case(width):
     support_cut = changed[(14, 0)] & box((px + 100, py - 30, px + 100 + DBU, py + 30))
     check(checks, 'constant_15um_support_envelope',
           abs(support_cut.bbox().height() * DBU - (m.S_BEND_WIDTH + 2*tether_length)) < .0021)
+    candidate_file=build_layer14_window_candidate(base,width)
     report = dict(width_um=width, reference_id=ref_id, variant_id=variant_id,
+                  layer14_window_file=candidate_file, layer14_margin_um=LAYER14_WINDOW_MARGIN,
                   input_port_um=centers[ii], output_port_um=port,
                   straight_output_endpoint_um=[end_x, py],
                   original_straight_lengths_um=[STRAIGHT_LENGTH]*3,
@@ -433,6 +456,7 @@ def combine():
                        label_origin_um=[lt.disp.x*DBU,lt.disp.y*DBU],
                        added_length_um=OUTPUT_EXTENSION_LENGTH if straight_output else 0.,
                        path_length_excluding_tapers_um=meta['meander_length_um']+(OUTPUT_EXTENSION_LENGTH if straight_output else 0.),
+                       layer14_window_file=meta['layer14_window_file'],
                        input_port_local_um=meta['input_port_um'],output_port_local_um=meta['output_port_um'])
             entries.append(entry)
     for i,a in enumerate(placed):
@@ -459,9 +483,9 @@ def combine():
         check(checks,f'global_L{n}_markers_clear',all((markers&p[n]).is_empty() for p in placed))
     # Apply the layer policy only after placement and frame size are fixed.
     # Internal construction checks above still inspect the approved reference
-    # masks; all checks below inspect the final deliverable without L16/L51.
+    # masks; all checks below inspect the final deliverable without L11/L16/L51.
     layer_policy = finalize_output_layers(ly, fc)
-    two_coupler_policy = finalize_two_coupler_windows(ly, entries)
+    coupler_policy = finalize_coupler_windows(ly, entries)
     final_frame = regions(ly, fc)
     check(checks, 'global_markers_moved_2_to_15_exactly',
           (final_frame[ALIGNMENT_MARKER_TARGET_LAYER] ^ fr[ALIGNMENT_MARKER_SOURCE_LAYER]).is_empty())
@@ -473,7 +497,7 @@ def combine():
     write_layout(ly,OUTPUT)
     final,top=read_gds(OUTPUT)
     exported_layers = {final.get_info(i).layer for i in final.layer_indexes()}
-    check(checks, 'layers16_and51_absent_from_entire_export',
+    check(checks, 'layers11_16_51_absent_from_entire_export',
           not (exported_layers & set(REMOVED_OUTPUT_LAYERS)))
     insts={i.cell.name:i for i in top.each_inst()}
     check(checks,'correct_device_and_label_count',
@@ -482,18 +506,20 @@ def combine():
         inst=insts[e['case_id']]; rr=regions(final,inst.cell)
         expected = {layer: r for layer, r in snapshots[e['case_id']].items()
                     if layer[0] not in REMOVED_OUTPUT_LAYERS}
-        if e['case_id'] in two_coupler_policy:
-            expected = {layer: r for layer, r in expected.items() if layer[0] != 11}
-            keep = kdb.Region()
-            for end in two_coupler_policy[e['case_id']]['ends']:
+        if e['case_id'] in coupler_policy:
+            keep=kdb.Region()
+            for end in coupler_policy[e['case_id']]['ends']:
                 keep |= box(end['keep_box_local_um'])
-            expected = {layer: ((r & keep).merged() if layer[0] == 14 else r)
-                        for layer, r in expected.items()}
-            expected = {layer: r for layer, r in expected.items() if not r.is_empty()}
-            check(checks, e['case_id']+'_no_layer11_on_two_coupler_device',
-                  all(layer[0] != 11 for layer in rr))
-            check(checks, e['case_id']+'_layer14_only_outward_end_windows',
-                  (rr[(14,0)] - keep).is_empty())
+            ml,mc=read_gds(WORK/e['layer14_window_file'])
+            candidate=regions(ml,mc)[(14,0)]
+            expected={layer: ((r & keep).merged() if layer[0]==2 else
+                             (r & keep & candidate).merged() if layer[0]==14 else r)
+                      for layer,r in expected.items()}
+            expected={layer:r for layer,r in expected.items() if not r.is_empty()}
+            check(checks,e['case_id']+'_no_layer11',all(layer[0]!=11 for layer in rr))
+            for n in (2,14):
+                check(checks,e['case_id']+f'_L{n}_terminal_windows_only',
+                      (rr[(n,0)]-keep).is_empty())
         check(checks, e['case_id'] + '_exported_layer_set', set(rr) == set(expected))
         for layer,r in expected.items():
             check(checks,e['case_id']+f'_saved_L{layer[0]}_exact',(r^rr[layer]).is_empty())
@@ -508,10 +534,11 @@ def combine():
                 meander_straight_length_um=STRAIGHT_LENGTH,extension_length_um=OUTPUT_EXTENSION_LENGTH,
                 pnc_pitch_um=PNC_PITCH,row_pitch_um=ROW_PITCH,left_bend_x_um=LEFT_BEND_X,
                 side='lower-right output; upper-left input unchanged',
-                extension_layers=[2,11,14,15],frame_bounds_um=[xmin,ymin,xmax,ymax],
+                extension_layers=[15],frame_bounds_um=[xmin,ymin,xmax,ymax],
                 final_layer_policy=layer_policy,
-                two_coupler_layer_policy=two_coupler_policy,
-                worker_checks_scope='Unfiltered source masks; final checks enforce global removal of L16/L51 and selective two-coupler L11 removal/L14 cropping', 
+                coupler_layer_policy=coupler_policy,
+                layer14_window_margin_um=LAYER14_WINDOW_MARGIN,
+                worker_checks_scope='Pre-export source geometry checks; final checks remove L11/L16/L51 and crop L2/L14 on BOTH sets with isolated 1 um L14 margin', 
                 original_gds_sha256=hashlib.sha256(BASE_GDS.read_bytes()).hexdigest(),
                 gds_sha256=hashlib.sha256(OUTPUT.read_bytes()).hexdigest(),
                 checks=checks,workers=workers,
@@ -550,16 +577,16 @@ def render(ly,top,result):
         ax.legend(loc='upper right');fig.tight_layout();fig.savefig(WORK/(name+'.png'),dpi=200);plt.close(fig)
     f=result['frame_bounds_um']
     view(top,'overview',(f[0],FIRST_ROW_Y-400,f[2],FIRST_ROW_Y+(len(result['devices'])-1)*ROW_PITCH+400),
-         'Design 1: two-coupler devices without PNC below; unchanged straight-output variants above')
+         'Design 1: no PNCs in either set; release windows only at existing L10 couplers')
     e=next(e for e in result['devices'] if e['mode']=='straight_output')
     c=ly.cell(e['case_id']);px,py=e['output_port_local_um']
     view(c,'output_connection',(px-30,py-23,px+180,py+23),
-         'No output taper: constant-width ridge and 10 um PNC supports (axes expanded)',layers=(2,10,11,14,15))
+         'Straight output: unchanged ridge; PNC and release masks removed',layers=(2,10,11,14,15))
     view(c,'full_output',(px-20,py-40,px+OUTPUT_EXTENSION_LENGTH+30,py+40),
          'New straight output: 2000 um from the original meander port',layers=(14,11,15))
     ix,iy=e['input_port_local_um']
     view(c,'preserved_input',(ix-310,iy-35,ix+20,iy+35),
-         'Input preserved: 15-to-5 um PNC transition, dense end group, original optical taper',layers=(2,10,11,14,15))
+         'Input: original optical taper, terminal-only release masks, 1 um L14 expansion',layers=(2,10,11,14,15))
     xmin, ymin, _, _ = result['frame_bounds_um']
     view(top, 'alignment_markers_layer15',
          (xmin-120, ymin-120, xmin+120, ymin+120),
