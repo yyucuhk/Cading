@@ -162,11 +162,11 @@ class Library:
                 texts.append((l, d, f(xy), s))
             for r in cell.refs:
                 offs = [(0.0, 0.0)]
-                if r["pitch"]:
+                if r.get("pitch"):
                     a, b, c2, d2 = r["pitch"]
                     offs = [(i * a + j * c2, i * b + j * d2) for i in range(r["cols"]) for j in range(r["rows"])]
                 for ox, oy in offs:
-                    g = tf_make((r["xy"][0] + ox, r["xy"][1] + oy), r["angle"], r["mag"], r["reflect"])
+                    g = tf_make((r["xy"][0] + ox, r["xy"][1] + oy), r.get("angle", 0.0), r.get("mag", 1.0), r.get("reflect", False))
                     walk(r["name"], (lambda gg: (lambda p: f(gg(p))))(g))
         walk(name, lambda p: p)
         return polys, texts

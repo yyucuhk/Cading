@@ -89,16 +89,29 @@ LABEL_TIP_X_OFFSET = 2.0                      # from the alignment tips, toward 
 LABEL_Y_OFFSET = 12.0                         # source used 10; raised to clear the wider L11 beams
 LABEL_GAP = 0.5
 
-ROW_PITCH = 550.0
+ROW_PITCH = 580.0                             # = 2 EBL field pitches: every row sits identically in its field
 FIRST_ROW_Y = -700.0
-ROW_GROUPS = ((500.0, 5000.0), (15000.0,))    # lengths sharing one row, placed left to right
+ROW_GROUPS = {'2T': ((500.0, 5000.0), (15000.0,)),   # lengths sharing one row, left to right
+              '1T': ((5000.0,), (15000.0,))}          # no L500 single-taper device
 DEVICE_GAP = 500.0                            # edge-to-edge gap between devices in one row
 ROW_ALIGN = {'2T': 'left', '1T': 'right'}     # per device set
 ROW_LEFT_EDGE_X = -6937.847                   # left edge of every left-aligned row
 ROW_RIGHT_EDGE_X = 11742.153                  # right edge (plain output end) of every right-aligned row
 FRAME_X = (-7400.0, 12300.0)                  # same chip width as the source
-FRAME_BOTTOM_MARGIN = 700.0
-FRAME_TOP_MARGIN = 650.0
+FRAME_BOTTOM_MARGIN = 727.75                  # puts the corner markers at the same field phase as the rows
+FRAME_TOP_MARGIN = 732.25                     # (marker centre 150 um inside the frame edge)
+
+# EBL write-field placement (Layer 15). Fields are EBL_FIELD_SIZE square on a
+# pitch of EBL_FIELD_SIZE - EBL_FIELD_OVERLAP, with a field corner at
+# EBL_GRID_ORIGIN in GDS coordinates. The whole mask is shifted by
+# (0..pitch) in x and y so Layer 15 needs the fewest fields; ties go to the
+# placement whose field-overlap strips stay clear of tapers, tips and labels.
+EBL_FIELD_SIZE = 300.0
+EBL_FIELD_OVERLAP = 10.0
+EBL_GRID_ORIGIN = (0.0, 0.0)
+EBL_LAYER = (15, 0)
+EBL_SEARCH_STEP = 0.5
+EBL_CRITICAL_MARGIN = 2.0                     # keep overlap strips this far from critical zones
 
 # source geometry facts (measured from the source GDS)
 SRC_HALF_L = 7500.0
@@ -349,6 +362,152 @@ def build_frame(src_frame, y0, y1):
     return c, (cx, cy), n
 
 
+# %% [05b] EBL write-field placement
+def lab_len_of(text, glyphs):
+    return (sum(glyphs[c][1] for c in text) + um(LABEL_GAP) * (len(text) - 1)) / DBU_PER_UM
+
+
+def l15_clusters(lib, top):
+    """Layer-15 shapes of the flattened mask grouped into y-separated clusters: [(ylo, yhi, [(xlo, xhi)])]."""
+    polys, _ = lib.flatten(top.name)
+    boxes = sorted((bbox(p) for l, d, p in polys if (l, d) == EBL_LAYER), key=lambda b: b[1])
+    clusters = []
+    for b in boxes:
+        b = [v / DBU_PER_UM for v in b]
+        if clusters and b[1] <= clusters[-1][1] + 50.0:
+            c = clusters[-1]
+            c[0], c[1] = min(c[0], b[1]), max(c[1], b[3])
+            c[2].append((b[0], b[2]))
+        else:
+            clusters.append([b[1], b[3], [(b[0], b[2])]])
+    out = []
+    for ylo, yhi, xs in clusters:
+        xs.sort()
+        merged = [list(xs[0])]
+        for a, b in xs[1:]:
+            if a <= merged[-1][1]:
+                merged[-1][1] = max(merged[-1][1], b)
+            else:
+                merged.append([a, b])
+        out.append((ylo, yhi, merged))
+    return out
+
+
+def field_rows_for(ylo, yhi, py):
+    pitch = EBL_FIELD_SIZE - EBL_FIELD_OVERLAP
+    js = [j for j in range(math.floor((ylo - py) / pitch) - 1, math.floor((ylo - py) / pitch) + 1)
+          if py + pitch * j <= ylo and yhi <= py + pitch * j + EBL_FIELD_SIZE]
+    return js
+
+
+def cover_x(intervals, px):
+    """Minimal 1-D field cover (greedy is optimal for intervals on a fixed grid). Returns field indices."""
+    pitch = EBL_FIELD_SIZE - EBL_FIELD_OVERLAP
+    used, reach = [], -1e18
+    for a, b in intervals:
+        while reach < b:
+            pnt = a if a > reach else reach
+            i = math.floor((pnt - px) / pitch)
+            used.append(i)
+            reach = px + pitch * i + EBL_FIELD_SIZE
+    return used
+
+
+def place_for_ebl(lib, top, critical):
+    pitch = EBL_FIELD_SIZE - EBL_FIELD_OVERLAP
+    clusters = l15_clusters(lib, top)
+    gx, gy = EBL_GRID_ORIGIN
+    steps = [k * EBL_SEARCH_STEP for k in range(int(round(pitch / EBL_SEARCH_STEP)))]
+
+    def fields_for(px, py):
+        f = set()
+        for ylo, yhi, xs in clusters:
+            js = field_rows_for(ylo, yhi, py)
+            if js:
+                j = js[0]
+                f |= {(i, j) for i in cover_x(xs, px)}
+            else:   # split across two field rows (penalised: both rows need the x cover)
+                j = math.floor((ylo - py) / pitch)
+                f |= {(i, jj) for i in cover_x(xs, px) for jj in (j, j + 1)}
+        return f
+
+    # y: every cluster inside one field row; then device rows as far as possible
+    # from field edges (outside the overlap strips); then the global markers
+    def y_clear(group, py):
+        c = 1e9
+        for a, b, _ in group:
+            js = field_rows_for(a, b, py)
+            if not js:
+                return -1e9
+            f0 = py + pitch * js[0]
+            c = min(c, a - f0, f0 + EBL_FIELD_SIZE - b)
+        return c
+    device_rows = [c for c in clusters if c[1] - c[0] < 100.0]
+    marker_rows = [c for c in clusters if c[1] - c[0] >= 100.0]
+    best_y = None
+    for dy in steps:
+        py = gy - dy                                   # grid phase relative to the unshifted mask
+        nrows = sum(1 if field_rows_for(a, b, py) else 2 for a, b, _ in clusters)
+        key = (nrows, -round(y_clear(device_rows, py), 3), -round(y_clear(marker_rows, py), 3))
+        if best_y is None or key < best_y[0]:
+            best_y = (key, dy)
+    dy = best_y[1]
+    py = gy - dy
+
+    # x: fewest fields, then fewest overlap strips through critical zones, then clearance
+    best = None
+    zone_rows = []
+    for yz, x0, x1 in critical:
+        js = field_rows_for(yz - 15.0, yz + 20.0, py)
+        zone_rows.append((js[0] if js else math.floor((yz - py) / pitch), x0, x1))
+    for dx in steps:
+        px = gx - dx
+        used = fields_for(px, py)
+        n = len(used)
+        hits, clear = 0, 1e9
+        for j, x0, x1 in zone_rows:
+            i0 = math.floor((x0 - px) / pitch) - 1
+            for i in range(i0, math.floor((x1 - px) / pitch) + 2):
+                if (i - 1, j) not in used or (i, j) not in used:
+                    continue                                     # no stitch: only one side is written
+                e0 = px + pitch * i                              # stitch overlap strip [e0, e0 + overlap]
+                e1 = e0 + EBL_FIELD_OVERLAP
+                gap = max(x0 - e1, e0 - x1)
+                if gap < EBL_CRITICAL_MARGIN:
+                    hits += 1
+                clear = min(clear, gap)
+        key = (n, hits, -clear)
+        if best is None or key < best[0]:
+            best = (key, dx)
+    dx = best[1]
+    px = gx - dx
+    fields = sorted(fields_for(px, py))
+    per_cluster = []
+    for ylo, yhi, xs in clusters:
+        js = field_rows_for(ylo, yhi, py)
+        per_cluster.append(dict(y_range_um=[round(ylo + dy, 3), round(yhi + dy, 3)],
+                                field_rows=len(js[:1]) or 2, fields=len(set(cover_x(xs, px)))))
+    return dict(
+        field_size_um=EBL_FIELD_SIZE, field_overlap_um=EBL_FIELD_OVERLAP, field_pitch_um=pitch,
+        grid_origin_um=list(EBL_GRID_ORIGIN), layer=list(EBL_LAYER),
+        mask_shift_um=[dx, dy], layer15_field_count=len(fields),
+        critical_zones_with_stitch=best[0][1], min_stitch_to_critical_zone_um=round(-best[0][2], 3),
+        min_device_row_y_clearance_um=-best_y[0][1], min_marker_y_clearance_um=-best_y[0][2],
+        clusters=per_cluster,
+        fields_xy=[(gx + pitch * i, gy + pitch * j) for i, j in fields])
+
+
+def write_field_overlay(ebl):
+    """Separate review file: used Layer-15 write fields as boxes on layer 99 (not for fabrication)."""
+    lib = Library('LIB')
+    c = Cell('EBL_L15_WRITE_FIELDS')
+    s = EBL_FIELD_SIZE
+    for x, y in ebl['fields_xy']:
+        c.polygons.append((99, 0, [(um(x), um(y)), (um(x + s), um(y)), (um(x + s), um(y + s)), (um(x), um(y + s))]))
+    lib.add(c)
+    lib.write(OUTPUT.with_name(STEM + '_EBL_FIELDS_L15.gds'))
+
+
 # %% [06] Assemble, write, report
 def main():
     src, far, glyphs, src_frame = load_source()
@@ -356,9 +515,9 @@ def main():
     top = Cell('STRAIGHT_COUPLER_ADIABATIC_TAPER_SWEEP')
     devices = []
     row = 0
-    assert sorted(L for g in ROW_GROUPS for L in g) == sorted(STRAIGHT_LENGTHS)
+    critical = []                                  # (y, x0, x1) Layer-15 taper/tip/label zones
     for mode in DEVICE_SETS:
-        for group in ROW_GROUPS:
+        for group in ROW_GROUPS[mode]:
           for w in WG_WIDTHS:
               y = FIRST_ROW_Y + row * ROW_PITCH
               built = []
@@ -380,6 +539,12 @@ def main():
                   lib.add(lab)
                   lib.add(cell)
                   lx, ly = dev_x + tip_x + LABEL_TIP_X_OFFSET, y + LABEL_Y_OFFSET
+                  xe = L / 2 + PORT_TO_L10_ENTRANCE
+                  lo_s = min(-1.0, TICK_POSITION - LABEL_TIP_X_OFFSET - lab_len_of(text, glyphs) - 1.0)
+                  hi_s = TICK_POSITION + TICK_WIDTH / 2 + 1.0
+                  critical.append((y, dev_x - xe - hi_s, dev_x - xe - lo_s))
+                  if mode == '2T':
+                      critical.append((y, dev_x + xe + lo_s, dev_x + xe + hi_s))
                   top.refs.append(dict(name=case, xy=(um(dev_x), um(y)), angle=0, mag=1.0, reflect=False))
                   top.refs.append(dict(name='LABEL_' + case, xy=(um(lx), um(ly)), angle=0, mag=1.0, reflect=False))
                   out_len = OUTPUT_EXTENSION_LENGTH if mode == '1T' else 0.0
@@ -404,6 +569,19 @@ def main():
     lib.add(frame)
     top.refs.append(dict(name='FRAME_AND_MARKERS', xy=(um(cx), um(cy)), angle=0, mag=1.0, reflect=False))
     lib.add(top)
+
+    # EBL field placement: shift everything in the top cell
+    ebl = place_for_ebl(lib, top, critical)
+    sx, sy = ebl['mask_shift_um']
+    for r in top.refs:
+        r['xy'] = (r['xy'][0] + um(sx), r['xy'][1] + um(sy))
+    for d in devices:
+        d['origin_um'] = [round(d['origin_um'][0] + sx, 3), round(d['origin_um'][1] + sy, 3)]
+        d['label_origin_um'] = [round(d['label_origin_um'][0] + sx, 3), round(d['label_origin_um'][1] + sy, 3)]
+        d['global_x_extent_um'] = [round(v + sx, 3) for v in d['global_x_extent_um']]
+    y0, y1 = y0 + sy, y1 + sy
+    write_field_overlay(ebl)
+
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     lib.write(OUTPUT)
 
@@ -426,8 +604,10 @@ def main():
                                slab_overlap_um=BEAM_SLAB_OVERLAP, span_um=BEAM_SPAN),
         label=dict(layer=list(LABEL_LAYER), tip_x_offset_um=LABEL_TIP_X_OFFSET, y_offset_um=LABEL_Y_OFFSET),
         far_assembly_shift_um=L10_TAPER_LENGTH - SRC_L10_LENGTH,
-        row_pitch_um=ROW_PITCH, row_groups_um=[list(g) for g in ROW_GROUPS], device_gap_um=DEVICE_GAP,
-        row_align=ROW_ALIGN, row_left_edge_x_um=ROW_LEFT_EDGE_X, row_right_edge_x_um=ROW_RIGHT_EDGE_X, frame_bounds_um=[FRAME_X[0], y0, FRAME_X[1], y1],
+        row_pitch_um=ROW_PITCH, row_groups_um={k: [list(g) for g in v] for k, v in ROW_GROUPS.items()},
+        device_gap_um=DEVICE_GAP,
+        row_align=ROW_ALIGN, row_left_edge_x_um=ROW_LEFT_EDGE_X + sx, row_right_edge_x_um=ROW_RIGHT_EDGE_X + sx,
+        ebl_write_fields={k: v for k, v in ebl.items() if k != 'fields_xy'}, frame_bounds_um=[FRAME_X[0], y0, FRAME_X[1], y1],
         moved_marker_polygon_count=nmark)
     manifest = dict(
         source_gds=str(SOURCE_GDS.relative_to(ROOT)),
