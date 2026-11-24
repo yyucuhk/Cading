@@ -53,7 +53,7 @@ WG_WIDTH = 1.60                               # Layer 15 waveguide width (all de
 L10_STAGE1_LENGTHS = (40.0, 50.0, 60.0, 70.0, 80.0)   # 15 -> 0.8 um stage; bottom to top in each block
 PROFILES = {'A': 'smootherstep', 'L': 'linear'}   # label tag -> taper profile
 # Each block gives one row per taper length T; members are placed left to right.
-BLOCKS = (dict(mode='2T', align='left', members=((500.0, 'A'), (500.0, 'L'))),
+BLOCKS = (dict(mode='2T', align='left', members=((500.0, 'A'), (500.0, 'L'), (500.0, 'A'), (500.0, 'L'))),
           dict(mode='1T', align='right', members=((15000.0, 'A'),)),
           dict(mode='1T', align='right', members=((15000.0, 'L'),)))
 STRAIGHT_LENGTHS = tuple(sorted({L for b in BLOCKS for L, _ in b['members']}))
@@ -541,10 +541,12 @@ def adjust_movable_gaps(lib, top, critical, movable, devices, shift):
         row = [c for c in l15_clusters(lib, top) if c[0] <= y <= c[1]][0]
         others = [iv for iv in row[2] if iv[1] < x_lo - 1.0 or iv[0] > x_hi + 1.0]
         zones = [z for z in critical if z[4] == case]
+        row_hi = max(refs[c]['xy'][0] / DBU_PER_UM + inf['hi'] for c, inf in movable.items()
+                     if inf['row'] == info['row'] and inf['order'] >= info['order'])
         best = None
         for k in range(int(round(DEVICE_GAP_EBL_RANGE / EBL_SEARCH_STEP))):
             delta = k * EBL_SEARCH_STEP
-            if x_hi + delta > ROW_RIGHT_EDGE_X:
+            if row_hi + delta > ROW_RIGHT_EDGE_X:
                 break
             xs = sorted([list(iv) for iv in others] + [[a + delta, b + delta] for a, b in mine])
             merged = [xs[0]]
@@ -561,15 +563,18 @@ def adjust_movable_gaps(lib, top, critical, movable, devices, shift):
                 best = (key, delta)
         delta = best[1]
         if delta:
-            for r in (dref, lref):
-                r['xy'] = (r['xy'][0] + um(delta), r['xy'][1])
-            for n, z in enumerate(critical):
-                if z[4] == case:
-                    critical[n] = (z[0], z[1] + delta, z[2] + delta, z[3], z[4])
-            d = rec[case]
-            d['origin_um'][0] = round(d['origin_um'][0] + delta, 3)
-            d['label_origin_um'][0] = round(d['label_origin_um'][0] + delta, 3)
-            d['global_x_extent_um'] = [round(v + delta, 3) for v in d['global_x_extent_um']]
+            # this device and every device to its right in the same row move together
+            group = [c for c, inf in movable.items() if inf['row'] == info['row'] and inf['order'] >= info['order']]
+            for c in group:
+                for r in (refs[c], refs['LABEL_' + c]):
+                    r['xy'] = (r['xy'][0] + um(delta), r['xy'][1])
+                for n, z in enumerate(critical):
+                    if z[4] == c:
+                        critical[n] = (z[0], z[1] + delta, z[2] + delta, z[3], z[4])
+                d = rec[c]
+                d['origin_um'][0] = round(d['origin_um'][0] + delta, 3)
+                d['label_origin_um'][0] = round(d['label_origin_um'][0] + delta, 3)
+                d['global_x_extent_um'] = [round(v + delta, 3) for v in d['global_x_extent_um']]
         chosen[case] = round(DEVICE_GAP + delta, 3)
         rec[case]['gap_to_left_device_um'] = chosen[case]
     return chosen
@@ -685,21 +690,24 @@ def main():
               w = WG_WIDTH
               y = FIRST_ROW_Y + row * ROW_PITCH
               built = []
+              seen = {}
               for L, tag in block['members']:
                   TAPER_PROFILE = PROFILES[tag]
-                  case = f'SC_L{int(L)}_T{int(T)}_{tag}_{mode}'
+                  seen[(L, tag)] = copy = seen.get((L, tag), 0) + 1
+                  suffix = '' if copy == 1 else f'_{copy}'           # repeated members are copies
+                  case = f'SC_L{int(L)}_T{int(T)}_{tag}_{mode}{suffix}'
                   cell, rep = build_device(case, L, w, mode, far)
                   xs = [q[0] for _, _, pp in cell.polygons for q in pp]
-                  built.append((L, case, cell, rep, min(xs) / DBU_PER_UM, max(xs) / DBU_PER_UM, tag))
+                  built.append((L, case, cell, rep, min(xs) / DBU_PER_UM, max(xs) / DBU_PER_UM, tag, suffix))
               span = sum(b[5] - b[4] for b in built) + DEVICE_GAP * (len(built) - 1)
               x_left = ROW_LEFT_EDGE_X if align == 'left' else ROW_RIGHT_EDGE_X - span
-              for k_dev, (L, case, cell, rep, lo, hi, tag) in enumerate(built):
+              for k_dev, (L, case, cell, rep, lo, hi, tag, suffix) in enumerate(built):
                   profile = PROFILES[tag]
                   if k_dev > 0 and align == 'left':
-                      movable[case] = dict(row_y=y, lo=lo, hi=hi)
+                      movable[case] = dict(row_y=y, lo=lo, hi=hi, row=row, order=k_dev)
                   dev_x = round(x_left - lo, 3)
                   x_left += (hi - lo) + DEVICE_GAP
-                  text = f'L{int(L)}_T{int(T)}_{tag}_{mode}'
+                  text = f'L{int(L)}_T{int(T)}_{tag}_{mode}{suffix}'
                   lab = Cell('LABEL_' + case)
                   tip_x = -(L / 2 + PORT_TO_L10_ENTRANCE + TICK_POSITION)
                   polys, lab_len = label_polygons(text, glyphs, 0.0, 0.0)
@@ -720,7 +728,7 @@ def main():
                   top.refs.append(dict(name='LABEL_' + case, xy=(um(lx), um(ly)), angle=0, mag=1.0, reflect=False))
                   out_len = OUTPUT_EXTENSION_LENGTH if mode == '1T' else 0.0
                   devices.append(dict(
-                      case_id=case, mode=mode, set=tag, taper_profile=profile,
+                      case_id=case, mode=mode, set=tag, taper_profile=profile, copy=int(suffix[1:] or 1),
                       label=text, label_layer=list(LABEL_LAYER),
                       width_um=w, l10_stage1_length_um=T, l10_taper_length_um=L10_TAPER_LENGTH,
                       l15_taper_length_um=L15_TAPER_LENGTH, alignment_tip_position_um=TICK_POSITION,
