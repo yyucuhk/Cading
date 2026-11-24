@@ -77,7 +77,7 @@ def set_taper(stage1_length):
     TICK_POSITION = L10_MID_POSITION          # alignment tips mark the L10 0.8 um point
     L14_LINEAR_START = L10_MID_POSITION - L14_LINEAR_START_BEFORE_MID
 
-L2_MARGIN = 2.5                               # per side around Layer 10
+L2_MARGIN = 3.0                               # per side around Layer 10 (source: 2.5)
 L2_START_OFFSET = 2.0                         # Layer 2 starts this far OUTWARD of the L10 entrance
 L14_MARGIN = 1.0                              # per side around Layer 10
 L14_START_OFFSET = 0.0
@@ -191,6 +191,16 @@ def cut_far_piece(poly, side):
     return xc, seq
 
 
+def y_extent(poly, x):
+    ys = []
+    n = len(poly)
+    for i in range(n):
+        (x0, y0), (x1, y1) = poly[i], poly[(i + 1) % n]
+        if (x0 < x) != (x1 < x):
+            ys.append(y0 + (x - x0) / (x1 - x0) * (y1 - y0))
+    return (min(ys), max(ys)) if ys else None
+
+
 def mapper(side, half_L):
     """s (um, outward from the L10 entrance) -> x (nm) for this device end."""
     xe = side * (half_L + PORT_TO_L10_ENTRANCE)
@@ -292,8 +302,20 @@ def build_end(cell, side, half_L, width, far):
     seq = shifted(seq, side, half_L)
     top = [(X(s), um(l10_half(s) + L2_MARGIN)) for s in l10_stations(s2, S)]
     bot = [(X(s), -um(l10_half(s) + L2_MARGIN)) for s in l10_stations(s2, S)]
-    top[-1], bot[-1] = seq[0], seq[-1]
-    cell.polygons.append((2, 0, merged_end_polygon(top, bot, seq)))
+    # keep the margin along the copied 0.2 um neck until the copied L2 is wider on both sides
+    h_neck = um(l10_half(S) + L2_MARGIN)
+    s_join = None
+    for k in range(1, 2001):
+        e = y_extent(seq, X(S + 0.1 * k))
+        if e and e[1] >= h_neck and e[0] <= -h_neck:
+            s_join = 0.1 * k + 0.5
+            break
+    assert s_join is not None, 'copied Layer-2 channel never exceeds the new margin'
+    top.append((X(S + s_join), h_neck))
+    bot.append((X(S + s_join), -h_neck))
+    cell.polygons.append((2, 0, top + list(reversed(bot))))
+    cell.polygons.append((2, 0, seq))                     # copied channel (overlaps the extension)
+    report['layer2_neck_extension_um'] = s_join
     report['layer2_start_width_um'] = 2 * (l10_half(s2) + L2_MARGIN)
 
     # Layer 14: L10 + margin up to L14_LINEAR_START, then straight-sided to the copied channel
