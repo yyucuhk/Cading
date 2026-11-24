@@ -68,9 +68,10 @@ L14_MARGIN = 1.0                              # per side around Layer 10
 L14_START_OFFSET = 0.0
 L14_LINEAR_START = 58.847                     # straight-sided L14 bridge from here to the neck
 
-TICK_WIDTH = 0.5                              # Layer-15 alignment ticks at the L15 tip
+TICK_WIDTH = 0.5                              # Layer-15 alignment tips (ticks)
 TICK_LENGTH = 10.0
 TICK_GAP_TO_L10 = 2.0                         # same gap to the slab edge as the source (2.5 - 0.5)
+TICK_POSITION = L10_MID_POSITION              # alignment tips mark the L10 1 um point
 
 BEAM_LAYER = (11, 0)
 BEAM_WIDTH = 0.5
@@ -79,7 +80,7 @@ BEAM_SLAB_OVERLAP = 0.5
 BEAM_SPAN = 5.096 + 0.5                       # source anchor span + outer overlap
 
 LABEL_LAYER = (15, 0)
-LABEL_TIP_X_OFFSET = 2.0                      # from the Layer-15 tip, toward the device
+LABEL_TIP_X_OFFSET = 2.0                      # from the alignment tips, toward the device
 LABEL_Y_OFFSET = 12.0                         # source used 10; raised to clear the wider L11 beams
 LABEL_GAP = 0.5
 
@@ -273,8 +274,8 @@ def build_end(cell, side, half_L, width, far):
             ya, yb = sorted((um(sg * yin), um(sg * yout)))
             cell.polygons.append((BEAM_LAYER[0], BEAM_LAYER[1], [(xa, ya), (xb, ya), (xb, yb), (xa, yb)]))
 
-    # Layer 15: alignment ticks at the L15 tip
-    st = L15_TAPER_LENGTH
+    # Layer 15: alignment tips at the L10 1 um point
+    st = TICK_POSITION
     yin = l10_half(st) + TICK_GAP_TO_L10
     xa, xb = sorted((X(st - TICK_WIDTH / 2), X(st + TICK_WIDTH / 2)))
     for sg in (1, -1):
@@ -338,7 +339,7 @@ def main():
                 text = f'L{int(L)}_W{w:.2f}_{mode}'
                 cell, rep = build_device(case, L, w, mode, far)
                 lab = Cell('LABEL_' + case)
-                tip_x = -(L / 2 + PORT_TO_L10_ENTRANCE + L15_TAPER_LENGTH)
+                tip_x = -(L / 2 + PORT_TO_L10_ENTRANCE + TICK_POSITION)
                 polys, lab_len = label_polygons(text, glyphs, 0.0, 0.0)
                 lab.polygons += [(LABEL_LAYER[0], LABEL_LAYER[1], p) for p in polys]
                 lib.add(lab)
@@ -356,7 +357,8 @@ def main():
                     input_port_local_um=[-L / 2, 0.0],
                     output_port_local_um=[L / 2 + out_len, 0.0],
                     l10_entrance_local_x_um=-(L / 2 + PORT_TO_L10_ENTRANCE),
-                    l15_tip_local_x_um=tip_x,
+                    l15_tip_local_x_um=-(L / 2 + PORT_TO_L10_ENTRANCE + L15_TAPER_LENGTH),
+                    alignment_tip_local_x_um=tip_x,
                     l10_tip_local_x_um=-(L / 2 + PORT_TO_L10_ENTRANCE + L10_TAPER_LENGTH),
                     **{k: round(v, 4) for k, v in rep.items()}))
                 row += 1
@@ -382,7 +384,7 @@ def main():
         layer2_l10_overlap_um=L2_START_OFFSET,
         layer14_margin_um=L14_MARGIN, layer14_start_offset_um=L14_START_OFFSET,
         layer14_linear_start_distance_um=L14_LINEAR_START,
-        tick=dict(layer=[15, 0], width_um=TICK_WIDTH, length_um=TICK_LENGTH, gap_to_l10_edge_um=TICK_GAP_TO_L10),
+        tick=dict(layer=[15, 0], position_from_l10_entrance_um=TICK_POSITION, width_um=TICK_WIDTH, length_um=TICK_LENGTH, gap_to_l10_edge_um=TICK_GAP_TO_L10),
         local_taper_beams=dict(layer=list(BEAM_LAYER), width_um=BEAM_WIDTH,
                                offsets_from_l2_start_um=list(BEAM_OFFSETS_FROM_L2_START),
                                slab_overlap_um=BEAM_SLAB_OVERLAP, span_um=BEAM_SPAN),
