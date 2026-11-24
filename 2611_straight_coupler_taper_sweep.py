@@ -58,12 +58,14 @@ PROFILES = {'A': 'smootherstep', 'L': 'linear'}   # label tag -> taper profile
 LONG_TAPER_T = 60.0                           # fixed L10 first-stage length for the long devices
 LONG_WIDTHS = (1.590, 1.595, 1.600, 1.605, 1.610)   # long-device waveguide width sweep
 # 'rows' lists (T, width) per row; 'label' says which parameter the label shows.
+S_BEND_RADIUS = 150.0                         # short devices: the straight becomes a gentle S-bend:
+S_BEND_OFFSET = 50.0                          # arc (R) - tilted straight - arc back, output end raised by this
 BLOCKS = (dict(mode='2T', align='left', members=((500.0, 'A'), (500.0, 'L'), (500.0, 'A'), (500.0, 'L')),
-               rows=None, label='T'),                                       # rows: T sweep at WG_WIDTH
+               rows=None, label='T', s_bend=True),                          # rows: T sweep at WG_WIDTH
           dict(mode='1T', align='right', members=((15000.0, 'A'),),
-               rows=tuple((LONG_TAPER_T, w) for w in LONG_WIDTHS), label='W'),
+               rows=tuple((LONG_TAPER_T, w) for w in LONG_WIDTHS), label='W', s_bend=False),
           dict(mode='1T', align='right', members=((15000.0, 'L'),),
-               rows=tuple((LONG_TAPER_T, w) for w in LONG_WIDTHS), label='W'))
+               rows=tuple((LONG_TAPER_T, w) for w in LONG_WIDTHS), label='W', s_bend=False))
 STRAIGHT_LENGTHS = tuple(sorted({L for b in BLOCKS for L, _ in b['members']}))
 OUTPUT_EXTENSION_LENGTH = 2000.0              # 1T plain output beyond the output port
 PORT_TO_L10_ENTRANCE = 45.0                   # plain Layer-15 straight between port and taper start
@@ -136,8 +138,9 @@ EBL_GRID_ORIGIN = (0.0, 0.0)
 EBL_LAYER = (15, 0)
 EBL_SEARCH_STEP = 0.5
 EBL_CRITICAL_MARGIN = 2.0                     # keep overlap strips this far from critical zones
-EBL_ROW_EDGE_CLEARANCE = 2.0                  # every row's L15 (tips..label) this far inside its field in y;
-                                              # then waveguides as far as possible from y overlap strips
+EBL_PIECE_STEP = 10.0                         # L15 shapes are sliced into pieces this long in x
+EBL_Y_SEARCH_STEP = 1.0                       # y stitching is irrelevant: y only sets which fields are needed
+EBL_Y_CANDIDATES = 6                          # y offsets (best by estimated count) searched fully in x
 EBL_PRIORITY = 'no_taper_stitch'                       # 'fields': fewest fields first; 'no_taper_stitch': no stitch
                                               # through any L15 taper/alignment tip first, then fewest fields
 
@@ -229,6 +232,29 @@ def merged_end_polygon(near_top, near_bot, far_seq):
     """near_top/near_bot: [(x,y)] from inner start to the cut; far_seq from cut-top to cut-bottom."""
     pts = near_top[:-1] + far_seq + list(reversed(near_bot[:-1]))
     return pts
+
+
+def s_bend(span, radius, offset):
+    """Arc (radius, theta) - tilted straight - arc back over x-span `span` with y-offset `offset`.
+    Returns theta (rad), tilted straight length, path length and a centreline [(x, y, heading)]."""
+    def dy(th):
+        ls = (span - 2 * radius * math.sin(th)) / math.cos(th)
+        return 2 * radius * (1 - math.cos(th)) + ls * math.sin(th)
+    lo, hi = 0.0, min(math.pi / 2 - 1e-9, math.asin(min(1.0, span / (2 * radius))))
+    assert dy(hi) >= offset, 'offset too large for this span and radius'
+    for _ in range(200):
+        mid = (lo + hi) / 2
+        lo, hi = (mid, hi) if dy(mid) < offset else (lo, mid)
+    th = (lo + hi) / 2
+    ls = (span - 2 * radius * math.sin(th)) / math.cos(th)
+    x0 = -span / 2
+    n_arc = max(8, int(math.ceil(radius * th / 0.5)))           # <= 0.5 um chords (0.2 nm sagitta)
+    pts = [(x0 + radius * math.sin(th * k / n_arc), radius * (1 - math.cos(th * k / n_arc)), th * k / n_arc)
+           for k in range(n_arc + 1)]
+    x2, y2 = span / 2, offset
+    pts += [(x2 - radius * math.sin(th * k / n_arc), offset - radius * (1 - math.cos(th * k / n_arc)), th * k / n_arc)
+            for k in range(n_arc, -1, -1)]
+    return th, ls, 2 * radius * th + ls, pts
 
 
 def sample(s0, s1, n=2):
@@ -383,7 +409,9 @@ def build_end(cell, side, half_L, width, far):
     return report
 
 
-def build_device(name, L, width, mode, far):
+def build_device(name, L, width, mode, far, s_offset=0.0):
+    if s_offset:
+        return build_s_device(name, L, width, mode, far, s_offset)
     cell = Cell(name)
     h = L / 2
     xe = h + PORT_TO_L10_ENTRANCE
@@ -409,6 +437,31 @@ def build_device(name, L, width, mode, far):
     rep = build_end(cell, -1, h, width, far)
     if mode == '2T':
         build_end(cell, 1, h, width, far)
+    return cell, rep
+
+
+def build_s_device(name, L, width, mode, far, off):
+    """Two-taper device whose straight is an S-bend: the output end assembly is raised by `off`."""
+    assert mode == '2T'
+    cell = Cell(name)
+    h = L / 2
+    xe = h + PORT_TO_L10_ENTRANCE
+    th, ls, path, sb = s_bend(L, S_BEND_RADIUS, off)
+    ss = stations(0.0, L15_TAPER_LENGTH, ())
+    # centreline with half-widths: left taper tip -> entrance -> port, S, port -> entrance -> tip
+    line = [(-(xe + s), 0.0, 0.0, l15_half(s, width)) for s in reversed(ss)]
+    line += [(x, y, a, width / 2) for x, y, a in sb]
+    line += [(xe + s, off, 0.0, l15_half(s, width)) for s in ss]
+    top_e = [(um(x - hw * math.sin(a)), um(y + hw * math.cos(a))) for x, y, a, hw in line]
+    bot_e = [(um(x + hw * math.sin(a)), um(y - hw * math.cos(a))) for x, y, a, hw in line]
+    cell.polygons.append((15, 0, bot_e + list(reversed(top_e))))
+    rep = build_end(cell, -1, h, width, far)
+    n0 = len(cell.polygons)
+    build_end(cell, 1, h, width, far)
+    for k in range(n0, len(cell.polygons)):                     # output end assembly follows the S
+        l, d, pts = cell.polygons[k]
+        cell.polygons[k] = (l, d, [(x, y + um(off)) for x, y in pts])
+    rep.update(s_bend_theta_deg=math.degrees(th), s_bend_tilted_straight_um=ls, s_bend_path_length_um=path)
     return cell, rep
 
 
@@ -455,21 +508,69 @@ def lab_len_of(text, glyphs):
     return (sum(glyphs[c][1] for c in text) + um(LABEL_GAP) * (len(text) - 1)) / DBU_PER_UM
 
 
-def l15_clusters(lib, top):
-    """Layer-15 shapes of the flattened mask grouped into y-separated clusters: [(ylo, yhi, [(xlo, xhi)])]."""
-    polys, _ = lib.flatten(top.name)
-    boxes = sorted((bbox(p) for l, d, p in polys if (l, d) == EBL_LAYER), key=lambda b: b[1])
-    clusters = []
-    for b in boxes:
-        b = [v / DBU_PER_UM for v in b]
-        if clusters and b[1] <= clusters[-1][1] + 50.0:
-            c = clusters[-1]
-            c[0], c[1] = min(c[0], b[1]), max(c[1], b[3])
-            c[2].append((b[0], b[2]))
-        else:
-            clusters.append([b[1], b[3], [(b[0], b[2])]])
+def _poly_y_range(poly, x0, x1):
+    ys = [q[1] for q in poly if x0 <= q[0] <= x1]
+    n = len(poly)
+    for xc in (x0, x1):
+        for i in range(n):
+            (ax, ay), (bx, by) = poly[i], poly[(i + 1) % n]
+            if (ax < xc) != (bx < xc):
+                ys.append(ay + (xc - ax) / (bx - ax) * (by - ay))
+    return (min(ys), max(ys)) if ys else None
+
+
+def cell_pieces(cell, _cache={}):
+    """Layer-15 shapes of a cell as small boxes (um): long shapes are sliced every EBL_PIECE_STEP in x."""
+    if cell.name in _cache:
+        return _cache[cell.name]
     out = []
-    for ylo, yhi, xs in clusters:
+    step = um(EBL_PIECE_STEP)
+    for l, d, p in cell.polygons:
+        if (l, d) != EBL_LAYER:
+            continue
+        b = bbox(p)
+        if b[2] - b[0] <= step:
+            out.append((b[0], b[2], b[1], b[3]))
+            continue
+        n = int(math.ceil((b[2] - b[0]) / step))
+        for k in range(n):
+            x0 = b[0] + (b[2] - b[0]) * k / n
+            x1 = b[0] + (b[2] - b[0]) * (k + 1) / n
+            yr = _poly_y_range(p, x0, x1)
+            if yr:
+                out.append((x0, x1, yr[0], yr[1]))
+    out = [tuple(v / DBU_PER_UM for v in q) for q in out]
+    _cache[cell.name] = out
+    return out
+
+
+def mask_pieces(lib, top):
+    """All Layer-15 pieces of the (unshifted) mask: (x0, x1, y0, y1, owner)."""
+    out = []
+    for r in top.refs:
+        ox, oy = r['xy'][0] / DBU_PER_UM, r['xy'][1] / DBU_PER_UM
+        out += [(a + ox, b + ox, c + oy, d + oy, r['name']) for a, b, c, d in cell_pieces(lib.cells[r['name']])]
+    return out
+
+
+def piece_rows(y0, y1, py):
+    """Field rows that write a piece: the row whose field holds it whole (preferring the row
+    of its centre), otherwise every row it touches (a y stitch; harmless here)."""
+    pitch = EBL_FIELD_SIZE - EBL_FIELD_OVERLAP
+    jc = math.floor(((y0 + y1) / 2 - py) / pitch)
+    for j in (jc, jc - 1, jc + 1):
+        if py + pitch * j <= y0 and y1 <= py + pitch * j + EBL_FIELD_SIZE:
+            return (j,)
+    return tuple(range(math.floor((y0 - py) / pitch), math.floor((y1 - py) / pitch) + 1))
+
+
+def row_intervals(pieces, py):
+    rows = {}
+    for x0, x1, y0, y1, *_ in pieces:
+        for j in piece_rows(y0, y1, py):
+            rows.setdefault(j, []).append((x0, x1))
+    out = {}
+    for j, xs in rows.items():
         xs.sort()
         merged = [list(xs[0])]
         for a, b in xs[1:]:
@@ -477,15 +578,8 @@ def l15_clusters(lib, top):
                 merged[-1][1] = max(merged[-1][1], b)
             else:
                 merged.append([a, b])
-        out.append((ylo, yhi, merged))
+        out[j] = merged
     return out
-
-
-def field_rows_for(ylo, yhi, py):
-    pitch = EBL_FIELD_SIZE - EBL_FIELD_OVERLAP
-    js = [j for j in range(math.floor((ylo - py) / pitch) - 1, math.floor((ylo - py) / pitch) + 1)
-          if py + pitch * j <= ylo and yhi <= py + pitch * j + EBL_FIELD_SIZE]
-    return js
 
 
 def cover_x(intervals, px):
@@ -501,13 +595,18 @@ def cover_x(intervals, px):
     return used
 
 
-def score_x(clusters, zone_rows, px, py, skip=frozenset()):
+def used_fields(rowiv, px):
+    return {(i, j) for j, iv in rowiv.items() for i in cover_x(iv, px)}
+
+
+def zone_rows_for(critical, py):
+    # a zone is written in the field row that holds the taper's centreline
+    return [(piece_rows(yz - 1.0, yz + 1.0, py)[0], x0, x1, kind, case) for yz, x0, x1, kind, case in critical]
+
+
+def stitch_hits(zone_rows, used, px, skip=frozenset()):
+    """x stitches (overlap strip between two written fields of one row) through critical zones."""
     pitch = EBL_FIELD_SIZE - EBL_FIELD_OVERLAP
-    used = set()
-    for ylo, yhi, xs in clusters:
-        js = field_rows_for(ylo, yhi, py)
-        j = js[0] if js else math.floor((ylo - py) / pitch)
-        used |= {(i, jj) for i in cover_x(xs, px) for jj in ((j,) if js else (j, j + 1))}
     hits = {'taper': 0, 'label': 0}
     clear = 1e9
     for j, x0, x1, kind, case in zone_rows:
@@ -522,22 +621,58 @@ def score_x(clusters, zone_rows, px, py, skip=frozenset()):
                 hits[kind] += 1
             if kind == 'taper':
                 clear = min(clear, gap)
-    return used, hits, clear
+    return hits, clear
 
 
-def make_zone_rows(critical, py):
+RANK = {'fields': lambda r: (r['n'], r['taper'], r['label'], -r['clear']),
+        'no_taper_stitch': lambda r: (r['taper'], r['n'], r['label'], -r['clear'])}
+
+
+def place_for_ebl(lib, top, critical, skip=frozenset(), fixed=None):
+    """Shift of the whole mask (dx, dy in [0, pitch)) against the field grid."""
     pitch = EBL_FIELD_SIZE - EBL_FIELD_OVERLAP
-    out = []
-    for yz, x0, x1, kind, case in critical:
-        js = field_rows_for(yz - 15.0, yz + 25.0, py)
-        out.append((js[0] if js else math.floor((yz - py) / pitch), x0, x1, kind, case))
-    return out
+    gx, gy = EBL_GRID_ORIGIN
+    pieces = mask_pieces(lib, top)
+    if fixed is not None:
+        y_cands = [fixed[1]]
+    else:   # rank y offsets by expected field count, then search x for the best few
+        scored_y = []
+        for k in range(int(round(pitch / EBL_Y_SEARCH_STEP))):
+            dy = k * EBL_Y_SEARCH_STEP
+            rowiv = row_intervals(pieces, gy - dy)
+            est = sum((b - a + pitch) / pitch for iv in rowiv.values() for a, b in iv)
+            scored_y.append((est, dy))
+        scored_y.sort()
+        y_cands = [dy for _, dy in scored_y[:EBL_Y_CANDIDATES]]
+    results = []
+    for dy in y_cands:
+        py = gy - dy
+        rowiv = row_intervals(pieces, py)
+        zr = zone_rows_for(critical, py)
+        xs = [fixed[0]] if fixed is not None else [k * EBL_SEARCH_STEP for k in range(int(round(pitch / EBL_SEARCH_STEP)))]
+        for dx in xs:
+            used = used_fields(rowiv, gx - dx)
+            hits, clear = stitch_hits(zr, used, gx - dx, skip)
+            results.append(dict(n=len(used), taper=hits['taper'], label=hits['label'], clear=clear, dx=dx, dy=dy))
+    alternatives = {k: min(results, key=f) for k, f in RANK.items()}
+    chosen = alternatives[EBL_PRIORITY]
+    dx, dy = chosen['dx'], chosen['dy']
+    fields = sorted(used_fields(row_intervals(pieces, gy - dy), gx - dx))
+    return dict(
+        field_size_um=EBL_FIELD_SIZE, field_overlap_um=EBL_FIELD_OVERLAP, field_pitch_um=pitch,
+        grid_origin_um=list(EBL_GRID_ORIGIN), layer=list(EBL_LAYER),
+        mask_shift_um=[dx, dy], layer15_field_count=len(fields), priority=EBL_PRIORITY,
+        taper_zones_with_stitch=chosen['taper'], label_zones_with_stitch=chosen['label'],
+        min_stitch_to_taper_zone_um=round(chosen['clear'], 3),
+        alternatives={k: dict(fields=v['n'], taper_zones_with_stitch=v['taper'],
+                              label_zones_with_stitch=v['label'], mask_shift_um=[v['dx'], v['dy']])
+                      for k, v in alternatives.items()},
+        fields_xy=[(gx + pitch * i, gy + pitch * j) for i, j in fields])
 
 
 def adjust_movable_gaps(lib, top, critical, movable, devices, shift):
-    """Slide each movable device right (0..DEVICE_GAP_EBL_RANGE) so its taper zones avoid
-    stitches and its row needs the fewest fields. Updates refs, critical zones and records."""
-    pitch = EBL_FIELD_SIZE - EBL_FIELD_OVERLAP
+    """Slide each movable device (and the devices right of it in its row) right by
+    0..DEVICE_GAP_EBL_RANGE so its taper zones avoid x stitches with the fewest fields."""
     dx, dy = shift
     gx, gy = EBL_GRID_ORIGIN
     px, py = gx - dx, gy - dy
@@ -545,44 +680,27 @@ def adjust_movable_gaps(lib, top, critical, movable, devices, shift):
     rec = {d['case_id']: d for d in devices}
     chosen = {}
     for case, info in movable.items():
-        y = info['row_y']
-        # this row's Layer-15 intervals, split into the movable device and the rest
-        dref = refs[case]
-        x_dev = dref['xy'][0] / DBU_PER_UM
-        mine = sorted((bbox(p)[0] / DBU_PER_UM + x_dev, bbox(p)[2] / DBU_PER_UM + x_dev)
-                      for l, d, p in lib.cells[case].polygons if (l, d) == EBL_LAYER)
-        lab = lib.cells['LABEL_' + case]
-        lref = refs['LABEL_' + case]
-        mine += [(bbox(p)[0] / DBU_PER_UM + lref['xy'][0] / DBU_PER_UM,
-                  bbox(p)[2] / DBU_PER_UM + lref['xy'][0] / DBU_PER_UM) for l, d, p in lab.polygons]
-        x_lo, x_hi = x_dev + info['lo'], x_dev + info['hi']
-        row = [c for c in l15_clusters(lib, top) if c[0] <= y <= c[1]][0]
-        others = [iv for iv in row[2] if iv[1] < x_lo - 1.0 or iv[0] > x_hi + 1.0]
+        group = [c for c, inf in movable.items() if inf['row'] == info['row'] and inf['order'] >= info['order']]
+        owners = set(group) | {'LABEL_' + c for c in group}
+        pieces = [q for q in mask_pieces(lib, top) if abs((q[2] + q[3]) / 2 - info['row_y']) < 300.0]
+        mine = [q for q in pieces if q[4] in owners]
+        others = [q for q in pieces if q[4] not in owners]
         zones = [z for z in critical if z[4] == case]
-        row_hi = max(refs[c]['xy'][0] / DBU_PER_UM + inf['hi'] for c, inf in movable.items()
-                     if inf['row'] == info['row'] and inf['order'] >= info['order'])
+        row_hi = max(refs[c]['xy'][0] / DBU_PER_UM + movable[c]['hi'] for c in group)
         best = None
         for k in range(int(round(DEVICE_GAP_EBL_RANGE / EBL_SEARCH_STEP))):
             delta = k * EBL_SEARCH_STEP
             if row_hi + delta > ROW_RIGHT_EDGE_X:
                 break
-            xs = sorted([list(iv) for iv in others] + [[a + delta, b + delta] for a, b in mine])
-            merged = [xs[0]]
-            for a, b in xs[1:]:
-                if a <= merged[-1][1]:
-                    merged[-1][1] = max(merged[-1][1], b)
-                else:
-                    merged.append([a, b])
-            clus = [(row[0], row[1], merged)]
-            zr = make_zone_rows([(z[0], z[1] + delta, z[2] + delta, z[3], z[4]) for z in zones], py)
-            used, hits, clear = score_x(clus, zr, px, py)
+            moved = [(a + delta, b + delta, c, d) for a, b, c, d, _ in mine]
+            used = used_fields(row_intervals(others + moved, py), px)
+            zr = zone_rows_for([(z[0], z[1] + delta, z[2] + delta, z[3], z[4]) for z in zones], py)
+            hits, clear = stitch_hits(zr, used, px)
             key = (hits['taper'], len(used), hits['label'], -clear)
             if best is None or key < best[0]:
                 best = (key, delta)
         delta = best[1]
         if delta:
-            # this device and every device to its right in the same row move together
-            group = [c for c, inf in movable.items() if inf['row'] == info['row'] and inf['order'] >= info['order']]
             for c in group:
                 for r in (refs[c], refs['LABEL_' + c]):
                     r['xy'] = (r['xy'][0] + um(delta), r['xy'][1])
@@ -596,102 +714,6 @@ def adjust_movable_gaps(lib, top, critical, movable, devices, shift):
         chosen[case] = round(DEVICE_GAP + delta, 3)
         rec[case]['gap_to_left_device_um'] = chosen[case]
     return chosen
-
-
-def place_for_ebl(lib, top, critical, skip=frozenset(), fixed=None, alternatives=None):
-    pitch = EBL_FIELD_SIZE - EBL_FIELD_OVERLAP
-    clusters = l15_clusters(lib, top)
-    gx, gy = EBL_GRID_ORIGIN
-    steps = [k * EBL_SEARCH_STEP for k in range(int(round(pitch / EBL_SEARCH_STEP)))]
-
-    def fields_for(px, py):
-        f = set()
-        for ylo, yhi, xs in clusters:
-            js = field_rows_for(ylo, yhi, py)
-            if js:
-                j = js[0]
-                f |= {(i, j) for i in cover_x(xs, px)}
-            else:   # split across two field rows (penalised: both rows need the x cover)
-                j = math.floor((ylo - py) / pitch)
-                f |= {(i, jj) for i in cover_x(xs, px) for jj in (j, j + 1)}
-        return f
-
-    if fixed is not None:
-        steps = [fixed[1]]
-    # y: every cluster inside one field row; then device rows as far as possible
-    # from field edges (outside the overlap strips); then the global markers
-    def y_clear(group, py):
-        c = 1e9
-        for a, b, _ in group:
-            js = field_rows_for(a, b, py)
-            if not js:
-                return -1e9
-            f0 = py + pitch * js[0]
-            c = min(c, a - f0, f0 + EBL_FIELD_SIZE - b)
-        return c
-    device_rows = [c for c in clusters if c[1] - c[0] < 100.0]
-    marker_rows = [c for c in clusters if c[1] - c[0] >= 100.0]
-    tick_reach = TICK_GAP_TO_L10 + L10_MID_WIDTH / 2 + TICK_LENGTH   # waveguide centre = cluster bottom + this
-
-    def core_clear(py):
-        """Smallest distance from any waveguide (+/-1 um) to a field overlap strip in y."""
-        c = 1e9
-        for a, b, _ in device_rows:
-            yc = a + tick_reach
-            j = math.floor((yc - py) / pitch)
-            for jj in (j - 1, j, j + 1, j + 2):
-                s0 = py + pitch * jj
-                c = min(c, max(s0 - (yc + 1.0), (yc - 1.0) - (s0 + EBL_FIELD_OVERLAP)))
-        return c
-    best_y = None
-    for dy in steps:
-        py = gy - dy                                   # grid phase relative to the unshifted mask
-        nrows = sum(1 if field_rows_for(a, b, py) else 2 for a, b, _ in clusters)
-        band = y_clear(device_rows, py)
-        key = (nrows, band < EBL_ROW_EDGE_CLEARANCE, -round(core_clear(py), 3), -round(band, 3),
-               -round(y_clear(marker_rows, py), 3))
-        if best_y is None or key < best_y[0]:
-            best_y = (key, dy)
-    dy = best_y[1]
-    py = gy - dy
-
-    # x: field count and stitches (overlap strips between two written fields)
-    # through taper/tip zones and label zones, ranked by EBL_PRIORITY
-    zone_rows = make_zone_rows(critical, py)
-    xsteps = [fixed[0]] if fixed is not None else [k * EBL_SEARCH_STEP for k in range(int(round(pitch / EBL_SEARCH_STEP)))]
-    scored = []
-    for dx in xsteps:
-        used, hits, clear = score_x(clusters, zone_rows, gx - dx, py, skip)
-        scored.append(dict(n=len(used), taper=hits['taper'], label=hits['label'], clear=clear, dx=dx))
-    rank = {'fields': lambda r: (r['n'], r['taper'], r['label'], -r['clear']),
-            'no_taper_stitch': lambda r: (r['taper'], r['n'], r['label'], -r['clear'])}
-    if alternatives is None:
-        alternatives = {k: min(scored, key=f) for k, f in rank.items()}
-    chosen = min(scored, key=rank[EBL_PRIORITY])
-    best = ((chosen['n'], chosen['taper'], -chosen['clear']), chosen['dx'])
-    dx = best[1]
-    px = gx - dx
-    fields = sorted(fields_for(px, py))
-    per_cluster = []
-    for ylo, yhi, xs in clusters:
-        js = field_rows_for(ylo, yhi, py)
-        per_cluster.append(dict(y_range_um=[round(ylo + dy, 3), round(yhi + dy, 3)],
-                                field_rows=len(js[:1]) or 2, fields=len(set(cover_x(xs, px)))))
-    return dict(
-        field_size_um=EBL_FIELD_SIZE, field_overlap_um=EBL_FIELD_OVERLAP, field_pitch_um=pitch,
-        grid_origin_um=list(EBL_GRID_ORIGIN), layer=list(EBL_LAYER),
-        mask_shift_um=[dx, dy], layer15_field_count=len(fields),
-        priority=EBL_PRIORITY,
-        taper_zones_with_stitch=chosen['taper'], label_zones_with_stitch=chosen['label'],
-        min_stitch_to_taper_zone_um=round(chosen['clear'], 3),
-        alternatives={k: (v if 'fields' in v else
-                          dict(fields=v['n'], taper_zones_with_stitch=v['taper'],
-                               label_zones_with_stitch=v['label'], mask_shift_x_um=v['dx']))
-                      for k, v in alternatives.items()},
-        min_waveguide_to_y_overlap_strip_um=-best_y[0][2],
-        min_device_row_y_clearance_um=-best_y[0][3], min_marker_y_clearance_um=-best_y[0][4],
-        clusters=per_cluster,
-        fields_xy=[(gx + pitch * i, gy + pitch * j) for i, j in fields])
 
 
 def write_field_overlay(ebl):
@@ -729,12 +751,14 @@ def main():
                   seen[(L, tag)] = copy = seen.get((L, tag), 0) + 1
                   suffix = '' if copy == 1 else f'_{copy}'           # repeated members are copies
                   case = f'SC_L{int(L)}_{key.replace(".", "")}_{tag}_{mode}{suffix}'
-                  cell, rep = build_device(case, L, w, mode, far)
+                  off = S_BEND_OFFSET if block.get('s_bend') else 0.0
+                  cell, rep = build_device(case, L, w, mode, far, off)
                   xs = [q[0] for _, _, pp in cell.polygons for q in pp]
                   built.append((L, case, cell, rep, min(xs) / DBU_PER_UM, max(xs) / DBU_PER_UM, tag, suffix))
               span = sum(b[5] - b[4] for b in built) + DEVICE_GAP * (len(built) - 1)
               x_left = ROW_LEFT_EDGE_X if align == 'left' else ROW_RIGHT_EDGE_X - span
               for k_dev, (L, case, cell, rep, lo, hi, tag, suffix) in enumerate(built):
+                  off = S_BEND_OFFSET if block.get('s_bend') else 0.0
                   profile = PROFILES[tag]
                   if k_dev > 0 and align == 'left':
                       movable[case] = dict(row_y=y, lo=lo, hi=hi, row=row, order=k_dev)
@@ -756,7 +780,7 @@ def main():
                   for kind, a_s, b_s in zones:
                       critical.append((y, dev_x - xe - b_s, dev_x - xe - a_s, kind, case))
                       if mode == '2T':
-                          critical.append((y, dev_x + xe + a_s, dev_x + xe + b_s, kind, case))
+                          critical.append((y + off, dev_x + xe + a_s, dev_x + xe + b_s, kind, case))
                   top.refs.append(dict(name=case, xy=(um(dev_x), um(y)), angle=0, mag=1.0, reflect=False))
                   top.refs.append(dict(name='LABEL_' + case, xy=(um(lx), um(ly)), angle=0, mag=1.0, reflect=False))
                   out_len = OUTPUT_EXTENSION_LENGTH if mode == '1T' else 0.0
@@ -767,12 +791,14 @@ def main():
                       l15_taper_length_um=L15_TAPER_LENGTH, alignment_tip_position_um=TICK_POSITION,
                       layer14_linear_start_distance_um=L14_LINEAR_START,
                       straight_length_um=L, output_extension_length_um=out_len,
-                      path_length_excluding_tapers_um=L + out_len,
+                      path_length_excluding_tapers_um=round(rep.get('s_bend_path_length_um', L) + out_len, 4),
+                      s_bend=(dict(radius_um=S_BEND_RADIUS, offset_um=off) if off else None),
+                      output_end_y_offset_um=off,
                       origin_um=[dev_x, y], row_index=row, row_align=align,
                       global_x_extent_um=[round(dev_x + lo, 3), round(dev_x + hi, 3)], label_origin_um=[round(lx, 3), round(ly, 3)],
                       label_length_um=round(lab_len, 3),
                       input_port_local_um=[-L / 2, 0.0],
-                      output_port_local_um=[L / 2 + out_len, 0.0],
+                      output_port_local_um=[L / 2 + out_len, off],
                       l10_entrance_local_x_um=-(L / 2 + PORT_TO_L10_ENTRANCE),
                       l15_tip_local_x_um=-(L / 2 + PORT_TO_L10_ENTRANCE + L15_TAPER_LENGTH),
                       alignment_tip_local_x_um=tip_x,
@@ -788,9 +814,11 @@ def main():
 
     # EBL field placement: global mask shift (ignoring the movable devices' zones), then
     # per-row gap for the movable devices, then report the final placement
-    ebl = place_for_ebl(lib, top, critical, skip=set(movable))
-    gaps = adjust_movable_gaps(lib, top, critical, movable, devices, ebl['mask_shift_um'])
-    ebl = place_for_ebl(lib, top, critical, fixed=ebl['mask_shift_um'], alternatives=ebl['alternatives'])
+    ebl0 = place_for_ebl(lib, top, critical, skip=set(movable))
+    gaps = adjust_movable_gaps(lib, top, critical, movable, devices, ebl0['mask_shift_um'])
+    ebl = place_for_ebl(lib, top, critical, fixed=ebl0['mask_shift_um'])
+    ebl['alternatives_before_gap_adjustment'] = ebl0['alternatives']
+    ebl.pop('alternatives')
     ebl['shared_row_gaps_um'] = gaps
     sx, sy = ebl['mask_shift_um']
     for r in top.refs:
