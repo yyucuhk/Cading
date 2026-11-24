@@ -74,8 +74,7 @@ BLOCKS = (dict(mode='2T', align='left', members=((SHORT_LENGTH, 'A'), (SHORT_LEN
                rows=tuple((LONG_TAPER_T, w) for w in LONG_WIDTHS), label='W', s_bend=False),
           dict(mode='1T', align='right', members=((15000.0, 'A'),), copy=2,        # duplicate long set
                rows=tuple((LONG_TAPER_T, w) for w in LONG_WIDTHS), label='W', s_bend=False),
-          dict(mode='1T', align='right', members=((15000.0, 'L'),), copy=2,
-               rows=tuple((LONG_TAPER_T, w) for w in LONG_WIDTHS), label='W', s_bend=False))
+          )   # (no duplicate of the long linear-taper set)
 STRAIGHT_LENGTHS = tuple(sorted({L for b in BLOCKS for L, _ in b['members']}))
 OUTPUT_EXTENSION_LENGTH = 2000.0              # 1T plain output beyond the output port
 PORT_TO_L10_ENTRANCE = 45.0                   # plain Layer-15 straight between port and taper start
@@ -1147,7 +1146,7 @@ def main():
 
 # Layout variants written by one run (each overrides the parameters above)
 VARIANTS = {
-    '': {},                                            # 300 um rows, 250 um circles, long set duplicated
+    '': {},                                            # 300 um rows, 250 um circles, long A set duplicated
     '_pitch500': dict(ROW_PITCH=500.0, GLUE_CIRCLE_DIAMETER=300.0,   # 500 um rows, source 300 um
                       BLOCKS=tuple(b for b in BLOCKS if 'copy' not in b)),  # circles, no long copies
 }
