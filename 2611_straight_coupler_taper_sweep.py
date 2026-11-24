@@ -113,6 +113,9 @@ LABEL_LAYER = (15, 0)
 LABEL_TIP_X_OFFSET = 2.0                      # from the alignment tips, toward the device
 LABEL_Y_OFFSET = 15.0                         # source used 10; raised to clear the wider L11 beams (to 13.1 um)
 LABEL_GAP = 0.5
+LABEL_SOURCE_STROKE = 1.0                     # stroke width of the label font as copied from the source
+LABEL_LINE_WIDTH = 0.4                        # drawn stroke width (glyph size and spacing unchanged)
+LABEL_RASTER = 0.02                           # grid used to thin the strokes (20 nm)
 
 SMALL_MARKER_SQUARE = 25.0                    # the smaller corner cross is replaced by this square (um side)
 SMALL_MARKER_LAYER = (15, 0)
@@ -324,9 +327,91 @@ def extract_glyphs(lib):
     # '7' does not occur in the source labels: drawn in the same style (1 um strokes, 3.5 x 5 um)
     if '7' not in glyphs:
         k = DBU_PER_UM
-        glyphs['7'] = ([[(0, 4 * k), (0, 5 * k), (3.5 * k, 5 * k), (3.5 * k, 4 * k),
-                         (1.5 * k, 0), (0.5 * k, 0), (2.5 * k, 4 * k)]], 3.5 * k)
+        glyphs['7'] = ([[(0, 4 * k), (0, 5 * k), (3.5 * k, 5 * k), (3.5 * k, 0),
+                         (2.5 * k, 0), (2.5 * k, 4 * k)]], 3.5 * k)
+    if LABEL_LINE_WIDTH != LABEL_SOURCE_STROKE:
+        glyphs = {ch: (thin_glyph(polys, (LABEL_SOURCE_STROKE - LABEL_LINE_WIDTH) / 2), w)
+                  for ch, (polys, w) in glyphs.items()}
     return glyphs
+
+
+def thin_glyph(polys, d):
+    """Union of a glyph's polygons (nm), shrunk by d um on every side (Euclidean erosion on a
+    LABEL_RASTER grid), traced back to simple polygons. Strokes 1 um -> 1 - 2d um wide."""
+    import numpy as np
+    from scipy import ndimage
+    px = LABEL_RASTER
+    xs = [x for p in polys for x, _ in p]
+    ys = [y for p in polys for _, y in p]
+    x0, y0 = min(xs) / DBU_PER_UM - px, min(ys) / DBU_PER_UM - px
+    nx = int(math.ceil((max(xs) / DBU_PER_UM - x0) / px)) + 2
+    ny = int(math.ceil((max(ys) / DBU_PER_UM - y0) / px)) + 2
+    cx = x0 + (np.arange(nx) + 0.5) * px
+    cy = y0 + (np.arange(ny) + 0.5) * px
+    X, Y = np.meshgrid(cx, cy)
+    img = np.zeros((ny, nx), bool)
+    for p in polys:                                   # even-odd point-in-polygon per pixel centre
+        pts = [(a / DBU_PER_UM, b / DBU_PER_UM) for a, b in p]
+        inside = np.zeros_like(img)
+        for (ax, ay), (bx, by) in zip(pts, pts[1:] + pts[:1]):
+            if ay == by:
+                continue
+            cond = (ay > Y) != (by > Y)
+            xint = ax + (Y - ay) * (bx - ax) / (by - ay)
+            inside ^= cond & (X < xint)
+        img |= inside
+    dist = ndimage.distance_transform_edt(img) * px
+    out_img = dist > d + px / 2
+    # trace pixel-edge boundaries (interior on the left)
+    edges = {}
+    filled = np.pad(out_img, 1)
+    for i, j in zip(*np.nonzero(filled)):
+        # pixel (row i, col j) spans lattice corners (j, i)..(j+1, i+1); edges run CCW (interior on the left)
+        if not filled[i - 1, j]:
+            edges.setdefault((j, i), []).append((j + 1, i))              # bottom, +x
+        if not filled[i + 1, j]:
+            edges.setdefault((j + 1, i + 1), []).append((j, i + 1))      # top, -x
+        if not filled[i, j - 1]:
+            edges.setdefault((j, i + 1), []).append((j, i))              # left, -y
+        if not filled[i, j + 1]:
+            edges.setdefault((j + 1, i), []).append((j + 1, i + 1))      # right, +y
+    loops = []
+    while edges:
+        start = next(iter(edges))
+        loop, cur = [start], start
+        prev_dir = None
+        while True:
+            nxts = edges[cur]
+            if len(nxts) == 1:
+                nxt = nxts.pop()
+            else:                                            # pinch point: take the right-most turn,
+                def turn(n):                                 # so diagonal neighbours stay separate
+                    d1 = prev_dir
+                    d2 = (n[0] - cur[0], n[1] - cur[1])
+                    return d1[0] * d2[1] - d1[1] * d2[0]
+                nxt = min(nxts, key=turn)
+                nxts.remove(nxt)
+            if not nxts:
+                del edges[cur]
+            prev_dir = (nxt[0] - cur[0], nxt[1] - cur[1])
+            if nxt == start:
+                break
+            loop.append(nxt)
+            cur = nxt
+        loops.append(loop)
+    result = []
+    for loop in loops:
+        pts = [(x0 + (c - 1) * px, y0 + (r - 1) * px) for c, r in loop]   # undo the 1-pixel pad
+        simp = []
+        n = len(pts)
+        for k in range(n):                                   # drop collinear vertices
+            a, b, c = pts[k - 1], pts[k], pts[(k + 1) % n]
+            if abs((b[0] - a[0]) * (c[1] - b[1]) - (b[1] - a[1]) * (c[0] - b[0])) > 1e-12:
+                simp.append(b)
+        area = sum(a[0] * b[1] - b[0] * a[1] for a, b in zip(simp, simp[1:] + simp[:1])) / 2
+        assert area > 0, 'unexpected hole in a thinned glyph'
+        result.append([(round(x * DBU_PER_UM), round(y * DBU_PER_UM)) for x, y in simp])
+    return result
 
 
 def label_polygons(text, glyphs, x0, y0):
