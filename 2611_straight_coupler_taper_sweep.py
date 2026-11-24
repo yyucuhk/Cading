@@ -112,9 +112,11 @@ BEAM_SPAN = 5.096 + 0.5                       # source anchor span + outer overl
 LABEL_LAYER = (15, 0)
 LABEL_TIP_X_OFFSET = 2.0                      # from the alignment tips, toward the device
 LABEL_Y_OFFSET = 15.0                         # source used 10; raised to clear the wider L11 beams (to 13.1 um)
-LABEL_GAP = 0.5
-LABEL_SOURCE_STROKE = 1.0                     # stroke width of the label font as copied from the source
-LABEL_LINE_WIDTH = 0.4                        # drawn stroke width (glyph size and spacing unchanged)
+LABEL_SOURCE_HEIGHT = 5.0                     # character height of the label font as copied from the source
+LABEL_SOURCE_STROKE = 1.0                     # its stroke width
+LABEL_HEIGHT = 2.0                            # drawn character height; outlines scale by LABEL_HEIGHT / 5
+LABEL_LINE_WIDTH = 0.4                        # drawn stroke width (thinned only if scaling leaves it wider)
+LABEL_GAP = 0.2                               # gap between characters (source 0.5 um at 5 um height)
 LABEL_RASTER = 0.02                           # grid used to thin the strokes (20 nm)
 
 SMALL_MARKER_SQUARE = 25.0                    # the smaller corner cross is replaced by this square (um side)
@@ -329,9 +331,13 @@ def extract_glyphs(lib):
         k = DBU_PER_UM
         glyphs['7'] = ([[(0, 4 * k), (0, 5 * k), (3.5 * k, 5 * k), (3.5 * k, 0),
                          (2.5 * k, 0), (2.5 * k, 4 * k)]], 3.5 * k)
-    if LABEL_LINE_WIDTH != LABEL_SOURCE_STROKE:
-        glyphs = {ch: (thin_glyph(polys, (LABEL_SOURCE_STROKE - LABEL_LINE_WIDTH) / 2), w)
-                  for ch, (polys, w) in glyphs.items()}
+    k = LABEL_HEIGHT / LABEL_SOURCE_HEIGHT
+    glyphs = {ch: ([[(round(x * k), round(y * k)) for x, y in p] for p in polys], w * k)
+              for ch, (polys, w) in glyphs.items()}
+    excess = (LABEL_SOURCE_STROKE * k - LABEL_LINE_WIDTH) / 2
+    assert excess > -1e-9, 'scaled strokes are already thinner than LABEL_LINE_WIDTH'
+    if excess > 1e-9:
+        glyphs = {ch: (thin_glyph(polys, excess), w) for ch, (polys, w) in glyphs.items()}
     return glyphs
 
 

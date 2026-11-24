@@ -3,7 +3,7 @@
   "source_gds_sha256": "17fc0ade4016c57f51874e486d0b319241d6c507fed9511c9765a1084503bb3c",
   "source_device_copied_for_far_assemblies": "D1_SINGLE_L15000_W1620_2T",
   "gds": "gds/2611_straight_coupler_A-L_L500-2T-T40-80_L15000-1T-W1590-1610.gds",
-  "gds_sha256": "73d1bc624b230d6b3b8fd6492b53abb18bf632e0cb1d83f2f8539b307f5ca474",
+  "gds_sha256": "27532adb1a16f0211fc65fb11974aef5cfc078df1ad1e1e39e42835a505c4f49",
   "top_cell": "STRAIGHT_COUPLER_ADIABATIC_TAPER_SWEEP",
   "device_count": 30,
   "parameters": {
@@ -284,7 +284,7 @@
         -5205.347,
         -442.0
       ],
-      "label_length_um": 55.5,
+      "label_length_um": 22.2,
       "input_port_local_um": [
         -250.0,
         0.0
@@ -345,7 +345,7 @@
         -762.847,
         -442.0
       ],
-      "label_length_um": 55.5,
+      "label_length_um": 22.2,
       "input_port_local_um": [
         -250.0,
         0.0
@@ -407,7 +407,7 @@
         3587.153,
         -442.0
       ],
-      "label_length_um": 64.0,
+      "label_length_um": 25.6,
       "input_port_local_um": [
         -250.0,
         0.0
@@ -469,7 +469,7 @@
         7937.153,
         -442.0
       ],
-      "label_length_um": 64.0,
+      "label_length_um": 25.6,
       "input_port_local_um": [
         -250.0,
         0.0
@@ -531,7 +531,7 @@
         -5205.347,
         58.0
       ],
-      "label_length_um": 55.5,
+      "label_length_um": 22.2,
       "input_port_local_um": [
         -250.0,
         0.0
@@ -592,7 +592,7 @@
         -772.847,
         58.0
       ],
-      "label_length_um": 55.5,
+      "label_length_um": 22.2,
       "input_port_local_um": [
         -250.0,
         0.0
@@ -654,7 +654,7 @@
         3577.153,
         58.0
       ],
-      "label_length_um": 64.0,
+      "label_length_um": 25.6,
       "input_port_local_um": [
         -250.0,
         0.0
@@ -716,7 +716,7 @@
         7927.153,
         58.0
       ],
-      "label_length_um": 64.0,
+      "label_length_um": 25.6,
       "input_port_local_um": [
         -250.0,
         0.0
@@ -778,7 +778,7 @@
         -5205.347,
         558.0
       ],
-      "label_length_um": 55.5,
+      "label_length_um": 22.2,
       "input_port_local_um": [
         -250.0,
         0.0
@@ -839,7 +839,7 @@
         -782.847,
         558.0
       ],
-      "label_length_um": 55.5,
+      "label_length_um": 22.2,
       "input_port_local_um": [
         -250.0,
         0.0
@@ -901,7 +901,7 @@
         3857.153,
         558.0
       ],
-      "label_length_um": 64.0,
+      "label_length_um": 25.6,
       "input_port_local_um": [
         -250.0,
         0.0
@@ -963,7 +963,7 @@
         8497.153,
         558.0
       ],
-      "label_length_um": 64.0,
+      "label_length_um": 25.6,
       "input_port_local_um": [
         -250.0,
         0.0
@@ -1025,7 +1025,7 @@
         -5205.347,
         1058.0
       ],
-      "label_length_um": 55.5,
+      "label_length_um": 22.2,
       "input_port_local_um": [
         -250.0,
         0.0
@@ -1086,7 +1086,7 @@
         -792.847,
         1058.0
       ],
-      "label_length_um": 55.5,
+      "label_length_um": 22.2,
       "input_port_local_um": [
         -250.0,
         0.0
@@ -1148,7 +1148,7 @@
         3847.153,
         1058.0
       ],
-      "label_length_um": 64.0,
+      "label_length_um": 25.6,
       "input_port_local_um": [
         -250.0,
         0.0
@@ -1210,7 +1210,7 @@
         8487.153,
         1058.0
       ],
-      "label_length_um": 64.0,
+      "label_length_um": 25.6,
       "input_port_local_um": [
         -250.0,
         0.0
@@ -1272,7 +1272,7 @@
         -5205.347,
         1558.0
       ],
-      "label_length_um": 55.5,
+      "label_length_um": 22.2,
       "input_port_local_um": [
         -250.0,
         0.0
@@ -1333,7 +1333,7 @@
         -540.347,
         1558.0
       ],
-      "label_length_um": 55.5,
+      "label_length_um": 22.2,
       "input_port_local_um": [
         -250.0,
         0.0
@@ -1395,7 +1395,7 @@
         4127.153,
         1558.0
       ],
-      "label_length_um": 64.0,
+      "label_length_um": 25.6,
       "input_port_local_um": [
         -250.0,
         0.0
@@ -1457,7 +1457,7 @@
         8767.153,
         1558.0
       ],
-      "label_length_um": 64.0,
+      "label_length_um": 25.6,
       "input_port_local_um": [
         -250.0,
         0.0
@@ -1515,7 +1515,7 @@
         -5203.347,
         2058.0
       ],
-      "label_length_um": 69.0,
+      "label_length_um": 27.6,
       "input_port_local_um": [
         -7500.0,
         0.0
@@ -1569,7 +1569,7 @@
         -5203.347,
         2558.0
       ],
-      "label_length_um": 68.5,
+      "label_length_um": 27.4,
       "input_port_local_um": [
         -7500.0,
         0.0
@@ -1623,7 +1623,7 @@
         -5203.347,
         3058.0
       ],
-      "label_length_um": 69.5,
+      "label_length_um": 27.8,
       "input_port_local_um": [
         -7500.0,
         0.0
@@ -1677,7 +1677,7 @@
         -5203.347,
         3558.0
       ],
-      "label_length_um": 69.0,
+      "label_length_um": 27.6,
       "input_port_local_um": [
         -7500.0,
         0.0
@@ -1731,7 +1731,7 @@
         -5203.347,
         4058.0
       ],
-      "label_length_um": 67.5,
+      "label_length_um": 27.0,
       "input_port_local_um": [
         -7500.0,
         0.0
@@ -1785,7 +1785,7 @@
         -5203.347,
         4558.0
       ],
-      "label_length_um": 69.0,
+      "label_length_um": 27.6,
       "input_port_local_um": [
         -7500.0,
         0.0
@@ -1839,7 +1839,7 @@
         -5203.347,
         5058.0
       ],
-      "label_length_um": 68.5,
+      "label_length_um": 27.4,
       "input_port_local_um": [
         -7500.0,
         0.0
@@ -1893,7 +1893,7 @@
         -5203.347,
         5558.0
       ],
-      "label_length_um": 69.5,
+      "label_length_um": 27.8,
       "input_port_local_um": [
         -7500.0,
         0.0
@@ -1947,7 +1947,7 @@
         -5203.347,
         6058.0
       ],
-      "label_length_um": 69.0,
+      "label_length_um": 27.6,
       "input_port_local_um": [
         -7500.0,
         0.0
@@ -2001,7 +2001,7 @@
         -5203.347,
         6558.0
       ],
-      "label_length_um": 67.5,
+      "label_length_um": 27.0,
       "input_port_local_um": [
         -7500.0,
         0.0
