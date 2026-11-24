@@ -1,4 +1,4 @@
-"""Straight-coupler sweep with LINEAR tapers, derived from
+"""Straight-coupler sweep with adiabatic (quintic smootherstep) tapers, derived from
 gds/2611_straight_coupler_L15000_output_comparison.gds (+ .json).
 
 Changes relative to that source layout
@@ -6,7 +6,9 @@ Changes relative to that source layout
 1. Waveguide (Layer 15) width sweep: 1.58, 1.59, 1.60, 1.61, 1.62 um.
 2. Straight length sweep: 500, 5000, 15000 um (both output styles kept:
    "2T" = taper at both ends, "1T" = input taper + 2000 um plain output).
-3. Tapers are now LINEAR (the source used quintic/smootherstep profiles):
+3. Taper lengths/widths changed; each stage keeps the source's adiabatic
+   quintic smootherstep profile (zero width slope at both ends of every stage;
+   set TAPER_PROFILE = 'linear' for straight-sided tapers):
    - Layer 15: W -> 0.200 um over 60 um.
    - Layer 10: two linear stages over 120 um total (60 um under the Layer-15
      taper plus 60 um extra): 10 um -> 1 um at 62 um (2 um beyond the
@@ -20,7 +22,7 @@ glue circles, Layer-13 pad) is copied unchanged from the source device and
 shifted outward by the extra Layer-10 length (40 um per end).
 
 Only needs the bundled pure-Python gdsio_min.py (no klayout / gdsfactory).
-Run from the Cading repository root:  python 2611_straight_coupler_linear_taper_sweep.py
+Run from the Cading repository root:  python 2611_straight_coupler_adiabatic_taper_sweep.py
 """
 from __future__ import annotations
 
@@ -42,7 +44,7 @@ SOURCE_DEVICE = 'D1_SINGLE_L15000_W1620_2T'
 SOURCE_LABEL_CELLS = ('LABEL_D1_SINGLE_L15000_W1620_2T',
                       'LABEL_D1_SINGLE_L15000_W1640_1T_OUT2000',
                       'LABEL_D1_SINGLE_L15000_W1680_2T')
-STEM = '2611_straight_coupler_W158-162_L500-15000_linear_taper'
+STEM = '2611_straight_coupler_W158-162_L500-15000_adiabatic_taper'
 OUTPUT = ROOT / 'gds' / (STEM + '.gds')
 
 # %% [01] USER PARAMETERS (um)
@@ -51,6 +53,9 @@ STRAIGHT_LENGTHS = (500.0, 5000.0, 15000.0)
 DEVICE_SETS = ('2T', '1T')                    # 2T: two tapers; 1T: input taper + plain output
 OUTPUT_EXTENSION_LENGTH = 2000.0              # 1T plain output beyond the output port
 PORT_TO_L10_ENTRANCE = 45.0                   # plain Layer-15 straight between port and taper start
+
+TAPER_PROFILE = 'smootherstep'                # 'smootherstep' (adiabatic, as source) or 'linear'
+TAPER_SAMPLE_STEP = 0.25                      # vertex spacing along curved tapers
 
 L15_TAPER_LENGTH = 60.0
 L15_TIP_WIDTH = 0.200
@@ -102,22 +107,37 @@ def um(v):
     return v * DBU_PER_UM
 
 
+def profile(t):
+    t = min(max(t, 0.0), 1.0)
+    if TAPER_PROFILE == 'linear':
+        return t
+    return t * t * t * (t * (6 * t - 15) + 10)       # quintic smootherstep
+
+
 def l10_half(s):
     s = min(max(s, 0.0), L10_TAPER_LENGTH)
     if s <= L10_MID_POSITION:
-        return 0.5 * (L10_START_WIDTH + (L10_MID_WIDTH - L10_START_WIDTH) * s / L10_MID_POSITION)
+        return 0.5 * (L10_START_WIDTH + (L10_MID_WIDTH - L10_START_WIDTH) * profile(s / L10_MID_POSITION))
     t = (s - L10_MID_POSITION) / (L10_TAPER_LENGTH - L10_MID_POSITION)
-    return 0.5 * (L10_MID_WIDTH + (L10_TIP_WIDTH - L10_MID_WIDTH) * t)
+    return 0.5 * (L10_MID_WIDTH + (L10_TIP_WIDTH - L10_MID_WIDTH) * profile(t))
+
+
+def stations(s0, s1, breaks):
+    """Edge vertices from s0 to s1: stage breaks always, plus dense samples for curved profiles."""
+    pts = {s0, s1} | {b for b in breaks if s0 < b < s1}
+    if TAPER_PROFILE != 'linear':
+        n = max(1, int(math.ceil((s1 - s0) / TAPER_SAMPLE_STEP)))
+        pts |= {s0 + (s1 - s0) * k / n for k in range(n + 1)}
+    return sorted(pts)
 
 
 def l10_stations(s0, s1):
-    """s0, the L10 stage break(s) inside (s0, s1), and s1: vertices of the piecewise-linear edge."""
-    return [s0] + [b for b in (L10_MID_POSITION,) if s0 < b < s1] + [s1]
+    return stations(s0, s1, (0.0, L10_MID_POSITION, L10_TAPER_LENGTH))
 
 
 def l15_half(s, w):
     s = min(max(s, 0.0), L15_TAPER_LENGTH)
-    return 0.5 * (w + (L15_TIP_WIDTH - w) * s / L15_TAPER_LENGTH)
+    return 0.5 * (w + (L15_TIP_WIDTH - w) * profile(s / L15_TAPER_LENGTH))
 
 
 def cut_far_piece(poly, side):
@@ -290,14 +310,15 @@ def build_device(name, L, width, mode, far):
     h = L / 2
     xe = h + PORT_TO_L10_ENTRANCE
     xt = xe + L15_TAPER_LENGTH
-    w2, t2 = um(width / 2), um(L15_TIP_WIDTH / 2)
-    left = [(um(-xt), -t2), (um(-xe), -w2)]
-    left_top = [(um(-xe), w2), (um(-xt), t2)]
+    ss = stations(0.0, L15_TAPER_LENGTH, ())                       # outward from the entrance
+    left = [(um(-(xe + s)), -um(l15_half(s, width))) for s in reversed(ss)]   # tip -> entrance, bottom
+    left_top = [(um(-(xe + s)), um(l15_half(s, width))) for s in ss]          # entrance -> tip, top
     if mode == '2T':
-        right = [(um(xe), -w2), (um(xt), -t2), (um(xt), t2), (um(xe), w2)]
+        right = ([(um(xe + s), -um(l15_half(s, width))) for s in ss] +
+                 [(um(xe + s), um(l15_half(s, width))) for s in reversed(ss)])
     else:
         xo = h + OUTPUT_EXTENSION_LENGTH
-        right = [(um(xo), -w2), (um(xo), w2)]
+        right = [(um(xo), -um(width / 2)), (um(xo), um(width / 2))]
     cell.polygons.append((15, 0, left + right + left_top))
     rep = build_end(cell, -1, h, width, far)
     if mode == '2T':
@@ -373,7 +394,7 @@ def main():
 
     params = dict(
         wg_widths_um=list(WG_WIDTHS), straight_lengths_um=list(STRAIGHT_LENGTHS), device_sets=list(DEVICE_SETS),
-        taper_profile='linear',
+        taper_profile=TAPER_PROFILE,
         layer15_taper=dict(start_width='waveguide width', end_width_um=L15_TIP_WIDTH, length_um=L15_TAPER_LENGTH),
         layer10_taper=dict(start_width_um=L10_START_WIDTH, mid_width_um=L10_MID_WIDTH,
                            mid_position_um=L10_MID_POSITION, mid_offset_beyond_l15_tip_um=L10_MID_OFFSET,
