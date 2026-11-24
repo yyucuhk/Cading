@@ -114,7 +114,7 @@ LABEL_GAP = 0.5
 SMALL_MARKER_SQUARE = 25.0                    # the smaller corner cross is replaced by this square (um side)
 SMALL_MARKER_LAYER = (15, 0)
 MARKER_X_INSET = 1000.0                       # every corner marker set moves this far toward the centre in x
-ROW_PITCH = 580.0                             # = 2 EBL field pitches: every row sits identically in its field
+ROW_PITCH = 500.0                             # device row spacing in y
 FIRST_ROW_Y = -700.0
 DEVICE_GAP = 500.0                            # minimum edge-to-edge gap between devices in one row
 DEVICE_GAP_EBL_RANGE = 290.0                  # the 2nd device of a shared row may move right by up to this
@@ -136,6 +136,8 @@ EBL_GRID_ORIGIN = (0.0, 0.0)
 EBL_LAYER = (15, 0)
 EBL_SEARCH_STEP = 0.5
 EBL_CRITICAL_MARGIN = 2.0                     # keep overlap strips this far from critical zones
+EBL_ROW_EDGE_CLEARANCE = 2.0                  # every row's L15 (tips..label) this far inside its field in y;
+                                              # then waveguides as far as possible from y overlap strips
 EBL_PRIORITY = 'no_taper_stitch'                       # 'fields': fewest fields first; 'no_taper_stitch': no stitch
                                               # through any L15 taper/alignment tip first, then fewest fields
 
@@ -629,11 +631,25 @@ def place_for_ebl(lib, top, critical, skip=frozenset(), fixed=None, alternatives
         return c
     device_rows = [c for c in clusters if c[1] - c[0] < 100.0]
     marker_rows = [c for c in clusters if c[1] - c[0] >= 100.0]
+    tick_reach = TICK_GAP_TO_L10 + L10_MID_WIDTH / 2 + TICK_LENGTH   # waveguide centre = cluster bottom + this
+
+    def core_clear(py):
+        """Smallest distance from any waveguide (+/-1 um) to a field overlap strip in y."""
+        c = 1e9
+        for a, b, _ in device_rows:
+            yc = a + tick_reach
+            j = math.floor((yc - py) / pitch)
+            for jj in (j - 1, j, j + 1, j + 2):
+                s0 = py + pitch * jj
+                c = min(c, max(s0 - (yc + 1.0), (yc - 1.0) - (s0 + EBL_FIELD_OVERLAP)))
+        return c
     best_y = None
     for dy in steps:
         py = gy - dy                                   # grid phase relative to the unshifted mask
         nrows = sum(1 if field_rows_for(a, b, py) else 2 for a, b, _ in clusters)
-        key = (nrows, -round(y_clear(device_rows, py), 3), -round(y_clear(marker_rows, py), 3))
+        band = y_clear(device_rows, py)
+        key = (nrows, band < EBL_ROW_EDGE_CLEARANCE, -round(core_clear(py), 3), -round(band, 3),
+               -round(y_clear(marker_rows, py), 3))
         if best_y is None or key < best_y[0]:
             best_y = (key, dy)
     dy = best_y[1]
@@ -672,7 +688,8 @@ def place_for_ebl(lib, top, critical, skip=frozenset(), fixed=None, alternatives
                           dict(fields=v['n'], taper_zones_with_stitch=v['taper'],
                                label_zones_with_stitch=v['label'], mask_shift_x_um=v['dx']))
                       for k, v in alternatives.items()},
-        min_device_row_y_clearance_um=-best_y[0][1], min_marker_y_clearance_um=-best_y[0][2],
+        min_waveguide_to_y_overlap_strip_um=-best_y[0][2],
+        min_device_row_y_clearance_um=-best_y[0][3], min_marker_y_clearance_um=-best_y[0][4],
         clusters=per_cluster,
         fields_xy=[(gx + pitch * i, gy + pitch * j) for i, j in fields])
 
