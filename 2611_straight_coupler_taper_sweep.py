@@ -61,11 +61,12 @@ LONG_WIDTHS = (1.590, 1.595, 1.600, 1.605, 1.610)   # long-device waveguide widt
 S_BEND_RADIUS = 150.0                         # short devices: the straight becomes a gentle S-bend:
 S_BEND_ANGLE_DEG = 10.0                       # arc (R, this angle) - tilted straight - arc back
 S_BEND_OFFSET = None                          # output-end y offset; None = follows from the angle
+SHORT_COLUMN_PITCH = 4930.0                   # = 17 x 290 um field pitch: every column sits identically in the field grid
 SHORT_LENGTH = 300.0                          # short devices: port-to-port x span (S-bend inside); with the
                                               # tapers every short device fits two 300 um fields (590 um)
 BLOCKS = (dict(mode='2T', align='left', members=((SHORT_LENGTH, 'A'), (SHORT_LENGTH, 'L'),
                                                   (SHORT_LENGTH, 'A'), (SHORT_LENGTH, 'L')),
-               rows=None, label='T', s_bend=True, max_fields=2),                          # rows: T sweep at WG_WIDTH
+               rows=None, label='T', s_bend=True, max_fields=2, column_pitch=SHORT_COLUMN_PITCH),                          # rows: T sweep at WG_WIDTH
           dict(mode='1T', align='right', members=((15000.0, 'A'),),
                rows=tuple((LONG_TAPER_T, w) for w in LONG_WIDTHS), label='W', s_bend=False),
           dict(mode='1T', align='right', members=((15000.0, 'L'),),
@@ -937,13 +938,15 @@ def main():
               for k_dev, (L, case, cell, rep, lo, hi, tag, suffix) in enumerate(built):
                   off = s_offset(L) if block.get('s_bend') else 0.0
                   profile = PROFILES[tag]
-                  if k_dev > 0 and align == 'left':
+                  if block.get('column_pitch'):                   # aligned columns: left edges on a pitch
+                      x_left = ROW_LEFT_EDGE_X + k_dev * block['column_pitch']
+                  if k_dev > 0 and align == 'left' and not block.get('column_pitch'):
                       movable[case] = dict(row_y=y, lo=lo, hi=hi, row=row, order=k_dev,
                                            max_fields=block.get('max_fields'))
                   if block.get('max_fields'):
                       limited.setdefault(id(block), dict(limit=block['max_fields'], cases=[], leads=[]))
                       limited[id(block)]['cases'].append(case)
-                      if k_dev == 0:
+                      if k_dev == 0 or block.get('column_pitch'):   # aligned columns: all devices
                           limited[id(block)]['leads'].append(case)
                   dev_x = round(x_left - lo, 3)
                   x_left += (hi - lo) + DEVICE_GAP

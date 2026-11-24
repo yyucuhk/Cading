@@ -3,7 +3,7 @@
   "source_gds_sha256": "17fc0ade4016c57f51874e486d0b319241d6c507fed9511c9765a1084503bb3c",
   "source_device_copied_for_far_assemblies": "D1_SINGLE_L15000_W1620_2T",
   "gds": "gds/2611_straight_coupler_A-L_L300-2T-T40-80_L15000-1T-W1590-1610.gds",
-  "gds_sha256": "8ee8ec3c1be8a22416c32ef5f4d521056a64f7abb8d2dfb27b8e9be82e37dda6",
+  "gds_sha256": "2dc77017219d93ee0043067155272c6a80a7149173685d4c2a249772fa448c2a",
   "top_cell": "STRAIGHT_COUPLER_ADIABATIC_TAPER_SWEEP",
   "device_count": 30,
   "parameters": {
@@ -196,7 +196,7 @@
       "priority": "no_taper_stitch",
       "taper_zones_with_stitch": 0,
       "label_zones_with_stitch": 0,
-      "min_stitch_to_taper_zone_um": 136.653,
+      "min_stitch_to_taper_zone_um": 168.653,
       "limited_blocks": [
         {
           "block_shift_um": 41.0,
@@ -225,23 +225,7 @@
           ]
         }
       },
-      "shared_row_gaps_um": {
-        "SC_L300_T40_L_2T": 702.0,
-        "SC_L300_T40_A_2T_2": 786.5,
-        "SC_L300_T40_L_2T_2": 734.0,
-        "SC_L300_T50_L_2T": 698.0,
-        "SC_L300_T50_A_2T_2": 714.0,
-        "SC_L300_T50_L_2T_2": 740.5,
-        "SC_L300_T60_L_2T": 694.5,
-        "SC_L300_T60_A_2T_2": 694.0,
-        "SC_L300_T60_L_2T_2": 694.0,
-        "SC_L300_T70_L_2T": 693.0,
-        "SC_L300_T70_A_2T_2": 645.5,
-        "SC_L300_T70_L_2T_2": 674.0,
-        "SC_L300_T80_L_2T": 634.5,
-        "SC_L300_T80_A_2T_2": 654.0,
-        "SC_L300_T80_L_2T_2": 654.0
-      }
+      "shared_row_gaps_um": {}
     },
     "frame_bounds_um": [
       -7256.5,
@@ -340,17 +324,17 @@
       },
       "output_end_y_offset_um": 48.27011064681601,
       "origin_um": [
-        -627.347,
+        -15.347,
         -697.0
       ],
       "row_index": 0,
       "row_align": "left",
       "global_x_extent_um": [
-        -2435.347,
-        1180.653
+        -1823.347,
+        1792.653
       ],
       "label_origin_um": [
-        -860.347,
+        -248.347,
         -682.0
       ],
       "label_length_um": 22.2,
@@ -372,8 +356,7 @@
       "tick_inner_y_um": 2.4,
       "s_bend_theta_deg": 10.0,
       "s_bend_tilted_straight_um": 251.7299,
-      "s_bend_path_length_um": 304.0898,
-      "gap_to_left_device_um": 702.0
+      "s_bend_path_length_um": 304.0898
     },
     {
       "case_id": "SC_L300_T40_A_2T_2",
@@ -402,17 +385,17 @@
       },
       "output_end_y_offset_um": 48.27011064681601,
       "origin_um": [
-        3775.153,
+        4914.653,
         -697.0
       ],
       "row_index": 0,
       "row_align": "left",
       "global_x_extent_um": [
-        1967.153,
-        5583.153
+        3106.653,
+        6722.653
       ],
       "label_origin_um": [
-        3542.153,
+        4681.653,
         -682.0
       ],
       "label_length_um": 25.6,
@@ -434,8 +417,7 @@
       "tick_inner_y_um": 2.4,
       "s_bend_theta_deg": 10.0,
       "s_bend_tilted_straight_um": 251.7299,
-      "s_bend_path_length_um": 304.0898,
-      "gap_to_left_device_um": 786.5
+      "s_bend_path_length_um": 304.0898
     },
     {
       "case_id": "SC_L300_T40_L_2T_2",
@@ -464,17 +446,17 @@
       },
       "output_end_y_offset_um": 48.27011064681601,
       "origin_um": [
-        8125.153,
+        9844.653,
         -697.0
       ],
       "row_index": 0,
       "row_align": "left",
       "global_x_extent_um": [
-        6317.153,
-        9933.153
+        8036.653,
+        11652.653
       ],
       "label_origin_um": [
-        7892.153,
+        9611.653,
         -682.0
       ],
       "label_length_um": 25.6,
@@ -496,8 +478,7 @@
       "tick_inner_y_um": 2.4,
       "s_bend_theta_deg": 10.0,
       "s_bend_tilted_straight_um": 251.7299,
-      "s_bend_path_length_um": 304.0898,
-      "gap_to_left_device_um": 734.0
+      "s_bend_path_length_um": 304.0898
     },
     {
       "case_id": "SC_L300_T50_A_2T",
@@ -587,17 +568,17 @@
       },
       "output_end_y_offset_um": 48.27011064681601,
       "origin_um": [
-        -601.347,
+        -5.347,
         -197.0
       ],
       "row_index": 1,
       "row_align": "left",
       "global_x_extent_um": [
-        -2419.347,
-        1216.653
+        -1823.347,
+        1812.653
       ],
       "label_origin_um": [
-        -844.347,
+        -248.347,
         -182.0
       ],
       "label_length_um": 22.2,
@@ -619,8 +600,7 @@
       "tick_inner_y_um": 2.4,
       "s_bend_theta_deg": 10.0,
       "s_bend_tilted_straight_um": 251.7299,
-      "s_bend_path_length_um": 304.0898,
-      "gap_to_left_device_um": 698.0
+      "s_bend_path_length_um": 304.0898
     },
     {
       "case_id": "SC_L300_T50_A_2T_2",
@@ -649,17 +629,17 @@
       },
       "output_end_y_offset_um": 48.27011064681601,
       "origin_um": [
-        3748.653,
+        4924.653,
         -197.0
       ],
       "row_index": 1,
       "row_align": "left",
       "global_x_extent_um": [
-        1930.653,
-        5566.653
+        3106.653,
+        6742.653
       ],
       "label_origin_um": [
-        3505.653,
+        4681.653,
         -182.0
       ],
       "label_length_um": 25.6,
@@ -681,8 +661,7 @@
       "tick_inner_y_um": 2.4,
       "s_bend_theta_deg": 10.0,
       "s_bend_tilted_straight_um": 251.7299,
-      "s_bend_path_length_um": 304.0898,
-      "gap_to_left_device_um": 714.0
+      "s_bend_path_length_um": 304.0898
     },
     {
       "case_id": "SC_L300_T50_L_2T_2",
@@ -711,17 +690,17 @@
       },
       "output_end_y_offset_um": 48.27011064681601,
       "origin_um": [
-        8125.153,
+        9854.653,
         -197.0
       ],
       "row_index": 1,
       "row_align": "left",
       "global_x_extent_um": [
-        6307.153,
-        9943.153
+        8036.653,
+        11672.653
       ],
       "label_origin_um": [
-        7882.153,
+        9611.653,
         -182.0
       ],
       "label_length_um": 25.6,
@@ -743,8 +722,7 @@
       "tick_inner_y_um": 2.4,
       "s_bend_theta_deg": 10.0,
       "s_bend_tilted_straight_um": 251.7299,
-      "s_bend_path_length_um": 304.0898,
-      "gap_to_left_device_um": 740.5
+      "s_bend_path_length_um": 304.0898
     },
     {
       "case_id": "SC_L300_T60_A_2T",
@@ -834,17 +812,17 @@
       },
       "output_end_y_offset_um": 48.27011064681601,
       "origin_um": [
-        -574.847,
+        4.653,
         303.0
       ],
       "row_index": 2,
       "row_align": "left",
       "global_x_extent_um": [
-        -2402.847,
-        1253.153
+        -1823.347,
+        1832.653
       ],
       "label_origin_um": [
-        -827.847,
+        -248.347,
         318.0
       ],
       "label_length_um": 22.2,
@@ -866,8 +844,7 @@
       "tick_inner_y_um": 2.4,
       "s_bend_theta_deg": 10.0,
       "s_bend_tilted_straight_um": 251.7299,
-      "s_bend_path_length_um": 304.0898,
-      "gap_to_left_device_um": 694.5
+      "s_bend_path_length_um": 304.0898
     },
     {
       "case_id": "SC_L300_T60_A_2T_2",
@@ -896,17 +873,17 @@
       },
       "output_end_y_offset_um": 48.27011064681601,
       "origin_um": [
-        3775.153,
+        4934.653,
         303.0
       ],
       "row_index": 2,
       "row_align": "left",
       "global_x_extent_um": [
-        1947.153,
-        5603.153
+        3106.653,
+        6762.653
       ],
       "label_origin_um": [
-        3522.153,
+        4681.653,
         318.0
       ],
       "label_length_um": 25.6,
@@ -928,8 +905,7 @@
       "tick_inner_y_um": 2.4,
       "s_bend_theta_deg": 10.0,
       "s_bend_tilted_straight_um": 251.7299,
-      "s_bend_path_length_um": 304.0898,
-      "gap_to_left_device_um": 694.0
+      "s_bend_path_length_um": 304.0898
     },
     {
       "case_id": "SC_L300_T60_L_2T_2",
@@ -958,17 +934,17 @@
       },
       "output_end_y_offset_um": 48.27011064681601,
       "origin_um": [
-        8125.153,
+        9864.653,
         303.0
       ],
       "row_index": 2,
       "row_align": "left",
       "global_x_extent_um": [
-        6297.153,
-        9953.153
+        8036.653,
+        11692.653
       ],
       "label_origin_um": [
-        7872.153,
+        9611.653,
         318.0
       ],
       "label_length_um": 25.6,
@@ -990,8 +966,7 @@
       "tick_inner_y_um": 2.4,
       "s_bend_theta_deg": 10.0,
       "s_bend_tilted_straight_um": 251.7299,
-      "s_bend_path_length_um": 304.0898,
-      "gap_to_left_device_um": 694.0
+      "s_bend_path_length_um": 304.0898
     },
     {
       "case_id": "SC_L300_T70_A_2T",
@@ -1081,17 +1056,17 @@
       },
       "output_end_y_offset_um": 48.27011064681601,
       "origin_um": [
-        -546.347,
+        14.653,
         803.0
       ],
       "row_index": 3,
       "row_align": "left",
       "global_x_extent_um": [
-        -2384.347,
-        1291.653
+        -1823.347,
+        1852.653
       ],
       "label_origin_um": [
-        -809.347,
+        -248.347,
         818.0
       ],
       "label_length_um": 22.2,
@@ -1113,8 +1088,7 @@
       "tick_inner_y_um": 2.4,
       "s_bend_theta_deg": 10.0,
       "s_bend_tilted_straight_um": 251.7299,
-      "s_bend_path_length_um": 304.0898,
-      "gap_to_left_device_um": 693.0
+      "s_bend_path_length_um": 304.0898
     },
     {
       "case_id": "SC_L300_T70_A_2T_2",
@@ -1143,17 +1117,17 @@
       },
       "output_end_y_offset_um": 48.27011064681601,
       "origin_um": [
-        3775.153,
+        4944.653,
         803.0
       ],
       "row_index": 3,
       "row_align": "left",
       "global_x_extent_um": [
-        1937.153,
-        5613.153
+        3106.653,
+        6782.653
       ],
       "label_origin_um": [
-        3512.153,
+        4681.653,
         818.0
       ],
       "label_length_um": 25.6,
@@ -1175,8 +1149,7 @@
       "tick_inner_y_um": 2.4,
       "s_bend_theta_deg": 10.0,
       "s_bend_tilted_straight_um": 251.7299,
-      "s_bend_path_length_um": 304.0898,
-      "gap_to_left_device_um": 645.5
+      "s_bend_path_length_um": 304.0898
     },
     {
       "case_id": "SC_L300_T70_L_2T_2",
@@ -1205,17 +1178,17 @@
       },
       "output_end_y_offset_um": 48.27011064681601,
       "origin_um": [
-        8125.153,
+        9874.653,
         803.0
       ],
       "row_index": 3,
       "row_align": "left",
       "global_x_extent_um": [
-        6287.153,
-        9963.153
+        8036.653,
+        11712.653
       ],
       "label_origin_um": [
-        7862.153,
+        9611.653,
         818.0
       ],
       "label_length_um": 25.6,
@@ -1237,8 +1210,7 @@
       "tick_inner_y_um": 2.4,
       "s_bend_theta_deg": 10.0,
       "s_bend_tilted_straight_um": 251.7299,
-      "s_bend_path_length_um": 304.0898,
-      "gap_to_left_device_um": 674.0
+      "s_bend_path_length_um": 304.0898
     },
     {
       "case_id": "SC_L300_T80_A_2T",
@@ -1328,17 +1300,17 @@
       },
       "output_end_y_offset_um": 48.27011064681601,
       "origin_um": [
-        -574.847,
+        24.653,
         1303.0
       ],
       "row_index": 4,
       "row_align": "left",
       "global_x_extent_um": [
-        -2422.847,
-        1273.153
+        -1823.347,
+        1872.653
       ],
       "label_origin_um": [
-        -847.847,
+        -248.347,
         1318.0
       ],
       "label_length_um": 22.2,
@@ -1360,8 +1332,7 @@
       "tick_inner_y_um": 2.4,
       "s_bend_theta_deg": 10.0,
       "s_bend_tilted_straight_um": 251.7299,
-      "s_bend_path_length_um": 304.0898,
-      "gap_to_left_device_um": 634.5
+      "s_bend_path_length_um": 304.0898
     },
     {
       "case_id": "SC_L300_T80_A_2T_2",
@@ -1390,17 +1361,17 @@
       },
       "output_end_y_offset_um": 48.27011064681601,
       "origin_um": [
-        3775.153,
+        4954.653,
         1303.0
       ],
       "row_index": 4,
       "row_align": "left",
       "global_x_extent_um": [
-        1927.153,
-        5623.153
+        3106.653,
+        6802.653
       ],
       "label_origin_um": [
-        3502.153,
+        4681.653,
         1318.0
       ],
       "label_length_um": 25.6,
@@ -1422,8 +1393,7 @@
       "tick_inner_y_um": 2.4,
       "s_bend_theta_deg": 10.0,
       "s_bend_tilted_straight_um": 251.7299,
-      "s_bend_path_length_um": 304.0898,
-      "gap_to_left_device_um": 654.0
+      "s_bend_path_length_um": 304.0898
     },
     {
       "case_id": "SC_L300_T80_L_2T_2",
@@ -1452,17 +1422,17 @@
       },
       "output_end_y_offset_um": 48.27011064681601,
       "origin_um": [
-        8125.153,
+        9884.653,
         1303.0
       ],
       "row_index": 4,
       "row_align": "left",
       "global_x_extent_um": [
-        6277.153,
-        9973.153
+        8036.653,
+        11732.653
       ],
       "label_origin_um": [
-        7852.153,
+        9611.653,
         1318.0
       ],
       "label_length_um": 25.6,
@@ -1484,8 +1454,7 @@
       "tick_inner_y_um": 2.4,
       "s_bend_theta_deg": 10.0,
       "s_bend_tilted_straight_um": 251.7299,
-      "s_bend_path_length_um": 304.0898,
-      "gap_to_left_device_um": 654.0
+      "s_bend_path_length_um": 304.0898
     },
     {
       "case_id": "SC_L15000_W1590_A_1T",
