@@ -1,0 +1,2332 @@
+{
+  "source_gds": "gds/2611_straight_coupler_L15000_output_comparison.gds",
+  "source_gds_sha256": "17fc0ade4016c57f51874e486d0b319241d6c507fed9511c9765a1084503bb3c",
+  "source_device_copied_for_far_assemblies": "D1_SINGLE_L15000_W1620_2T",
+  "gds": "gds/2611_straight_coupler_A-L_L200-2T-T40-80_L15000-1T-W1590-1610.gds",
+  "gds_sha256": "7e505a9eba1a703804e5455dcca8d58dc03c9199d91d96a0b0ba36eabf1ff7d8",
+  "top_cell": "STRAIGHT_COUPLER_ADIABATIC_TAPER_SWEEP",
+  "device_count": 35,
+  "parameters": {
+    "wg_width_um": 1.6,
+    "l10_stage1_lengths_um": [
+      40.0,
+      50.0,
+      60.0,
+      70.0,
+      80.0
+    ],
+    "long_device_taper_t_um": 60.0,
+    "long_device_widths_um": [
+      1.59,
+      1.595,
+      1.6,
+      1.605,
+      1.61
+    ],
+    "profiles": {
+      "A": "smootherstep",
+      "L": "linear"
+    },
+    "blocks": [
+      {
+        "mode": "2T",
+        "align": "left",
+        "label": "T",
+        "rows": "T sweep",
+        "members": [
+          [
+            200.0,
+            "A"
+          ],
+          [
+            200.0,
+            "L"
+          ],
+          [
+            200.0,
+            "A"
+          ],
+          [
+            200.0,
+            "L"
+          ]
+        ]
+      },
+      {
+        "mode": "1T",
+        "align": "right",
+        "label": "W",
+        "rows": [
+          [
+            60.0,
+            1.59
+          ],
+          [
+            60.0,
+            1.595
+          ],
+          [
+            60.0,
+            1.6
+          ],
+          [
+            60.0,
+            1.605
+          ],
+          [
+            60.0,
+            1.61
+          ]
+        ],
+        "members": [
+          [
+            15000.0,
+            "A"
+          ]
+        ]
+      },
+      {
+        "mode": "1T",
+        "align": "right",
+        "label": "W",
+        "rows": [
+          [
+            60.0,
+            1.59
+          ],
+          [
+            60.0,
+            1.595
+          ],
+          [
+            60.0,
+            1.6
+          ],
+          [
+            60.0,
+            1.605
+          ],
+          [
+            60.0,
+            1.61
+          ]
+        ],
+        "members": [
+          [
+            15000.0,
+            "L"
+          ]
+        ]
+      },
+      {
+        "mode": "1T",
+        "align": "right",
+        "label": "W",
+        "rows": [
+          [
+            60.0,
+            1.59
+          ],
+          [
+            60.0,
+            1.595
+          ],
+          [
+            60.0,
+            1.6
+          ],
+          [
+            60.0,
+            1.605
+          ],
+          [
+            60.0,
+            1.61
+          ]
+        ],
+        "members": [
+          [
+            15000.0,
+            "A"
+          ]
+        ]
+      }
+    ],
+    "layer15_taper": {
+      "start_width": "waveguide width",
+      "end_width_um": 0.2,
+      "length": "stage-1 length - mid offset"
+    },
+    "layer10_taper": {
+      "start_width_um": 15.0,
+      "mid_width_um": 0.8,
+      "stage1_length": "swept",
+      "stage2_length_um": 58.0,
+      "mid_offset_beyond_l15_tip_um": 0.0,
+      "end_width_um": 0.2
+    },
+    "port_to_l10_entrance_um": 45.0,
+    "layer2_margin_um": 3.0,
+    "layer2_start_offset_um": 2.0,
+    "layer2_l10_overlap_um": 2.0,
+    "layer14_margin_um": 1.0,
+    "layer14_start_offset_um": 0.0,
+    "layer14_linear_start_before_mid_um": 3.153,
+    "tick": {
+      "layer": [
+        15,
+        0
+      ],
+      "position_from_l10_entrance_um": 60.0,
+      "width_um": 0.5,
+      "length_um": 10.0,
+      "gap_to_l10_edge_um": 2.0
+    },
+    "local_taper_beams": {
+      "layer": [
+        11,
+        0
+      ],
+      "width_um": 0.5,
+      "offsets_from_l2_start_um": [
+        -0.5,
+        0.5,
+        1.5
+      ],
+      "slab_overlap_um": 1.5,
+      "span_um": 5.596
+    },
+    "label": {
+      "layer": [
+        15,
+        0
+      ],
+      "tip_x_offset_um": 2.0,
+      "y_offset_um": 15.0
+    },
+    "far_assembly_shift_um": "l10_taper_length - 80 per end",
+    "row_pitch_um": 300.0,
+    "device_gap_um": 500.0,
+    "row_left_edge_x_um": -6664.347,
+    "row_right_edge_x_um": 12015.653,
+    "ebl_write_fields": {
+      "field_size_um": 300.0,
+      "field_overlap_um": 10.0,
+      "field_pitch_um": 290.0,
+      "grid_origin_um": [
+        0.0,
+        0.0
+      ],
+      "layer": [
+        15,
+        0
+      ],
+      "mask_shift_um": [
+        273.5,
+        133.0
+      ],
+      "layer15_field_count": 953,
+      "priority": "no_taper_stitch",
+      "devices_over_field_limit": 1,
+      "taper_zones_with_stitch": 1,
+      "label_zones_with_stitch": 1,
+      "min_stitch_to_taper_zone_um": -29.395,
+      "alternatives_before_gap_adjustment": {
+        "fields": {
+          "fields": 953,
+          "taper_zones_with_stitch": 1,
+          "label_zones_with_stitch": 1,
+          "mask_shift_um": [
+            273.5,
+            133.0
+          ]
+        },
+        "no_taper_stitch": {
+          "fields": 953,
+          "taper_zones_with_stitch": 1,
+          "label_zones_with_stitch": 1,
+          "mask_shift_um": [
+            273.5,
+            133.0
+          ]
+        }
+      },
+      "shared_row_gaps_um": {}
+    },
+    "frame_bounds_um": [
+      -7126.5,
+      -1294.75,
+      12573.5,
+      5865.25
+    ],
+    "moved_marker_polygon_count": 24
+  },
+  "devices": [
+    {
+      "case_id": "SC_L200_T40_A_2T",
+      "mode": "2T",
+      "set": "A",
+      "taper_profile": "smootherstep",
+      "copy": 1,
+      "label": "L200_T40_A_2T",
+      "label_layer": [
+        15,
+        0
+      ],
+      "width_um": 1.6,
+      "l10_stage1_length_um": 40.0,
+      "l10_taper_length_um": 98.0,
+      "l15_taper_length_um": 40.0,
+      "alignment_tip_position_um": 40.0,
+      "layer14_linear_start_distance_um": 36.847,
+      "straight_length_um": 200.0,
+      "port_span_um": 197.4916,
+      "output_extension_length_um": 0.0,
+      "path_length_excluding_tapers_um": 200.0,
+      "s_bend": {
+        "radius_um": 150.0,
+        "angle_deg": 10.0,
+        "offset_um": 30.1951
+      },
+      "output_end_y_offset_um": 30.195112308595597,
+      "origin_um": [
+        -4905.601,
+        -567.0
+      ],
+      "row_index": 0,
+      "row_align": "left",
+      "global_x_extent_um": [
+        -6662.347,
+        -3148.855
+      ],
+      "label_origin_um": [
+        -5087.347,
+        -552.0
+      ],
+      "label_length_um": 22.2,
+      "input_port_local_um": [
+        -98.7458,
+        0.0
+      ],
+      "output_port_local_um": [
+        98.7458,
+        30.1951
+      ],
+      "l10_entrance_local_x_um": -143.7458,
+      "l15_tip_local_x_um": -183.7458,
+      "alignment_tip_local_x_um": -183.74579526741513,
+      "l10_tip_local_x_um": -241.7458,
+      "layer2_neck_extension_um": 22.6,
+      "layer2_start_width_um": 20.9836,
+      "layer14_start_width_um": 17.0,
+      "tick_inner_y_um": 2.4,
+      "s_bend_theta_deg": 10.0,
+      "s_bend_tilted_straight_um": 147.6401,
+      "s_bend_path_length_um": 200.0
+    },
+    {
+      "case_id": "SC_L200_T40_L_2T",
+      "mode": "2T",
+      "set": "L",
+      "taper_profile": "linear",
+      "copy": 1,
+      "label": "L200_T40_L_2T",
+      "label_layer": [
+        15,
+        0
+      ],
+      "width_um": 1.6,
+      "l10_stage1_length_um": 40.0,
+      "l10_taper_length_um": 98.0,
+      "l15_taper_length_um": 40.0,
+      "alignment_tip_position_um": 40.0,
+      "layer14_linear_start_distance_um": 36.847,
+      "straight_length_um": 200.0,
+      "port_span_um": 197.4916,
+      "output_extension_length_um": 0.0,
+      "path_length_excluding_tapers_um": 200.0,
+      "s_bend": {
+        "radius_um": 150.0,
+        "angle_deg": 10.0,
+        "offset_um": 30.1951
+      },
+      "output_end_y_offset_um": 30.195112308595597,
+      "origin_um": [
+        -105.601,
+        -567.0
+      ],
+      "row_index": 0,
+      "row_align": "left",
+      "global_x_extent_um": [
+        -1862.347,
+        1651.145
+      ],
+      "label_origin_um": [
+        -287.347,
+        -552.0
+      ],
+      "label_length_um": 22.2,
+      "input_port_local_um": [
+        -98.7458,
+        0.0
+      ],
+      "output_port_local_um": [
+        98.7458,
+        30.1951
+      ],
+      "l10_entrance_local_x_um": -143.7458,
+      "l15_tip_local_x_um": -183.7458,
+      "alignment_tip_local_x_um": -183.74579526741513,
+      "l10_tip_local_x_um": -241.7458,
+      "layer2_neck_extension_um": 22.6,
+      "layer2_start_width_um": 20.29,
+      "layer14_start_width_um": 17.0,
+      "tick_inner_y_um": 2.4,
+      "s_bend_theta_deg": 10.0,
+      "s_bend_tilted_straight_um": 147.6401,
+      "s_bend_path_length_um": 200.0
+    },
+    {
+      "case_id": "SC_L200_T40_A_2T_2",
+      "mode": "2T",
+      "set": "A",
+      "taper_profile": "smootherstep",
+      "copy": 2,
+      "label": "L200_T40_A_2T_2",
+      "label_layer": [
+        15,
+        0
+      ],
+      "width_um": 1.6,
+      "l10_stage1_length_um": 40.0,
+      "l10_taper_length_um": 98.0,
+      "l15_taper_length_um": 40.0,
+      "alignment_tip_position_um": 40.0,
+      "layer14_linear_start_distance_um": 36.847,
+      "straight_length_um": 200.0,
+      "port_span_um": 197.4916,
+      "output_extension_length_um": 0.0,
+      "path_length_excluding_tapers_um": 200.0,
+      "s_bend": {
+        "radius_um": 150.0,
+        "angle_deg": 10.0,
+        "offset_um": 30.1951
+      },
+      "output_end_y_offset_um": 30.195112308595597,
+      "origin_um": [
+        4694.399,
+        -567.0
+      ],
+      "row_index": 0,
+      "row_align": "left",
+      "global_x_extent_um": [
+        2937.653,
+        6451.145
+      ],
+      "label_origin_um": [
+        4512.653,
+        -552.0
+      ],
+      "label_length_um": 25.6,
+      "input_port_local_um": [
+        -98.7458,
+        0.0
+      ],
+      "output_port_local_um": [
+        98.7458,
+        30.1951
+      ],
+      "l10_entrance_local_x_um": -143.7458,
+      "l15_tip_local_x_um": -183.7458,
+      "alignment_tip_local_x_um": -183.74579526741513,
+      "l10_tip_local_x_um": -241.7458,
+      "layer2_neck_extension_um": 22.6,
+      "layer2_start_width_um": 20.9836,
+      "layer14_start_width_um": 17.0,
+      "tick_inner_y_um": 2.4,
+      "s_bend_theta_deg": 10.0,
+      "s_bend_tilted_straight_um": 147.6401,
+      "s_bend_path_length_um": 200.0
+    },
+    {
+      "case_id": "SC_L200_T40_L_2T_2",
+      "mode": "2T",
+      "set": "L",
+      "taper_profile": "linear",
+      "copy": 2,
+      "label": "L200_T40_L_2T_2",
+      "label_layer": [
+        15,
+        0
+      ],
+      "width_um": 1.6,
+      "l10_stage1_length_um": 40.0,
+      "l10_taper_length_um": 98.0,
+      "l15_taper_length_um": 40.0,
+      "alignment_tip_position_um": 40.0,
+      "layer14_linear_start_distance_um": 36.847,
+      "straight_length_um": 200.0,
+      "port_span_um": 197.4916,
+      "output_extension_length_um": 0.0,
+      "path_length_excluding_tapers_um": 200.0,
+      "s_bend": {
+        "radius_um": 150.0,
+        "angle_deg": 10.0,
+        "offset_um": 30.1951
+      },
+      "output_end_y_offset_um": 30.195112308595597,
+      "origin_um": [
+        9494.399,
+        -567.0
+      ],
+      "row_index": 0,
+      "row_align": "left",
+      "global_x_extent_um": [
+        7737.653,
+        11251.145
+      ],
+      "label_origin_um": [
+        9312.653,
+        -552.0
+      ],
+      "label_length_um": 25.6,
+      "input_port_local_um": [
+        -98.7458,
+        0.0
+      ],
+      "output_port_local_um": [
+        98.7458,
+        30.1951
+      ],
+      "l10_entrance_local_x_um": -143.7458,
+      "l15_tip_local_x_um": -183.7458,
+      "alignment_tip_local_x_um": -183.74579526741513,
+      "l10_tip_local_x_um": -241.7458,
+      "layer2_neck_extension_um": 22.6,
+      "layer2_start_width_um": 20.29,
+      "layer14_start_width_um": 17.0,
+      "tick_inner_y_um": 2.4,
+      "s_bend_theta_deg": 10.0,
+      "s_bend_tilted_straight_um": 147.6401,
+      "s_bend_path_length_um": 200.0
+    },
+    {
+      "case_id": "SC_L200_T50_A_2T",
+      "mode": "2T",
+      "set": "A",
+      "taper_profile": "smootherstep",
+      "copy": 1,
+      "label": "L200_T50_A_2T",
+      "label_layer": [
+        15,
+        0
+      ],
+      "width_um": 1.6,
+      "l10_stage1_length_um": 50.0,
+      "l10_taper_length_um": 108.0,
+      "l15_taper_length_um": 50.0,
+      "alignment_tip_position_um": 50.0,
+      "layer14_linear_start_distance_um": 46.847,
+      "straight_length_um": 200.0,
+      "port_span_um": 197.4916,
+      "output_extension_length_um": 0.0,
+      "path_length_excluding_tapers_um": 200.0,
+      "s_bend": {
+        "radius_um": 150.0,
+        "angle_deg": 10.0,
+        "offset_um": 30.1951
+      },
+      "output_end_y_offset_um": 30.195112308595597,
+      "origin_um": [
+        -4895.601,
+        -267.0
+      ],
+      "row_index": 1,
+      "row_align": "left",
+      "global_x_extent_um": [
+        -6662.347,
+        -3128.855
+      ],
+      "label_origin_um": [
+        -5087.347,
+        -252.0
+      ],
+      "label_length_um": 22.2,
+      "input_port_local_um": [
+        -98.7458,
+        0.0
+      ],
+      "output_port_local_um": [
+        98.7458,
+        30.1951
+      ],
+      "l10_entrance_local_x_um": -143.7458,
+      "l15_tip_local_x_um": -193.7458,
+      "alignment_tip_local_x_um": -193.74579526741513,
+      "l10_tip_local_x_um": -251.7458,
+      "layer2_neck_extension_um": 22.6,
+      "layer2_start_width_um": 20.9914,
+      "layer14_start_width_um": 17.0,
+      "tick_inner_y_um": 2.4,
+      "s_bend_theta_deg": 10.0,
+      "s_bend_tilted_straight_um": 147.6401,
+      "s_bend_path_length_um": 200.0
+    },
+    {
+      "case_id": "SC_L200_T50_L_2T",
+      "mode": "2T",
+      "set": "L",
+      "taper_profile": "linear",
+      "copy": 1,
+      "label": "L200_T50_L_2T",
+      "label_layer": [
+        15,
+        0
+      ],
+      "width_um": 1.6,
+      "l10_stage1_length_um": 50.0,
+      "l10_taper_length_um": 108.0,
+      "l15_taper_length_um": 50.0,
+      "alignment_tip_position_um": 50.0,
+      "layer14_linear_start_distance_um": 46.847,
+      "straight_length_um": 200.0,
+      "port_span_um": 197.4916,
+      "output_extension_length_um": 0.0,
+      "path_length_excluding_tapers_um": 200.0,
+      "s_bend": {
+        "radius_um": 150.0,
+        "angle_deg": 10.0,
+        "offset_um": 30.1951
+      },
+      "output_end_y_offset_um": 30.195112308595597,
+      "origin_um": [
+        -95.601,
+        -267.0
+      ],
+      "row_index": 1,
+      "row_align": "left",
+      "global_x_extent_um": [
+        -1862.347,
+        1671.145
+      ],
+      "label_origin_um": [
+        -287.347,
+        -252.0
+      ],
+      "label_length_um": 22.2,
+      "input_port_local_um": [
+        -98.7458,
+        0.0
+      ],
+      "output_port_local_um": [
+        98.7458,
+        30.1951
+      ],
+      "l10_entrance_local_x_um": -143.7458,
+      "l15_tip_local_x_um": -193.7458,
+      "alignment_tip_local_x_um": -193.74579526741513,
+      "l10_tip_local_x_um": -251.7458,
+      "layer2_neck_extension_um": 22.6,
+      "layer2_start_width_um": 20.432,
+      "layer14_start_width_um": 17.0,
+      "tick_inner_y_um": 2.4,
+      "s_bend_theta_deg": 10.0,
+      "s_bend_tilted_straight_um": 147.6401,
+      "s_bend_path_length_um": 200.0
+    },
+    {
+      "case_id": "SC_L200_T50_A_2T_2",
+      "mode": "2T",
+      "set": "A",
+      "taper_profile": "smootherstep",
+      "copy": 2,
+      "label": "L200_T50_A_2T_2",
+      "label_layer": [
+        15,
+        0
+      ],
+      "width_um": 1.6,
+      "l10_stage1_length_um": 50.0,
+      "l10_taper_length_um": 108.0,
+      "l15_taper_length_um": 50.0,
+      "alignment_tip_position_um": 50.0,
+      "layer14_linear_start_distance_um": 46.847,
+      "straight_length_um": 200.0,
+      "port_span_um": 197.4916,
+      "output_extension_length_um": 0.0,
+      "path_length_excluding_tapers_um": 200.0,
+      "s_bend": {
+        "radius_um": 150.0,
+        "angle_deg": 10.0,
+        "offset_um": 30.1951
+      },
+      "output_end_y_offset_um": 30.195112308595597,
+      "origin_um": [
+        4704.399,
+        -267.0
+      ],
+      "row_index": 1,
+      "row_align": "left",
+      "global_x_extent_um": [
+        2937.653,
+        6471.145
+      ],
+      "label_origin_um": [
+        4512.653,
+        -252.0
+      ],
+      "label_length_um": 25.6,
+      "input_port_local_um": [
+        -98.7458,
+        0.0
+      ],
+      "output_port_local_um": [
+        98.7458,
+        30.1951
+      ],
+      "l10_entrance_local_x_um": -143.7458,
+      "l15_tip_local_x_um": -193.7458,
+      "alignment_tip_local_x_um": -193.74579526741513,
+      "l10_tip_local_x_um": -251.7458,
+      "layer2_neck_extension_um": 22.6,
+      "layer2_start_width_um": 20.9914,
+      "layer14_start_width_um": 17.0,
+      "tick_inner_y_um": 2.4,
+      "s_bend_theta_deg": 10.0,
+      "s_bend_tilted_straight_um": 147.6401,
+      "s_bend_path_length_um": 200.0
+    },
+    {
+      "case_id": "SC_L200_T50_L_2T_2",
+      "mode": "2T",
+      "set": "L",
+      "taper_profile": "linear",
+      "copy": 2,
+      "label": "L200_T50_L_2T_2",
+      "label_layer": [
+        15,
+        0
+      ],
+      "width_um": 1.6,
+      "l10_stage1_length_um": 50.0,
+      "l10_taper_length_um": 108.0,
+      "l15_taper_length_um": 50.0,
+      "alignment_tip_position_um": 50.0,
+      "layer14_linear_start_distance_um": 46.847,
+      "straight_length_um": 200.0,
+      "port_span_um": 197.4916,
+      "output_extension_length_um": 0.0,
+      "path_length_excluding_tapers_um": 200.0,
+      "s_bend": {
+        "radius_um": 150.0,
+        "angle_deg": 10.0,
+        "offset_um": 30.1951
+      },
+      "output_end_y_offset_um": 30.195112308595597,
+      "origin_um": [
+        9504.399,
+        -267.0
+      ],
+      "row_index": 1,
+      "row_align": "left",
+      "global_x_extent_um": [
+        7737.653,
+        11271.145
+      ],
+      "label_origin_um": [
+        9312.653,
+        -252.0
+      ],
+      "label_length_um": 25.6,
+      "input_port_local_um": [
+        -98.7458,
+        0.0
+      ],
+      "output_port_local_um": [
+        98.7458,
+        30.1951
+      ],
+      "l10_entrance_local_x_um": -143.7458,
+      "l15_tip_local_x_um": -193.7458,
+      "alignment_tip_local_x_um": -193.74579526741513,
+      "l10_tip_local_x_um": -251.7458,
+      "layer2_neck_extension_um": 22.6,
+      "layer2_start_width_um": 20.432,
+      "layer14_start_width_um": 17.0,
+      "tick_inner_y_um": 2.4,
+      "s_bend_theta_deg": 10.0,
+      "s_bend_tilted_straight_um": 147.6401,
+      "s_bend_path_length_um": 200.0
+    },
+    {
+      "case_id": "SC_L200_T60_A_2T",
+      "mode": "2T",
+      "set": "A",
+      "taper_profile": "smootherstep",
+      "copy": 1,
+      "label": "L200_T60_A_2T",
+      "label_layer": [
+        15,
+        0
+      ],
+      "width_um": 1.6,
+      "l10_stage1_length_um": 60.0,
+      "l10_taper_length_um": 118.0,
+      "l15_taper_length_um": 60.0,
+      "alignment_tip_position_um": 60.0,
+      "layer14_linear_start_distance_um": 56.847,
+      "straight_length_um": 200.0,
+      "port_span_um": 197.4916,
+      "output_extension_length_um": 0.0,
+      "path_length_excluding_tapers_um": 200.0,
+      "s_bend": {
+        "radius_um": 150.0,
+        "angle_deg": 10.0,
+        "offset_um": 30.1951
+      },
+      "output_end_y_offset_um": 30.195112308595597,
+      "origin_um": [
+        -4885.601,
+        33.0
+      ],
+      "row_index": 2,
+      "row_align": "left",
+      "global_x_extent_um": [
+        -6662.347,
+        -3108.855
+      ],
+      "label_origin_um": [
+        -5087.347,
+        48.0
+      ],
+      "label_length_um": 22.2,
+      "input_port_local_um": [
+        -98.7458,
+        0.0
+      ],
+      "output_port_local_um": [
+        98.7458,
+        30.1951
+      ],
+      "l10_entrance_local_x_um": -143.7458,
+      "l15_tip_local_x_um": -203.7458,
+      "alignment_tip_local_x_um": -203.74579526741513,
+      "l10_tip_local_x_um": -261.7458,
+      "layer2_neck_extension_um": 22.6,
+      "layer2_start_width_um": 20.995,
+      "layer14_start_width_um": 17.0,
+      "tick_inner_y_um": 2.4,
+      "s_bend_theta_deg": 10.0,
+      "s_bend_tilted_straight_um": 147.6401,
+      "s_bend_path_length_um": 200.0
+    },
+    {
+      "case_id": "SC_L200_T60_L_2T",
+      "mode": "2T",
+      "set": "L",
+      "taper_profile": "linear",
+      "copy": 1,
+      "label": "L200_T60_L_2T",
+      "label_layer": [
+        15,
+        0
+      ],
+      "width_um": 1.6,
+      "l10_stage1_length_um": 60.0,
+      "l10_taper_length_um": 118.0,
+      "l15_taper_length_um": 60.0,
+      "alignment_tip_position_um": 60.0,
+      "layer14_linear_start_distance_um": 56.847,
+      "straight_length_um": 200.0,
+      "port_span_um": 197.4916,
+      "output_extension_length_um": 0.0,
+      "path_length_excluding_tapers_um": 200.0,
+      "s_bend": {
+        "radius_um": 150.0,
+        "angle_deg": 10.0,
+        "offset_um": 30.1951
+      },
+      "output_end_y_offset_um": 30.195112308595597,
+      "origin_um": [
+        -85.601,
+        33.0
+      ],
+      "row_index": 2,
+      "row_align": "left",
+      "global_x_extent_um": [
+        -1862.347,
+        1691.145
+      ],
+      "label_origin_um": [
+        -287.347,
+        48.0
+      ],
+      "label_length_um": 22.2,
+      "input_port_local_um": [
+        -98.7458,
+        0.0
+      ],
+      "output_port_local_um": [
+        98.7458,
+        30.1951
+      ],
+      "l10_entrance_local_x_um": -143.7458,
+      "l15_tip_local_x_um": -203.7458,
+      "alignment_tip_local_x_um": -203.74579526741513,
+      "l10_tip_local_x_um": -261.7458,
+      "layer2_neck_extension_um": 22.6,
+      "layer2_start_width_um": 20.5267,
+      "layer14_start_width_um": 17.0,
+      "tick_inner_y_um": 2.4,
+      "s_bend_theta_deg": 10.0,
+      "s_bend_tilted_straight_um": 147.6401,
+      "s_bend_path_length_um": 200.0
+    },
+    {
+      "case_id": "SC_L200_T60_A_2T_2",
+      "mode": "2T",
+      "set": "A",
+      "taper_profile": "smootherstep",
+      "copy": 2,
+      "label": "L200_T60_A_2T_2",
+      "label_layer": [
+        15,
+        0
+      ],
+      "width_um": 1.6,
+      "l10_stage1_length_um": 60.0,
+      "l10_taper_length_um": 118.0,
+      "l15_taper_length_um": 60.0,
+      "alignment_tip_position_um": 60.0,
+      "layer14_linear_start_distance_um": 56.847,
+      "straight_length_um": 200.0,
+      "port_span_um": 197.4916,
+      "output_extension_length_um": 0.0,
+      "path_length_excluding_tapers_um": 200.0,
+      "s_bend": {
+        "radius_um": 150.0,
+        "angle_deg": 10.0,
+        "offset_um": 30.1951
+      },
+      "output_end_y_offset_um": 30.195112308595597,
+      "origin_um": [
+        4714.399,
+        33.0
+      ],
+      "row_index": 2,
+      "row_align": "left",
+      "global_x_extent_um": [
+        2937.653,
+        6491.145
+      ],
+      "label_origin_um": [
+        4512.653,
+        48.0
+      ],
+      "label_length_um": 25.6,
+      "input_port_local_um": [
+        -98.7458,
+        0.0
+      ],
+      "output_port_local_um": [
+        98.7458,
+        30.1951
+      ],
+      "l10_entrance_local_x_um": -143.7458,
+      "l15_tip_local_x_um": -203.7458,
+      "alignment_tip_local_x_um": -203.74579526741513,
+      "l10_tip_local_x_um": -261.7458,
+      "layer2_neck_extension_um": 22.6,
+      "layer2_start_width_um": 20.995,
+      "layer14_start_width_um": 17.0,
+      "tick_inner_y_um": 2.4,
+      "s_bend_theta_deg": 10.0,
+      "s_bend_tilted_straight_um": 147.6401,
+      "s_bend_path_length_um": 200.0
+    },
+    {
+      "case_id": "SC_L200_T60_L_2T_2",
+      "mode": "2T",
+      "set": "L",
+      "taper_profile": "linear",
+      "copy": 2,
+      "label": "L200_T60_L_2T_2",
+      "label_layer": [
+        15,
+        0
+      ],
+      "width_um": 1.6,
+      "l10_stage1_length_um": 60.0,
+      "l10_taper_length_um": 118.0,
+      "l15_taper_length_um": 60.0,
+      "alignment_tip_position_um": 60.0,
+      "layer14_linear_start_distance_um": 56.847,
+      "straight_length_um": 200.0,
+      "port_span_um": 197.4916,
+      "output_extension_length_um": 0.0,
+      "path_length_excluding_tapers_um": 200.0,
+      "s_bend": {
+        "radius_um": 150.0,
+        "angle_deg": 10.0,
+        "offset_um": 30.1951
+      },
+      "output_end_y_offset_um": 30.195112308595597,
+      "origin_um": [
+        9514.399,
+        33.0
+      ],
+      "row_index": 2,
+      "row_align": "left",
+      "global_x_extent_um": [
+        7737.653,
+        11291.145
+      ],
+      "label_origin_um": [
+        9312.653,
+        48.0
+      ],
+      "label_length_um": 25.6,
+      "input_port_local_um": [
+        -98.7458,
+        0.0
+      ],
+      "output_port_local_um": [
+        98.7458,
+        30.1951
+      ],
+      "l10_entrance_local_x_um": -143.7458,
+      "l15_tip_local_x_um": -203.7458,
+      "alignment_tip_local_x_um": -203.74579526741513,
+      "l10_tip_local_x_um": -261.7458,
+      "layer2_neck_extension_um": 22.6,
+      "layer2_start_width_um": 20.5267,
+      "layer14_start_width_um": 17.0,
+      "tick_inner_y_um": 2.4,
+      "s_bend_theta_deg": 10.0,
+      "s_bend_tilted_straight_um": 147.6401,
+      "s_bend_path_length_um": 200.0
+    },
+    {
+      "case_id": "SC_L200_T70_A_2T",
+      "mode": "2T",
+      "set": "A",
+      "taper_profile": "smootherstep",
+      "copy": 1,
+      "label": "L200_T70_A_2T",
+      "label_layer": [
+        15,
+        0
+      ],
+      "width_um": 1.6,
+      "l10_stage1_length_um": 70.0,
+      "l10_taper_length_um": 128.0,
+      "l15_taper_length_um": 70.0,
+      "alignment_tip_position_um": 70.0,
+      "layer14_linear_start_distance_um": 66.847,
+      "straight_length_um": 200.0,
+      "port_span_um": 197.4916,
+      "output_extension_length_um": 0.0,
+      "path_length_excluding_tapers_um": 200.0,
+      "s_bend": {
+        "radius_um": 150.0,
+        "angle_deg": 10.0,
+        "offset_um": 30.1951
+      },
+      "output_end_y_offset_um": 30.195112308595597,
+      "origin_um": [
+        -4875.601,
+        333.0
+      ],
+      "row_index": 3,
+      "row_align": "left",
+      "global_x_extent_um": [
+        -6662.347,
+        -3088.855
+      ],
+      "label_origin_um": [
+        -5087.347,
+        348.0
+      ],
+      "label_length_um": 22.2,
+      "input_port_local_um": [
+        -98.7458,
+        0.0
+      ],
+      "output_port_local_um": [
+        98.7458,
+        30.1951
+      ],
+      "l10_entrance_local_x_um": -143.7458,
+      "l15_tip_local_x_um": -213.7458,
+      "alignment_tip_local_x_um": -213.74579526741513,
+      "l10_tip_local_x_um": -271.7458,
+      "layer2_neck_extension_um": 22.6,
+      "layer2_start_width_um": 20.9968,
+      "layer14_start_width_um": 17.0,
+      "tick_inner_y_um": 2.4,
+      "s_bend_theta_deg": 10.0,
+      "s_bend_tilted_straight_um": 147.6401,
+      "s_bend_path_length_um": 200.0
+    },
+    {
+      "case_id": "SC_L200_T70_L_2T",
+      "mode": "2T",
+      "set": "L",
+      "taper_profile": "linear",
+      "copy": 1,
+      "label": "L200_T70_L_2T",
+      "label_layer": [
+        15,
+        0
+      ],
+      "width_um": 1.6,
+      "l10_stage1_length_um": 70.0,
+      "l10_taper_length_um": 128.0,
+      "l15_taper_length_um": 70.0,
+      "alignment_tip_position_um": 70.0,
+      "layer14_linear_start_distance_um": 66.847,
+      "straight_length_um": 200.0,
+      "port_span_um": 197.4916,
+      "output_extension_length_um": 0.0,
+      "path_length_excluding_tapers_um": 200.0,
+      "s_bend": {
+        "radius_um": 150.0,
+        "angle_deg": 10.0,
+        "offset_um": 30.1951
+      },
+      "output_end_y_offset_um": 30.195112308595597,
+      "origin_um": [
+        -75.601,
+        333.0
+      ],
+      "row_index": 3,
+      "row_align": "left",
+      "global_x_extent_um": [
+        -1862.347,
+        1711.145
+      ],
+      "label_origin_um": [
+        -287.347,
+        348.0
+      ],
+      "label_length_um": 22.2,
+      "input_port_local_um": [
+        -98.7458,
+        0.0
+      ],
+      "output_port_local_um": [
+        98.7458,
+        30.1951
+      ],
+      "l10_entrance_local_x_um": -143.7458,
+      "l15_tip_local_x_um": -213.7458,
+      "alignment_tip_local_x_um": -213.74579526741513,
+      "l10_tip_local_x_um": -271.7458,
+      "layer2_neck_extension_um": 22.6,
+      "layer2_start_width_um": 20.5943,
+      "layer14_start_width_um": 17.0,
+      "tick_inner_y_um": 2.4,
+      "s_bend_theta_deg": 10.0,
+      "s_bend_tilted_straight_um": 147.6401,
+      "s_bend_path_length_um": 200.0
+    },
+    {
+      "case_id": "SC_L200_T70_A_2T_2",
+      "mode": "2T",
+      "set": "A",
+      "taper_profile": "smootherstep",
+      "copy": 2,
+      "label": "L200_T70_A_2T_2",
+      "label_layer": [
+        15,
+        0
+      ],
+      "width_um": 1.6,
+      "l10_stage1_length_um": 70.0,
+      "l10_taper_length_um": 128.0,
+      "l15_taper_length_um": 70.0,
+      "alignment_tip_position_um": 70.0,
+      "layer14_linear_start_distance_um": 66.847,
+      "straight_length_um": 200.0,
+      "port_span_um": 197.4916,
+      "output_extension_length_um": 0.0,
+      "path_length_excluding_tapers_um": 200.0,
+      "s_bend": {
+        "radius_um": 150.0,
+        "angle_deg": 10.0,
+        "offset_um": 30.1951
+      },
+      "output_end_y_offset_um": 30.195112308595597,
+      "origin_um": [
+        4724.399,
+        333.0
+      ],
+      "row_index": 3,
+      "row_align": "left",
+      "global_x_extent_um": [
+        2937.653,
+        6511.145
+      ],
+      "label_origin_um": [
+        4512.653,
+        348.0
+      ],
+      "label_length_um": 25.6,
+      "input_port_local_um": [
+        -98.7458,
+        0.0
+      ],
+      "output_port_local_um": [
+        98.7458,
+        30.1951
+      ],
+      "l10_entrance_local_x_um": -143.7458,
+      "l15_tip_local_x_um": -213.7458,
+      "alignment_tip_local_x_um": -213.74579526741513,
+      "l10_tip_local_x_um": -271.7458,
+      "layer2_neck_extension_um": 22.6,
+      "layer2_start_width_um": 20.9968,
+      "layer14_start_width_um": 17.0,
+      "tick_inner_y_um": 2.4,
+      "s_bend_theta_deg": 10.0,
+      "s_bend_tilted_straight_um": 147.6401,
+      "s_bend_path_length_um": 200.0
+    },
+    {
+      "case_id": "SC_L200_T70_L_2T_2",
+      "mode": "2T",
+      "set": "L",
+      "taper_profile": "linear",
+      "copy": 2,
+      "label": "L200_T70_L_2T_2",
+      "label_layer": [
+        15,
+        0
+      ],
+      "width_um": 1.6,
+      "l10_stage1_length_um": 70.0,
+      "l10_taper_length_um": 128.0,
+      "l15_taper_length_um": 70.0,
+      "alignment_tip_position_um": 70.0,
+      "layer14_linear_start_distance_um": 66.847,
+      "straight_length_um": 200.0,
+      "port_span_um": 197.4916,
+      "output_extension_length_um": 0.0,
+      "path_length_excluding_tapers_um": 200.0,
+      "s_bend": {
+        "radius_um": 150.0,
+        "angle_deg": 10.0,
+        "offset_um": 30.1951
+      },
+      "output_end_y_offset_um": 30.195112308595597,
+      "origin_um": [
+        9524.399,
+        333.0
+      ],
+      "row_index": 3,
+      "row_align": "left",
+      "global_x_extent_um": [
+        7737.653,
+        11311.145
+      ],
+      "label_origin_um": [
+        9312.653,
+        348.0
+      ],
+      "label_length_um": 25.6,
+      "input_port_local_um": [
+        -98.7458,
+        0.0
+      ],
+      "output_port_local_um": [
+        98.7458,
+        30.1951
+      ],
+      "l10_entrance_local_x_um": -143.7458,
+      "l15_tip_local_x_um": -213.7458,
+      "alignment_tip_local_x_um": -213.74579526741513,
+      "l10_tip_local_x_um": -271.7458,
+      "layer2_neck_extension_um": 22.6,
+      "layer2_start_width_um": 20.5943,
+      "layer14_start_width_um": 17.0,
+      "tick_inner_y_um": 2.4,
+      "s_bend_theta_deg": 10.0,
+      "s_bend_tilted_straight_um": 147.6401,
+      "s_bend_path_length_um": 200.0
+    },
+    {
+      "case_id": "SC_L200_T80_A_2T",
+      "mode": "2T",
+      "set": "A",
+      "taper_profile": "smootherstep",
+      "copy": 1,
+      "label": "L200_T80_A_2T",
+      "label_layer": [
+        15,
+        0
+      ],
+      "width_um": 1.6,
+      "l10_stage1_length_um": 80.0,
+      "l10_taper_length_um": 138.0,
+      "l15_taper_length_um": 80.0,
+      "alignment_tip_position_um": 80.0,
+      "layer14_linear_start_distance_um": 76.847,
+      "straight_length_um": 200.0,
+      "port_span_um": 197.4916,
+      "output_extension_length_um": 0.0,
+      "path_length_excluding_tapers_um": 200.0,
+      "s_bend": {
+        "radius_um": 150.0,
+        "angle_deg": 10.0,
+        "offset_um": 30.1951
+      },
+      "output_end_y_offset_um": 30.195112308595597,
+      "origin_um": [
+        -4865.601,
+        633.0
+      ],
+      "row_index": 4,
+      "row_align": "left",
+      "global_x_extent_um": [
+        -6662.347,
+        -3068.855
+      ],
+      "label_origin_um": [
+        -5087.347,
+        648.0
+      ],
+      "label_length_um": 22.2,
+      "input_port_local_um": [
+        -98.7458,
+        0.0
+      ],
+      "output_port_local_um": [
+        98.7458,
+        30.1951
+      ],
+      "l10_entrance_local_x_um": -143.7458,
+      "l15_tip_local_x_um": -223.7458,
+      "alignment_tip_local_x_um": -223.74579526741513,
+      "l10_tip_local_x_um": -281.7458,
+      "layer2_neck_extension_um": 22.6,
+      "layer2_start_width_um": 20.9979,
+      "layer14_start_width_um": 17.0,
+      "tick_inner_y_um": 2.4,
+      "s_bend_theta_deg": 10.0,
+      "s_bend_tilted_straight_um": 147.6401,
+      "s_bend_path_length_um": 200.0
+    },
+    {
+      "case_id": "SC_L200_T80_L_2T",
+      "mode": "2T",
+      "set": "L",
+      "taper_profile": "linear",
+      "copy": 1,
+      "label": "L200_T80_L_2T",
+      "label_layer": [
+        15,
+        0
+      ],
+      "width_um": 1.6,
+      "l10_stage1_length_um": 80.0,
+      "l10_taper_length_um": 138.0,
+      "l15_taper_length_um": 80.0,
+      "alignment_tip_position_um": 80.0,
+      "layer14_linear_start_distance_um": 76.847,
+      "straight_length_um": 200.0,
+      "port_span_um": 197.4916,
+      "output_extension_length_um": 0.0,
+      "path_length_excluding_tapers_um": 200.0,
+      "s_bend": {
+        "radius_um": 150.0,
+        "angle_deg": 10.0,
+        "offset_um": 30.1951
+      },
+      "output_end_y_offset_um": 30.195112308595597,
+      "origin_um": [
+        -65.601,
+        633.0
+      ],
+      "row_index": 4,
+      "row_align": "left",
+      "global_x_extent_um": [
+        -1862.347,
+        1731.145
+      ],
+      "label_origin_um": [
+        -287.347,
+        648.0
+      ],
+      "label_length_um": 22.2,
+      "input_port_local_um": [
+        -98.7458,
+        0.0
+      ],
+      "output_port_local_um": [
+        98.7458,
+        30.1951
+      ],
+      "l10_entrance_local_x_um": -143.7458,
+      "l15_tip_local_x_um": -223.7458,
+      "alignment_tip_local_x_um": -223.74579526741513,
+      "l10_tip_local_x_um": -281.7458,
+      "layer2_neck_extension_um": 22.6,
+      "layer2_start_width_um": 20.645,
+      "layer14_start_width_um": 17.0,
+      "tick_inner_y_um": 2.4,
+      "s_bend_theta_deg": 10.0,
+      "s_bend_tilted_straight_um": 147.6401,
+      "s_bend_path_length_um": 200.0
+    },
+    {
+      "case_id": "SC_L200_T80_A_2T_2",
+      "mode": "2T",
+      "set": "A",
+      "taper_profile": "smootherstep",
+      "copy": 2,
+      "label": "L200_T80_A_2T_2",
+      "label_layer": [
+        15,
+        0
+      ],
+      "width_um": 1.6,
+      "l10_stage1_length_um": 80.0,
+      "l10_taper_length_um": 138.0,
+      "l15_taper_length_um": 80.0,
+      "alignment_tip_position_um": 80.0,
+      "layer14_linear_start_distance_um": 76.847,
+      "straight_length_um": 200.0,
+      "port_span_um": 197.4916,
+      "output_extension_length_um": 0.0,
+      "path_length_excluding_tapers_um": 200.0,
+      "s_bend": {
+        "radius_um": 150.0,
+        "angle_deg": 10.0,
+        "offset_um": 30.1951
+      },
+      "output_end_y_offset_um": 30.195112308595597,
+      "origin_um": [
+        4734.399,
+        633.0
+      ],
+      "row_index": 4,
+      "row_align": "left",
+      "global_x_extent_um": [
+        2937.653,
+        6531.145
+      ],
+      "label_origin_um": [
+        4512.653,
+        648.0
+      ],
+      "label_length_um": 25.6,
+      "input_port_local_um": [
+        -98.7458,
+        0.0
+      ],
+      "output_port_local_um": [
+        98.7458,
+        30.1951
+      ],
+      "l10_entrance_local_x_um": -143.7458,
+      "l15_tip_local_x_um": -223.7458,
+      "alignment_tip_local_x_um": -223.74579526741513,
+      "l10_tip_local_x_um": -281.7458,
+      "layer2_neck_extension_um": 22.6,
+      "layer2_start_width_um": 20.9979,
+      "layer14_start_width_um": 17.0,
+      "tick_inner_y_um": 2.4,
+      "s_bend_theta_deg": 10.0,
+      "s_bend_tilted_straight_um": 147.6401,
+      "s_bend_path_length_um": 200.0
+    },
+    {
+      "case_id": "SC_L200_T80_L_2T_2",
+      "mode": "2T",
+      "set": "L",
+      "taper_profile": "linear",
+      "copy": 2,
+      "label": "L200_T80_L_2T_2",
+      "label_layer": [
+        15,
+        0
+      ],
+      "width_um": 1.6,
+      "l10_stage1_length_um": 80.0,
+      "l10_taper_length_um": 138.0,
+      "l15_taper_length_um": 80.0,
+      "alignment_tip_position_um": 80.0,
+      "layer14_linear_start_distance_um": 76.847,
+      "straight_length_um": 200.0,
+      "port_span_um": 197.4916,
+      "output_extension_length_um": 0.0,
+      "path_length_excluding_tapers_um": 200.0,
+      "s_bend": {
+        "radius_um": 150.0,
+        "angle_deg": 10.0,
+        "offset_um": 30.1951
+      },
+      "output_end_y_offset_um": 30.195112308595597,
+      "origin_um": [
+        9534.399,
+        633.0
+      ],
+      "row_index": 4,
+      "row_align": "left",
+      "global_x_extent_um": [
+        7737.653,
+        11331.145
+      ],
+      "label_origin_um": [
+        9312.653,
+        648.0
+      ],
+      "label_length_um": 25.6,
+      "input_port_local_um": [
+        -98.7458,
+        0.0
+      ],
+      "output_port_local_um": [
+        98.7458,
+        30.1951
+      ],
+      "l10_entrance_local_x_um": -143.7458,
+      "l15_tip_local_x_um": -223.7458,
+      "alignment_tip_local_x_um": -223.74579526741513,
+      "l10_tip_local_x_um": -281.7458,
+      "layer2_neck_extension_um": 22.6,
+      "layer2_start_width_um": 20.645,
+      "layer14_start_width_um": 17.0,
+      "tick_inner_y_um": 2.4,
+      "s_bend_theta_deg": 10.0,
+      "s_bend_tilted_straight_um": 147.6401,
+      "s_bend_path_length_um": 200.0
+    },
+    {
+      "case_id": "SC_L15000_W1590_A_1T",
+      "mode": "1T",
+      "set": "A",
+      "taper_profile": "smootherstep",
+      "copy": 1,
+      "label": "L15000_W1.590_A_1T",
+      "label_layer": [
+        15,
+        0
+      ],
+      "width_um": 1.59,
+      "l10_stage1_length_um": 60.0,
+      "l10_taper_length_um": 118.0,
+      "l15_taper_length_um": 60.0,
+      "alignment_tip_position_um": 60.0,
+      "layer14_linear_start_distance_um": 56.847,
+      "straight_length_um": 15000.0,
+      "port_span_um": 15000.0,
+      "output_extension_length_um": 2000.0,
+      "path_length_excluding_tapers_um": 17000.0,
+      "s_bend": null,
+      "output_end_y_offset_um": 0.0,
+      "origin_um": [
+        2515.653,
+        933.0
+      ],
+      "row_index": 5,
+      "row_align": "right",
+      "global_x_extent_um": [
+        -6662.347,
+        12015.653
+      ],
+      "label_origin_um": [
+        -5087.347,
+        948.0
+      ],
+      "label_length_um": 27.6,
+      "input_port_local_um": [
+        -7500.0,
+        0.0
+      ],
+      "output_port_local_um": [
+        9500.0,
+        0.0
+      ],
+      "l10_entrance_local_x_um": -7545.0,
+      "l15_tip_local_x_um": -7605.0,
+      "alignment_tip_local_x_um": -7605.0,
+      "l10_tip_local_x_um": -7663.0,
+      "layer2_neck_extension_um": 22.6,
+      "layer2_start_width_um": 20.995,
+      "layer14_start_width_um": 17.0,
+      "tick_inner_y_um": 2.4
+    },
+    {
+      "case_id": "SC_L15000_W1595_A_1T",
+      "mode": "1T",
+      "set": "A",
+      "taper_profile": "smootherstep",
+      "copy": 1,
+      "label": "L15000_W1.595_A_1T",
+      "label_layer": [
+        15,
+        0
+      ],
+      "width_um": 1.595,
+      "l10_stage1_length_um": 60.0,
+      "l10_taper_length_um": 118.0,
+      "l15_taper_length_um": 60.0,
+      "alignment_tip_position_um": 60.0,
+      "layer14_linear_start_distance_um": 56.847,
+      "straight_length_um": 15000.0,
+      "port_span_um": 15000.0,
+      "output_extension_length_um": 2000.0,
+      "path_length_excluding_tapers_um": 17000.0,
+      "s_bend": null,
+      "output_end_y_offset_um": 0.0,
+      "origin_um": [
+        2515.653,
+        1233.0
+      ],
+      "row_index": 6,
+      "row_align": "right",
+      "global_x_extent_um": [
+        -6662.347,
+        12015.653
+      ],
+      "label_origin_um": [
+        -5087.347,
+        1248.0
+      ],
+      "label_length_um": 27.4,
+      "input_port_local_um": [
+        -7500.0,
+        0.0
+      ],
+      "output_port_local_um": [
+        9500.0,
+        0.0
+      ],
+      "l10_entrance_local_x_um": -7545.0,
+      "l15_tip_local_x_um": -7605.0,
+      "alignment_tip_local_x_um": -7605.0,
+      "l10_tip_local_x_um": -7663.0,
+      "layer2_neck_extension_um": 22.6,
+      "layer2_start_width_um": 20.995,
+      "layer14_start_width_um": 17.0,
+      "tick_inner_y_um": 2.4
+    },
+    {
+      "case_id": "SC_L15000_W1600_A_1T",
+      "mode": "1T",
+      "set": "A",
+      "taper_profile": "smootherstep",
+      "copy": 1,
+      "label": "L15000_W1.600_A_1T",
+      "label_layer": [
+        15,
+        0
+      ],
+      "width_um": 1.6,
+      "l10_stage1_length_um": 60.0,
+      "l10_taper_length_um": 118.0,
+      "l15_taper_length_um": 60.0,
+      "alignment_tip_position_um": 60.0,
+      "layer14_linear_start_distance_um": 56.847,
+      "straight_length_um": 15000.0,
+      "port_span_um": 15000.0,
+      "output_extension_length_um": 2000.0,
+      "path_length_excluding_tapers_um": 17000.0,
+      "s_bend": null,
+      "output_end_y_offset_um": 0.0,
+      "origin_um": [
+        2515.653,
+        1533.0
+      ],
+      "row_index": 7,
+      "row_align": "right",
+      "global_x_extent_um": [
+        -6662.347,
+        12015.653
+      ],
+      "label_origin_um": [
+        -5087.347,
+        1548.0
+      ],
+      "label_length_um": 27.8,
+      "input_port_local_um": [
+        -7500.0,
+        0.0
+      ],
+      "output_port_local_um": [
+        9500.0,
+        0.0
+      ],
+      "l10_entrance_local_x_um": -7545.0,
+      "l15_tip_local_x_um": -7605.0,
+      "alignment_tip_local_x_um": -7605.0,
+      "l10_tip_local_x_um": -7663.0,
+      "layer2_neck_extension_um": 22.6,
+      "layer2_start_width_um": 20.995,
+      "layer14_start_width_um": 17.0,
+      "tick_inner_y_um": 2.4
+    },
+    {
+      "case_id": "SC_L15000_W1605_A_1T",
+      "mode": "1T",
+      "set": "A",
+      "taper_profile": "smootherstep",
+      "copy": 1,
+      "label": "L15000_W1.605_A_1T",
+      "label_layer": [
+        15,
+        0
+      ],
+      "width_um": 1.605,
+      "l10_stage1_length_um": 60.0,
+      "l10_taper_length_um": 118.0,
+      "l15_taper_length_um": 60.0,
+      "alignment_tip_position_um": 60.0,
+      "layer14_linear_start_distance_um": 56.847,
+      "straight_length_um": 15000.0,
+      "port_span_um": 15000.0,
+      "output_extension_length_um": 2000.0,
+      "path_length_excluding_tapers_um": 17000.0,
+      "s_bend": null,
+      "output_end_y_offset_um": 0.0,
+      "origin_um": [
+        2515.653,
+        1833.0
+      ],
+      "row_index": 8,
+      "row_align": "right",
+      "global_x_extent_um": [
+        -6662.347,
+        12015.653
+      ],
+      "label_origin_um": [
+        -5087.347,
+        1848.0
+      ],
+      "label_length_um": 27.6,
+      "input_port_local_um": [
+        -7500.0,
+        0.0
+      ],
+      "output_port_local_um": [
+        9500.0,
+        0.0
+      ],
+      "l10_entrance_local_x_um": -7545.0,
+      "l15_tip_local_x_um": -7605.0,
+      "alignment_tip_local_x_um": -7605.0,
+      "l10_tip_local_x_um": -7663.0,
+      "layer2_neck_extension_um": 22.6,
+      "layer2_start_width_um": 20.995,
+      "layer14_start_width_um": 17.0,
+      "tick_inner_y_um": 2.4
+    },
+    {
+      "case_id": "SC_L15000_W1610_A_1T",
+      "mode": "1T",
+      "set": "A",
+      "taper_profile": "smootherstep",
+      "copy": 1,
+      "label": "L15000_W1.610_A_1T",
+      "label_layer": [
+        15,
+        0
+      ],
+      "width_um": 1.61,
+      "l10_stage1_length_um": 60.0,
+      "l10_taper_length_um": 118.0,
+      "l15_taper_length_um": 60.0,
+      "alignment_tip_position_um": 60.0,
+      "layer14_linear_start_distance_um": 56.847,
+      "straight_length_um": 15000.0,
+      "port_span_um": 15000.0,
+      "output_extension_length_um": 2000.0,
+      "path_length_excluding_tapers_um": 17000.0,
+      "s_bend": null,
+      "output_end_y_offset_um": 0.0,
+      "origin_um": [
+        2515.653,
+        2133.0
+      ],
+      "row_index": 9,
+      "row_align": "right",
+      "global_x_extent_um": [
+        -6662.347,
+        12015.653
+      ],
+      "label_origin_um": [
+        -5087.347,
+        2148.0
+      ],
+      "label_length_um": 27.0,
+      "input_port_local_um": [
+        -7500.0,
+        0.0
+      ],
+      "output_port_local_um": [
+        9500.0,
+        0.0
+      ],
+      "l10_entrance_local_x_um": -7545.0,
+      "l15_tip_local_x_um": -7605.0,
+      "alignment_tip_local_x_um": -7605.0,
+      "l10_tip_local_x_um": -7663.0,
+      "layer2_neck_extension_um": 22.6,
+      "layer2_start_width_um": 20.995,
+      "layer14_start_width_um": 17.0,
+      "tick_inner_y_um": 2.4
+    },
+    {
+      "case_id": "SC_L15000_W1590_L_1T",
+      "mode": "1T",
+      "set": "L",
+      "taper_profile": "linear",
+      "copy": 1,
+      "label": "L15000_W1.590_L_1T",
+      "label_layer": [
+        15,
+        0
+      ],
+      "width_um": 1.59,
+      "l10_stage1_length_um": 60.0,
+      "l10_taper_length_um": 118.0,
+      "l15_taper_length_um": 60.0,
+      "alignment_tip_position_um": 60.0,
+      "layer14_linear_start_distance_um": 56.847,
+      "straight_length_um": 15000.0,
+      "port_span_um": 15000.0,
+      "output_extension_length_um": 2000.0,
+      "path_length_excluding_tapers_um": 17000.0,
+      "s_bend": null,
+      "output_end_y_offset_um": 0.0,
+      "origin_um": [
+        2515.653,
+        2433.0
+      ],
+      "row_index": 10,
+      "row_align": "right",
+      "global_x_extent_um": [
+        -6662.347,
+        12015.653
+      ],
+      "label_origin_um": [
+        -5087.347,
+        2448.0
+      ],
+      "label_length_um": 27.6,
+      "input_port_local_um": [
+        -7500.0,
+        0.0
+      ],
+      "output_port_local_um": [
+        9500.0,
+        0.0
+      ],
+      "l10_entrance_local_x_um": -7545.0,
+      "l15_tip_local_x_um": -7605.0,
+      "alignment_tip_local_x_um": -7605.0,
+      "l10_tip_local_x_um": -7663.0,
+      "layer2_neck_extension_um": 22.6,
+      "layer2_start_width_um": 20.5267,
+      "layer14_start_width_um": 17.0,
+      "tick_inner_y_um": 2.4
+    },
+    {
+      "case_id": "SC_L15000_W1595_L_1T",
+      "mode": "1T",
+      "set": "L",
+      "taper_profile": "linear",
+      "copy": 1,
+      "label": "L15000_W1.595_L_1T",
+      "label_layer": [
+        15,
+        0
+      ],
+      "width_um": 1.595,
+      "l10_stage1_length_um": 60.0,
+      "l10_taper_length_um": 118.0,
+      "l15_taper_length_um": 60.0,
+      "alignment_tip_position_um": 60.0,
+      "layer14_linear_start_distance_um": 56.847,
+      "straight_length_um": 15000.0,
+      "port_span_um": 15000.0,
+      "output_extension_length_um": 2000.0,
+      "path_length_excluding_tapers_um": 17000.0,
+      "s_bend": null,
+      "output_end_y_offset_um": 0.0,
+      "origin_um": [
+        2515.653,
+        2733.0
+      ],
+      "row_index": 11,
+      "row_align": "right",
+      "global_x_extent_um": [
+        -6662.347,
+        12015.653
+      ],
+      "label_origin_um": [
+        -5087.347,
+        2748.0
+      ],
+      "label_length_um": 27.4,
+      "input_port_local_um": [
+        -7500.0,
+        0.0
+      ],
+      "output_port_local_um": [
+        9500.0,
+        0.0
+      ],
+      "l10_entrance_local_x_um": -7545.0,
+      "l15_tip_local_x_um": -7605.0,
+      "alignment_tip_local_x_um": -7605.0,
+      "l10_tip_local_x_um": -7663.0,
+      "layer2_neck_extension_um": 22.6,
+      "layer2_start_width_um": 20.5267,
+      "layer14_start_width_um": 17.0,
+      "tick_inner_y_um": 2.4
+    },
+    {
+      "case_id": "SC_L15000_W1600_L_1T",
+      "mode": "1T",
+      "set": "L",
+      "taper_profile": "linear",
+      "copy": 1,
+      "label": "L15000_W1.600_L_1T",
+      "label_layer": [
+        15,
+        0
+      ],
+      "width_um": 1.6,
+      "l10_stage1_length_um": 60.0,
+      "l10_taper_length_um": 118.0,
+      "l15_taper_length_um": 60.0,
+      "alignment_tip_position_um": 60.0,
+      "layer14_linear_start_distance_um": 56.847,
+      "straight_length_um": 15000.0,
+      "port_span_um": 15000.0,
+      "output_extension_length_um": 2000.0,
+      "path_length_excluding_tapers_um": 17000.0,
+      "s_bend": null,
+      "output_end_y_offset_um": 0.0,
+      "origin_um": [
+        2515.653,
+        3033.0
+      ],
+      "row_index": 12,
+      "row_align": "right",
+      "global_x_extent_um": [
+        -6662.347,
+        12015.653
+      ],
+      "label_origin_um": [
+        -5087.347,
+        3048.0
+      ],
+      "label_length_um": 27.8,
+      "input_port_local_um": [
+        -7500.0,
+        0.0
+      ],
+      "output_port_local_um": [
+        9500.0,
+        0.0
+      ],
+      "l10_entrance_local_x_um": -7545.0,
+      "l15_tip_local_x_um": -7605.0,
+      "alignment_tip_local_x_um": -7605.0,
+      "l10_tip_local_x_um": -7663.0,
+      "layer2_neck_extension_um": 22.6,
+      "layer2_start_width_um": 20.5267,
+      "layer14_start_width_um": 17.0,
+      "tick_inner_y_um": 2.4
+    },
+    {
+      "case_id": "SC_L15000_W1605_L_1T",
+      "mode": "1T",
+      "set": "L",
+      "taper_profile": "linear",
+      "copy": 1,
+      "label": "L15000_W1.605_L_1T",
+      "label_layer": [
+        15,
+        0
+      ],
+      "width_um": 1.605,
+      "l10_stage1_length_um": 60.0,
+      "l10_taper_length_um": 118.0,
+      "l15_taper_length_um": 60.0,
+      "alignment_tip_position_um": 60.0,
+      "layer14_linear_start_distance_um": 56.847,
+      "straight_length_um": 15000.0,
+      "port_span_um": 15000.0,
+      "output_extension_length_um": 2000.0,
+      "path_length_excluding_tapers_um": 17000.0,
+      "s_bend": null,
+      "output_end_y_offset_um": 0.0,
+      "origin_um": [
+        2515.653,
+        3333.0
+      ],
+      "row_index": 13,
+      "row_align": "right",
+      "global_x_extent_um": [
+        -6662.347,
+        12015.653
+      ],
+      "label_origin_um": [
+        -5087.347,
+        3348.0
+      ],
+      "label_length_um": 27.6,
+      "input_port_local_um": [
+        -7500.0,
+        0.0
+      ],
+      "output_port_local_um": [
+        9500.0,
+        0.0
+      ],
+      "l10_entrance_local_x_um": -7545.0,
+      "l15_tip_local_x_um": -7605.0,
+      "alignment_tip_local_x_um": -7605.0,
+      "l10_tip_local_x_um": -7663.0,
+      "layer2_neck_extension_um": 22.6,
+      "layer2_start_width_um": 20.5267,
+      "layer14_start_width_um": 17.0,
+      "tick_inner_y_um": 2.4
+    },
+    {
+      "case_id": "SC_L15000_W1610_L_1T",
+      "mode": "1T",
+      "set": "L",
+      "taper_profile": "linear",
+      "copy": 1,
+      "label": "L15000_W1.610_L_1T",
+      "label_layer": [
+        15,
+        0
+      ],
+      "width_um": 1.61,
+      "l10_stage1_length_um": 60.0,
+      "l10_taper_length_um": 118.0,
+      "l15_taper_length_um": 60.0,
+      "alignment_tip_position_um": 60.0,
+      "layer14_linear_start_distance_um": 56.847,
+      "straight_length_um": 15000.0,
+      "port_span_um": 15000.0,
+      "output_extension_length_um": 2000.0,
+      "path_length_excluding_tapers_um": 17000.0,
+      "s_bend": null,
+      "output_end_y_offset_um": 0.0,
+      "origin_um": [
+        2515.653,
+        3633.0
+      ],
+      "row_index": 14,
+      "row_align": "right",
+      "global_x_extent_um": [
+        -6662.347,
+        12015.653
+      ],
+      "label_origin_um": [
+        -5087.347,
+        3648.0
+      ],
+      "label_length_um": 27.0,
+      "input_port_local_um": [
+        -7500.0,
+        0.0
+      ],
+      "output_port_local_um": [
+        9500.0,
+        0.0
+      ],
+      "l10_entrance_local_x_um": -7545.0,
+      "l15_tip_local_x_um": -7605.0,
+      "alignment_tip_local_x_um": -7605.0,
+      "l10_tip_local_x_um": -7663.0,
+      "layer2_neck_extension_um": 22.6,
+      "layer2_start_width_um": 20.5267,
+      "layer14_start_width_um": 17.0,
+      "tick_inner_y_um": 2.4
+    },
+    {
+      "case_id": "SC_L15000_W1590_A_1T_2",
+      "mode": "1T",
+      "set": "A",
+      "taper_profile": "smootherstep",
+      "copy": 2,
+      "label": "L15000_W1.590_A_1T_2",
+      "label_layer": [
+        15,
+        0
+      ],
+      "width_um": 1.59,
+      "l10_stage1_length_um": 60.0,
+      "l10_taper_length_um": 118.0,
+      "l15_taper_length_um": 60.0,
+      "alignment_tip_position_um": 60.0,
+      "layer14_linear_start_distance_um": 56.847,
+      "straight_length_um": 15000.0,
+      "port_span_um": 15000.0,
+      "output_extension_length_um": 2000.0,
+      "path_length_excluding_tapers_um": 17000.0,
+      "s_bend": null,
+      "output_end_y_offset_um": 0.0,
+      "origin_um": [
+        2515.653,
+        3933.0
+      ],
+      "row_index": 15,
+      "row_align": "right",
+      "global_x_extent_um": [
+        -6662.347,
+        12015.653
+      ],
+      "label_origin_um": [
+        -5087.347,
+        3948.0
+      ],
+      "label_length_um": 31.0,
+      "input_port_local_um": [
+        -7500.0,
+        0.0
+      ],
+      "output_port_local_um": [
+        9500.0,
+        0.0
+      ],
+      "l10_entrance_local_x_um": -7545.0,
+      "l15_tip_local_x_um": -7605.0,
+      "alignment_tip_local_x_um": -7605.0,
+      "l10_tip_local_x_um": -7663.0,
+      "layer2_neck_extension_um": 22.6,
+      "layer2_start_width_um": 20.995,
+      "layer14_start_width_um": 17.0,
+      "tick_inner_y_um": 2.4
+    },
+    {
+      "case_id": "SC_L15000_W1595_A_1T_2",
+      "mode": "1T",
+      "set": "A",
+      "taper_profile": "smootherstep",
+      "copy": 2,
+      "label": "L15000_W1.595_A_1T_2",
+      "label_layer": [
+        15,
+        0
+      ],
+      "width_um": 1.595,
+      "l10_stage1_length_um": 60.0,
+      "l10_taper_length_um": 118.0,
+      "l15_taper_length_um": 60.0,
+      "alignment_tip_position_um": 60.0,
+      "layer14_linear_start_distance_um": 56.847,
+      "straight_length_um": 15000.0,
+      "port_span_um": 15000.0,
+      "output_extension_length_um": 2000.0,
+      "path_length_excluding_tapers_um": 17000.0,
+      "s_bend": null,
+      "output_end_y_offset_um": 0.0,
+      "origin_um": [
+        2515.653,
+        4233.0
+      ],
+      "row_index": 16,
+      "row_align": "right",
+      "global_x_extent_um": [
+        -6662.347,
+        12015.653
+      ],
+      "label_origin_um": [
+        -5087.347,
+        4248.0
+      ],
+      "label_length_um": 30.8,
+      "input_port_local_um": [
+        -7500.0,
+        0.0
+      ],
+      "output_port_local_um": [
+        9500.0,
+        0.0
+      ],
+      "l10_entrance_local_x_um": -7545.0,
+      "l15_tip_local_x_um": -7605.0,
+      "alignment_tip_local_x_um": -7605.0,
+      "l10_tip_local_x_um": -7663.0,
+      "layer2_neck_extension_um": 22.6,
+      "layer2_start_width_um": 20.995,
+      "layer14_start_width_um": 17.0,
+      "tick_inner_y_um": 2.4
+    },
+    {
+      "case_id": "SC_L15000_W1600_A_1T_2",
+      "mode": "1T",
+      "set": "A",
+      "taper_profile": "smootherstep",
+      "copy": 2,
+      "label": "L15000_W1.600_A_1T_2",
+      "label_layer": [
+        15,
+        0
+      ],
+      "width_um": 1.6,
+      "l10_stage1_length_um": 60.0,
+      "l10_taper_length_um": 118.0,
+      "l15_taper_length_um": 60.0,
+      "alignment_tip_position_um": 60.0,
+      "layer14_linear_start_distance_um": 56.847,
+      "straight_length_um": 15000.0,
+      "port_span_um": 15000.0,
+      "output_extension_length_um": 2000.0,
+      "path_length_excluding_tapers_um": 17000.0,
+      "s_bend": null,
+      "output_end_y_offset_um": 0.0,
+      "origin_um": [
+        2515.653,
+        4533.0
+      ],
+      "row_index": 17,
+      "row_align": "right",
+      "global_x_extent_um": [
+        -6662.347,
+        12015.653
+      ],
+      "label_origin_um": [
+        -5087.347,
+        4548.0
+      ],
+      "label_length_um": 31.2,
+      "input_port_local_um": [
+        -7500.0,
+        0.0
+      ],
+      "output_port_local_um": [
+        9500.0,
+        0.0
+      ],
+      "l10_entrance_local_x_um": -7545.0,
+      "l15_tip_local_x_um": -7605.0,
+      "alignment_tip_local_x_um": -7605.0,
+      "l10_tip_local_x_um": -7663.0,
+      "layer2_neck_extension_um": 22.6,
+      "layer2_start_width_um": 20.995,
+      "layer14_start_width_um": 17.0,
+      "tick_inner_y_um": 2.4
+    },
+    {
+      "case_id": "SC_L15000_W1605_A_1T_2",
+      "mode": "1T",
+      "set": "A",
+      "taper_profile": "smootherstep",
+      "copy": 2,
+      "label": "L15000_W1.605_A_1T_2",
+      "label_layer": [
+        15,
+        0
+      ],
+      "width_um": 1.605,
+      "l10_stage1_length_um": 60.0,
+      "l10_taper_length_um": 118.0,
+      "l15_taper_length_um": 60.0,
+      "alignment_tip_position_um": 60.0,
+      "layer14_linear_start_distance_um": 56.847,
+      "straight_length_um": 15000.0,
+      "port_span_um": 15000.0,
+      "output_extension_length_um": 2000.0,
+      "path_length_excluding_tapers_um": 17000.0,
+      "s_bend": null,
+      "output_end_y_offset_um": 0.0,
+      "origin_um": [
+        2515.653,
+        4833.0
+      ],
+      "row_index": 18,
+      "row_align": "right",
+      "global_x_extent_um": [
+        -6662.347,
+        12015.653
+      ],
+      "label_origin_um": [
+        -5087.347,
+        4848.0
+      ],
+      "label_length_um": 31.0,
+      "input_port_local_um": [
+        -7500.0,
+        0.0
+      ],
+      "output_port_local_um": [
+        9500.0,
+        0.0
+      ],
+      "l10_entrance_local_x_um": -7545.0,
+      "l15_tip_local_x_um": -7605.0,
+      "alignment_tip_local_x_um": -7605.0,
+      "l10_tip_local_x_um": -7663.0,
+      "layer2_neck_extension_um": 22.6,
+      "layer2_start_width_um": 20.995,
+      "layer14_start_width_um": 17.0,
+      "tick_inner_y_um": 2.4
+    },
+    {
+      "case_id": "SC_L15000_W1610_A_1T_2",
+      "mode": "1T",
+      "set": "A",
+      "taper_profile": "smootherstep",
+      "copy": 2,
+      "label": "L15000_W1.610_A_1T_2",
+      "label_layer": [
+        15,
+        0
+      ],
+      "width_um": 1.61,
+      "l10_stage1_length_um": 60.0,
+      "l10_taper_length_um": 118.0,
+      "l15_taper_length_um": 60.0,
+      "alignment_tip_position_um": 60.0,
+      "layer14_linear_start_distance_um": 56.847,
+      "straight_length_um": 15000.0,
+      "port_span_um": 15000.0,
+      "output_extension_length_um": 2000.0,
+      "path_length_excluding_tapers_um": 17000.0,
+      "s_bend": null,
+      "output_end_y_offset_um": 0.0,
+      "origin_um": [
+        2515.653,
+        5133.0
+      ],
+      "row_index": 19,
+      "row_align": "right",
+      "global_x_extent_um": [
+        -6662.347,
+        12015.653
+      ],
+      "label_origin_um": [
+        -5087.347,
+        5148.0
+      ],
+      "label_length_um": 30.4,
+      "input_port_local_um": [
+        -7500.0,
+        0.0
+      ],
+      "output_port_local_um": [
+        9500.0,
+        0.0
+      ],
+      "l10_entrance_local_x_um": -7545.0,
+      "l15_tip_local_x_um": -7605.0,
+      "alignment_tip_local_x_um": -7605.0,
+      "l10_tip_local_x_um": -7663.0,
+      "layer2_neck_extension_um": 22.6,
+      "layer2_start_width_um": 20.995,
+      "layer14_start_width_um": 17.0,
+      "tick_inner_y_um": 2.4
+    }
+  ],
+  "optical_or_mechanical_simulation_performed": false
+}

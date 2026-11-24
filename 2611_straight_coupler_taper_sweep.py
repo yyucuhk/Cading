@@ -47,7 +47,7 @@ SOURCE_DEVICE = 'D1_SINGLE_L15000_W1620_2T'
 SOURCE_LABEL_CELLS = ('LABEL_D1_SINGLE_L15000_W1620_2T',
                       'LABEL_D1_SINGLE_L15000_W1640_1T_OUT2000',
                       'LABEL_D1_SINGLE_L15000_W1680_2T')
-STEM = '2611_straight_coupler_A-L_L300-2T-T40-80_L15000-1T-W1590-1610'
+STEM = '2611_straight_coupler_A-L_L200-2T-T40-80_L15000-1T-W1590-1610'
 OUTPUT = ROOT / 'gds' / (STEM + '.gds')
 
 # %% [01] USER PARAMETERS (um)
@@ -61,9 +61,9 @@ LONG_WIDTHS = (1.590, 1.595, 1.600, 1.605, 1.610)   # long-device waveguide widt
 S_BEND_RADIUS = 150.0                         # short devices: the straight becomes a gentle S-bend:
 S_BEND_ANGLE_DEG = 10.0                       # arc (R, this angle) - tilted straight - arc back
 S_BEND_OFFSET = None                          # output-end y offset; None = follows from the angle
-SHORT_COLUMN_PITCH = 4790.0                   # short-device column spacing (left edges)
-SHORT_PATH_LENGTH = 300.0                     # short devices: waveguide path length between the ports
-SHORT_LENGTH = 300.0                          # label value; the port-to-port x span is solved from the path; with the
+SHORT_COLUMN_PITCH = 4800.0                   # short-device column spacing (left edges)
+SHORT_PATH_LENGTH = 200.0                     # short devices: waveguide path length between the ports
+SHORT_LENGTH = 200.0                          # label value; the port-to-port x span is solved from the path; with the
                                               # tapers every short device fits two 300 um fields (590 um)
 BLOCKS = (dict(mode='2T', align='left', members=((SHORT_LENGTH, 'A'), (SHORT_LENGTH, 'L'),
                                                   (SHORT_LENGTH, 'A'), (SHORT_LENGTH, 'L')),
