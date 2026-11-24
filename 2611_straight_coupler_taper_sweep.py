@@ -59,7 +59,7 @@ LONG_TAPER_T = 60.0                           # fixed L10 first-stage length for
 LONG_WIDTHS = (1.590, 1.595, 1.600, 1.605, 1.610)   # long-device waveguide width sweep
 # 'rows' lists (T, width) per row; 'label' says which parameter the label shows.
 S_BEND_RADIUS = 150.0                         # short devices: the straight becomes a gentle S-bend:
-S_BEND_ANGLE_DEG = 10.0                       # arc (R, this angle) - tilted straight - arc back
+S_BEND_ANGLE_DEG = 20.0                       # arc (R, this angle) - tilted straight - arc back
 S_BEND_OFFSET = None                          # output-end y offset; None = follows from the angle
 SHORT_COLUMN_PITCH = 4800.0                   # short-device column spacing (left edges)
 SHORT_PATH_LENGTH = 200.0                     # short devices: waveguide path length between the ports
