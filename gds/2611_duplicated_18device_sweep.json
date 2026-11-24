@@ -1,0 +1,47 @@
+{
+  "status": "PASS",
+  "output_gds": "/Users/yuyue/Documents/Github/Cading/gds/2611_duplicated_18device_sweep.gds",
+  "second_set_x_shift_um": 6600.0,
+  "first_sweep_bbox_um": [
+    -6250.0,
+    -5600.0,
+    -350.0,
+    5600.0
+  ],
+  "second_sweep_bbox_um": [
+    350.0,
+    -5600.0,
+    6250.0,
+    5600.0
+  ],
+  "overall_bbox_um": [
+    -6250.0,
+    -5600.0,
+    6250.0,
+    5600.0
+  ],
+  "placement": "pair centered at (0,0); second sweep is +6600 um in x",
+  "marker_inset_um": 150.0,
+  "marker_layer": [
+    15,
+    0
+  ],
+  "marker_layers_removed": [
+    [
+      2,
+      0
+    ],
+    [
+      10,
+      0
+    ],
+    [
+      15,
+      0
+    ]
+  ],
+  "marker_shape_source_layer": [
+    10,
+    0
+  ]
+}

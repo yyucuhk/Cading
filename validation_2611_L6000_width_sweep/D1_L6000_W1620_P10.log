@@ -1,0 +1,4 @@
+D1_L6000_W1620_P10 PASS 63 checks
+
+/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/kfactory/decorators.py:406: UserWarning: Port type anchor not in ['optical', 'electrical', 'placement', 'vertical_te', 'vertical_tm', 'vertical_dual', 'electrical_rf', 'pad', 'pad_rf', 'bump', 'edge_coupler']. Please add it to the port_types list in the config gf.CONF.port_types.
+  cell = f(**params)  # type: ignore[call-arg]

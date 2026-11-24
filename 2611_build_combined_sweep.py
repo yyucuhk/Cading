@@ -29,7 +29,7 @@ BEND_PNC_PERIODS = (2.0, 3.0, 5.0)
 POST_PNC_TAPER_LENGTHS = (80.0, 100.0, 120.0)  # total Layer-10 length; excludes PNC
 DESIGN_ORDER = (1, 2)  # bottom to top: nine Design-1, then nine Design-2 devices
 DESIGN_X_OFFSET = 0.0  # retained in manifest; both designs share the same bend X
-ROW_PITCH = 600.0
+ROW_PITCH = 550.0
 FIRST_ROW_Y = -700.0
 LEFT_BEND_X = -900.0  # common leftmost Layer-11 PNC bend edge for ALL devices
 # Preserve the existing relative stage lengths, NOT absolute stage lengths.
@@ -41,8 +41,8 @@ MANIFEST = OUTPUT.with_suffix('.json')
 CSV_PATH = OUTPUT.with_suffix('.csv')
 WORK = ROOT / 'validation_2611_combined_sweep'
 LABEL_SIZE = 5.0
-LABEL_X_OFFSET = 200.0  # from the aligned left PNC bend edge
-LABEL_Y_OFFSET = 250.0  # from the device origin, clear of the optical route
+LABEL_TIP_X_OFFSET = 2.0
+LABEL_TIP_Y_OFFSET = 20.0
 # Single GDS label format: D1_T80_P2 (all lengths/periods in um).
 # A single encompassing outline/marker set, not 18 overlapping chip frames.
 FRAME_MARGIN = 500.0
@@ -257,7 +257,10 @@ def worker(case):
     taper_regions = {n: kdb.Region(taper.kdb_cell.begin_shapes_rec(gf.get_layer((n, 0)))).merged()
                      for n in (10, 15)}
     stages = case['stage_lengths_um']
-    widths10 = [float(m.PNC_TAPER_END_WIDTH), 1., .2] if case['design'] == 1 else [float(m.PNC_TAPER_END_WIDTH), 1.65, .98, .2]
+    widths10 = ([float(m.PNC_TAPER_END_WIDTH), 1., .2]
+                if case['design'] == 1 else
+                [float(m.PNC_TAPER_END_WIDTH), float(m.SLAB_STAGE1_END_WIDTH),
+                 float(m.SLAB_STAGE2_END_WIDTH), .2])
     widths15 = [1., .1] if case['design'] == 1 else [1., .5, .2]
     lengths15 = stages[:1] if case['design'] == 1 else stages[:2]
     samples = []
@@ -384,8 +387,11 @@ def combine(entries):
         label_region = kdb.Region(label.kdb_cell.begin_shapes_rec(gf.get_layer((2, 0))))
         label_cell = ly.create_cell('LABEL_' + ident)
         label_cell.shapes(ly.layer(2, 0)).insert(label_region)
-        label_trans = kdb.Trans(round((LEFT_BEND_X + LABEL_X_OFFSET)/DBU),
-                               round((y + LABEL_Y_OFFSET)/DBU))
+        left_tip = min(meta['tip_centers'], key=lambda point: float(point[0]))
+        label_trans = kdb.Trans(
+            round((x + float(left_tip[0]) + LABEL_TIP_X_OFFSET) / DBU),
+            round((y + float(left_tip[1]) + LABEL_TIP_Y_OFFSET) / DBU),
+        )
         top.insert(kdb.CellInstArray(label_cell.cell_index(), label_trans))
         meta['label'] = label_text
         meta['label_layer'] = [2, 0]
@@ -498,8 +504,10 @@ def render(ly, top, manifest):
             if pts: lines.append(pts+[pts[0]])
         ax.add_collection(LineCollection(lines,linewidths=.35,label=f'Layer {n}'))
     for e in manifest['devices']:
-        x=e['left_bend_reference_x_um'];y=e['origin_um'][1]
-        ax.text(x+LABEL_X_OFFSET,y+LABEL_Y_OFFSET+15,e['label'],fontsize=7)
+        x=e['origin_um'][0];y=e['origin_um'][1]
+        tip=min(e['tip_centers'],key=lambda point:float(point[0]))
+        ax.text(x+tip[0]+LABEL_TIP_X_OFFSET,
+                y+tip[1]+LABEL_TIP_Y_OFFSET+15,e['label'],fontsize=7)
     frame=manifest['frame_bounds_um']
     ax.set(xlim=(frame[0],frame[2]),ylim=(FIRST_ROW_Y-450,
            FIRST_ROW_Y+(len(manifest['devices'])-1)*ROW_PITCH+450),

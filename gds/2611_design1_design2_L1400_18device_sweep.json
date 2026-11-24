@@ -19,8 +19,8 @@
         "removed_area_um2": 42.363,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "79ef943810758910e01e241d13c4f1231e3a37a406566ee5afb6a590fe557da6",
-      "left_pnc_x_um": -842.287,
+      "source_sha256": "fb86dd113b51833023f66837ee97cf2c1bb0e5d222082ef43779f4541ea20cf9",
+      "left_pnc_x_um": -842.787,
       "measured_straights_um": [
         1400.0,
         1400.0,
@@ -34,11 +34,11 @@
       "bend_pnc_measurements": [
         {
           "pairs": 184,
-          "fitted_pitch_um": 2.0049798098834204
+          "fitted_pitch_um": 2.0049798098834155
         },
         {
           "pairs": 184,
-          "fitted_pitch_um": 2.0049798098818123
+          "fitted_pitch_um": 2.0049798098818026
         }
       ],
       "straight_pnc_period_um": 5.0,
@@ -71,8 +71,8 @@
         },
         {
           "interior_pairs": 279,
-          "min_pitch_um": 4.999999999999545,
-          "max_pitch_um": 5.0,
+          "min_pitch_um": 5.0,
+          "max_pitch_um": 5.000000000000455,
           "start_um": [
             -700.0,
             -199.99999999999983
@@ -155,10 +155,10 @@
           "first_stage_end_width_um": 3.0,
           "linear_start_from_l10_um": 80.0,
           "linear_start_width_um": 2.1999999999999886,
-          "far_end_from_l10_um": 2095.0,
+          "far_end_from_l10_um": 1595.0,
           "far_edges_um": [
-            -32.92099999999999,
-            36.92099999999999
+            -24.191000000000003,
+            28.191000000000003
           ],
           "circle_centers_from_l10_um": [
             530.0,
@@ -182,10 +182,10 @@
           "first_stage_end_width_um": 3.0,
           "linear_start_from_l10_um": 80.0,
           "linear_start_width_um": 2.1999999999999886,
-          "far_end_from_l10_um": 2095.0,
+          "far_end_from_l10_um": 1595.0,
           "far_edges_um": [
-            -32.92099999999999,
-            36.92099999999999
+            -24.191000000000003,
+            28.191000000000003
           ],
           "circle_centers_from_l10_um": [
             530.0,
@@ -216,7 +216,7 @@
       ],
       "status": "PASS",
       "origin_um": [
-        -57.713,
+        -57.213,
         -700.0
       ],
       "left_bend_reference_x_um": -900.0,
@@ -226,8 +226,8 @@
         0
       ],
       "label_origin_um": [
-        -700.0,
-        -450.0
+        -840.213,
+        -480.0
       ],
       "label_size_um": 5.0
     },
@@ -249,8 +249,8 @@
         "removed_area_um2": 44.271,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "79ef943810758910e01e241d13c4f1231e3a37a406566ee5afb6a590fe557da6",
-      "left_pnc_x_um": -842.287,
+      "source_sha256": "fb86dd113b51833023f66837ee97cf2c1bb0e5d222082ef43779f4541ea20cf9",
+      "left_pnc_x_um": -842.787,
       "measured_straights_um": [
         1400.0,
         1400.0,
@@ -264,11 +264,11 @@
       "bend_pnc_measurements": [
         {
           "pairs": 184,
-          "fitted_pitch_um": 2.0049798098834204
+          "fitted_pitch_um": 2.0049798098834155
         },
         {
           "pairs": 184,
-          "fitted_pitch_um": 2.0049798098818123
+          "fitted_pitch_um": 2.0049798098818026
         }
       ],
       "straight_pnc_period_um": 5.0,
@@ -301,8 +301,8 @@
         },
         {
           "interior_pairs": 279,
-          "min_pitch_um": 4.999999999999545,
-          "max_pitch_um": 5.0,
+          "min_pitch_um": 5.0,
+          "max_pitch_um": 5.000000000000455,
           "start_um": [
             -700.0,
             -199.99999999999983
@@ -385,10 +385,10 @@
           "first_stage_end_width_um": 3.0,
           "linear_start_from_l10_um": 100.0,
           "linear_start_width_um": 2.1999999999999886,
-          "far_end_from_l10_um": 2115.0,
+          "far_end_from_l10_um": 1615.0,
           "far_edges_um": [
-            -32.92099999999999,
-            36.92099999999999
+            -24.191000000000003,
+            28.191000000000003
           ],
           "circle_centers_from_l10_um": [
             550.0,
@@ -412,10 +412,10 @@
           "first_stage_end_width_um": 3.0,
           "linear_start_from_l10_um": 100.0,
           "linear_start_width_um": 2.1999999999999886,
-          "far_end_from_l10_um": 2115.0,
+          "far_end_from_l10_um": 1615.0,
           "far_edges_um": [
-            -32.92099999999999,
-            36.92099999999999
+            -24.191000000000003,
+            28.191000000000003
           ],
           "circle_centers_from_l10_um": [
             550.0,
@@ -446,8 +446,8 @@
       ],
       "status": "PASS",
       "origin_um": [
-        -57.713,
-        -100.0
+        -57.213,
+        -150.0
       ],
       "left_bend_reference_x_um": -900.0,
       "label": "D1_T100_P2",
@@ -456,8 +456,8 @@
         0
       ],
       "label_origin_um": [
-        -700.0,
-        150.0
+        -850.213,
+        70.0
       ],
       "label_size_um": 5.0
     },
@@ -479,8 +479,8 @@
         "removed_area_um2": 44.297999999999995,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "79ef943810758910e01e241d13c4f1231e3a37a406566ee5afb6a590fe557da6",
-      "left_pnc_x_um": -842.287,
+      "source_sha256": "fb86dd113b51833023f66837ee97cf2c1bb0e5d222082ef43779f4541ea20cf9",
+      "left_pnc_x_um": -842.787,
       "measured_straights_um": [
         1400.0,
         1400.0,
@@ -494,11 +494,11 @@
       "bend_pnc_measurements": [
         {
           "pairs": 184,
-          "fitted_pitch_um": 2.0049798098834204
+          "fitted_pitch_um": 2.0049798098834155
         },
         {
           "pairs": 184,
-          "fitted_pitch_um": 2.0049798098818123
+          "fitted_pitch_um": 2.0049798098818026
         }
       ],
       "straight_pnc_period_um": 5.0,
@@ -531,8 +531,8 @@
         },
         {
           "interior_pairs": 279,
-          "min_pitch_um": 4.999999999999545,
-          "max_pitch_um": 5.0,
+          "min_pitch_um": 5.0,
+          "max_pitch_um": 5.000000000000455,
           "start_um": [
             -700.0,
             -199.99999999999983
@@ -615,10 +615,10 @@
           "first_stage_end_width_um": 3.0,
           "linear_start_from_l10_um": 120.0,
           "linear_start_width_um": 2.1999999999999886,
-          "far_end_from_l10_um": 2135.0,
+          "far_end_from_l10_um": 1635.0,
           "far_edges_um": [
-            -32.92099999999999,
-            36.92099999999999
+            -24.191000000000003,
+            28.191000000000003
           ],
           "circle_centers_from_l10_um": [
             570.0,
@@ -642,10 +642,10 @@
           "first_stage_end_width_um": 3.0,
           "linear_start_from_l10_um": 120.0,
           "linear_start_width_um": 2.1999999999999886,
-          "far_end_from_l10_um": 2135.0,
+          "far_end_from_l10_um": 1635.0,
           "far_edges_um": [
-            -32.92099999999999,
-            36.92099999999999
+            -24.191000000000003,
+            28.191000000000003
           ],
           "circle_centers_from_l10_um": [
             570.0,
@@ -676,8 +676,8 @@
       ],
       "status": "PASS",
       "origin_um": [
-        -57.713,
-        500.0
+        -57.213,
+        400.0
       ],
       "left_bend_reference_x_um": -900.0,
       "label": "D1_T120_P2",
@@ -686,8 +686,8 @@
         0
       ],
       "label_origin_um": [
-        -700.0,
-        750.0
+        -860.213,
+        620.0
       ],
       "label_size_um": 5.0
     },
@@ -709,8 +709,8 @@
         "removed_area_um2": 42.363,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "79ef943810758910e01e241d13c4f1231e3a37a406566ee5afb6a590fe557da6",
-      "left_pnc_x_um": -842.28,
+      "source_sha256": "fb86dd113b51833023f66837ee97cf2c1bb0e5d222082ef43779f4541ea20cf9",
+      "left_pnc_x_um": -842.78,
       "measured_straights_um": [
         1400.0,
         1400.0,
@@ -724,11 +724,11 @@
       "bend_pnc_measurements": [
         {
           "pairs": 122,
-          "fitted_pitch_um": 3.0157959108154206
+          "fitted_pitch_um": 3.015795910815413
         },
         {
           "pairs": 122,
-          "fitted_pitch_um": 3.0157959108129893
+          "fitted_pitch_um": 3.015795910812974
         }
       ],
       "straight_pnc_period_um": 5.0,
@@ -761,8 +761,8 @@
         },
         {
           "interior_pairs": 279,
-          "min_pitch_um": 4.999999999999545,
-          "max_pitch_um": 5.0,
+          "min_pitch_um": 5.0,
+          "max_pitch_um": 5.000000000000455,
           "start_um": [
             -700.0,
             -199.99999999999983
@@ -845,10 +845,10 @@
           "first_stage_end_width_um": 3.0,
           "linear_start_from_l10_um": 80.0,
           "linear_start_width_um": 2.1999999999999886,
-          "far_end_from_l10_um": 2095.0,
+          "far_end_from_l10_um": 1595.0,
           "far_edges_um": [
-            -32.92099999999999,
-            36.92099999999999
+            -24.191000000000003,
+            28.191000000000003
           ],
           "circle_centers_from_l10_um": [
             530.0,
@@ -872,10 +872,10 @@
           "first_stage_end_width_um": 3.0,
           "linear_start_from_l10_um": 80.0,
           "linear_start_width_um": 2.1999999999999886,
-          "far_end_from_l10_um": 2095.0,
+          "far_end_from_l10_um": 1595.0,
           "far_edges_um": [
-            -32.92099999999999,
-            36.92099999999999
+            -24.191000000000003,
+            28.191000000000003
           ],
           "circle_centers_from_l10_um": [
             530.0,
@@ -906,8 +906,8 @@
       ],
       "status": "PASS",
       "origin_um": [
-        -57.72,
-        1100.0
+        -57.22,
+        950.0
       ],
       "left_bend_reference_x_um": -900.0,
       "label": "D1_T80_P3",
@@ -916,8 +916,8 @@
         0
       ],
       "label_origin_um": [
-        -700.0,
-        1350.0
+        -840.22,
+        1170.0
       ],
       "label_size_um": 5.0
     },
@@ -939,8 +939,8 @@
         "removed_area_um2": 44.271,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "79ef943810758910e01e241d13c4f1231e3a37a406566ee5afb6a590fe557da6",
-      "left_pnc_x_um": -842.28,
+      "source_sha256": "fb86dd113b51833023f66837ee97cf2c1bb0e5d222082ef43779f4541ea20cf9",
+      "left_pnc_x_um": -842.78,
       "measured_straights_um": [
         1400.0,
         1400.0,
@@ -954,11 +954,11 @@
       "bend_pnc_measurements": [
         {
           "pairs": 122,
-          "fitted_pitch_um": 3.0157959108154206
+          "fitted_pitch_um": 3.015795910815413
         },
         {
           "pairs": 122,
-          "fitted_pitch_um": 3.0157959108129893
+          "fitted_pitch_um": 3.015795910812974
         }
       ],
       "straight_pnc_period_um": 5.0,
@@ -991,8 +991,8 @@
         },
         {
           "interior_pairs": 279,
-          "min_pitch_um": 4.999999999999545,
-          "max_pitch_um": 5.0,
+          "min_pitch_um": 5.0,
+          "max_pitch_um": 5.000000000000455,
           "start_um": [
             -700.0,
             -199.99999999999983
@@ -1075,10 +1075,10 @@
           "first_stage_end_width_um": 3.0,
           "linear_start_from_l10_um": 100.0,
           "linear_start_width_um": 2.1999999999999886,
-          "far_end_from_l10_um": 2115.0,
+          "far_end_from_l10_um": 1615.0,
           "far_edges_um": [
-            -32.92099999999999,
-            36.92099999999999
+            -24.191000000000003,
+            28.191000000000003
           ],
           "circle_centers_from_l10_um": [
             550.0,
@@ -1102,10 +1102,10 @@
           "first_stage_end_width_um": 3.0,
           "linear_start_from_l10_um": 100.0,
           "linear_start_width_um": 2.1999999999999886,
-          "far_end_from_l10_um": 2115.0,
+          "far_end_from_l10_um": 1615.0,
           "far_edges_um": [
-            -32.92099999999999,
-            36.92099999999999
+            -24.191000000000003,
+            28.191000000000003
           ],
           "circle_centers_from_l10_um": [
             550.0,
@@ -1136,8 +1136,8 @@
       ],
       "status": "PASS",
       "origin_um": [
-        -57.72,
-        1700.0
+        -57.22,
+        1500.0
       ],
       "left_bend_reference_x_um": -900.0,
       "label": "D1_T100_P3",
@@ -1146,8 +1146,8 @@
         0
       ],
       "label_origin_um": [
-        -700.0,
-        1950.0
+        -850.22,
+        1720.0
       ],
       "label_size_um": 5.0
     },
@@ -1169,8 +1169,8 @@
         "removed_area_um2": 44.297999999999995,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "79ef943810758910e01e241d13c4f1231e3a37a406566ee5afb6a590fe557da6",
-      "left_pnc_x_um": -842.28,
+      "source_sha256": "fb86dd113b51833023f66837ee97cf2c1bb0e5d222082ef43779f4541ea20cf9",
+      "left_pnc_x_um": -842.78,
       "measured_straights_um": [
         1400.0,
         1400.0,
@@ -1184,11 +1184,11 @@
       "bend_pnc_measurements": [
         {
           "pairs": 122,
-          "fitted_pitch_um": 3.0157959108154206
+          "fitted_pitch_um": 3.015795910815413
         },
         {
           "pairs": 122,
-          "fitted_pitch_um": 3.0157959108129893
+          "fitted_pitch_um": 3.015795910812974
         }
       ],
       "straight_pnc_period_um": 5.0,
@@ -1221,8 +1221,8 @@
         },
         {
           "interior_pairs": 279,
-          "min_pitch_um": 4.999999999999545,
-          "max_pitch_um": 5.0,
+          "min_pitch_um": 5.0,
+          "max_pitch_um": 5.000000000000455,
           "start_um": [
             -700.0,
             -199.99999999999983
@@ -1305,10 +1305,10 @@
           "first_stage_end_width_um": 3.0,
           "linear_start_from_l10_um": 120.0,
           "linear_start_width_um": 2.1999999999999886,
-          "far_end_from_l10_um": 2135.0,
+          "far_end_from_l10_um": 1635.0,
           "far_edges_um": [
-            -32.92099999999999,
-            36.92099999999999
+            -24.191000000000003,
+            28.191000000000003
           ],
           "circle_centers_from_l10_um": [
             570.0,
@@ -1332,10 +1332,10 @@
           "first_stage_end_width_um": 3.0,
           "linear_start_from_l10_um": 120.0,
           "linear_start_width_um": 2.1999999999999886,
-          "far_end_from_l10_um": 2135.0,
+          "far_end_from_l10_um": 1635.0,
           "far_edges_um": [
-            -32.92099999999999,
-            36.92099999999999
+            -24.191000000000003,
+            28.191000000000003
           ],
           "circle_centers_from_l10_um": [
             570.0,
@@ -1366,8 +1366,8 @@
       ],
       "status": "PASS",
       "origin_um": [
-        -57.72,
-        2300.0
+        -57.22,
+        2050.0
       ],
       "left_bend_reference_x_um": -900.0,
       "label": "D1_T120_P3",
@@ -1376,8 +1376,8 @@
         0
       ],
       "label_origin_um": [
-        -700.0,
-        2550.0
+        -860.22,
+        2270.0
       ],
       "label_size_um": 5.0
     },
@@ -1399,8 +1399,8 @@
         "removed_area_um2": 42.363,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "79ef943810758910e01e241d13c4f1231e3a37a406566ee5afb6a590fe557da6",
-      "left_pnc_x_um": -842.291,
+      "source_sha256": "fb86dd113b51833023f66837ee97cf2c1bb0e5d222082ef43779f4541ea20cf9",
+      "left_pnc_x_um": -842.791,
       "measured_straights_um": [
         1400.0,
         1400.0,
@@ -1414,11 +1414,11 @@
       "bend_pnc_measurements": [
         {
           "pairs": 73,
-          "fitted_pitch_um": 5.012657016787027
+          "fitted_pitch_um": 5.0126570167870135
         },
         {
           "pairs": 73,
-          "fitted_pitch_um": 5.01265701678294
+          "fitted_pitch_um": 5.0126570167829145
         }
       ],
       "straight_pnc_period_um": 5.0,
@@ -1451,8 +1451,8 @@
         },
         {
           "interior_pairs": 279,
-          "min_pitch_um": 4.999999999999545,
-          "max_pitch_um": 5.0,
+          "min_pitch_um": 5.0,
+          "max_pitch_um": 5.000000000000455,
           "start_um": [
             -700.0,
             -199.99999999999983
@@ -1535,10 +1535,10 @@
           "first_stage_end_width_um": 3.0,
           "linear_start_from_l10_um": 80.0,
           "linear_start_width_um": 2.1999999999999886,
-          "far_end_from_l10_um": 2095.0,
+          "far_end_from_l10_um": 1595.0,
           "far_edges_um": [
-            -32.92099999999999,
-            36.92099999999999
+            -24.191000000000003,
+            28.191000000000003
           ],
           "circle_centers_from_l10_um": [
             530.0,
@@ -1562,10 +1562,10 @@
           "first_stage_end_width_um": 3.0,
           "linear_start_from_l10_um": 80.0,
           "linear_start_width_um": 2.1999999999999886,
-          "far_end_from_l10_um": 2095.0,
+          "far_end_from_l10_um": 1595.0,
           "far_edges_um": [
-            -32.92099999999999,
-            36.92099999999999
+            -24.191000000000003,
+            28.191000000000003
           ],
           "circle_centers_from_l10_um": [
             530.0,
@@ -1596,8 +1596,8 @@
       ],
       "status": "PASS",
       "origin_um": [
-        -57.709,
-        2900.0
+        -57.209,
+        2600.0
       ],
       "left_bend_reference_x_um": -900.0,
       "label": "D1_T80_P5",
@@ -1606,8 +1606,8 @@
         0
       ],
       "label_origin_um": [
-        -700.0,
-        3150.0
+        -840.2090000000001,
+        2820.0
       ],
       "label_size_um": 5.0
     },
@@ -1629,8 +1629,8 @@
         "removed_area_um2": 44.271,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "79ef943810758910e01e241d13c4f1231e3a37a406566ee5afb6a590fe557da6",
-      "left_pnc_x_um": -842.291,
+      "source_sha256": "fb86dd113b51833023f66837ee97cf2c1bb0e5d222082ef43779f4541ea20cf9",
+      "left_pnc_x_um": -842.791,
       "measured_straights_um": [
         1400.0,
         1400.0,
@@ -1644,11 +1644,11 @@
       "bend_pnc_measurements": [
         {
           "pairs": 73,
-          "fitted_pitch_um": 5.012657016787027
+          "fitted_pitch_um": 5.0126570167870135
         },
         {
           "pairs": 73,
-          "fitted_pitch_um": 5.01265701678294
+          "fitted_pitch_um": 5.0126570167829145
         }
       ],
       "straight_pnc_period_um": 5.0,
@@ -1681,8 +1681,8 @@
         },
         {
           "interior_pairs": 279,
-          "min_pitch_um": 4.999999999999545,
-          "max_pitch_um": 5.0,
+          "min_pitch_um": 5.0,
+          "max_pitch_um": 5.000000000000455,
           "start_um": [
             -700.0,
             -199.99999999999983
@@ -1765,10 +1765,10 @@
           "first_stage_end_width_um": 3.0,
           "linear_start_from_l10_um": 100.0,
           "linear_start_width_um": 2.1999999999999886,
-          "far_end_from_l10_um": 2115.0,
+          "far_end_from_l10_um": 1615.0,
           "far_edges_um": [
-            -32.92099999999999,
-            36.92099999999999
+            -24.191000000000003,
+            28.191000000000003
           ],
           "circle_centers_from_l10_um": [
             550.0,
@@ -1792,10 +1792,10 @@
           "first_stage_end_width_um": 3.0,
           "linear_start_from_l10_um": 100.0,
           "linear_start_width_um": 2.1999999999999886,
-          "far_end_from_l10_um": 2115.0,
+          "far_end_from_l10_um": 1615.0,
           "far_edges_um": [
-            -32.92099999999999,
-            36.92099999999999
+            -24.191000000000003,
+            28.191000000000003
           ],
           "circle_centers_from_l10_um": [
             550.0,
@@ -1826,8 +1826,8 @@
       ],
       "status": "PASS",
       "origin_um": [
-        -57.709,
-        3500.0
+        -57.209,
+        3150.0
       ],
       "left_bend_reference_x_um": -900.0,
       "label": "D1_T100_P5",
@@ -1836,8 +1836,8 @@
         0
       ],
       "label_origin_um": [
-        -700.0,
-        3750.0
+        -850.2090000000001,
+        3370.0
       ],
       "label_size_um": 5.0
     },
@@ -1859,8 +1859,8 @@
         "removed_area_um2": 44.297999999999995,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "79ef943810758910e01e241d13c4f1231e3a37a406566ee5afb6a590fe557da6",
-      "left_pnc_x_um": -842.291,
+      "source_sha256": "fb86dd113b51833023f66837ee97cf2c1bb0e5d222082ef43779f4541ea20cf9",
+      "left_pnc_x_um": -842.791,
       "measured_straights_um": [
         1400.0,
         1400.0,
@@ -1874,11 +1874,11 @@
       "bend_pnc_measurements": [
         {
           "pairs": 73,
-          "fitted_pitch_um": 5.012657016787027
+          "fitted_pitch_um": 5.0126570167870135
         },
         {
           "pairs": 73,
-          "fitted_pitch_um": 5.01265701678294
+          "fitted_pitch_um": 5.0126570167829145
         }
       ],
       "straight_pnc_period_um": 5.0,
@@ -1911,8 +1911,8 @@
         },
         {
           "interior_pairs": 279,
-          "min_pitch_um": 4.999999999999545,
-          "max_pitch_um": 5.0,
+          "min_pitch_um": 5.0,
+          "max_pitch_um": 5.000000000000455,
           "start_um": [
             -700.0,
             -199.99999999999983
@@ -1995,10 +1995,10 @@
           "first_stage_end_width_um": 3.0,
           "linear_start_from_l10_um": 120.0,
           "linear_start_width_um": 2.1999999999999886,
-          "far_end_from_l10_um": 2135.0,
+          "far_end_from_l10_um": 1635.0,
           "far_edges_um": [
-            -32.92099999999999,
-            36.92099999999999
+            -24.191000000000003,
+            28.191000000000003
           ],
           "circle_centers_from_l10_um": [
             570.0,
@@ -2022,10 +2022,10 @@
           "first_stage_end_width_um": 3.0,
           "linear_start_from_l10_um": 120.0,
           "linear_start_width_um": 2.1999999999999886,
-          "far_end_from_l10_um": 2135.0,
+          "far_end_from_l10_um": 1635.0,
           "far_edges_um": [
-            -32.92099999999999,
-            36.92099999999999
+            -24.191000000000003,
+            28.191000000000003
           ],
           "circle_centers_from_l10_um": [
             570.0,
@@ -2056,8 +2056,8 @@
       ],
       "status": "PASS",
       "origin_um": [
-        -57.709,
-        4100.0
+        -57.209,
+        3700.0
       ],
       "left_bend_reference_x_um": -900.0,
       "label": "D1_T120_P5",
@@ -2066,8 +2066,8 @@
         0
       ],
       "label_origin_um": [
-        -700.0,
-        4350.0
+        -860.2090000000001,
+        3920.0
       ],
       "label_size_um": 5.0
     },
@@ -2090,8 +2090,8 @@
         "removed_area_um2": 75.276,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "2640b2e3cbbc942b74cad3af0ca8bcb8f64963afb6a3ab63f9609bdf60f69b2a",
-      "left_pnc_x_um": -842.287,
+      "source_sha256": "d942ba5b3df0ceaffb9d5b09837a20702b1260357c334f604295fde839bddb9c",
+      "left_pnc_x_um": -842.787,
       "measured_straights_um": [
         1400.0,
         1400.0,
@@ -2105,11 +2105,11 @@
       "bend_pnc_measurements": [
         {
           "pairs": 184,
-          "fitted_pitch_um": 2.0049798098834204
+          "fitted_pitch_um": 2.0049798098834155
         },
         {
           "pairs": 184,
-          "fitted_pitch_um": 2.0049798098818123
+          "fitted_pitch_um": 2.0049798098818026
         }
       ],
       "straight_pnc_period_um": 5.0,
@@ -2142,8 +2142,8 @@
         },
         {
           "interior_pairs": 279,
-          "min_pitch_um": 4.999999999999545,
-          "max_pitch_um": 5.0,
+          "min_pitch_um": 5.0,
+          "max_pitch_um": 5.000000000000455,
           "start_um": [
             -700.0,
             -199.99999999999983
@@ -2173,8 +2173,8 @@
       "connection_pnc_end_um": 45.0,
       "layer10_widths_um": [
         5.0,
-        1.65,
-        0.98,
+        1.8,
+        0.68,
         0.2
       ],
       "layer15_widths_um": [
@@ -2196,14 +2196,14 @@
         {
           "layer": 10,
           "distance_um": 12.307692307692307,
-          "measured_width_um": 1.6500000000000001,
-          "target_width_um": 1.65
+          "measured_width_um": 1.8,
+          "target_width_um": 1.8
         },
         {
           "layer": 10,
           "distance_um": 73.84615384615385,
-          "measured_width_um": 0.98,
-          "target_width_um": 0.98
+          "measured_width_um": 0.68,
+          "target_width_um": 0.68
         },
         {
           "layer": 10,
@@ -2239,13 +2239,13 @@
           ],
           "post_pnc_margin_um": 1.0,
           "pnc_end_width_um": 15.192000000000007,
-          "first_stage_end_width_um": 3.6500000000000057,
-          "linear_start_from_l10_um": 80.00000000000001,
+          "first_stage_end_width_um": 3.8000000000000114,
+          "linear_start_from_l10_um": 80.0,
           "linear_start_width_um": 2.1999999999999886,
-          "far_end_from_l10_um": 2095.0,
+          "far_end_from_l10_um": 1595.0,
           "far_edges_um": [
-            -32.92099999999999,
-            36.92099999999999
+            -24.191000000000003,
+            28.191000000000003
           ],
           "circle_centers_from_l10_um": [
             530.0,
@@ -2267,13 +2267,13 @@
           ],
           "post_pnc_margin_um": 1.0,
           "pnc_end_width_um": 15.192000000000007,
-          "first_stage_end_width_um": 3.6500000000000057,
-          "linear_start_from_l10_um": 80.00000000000001,
+          "first_stage_end_width_um": 3.8000000000000114,
+          "linear_start_from_l10_um": 80.0,
           "linear_start_width_um": 2.1999999999999886,
-          "far_end_from_l10_um": 2095.0,
+          "far_end_from_l10_um": 1595.0,
           "far_edges_um": [
-            -32.92099999999999,
-            36.92099999999999
+            -24.191000000000003,
+            28.191000000000003
           ],
           "circle_centers_from_l10_um": [
             530.0,
@@ -2304,8 +2304,8 @@
       ],
       "status": "PASS",
       "origin_um": [
-        -57.713,
-        4700.0
+        -57.213,
+        4250.0
       ],
       "left_bend_reference_x_um": -900.0,
       "label": "D2_T80_P2",
@@ -2314,8 +2314,8 @@
         0
       ],
       "label_origin_um": [
-        -700.0,
-        4950.0
+        -812.5210000000001,
+        4470.0
       ],
       "label_size_um": 5.0
     },
@@ -2338,8 +2338,8 @@
         "removed_area_um2": 75.276,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "2640b2e3cbbc942b74cad3af0ca8bcb8f64963afb6a3ab63f9609bdf60f69b2a",
-      "left_pnc_x_um": -842.287,
+      "source_sha256": "d942ba5b3df0ceaffb9d5b09837a20702b1260357c334f604295fde839bddb9c",
+      "left_pnc_x_um": -842.787,
       "measured_straights_um": [
         1400.0,
         1400.0,
@@ -2353,11 +2353,11 @@
       "bend_pnc_measurements": [
         {
           "pairs": 184,
-          "fitted_pitch_um": 2.0049798098834204
+          "fitted_pitch_um": 2.0049798098834155
         },
         {
           "pairs": 184,
-          "fitted_pitch_um": 2.0049798098818123
+          "fitted_pitch_um": 2.0049798098818026
         }
       ],
       "straight_pnc_period_um": 5.0,
@@ -2390,8 +2390,8 @@
         },
         {
           "interior_pairs": 279,
-          "min_pitch_um": 4.999999999999545,
-          "max_pitch_um": 5.0,
+          "min_pitch_um": 5.0,
+          "max_pitch_um": 5.000000000000455,
           "start_um": [
             -700.0,
             -199.99999999999983
@@ -2421,8 +2421,8 @@
       "connection_pnc_end_um": 45.0,
       "layer10_widths_um": [
         5.0,
-        1.65,
-        0.98,
+        1.8,
+        0.68,
         0.2
       ],
       "layer15_widths_um": [
@@ -2444,14 +2444,14 @@
         {
           "layer": 10,
           "distance_um": 15.384615384615387,
-          "measured_width_um": 1.6500000000000001,
-          "target_width_um": 1.65
+          "measured_width_um": 1.8,
+          "target_width_um": 1.8
         },
         {
           "layer": 10,
           "distance_um": 92.30769230769232,
-          "measured_width_um": 0.98,
-          "target_width_um": 0.98
+          "measured_width_um": 0.68,
+          "target_width_um": 0.68
         },
         {
           "layer": 10,
@@ -2487,13 +2487,13 @@
           ],
           "post_pnc_margin_um": 1.0,
           "pnc_end_width_um": 15.192000000000007,
-          "first_stage_end_width_um": 3.6500000000000057,
+          "first_stage_end_width_um": 3.8000000000000114,
           "linear_start_from_l10_um": 100.0,
           "linear_start_width_um": 2.1999999999999886,
-          "far_end_from_l10_um": 2115.0,
+          "far_end_from_l10_um": 1615.0,
           "far_edges_um": [
-            -32.92099999999999,
-            36.92099999999999
+            -24.191000000000003,
+            28.191000000000003
           ],
           "circle_centers_from_l10_um": [
             550.0,
@@ -2515,13 +2515,13 @@
           ],
           "post_pnc_margin_um": 1.0,
           "pnc_end_width_um": 15.192000000000007,
-          "first_stage_end_width_um": 3.6500000000000057,
+          "first_stage_end_width_um": 3.8000000000000114,
           "linear_start_from_l10_um": 100.0,
           "linear_start_width_um": 2.1999999999999886,
-          "far_end_from_l10_um": 2115.0,
+          "far_end_from_l10_um": 1615.0,
           "far_edges_um": [
-            -32.92099999999999,
-            36.92099999999999
+            -24.191000000000003,
+            28.191000000000003
           ],
           "circle_centers_from_l10_um": [
             550.0,
@@ -2552,8 +2552,8 @@
       ],
       "status": "PASS",
       "origin_um": [
-        -57.713,
-        5300.0
+        -57.213,
+        4800.0
       ],
       "left_bend_reference_x_um": -900.0,
       "label": "D2_T100_P2",
@@ -2562,8 +2562,8 @@
         0
       ],
       "label_origin_um": [
-        -700.0,
-        5550.0
+        -815.5980000000001,
+        5020.0
       ],
       "label_size_um": 5.0
     },
@@ -2586,8 +2586,8 @@
         "removed_area_um2": 75.276,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "2640b2e3cbbc942b74cad3af0ca8bcb8f64963afb6a3ab63f9609bdf60f69b2a",
-      "left_pnc_x_um": -842.287,
+      "source_sha256": "d942ba5b3df0ceaffb9d5b09837a20702b1260357c334f604295fde839bddb9c",
+      "left_pnc_x_um": -842.787,
       "measured_straights_um": [
         1400.0,
         1400.0,
@@ -2601,11 +2601,11 @@
       "bend_pnc_measurements": [
         {
           "pairs": 184,
-          "fitted_pitch_um": 2.0049798098834204
+          "fitted_pitch_um": 2.0049798098834155
         },
         {
           "pairs": 184,
-          "fitted_pitch_um": 2.0049798098818123
+          "fitted_pitch_um": 2.0049798098818026
         }
       ],
       "straight_pnc_period_um": 5.0,
@@ -2638,8 +2638,8 @@
         },
         {
           "interior_pairs": 279,
-          "min_pitch_um": 4.999999999999545,
-          "max_pitch_um": 5.0,
+          "min_pitch_um": 5.0,
+          "max_pitch_um": 5.000000000000455,
           "start_um": [
             -700.0,
             -199.99999999999983
@@ -2669,8 +2669,8 @@
       "connection_pnc_end_um": 45.0,
       "layer10_widths_um": [
         5.0,
-        1.65,
-        0.98,
+        1.8,
+        0.68,
         0.2
       ],
       "layer15_widths_um": [
@@ -2692,14 +2692,14 @@
         {
           "layer": 10,
           "distance_um": 18.46153846153846,
-          "measured_width_um": 1.6500000000000001,
-          "target_width_um": 1.65
+          "measured_width_um": 1.8,
+          "target_width_um": 1.8
         },
         {
           "layer": 10,
           "distance_um": 110.76923076923077,
-          "measured_width_um": 0.98,
-          "target_width_um": 0.98
+          "measured_width_um": 0.68,
+          "target_width_um": 0.68
         },
         {
           "layer": 10,
@@ -2735,13 +2735,13 @@
           ],
           "post_pnc_margin_um": 1.0,
           "pnc_end_width_um": 15.192000000000007,
-          "first_stage_end_width_um": 3.6500000000000057,
+          "first_stage_end_width_um": 3.8000000000000114,
           "linear_start_from_l10_um": 120.0,
           "linear_start_width_um": 2.1999999999999886,
-          "far_end_from_l10_um": 2135.001,
+          "far_end_from_l10_um": 1635.0010000000002,
           "far_edges_um": [
-            -32.92099999999999,
-            36.92099999999999
+            -24.191000000000003,
+            28.191000000000003
           ],
           "circle_centers_from_l10_um": [
             570.001,
@@ -2763,13 +2763,13 @@
           ],
           "post_pnc_margin_um": 1.0,
           "pnc_end_width_um": 15.192000000000007,
-          "first_stage_end_width_um": 3.6500000000000057,
+          "first_stage_end_width_um": 3.8000000000000114,
           "linear_start_from_l10_um": 120.0,
           "linear_start_width_um": 2.1999999999999886,
-          "far_end_from_l10_um": 2135.001,
+          "far_end_from_l10_um": 1635.0010000000002,
           "far_edges_um": [
-            -32.92099999999999,
-            36.92099999999999
+            -24.191000000000003,
+            28.191000000000003
           ],
           "circle_centers_from_l10_um": [
             570.001,
@@ -2800,8 +2800,8 @@
       ],
       "status": "PASS",
       "origin_um": [
-        -57.713,
-        5900.0
+        -57.213,
+        5350.0
       ],
       "left_bend_reference_x_um": -900.0,
       "label": "D2_T120_P2",
@@ -2810,8 +2810,8 @@
         0
       ],
       "label_origin_um": [
-        -700.0,
-        6150.0
+        -818.6750000000001,
+        5570.0
       ],
       "label_size_um": 5.0
     },
@@ -2834,8 +2834,8 @@
         "removed_area_um2": 75.276,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "2640b2e3cbbc942b74cad3af0ca8bcb8f64963afb6a3ab63f9609bdf60f69b2a",
-      "left_pnc_x_um": -842.28,
+      "source_sha256": "d942ba5b3df0ceaffb9d5b09837a20702b1260357c334f604295fde839bddb9c",
+      "left_pnc_x_um": -842.78,
       "measured_straights_um": [
         1400.0,
         1400.0,
@@ -2849,11 +2849,11 @@
       "bend_pnc_measurements": [
         {
           "pairs": 122,
-          "fitted_pitch_um": 3.0157959108154206
+          "fitted_pitch_um": 3.015795910815413
         },
         {
           "pairs": 122,
-          "fitted_pitch_um": 3.0157959108129893
+          "fitted_pitch_um": 3.015795910812974
         }
       ],
       "straight_pnc_period_um": 5.0,
@@ -2886,8 +2886,8 @@
         },
         {
           "interior_pairs": 279,
-          "min_pitch_um": 4.999999999999545,
-          "max_pitch_um": 5.0,
+          "min_pitch_um": 5.0,
+          "max_pitch_um": 5.000000000000455,
           "start_um": [
             -700.0,
             -199.99999999999983
@@ -2917,8 +2917,8 @@
       "connection_pnc_end_um": 45.0,
       "layer10_widths_um": [
         5.0,
-        1.65,
-        0.98,
+        1.8,
+        0.68,
         0.2
       ],
       "layer15_widths_um": [
@@ -2940,14 +2940,14 @@
         {
           "layer": 10,
           "distance_um": 12.307692307692307,
-          "measured_width_um": 1.6500000000000001,
-          "target_width_um": 1.65
+          "measured_width_um": 1.8,
+          "target_width_um": 1.8
         },
         {
           "layer": 10,
           "distance_um": 73.84615384615385,
-          "measured_width_um": 0.98,
-          "target_width_um": 0.98
+          "measured_width_um": 0.68,
+          "target_width_um": 0.68
         },
         {
           "layer": 10,
@@ -2983,13 +2983,13 @@
           ],
           "post_pnc_margin_um": 1.0,
           "pnc_end_width_um": 15.192000000000007,
-          "first_stage_end_width_um": 3.6500000000000057,
-          "linear_start_from_l10_um": 80.00000000000001,
+          "first_stage_end_width_um": 3.8000000000000114,
+          "linear_start_from_l10_um": 80.0,
           "linear_start_width_um": 2.1999999999999886,
-          "far_end_from_l10_um": 2095.0,
+          "far_end_from_l10_um": 1595.0,
           "far_edges_um": [
-            -32.92099999999999,
-            36.92099999999999
+            -24.191000000000003,
+            28.191000000000003
           ],
           "circle_centers_from_l10_um": [
             530.0,
@@ -3011,13 +3011,13 @@
           ],
           "post_pnc_margin_um": 1.0,
           "pnc_end_width_um": 15.192000000000007,
-          "first_stage_end_width_um": 3.6500000000000057,
-          "linear_start_from_l10_um": 80.00000000000001,
+          "first_stage_end_width_um": 3.8000000000000114,
+          "linear_start_from_l10_um": 80.0,
           "linear_start_width_um": 2.1999999999999886,
-          "far_end_from_l10_um": 2095.0,
+          "far_end_from_l10_um": 1595.0,
           "far_edges_um": [
-            -32.92099999999999,
-            36.92099999999999
+            -24.191000000000003,
+            28.191000000000003
           ],
           "circle_centers_from_l10_um": [
             530.0,
@@ -3048,8 +3048,8 @@
       ],
       "status": "PASS",
       "origin_um": [
-        -57.72,
-        6500.0
+        -57.22,
+        5900.0
       ],
       "left_bend_reference_x_um": -900.0,
       "label": "D2_T80_P3",
@@ -3058,8 +3058,8 @@
         0
       ],
       "label_origin_um": [
-        -700.0,
-        6750.0
+        -812.528,
+        6120.0
       ],
       "label_size_um": 5.0
     },
@@ -3082,8 +3082,8 @@
         "removed_area_um2": 75.276,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "2640b2e3cbbc942b74cad3af0ca8bcb8f64963afb6a3ab63f9609bdf60f69b2a",
-      "left_pnc_x_um": -842.28,
+      "source_sha256": "d942ba5b3df0ceaffb9d5b09837a20702b1260357c334f604295fde839bddb9c",
+      "left_pnc_x_um": -842.78,
       "measured_straights_um": [
         1400.0,
         1400.0,
@@ -3097,11 +3097,11 @@
       "bend_pnc_measurements": [
         {
           "pairs": 122,
-          "fitted_pitch_um": 3.0157959108154206
+          "fitted_pitch_um": 3.015795910815413
         },
         {
           "pairs": 122,
-          "fitted_pitch_um": 3.0157959108129893
+          "fitted_pitch_um": 3.015795910812974
         }
       ],
       "straight_pnc_period_um": 5.0,
@@ -3134,8 +3134,8 @@
         },
         {
           "interior_pairs": 279,
-          "min_pitch_um": 4.999999999999545,
-          "max_pitch_um": 5.0,
+          "min_pitch_um": 5.0,
+          "max_pitch_um": 5.000000000000455,
           "start_um": [
             -700.0,
             -199.99999999999983
@@ -3165,8 +3165,8 @@
       "connection_pnc_end_um": 45.0,
       "layer10_widths_um": [
         5.0,
-        1.65,
-        0.98,
+        1.8,
+        0.68,
         0.2
       ],
       "layer15_widths_um": [
@@ -3188,14 +3188,14 @@
         {
           "layer": 10,
           "distance_um": 15.384615384615387,
-          "measured_width_um": 1.6500000000000001,
-          "target_width_um": 1.65
+          "measured_width_um": 1.8,
+          "target_width_um": 1.8
         },
         {
           "layer": 10,
           "distance_um": 92.30769230769232,
-          "measured_width_um": 0.98,
-          "target_width_um": 0.98
+          "measured_width_um": 0.68,
+          "target_width_um": 0.68
         },
         {
           "layer": 10,
@@ -3231,13 +3231,13 @@
           ],
           "post_pnc_margin_um": 1.0,
           "pnc_end_width_um": 15.192000000000007,
-          "first_stage_end_width_um": 3.6500000000000057,
+          "first_stage_end_width_um": 3.8000000000000114,
           "linear_start_from_l10_um": 100.0,
           "linear_start_width_um": 2.1999999999999886,
-          "far_end_from_l10_um": 2115.0,
+          "far_end_from_l10_um": 1615.0,
           "far_edges_um": [
-            -32.92099999999999,
-            36.92099999999999
+            -24.191000000000003,
+            28.191000000000003
           ],
           "circle_centers_from_l10_um": [
             550.0,
@@ -3259,13 +3259,13 @@
           ],
           "post_pnc_margin_um": 1.0,
           "pnc_end_width_um": 15.192000000000007,
-          "first_stage_end_width_um": 3.6500000000000057,
+          "first_stage_end_width_um": 3.8000000000000114,
           "linear_start_from_l10_um": 100.0,
           "linear_start_width_um": 2.1999999999999886,
-          "far_end_from_l10_um": 2115.0,
+          "far_end_from_l10_um": 1615.0,
           "far_edges_um": [
-            -32.92099999999999,
-            36.92099999999999
+            -24.191000000000003,
+            28.191000000000003
           ],
           "circle_centers_from_l10_um": [
             550.0,
@@ -3296,8 +3296,8 @@
       ],
       "status": "PASS",
       "origin_um": [
-        -57.72,
-        7100.0
+        -57.22,
+        6450.0
       ],
       "left_bend_reference_x_um": -900.0,
       "label": "D2_T100_P3",
@@ -3306,8 +3306,8 @@
         0
       ],
       "label_origin_um": [
-        -700.0,
-        7350.0
+        -815.605,
+        6670.0
       ],
       "label_size_um": 5.0
     },
@@ -3330,8 +3330,8 @@
         "removed_area_um2": 75.276,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "2640b2e3cbbc942b74cad3af0ca8bcb8f64963afb6a3ab63f9609bdf60f69b2a",
-      "left_pnc_x_um": -842.28,
+      "source_sha256": "d942ba5b3df0ceaffb9d5b09837a20702b1260357c334f604295fde839bddb9c",
+      "left_pnc_x_um": -842.78,
       "measured_straights_um": [
         1400.0,
         1400.0,
@@ -3345,11 +3345,11 @@
       "bend_pnc_measurements": [
         {
           "pairs": 122,
-          "fitted_pitch_um": 3.0157959108154206
+          "fitted_pitch_um": 3.015795910815413
         },
         {
           "pairs": 122,
-          "fitted_pitch_um": 3.0157959108129893
+          "fitted_pitch_um": 3.015795910812974
         }
       ],
       "straight_pnc_period_um": 5.0,
@@ -3382,8 +3382,8 @@
         },
         {
           "interior_pairs": 279,
-          "min_pitch_um": 4.999999999999545,
-          "max_pitch_um": 5.0,
+          "min_pitch_um": 5.0,
+          "max_pitch_um": 5.000000000000455,
           "start_um": [
             -700.0,
             -199.99999999999983
@@ -3413,8 +3413,8 @@
       "connection_pnc_end_um": 45.0,
       "layer10_widths_um": [
         5.0,
-        1.65,
-        0.98,
+        1.8,
+        0.68,
         0.2
       ],
       "layer15_widths_um": [
@@ -3436,14 +3436,14 @@
         {
           "layer": 10,
           "distance_um": 18.46153846153846,
-          "measured_width_um": 1.6500000000000001,
-          "target_width_um": 1.65
+          "measured_width_um": 1.8,
+          "target_width_um": 1.8
         },
         {
           "layer": 10,
           "distance_um": 110.76923076923077,
-          "measured_width_um": 0.98,
-          "target_width_um": 0.98
+          "measured_width_um": 0.68,
+          "target_width_um": 0.68
         },
         {
           "layer": 10,
@@ -3479,13 +3479,13 @@
           ],
           "post_pnc_margin_um": 1.0,
           "pnc_end_width_um": 15.192000000000007,
-          "first_stage_end_width_um": 3.6500000000000057,
+          "first_stage_end_width_um": 3.8000000000000114,
           "linear_start_from_l10_um": 120.0,
           "linear_start_width_um": 2.1999999999999886,
-          "far_end_from_l10_um": 2135.001,
+          "far_end_from_l10_um": 1635.0010000000002,
           "far_edges_um": [
-            -32.92099999999999,
-            36.92099999999999
+            -24.191000000000003,
+            28.191000000000003
           ],
           "circle_centers_from_l10_um": [
             570.001,
@@ -3507,13 +3507,13 @@
           ],
           "post_pnc_margin_um": 1.0,
           "pnc_end_width_um": 15.192000000000007,
-          "first_stage_end_width_um": 3.6500000000000057,
+          "first_stage_end_width_um": 3.8000000000000114,
           "linear_start_from_l10_um": 120.0,
           "linear_start_width_um": 2.1999999999999886,
-          "far_end_from_l10_um": 2135.001,
+          "far_end_from_l10_um": 1635.0010000000002,
           "far_edges_um": [
-            -32.92099999999999,
-            36.92099999999999
+            -24.191000000000003,
+            28.191000000000003
           ],
           "circle_centers_from_l10_um": [
             570.001,
@@ -3544,8 +3544,8 @@
       ],
       "status": "PASS",
       "origin_um": [
-        -57.72,
-        7700.0
+        -57.22,
+        7000.0
       ],
       "left_bend_reference_x_um": -900.0,
       "label": "D2_T120_P3",
@@ -3554,8 +3554,8 @@
         0
       ],
       "label_origin_um": [
-        -700.0,
-        7950.0
+        -818.682,
+        7220.0
       ],
       "label_size_um": 5.0
     },
@@ -3578,8 +3578,8 @@
         "removed_area_um2": 75.276,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "2640b2e3cbbc942b74cad3af0ca8bcb8f64963afb6a3ab63f9609bdf60f69b2a",
-      "left_pnc_x_um": -842.291,
+      "source_sha256": "d942ba5b3df0ceaffb9d5b09837a20702b1260357c334f604295fde839bddb9c",
+      "left_pnc_x_um": -842.791,
       "measured_straights_um": [
         1400.0,
         1400.0,
@@ -3593,11 +3593,11 @@
       "bend_pnc_measurements": [
         {
           "pairs": 73,
-          "fitted_pitch_um": 5.012657016787027
+          "fitted_pitch_um": 5.0126570167870135
         },
         {
           "pairs": 73,
-          "fitted_pitch_um": 5.01265701678294
+          "fitted_pitch_um": 5.0126570167829145
         }
       ],
       "straight_pnc_period_um": 5.0,
@@ -3630,8 +3630,8 @@
         },
         {
           "interior_pairs": 279,
-          "min_pitch_um": 4.999999999999545,
-          "max_pitch_um": 5.0,
+          "min_pitch_um": 5.0,
+          "max_pitch_um": 5.000000000000455,
           "start_um": [
             -700.0,
             -199.99999999999983
@@ -3661,8 +3661,8 @@
       "connection_pnc_end_um": 45.0,
       "layer10_widths_um": [
         5.0,
-        1.65,
-        0.98,
+        1.8,
+        0.68,
         0.2
       ],
       "layer15_widths_um": [
@@ -3684,14 +3684,14 @@
         {
           "layer": 10,
           "distance_um": 12.307692307692307,
-          "measured_width_um": 1.6500000000000001,
-          "target_width_um": 1.65
+          "measured_width_um": 1.8,
+          "target_width_um": 1.8
         },
         {
           "layer": 10,
           "distance_um": 73.84615384615385,
-          "measured_width_um": 0.98,
-          "target_width_um": 0.98
+          "measured_width_um": 0.68,
+          "target_width_um": 0.68
         },
         {
           "layer": 10,
@@ -3727,13 +3727,13 @@
           ],
           "post_pnc_margin_um": 1.0,
           "pnc_end_width_um": 15.192000000000007,
-          "first_stage_end_width_um": 3.6500000000000057,
-          "linear_start_from_l10_um": 80.00000000000001,
+          "first_stage_end_width_um": 3.8000000000000114,
+          "linear_start_from_l10_um": 80.0,
           "linear_start_width_um": 2.1999999999999886,
-          "far_end_from_l10_um": 2095.0,
+          "far_end_from_l10_um": 1595.0,
           "far_edges_um": [
-            -32.92099999999999,
-            36.92099999999999
+            -24.191000000000003,
+            28.191000000000003
           ],
           "circle_centers_from_l10_um": [
             530.0,
@@ -3755,13 +3755,13 @@
           ],
           "post_pnc_margin_um": 1.0,
           "pnc_end_width_um": 15.192000000000007,
-          "first_stage_end_width_um": 3.6500000000000057,
-          "linear_start_from_l10_um": 80.00000000000001,
+          "first_stage_end_width_um": 3.8000000000000114,
+          "linear_start_from_l10_um": 80.0,
           "linear_start_width_um": 2.1999999999999886,
-          "far_end_from_l10_um": 2095.0,
+          "far_end_from_l10_um": 1595.0,
           "far_edges_um": [
-            -32.92099999999999,
-            36.92099999999999
+            -24.191000000000003,
+            28.191000000000003
           ],
           "circle_centers_from_l10_um": [
             530.0,
@@ -3792,8 +3792,8 @@
       ],
       "status": "PASS",
       "origin_um": [
-        -57.709,
-        8300.0
+        -57.209,
+        7550.0
       ],
       "left_bend_reference_x_um": -900.0,
       "label": "D2_T80_P5",
@@ -3802,8 +3802,8 @@
         0
       ],
       "label_origin_um": [
-        -700.0,
-        8550.0
+        -812.517,
+        7770.0
       ],
       "label_size_um": 5.0
     },
@@ -3826,8 +3826,8 @@
         "removed_area_um2": 75.276,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "2640b2e3cbbc942b74cad3af0ca8bcb8f64963afb6a3ab63f9609bdf60f69b2a",
-      "left_pnc_x_um": -842.291,
+      "source_sha256": "d942ba5b3df0ceaffb9d5b09837a20702b1260357c334f604295fde839bddb9c",
+      "left_pnc_x_um": -842.791,
       "measured_straights_um": [
         1400.0,
         1400.0,
@@ -3841,11 +3841,11 @@
       "bend_pnc_measurements": [
         {
           "pairs": 73,
-          "fitted_pitch_um": 5.012657016787027
+          "fitted_pitch_um": 5.0126570167870135
         },
         {
           "pairs": 73,
-          "fitted_pitch_um": 5.01265701678294
+          "fitted_pitch_um": 5.0126570167829145
         }
       ],
       "straight_pnc_period_um": 5.0,
@@ -3878,8 +3878,8 @@
         },
         {
           "interior_pairs": 279,
-          "min_pitch_um": 4.999999999999545,
-          "max_pitch_um": 5.0,
+          "min_pitch_um": 5.0,
+          "max_pitch_um": 5.000000000000455,
           "start_um": [
             -700.0,
             -199.99999999999983
@@ -3909,8 +3909,8 @@
       "connection_pnc_end_um": 45.0,
       "layer10_widths_um": [
         5.0,
-        1.65,
-        0.98,
+        1.8,
+        0.68,
         0.2
       ],
       "layer15_widths_um": [
@@ -3932,14 +3932,14 @@
         {
           "layer": 10,
           "distance_um": 15.384615384615387,
-          "measured_width_um": 1.6500000000000001,
-          "target_width_um": 1.65
+          "measured_width_um": 1.8,
+          "target_width_um": 1.8
         },
         {
           "layer": 10,
           "distance_um": 92.30769230769232,
-          "measured_width_um": 0.98,
-          "target_width_um": 0.98
+          "measured_width_um": 0.68,
+          "target_width_um": 0.68
         },
         {
           "layer": 10,
@@ -3975,13 +3975,13 @@
           ],
           "post_pnc_margin_um": 1.0,
           "pnc_end_width_um": 15.192000000000007,
-          "first_stage_end_width_um": 3.6500000000000057,
+          "first_stage_end_width_um": 3.8000000000000114,
           "linear_start_from_l10_um": 100.0,
           "linear_start_width_um": 2.1999999999999886,
-          "far_end_from_l10_um": 2115.0,
+          "far_end_from_l10_um": 1615.0,
           "far_edges_um": [
-            -32.92099999999999,
-            36.92099999999999
+            -24.191000000000003,
+            28.191000000000003
           ],
           "circle_centers_from_l10_um": [
             550.0,
@@ -4003,13 +4003,13 @@
           ],
           "post_pnc_margin_um": 1.0,
           "pnc_end_width_um": 15.192000000000007,
-          "first_stage_end_width_um": 3.6500000000000057,
+          "first_stage_end_width_um": 3.8000000000000114,
           "linear_start_from_l10_um": 100.0,
           "linear_start_width_um": 2.1999999999999886,
-          "far_end_from_l10_um": 2115.0,
+          "far_end_from_l10_um": 1615.0,
           "far_edges_um": [
-            -32.92099999999999,
-            36.92099999999999
+            -24.191000000000003,
+            28.191000000000003
           ],
           "circle_centers_from_l10_um": [
             550.0,
@@ -4040,8 +4040,8 @@
       ],
       "status": "PASS",
       "origin_um": [
-        -57.709,
-        8900.0
+        -57.209,
+        8100.0
       ],
       "left_bend_reference_x_um": -900.0,
       "label": "D2_T100_P5",
@@ -4050,8 +4050,8 @@
         0
       ],
       "label_origin_um": [
-        -700.0,
-        9150.0
+        -815.594,
+        8320.0
       ],
       "label_size_um": 5.0
     },
@@ -4074,8 +4074,8 @@
         "removed_area_um2": 75.276,
         "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
       },
-      "source_sha256": "2640b2e3cbbc942b74cad3af0ca8bcb8f64963afb6a3ab63f9609bdf60f69b2a",
-      "left_pnc_x_um": -842.291,
+      "source_sha256": "d942ba5b3df0ceaffb9d5b09837a20702b1260357c334f604295fde839bddb9c",
+      "left_pnc_x_um": -842.791,
       "measured_straights_um": [
         1400.0,
         1400.0,
@@ -4089,11 +4089,11 @@
       "bend_pnc_measurements": [
         {
           "pairs": 73,
-          "fitted_pitch_um": 5.012657016787027
+          "fitted_pitch_um": 5.0126570167870135
         },
         {
           "pairs": 73,
-          "fitted_pitch_um": 5.01265701678294
+          "fitted_pitch_um": 5.0126570167829145
         }
       ],
       "straight_pnc_period_um": 5.0,
@@ -4126,8 +4126,8 @@
         },
         {
           "interior_pairs": 279,
-          "min_pitch_um": 4.999999999999545,
-          "max_pitch_um": 5.0,
+          "min_pitch_um": 5.0,
+          "max_pitch_um": 5.000000000000455,
           "start_um": [
             -700.0,
             -199.99999999999983
@@ -4157,8 +4157,8 @@
       "connection_pnc_end_um": 45.0,
       "layer10_widths_um": [
         5.0,
-        1.65,
-        0.98,
+        1.8,
+        0.68,
         0.2
       ],
       "layer15_widths_um": [
@@ -4180,14 +4180,14 @@
         {
           "layer": 10,
           "distance_um": 18.46153846153846,
-          "measured_width_um": 1.6500000000000001,
-          "target_width_um": 1.65
+          "measured_width_um": 1.8,
+          "target_width_um": 1.8
         },
         {
           "layer": 10,
           "distance_um": 110.76923076923077,
-          "measured_width_um": 0.98,
-          "target_width_um": 0.98
+          "measured_width_um": 0.68,
+          "target_width_um": 0.68
         },
         {
           "layer": 10,
@@ -4223,13 +4223,13 @@
           ],
           "post_pnc_margin_um": 1.0,
           "pnc_end_width_um": 15.192000000000007,
-          "first_stage_end_width_um": 3.6500000000000057,
+          "first_stage_end_width_um": 3.8000000000000114,
           "linear_start_from_l10_um": 120.0,
           "linear_start_width_um": 2.1999999999999886,
-          "far_end_from_l10_um": 2135.001,
+          "far_end_from_l10_um": 1635.0010000000002,
           "far_edges_um": [
-            -32.92099999999999,
-            36.92099999999999
+            -24.191000000000003,
+            28.191000000000003
           ],
           "circle_centers_from_l10_um": [
             570.001,
@@ -4251,13 +4251,13 @@
           ],
           "post_pnc_margin_um": 1.0,
           "pnc_end_width_um": 15.192000000000007,
-          "first_stage_end_width_um": 3.6500000000000057,
+          "first_stage_end_width_um": 3.8000000000000114,
           "linear_start_from_l10_um": 120.0,
           "linear_start_width_um": 2.1999999999999886,
-          "far_end_from_l10_um": 2135.001,
+          "far_end_from_l10_um": 1635.0010000000002,
           "far_edges_um": [
-            -32.92099999999999,
-            36.92099999999999
+            -24.191000000000003,
+            28.191000000000003
           ],
           "circle_centers_from_l10_um": [
             570.001,
@@ -4288,8 +4288,8 @@
       ],
       "status": "PASS",
       "origin_um": [
-        -57.709,
-        9500.0
+        -57.209,
+        8650.0
       ],
       "left_bend_reference_x_um": -900.0,
       "label": "D2_T120_P5",
@@ -4298,21 +4298,21 @@
         0
       ],
       "label_origin_um": [
-        -700.0,
-        9750.0
+        -818.671,
+        8870.0
       ],
       "label_size_um": 5.0
     }
   ],
   "device_count": 18,
-  "row_pitch_um": 600.0,
+  "row_pitch_um": 550.0,
   "design_x_offset_um": 0.0,
   "placement_mode": "single_vertical_column_design1_then_design2",
   "first_row_y_um": -700.0,
   "left_bend_x_um": -900.0,
   "labels_per_device": 1,
   "label_format": "D{design}_T{taper_um}_P{bend_period_um}",
-  "design_y_offset_um": 5400.0,
+  "design_y_offset_um": 4950.0,
   "taper_allocation": "proportional stage scaling",
   "stage_ratios": {
     "1": [
@@ -4327,10 +4327,10 @@
   },
   "taper_length_definition": "full Layer-10 taper after the shortened 5 um-width PNC endpoint",
   "frame_bounds_um": [
-    -3500,
+    -3000,
     -1600,
-    3400,
-    10400
+    2900,
+    9500
   ],
   "fabrication_mask_overlaps": [],
   "notes": [

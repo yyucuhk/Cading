@@ -1,0 +1,53 @@
+{
+  "status": "PASS",
+  "output_gds": "/Users/yuyue/Documents/Github/Cading/gds/2611_two_18device_sweeps_with_comparison.gds",
+  "horizontal_gap_um": 500.0,
+  "vertical_gap_um": 500.0,
+  "left_sweep_bbox_um": [
+    -6250.0,
+    -1730.0,
+    -250.0,
+    9630.0
+  ],
+  "right_sweep_bbox_um": [
+    250.0,
+    -1730.0,
+    6250.0,
+    9630.0
+  ],
+  "comparison_bbox_um": [
+    -9900.0,
+    -6490.0,
+    9900.0,
+    -2230.0
+  ],
+  "overall_bbox_um": [
+    -9900.0,
+    -6490.0,
+    9900.0,
+    9630.0
+  ],
+  "placement": "two symmetric sweeps above; comparison centered below",
+  "marker_layer": [
+    15,
+    0
+  ],
+  "marker_layers_removed": [
+    [
+      2,
+      0
+    ],
+    [
+      10,
+      0
+    ],
+    [
+      15,
+      0
+    ]
+  ],
+  "marker_shape_source_layer": [
+    10,
+    0
+  ]
+}

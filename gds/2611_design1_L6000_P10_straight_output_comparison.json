@@ -10,7 +10,11 @@
         2242.1530000000002,
         -700.0
       ],
-      "label": "D1_W1.62_T80_P10",
+      "label": "L18741.8_W1.62",
+      "label_anchor_local_um": [
+        -3085.0,
+        200.0
+      ],
       "straight_section_count": 3,
       "straight_length_um": 6000.0,
       "bend_count": 2,
@@ -27,8 +31,8 @@
       ],
       "case_id": "D1_L6000_W1620_P10",
       "label_origin_um": [
-        -700.0,
-        -450.0
+        -840.847,
+        -490.0
       ],
       "final_pnc_present": false,
       "final_release_window_count": 2,
@@ -52,9 +56,13 @@
       "width_um": 1.64,
       "origin_um": [
         2242.1530000000002,
-        -100.0
+        -150.0
       ],
-      "label": "D1_W1.64_T80_P10",
+      "label": "L18741.8_W1.64",
+      "label_anchor_local_um": [
+        -3085.0,
+        200.0
+      ],
       "straight_section_count": 3,
       "straight_length_um": 6000.0,
       "bend_count": 2,
@@ -71,8 +79,8 @@
       ],
       "case_id": "D1_L6000_W1640_P10",
       "label_origin_um": [
-        -700.0,
-        150.0
+        -840.847,
+        60.0
       ],
       "final_pnc_present": false,
       "final_release_window_count": 2,
@@ -96,9 +104,13 @@
       "width_um": 1.68,
       "origin_um": [
         2242.1530000000002,
-        500.0
+        400.0
       ],
-      "label": "D1_W1.68_T80_P10",
+      "label": "L18741.8_W1.68",
+      "label_anchor_local_um": [
+        -3085.0,
+        200.0
+      ],
       "straight_section_count": 3,
       "straight_length_um": 6000.0,
       "bend_count": 2,
@@ -115,8 +127,8 @@
       ],
       "case_id": "D1_L6000_W1680_P10",
       "label_origin_um": [
-        -700.0,
-        750.0
+        -840.847,
+        610.0
       ],
       "final_pnc_present": false,
       "final_release_window_count": 2,
@@ -140,9 +152,13 @@
       "width_um": 1.62,
       "origin_um": [
         2242.1530000000002,
-        1100.0
+        950.0
       ],
-      "label": "D1_W1.62_T80_P10_OUT2000",
+      "label": "L20741.8_W1.62",
+      "label_anchor_local_um": [
+        -3085.0,
+        200.0
+      ],
       "straight_section_count": 3,
       "straight_length_um": 6000.0,
       "bend_count": 2,
@@ -159,8 +175,8 @@
       ],
       "case_id": "D1_L6000_W1620_P10_OUT2000",
       "label_origin_um": [
-        -700.0,
-        1350.0
+        -840.847,
+        1160.0
       ],
       "final_pnc_present": false,
       "final_release_window_count": 1,
@@ -184,9 +200,13 @@
       "width_um": 1.64,
       "origin_um": [
         2242.1530000000002,
-        1700.0
+        1500.0
       ],
-      "label": "D1_W1.64_T80_P10_OUT2000",
+      "label": "L20741.8_W1.64",
+      "label_anchor_local_um": [
+        -3085.0,
+        200.0
+      ],
       "straight_section_count": 3,
       "straight_length_um": 6000.0,
       "bend_count": 2,
@@ -203,8 +223,8 @@
       ],
       "case_id": "D1_L6000_W1640_P10_OUT2000",
       "label_origin_um": [
-        -700.0,
-        1950.0
+        -840.847,
+        1710.0
       ],
       "final_pnc_present": false,
       "final_release_window_count": 1,
@@ -228,9 +248,13 @@
       "width_um": 1.68,
       "origin_um": [
         2242.1530000000002,
-        2300.0
+        2050.0
       ],
-      "label": "D1_W1.68_T80_P10_OUT2000",
+      "label": "L20741.8_W1.68",
+      "label_anchor_local_um": [
+        -3085.0,
+        200.0
+      ],
       "straight_section_count": 3,
       "straight_length_um": 6000.0,
       "bend_count": 2,
@@ -247,8 +271,8 @@
       ],
       "case_id": "D1_L6000_W1680_P10_OUT2000",
       "label_origin_um": [
-        -700.0,
-        2550.0
+        -840.847,
+        2260.0
       ],
       "final_pnc_present": false,
       "final_release_window_count": 1,
@@ -272,9 +296,13 @@
       "width_um": 1.62,
       "origin_um": [
         2242.1530000000002,
-        2900.0
+        2600.0
       ],
-      "label": "D1_S6000_W1.62_T80_2T",
+      "label": "L6000_W1.62",
+      "label_anchor_local_um": [
+        -3085.0,
+        0.0
+      ],
       "straight_section_count": 1,
       "straight_length_um": 6000.0,
       "bend_count": 0,
@@ -291,8 +319,8 @@
       ],
       "case_id": "D1_SINGLE_L6000_W1620_2T",
       "label_origin_um": [
-        -700.0,
-        3150.0
+        -840.847,
+        2610.0
       ],
       "final_pnc_present": false,
       "final_release_window_count": 2,
@@ -317,9 +345,13 @@
       "width_um": 1.64,
       "origin_um": [
         2242.1530000000002,
-        3500.0
+        3150.0
       ],
-      "label": "D1_S6000_W1.64_T80_2T",
+      "label": "L6000_W1.64",
+      "label_anchor_local_um": [
+        -3085.0,
+        0.0
+      ],
       "straight_section_count": 1,
       "straight_length_um": 6000.0,
       "bend_count": 0,
@@ -336,8 +368,8 @@
       ],
       "case_id": "D1_SINGLE_L6000_W1640_2T",
       "label_origin_um": [
-        -700.0,
-        3750.0
+        -840.847,
+        3160.0
       ],
       "final_pnc_present": false,
       "final_release_window_count": 2,
@@ -362,9 +394,13 @@
       "width_um": 1.68,
       "origin_um": [
         2242.1530000000002,
-        4100.0
+        3700.0
       ],
-      "label": "D1_S6000_W1.68_T80_2T",
+      "label": "L6000_W1.68",
+      "label_anchor_local_um": [
+        -3085.0,
+        0.0
+      ],
       "straight_section_count": 1,
       "straight_length_um": 6000.0,
       "bend_count": 0,
@@ -381,8 +417,8 @@
       ],
       "case_id": "D1_SINGLE_L6000_W1680_2T",
       "label_origin_um": [
-        -700.0,
-        4350.0
+        -840.847,
+        3710.0
       ],
       "final_pnc_present": false,
       "final_release_window_count": 2,
@@ -407,9 +443,13 @@
       "width_um": 1.62,
       "origin_um": [
         2242.1530000000002,
-        4700.0
+        4250.0
       ],
-      "label": "D1_S6000_W1.62_T80_1T_OUT2000",
+      "label": "L8000_W1.62",
+      "label_anchor_local_um": [
+        -3085.0,
+        0.0
+      ],
       "straight_section_count": 1,
       "straight_length_um": 6000.0,
       "bend_count": 0,
@@ -426,8 +466,8 @@
       ],
       "case_id": "D1_SINGLE_L6000_W1620_1T_OUT2000",
       "label_origin_um": [
-        -700.0,
-        4950.0
+        -840.847,
+        4260.0
       ],
       "final_pnc_present": false,
       "final_release_window_count": 1,
@@ -452,9 +492,13 @@
       "width_um": 1.64,
       "origin_um": [
         2242.1530000000002,
-        5300.0
+        4800.0
       ],
-      "label": "D1_S6000_W1.64_T80_1T_OUT2000",
+      "label": "L8000_W1.64",
+      "label_anchor_local_um": [
+        -3085.0,
+        0.0
+      ],
       "straight_section_count": 1,
       "straight_length_um": 6000.0,
       "bend_count": 0,
@@ -471,8 +515,8 @@
       ],
       "case_id": "D1_SINGLE_L6000_W1640_1T_OUT2000",
       "label_origin_um": [
-        -700.0,
-        5550.0
+        -840.847,
+        4810.0
       ],
       "final_pnc_present": false,
       "final_release_window_count": 1,
@@ -497,9 +541,13 @@
       "width_um": 1.68,
       "origin_um": [
         2242.1530000000002,
-        5900.0
+        5350.0
       ],
-      "label": "D1_S6000_W1.68_T80_1T_OUT2000",
+      "label": "L8000_W1.68",
+      "label_anchor_local_um": [
+        -3085.0,
+        0.0
+      ],
       "straight_section_count": 1,
       "straight_length_um": 6000.0,
       "bend_count": 0,
@@ -516,8 +564,8 @@
       ],
       "case_id": "D1_SINGLE_L6000_W1680_1T_OUT2000",
       "label_origin_um": [
-        -700.0,
-        6150.0
+        -840.847,
+        5360.0
       ],
       "final_pnc_present": false,
       "final_release_window_count": 1,
@@ -546,13 +594,13 @@
   "meander_straight_length_um": 6000.0,
   "single_straight_length_um": 6000.0,
   "extension_length_um": 2000.0,
-  "row_pitch_um": 600.0,
+  "row_pitch_um": 550.0,
   "left_bend_x_um": -900.0,
   "frame_bounds_um": [
     -3400,
     -1600,
     7900,
-    6700
+    6000
   ],
   "layer2_start_width_um": 15.0,
   "layer14_start_width_um": 8.0,
@@ -2626,11 +2674,11 @@
         "circle_centers_global_um": [
           [
             -1332.8469999999998,
-            100.0
+            50.0
           ],
           [
             -1832.8469999999998,
-            100.0
+            50.0
           ]
         ],
         "middle_frame_removed": true
@@ -2659,11 +2707,11 @@
         "circle_centers_global_um": [
           [
             5817.153,
-            -300.0
+            -350.0
           ],
           [
             6317.153,
-            -300.0
+            -350.0
           ]
         ],
         "middle_frame_removed": true
@@ -2692,11 +2740,11 @@
         "circle_centers_global_um": [
           [
             -1332.8469999999998,
-            700.0
+            600.0
           ],
           [
             -1832.8469999999998,
-            700.0
+            600.0
           ]
         ],
         "middle_frame_removed": true
@@ -2725,11 +2773,11 @@
         "circle_centers_global_um": [
           [
             5817.153,
-            300.0
+            200.0
           ],
           [
             6317.153,
-            300.0
+            200.0
           ]
         ],
         "middle_frame_removed": true
@@ -2758,11 +2806,11 @@
         "circle_centers_global_um": [
           [
             -1332.8469999999998,
-            1300.0
+            1150.0
           ],
           [
             -1832.8469999999998,
-            1300.0
+            1150.0
           ]
         ],
         "middle_frame_removed": true
@@ -2791,11 +2839,11 @@
         "circle_centers_global_um": [
           [
             -1332.8469999999998,
-            1900.0
+            1700.0
           ],
           [
             -1832.8469999999998,
-            1900.0
+            1700.0
           ]
         ],
         "middle_frame_removed": true
@@ -2824,11 +2872,11 @@
         "circle_centers_global_um": [
           [
             -1332.8469999999998,
-            2500.0
+            2250.0
           ],
           [
             -1832.8469999999998,
-            2500.0
+            2250.0
           ]
         ],
         "middle_frame_removed": true
@@ -2857,11 +2905,11 @@
         "circle_centers_global_um": [
           [
             -1332.8469999999998,
-            2900.0
+            2600.0
           ],
           [
             -1832.8469999999998,
-            2900.0
+            2600.0
           ]
         ],
         "middle_frame_removed": true
@@ -2890,11 +2938,11 @@
         "circle_centers_global_um": [
           [
             5817.153,
-            2900.0
+            2600.0
           ],
           [
             6317.153,
-            2900.0
+            2600.0
           ]
         ],
         "middle_frame_removed": true
@@ -2923,11 +2971,11 @@
         "circle_centers_global_um": [
           [
             -1332.8469999999998,
-            3500.0
+            3150.0
           ],
           [
             -1832.8469999999998,
-            3500.0
+            3150.0
           ]
         ],
         "middle_frame_removed": true
@@ -2956,11 +3004,11 @@
         "circle_centers_global_um": [
           [
             5817.153,
-            3500.0
+            3150.0
           ],
           [
             6317.153,
-            3500.0
+            3150.0
           ]
         ],
         "middle_frame_removed": true
@@ -2989,11 +3037,11 @@
         "circle_centers_global_um": [
           [
             -1332.8469999999998,
-            4100.0
+            3700.0
           ],
           [
             -1832.8469999999998,
-            4100.0
+            3700.0
           ]
         ],
         "middle_frame_removed": true
@@ -3022,11 +3070,11 @@
         "circle_centers_global_um": [
           [
             5817.153,
-            4100.0
+            3700.0
           ],
           [
             6317.153,
-            4100.0
+            3700.0
           ]
         ],
         "middle_frame_removed": true
@@ -3055,11 +3103,11 @@
         "circle_centers_global_um": [
           [
             -1332.8469999999998,
-            4700.0
+            4250.0
           ],
           [
             -1832.8469999999998,
-            4700.0
+            4250.0
           ]
         ],
         "middle_frame_removed": true
@@ -3088,11 +3136,11 @@
         "circle_centers_global_um": [
           [
             -1332.8469999999998,
-            5300.0
+            4800.0
           ],
           [
             -1832.8469999999998,
-            5300.0
+            4800.0
           ]
         ],
         "middle_frame_removed": true
@@ -3121,11 +3169,11 @@
         "circle_centers_global_um": [
           [
             -1332.8469999999998,
-            5900.0
+            5350.0
           ],
           [
             -1832.8469999999998,
-            5900.0
+            5350.0
           ]
         ],
         "middle_frame_removed": true
@@ -3921,6 +3969,16 @@
       "layer2_margin_um": 2.5,
       "layer14_margin_um": 1.0,
       "release_start_offset_um": 0.0,
+      "tip_centers": [
+        [
+          -3085.0,
+          200.0
+        ],
+        [
+          3085.0,
+          -200.0
+        ]
+      ],
       "input_port_um": [
         -3000.0,
         200.0
@@ -4263,6 +4321,16 @@
       "layer2_margin_um": 2.5,
       "layer14_margin_um": 1.0,
       "release_start_offset_um": 0.0,
+      "tip_centers": [
+        [
+          -3085.0,
+          200.0
+        ],
+        [
+          3085.0,
+          -200.0
+        ]
+      ],
       "input_port_um": [
         -3000.0,
         200.0
@@ -4605,6 +4673,16 @@
       "layer2_margin_um": 2.5,
       "layer14_margin_um": 1.0,
       "release_start_offset_um": 0.0,
+      "tip_centers": [
+        [
+          -3085.0,
+          200.0
+        ],
+        [
+          3085.0,
+          -200.0
+        ]
+      ],
       "input_port_um": [
         -3000.0,
         200.0
@@ -4941,7 +5019,7 @@
     }
   ],
   "check_count": 364,
-  "original_gds_sha256": "ecf200c2886cf8a4492528fd09e5736a488df6ac63bc93ea93490d0b11e27889",
-  "gds_sha256": "f63d6c40c5bbf872dd7774ef70b7ed315a473ed0fa3e2f0bc1d2b99afa677baf",
+  "original_gds_sha256": "76e95d7b7672eb1b77b6a87a36951ff60f649513c3085859a8828208fb1a426c",
+  "gds_sha256": "8d5f3006badf63d69d5b8c08607ba1eb9d509e16eedf96598965aa96b8f8ae21",
   "optical_or_mechanical_simulation_performed": false
 }

@@ -1,0 +1,215 @@
+{
+  "design": 1,
+  "row": 0,
+  "bend_period_um": 2.0,
+  "taper_total_um": 80.0,
+  "stage_lengths_um": [
+    40.0,
+    40.0
+  ],
+  "straight_um": 1400.0,
+  "global_row": 0,
+  "case_id": "D1_01_B2_T80",
+  "source": "2611_tapered_yue_dual_resist.py",
+  "removed_length_label": {
+    "removed_polygon_count": 14,
+    "removed_area_um2": 42.363,
+    "method": "isolate_final_length_text_on_998_before_flatten_then_remove_998"
+  },
+  "source_sha256": "fb86dd113b51833023f66837ee97cf2c1bb0e5d222082ef43779f4541ea20cf9",
+  "left_pnc_x_um": -842.787,
+  "measured_straights_um": [
+    1400.0,
+    1400.0,
+    1400.0
+  ],
+  "measured_bends_um": [
+    370.9113052086134,
+    370.9113052086134
+  ],
+  "meander_length_um": 4941.822610417226,
+  "bend_pnc_measurements": [
+    {
+      "pairs": 184,
+      "fitted_pitch_um": 2.0049798098834155
+    },
+    {
+      "pairs": 184,
+      "fitted_pitch_um": 2.0049798098818026
+    }
+  ],
+  "straight_pnc_period_um": 5.0,
+  "straight_pnc_measurements": [
+    {
+      "interior_pairs": 279,
+      "min_pitch_um": 5.0,
+      "max_pitch_um": 5.0,
+      "start_um": [
+        -700.0,
+        200.0
+      ],
+      "end_um": [
+        700.0,
+        200.0
+      ]
+    },
+    {
+      "interior_pairs": 279,
+      "min_pitch_um": 5.0,
+      "max_pitch_um": 5.0,
+      "start_um": [
+        700.0,
+        0.0
+      ],
+      "end_um": [
+        -700.0,
+        1.7053025658242404e-13
+      ]
+    },
+    {
+      "interior_pairs": 279,
+      "min_pitch_um": 5.0,
+      "max_pitch_um": 5.000000000000455,
+      "start_um": [
+        -700.0,
+        -199.99999999999983
+      ],
+      "end_um": [
+        700.0,
+        -199.99999999999983
+      ]
+    }
+  ],
+  "taper_pnc_period_um": 5.0,
+  "pnc_taper_length_um": 45.0,
+  "pnc_cutoff_width_um": 5.0,
+  "pnc_junction_continuity": "C2",
+  "taper_profile": "original_quintic_smootherstep",
+  "pnc_junction_width_derivatives": [
+    0.0,
+    0.0
+  ],
+  "optical_adiabaticity_simulated": false,
+  "pnc_reference_profile_length_um": 45.0,
+  "connection_pnc_pitch_um": 1.0,
+  "connection_pnc_periods": 5,
+  "connection_pnc_span_um": 5.0,
+  "connection_pnc_region": "narrow_pnc_end",
+  "connection_pnc_start_um": 40.0,
+  "connection_pnc_end_um": 45.0,
+  "layer10_widths_um": [
+    5.0,
+    1.0,
+    0.2
+  ],
+  "layer15_widths_um": [
+    1.0,
+    0.1
+  ],
+  "layer15_lengths_um": [
+    40.0
+  ],
+  "taper_samples": [
+    {
+      "layer": 10,
+      "distance_um": 0.0,
+      "measured_width_um": 5.0,
+      "target_width_um": 5.0
+    },
+    {
+      "layer": 10,
+      "distance_um": 40.0,
+      "measured_width_um": 1.0,
+      "target_width_um": 1.0
+    },
+    {
+      "layer": 10,
+      "distance_um": 80.0,
+      "measured_width_um": 0.2,
+      "target_width_um": 0.2
+    },
+    {
+      "layer": 15,
+      "distance_um": 0.0,
+      "measured_width_um": 1.0,
+      "target_width_um": 1.0
+    },
+    {
+      "layer": 15,
+      "distance_um": 40.0,
+      "measured_width_um": 0.1,
+      "target_width_um": 0.1
+    }
+  ],
+  "layer14_post_pnc_windows": [
+    {
+      "stage_lengths_um": [
+        40.0,
+        40.0
+      ],
+      "post_pnc_margin_um": 1.0,
+      "pnc_end_width_um": 15.192000000000007,
+      "first_stage_end_width_um": 3.0,
+      "linear_start_from_l10_um": 80.0,
+      "linear_start_width_um": 2.1999999999999886,
+      "far_end_from_l10_um": 1595.0,
+      "far_edges_um": [
+        -24.191000000000003,
+        28.191000000000003
+      ],
+      "circle_centers_from_l10_um": [
+        530.0,
+        1030.0
+      ],
+      "circle_diameter_um": 300.0,
+      "intermediate_frame_removed": true,
+      "side": "input",
+      "l10_start_local_x_um": -745.0,
+      "center_y_um": 200.0,
+      "pnc_length_um": 45.0,
+      "outward_sign": -1
+    },
+    {
+      "stage_lengths_um": [
+        40.0,
+        40.0
+      ],
+      "post_pnc_margin_um": 1.0,
+      "pnc_end_width_um": 15.192000000000007,
+      "first_stage_end_width_um": 3.0,
+      "linear_start_from_l10_um": 80.0,
+      "linear_start_width_um": 2.1999999999999886,
+      "far_end_from_l10_um": 1595.0,
+      "far_edges_um": [
+        -24.191000000000003,
+        28.191000000000003
+      ],
+      "circle_centers_from_l10_um": [
+        530.0,
+        1030.0
+      ],
+      "circle_diameter_um": 300.0,
+      "intermediate_frame_removed": true,
+      "side": "output",
+      "l10_start_local_x_um": 745.0,
+      "center_y_um": -200.0,
+      "pnc_length_um": 45.0,
+      "outward_sign": 1
+    }
+  ],
+  "tip_centers": [
+    [
+      -785.0,
+      200.0
+    ],
+    [
+      785.0,
+      -200.0
+    ]
+  ],
+  "orientations": [
+    0.0,
+    180.0
+  ],
+  "status": "PASS"
+}

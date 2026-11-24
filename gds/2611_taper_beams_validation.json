@@ -6684,7 +6684,7 @@
   "layer14_margin_um": 1.0,
   "layer2_margin_um": 2.5,
   "baseline_compared": false,
-  "gds_sha256": "f63d6c40c5bbf872dd7774ef70b7ed315a473ed0fa3e2f0bc1d2b99afa677baf",
+  "gds_sha256": "8d5f3006badf63d69d5b8c08607ba1eb9d509e16eedf96598965aa96b8f8ae21",
   "method": "Raw GDSII parser and independent Shapely geometry; no CAD generator",
   "optical_or_mechanical_simulation_performed": false
 }

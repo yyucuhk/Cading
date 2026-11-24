@@ -1,0 +1,3057 @@
+{
+  "status": "PASS",
+  "devices": [
+    {
+      "mode": "original_two_tapers",
+      "topology": "single_straight",
+      "set_name": "single_straight_L15000_two_tapers",
+      "width_um": 1.62,
+      "origin_um": [
+        2242.1530000000002,
+        -700.0
+      ],
+      "label": "L15000_W1.62_2T",
+      "label_anchor_local_um": [
+        -7585.0,
+        0.0
+      ],
+      "straight_section_count": 1,
+      "straight_length_um": 15000.0,
+      "bend_count": 0,
+      "added_length_um": 0.0,
+      "path_length_excluding_tapers_um": 15000.0,
+      "output_extension_length_um": 0.0,
+      "release_window_file": "RELEASE_M2_2p5_M14_1p0_D1_L6000_W1620_P10.gds",
+      "input_port_local_um": [
+        -7500.0,
+        0.0
+      ],
+      "output_port_local_um": [
+        7500.0,
+        0.0
+      ],
+      "source_input_port_local_um": [
+        -3000.0,
+        200.0
+      ],
+      "source_output_port_local_um": [
+        3000.0,
+        -200.0
+      ],
+      "copied_from": "D1_L6000_W1620_P10",
+      "case_id": "D1_SINGLE_L15000_W1620_2T",
+      "label_origin_um": [
+        -5340.847,
+        -690.0
+      ],
+      "final_pnc_present": false,
+      "final_release_window_count": 2,
+      "layer2_margin_um": 2.5,
+      "layer14_margin_um": 1.0,
+      "layer2_start_offset_um": 0.5,
+      "layer14_start_offset_um": 0.0,
+      "layer2_start_width_um": 15.0,
+      "layer14_start_width_um": 8.0,
+      "local_taper_beam_count": 12,
+      "local_taper_beam_layer": [
+        11,
+        0
+      ],
+      "layer14_linear_start_distance_um": 58.847
+    },
+    {
+      "mode": "original_two_tapers",
+      "topology": "single_straight",
+      "set_name": "single_straight_L15000_two_tapers",
+      "width_um": 1.64,
+      "origin_um": [
+        2242.1530000000002,
+        -150.0
+      ],
+      "label": "L15000_W1.64_2T",
+      "label_anchor_local_um": [
+        -7585.0,
+        0.0
+      ],
+      "straight_section_count": 1,
+      "straight_length_um": 15000.0,
+      "bend_count": 0,
+      "added_length_um": 0.0,
+      "path_length_excluding_tapers_um": 15000.0,
+      "output_extension_length_um": 0.0,
+      "release_window_file": "RELEASE_M2_2p5_M14_1p0_D1_L6000_W1640_P10.gds",
+      "input_port_local_um": [
+        -7500.0,
+        0.0
+      ],
+      "output_port_local_um": [
+        7500.0,
+        0.0
+      ],
+      "source_input_port_local_um": [
+        -3000.0,
+        200.0
+      ],
+      "source_output_port_local_um": [
+        3000.0,
+        -200.0
+      ],
+      "copied_from": "D1_L6000_W1640_P10",
+      "case_id": "D1_SINGLE_L15000_W1640_2T",
+      "label_origin_um": [
+        -5340.847,
+        -140.0
+      ],
+      "final_pnc_present": false,
+      "final_release_window_count": 2,
+      "layer2_margin_um": 2.5,
+      "layer14_margin_um": 1.0,
+      "layer2_start_offset_um": 0.5,
+      "layer14_start_offset_um": 0.0,
+      "layer2_start_width_um": 15.0,
+      "layer14_start_width_um": 8.0,
+      "local_taper_beam_count": 12,
+      "local_taper_beam_layer": [
+        11,
+        0
+      ],
+      "layer14_linear_start_distance_um": 58.847
+    },
+    {
+      "mode": "original_two_tapers",
+      "topology": "single_straight",
+      "set_name": "single_straight_L15000_two_tapers",
+      "width_um": 1.68,
+      "origin_um": [
+        2242.1530000000002,
+        400.0
+      ],
+      "label": "L15000_W1.68_2T",
+      "label_anchor_local_um": [
+        -7585.0,
+        0.0
+      ],
+      "straight_section_count": 1,
+      "straight_length_um": 15000.0,
+      "bend_count": 0,
+      "added_length_um": 0.0,
+      "path_length_excluding_tapers_um": 15000.0,
+      "output_extension_length_um": 0.0,
+      "release_window_file": "RELEASE_M2_2p5_M14_1p0_D1_L6000_W1680_P10.gds",
+      "input_port_local_um": [
+        -7500.0,
+        0.0
+      ],
+      "output_port_local_um": [
+        7500.0,
+        0.0
+      ],
+      "source_input_port_local_um": [
+        -3000.0,
+        200.0
+      ],
+      "source_output_port_local_um": [
+        3000.0,
+        -200.0
+      ],
+      "copied_from": "D1_L6000_W1680_P10",
+      "case_id": "D1_SINGLE_L15000_W1680_2T",
+      "label_origin_um": [
+        -5340.847,
+        410.0
+      ],
+      "final_pnc_present": false,
+      "final_release_window_count": 2,
+      "layer2_margin_um": 2.5,
+      "layer14_margin_um": 1.0,
+      "layer2_start_offset_um": 0.5,
+      "layer14_start_offset_um": 0.0,
+      "layer2_start_width_um": 15.0,
+      "layer14_start_width_um": 8.0,
+      "local_taper_beam_count": 12,
+      "local_taper_beam_layer": [
+        11,
+        0
+      ],
+      "layer14_linear_start_distance_um": 58.847
+    },
+    {
+      "mode": "straight_output",
+      "topology": "single_straight",
+      "set_name": "single_straight_L15000_straight_output",
+      "width_um": 1.62,
+      "origin_um": [
+        2242.1530000000002,
+        950.0
+      ],
+      "label": "L15000_W1.62_1T",
+      "label_anchor_local_um": [
+        -7585.0,
+        0.0
+      ],
+      "straight_section_count": 1,
+      "straight_length_um": 15000.0,
+      "bend_count": 0,
+      "added_length_um": 0.0,
+      "path_length_excluding_tapers_um": 17000.0,
+      "output_extension_length_um": 2000.0,
+      "release_window_file": "RELEASE_M2_2p5_M14_1p0_D1_L6000_W1620_P10.gds",
+      "input_port_local_um": [
+        -7500.0,
+        0.0
+      ],
+      "output_port_local_um": [
+        9500.0,
+        0.0
+      ],
+      "source_input_port_local_um": [
+        -3000.0,
+        200.0
+      ],
+      "source_output_port_local_um": [
+        3000.0,
+        -200.0
+      ],
+      "copied_from": "D1_L6000_W1620_P10",
+      "case_id": "D1_SINGLE_L15000_W1620_1T_OUT2000",
+      "label_origin_um": [
+        -5340.847,
+        960.0
+      ],
+      "final_pnc_present": false,
+      "final_release_window_count": 1,
+      "layer2_margin_um": 2.5,
+      "layer14_margin_um": 1.0,
+      "layer2_start_offset_um": 0.5,
+      "layer14_start_offset_um": 0.0,
+      "layer2_start_width_um": 15.0,
+      "layer14_start_width_um": 8.0,
+      "local_taper_beam_count": 6,
+      "local_taper_beam_layer": [
+        11,
+        0
+      ],
+      "layer14_linear_start_distance_um": 58.847
+    },
+    {
+      "mode": "straight_output",
+      "topology": "single_straight",
+      "set_name": "single_straight_L15000_straight_output",
+      "width_um": 1.64,
+      "origin_um": [
+        2242.1530000000002,
+        1500.0
+      ],
+      "label": "L15000_W1.64_1T",
+      "label_anchor_local_um": [
+        -7585.0,
+        0.0
+      ],
+      "straight_section_count": 1,
+      "straight_length_um": 15000.0,
+      "bend_count": 0,
+      "added_length_um": 0.0,
+      "path_length_excluding_tapers_um": 17000.0,
+      "output_extension_length_um": 2000.0,
+      "release_window_file": "RELEASE_M2_2p5_M14_1p0_D1_L6000_W1640_P10.gds",
+      "input_port_local_um": [
+        -7500.0,
+        0.0
+      ],
+      "output_port_local_um": [
+        9500.0,
+        0.0
+      ],
+      "source_input_port_local_um": [
+        -3000.0,
+        200.0
+      ],
+      "source_output_port_local_um": [
+        3000.0,
+        -200.0
+      ],
+      "copied_from": "D1_L6000_W1640_P10",
+      "case_id": "D1_SINGLE_L15000_W1640_1T_OUT2000",
+      "label_origin_um": [
+        -5340.847,
+        1510.0
+      ],
+      "final_pnc_present": false,
+      "final_release_window_count": 1,
+      "layer2_margin_um": 2.5,
+      "layer14_margin_um": 1.0,
+      "layer2_start_offset_um": 0.5,
+      "layer14_start_offset_um": 0.0,
+      "layer2_start_width_um": 15.0,
+      "layer14_start_width_um": 8.0,
+      "local_taper_beam_count": 6,
+      "local_taper_beam_layer": [
+        11,
+        0
+      ],
+      "layer14_linear_start_distance_um": 58.847
+    },
+    {
+      "mode": "straight_output",
+      "topology": "single_straight",
+      "set_name": "single_straight_L15000_straight_output",
+      "width_um": 1.68,
+      "origin_um": [
+        2242.1530000000002,
+        2050.0
+      ],
+      "label": "L15000_W1.68_1T",
+      "label_anchor_local_um": [
+        -7585.0,
+        0.0
+      ],
+      "straight_section_count": 1,
+      "straight_length_um": 15000.0,
+      "bend_count": 0,
+      "added_length_um": 0.0,
+      "path_length_excluding_tapers_um": 17000.0,
+      "output_extension_length_um": 2000.0,
+      "release_window_file": "RELEASE_M2_2p5_M14_1p0_D1_L6000_W1680_P10.gds",
+      "input_port_local_um": [
+        -7500.0,
+        0.0
+      ],
+      "output_port_local_um": [
+        9500.0,
+        0.0
+      ],
+      "source_input_port_local_um": [
+        -3000.0,
+        200.0
+      ],
+      "source_output_port_local_um": [
+        3000.0,
+        -200.0
+      ],
+      "copied_from": "D1_L6000_W1680_P10",
+      "case_id": "D1_SINGLE_L15000_W1680_1T_OUT2000",
+      "label_origin_um": [
+        -5340.847,
+        2060.0
+      ],
+      "final_pnc_present": false,
+      "final_release_window_count": 1,
+      "layer2_margin_um": 2.5,
+      "layer14_margin_um": 1.0,
+      "layer2_start_offset_um": 0.5,
+      "layer14_start_offset_um": 0.0,
+      "layer2_start_width_um": 15.0,
+      "layer14_start_width_um": 8.0,
+      "local_taper_beam_count": 6,
+      "local_taper_beam_layer": [
+        11,
+        0
+      ],
+      "layer14_linear_start_distance_um": 58.847
+    }
+  ],
+  "device_count": 6,
+  "set_count": 2,
+  "width_sweep_um": [
+    1.62,
+    1.64,
+    1.68
+  ],
+  "source_meander_straight_length_um": 6000.0,
+  "straight_test_lengths_um": [
+    15000.0
+  ],
+  "row_pitch_um": 550.0,
+  "left_bend_x_um": -900.0,
+  "frame_bounds_um": [
+    -7400,
+    -1400,
+    12300,
+    2700
+  ],
+  "layer2_start_width_um": 15.0,
+  "layer14_start_width_um": 8.0,
+  "layer2_window_margin_um": 2.5,
+  "layer14_window_margin_um": 1.0,
+  "layer2_start_offset_um": 0.5,
+  "layer14_start_offset_um": 0.0,
+  "final_layer_policy": {
+    "removed_layers": [
+      16,
+      51
+    ],
+    "cleared_source_pnc_layers": [
+      11
+    ],
+    "removed_shape_counts": {},
+    "marker_source_layer": [
+      10,
+      0
+    ],
+    "marker_target_layer": [
+      15,
+      0
+    ],
+    "marker_cell": "FRAME_AND_MARKERS",
+    "moved_marker_polygon_count": 40,
+    "moved_marker_area_um2": 3984.0,
+    "layer2_labels_preserved": true,
+    "release_masks_handled_separately": true
+  },
+  "coupler_layer_policy": {
+    "D1_SINGLE_L15000_W1620_2T": {
+      "ends": [
+        {
+          "side": "input",
+          "center_y_um": 0.0,
+          "l10_start_local_x_um": -7545.0,
+          "layer2_start_local_x_um": -7545.5,
+          "layer2_start_global_x_um": -5303.347,
+          "layer2_start_width_um": 15.0,
+          "layer2_offset_um": 0.5,
+          "layer14_start_local_x_um": -7545.0,
+          "layer14_start_global_x_um": -5302.847,
+          "layer14_start_width_um": 8.0,
+          "layer14_offset_um": 0.0
+        },
+        {
+          "side": "output",
+          "center_y_um": 0.0,
+          "l10_start_local_x_um": 7545.0,
+          "layer2_start_local_x_um": 7545.5,
+          "layer2_start_global_x_um": 9787.653,
+          "layer2_start_width_um": 15.0,
+          "layer2_offset_um": 0.5,
+          "layer14_start_local_x_um": 7545.0,
+          "layer14_start_global_x_um": 9787.153,
+          "layer14_start_width_um": 8.0,
+          "layer14_offset_um": 0.0
+        }
+      ],
+      "layer2_margin_um": 2.5,
+      "layer14_margin_um": 1.0
+    },
+    "D1_SINGLE_L15000_W1640_2T": {
+      "ends": [
+        {
+          "side": "input",
+          "center_y_um": 0.0,
+          "l10_start_local_x_um": -7545.0,
+          "layer2_start_local_x_um": -7545.5,
+          "layer2_start_global_x_um": -5303.347,
+          "layer2_start_width_um": 15.0,
+          "layer2_offset_um": 0.5,
+          "layer14_start_local_x_um": -7545.0,
+          "layer14_start_global_x_um": -5302.847,
+          "layer14_start_width_um": 8.0,
+          "layer14_offset_um": 0.0
+        },
+        {
+          "side": "output",
+          "center_y_um": 0.0,
+          "l10_start_local_x_um": 7545.0,
+          "layer2_start_local_x_um": 7545.5,
+          "layer2_start_global_x_um": 9787.653,
+          "layer2_start_width_um": 15.0,
+          "layer2_offset_um": 0.5,
+          "layer14_start_local_x_um": 7545.0,
+          "layer14_start_global_x_um": 9787.153,
+          "layer14_start_width_um": 8.0,
+          "layer14_offset_um": 0.0
+        }
+      ],
+      "layer2_margin_um": 2.5,
+      "layer14_margin_um": 1.0
+    },
+    "D1_SINGLE_L15000_W1680_2T": {
+      "ends": [
+        {
+          "side": "input",
+          "center_y_um": 0.0,
+          "l10_start_local_x_um": -7545.0,
+          "layer2_start_local_x_um": -7545.5,
+          "layer2_start_global_x_um": -5303.347,
+          "layer2_start_width_um": 15.0,
+          "layer2_offset_um": 0.5,
+          "layer14_start_local_x_um": -7545.0,
+          "layer14_start_global_x_um": -5302.847,
+          "layer14_start_width_um": 8.0,
+          "layer14_offset_um": 0.0
+        },
+        {
+          "side": "output",
+          "center_y_um": 0.0,
+          "l10_start_local_x_um": 7545.0,
+          "layer2_start_local_x_um": 7545.5,
+          "layer2_start_global_x_um": 9787.653,
+          "layer2_start_width_um": 15.0,
+          "layer2_offset_um": 0.5,
+          "layer14_start_local_x_um": 7545.0,
+          "layer14_start_global_x_um": 9787.153,
+          "layer14_start_width_um": 8.0,
+          "layer14_offset_um": 0.0
+        }
+      ],
+      "layer2_margin_um": 2.5,
+      "layer14_margin_um": 1.0
+    },
+    "D1_SINGLE_L15000_W1620_1T_OUT2000": {
+      "ends": [
+        {
+          "side": "input",
+          "center_y_um": 0.0,
+          "l10_start_local_x_um": -7545.0,
+          "layer2_start_local_x_um": -7545.5,
+          "layer2_start_global_x_um": -5303.347,
+          "layer2_start_width_um": 15.0,
+          "layer2_offset_um": 0.5,
+          "layer14_start_local_x_um": -7545.0,
+          "layer14_start_global_x_um": -5302.847,
+          "layer14_start_width_um": 8.0,
+          "layer14_offset_um": 0.0
+        }
+      ],
+      "layer2_margin_um": 2.5,
+      "layer14_margin_um": 1.0
+    },
+    "D1_SINGLE_L15000_W1640_1T_OUT2000": {
+      "ends": [
+        {
+          "side": "input",
+          "center_y_um": 0.0,
+          "l10_start_local_x_um": -7545.0,
+          "layer2_start_local_x_um": -7545.5,
+          "layer2_start_global_x_um": -5303.347,
+          "layer2_start_width_um": 15.0,
+          "layer2_offset_um": 0.5,
+          "layer14_start_local_x_um": -7545.0,
+          "layer14_start_global_x_um": -5302.847,
+          "layer14_start_width_um": 8.0,
+          "layer14_offset_um": 0.0
+        }
+      ],
+      "layer2_margin_um": 2.5,
+      "layer14_margin_um": 1.0
+    },
+    "D1_SINGLE_L15000_W1680_1T_OUT2000": {
+      "ends": [
+        {
+          "side": "input",
+          "center_y_um": 0.0,
+          "l10_start_local_x_um": -7545.0,
+          "layer2_start_local_x_um": -7545.5,
+          "layer2_start_global_x_um": -5303.347,
+          "layer2_start_width_um": 15.0,
+          "layer2_offset_um": 0.5,
+          "layer14_start_local_x_um": -7545.0,
+          "layer14_start_global_x_um": -5302.847,
+          "layer14_start_width_um": 8.0,
+          "layer14_offset_um": 0.0
+        }
+      ],
+      "layer2_margin_um": 2.5,
+      "layer14_margin_um": 1.0
+    }
+  },
+  "local_taper_beams": {
+    "layer": [
+      11,
+      0
+    ],
+    "width_um": 0.5,
+    "pitch_um": 1.0,
+    "stations_per_end": 3,
+    "start_um": 0.0,
+    "anchor_span_um": 5.096,
+    "anchor_overlap_um": 0.5,
+    "total_beams": 54,
+    "beams": [
+      {
+        "case_id": "D1_SINGLE_L15000_W1620_2T",
+        "end": "input",
+        "side": -1,
+        "station": 0,
+        "distance_from_l10_um": 0.0,
+        "center_local_x_um": -7545.0,
+        "center_global_x_um": -5302.847,
+        "bounds_local_um": [
+          -7545.25,
+          -8.096,
+          -7544.75,
+          -2.0
+        ]
+      },
+      {
+        "case_id": "D1_SINGLE_L15000_W1620_2T",
+        "end": "input",
+        "side": 1,
+        "station": 0,
+        "distance_from_l10_um": 0.0,
+        "center_local_x_um": -7545.0,
+        "center_global_x_um": -5302.847,
+        "bounds_local_um": [
+          -7545.25,
+          2.0,
+          -7544.75,
+          8.096
+        ]
+      },
+      {
+        "case_id": "D1_SINGLE_L15000_W1620_2T",
+        "end": "input",
+        "side": -1,
+        "station": 1,
+        "distance_from_l10_um": 1.0,
+        "center_local_x_um": -7546.0,
+        "center_global_x_um": -5303.847,
+        "bounds_local_um": [
+          -7546.25,
+          -8.096,
+          -7545.75,
+          -2.0
+        ]
+      },
+      {
+        "case_id": "D1_SINGLE_L15000_W1620_2T",
+        "end": "input",
+        "side": 1,
+        "station": 1,
+        "distance_from_l10_um": 1.0,
+        "center_local_x_um": -7546.0,
+        "center_global_x_um": -5303.847,
+        "bounds_local_um": [
+          -7546.25,
+          2.0,
+          -7545.75,
+          8.096
+        ]
+      },
+      {
+        "case_id": "D1_SINGLE_L15000_W1620_2T",
+        "end": "input",
+        "side": -1,
+        "station": 2,
+        "distance_from_l10_um": 2.0,
+        "center_local_x_um": -7547.0,
+        "center_global_x_um": -5304.847,
+        "bounds_local_um": [
+          -7547.25,
+          -8.094000000000001,
+          -7546.75,
+          -1.9980000000000002
+        ]
+      },
+      {
+        "case_id": "D1_SINGLE_L15000_W1620_2T",
+        "end": "input",
+        "side": 1,
+        "station": 2,
+        "distance_from_l10_um": 2.0,
+        "center_local_x_um": -7547.0,
+        "center_global_x_um": -5304.847,
+        "bounds_local_um": [
+          -7547.25,
+          1.9980000000000002,
+          -7546.75,
+          8.094000000000001
+        ]
+      },
+      {
+        "case_id": "D1_SINGLE_L15000_W1620_2T",
+        "end": "output",
+        "side": -1,
+        "station": 0,
+        "distance_from_l10_um": 0.0,
+        "center_local_x_um": 7545.0,
+        "center_global_x_um": 9787.153,
+        "bounds_local_um": [
+          7544.75,
+          -8.096,
+          7545.25,
+          -2.0
+        ]
+      },
+      {
+        "case_id": "D1_SINGLE_L15000_W1620_2T",
+        "end": "output",
+        "side": 1,
+        "station": 0,
+        "distance_from_l10_um": 0.0,
+        "center_local_x_um": 7545.0,
+        "center_global_x_um": 9787.153,
+        "bounds_local_um": [
+          7544.75,
+          2.0,
+          7545.25,
+          8.096
+        ]
+      },
+      {
+        "case_id": "D1_SINGLE_L15000_W1620_2T",
+        "end": "output",
+        "side": -1,
+        "station": 1,
+        "distance_from_l10_um": 1.0,
+        "center_local_x_um": 7546.0,
+        "center_global_x_um": 9788.153,
+        "bounds_local_um": [
+          7545.75,
+          -8.096,
+          7546.25,
+          -2.0
+        ]
+      },
+      {
+        "case_id": "D1_SINGLE_L15000_W1620_2T",
+        "end": "output",
+        "side": 1,
+        "station": 1,
+        "distance_from_l10_um": 1.0,
+        "center_local_x_um": 7546.0,
+        "center_global_x_um": 9788.153,
+        "bounds_local_um": [
+          7545.75,
+          2.0,
+          7546.25,
+          8.096
+        ]
+      },
+      {
+        "case_id": "D1_SINGLE_L15000_W1620_2T",
+        "end": "output",
+        "side": -1,
+        "station": 2,
+        "distance_from_l10_um": 2.0,
+        "center_local_x_um": 7547.0,
+        "center_global_x_um": 9789.153,
+        "bounds_local_um": [
+          7546.75,
+          -8.094000000000001,
+          7547.25,
+          -1.9980000000000002
+        ]
+      },
+      {
+        "case_id": "D1_SINGLE_L15000_W1620_2T",
+        "end": "output",
+        "side": 1,
+        "station": 2,
+        "distance_from_l10_um": 2.0,
+        "center_local_x_um": 7547.0,
+        "center_global_x_um": 9789.153,
+        "bounds_local_um": [
+          7546.75,
+          1.9980000000000002,
+          7547.25,
+          8.094000000000001
+        ]
+      },
+      {
+        "case_id": "D1_SINGLE_L15000_W1640_2T",
+        "end": "input",
+        "side": -1,
+        "station": 0,
+        "distance_from_l10_um": 0.0,
+        "center_local_x_um": -7545.0,
+        "center_global_x_um": -5302.847,
+        "bounds_local_um": [
+          -7545.25,
+          -8.096,
+          -7544.75,
+          -2.0
+        ]
+      },
+      {
+        "case_id": "D1_SINGLE_L15000_W1640_2T",
+        "end": "input",
+        "side": 1,
+        "station": 0,
+        "distance_from_l10_um": 0.0,
+        "center_local_x_um": -7545.0,
+        "center_global_x_um": -5302.847,
+        "bounds_local_um": [
+          -7545.25,
+          2.0,
+          -7544.75,
+          8.096
+        ]
+      },
+      {
+        "case_id": "D1_SINGLE_L15000_W1640_2T",
+        "end": "input",
+        "side": -1,
+        "station": 1,
+        "distance_from_l10_um": 1.0,
+        "center_local_x_um": -7546.0,
+        "center_global_x_um": -5303.847,
+        "bounds_local_um": [
+          -7546.25,
+          -8.096,
+          -7545.75,
+          -2.0
+        ]
+      },
+      {
+        "case_id": "D1_SINGLE_L15000_W1640_2T",
+        "end": "input",
+        "side": 1,
+        "station": 1,
+        "distance_from_l10_um": 1.0,
+        "center_local_x_um": -7546.0,
+        "center_global_x_um": -5303.847,
+        "bounds_local_um": [
+          -7546.25,
+          2.0,
+          -7545.75,
+          8.096
+        ]
+      },
+      {
+        "case_id": "D1_SINGLE_L15000_W1640_2T",
+        "end": "input",
+        "side": -1,
+        "station": 2,
+        "distance_from_l10_um": 2.0,
+        "center_local_x_um": -7547.0,
+        "center_global_x_um": -5304.847,
+        "bounds_local_um": [
+          -7547.25,
+          -8.094000000000001,
+          -7546.75,
+          -1.9980000000000002
+        ]
+      },
+      {
+        "case_id": "D1_SINGLE_L15000_W1640_2T",
+        "end": "input",
+        "side": 1,
+        "station": 2,
+        "distance_from_l10_um": 2.0,
+        "center_local_x_um": -7547.0,
+        "center_global_x_um": -5304.847,
+        "bounds_local_um": [
+          -7547.25,
+          1.9980000000000002,
+          -7546.75,
+          8.094000000000001
+        ]
+      },
+      {
+        "case_id": "D1_SINGLE_L15000_W1640_2T",
+        "end": "output",
+        "side": -1,
+        "station": 0,
+        "distance_from_l10_um": 0.0,
+        "center_local_x_um": 7545.0,
+        "center_global_x_um": 9787.153,
+        "bounds_local_um": [
+          7544.75,
+          -8.096,
+          7545.25,
+          -2.0
+        ]
+      },
+      {
+        "case_id": "D1_SINGLE_L15000_W1640_2T",
+        "end": "output",
+        "side": 1,
+        "station": 0,
+        "distance_from_l10_um": 0.0,
+        "center_local_x_um": 7545.0,
+        "center_global_x_um": 9787.153,
+        "bounds_local_um": [
+          7544.75,
+          2.0,
+          7545.25,
+          8.096
+        ]
+      },
+      {
+        "case_id": "D1_SINGLE_L15000_W1640_2T",
+        "end": "output",
+        "side": -1,
+        "station": 1,
+        "distance_from_l10_um": 1.0,
+        "center_local_x_um": 7546.0,
+        "center_global_x_um": 9788.153,
+        "bounds_local_um": [
+          7545.75,
+          -8.096,
+          7546.25,
+          -2.0
+        ]
+      },
+      {
+        "case_id": "D1_SINGLE_L15000_W1640_2T",
+        "end": "output",
+        "side": 1,
+        "station": 1,
+        "distance_from_l10_um": 1.0,
+        "center_local_x_um": 7546.0,
+        "center_global_x_um": 9788.153,
+        "bounds_local_um": [
+          7545.75,
+          2.0,
+          7546.25,
+          8.096
+        ]
+      },
+      {
+        "case_id": "D1_SINGLE_L15000_W1640_2T",
+        "end": "output",
+        "side": -1,
+        "station": 2,
+        "distance_from_l10_um": 2.0,
+        "center_local_x_um": 7547.0,
+        "center_global_x_um": 9789.153,
+        "bounds_local_um": [
+          7546.75,
+          -8.094000000000001,
+          7547.25,
+          -1.9980000000000002
+        ]
+      },
+      {
+        "case_id": "D1_SINGLE_L15000_W1640_2T",
+        "end": "output",
+        "side": 1,
+        "station": 2,
+        "distance_from_l10_um": 2.0,
+        "center_local_x_um": 7547.0,
+        "center_global_x_um": 9789.153,
+        "bounds_local_um": [
+          7546.75,
+          1.9980000000000002,
+          7547.25,
+          8.094000000000001
+        ]
+      },
+      {
+        "case_id": "D1_SINGLE_L15000_W1680_2T",
+        "end": "input",
+        "side": -1,
+        "station": 0,
+        "distance_from_l10_um": 0.0,
+        "center_local_x_um": -7545.0,
+        "center_global_x_um": -5302.847,
+        "bounds_local_um": [
+          -7545.25,
+          -8.096,
+          -7544.75,
+          -2.0
+        ]
+      },
+      {
+        "case_id": "D1_SINGLE_L15000_W1680_2T",
+        "end": "input",
+        "side": 1,
+        "station": 0,
+        "distance_from_l10_um": 0.0,
+        "center_local_x_um": -7545.0,
+        "center_global_x_um": -5302.847,
+        "bounds_local_um": [
+          -7545.25,
+          2.0,
+          -7544.75,
+          8.096
+        ]
+      },
+      {
+        "case_id": "D1_SINGLE_L15000_W1680_2T",
+        "end": "input",
+        "side": -1,
+        "station": 1,
+        "distance_from_l10_um": 1.0,
+        "center_local_x_um": -7546.0,
+        "center_global_x_um": -5303.847,
+        "bounds_local_um": [
+          -7546.25,
+          -8.096,
+          -7545.75,
+          -2.0
+        ]
+      },
+      {
+        "case_id": "D1_SINGLE_L15000_W1680_2T",
+        "end": "input",
+        "side": 1,
+        "station": 1,
+        "distance_from_l10_um": 1.0,
+        "center_local_x_um": -7546.0,
+        "center_global_x_um": -5303.847,
+        "bounds_local_um": [
+          -7546.25,
+          2.0,
+          -7545.75,
+          8.096
+        ]
+      },
+      {
+        "case_id": "D1_SINGLE_L15000_W1680_2T",
+        "end": "input",
+        "side": -1,
+        "station": 2,
+        "distance_from_l10_um": 2.0,
+        "center_local_x_um": -7547.0,
+        "center_global_x_um": -5304.847,
+        "bounds_local_um": [
+          -7547.25,
+          -8.094000000000001,
+          -7546.75,
+          -1.9980000000000002
+        ]
+      },
+      {
+        "case_id": "D1_SINGLE_L15000_W1680_2T",
+        "end": "input",
+        "side": 1,
+        "station": 2,
+        "distance_from_l10_um": 2.0,
+        "center_local_x_um": -7547.0,
+        "center_global_x_um": -5304.847,
+        "bounds_local_um": [
+          -7547.25,
+          1.9980000000000002,
+          -7546.75,
+          8.094000000000001
+        ]
+      },
+      {
+        "case_id": "D1_SINGLE_L15000_W1680_2T",
+        "end": "output",
+        "side": -1,
+        "station": 0,
+        "distance_from_l10_um": 0.0,
+        "center_local_x_um": 7545.0,
+        "center_global_x_um": 9787.153,
+        "bounds_local_um": [
+          7544.75,
+          -8.096,
+          7545.25,
+          -2.0
+        ]
+      },
+      {
+        "case_id": "D1_SINGLE_L15000_W1680_2T",
+        "end": "output",
+        "side": 1,
+        "station": 0,
+        "distance_from_l10_um": 0.0,
+        "center_local_x_um": 7545.0,
+        "center_global_x_um": 9787.153,
+        "bounds_local_um": [
+          7544.75,
+          2.0,
+          7545.25,
+          8.096
+        ]
+      },
+      {
+        "case_id": "D1_SINGLE_L15000_W1680_2T",
+        "end": "output",
+        "side": -1,
+        "station": 1,
+        "distance_from_l10_um": 1.0,
+        "center_local_x_um": 7546.0,
+        "center_global_x_um": 9788.153,
+        "bounds_local_um": [
+          7545.75,
+          -8.096,
+          7546.25,
+          -2.0
+        ]
+      },
+      {
+        "case_id": "D1_SINGLE_L15000_W1680_2T",
+        "end": "output",
+        "side": 1,
+        "station": 1,
+        "distance_from_l10_um": 1.0,
+        "center_local_x_um": 7546.0,
+        "center_global_x_um": 9788.153,
+        "bounds_local_um": [
+          7545.75,
+          2.0,
+          7546.25,
+          8.096
+        ]
+      },
+      {
+        "case_id": "D1_SINGLE_L15000_W1680_2T",
+        "end": "output",
+        "side": -1,
+        "station": 2,
+        "distance_from_l10_um": 2.0,
+        "center_local_x_um": 7547.0,
+        "center_global_x_um": 9789.153,
+        "bounds_local_um": [
+          7546.75,
+          -8.094000000000001,
+          7547.25,
+          -1.9980000000000002
+        ]
+      },
+      {
+        "case_id": "D1_SINGLE_L15000_W1680_2T",
+        "end": "output",
+        "side": 1,
+        "station": 2,
+        "distance_from_l10_um": 2.0,
+        "center_local_x_um": 7547.0,
+        "center_global_x_um": 9789.153,
+        "bounds_local_um": [
+          7546.75,
+          1.9980000000000002,
+          7547.25,
+          8.094000000000001
+        ]
+      },
+      {
+        "case_id": "D1_SINGLE_L15000_W1620_1T_OUT2000",
+        "end": "input",
+        "side": -1,
+        "station": 0,
+        "distance_from_l10_um": 0.0,
+        "center_local_x_um": -7545.0,
+        "center_global_x_um": -5302.847,
+        "bounds_local_um": [
+          -7545.25,
+          -8.096,
+          -7544.75,
+          -2.0
+        ]
+      },
+      {
+        "case_id": "D1_SINGLE_L15000_W1620_1T_OUT2000",
+        "end": "input",
+        "side": 1,
+        "station": 0,
+        "distance_from_l10_um": 0.0,
+        "center_local_x_um": -7545.0,
+        "center_global_x_um": -5302.847,
+        "bounds_local_um": [
+          -7545.25,
+          2.0,
+          -7544.75,
+          8.096
+        ]
+      },
+      {
+        "case_id": "D1_SINGLE_L15000_W1620_1T_OUT2000",
+        "end": "input",
+        "side": -1,
+        "station": 1,
+        "distance_from_l10_um": 1.0,
+        "center_local_x_um": -7546.0,
+        "center_global_x_um": -5303.847,
+        "bounds_local_um": [
+          -7546.25,
+          -8.096,
+          -7545.75,
+          -2.0
+        ]
+      },
+      {
+        "case_id": "D1_SINGLE_L15000_W1620_1T_OUT2000",
+        "end": "input",
+        "side": 1,
+        "station": 1,
+        "distance_from_l10_um": 1.0,
+        "center_local_x_um": -7546.0,
+        "center_global_x_um": -5303.847,
+        "bounds_local_um": [
+          -7546.25,
+          2.0,
+          -7545.75,
+          8.096
+        ]
+      },
+      {
+        "case_id": "D1_SINGLE_L15000_W1620_1T_OUT2000",
+        "end": "input",
+        "side": -1,
+        "station": 2,
+        "distance_from_l10_um": 2.0,
+        "center_local_x_um": -7547.0,
+        "center_global_x_um": -5304.847,
+        "bounds_local_um": [
+          -7547.25,
+          -8.094000000000001,
+          -7546.75,
+          -1.9980000000000002
+        ]
+      },
+      {
+        "case_id": "D1_SINGLE_L15000_W1620_1T_OUT2000",
+        "end": "input",
+        "side": 1,
+        "station": 2,
+        "distance_from_l10_um": 2.0,
+        "center_local_x_um": -7547.0,
+        "center_global_x_um": -5304.847,
+        "bounds_local_um": [
+          -7547.25,
+          1.9980000000000002,
+          -7546.75,
+          8.094000000000001
+        ]
+      },
+      {
+        "case_id": "D1_SINGLE_L15000_W1640_1T_OUT2000",
+        "end": "input",
+        "side": -1,
+        "station": 0,
+        "distance_from_l10_um": 0.0,
+        "center_local_x_um": -7545.0,
+        "center_global_x_um": -5302.847,
+        "bounds_local_um": [
+          -7545.25,
+          -8.096,
+          -7544.75,
+          -2.0
+        ]
+      },
+      {
+        "case_id": "D1_SINGLE_L15000_W1640_1T_OUT2000",
+        "end": "input",
+        "side": 1,
+        "station": 0,
+        "distance_from_l10_um": 0.0,
+        "center_local_x_um": -7545.0,
+        "center_global_x_um": -5302.847,
+        "bounds_local_um": [
+          -7545.25,
+          2.0,
+          -7544.75,
+          8.096
+        ]
+      },
+      {
+        "case_id": "D1_SINGLE_L15000_W1640_1T_OUT2000",
+        "end": "input",
+        "side": -1,
+        "station": 1,
+        "distance_from_l10_um": 1.0,
+        "center_local_x_um": -7546.0,
+        "center_global_x_um": -5303.847,
+        "bounds_local_um": [
+          -7546.25,
+          -8.096,
+          -7545.75,
+          -2.0
+        ]
+      },
+      {
+        "case_id": "D1_SINGLE_L15000_W1640_1T_OUT2000",
+        "end": "input",
+        "side": 1,
+        "station": 1,
+        "distance_from_l10_um": 1.0,
+        "center_local_x_um": -7546.0,
+        "center_global_x_um": -5303.847,
+        "bounds_local_um": [
+          -7546.25,
+          2.0,
+          -7545.75,
+          8.096
+        ]
+      },
+      {
+        "case_id": "D1_SINGLE_L15000_W1640_1T_OUT2000",
+        "end": "input",
+        "side": -1,
+        "station": 2,
+        "distance_from_l10_um": 2.0,
+        "center_local_x_um": -7547.0,
+        "center_global_x_um": -5304.847,
+        "bounds_local_um": [
+          -7547.25,
+          -8.094000000000001,
+          -7546.75,
+          -1.9980000000000002
+        ]
+      },
+      {
+        "case_id": "D1_SINGLE_L15000_W1640_1T_OUT2000",
+        "end": "input",
+        "side": 1,
+        "station": 2,
+        "distance_from_l10_um": 2.0,
+        "center_local_x_um": -7547.0,
+        "center_global_x_um": -5304.847,
+        "bounds_local_um": [
+          -7547.25,
+          1.9980000000000002,
+          -7546.75,
+          8.094000000000001
+        ]
+      },
+      {
+        "case_id": "D1_SINGLE_L15000_W1680_1T_OUT2000",
+        "end": "input",
+        "side": -1,
+        "station": 0,
+        "distance_from_l10_um": 0.0,
+        "center_local_x_um": -7545.0,
+        "center_global_x_um": -5302.847,
+        "bounds_local_um": [
+          -7545.25,
+          -8.096,
+          -7544.75,
+          -2.0
+        ]
+      },
+      {
+        "case_id": "D1_SINGLE_L15000_W1680_1T_OUT2000",
+        "end": "input",
+        "side": 1,
+        "station": 0,
+        "distance_from_l10_um": 0.0,
+        "center_local_x_um": -7545.0,
+        "center_global_x_um": -5302.847,
+        "bounds_local_um": [
+          -7545.25,
+          2.0,
+          -7544.75,
+          8.096
+        ]
+      },
+      {
+        "case_id": "D1_SINGLE_L15000_W1680_1T_OUT2000",
+        "end": "input",
+        "side": -1,
+        "station": 1,
+        "distance_from_l10_um": 1.0,
+        "center_local_x_um": -7546.0,
+        "center_global_x_um": -5303.847,
+        "bounds_local_um": [
+          -7546.25,
+          -8.096,
+          -7545.75,
+          -2.0
+        ]
+      },
+      {
+        "case_id": "D1_SINGLE_L15000_W1680_1T_OUT2000",
+        "end": "input",
+        "side": 1,
+        "station": 1,
+        "distance_from_l10_um": 1.0,
+        "center_local_x_um": -7546.0,
+        "center_global_x_um": -5303.847,
+        "bounds_local_um": [
+          -7546.25,
+          2.0,
+          -7545.75,
+          8.096
+        ]
+      },
+      {
+        "case_id": "D1_SINGLE_L15000_W1680_1T_OUT2000",
+        "end": "input",
+        "side": -1,
+        "station": 2,
+        "distance_from_l10_um": 2.0,
+        "center_local_x_um": -7547.0,
+        "center_global_x_um": -5304.847,
+        "bounds_local_um": [
+          -7547.25,
+          -8.094000000000001,
+          -7546.75,
+          -1.9980000000000002
+        ]
+      },
+      {
+        "case_id": "D1_SINGLE_L15000_W1680_1T_OUT2000",
+        "end": "input",
+        "side": 1,
+        "station": 2,
+        "distance_from_l10_um": 2.0,
+        "center_local_x_um": -7547.0,
+        "center_global_x_um": -5304.847,
+        "bounds_local_um": [
+          -7547.25,
+          1.9980000000000002,
+          -7546.75,
+          8.094000000000001
+        ]
+      }
+    ]
+  },
+  "linear_layer14_windows": {
+    "enabled": true,
+    "window_count": 9,
+    "circle_count": 18,
+    "preserved_upstream_margin_um": 1.0,
+    "windows": [
+      {
+        "case_id": "D1_SINGLE_L15000_W1620_2T",
+        "end": "input",
+        "start_distance_from_l10_um": 58.847,
+        "start_local_x_um": -7603.847,
+        "start_global_x_um": -5361.6939999999995,
+        "start_width_um": 2.644,
+        "start_edges_local_normalized_um": [
+          -1.322,
+          1.322
+        ],
+        "outer_endpoint_distance_um": 1595.0,
+        "outer_edges_local_normalized_um": [
+          -24.191,
+          28.191
+        ],
+        "circle_diameter_um": 300.0,
+        "circle_center_distances_from_l10_um": [
+          530.0,
+          1030.0
+        ],
+        "circle_centers_global_um": [
+          [
+            -5832.847,
+            -700.0
+          ],
+          [
+            -6332.847,
+            -700.0
+          ]
+        ],
+        "middle_frame_removed": true
+      },
+      {
+        "case_id": "D1_SINGLE_L15000_W1620_2T",
+        "end": "output",
+        "start_distance_from_l10_um": 58.847,
+        "start_local_x_um": 7603.847,
+        "start_global_x_um": 9846.0,
+        "start_width_um": 2.644,
+        "start_edges_local_normalized_um": [
+          -1.322,
+          1.322
+        ],
+        "outer_endpoint_distance_um": 1595.0,
+        "outer_edges_local_normalized_um": [
+          -24.191,
+          28.191
+        ],
+        "circle_diameter_um": 300.0,
+        "circle_center_distances_from_l10_um": [
+          530.0,
+          1030.0
+        ],
+        "circle_centers_global_um": [
+          [
+            10317.153,
+            -700.0
+          ],
+          [
+            10817.153,
+            -700.0
+          ]
+        ],
+        "middle_frame_removed": true
+      },
+      {
+        "case_id": "D1_SINGLE_L15000_W1640_2T",
+        "end": "input",
+        "start_distance_from_l10_um": 58.847,
+        "start_local_x_um": -7603.847,
+        "start_global_x_um": -5361.6939999999995,
+        "start_width_um": 2.644,
+        "start_edges_local_normalized_um": [
+          -1.322,
+          1.322
+        ],
+        "outer_endpoint_distance_um": 1595.0,
+        "outer_edges_local_normalized_um": [
+          -24.191,
+          28.191
+        ],
+        "circle_diameter_um": 300.0,
+        "circle_center_distances_from_l10_um": [
+          530.0,
+          1030.0
+        ],
+        "circle_centers_global_um": [
+          [
+            -5832.847,
+            -150.0
+          ],
+          [
+            -6332.847,
+            -150.0
+          ]
+        ],
+        "middle_frame_removed": true
+      },
+      {
+        "case_id": "D1_SINGLE_L15000_W1640_2T",
+        "end": "output",
+        "start_distance_from_l10_um": 58.847,
+        "start_local_x_um": 7603.847,
+        "start_global_x_um": 9846.0,
+        "start_width_um": 2.644,
+        "start_edges_local_normalized_um": [
+          -1.322,
+          1.322
+        ],
+        "outer_endpoint_distance_um": 1595.0,
+        "outer_edges_local_normalized_um": [
+          -24.191,
+          28.191
+        ],
+        "circle_diameter_um": 300.0,
+        "circle_center_distances_from_l10_um": [
+          530.0,
+          1030.0
+        ],
+        "circle_centers_global_um": [
+          [
+            10317.153,
+            -150.0
+          ],
+          [
+            10817.153,
+            -150.0
+          ]
+        ],
+        "middle_frame_removed": true
+      },
+      {
+        "case_id": "D1_SINGLE_L15000_W1680_2T",
+        "end": "input",
+        "start_distance_from_l10_um": 58.847,
+        "start_local_x_um": -7603.847,
+        "start_global_x_um": -5361.6939999999995,
+        "start_width_um": 2.644,
+        "start_edges_local_normalized_um": [
+          -1.322,
+          1.322
+        ],
+        "outer_endpoint_distance_um": 1595.0,
+        "outer_edges_local_normalized_um": [
+          -24.191,
+          28.191
+        ],
+        "circle_diameter_um": 300.0,
+        "circle_center_distances_from_l10_um": [
+          530.0,
+          1030.0
+        ],
+        "circle_centers_global_um": [
+          [
+            -5832.847,
+            400.0
+          ],
+          [
+            -6332.847,
+            400.0
+          ]
+        ],
+        "middle_frame_removed": true
+      },
+      {
+        "case_id": "D1_SINGLE_L15000_W1680_2T",
+        "end": "output",
+        "start_distance_from_l10_um": 58.847,
+        "start_local_x_um": 7603.847,
+        "start_global_x_um": 9846.0,
+        "start_width_um": 2.644,
+        "start_edges_local_normalized_um": [
+          -1.322,
+          1.322
+        ],
+        "outer_endpoint_distance_um": 1595.0,
+        "outer_edges_local_normalized_um": [
+          -24.191,
+          28.191
+        ],
+        "circle_diameter_um": 300.0,
+        "circle_center_distances_from_l10_um": [
+          530.0,
+          1030.0
+        ],
+        "circle_centers_global_um": [
+          [
+            10317.153,
+            400.0
+          ],
+          [
+            10817.153,
+            400.0
+          ]
+        ],
+        "middle_frame_removed": true
+      },
+      {
+        "case_id": "D1_SINGLE_L15000_W1620_1T_OUT2000",
+        "end": "input",
+        "start_distance_from_l10_um": 58.847,
+        "start_local_x_um": -7603.847,
+        "start_global_x_um": -5361.6939999999995,
+        "start_width_um": 2.644,
+        "start_edges_local_normalized_um": [
+          -1.322,
+          1.322
+        ],
+        "outer_endpoint_distance_um": 1595.0,
+        "outer_edges_local_normalized_um": [
+          -24.191,
+          28.191
+        ],
+        "circle_diameter_um": 300.0,
+        "circle_center_distances_from_l10_um": [
+          530.0,
+          1030.0
+        ],
+        "circle_centers_global_um": [
+          [
+            -5832.847,
+            950.0
+          ],
+          [
+            -6332.847,
+            950.0
+          ]
+        ],
+        "middle_frame_removed": true
+      },
+      {
+        "case_id": "D1_SINGLE_L15000_W1640_1T_OUT2000",
+        "end": "input",
+        "start_distance_from_l10_um": 58.847,
+        "start_local_x_um": -7603.847,
+        "start_global_x_um": -5361.6939999999995,
+        "start_width_um": 2.644,
+        "start_edges_local_normalized_um": [
+          -1.322,
+          1.322
+        ],
+        "outer_endpoint_distance_um": 1595.0,
+        "outer_edges_local_normalized_um": [
+          -24.191,
+          28.191
+        ],
+        "circle_diameter_um": 300.0,
+        "circle_center_distances_from_l10_um": [
+          530.0,
+          1030.0
+        ],
+        "circle_centers_global_um": [
+          [
+            -5832.847,
+            1500.0
+          ],
+          [
+            -6332.847,
+            1500.0
+          ]
+        ],
+        "middle_frame_removed": true
+      },
+      {
+        "case_id": "D1_SINGLE_L15000_W1680_1T_OUT2000",
+        "end": "input",
+        "start_distance_from_l10_um": 58.847,
+        "start_local_x_um": -7603.847,
+        "start_global_x_um": -5361.6939999999995,
+        "start_width_um": 2.644,
+        "start_edges_local_normalized_um": [
+          -1.322,
+          1.322
+        ],
+        "outer_endpoint_distance_um": 1595.0,
+        "outer_edges_local_normalized_um": [
+          -24.191,
+          28.191
+        ],
+        "circle_diameter_um": 300.0,
+        "circle_center_distances_from_l10_um": [
+          530.0,
+          1030.0
+        ],
+        "circle_centers_global_um": [
+          [
+            -5832.847,
+            2050.0
+          ],
+          [
+            -6332.847,
+            2050.0
+          ]
+        ],
+        "middle_frame_removed": true
+      }
+    ]
+  },
+  "checks": [
+    {
+      "name": "rows_0_1_no_overlap",
+      "passed": true,
+      "area_um2": 0.0
+    },
+    {
+      "name": "rows_0_2_no_overlap",
+      "passed": true,
+      "area_um2": 0.0
+    },
+    {
+      "name": "rows_0_3_no_overlap",
+      "passed": true,
+      "area_um2": 0.0
+    },
+    {
+      "name": "rows_0_4_no_overlap",
+      "passed": true,
+      "area_um2": 0.0
+    },
+    {
+      "name": "rows_0_5_no_overlap",
+      "passed": true,
+      "area_um2": 0.0
+    },
+    {
+      "name": "rows_1_2_no_overlap",
+      "passed": true,
+      "area_um2": 0.0
+    },
+    {
+      "name": "rows_1_3_no_overlap",
+      "passed": true,
+      "area_um2": 0.0
+    },
+    {
+      "name": "rows_1_4_no_overlap",
+      "passed": true,
+      "area_um2": 0.0
+    },
+    {
+      "name": "rows_1_5_no_overlap",
+      "passed": true,
+      "area_um2": 0.0
+    },
+    {
+      "name": "rows_2_3_no_overlap",
+      "passed": true,
+      "area_um2": 0.0
+    },
+    {
+      "name": "rows_2_4_no_overlap",
+      "passed": true,
+      "area_um2": 0.0
+    },
+    {
+      "name": "rows_2_5_no_overlap",
+      "passed": true,
+      "area_um2": 0.0
+    },
+    {
+      "name": "rows_3_4_no_overlap",
+      "passed": true,
+      "area_um2": 0.0
+    },
+    {
+      "name": "rows_3_5_no_overlap",
+      "passed": true,
+      "area_um2": 0.0
+    },
+    {
+      "name": "rows_4_5_no_overlap",
+      "passed": true,
+      "area_um2": 0.0
+    },
+    {
+      "name": "label0_clear",
+      "passed": true
+    },
+    {
+      "name": "label0_unique",
+      "passed": true
+    },
+    {
+      "name": "label1_clear",
+      "passed": true
+    },
+    {
+      "name": "label1_unique",
+      "passed": true
+    },
+    {
+      "name": "label2_clear",
+      "passed": true
+    },
+    {
+      "name": "label2_unique",
+      "passed": true
+    },
+    {
+      "name": "label3_clear",
+      "passed": true
+    },
+    {
+      "name": "label3_unique",
+      "passed": true
+    },
+    {
+      "name": "label4_clear",
+      "passed": true
+    },
+    {
+      "name": "label4_unique",
+      "passed": true
+    },
+    {
+      "name": "label5_clear",
+      "passed": true
+    },
+    {
+      "name": "label5_unique",
+      "passed": true
+    },
+    {
+      "name": "L10_markers_clear",
+      "passed": true
+    },
+    {
+      "name": "L15_markers_clear",
+      "passed": true
+    },
+    {
+      "name": "straight_devices_and_labels",
+      "passed": true
+    },
+    {
+      "name": "excluded_layers_absent",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L15000_W1620_2T_saved_layers",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L15000_W1620_2T_L2_export_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L15000_W1620_2T_L10_export_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L15000_W1620_2T_L13_export_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L15000_W1620_2T_L14_export_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L15000_W1620_2T_L15_export_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L15000_W1620_2T_L11_export_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L15000_W1640_2T_saved_layers",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L15000_W1640_2T_L2_export_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L15000_W1640_2T_L10_export_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L15000_W1640_2T_L13_export_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L15000_W1640_2T_L14_export_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L15000_W1640_2T_L15_export_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L15000_W1640_2T_L11_export_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L15000_W1680_2T_saved_layers",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L15000_W1680_2T_L2_export_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L15000_W1680_2T_L10_export_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L15000_W1680_2T_L13_export_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L15000_W1680_2T_L14_export_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L15000_W1680_2T_L15_export_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L15000_W1680_2T_L11_export_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L15000_W1620_1T_OUT2000_saved_layers",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L15000_W1620_1T_OUT2000_L2_export_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L15000_W1620_1T_OUT2000_L10_export_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L15000_W1620_1T_OUT2000_L13_export_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L15000_W1620_1T_OUT2000_L14_export_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L15000_W1620_1T_OUT2000_L15_export_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L15000_W1620_1T_OUT2000_L11_export_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L15000_W1640_1T_OUT2000_saved_layers",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L15000_W1640_1T_OUT2000_L2_export_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L15000_W1640_1T_OUT2000_L10_export_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L15000_W1640_1T_OUT2000_L13_export_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L15000_W1640_1T_OUT2000_L14_export_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L15000_W1640_1T_OUT2000_L15_export_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L15000_W1640_1T_OUT2000_L11_export_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L15000_W1680_1T_OUT2000_saved_layers",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L15000_W1680_1T_OUT2000_L2_export_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L15000_W1680_1T_OUT2000_L10_export_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L15000_W1680_1T_OUT2000_L13_export_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L15000_W1680_1T_OUT2000_L14_export_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L15000_W1680_1T_OUT2000_L15_export_exact",
+      "passed": true
+    },
+    {
+      "name": "D1_SINGLE_L15000_W1680_1T_OUT2000_L11_export_exact",
+      "passed": true
+    }
+  ],
+  "workers": [
+    {
+      "width_um": 1.62,
+      "reference_id": "D1_L6000_W1620_P10",
+      "variant_id": "D1_L6000_W1620_P10_OUT2000",
+      "release_window_file": "RELEASE_M2_2p5_M14_1p0_D1_L6000_W1620_P10.gds",
+      "layer2_margin_um": 2.5,
+      "layer14_margin_um": 1.0,
+      "release_start_offset_um": 0.0,
+      "tip_centers": [
+        [
+          -3085.0,
+          200.0
+        ],
+        [
+          3085.0,
+          -200.0
+        ]
+      ],
+      "input_port_um": [
+        -3000.0,
+        200.0
+      ],
+      "output_port_um": [
+        3000.0,
+        -200.0
+      ],
+      "straight_output_endpoint_um": [
+        5000.0,
+        -200.0
+      ],
+      "original_straight_lengths_um": [
+        6000.0,
+        6000.0,
+        6000.0
+      ],
+      "meander_length_um": 18741.822610417224,
+      "new_path_length_excluding_input_taper_um": 20741.822610417224,
+      "output_extension_length_um": 2000.0,
+      "output_pnc_pairs": 200,
+      "pnc_pitch_um": 10.0,
+      "input_taper_total_um": 80.0,
+      "input_pnc_transition_um": 45.0,
+      "input_pnc_cutoff_width_um": 5.0,
+      "input_dense_pnc_periods": 5,
+      "input_dense_pnc_pitch_um": 1.0,
+      "left_pnc_x_um": -3142.1530000000002,
+      "changed_window_um": [
+        3000.0,
+        -360.0,
+        13010.0,
+        -25.0
+      ],
+      "checks": [
+        {
+          "name": "all_reference_layers_present",
+          "passed": true
+        },
+        {
+          "name": "approved_reference_L2_exact",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "input_meander_bends_L2_unchanged",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "output_L2_only_intended_straight",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "approved_reference_L10_exact",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "input_meander_bends_L10_unchanged",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "output_L10_only_intended_straight",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "approved_reference_L11_exact",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "input_meander_bends_L11_unchanged",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "output_L11_only_intended_straight",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "approved_reference_L13_exact",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "input_meander_bends_L13_unchanged",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "output_L13_only_intended_straight",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "approved_reference_L14_exact",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "input_meander_bends_L14_unchanged",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "output_L14_only_intended_straight",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "approved_reference_L15_exact",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "input_meander_bends_L15_unchanged",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "output_L15_only_intended_straight",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "approved_reference_L16_exact",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "input_meander_bends_L16_unchanged",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "output_L16_only_intended_straight",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "approved_reference_L51_exact",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "input_meander_bends_L51_unchanged",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "output_L51_only_intended_straight",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "one_connected_optical_path",
+          "passed": true
+        },
+        {
+          "name": "one_connected_protection_path",
+          "passed": true
+        },
+        {
+          "name": "only_two_input_ticks_retained",
+          "passed": true
+        },
+        {
+          "name": "layer14_covers_entire_optical_path",
+          "passed": true,
+          "missing_um2": 0.0
+        },
+        {
+          "name": "layer16_covers_entire_optical_path",
+          "passed": true,
+          "missing_um2": 0.0
+        },
+        {
+          "name": "output_width_at_-0.02",
+          "passed": true,
+          "width_um": 1.62
+        },
+        {
+          "name": "output_width_at_0.02",
+          "passed": true,
+          "width_um": 1.62
+        },
+        {
+          "name": "output_width_at_1",
+          "passed": true,
+          "width_um": 1.62
+        },
+        {
+          "name": "output_width_at_10",
+          "passed": true,
+          "width_um": 1.62
+        },
+        {
+          "name": "output_width_at_100",
+          "passed": true,
+          "width_um": 1.62
+        },
+        {
+          "name": "output_width_at_500",
+          "passed": true,
+          "width_um": 1.62
+        },
+        {
+          "name": "output_width_at_1000",
+          "passed": true,
+          "width_um": 1.62
+        },
+        {
+          "name": "output_width_at_1500",
+          "passed": true,
+          "width_um": 1.62
+        },
+        {
+          "name": "output_width_at_1999.98",
+          "passed": true,
+          "width_um": 1.62
+        },
+        {
+          "name": "exact_2000um_optical_extension",
+          "passed": true,
+          "port_x_um": 3000.0,
+          "end_x_um": 5000.0,
+          "length_um": 2000.0
+        },
+        {
+          "name": "extension_side1_exact_10um_PNC_grid",
+          "passed": true,
+          "count": 200,
+          "first_um": 0.0,
+          "last_um": 1990.0,
+          "min_pitch_um": 10.0,
+          "max_pitch_um": 10.0
+        },
+        {
+          "name": "extension_side-1_exact_10um_PNC_grid",
+          "passed": true,
+          "count": 200,
+          "first_um": 0.0,
+          "last_um": 1990.0,
+          "min_pitch_um": 10.0,
+          "max_pitch_um": 10.0
+        },
+        {
+          "name": "no_old_output_taper_pad_or_guide_L10",
+          "passed": true
+        },
+        {
+          "name": "no_old_output_taper_pad_or_guide_L13",
+          "passed": true
+        },
+        {
+          "name": "no_old_output_taper_pad_or_guide_L51",
+          "passed": true
+        },
+        {
+          "name": "constant_15um_support_envelope",
+          "passed": true
+        },
+        {
+          "name": "D1_L6000_W1620_P10_export_L2",
+          "passed": true
+        },
+        {
+          "name": "D1_L6000_W1620_P10_export_L10",
+          "passed": true
+        },
+        {
+          "name": "D1_L6000_W1620_P10_export_L11",
+          "passed": true
+        },
+        {
+          "name": "D1_L6000_W1620_P10_export_L13",
+          "passed": true
+        },
+        {
+          "name": "D1_L6000_W1620_P10_export_L14",
+          "passed": true
+        },
+        {
+          "name": "D1_L6000_W1620_P10_export_L15",
+          "passed": true
+        },
+        {
+          "name": "D1_L6000_W1620_P10_export_L16",
+          "passed": true
+        },
+        {
+          "name": "D1_L6000_W1620_P10_export_L51",
+          "passed": true
+        },
+        {
+          "name": "D1_L6000_W1620_P10_OUT2000_export_L2",
+          "passed": true
+        },
+        {
+          "name": "D1_L6000_W1620_P10_OUT2000_export_L10",
+          "passed": true
+        },
+        {
+          "name": "D1_L6000_W1620_P10_OUT2000_export_L11",
+          "passed": true
+        },
+        {
+          "name": "D1_L6000_W1620_P10_OUT2000_export_L13",
+          "passed": true
+        },
+        {
+          "name": "D1_L6000_W1620_P10_OUT2000_export_L14",
+          "passed": true
+        },
+        {
+          "name": "D1_L6000_W1620_P10_OUT2000_export_L15",
+          "passed": true
+        },
+        {
+          "name": "D1_L6000_W1620_P10_OUT2000_export_L16",
+          "passed": true
+        },
+        {
+          "name": "D1_L6000_W1620_P10_OUT2000_export_L51",
+          "passed": true
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "width_um": 1.64,
+      "reference_id": "D1_L6000_W1640_P10",
+      "variant_id": "D1_L6000_W1640_P10_OUT2000",
+      "release_window_file": "RELEASE_M2_2p5_M14_1p0_D1_L6000_W1640_P10.gds",
+      "layer2_margin_um": 2.5,
+      "layer14_margin_um": 1.0,
+      "release_start_offset_um": 0.0,
+      "tip_centers": [
+        [
+          -3085.0,
+          200.0
+        ],
+        [
+          3085.0,
+          -200.0
+        ]
+      ],
+      "input_port_um": [
+        -3000.0,
+        200.0
+      ],
+      "output_port_um": [
+        3000.0,
+        -200.0
+      ],
+      "straight_output_endpoint_um": [
+        5000.0,
+        -200.0
+      ],
+      "original_straight_lengths_um": [
+        6000.0,
+        6000.0,
+        6000.0
+      ],
+      "meander_length_um": 18741.822610417224,
+      "new_path_length_excluding_input_taper_um": 20741.822610417224,
+      "output_extension_length_um": 2000.0,
+      "output_pnc_pairs": 200,
+      "pnc_pitch_um": 10.0,
+      "input_taper_total_um": 80.0,
+      "input_pnc_transition_um": 45.0,
+      "input_pnc_cutoff_width_um": 5.0,
+      "input_dense_pnc_periods": 5,
+      "input_dense_pnc_pitch_um": 1.0,
+      "left_pnc_x_um": -3142.1530000000002,
+      "changed_window_um": [
+        3000.0,
+        -360.0,
+        13010.0,
+        -25.0
+      ],
+      "checks": [
+        {
+          "name": "all_reference_layers_present",
+          "passed": true
+        },
+        {
+          "name": "approved_reference_L2_exact",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "input_meander_bends_L2_unchanged",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "output_L2_only_intended_straight",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "approved_reference_L10_exact",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "input_meander_bends_L10_unchanged",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "output_L10_only_intended_straight",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "approved_reference_L11_exact",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "input_meander_bends_L11_unchanged",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "output_L11_only_intended_straight",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "approved_reference_L13_exact",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "input_meander_bends_L13_unchanged",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "output_L13_only_intended_straight",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "approved_reference_L14_exact",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "input_meander_bends_L14_unchanged",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "output_L14_only_intended_straight",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "approved_reference_L15_exact",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "input_meander_bends_L15_unchanged",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "output_L15_only_intended_straight",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "approved_reference_L16_exact",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "input_meander_bends_L16_unchanged",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "output_L16_only_intended_straight",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "approved_reference_L51_exact",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "input_meander_bends_L51_unchanged",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "output_L51_only_intended_straight",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "one_connected_optical_path",
+          "passed": true
+        },
+        {
+          "name": "one_connected_protection_path",
+          "passed": true
+        },
+        {
+          "name": "only_two_input_ticks_retained",
+          "passed": true
+        },
+        {
+          "name": "layer14_covers_entire_optical_path",
+          "passed": true,
+          "missing_um2": 0.0
+        },
+        {
+          "name": "layer16_covers_entire_optical_path",
+          "passed": true,
+          "missing_um2": 0.0
+        },
+        {
+          "name": "output_width_at_-0.02",
+          "passed": true,
+          "width_um": 1.6400000000000001
+        },
+        {
+          "name": "output_width_at_0.02",
+          "passed": true,
+          "width_um": 1.6400000000000001
+        },
+        {
+          "name": "output_width_at_1",
+          "passed": true,
+          "width_um": 1.6400000000000001
+        },
+        {
+          "name": "output_width_at_10",
+          "passed": true,
+          "width_um": 1.6400000000000001
+        },
+        {
+          "name": "output_width_at_100",
+          "passed": true,
+          "width_um": 1.6400000000000001
+        },
+        {
+          "name": "output_width_at_500",
+          "passed": true,
+          "width_um": 1.6400000000000001
+        },
+        {
+          "name": "output_width_at_1000",
+          "passed": true,
+          "width_um": 1.6400000000000001
+        },
+        {
+          "name": "output_width_at_1500",
+          "passed": true,
+          "width_um": 1.6400000000000001
+        },
+        {
+          "name": "output_width_at_1999.98",
+          "passed": true,
+          "width_um": 1.6400000000000001
+        },
+        {
+          "name": "exact_2000um_optical_extension",
+          "passed": true,
+          "port_x_um": 3000.0,
+          "end_x_um": 5000.0,
+          "length_um": 2000.0
+        },
+        {
+          "name": "extension_side1_exact_10um_PNC_grid",
+          "passed": true,
+          "count": 200,
+          "first_um": 0.0,
+          "last_um": 1990.0,
+          "min_pitch_um": 10.0,
+          "max_pitch_um": 10.0
+        },
+        {
+          "name": "extension_side-1_exact_10um_PNC_grid",
+          "passed": true,
+          "count": 200,
+          "first_um": 0.0,
+          "last_um": 1990.0,
+          "min_pitch_um": 10.0,
+          "max_pitch_um": 10.0
+        },
+        {
+          "name": "no_old_output_taper_pad_or_guide_L10",
+          "passed": true
+        },
+        {
+          "name": "no_old_output_taper_pad_or_guide_L13",
+          "passed": true
+        },
+        {
+          "name": "no_old_output_taper_pad_or_guide_L51",
+          "passed": true
+        },
+        {
+          "name": "constant_15um_support_envelope",
+          "passed": true
+        },
+        {
+          "name": "D1_L6000_W1640_P10_export_L2",
+          "passed": true
+        },
+        {
+          "name": "D1_L6000_W1640_P10_export_L10",
+          "passed": true
+        },
+        {
+          "name": "D1_L6000_W1640_P10_export_L11",
+          "passed": true
+        },
+        {
+          "name": "D1_L6000_W1640_P10_export_L13",
+          "passed": true
+        },
+        {
+          "name": "D1_L6000_W1640_P10_export_L14",
+          "passed": true
+        },
+        {
+          "name": "D1_L6000_W1640_P10_export_L15",
+          "passed": true
+        },
+        {
+          "name": "D1_L6000_W1640_P10_export_L16",
+          "passed": true
+        },
+        {
+          "name": "D1_L6000_W1640_P10_export_L51",
+          "passed": true
+        },
+        {
+          "name": "D1_L6000_W1640_P10_OUT2000_export_L2",
+          "passed": true
+        },
+        {
+          "name": "D1_L6000_W1640_P10_OUT2000_export_L10",
+          "passed": true
+        },
+        {
+          "name": "D1_L6000_W1640_P10_OUT2000_export_L11",
+          "passed": true
+        },
+        {
+          "name": "D1_L6000_W1640_P10_OUT2000_export_L13",
+          "passed": true
+        },
+        {
+          "name": "D1_L6000_W1640_P10_OUT2000_export_L14",
+          "passed": true
+        },
+        {
+          "name": "D1_L6000_W1640_P10_OUT2000_export_L15",
+          "passed": true
+        },
+        {
+          "name": "D1_L6000_W1640_P10_OUT2000_export_L16",
+          "passed": true
+        },
+        {
+          "name": "D1_L6000_W1640_P10_OUT2000_export_L51",
+          "passed": true
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "width_um": 1.68,
+      "reference_id": "D1_L6000_W1680_P10",
+      "variant_id": "D1_L6000_W1680_P10_OUT2000",
+      "release_window_file": "RELEASE_M2_2p5_M14_1p0_D1_L6000_W1680_P10.gds",
+      "layer2_margin_um": 2.5,
+      "layer14_margin_um": 1.0,
+      "release_start_offset_um": 0.0,
+      "tip_centers": [
+        [
+          -3085.0,
+          200.0
+        ],
+        [
+          3085.0,
+          -200.0
+        ]
+      ],
+      "input_port_um": [
+        -3000.0,
+        200.0
+      ],
+      "output_port_um": [
+        3000.0,
+        -200.0
+      ],
+      "straight_output_endpoint_um": [
+        5000.0,
+        -200.0
+      ],
+      "original_straight_lengths_um": [
+        6000.0,
+        6000.0,
+        6000.0
+      ],
+      "meander_length_um": 18741.822610417224,
+      "new_path_length_excluding_input_taper_um": 20741.822610417224,
+      "output_extension_length_um": 2000.0,
+      "output_pnc_pairs": 200,
+      "pnc_pitch_um": 10.0,
+      "input_taper_total_um": 80.0,
+      "input_pnc_transition_um": 45.0,
+      "input_pnc_cutoff_width_um": 5.0,
+      "input_dense_pnc_periods": 5,
+      "input_dense_pnc_pitch_um": 1.0,
+      "left_pnc_x_um": -3142.1530000000002,
+      "changed_window_um": [
+        3000.0,
+        -360.0,
+        13010.0,
+        -25.0
+      ],
+      "checks": [
+        {
+          "name": "all_reference_layers_present",
+          "passed": true
+        },
+        {
+          "name": "approved_reference_L2_exact",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "input_meander_bends_L2_unchanged",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "output_L2_only_intended_straight",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "approved_reference_L10_exact",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "input_meander_bends_L10_unchanged",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "output_L10_only_intended_straight",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "approved_reference_L11_exact",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "input_meander_bends_L11_unchanged",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "output_L11_only_intended_straight",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "approved_reference_L13_exact",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "input_meander_bends_L13_unchanged",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "output_L13_only_intended_straight",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "approved_reference_L14_exact",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "input_meander_bends_L14_unchanged",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "output_L14_only_intended_straight",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "approved_reference_L15_exact",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "input_meander_bends_L15_unchanged",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "output_L15_only_intended_straight",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "approved_reference_L16_exact",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "input_meander_bends_L16_unchanged",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "output_L16_only_intended_straight",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "approved_reference_L51_exact",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "input_meander_bends_L51_unchanged",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "output_L51_only_intended_straight",
+          "passed": true,
+          "xor_um2": 0.0
+        },
+        {
+          "name": "one_connected_optical_path",
+          "passed": true
+        },
+        {
+          "name": "one_connected_protection_path",
+          "passed": true
+        },
+        {
+          "name": "only_two_input_ticks_retained",
+          "passed": true
+        },
+        {
+          "name": "layer14_covers_entire_optical_path",
+          "passed": true,
+          "missing_um2": 0.0
+        },
+        {
+          "name": "layer16_covers_entire_optical_path",
+          "passed": true,
+          "missing_um2": 0.0
+        },
+        {
+          "name": "output_width_at_-0.02",
+          "passed": true,
+          "width_um": 1.68
+        },
+        {
+          "name": "output_width_at_0.02",
+          "passed": true,
+          "width_um": 1.68
+        },
+        {
+          "name": "output_width_at_1",
+          "passed": true,
+          "width_um": 1.68
+        },
+        {
+          "name": "output_width_at_10",
+          "passed": true,
+          "width_um": 1.68
+        },
+        {
+          "name": "output_width_at_100",
+          "passed": true,
+          "width_um": 1.68
+        },
+        {
+          "name": "output_width_at_500",
+          "passed": true,
+          "width_um": 1.68
+        },
+        {
+          "name": "output_width_at_1000",
+          "passed": true,
+          "width_um": 1.68
+        },
+        {
+          "name": "output_width_at_1500",
+          "passed": true,
+          "width_um": 1.68
+        },
+        {
+          "name": "output_width_at_1999.98",
+          "passed": true,
+          "width_um": 1.68
+        },
+        {
+          "name": "exact_2000um_optical_extension",
+          "passed": true,
+          "port_x_um": 3000.0,
+          "end_x_um": 5000.0,
+          "length_um": 2000.0
+        },
+        {
+          "name": "extension_side1_exact_10um_PNC_grid",
+          "passed": true,
+          "count": 200,
+          "first_um": 0.0,
+          "last_um": 1990.0,
+          "min_pitch_um": 10.0,
+          "max_pitch_um": 10.0
+        },
+        {
+          "name": "extension_side-1_exact_10um_PNC_grid",
+          "passed": true,
+          "count": 200,
+          "first_um": 0.0,
+          "last_um": 1990.0,
+          "min_pitch_um": 10.0,
+          "max_pitch_um": 10.0
+        },
+        {
+          "name": "no_old_output_taper_pad_or_guide_L10",
+          "passed": true
+        },
+        {
+          "name": "no_old_output_taper_pad_or_guide_L13",
+          "passed": true
+        },
+        {
+          "name": "no_old_output_taper_pad_or_guide_L51",
+          "passed": true
+        },
+        {
+          "name": "constant_15um_support_envelope",
+          "passed": true
+        },
+        {
+          "name": "D1_L6000_W1680_P10_export_L2",
+          "passed": true
+        },
+        {
+          "name": "D1_L6000_W1680_P10_export_L10",
+          "passed": true
+        },
+        {
+          "name": "D1_L6000_W1680_P10_export_L11",
+          "passed": true
+        },
+        {
+          "name": "D1_L6000_W1680_P10_export_L13",
+          "passed": true
+        },
+        {
+          "name": "D1_L6000_W1680_P10_export_L14",
+          "passed": true
+        },
+        {
+          "name": "D1_L6000_W1680_P10_export_L15",
+          "passed": true
+        },
+        {
+          "name": "D1_L6000_W1680_P10_export_L16",
+          "passed": true
+        },
+        {
+          "name": "D1_L6000_W1680_P10_export_L51",
+          "passed": true
+        },
+        {
+          "name": "D1_L6000_W1680_P10_OUT2000_export_L2",
+          "passed": true
+        },
+        {
+          "name": "D1_L6000_W1680_P10_OUT2000_export_L10",
+          "passed": true
+        },
+        {
+          "name": "D1_L6000_W1680_P10_OUT2000_export_L11",
+          "passed": true
+        },
+        {
+          "name": "D1_L6000_W1680_P10_OUT2000_export_L13",
+          "passed": true
+        },
+        {
+          "name": "D1_L6000_W1680_P10_OUT2000_export_L14",
+          "passed": true
+        },
+        {
+          "name": "D1_L6000_W1680_P10_OUT2000_export_L15",
+          "passed": true
+        },
+        {
+          "name": "D1_L6000_W1680_P10_OUT2000_export_L16",
+          "passed": true
+        },
+        {
+          "name": "D1_L6000_W1680_P10_OUT2000_export_L51",
+          "passed": true
+        }
+      ],
+      "status": "PASS"
+    }
+  ],
+  "check_count": 259,
+  "original_gds_sha256": "d9214720b88cec2508bf23769dd76f964083d082555f70f0eb7214464b9c75fd",
+  "gds_sha256": "17fc0ade4016c57f51874e486d0b319241d6c507fed9511c9765a1084503bb3c",
+  "optical_or_mechanical_simulation_performed": false
+}

@@ -32,7 +32,7 @@ def validate(root: Path, baseline: Path | None = None) -> dict:
         if key not in cache:cache[key]=union(cells[n],l)
         return cache[key]
     check('12_devices_12_labels_one_frame',len(devices)==12 and len(labels)==12 and len(refs)==25)
-    check('600um_row_pitch',sorted(p[1] for p in devices.values())==[-700000+i*600000 for i in range(12)])
+    check('550um_row_pitch',sorted(p[1] for p in devices.values())==[-700000+i*550000 for i in range(12)])
     check('original_x_alignment_preserved',all(p[0]==2242153 for p in devices.values()))
     check('metadata_requested_dimensions',meta['layer2_start_width_um']==15 and meta['layer14_start_width_um']==8 and
           meta['layer2_window_margin_um']==2.5 and meta['layer14_window_margin_um']==1.0 and

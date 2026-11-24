@@ -48,6 +48,7 @@ def marker_cross_array(marker_x = 4500, marker_y = 3300, arm_length = 150, arm_w
         marker_x, marker_y)
     return c
 
+
 @gf.cell
 def caliperarm(angle=0, num_notches=10, notch_width=1, layer1=Layers.label, layer2=Layers.globalmarker):
     """Lithography caliper arm: two notch rows that walk out of registration.

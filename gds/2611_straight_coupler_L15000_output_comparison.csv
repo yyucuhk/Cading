@@ -1,0 +1,7 @@
+case_id,set_name,width_um,origin_um,straight_section_count,bend_count,added_length_um,path_length_excluding_tapers_um,label
+D1_SINGLE_L15000_W1620_2T,single_straight_L15000_two_tapers,1.62,"[2242.1530000000002, -700.0]",1,0,0.0,15000.0,L15000_W1.62_2T
+D1_SINGLE_L15000_W1640_2T,single_straight_L15000_two_tapers,1.64,"[2242.1530000000002, -150.0]",1,0,0.0,15000.0,L15000_W1.64_2T
+D1_SINGLE_L15000_W1680_2T,single_straight_L15000_two_tapers,1.68,"[2242.1530000000002, 400.0]",1,0,0.0,15000.0,L15000_W1.68_2T
+D1_SINGLE_L15000_W1620_1T_OUT2000,single_straight_L15000_straight_output,1.62,"[2242.1530000000002, 950.0]",1,0,0.0,17000.0,L15000_W1.62_1T
+D1_SINGLE_L15000_W1640_1T_OUT2000,single_straight_L15000_straight_output,1.64,"[2242.1530000000002, 1500.0]",1,0,0.0,17000.0,L15000_W1.64_1T
+D1_SINGLE_L15000_W1680_1T_OUT2000,single_straight_L15000_straight_output,1.68,"[2242.1530000000002, 2050.0]",1,0,0.0,17000.0,L15000_W1.68_1T

@@ -1,7 +1,7 @@
 {
   "status": "PASS",
   "source_file": "2611_tapered_yue_dual_resist.py",
-  "source_sha256": "fdbda0d7394c898a39240f438225cc36f800c027bc365775d7b864f49d4d0331",
+  "source_sha256": "1ed8cbdd5c00bd9d4efd7044c8ff69fd9bd857be1f35758bd030c214988e7910",
   "devices": [
     {
       "case_id": "D1_L6000_W1620_P10",
@@ -42,7 +42,7 @@
           "pitch_um": 10.0,
           "junction_clearances_um": [
             10.455652604417992,
-            10.455652604418901
+            10.455652604417992
           ]
         },
         {
@@ -77,7 +77,7 @@
           "interior_PNC_pairs": 36,
           "pitch_um": 10.0,
           "junction_clearances_um": [
-            10.455652603821363,
+            10.455652603819544,
             10.455652603819544
           ]
         },
@@ -220,7 +220,7 @@
           "passed": true,
           "junction_clearances_um": [
             10.455652604417992,
-            10.455652604418901
+            10.455652604417992
           ]
         },
         {
@@ -274,7 +274,7 @@
           "name": "bend3_symmetric_junction_clearance",
           "passed": true,
           "junction_clearances_um": [
-            10.455652603821363,
+            10.455652603819544,
             10.455652603819544
           ]
         },
@@ -327,7 +327,7 @@
         {
           "name": "layer2_complete_end_symmetry",
           "passed": true,
-          "xor_um2": 0.000185
+          "xor_um2": 0.00015
         },
         {
           "name": "layer10_complete_end_symmetry",
@@ -347,7 +347,7 @@
         {
           "name": "layer14_complete_end_symmetry",
           "passed": true,
-          "xor_um2": 0.000185
+          "xor_um2": 0.00015
         },
         {
           "name": "layer15_complete_end_symmetry",
@@ -357,7 +357,7 @@
         {
           "name": "layer16_complete_end_symmetry",
           "passed": true,
-          "xor_um2": 2e-06
+          "xor_um2": 0.0
         },
         {
           "name": "layer51_complete_end_symmetry",
@@ -522,7 +522,7 @@
           "pitch_um": 10.0,
           "junction_clearances_um": [
             10.455652604417992,
-            10.455652604418901
+            10.455652604417992
           ]
         },
         {
@@ -557,7 +557,7 @@
           "interior_PNC_pairs": 36,
           "pitch_um": 10.0,
           "junction_clearances_um": [
-            10.455652603821363,
+            10.455652603819544,
             10.455652603819544
           ]
         },
@@ -700,7 +700,7 @@
           "passed": true,
           "junction_clearances_um": [
             10.455652604417992,
-            10.455652604418901
+            10.455652604417992
           ]
         },
         {
@@ -754,7 +754,7 @@
           "name": "bend3_symmetric_junction_clearance",
           "passed": true,
           "junction_clearances_um": [
-            10.455652603821363,
+            10.455652603819544,
             10.455652603819544
           ]
         },
@@ -807,7 +807,7 @@
         {
           "name": "layer2_complete_end_symmetry",
           "passed": true,
-          "xor_um2": 0.000185
+          "xor_um2": 0.00015
         },
         {
           "name": "layer10_complete_end_symmetry",
@@ -827,7 +827,7 @@
         {
           "name": "layer14_complete_end_symmetry",
           "passed": true,
-          "xor_um2": 0.000185
+          "xor_um2": 0.00015
         },
         {
           "name": "layer15_complete_end_symmetry",
@@ -1002,7 +1002,7 @@
           "pitch_um": 10.0,
           "junction_clearances_um": [
             10.455652604417992,
-            10.455652604418901
+            10.455652604417992
           ]
         },
         {
@@ -1037,7 +1037,7 @@
           "interior_PNC_pairs": 36,
           "pitch_um": 10.0,
           "junction_clearances_um": [
-            10.455652603821363,
+            10.455652603819544,
             10.455652603819544
           ]
         },
@@ -1180,7 +1180,7 @@
           "passed": true,
           "junction_clearances_um": [
             10.455652604417992,
-            10.455652604418901
+            10.455652604417992
           ]
         },
         {
@@ -1234,7 +1234,7 @@
           "name": "bend3_symmetric_junction_clearance",
           "passed": true,
           "junction_clearances_um": [
-            10.455652603821363,
+            10.455652603819544,
             10.455652603819544
           ]
         },
@@ -1287,7 +1287,7 @@
         {
           "name": "layer2_complete_end_symmetry",
           "passed": true,
-          "xor_um2": 0.000185
+          "xor_um2": 0.00015
         },
         {
           "name": "layer10_complete_end_symmetry",
@@ -1307,7 +1307,7 @@
         {
           "name": "layer14_complete_end_symmetry",
           "passed": true,
-          "xor_um2": 0.000185
+          "xor_um2": 0.00015
         },
         {
           "name": "layer15_complete_end_symmetry",
@@ -1317,7 +1317,7 @@
         {
           "name": "layer16_complete_end_symmetry",
           "passed": true,
-          "xor_um2": 1e-06
+          "xor_um2": 0.0
         },
         {
           "name": "layer51_complete_end_symmetry",
@@ -1445,9 +1445,9 @@
     }
   ],
   "frame_bounds_um": [
-    -3400,
+    -2900,
     -2100.0,
-    7900,
+    7400,
     1900.0
   ],
   "row_pitch_um": 600.0,
@@ -1733,5 +1733,5 @@
     }
   ],
   "check_count": 246,
-  "gds_sha256": "ecf200c2886cf8a4492528fd09e5736a488df6ac63bc93ea93490d0b11e27889"
+  "gds_sha256": "d9214720b88cec2508bf23769dd76f964083d082555f70f0eb7214464b9c75fd"
 }

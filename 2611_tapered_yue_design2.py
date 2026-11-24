@@ -68,15 +68,15 @@ LEFT_BEND_ALIGNMENT_X = -900.0  # common leftmost Layer-11 PNC bend edge
 
 # --- 1B. Optical taper stages (outward from the 5 um PNC endpoint) ---
 #                   Stage 1          Stage 2           Stage 3
-# Layer 10:       5 -> 1.65         1.65 -> 0.980      0.980 -> 0.200
+# Layer 10:       5 -> 1.80         1.80 -> 0.680      0.680 -> 0.200
 # Layer 15:       1 -> 0.500        0.500 -> 0.200     NO third stage
 # Lengths:          20                 100                 10
 # L10 and L15 stage 1 share the first length; stage 2 shares the second.
 TAPER_STAGE1_LENGTH = 20.0
 TAPER_STAGE2_LENGTH = 100.0
 TAPER_STAGE3_LENGTH = 10.0  # Layer 10 only
-SLAB_STAGE1_END_WIDTH = 1.65
-SLAB_STAGE2_END_WIDTH = 0.980
+SLAB_STAGE1_END_WIDTH = 1.80
+SLAB_STAGE2_END_WIDTH = 0.680
 RIDGE_MEANDER_WIDTH = 1.0  # Layer-15 meander and stage-1 input width
 RIDGE_EXTENSION_START_WIDTH = 0.500  # Layer-15 stage-1 END width
 RIDGE_CONVERTER_END_WIDTH = 0.2  # Layer-15 terminal width
@@ -112,7 +112,7 @@ PHONONIC_SUPPORT_SEGMENTS = (
     0.504,
 )  # six square-mass sizes in the PNC library cell
 PHONONIC_SUPPORT_GAPS = 0.25  # gap between PNC masses
-PNC_NARROW_END_EXTENSION = 0.5  # narrow neck extension at both radial ends
+PNC_NARROW_END_EXTENSION = 1.0  # alignment-tolerant overlap beyond Layer 2
 # Full original quintic 15 -> 5 um transition: no truncation or Hermite matching.
 # PNC taper pitch follows the straight sections; its physical length stays fixed.
 
@@ -142,8 +142,8 @@ LAYER14_CHANNEL_ANGLE = 1.5  # full opening angle on Layer 14
 MLA_CHANNEL_START_WIDTH = 6.0
 LAYER14_CHANNEL_START_WIDTH = 1.0
 LAYER14_CHANNEL_START_OFFSET = 0.0  # from stage-1 end, NOT final optical endpoint
-POSITIVE_CHANNEL_LENGTH = 2000.0  # Layer-2 long-channel length
-LAYER14_CHANNEL_LENGTH = 2000.0  # Layer-14 long-channel length
+POSITIVE_CHANNEL_LENGTH = 1500.0  # leaves ~400 um after the two glue circles
+LAYER14_CHANNEL_LENGTH = 1500.0  # leaves ~400 um after the two glue circles
 # Dimensions below define REMOVED companion windows, not alignment ticks.
 # Actual alignment ticks are fixed at 0.5 x 10 um in tapered_local.py and
 # matched by alignment_tip_region(); edit both together to change tick shape.
@@ -154,7 +154,7 @@ ALIGNMENT_TIP_WINDOW_INWARD_SHIFT = 0.2
 # --- 1G. Labels, chip outline, global overlay marks, and output ---
 TETHER_LABEL_SIZE = 2.0
 DETAIL_LABEL_SIZE = 3.0
-DETAIL_LABEL_TIP_X_OFFSET = 5.0
+DETAIL_LABEL_TIP_X_OFFSET = 2.0
 DETAIL_LABEL_TIP_Y_OFFSET = 10.0
 LAYER10_MARKER_ARM_WIDTH = 2.0
 LAYER10_MARKER_CENTER_SQUARE_SIZE = 3.0
@@ -702,7 +702,7 @@ def design2_two_layer_tapered_fiber(
 ) -> gf.Component:
     """Design-2 two-layer coupler after the unchanged PNC region.
 
-    Layer 10: 5 -> 1.65 -> 0.980 -> 0.200 um over 20/100/10 um.
+    Layer 10: 5 -> 1.80 -> 0.680 -> 0.200 um over 20/100/10 um.
     Layer 15: 1 -> 0.500 -> 0.200 um over 20/100 um; no third stage.
     The preceding 45 um PNC transition and its 1 um ridge stay unchanged.
     """
@@ -820,7 +820,7 @@ def design2_two_layer_tapered_fiber(
     component.add_polygon(upper_release, layer=FULL_ETCH_LAYER)
     component.add_polygon(lower_release, layer=FULL_ETCH_LAYER)
 
-    # Copy the first Layer-10 section (5->1.65 um quintic taper) onto Layer 2,
+    # Copy the first Layer-10 section (5->1.80 um quintic taper) onto Layer 2,
     # but delay its beginning by 0.5 um so it does not reach into the PNC
     # boundary. The copied profile remains identical to Layer 10 thereafter.
     copy_x_local = np.linspace(
@@ -1314,17 +1314,36 @@ def add_shared_mla_window(
     # removed companion blocks.
     smooth_tip_bridge = gf.Component()
     bridge_length = 6.0
-    bridge_width = SLAB_EXTENSION_START_WIDTH + 2 * margin
+    half_bridge = bridge_length / 2
+    bridge_s = np.linspace(-half_bridge, half_bridge, 121)
+    slab_widths = []
+    for distance in bridge_s:
+        if distance <= 0:
+            u = (POST_PNC_TAPER_LENGTH + distance) / POST_PNC_TAPER_LENGTH
+            weight = 6 * u**5 - 15 * u**4 + 10 * u**3
+            width = PNC_TAPER_END_WIDTH + (
+                SLAB_EXTENSION_START_WIDTH - PNC_TAPER_END_WIDTH
+            ) * weight
+        else:
+            u = distance / SLAB_STAGE2_LENGTH
+            weight = 6 * u**5 - 15 * u**4 + 10 * u**3
+            width = SLAB_EXTENSION_START_WIDTH + (
+                SLAB_STAGE2_END_WIDTH - SLAB_EXTENSION_START_WIDTH
+            ) * weight
+        slab_widths.append(width + 2 * margin)
     for tip_start, tip_orientation in zip(layer14_start_points, tip_orientations, strict=True):
-        bridge = smooth_tip_bridge.add_ref(
-            gf.components.rectangle(
-                size=(bridge_length, bridge_width),
-                centered=True,
-                layer=positive_layer,
-            )
-        )
-        bridge.rotate(tip_orientation)
-        bridge.move(tuple(np.asarray(tip_start, dtype=float)))
+        angle = radians(tip_orientation)
+        outward = np.array([-cos(angle), -sin(angle)])
+        normal = np.array([-outward[1], outward[0]])
+        upper = [
+            tuple(np.asarray(tip_start) + distance * outward + width / 2 * normal)
+            for distance, width in zip(bridge_s, slab_widths, strict=True)
+        ]
+        lower = [
+            tuple(np.asarray(tip_start) + distance * outward - width / 2 * normal)
+            for distance, width in zip(bridge_s[::-1], slab_widths[::-1], strict=True)
+        ]
+        smooth_tip_bridge.add_polygon(upper + lower, layer=positive_layer)
 
     cleaned_layer2 = gf.boolean(
         A=cleaned_layer2,

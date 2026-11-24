@@ -1,7 +1,7 @@
-"""Design 1 L6000: four three-width sets (12 devices), all dimensions in um.
+"""15 mm straight coupler comparison: two output styles x three widths.
 
-Two meander sets and two single-straight sets. New single straights are 6000 um
-with two couplers, or one input coupler plus the retained 2000 um bare output.
+One set has input/output tapers. The other has only the input taper and a
+2 mm plain output extension. No meanders are placed.
 Complete optical terminal assemblies are copied, never redrawn.
 L2 starts 0.5 um outward from L10, at TOTAL width 15 um.
 L14 starts with L10, at TOTAL width 8 um. Downstream margins are 2.5 um
@@ -29,12 +29,13 @@ import sys
 ROOT = Path(__file__).resolve().parent
 BASE_BUILDER = ROOT / '2611_design1_L6000_P10_width_sweep.py'
 BASE_GDS = ROOT / 'gds/2611_design1_L6000_P10_width_sweep.gds'
-STEM = '2611_design1_L6000_P10_straight_output_comparison'
+STEM = '2611_straight_coupler_L15000_output_comparison'
 OUTPUT = ROOT / 'gds' / (STEM + '.gds')
 WORK = ROOT / 'validation_2611_straight_output'
 
 # %% [01] USER PARAMETERS - EDIT HERE
 STRAIGHT_LENGTH = 6000.0              # each original meander straight
+TEST_STRAIGHT_LENGTHS = (15000.0,)
 WG_WIDTHS = (1.62, 1.64, 1.68)        # Layer 15; bottom to top in each set
 OUTPUT_EXTENSION_LENGTH = 2000.0     # from the lower-right meander port
 PNC_PITCH = 10.0                     # straight/bend; also added straight
@@ -49,11 +50,14 @@ LAYER2_START_OFFSET = 0.5             # preserve original L10-to-L2 delayed-copy
 LAYER14_START_OFFSET = 0.0            # same entrance as L10
 LAYER2_START_WIDTH = 15.0             # TOTAL entrance width, not extra margin
 LAYER14_START_WIDTH = 8.0             # TOTAL entrance width, not extra margin
-ROW_PITCH = 600.0
+ROW_PITCH = 550.0
 FIRST_ROW_Y = -700.0
 LEFT_BEND_X = -900.0
 LABEL_SIZE = 5.0
+LABEL_TIP_X_OFFSET = 2.0
+LABEL_TIP_Y_OFFSET = 10.0
 FRAME_MARGIN = 500.0
+GLOBAL_MARKER_INSET = 150.0          # move every corner marker inside Layer 0
 MIN_FRAME_HEIGHT = 4000.0
 DBU = 0.001
 FAB_LAYERS = (2, 10, 11, 13, 14, 15, 16)  # pre-export construction checks
@@ -66,7 +70,7 @@ LOCAL_TAPER_BEAM_COUNT = 3            # three stations; TWO beams per station
 LOCAL_TAPER_BEAM_START = 0.0          # first center aligned with the L10 entrance
 LOCAL_TAPER_ANCHOR_SPAN = 5.096       # original PNC anchor-to-anchor span
 LOCAL_TAPER_ANCHOR_OVERLAP = 0.5      # overlap into slab and outer anchor
-ALIGNMENT_MARKER_SOURCE_LAYER = (2, 0)
+ALIGNMENT_MARKER_SOURCE_LAYER = (10, 0)
 ALIGNMENT_MARKER_TARGET_LAYER = (15, 0)  # global alignment markers ONLY
 
 
@@ -147,6 +151,7 @@ def finalize_output_layers(layout, frame_cell):
     frame_cell.shapes(target).clear()
     frame_cell.shapes(target).insert((existing | moved).merged())
     frame_cell.shapes(source).clear()
+    frame_cell.shapes(layout.layer(2, 0)).clear()  # frame markers only; labels use separate cells
     removed_shapes = {}
     for index in tuple(layout.layer_indexes()):
         info = layout.get_info(index)
@@ -163,6 +168,24 @@ def finalize_output_layers(layout, frame_cell):
                 moved_marker_polygon_count=moved.count(),
                 moved_marker_area_um2=moved.area() * layout.dbu ** 2,
                 layer2_labels_preserved=True, release_masks_handled_separately=True)
+
+
+def inset_global_markers(frame, inset_um):
+    """Move both marker rows toward the chip center; keep Layer 0 unchanged."""
+    import gdsfactory as gf
+    import klayout.db as kdb
+    require(inset_um > 0, 'Marker inset must be positive')
+    dbu = float(frame.kcl.dbu)
+    for layer in ((2, 0), (10, 0)):
+        shapes = frame.kdb_cell.shapes(gf.get_layer(layer))
+        moved = kdb.Region()
+        for polygon in kdb.Region(shapes).each():
+            center = polygon.bbox().center()
+            dx = -round(math.copysign(inset_um / dbu, center.x))
+            dy = -round(math.copysign(inset_um / dbu, center.y))
+            moved.insert(polygon.transformed(kdb.Trans(dx, dy)))
+        shapes.clear()
+        shapes.insert(moved)
 
 
 def finalize_coupler_windows(layout, entries):
@@ -186,8 +209,20 @@ def finalize_coupler_windows(layout, entries):
         ends=[]
         for side,port in (('input',e['input_port_local_um']),('output',e['output_port_local_um'])):
             px,cy = map(float,port)
+            source_port = e.get(f'source_{side}_port_local_um', port)
+            candidate_shift = kdb.Trans(
+                round((px-float(source_port[0]))/DBU),
+                round((cy-float(source_port[1]))/DBU),
+            )
             sign = -1 if px<0 else 1
-            search = box((-20000,cy/8,px,20000) if sign<0 else (px,-20000,20000,cy/8))
+            straight = e['topology']=='single_straight'
+            search = box(
+                (-20000,-20000,px,20000) if sign<0
+                else (px,-20000,20000,20000)
+            ) if straight else box(
+                (-20000,cy/8,px,20000) if sign<0
+                else (px,-20000,20000,cy/8)
+            )
             taper = (rr[(10,0)] & search).merged()
             if taper.is_empty():
                 require(side=='output' and e['mode']=='straight_output','Unexpected absent taper')
@@ -198,8 +233,15 @@ def finalize_coupler_windows(layout, entries):
                 (2,LAYER2_START_OFFSET,LAYER2_START_WIDTH,LAYER2_WINDOW_MARGIN),
                 (14,LAYER14_START_OFFSET,LAYER14_START_WIDTH,LAYER14_WINDOW_MARGIN)):
                 start = sx+sign*offset
-                keep = box((-20000,cy/8,start,20000) if sign<0 else (start,-20000,20000,cy/8))
-                retained = (rr[(layer,0)] & candidates[(layer,0)] & keep).merged()
+                keep = box(
+                    (-20000,-20000,start,20000) if sign<0
+                    else (start,-20000,20000,20000)
+                ) if straight else box(
+                    (-20000,cy/8,start,20000) if sign<0
+                    else (start,-20000,20000,cy/8)
+                )
+                shifted_candidate = candidates[(layer,0)].transformed(candidate_shift)
+                retained = (rr[(layer,0)] & shifted_candidate & keep).merged()
                 endpoint = sx+sign*40.0
                 replace = box((min(sx,endpoint),cy-25,max(sx,endpoint),cy+25))
                 shaped = first_stage_mask(sx,cy,sign,offset,start_width,1.0+2*margin)
@@ -479,6 +521,7 @@ def build_case(width):
                   layer2_margin_um=LAYER2_WINDOW_MARGIN,
                   layer14_margin_um=LAYER14_WINDOW_MARGIN,
                   release_start_offset_um=RELEASE_WINDOW_START_OFFSET,
+                  tip_centers=tips0,
                   input_port_um=centers[ii], output_port_um=port,
                   straight_output_endpoint_um=[end_x, py],
                   original_straight_lengths_um=[STRAIGHT_LENGTH]*3,
@@ -533,50 +576,62 @@ def combine():
         text=gf.components.text(text=entry['label'],size=LABEL_SIZE,layer=(2,0))
         textreg=kdb.Region(text.kdb_cell.begin_shapes_rec(gf.get_layer((2,0)))).merged()
         labelcell=insert_regions(ly,'LABEL_'+ident,{(2,0):textreg})
-        lt=kdb.Trans(round((LEFT_BEND_X+200)/DBU),round((y+250)/DBU))
+        tip=entry['label_anchor_local_um']
+        lt=kdb.Trans(
+            round((x+tip[0]+LABEL_TIP_X_OFFSET)/DBU),
+            round((y+tip[1]+LABEL_TIP_Y_OFFSET)/DBU),
+        )
         top.insert(kdb.CellInstArray(labelcell.cell_index(),lt))
         texts.append(textreg.transformed(lt));bounds+=texts[-1].bbox()
         entry['label_origin_um']=[lt.disp.x*DBU,lt.disp.y*DBU]
         entries.append(entry)
 
-    # A/B: existing meander designs, retaining every original end and origin.
-    modes=([False] if INCLUDE_REFERENCE_DEVICES else [])+[True]
-    for one in modes:
+    # Two 15 mm sets: two tapers, then input taper + 2 mm plain output.
+    straight_length = TEST_STRAIGHT_LENGTHS[0]
+    for mode in ('two_tapers', 'straight_output'):
         for width in WG_WIDTHS:
             meta=json.loads((WORK/(base.case_id(width)+'.json')).read_text())
-            ident=meta['variant_id'] if one else meta['reference_id']
-            src,sc=read_gds(WORK/(ident+'.gds'))
-            rr=regions(src,sc)
-            label=f'D1_W{width:.2f}_T80_P10'+(f'_OUT{OUTPUT_EXTENSION_LENGTH:g}' if one else '')
-            place(ident,rr,dict(mode='straight_output' if one else 'original_two_tapers',
-                topology='meander',set_name='meander_one_coupler' if one else 'meander_two_couplers',
-                width_um=width,origin_um=[LEFT_BEND_X-meta['left_pnc_x_um'],0],label=label,
-                straight_section_count=3,straight_length_um=STRAIGHT_LENGTH,
-                bend_count=2,added_length_um=OUTPUT_EXTENSION_LENGTH if one else 0.,
-                path_length_excluding_tapers_um=meta['meander_length_um']+(OUTPUT_EXTENSION_LENGTH if one else 0.),
+            source_id=meta['reference_id']
+            src,sc=read_gds(WORK/(source_id+'.gds'))
+            source_regions=regions(src,sc)
+            if mode == 'two_tapers':
+                rr=make_single_straight(source_regions,width,straight_length)
+                ident=f'D1_SINGLE_L{straight_length:g}_W{round(width*1000)}_2T'
+                output_port=[straight_length/2,0.]
+                label=f'L{straight_length:g}_W{width:.2f}_2T'
+                path_length=straight_length
+            else:
+                rr=make_input_taper_straight(
+                    source_regions,width,straight_length,OUTPUT_EXTENSION_LENGTH)
+                ident=f'D1_SINGLE_L{straight_length:g}_W{round(width*1000)}_1T_OUT{OUTPUT_EXTENSION_LENGTH:g}'
+                output_port=[straight_length/2+OUTPUT_EXTENSION_LENGTH,0.]
+                label=f'L{straight_length:g}_W{width:.2f}_1T'
+                path_length=straight_length+OUTPUT_EXTENSION_LENGTH
+            source_tip=min(meta['tip_centers'],key=lambda point:float(point[0]))
+            source_input=meta['input_port_um']
+            straight_input=[-straight_length/2,0.]
+            place(ident,rr,dict(
+                mode='original_two_tapers' if mode == 'two_tapers' else 'straight_output',
+                topology='single_straight',
+                set_name=f'single_straight_L{straight_length:g}_{mode}',width_um=width,
+                origin_um=[LEFT_BEND_X-meta['left_pnc_x_um'],0],
+                label=label,
+                label_anchor_local_um=[
+                    source_tip[0]+straight_input[0]-source_input[0],
+                    source_tip[1]+straight_input[1]-source_input[1],
+                ],
+                straight_section_count=1,straight_length_um=straight_length,
+                bend_count=0,added_length_um=0.,
+                path_length_excluding_tapers_um=path_length,
+                output_extension_length_um=(0. if mode == 'two_tapers' else OUTPUT_EXTENSION_LENGTH),
                 release_window_file=meta['release_window_file'],
-                input_port_local_um=meta['input_port_um'],output_port_local_um=meta['output_port_um']))
+                input_port_local_um=straight_input,
+                output_port_local_um=output_port,
+                source_input_port_local_um=meta['input_port_um'],
+                source_output_port_local_um=meta['output_port_um'],
+                copied_from=source_id,
+            ))
     policies=finalize_coupler_windows(ly,entries)
-
-    # C/D: one straight only; derive complete couplers from the updated A/B cells.
-    for one in (False,True):
-        for width in WG_WIDTHS:
-            source_id=base.case_id(width)+(f'_OUT{OUTPUT_EXTENSION_LENGTH:g}' if one else '')
-            require(ly.cell(source_id) is not None,'Enable reference devices for the straight two-coupler set')
-            source_entry=next(e for e in entries if e['case_id']==source_id)
-            rr=make_single_straight(regions(ly,ly.cell(source_id)),width,one)
-            ident=f'D1_SINGLE_L{STRAIGHT_LENGTH:g}_W{round(width*1000)}'+(f'_1T_OUT{OUTPUT_EXTENSION_LENGTH:g}' if one else '_2T')
-            entry=copy.deepcopy(source_entry)
-            entry.update(mode='single_straight_one_coupler' if one else 'single_straight_two_couplers',
-                topology='single_straight',set_name='single_straight_one_coupler' if one else 'single_straight_two_couplers',
-                straight_section_count=1,bend_count=0,
-                path_length_excluding_tapers_um=STRAIGHT_LENGTH+(OUTPUT_EXTENSION_LENGTH if one else 0.),
-                input_port_local_um=[-STRAIGHT_LENGTH/2,0.],output_port_local_um=[STRAIGHT_LENGTH/2,0.],
-                label=f'D1_S{STRAIGHT_LENGTH:g}_W{width:.2f}_T80'+(f'_1T_OUT{OUTPUT_EXTENSION_LENGTH:g}' if one else '_2T'),
-                copied_from=source_id)
-            place(ident,rr,entry)
-            policies[ident]=copy.deepcopy(policies[source_id])
-            for end in policies[ident]['ends']:end['center_y_um']=0.
 
     # Retain original outline width; extend height to contain the added rows.
     xmin=math.floor((bounds.left*DBU-FRAME_MARGIN)/100)*100
@@ -587,6 +642,7 @@ def combine():
     actual_height=max(MIN_FRAME_HEIGHT,ymax-ymin,(len(entries)-1)*model.DEVICE_Y_PITCH+model.CHIP_Y_ALLOWANCE)
     ymax=ymin+actual_height
     frame=gf.Component();model.add_chip_outline_and_markers(frame,len(entries));frame.flatten()
+    inset_global_markers(frame, GLOBAL_MARKER_INSET)
     fc=insert_regions(ly,'FRAME_AND_MARKERS',regions(frame.kcl.layout,frame.kdb_cell))
     ft=kdb.Trans(round((xmin+xmax)/2/DBU),round((ymin+ymax)/2/DBU))
     top.insert(kdb.CellInstArray(fc.cell_index(),ft))
@@ -608,12 +664,14 @@ def combine():
         check(checks,f'label{i}_unique',all((t&s).is_empty() for s in texts[i+1:]))
     fr=regions(ly,fc)
     for n in (10,15):
-        marks=fr[(n,0)].transformed(ft)
+        marks=fr.get((n,0),kdb.Region()).transformed(ft)
         check(checks,f'L{n}_markers_clear',all((marks&r).is_empty() for p in placed for r in p.values()))
     write_layout(ly,OUTPUT)
     final,finaltop=read_gds(OUTPUT)
     insts={i.cell.name:i for i in finaltop.each_inst()}
-    check(checks,'twelve_devices_and_labels',len(entries)==12 and len(insts)==25)
+    expected_devices=2*len(TEST_STRAIGHT_LENGTHS)*len(WG_WIDTHS)
+    check(checks,'straight_devices_and_labels',
+          len(entries)==expected_devices and len(insts)==2*expected_devices+1)
     check(checks,'excluded_layers_absent',not ({final.get_info(i).layer for i in final.layer_indexes()}&set(REMOVED_OUTPUT_LAYERS)))
     for e in entries:
         rr=regions(final,insts[e['case_id']].cell)
@@ -621,9 +679,9 @@ def combine():
         for key,r in snapshots[e['case_id']].items():
             check(checks,e['case_id']+f'_L{key[0]}_export_exact',(r^rr[key]).is_empty())
     workers=[json.loads((WORK/(base.case_id(w)+'.json')).read_text()) for w in WG_WIDTHS]
-    report=dict(status='PASS',devices=entries,device_count=len(entries),set_count=4,
-        width_sweep_um=list(WG_WIDTHS),meander_straight_length_um=STRAIGHT_LENGTH,
-        single_straight_length_um=STRAIGHT_LENGTH,extension_length_um=OUTPUT_EXTENSION_LENGTH,
+    report=dict(status='PASS',devices=entries,device_count=len(entries),set_count=2,
+        width_sweep_um=list(WG_WIDTHS),source_meander_straight_length_um=STRAIGHT_LENGTH,
+        straight_test_lengths_um=list(TEST_STRAIGHT_LENGTHS),
         row_pitch_um=ROW_PITCH,left_bend_x_um=LEFT_BEND_X,frame_bounds_um=[xmin,ymin,xmax,ymax],
         layer2_start_width_um=LAYER2_START_WIDTH,layer14_start_width_um=LAYER14_START_WIDTH,
         layer2_window_margin_um=LAYER2_WINDOW_MARGIN,layer14_window_margin_um=LAYER14_WINDOW_MARGIN,
@@ -663,26 +721,42 @@ def first_stage_mask(sx, cy, outward, start_offset, start_width, end_width, leng
     lower = [(sx+outward*float(a), cy-float(b)/2) for a,b in zip(s[::-1],w[::-1])]
     return kdb.Region(kdb.Polygon([kdb.Point(round(x/DBU),round(y/DBU)) for x,y in upper+lower]))
 
-def make_single_straight(source_regions, width, single_coupler):
+def make_single_straight(source_regions, width, target_length):
     """Copy complete approved terminal assemblies and replace only routing.
 
-    New ports are (-3000,0) and (+3000,0). Move the complete upper-left end
-    down 200 um and lower-right end up 200 um; no optical taper is redrawn.
-    The one-coupler version retains the 2000 um taper-free output extension.
+    Move both complete terminal assemblies to +/- target_length/2 at y=0;
+    no optical taper is redrawn.
     """
     import klayout.db as kdb
     left = box((-20000,25,-STRAIGHT_LENGTH/2,20000))
     right = box((STRAIGHT_LENGTH/2,-20000,20000,-25))
-    down = kdb.Trans(0,round(-200/DBU))
-    up = kdb.Trans(0,round(200/DBU))
+    inward=(STRAIGHT_LENGTH-target_length)/2
+    down = kdb.Trans(round(inward/DBU),round(-200/DBU))
+    up = kdb.Trans(round(-inward/DBU),round(200/DBU))
     out={}
     for key,r in source_regions.items():
         if key[0] in (*REMOVED_OUTPUT_LAYERS, *CLEARED_SOURCE_PNC_LAYERS):
             continue
         out[key]=((r&left).transformed(down) | (r&right).transformed(up)).merged()
-    ridge=box((-STRAIGHT_LENGTH/2,-width/2,STRAIGHT_LENGTH/2,width/2))
+    ridge=box((-target_length/2,-width/2,target_length/2,width/2))
     out[(15,0)]=(out.get((15,0),kdb.Region())|ridge).merged()
     return {key:r for key,r in out.items() if not r.is_empty()}
+
+
+def make_input_taper_straight(source_regions, width, target_length, extension_length):
+    """Keep the input terminal, replace the output terminal with plain ridge."""
+    import klayout.db as kdb
+    out = make_single_straight(source_regions, width, target_length)
+    output_x = target_length / 2
+    remove_output = box((output_x, -20000, 20000, 20000))
+    for key in tuple(out):
+        out[key] -= remove_output
+        if out[key].is_empty():
+            del out[key]
+    ridge = box((-target_length / 2, -width / 2,
+                 output_x + extension_length, width / 2))
+    out[(15, 0)] = (out.get((15, 0), kdb.Region()) | ridge).merged()
+    return out
 
 # %% [06] Entry point: one isolated process per width
 
@@ -693,7 +767,7 @@ def main():
     if args.worker_width is not None:
         build_case(args.worker_width);return
     require(len(WG_WIDTHS)>0 and len(set(WG_WIDTHS))==len(WG_WIDTHS),'Widths must be distinct')
-    require(all(math.isfinite(x) and x>0 for x in (*WG_WIDTHS,STRAIGHT_LENGTH,OUTPUT_EXTENSION_LENGTH,PNC_PITCH,ROW_PITCH)),
+    require(all(math.isfinite(x) and x>0 for x in (*WG_WIDTHS,*TEST_STRAIGHT_LENGTHS,STRAIGHT_LENGTH,OUTPUT_EXTENSION_LENGTH,PNC_PITCH,ROW_PITCH)),
             'All dimensions must be finite and positive')
     for width in WG_WIDTHS:
         run=subprocess.run([sys.executable,str(Path(__file__).resolve()),'--worker-width',str(width)],
@@ -702,9 +776,6 @@ def main():
         require(run.returncode==0,f'Width {width} failed:\n'+run.stdout[-1000:]+run.stderr[-6000:])
         print(run.stdout,flush=True)
     combine()
-    from validate_2611_four_sets import validate, render as render_saved
-    validate(ROOT)
-    render_saved(ROOT)
 
 
 if __name__=='__main__':

@@ -106,7 +106,7 @@ PHONONIC_SUPPORT_SEGMENTS = (
     0.504,
 )  # six square-mass sizes in the PNC library cell
 PHONONIC_SUPPORT_GAPS = 0.25  # gap between PNC masses
-PNC_NARROW_END_EXTENSION = 0.5  # narrow neck extension at both radial ends
+PNC_NARROW_END_EXTENSION = 1.0  # alignment-tolerant overlap beyond Layer 2
 # Full original quintic 15 -> 5 um transition: no truncation or Hermite matching.
 # PNC taper pitch follows the straight sections; its physical length stays fixed.
 
@@ -136,8 +136,8 @@ LAYER14_CHANNEL_ANGLE = 1.5  # full opening angle on Layer 14
 MLA_CHANNEL_START_WIDTH = 6.0
 LAYER14_CHANNEL_START_WIDTH = 1.0
 LAYER14_CHANNEL_START_OFFSET = 0.0  # from stage-1 end, NOT final optical endpoint
-POSITIVE_CHANNEL_LENGTH = 2000.0  # Layer-2 long-channel length
-LAYER14_CHANNEL_LENGTH = 2000.0  # Layer-14 long-channel length
+POSITIVE_CHANNEL_LENGTH = 1500.0  # leaves ~400 um after the two glue circles
+LAYER14_CHANNEL_LENGTH = 1500.0  # leaves ~400 um after the two glue circles
 # Dimensions below define REMOVED companion windows, not alignment ticks.
 # Actual alignment ticks are fixed at 0.5 x 10 um in tapered_local.py and
 # matched by alignment_tip_region(); edit both together to change tick shape.
@@ -148,7 +148,7 @@ ALIGNMENT_TIP_WINDOW_INWARD_SHIFT = 0.2
 # --- 1G. Labels, chip outline, global overlay marks, and output ---
 TETHER_LABEL_SIZE = 2.0
 DETAIL_LABEL_SIZE = 3.0
-DETAIL_LABEL_TIP_X_OFFSET = 5.0
+DETAIL_LABEL_TIP_X_OFFSET = 2.0
 DETAIL_LABEL_TIP_Y_OFFSET = 10.0
 LAYER10_MARKER_ARM_WIDTH = 2.0
 LAYER10_MARKER_CENTER_SQUARE_SIZE = 3.0
@@ -161,8 +161,8 @@ CHIP_Y_ALLOWANCE = 1000.0
 INNER_MARKER_CHIP_WIDTH_REDUCTION = 1000.0
 GLOBAL_MARKER_ARM_LENGTHS = (50.0, 80.0)  # outer row, inner row
 GDS_MAX_VERTEX_COUNT = 2000
-TOP_CELL_NAME = f"{Path(__file__).stem}_L10_L12"
-OUTPUT_GDS_FILENAME = f"{TOP_CELL_NAME}.gds"
+TOP_CELL_NAME = "Design1_L1400"
+OUTPUT_GDS_FILENAME = "2611_tapered_yue_design1.gds"
 # TOP_CELL_NAME is a naming label, not a device-count or geometry control.
 
 
