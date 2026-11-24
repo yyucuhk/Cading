@@ -3,7 +3,7 @@
   "source_gds_sha256": "17fc0ade4016c57f51874e486d0b319241d6c507fed9511c9765a1084503bb3c",
   "source_device_copied_for_far_assemblies": "D1_SINGLE_L15000_W1620_2T",
   "gds": "gds/2611_straight_coupler_A-L_L300-2T-T40-80_L15000-1T-W1590-1610_pitch500.gds",
-  "gds_sha256": "a05f0005ed188e06c391ad256563e5b3d3d8cf6f6628e8e925e97c31742e3485",
+  "gds_sha256": "f96247591a4b226f5843cfa48d2b1c7ff09fa6786cacc8c3af83635d1407074a",
   "top_cell": "STRAIGHT_COUPLER_ADIABATIC_TAPER_SWEEP",
   "device_count": 30,
   "parameters": {
@@ -174,8 +174,8 @@
     "far_assembly_shift_um": "l10_taper_length - 80 per end",
     "row_pitch_um": 500.0,
     "device_gap_um": 500.0,
-    "row_left_edge_x_um": -6781.347,
-    "row_right_edge_x_um": 11898.653,
+    "row_left_edge_x_um": -6762.847,
+    "row_right_edge_x_um": 11917.153,
     "ebl_write_fields": {
       "field_size_um": 300.0,
       "field_overlap_um": 10.0,
@@ -189,31 +189,31 @@
         0
       ],
       "mask_shift_um": [
-        156.5,
+        175.0,
         3.0
       ],
-      "layer15_field_count": 649,
+      "layer15_field_count": 661,
       "priority": "no_taper_stitch",
-      "devices_over_field_limit": 8,
-      "taper_zones_with_stitch": 3,
-      "label_zones_with_stitch": 1,
-      "min_stitch_to_taper_zone_um": -31.375,
+      "devices_over_field_limit": 10,
+      "taper_zones_with_stitch": 0,
+      "label_zones_with_stitch": 0,
+      "min_stitch_to_taper_zone_um": 16.847,
       "alternatives_before_gap_adjustment": {
         "fields": {
-          "fields": 649,
-          "taper_zones_with_stitch": 3,
-          "label_zones_with_stitch": 1,
+          "fields": 651,
+          "taper_zones_with_stitch": 1,
+          "label_zones_with_stitch": 0,
           "mask_shift_um": [
-            156.5,
+            157.5,
             3.0
           ]
         },
         "no_taper_stitch": {
-          "fields": 649,
-          "taper_zones_with_stitch": 3,
-          "label_zones_with_stitch": 1,
+          "fields": 661,
+          "taper_zones_with_stitch": 0,
+          "label_zones_with_stitch": 0,
           "mask_shift_um": [
-            156.5,
+            175.0,
             3.0
           ]
         }
@@ -221,9 +221,9 @@
       "shared_row_gaps_um": {}
     },
     "frame_bounds_um": [
-      -7243.5,
+      -7225.0,
       -1424.75,
-      12456.5,
+      12475.0,
       7035.25
     ],
     "moved_marker_polygon_count": 24
@@ -257,17 +257,17 @@
       },
       "output_end_y_offset_um": 47.559930075288634,
       "origin_um": [
-        -4973.361,
+        -4954.861,
         -697.0
       ],
       "row_index": 0,
       "row_align": "left",
       "global_x_extent_um": [
-        -6779.347,
-        -3167.375
+        -6760.847,
+        -3148.875
       ],
       "label_origin_um": [
-        -5204.347,
+        -5185.847,
         -682.0
       ],
       "label_length_um": 22.2,
@@ -319,17 +319,17 @@
       },
       "output_end_y_offset_um": 47.559930075288634,
       "origin_um": [
-        -143.361,
+        -164.861,
         -697.0
       ],
       "row_index": 0,
       "row_align": "left",
       "global_x_extent_um": [
-        -1949.347,
-        1662.625
+        -1970.847,
+        1641.125
       ],
       "label_origin_um": [
-        -374.347,
+        -395.847,
         -682.0
       ],
       "label_length_um": 22.2,
@@ -381,17 +381,17 @@
       },
       "output_end_y_offset_um": 47.559930075288634,
       "origin_um": [
-        4686.639,
+        4625.139,
         -697.0
       ],
       "row_index": 0,
       "row_align": "left",
       "global_x_extent_um": [
-        2880.653,
-        6492.625
+        2819.153,
+        6431.125
       ],
       "label_origin_um": [
-        4455.653,
+        4394.153,
         -682.0
       ],
       "label_length_um": 25.6,
@@ -443,17 +443,17 @@
       },
       "output_end_y_offset_um": 47.559930075288634,
       "origin_um": [
-        9516.639,
+        9415.139,
         -697.0
       ],
       "row_index": 0,
       "row_align": "left",
       "global_x_extent_um": [
-        7710.653,
-        11322.625
+        7609.153,
+        11221.125
       ],
       "label_origin_um": [
-        9285.653,
+        9184.153,
         -682.0
       ],
       "label_length_um": 25.6,
@@ -505,17 +505,17 @@
       },
       "output_end_y_offset_um": 47.559930075288634,
       "origin_um": [
-        -4963.361,
+        -4944.861,
         -197.0
       ],
       "row_index": 1,
       "row_align": "left",
       "global_x_extent_um": [
-        -6779.347,
-        -3147.375
+        -6760.847,
+        -3128.875
       ],
       "label_origin_um": [
-        -5204.347,
+        -5185.847,
         -182.0
       ],
       "label_length_um": 22.2,
@@ -567,17 +567,17 @@
       },
       "output_end_y_offset_um": 47.559930075288634,
       "origin_um": [
-        -133.361,
+        -154.861,
         -197.0
       ],
       "row_index": 1,
       "row_align": "left",
       "global_x_extent_um": [
-        -1949.347,
-        1682.625
+        -1970.847,
+        1661.125
       ],
       "label_origin_um": [
-        -374.347,
+        -395.847,
         -182.0
       ],
       "label_length_um": 22.2,
@@ -629,17 +629,17 @@
       },
       "output_end_y_offset_um": 47.559930075288634,
       "origin_um": [
-        4696.639,
+        4635.139,
         -197.0
       ],
       "row_index": 1,
       "row_align": "left",
       "global_x_extent_um": [
-        2880.653,
-        6512.625
+        2819.153,
+        6451.125
       ],
       "label_origin_um": [
-        4455.653,
+        4394.153,
         -182.0
       ],
       "label_length_um": 25.6,
@@ -691,17 +691,17 @@
       },
       "output_end_y_offset_um": 47.559930075288634,
       "origin_um": [
-        9526.639,
+        9425.139,
         -197.0
       ],
       "row_index": 1,
       "row_align": "left",
       "global_x_extent_um": [
-        7710.653,
-        11342.625
+        7609.153,
+        11241.125
       ],
       "label_origin_um": [
-        9285.653,
+        9184.153,
         -182.0
       ],
       "label_length_um": 25.6,
@@ -753,17 +753,17 @@
       },
       "output_end_y_offset_um": 47.559930075288634,
       "origin_um": [
-        -4953.361,
+        -4934.861,
         303.0
       ],
       "row_index": 2,
       "row_align": "left",
       "global_x_extent_um": [
-        -6779.347,
-        -3127.375
+        -6760.847,
+        -3108.875
       ],
       "label_origin_um": [
-        -5204.347,
+        -5185.847,
         318.0
       ],
       "label_length_um": 22.2,
@@ -815,17 +815,17 @@
       },
       "output_end_y_offset_um": 47.559930075288634,
       "origin_um": [
-        -123.361,
+        -144.861,
         303.0
       ],
       "row_index": 2,
       "row_align": "left",
       "global_x_extent_um": [
-        -1949.347,
-        1702.625
+        -1970.847,
+        1681.125
       ],
       "label_origin_um": [
-        -374.347,
+        -395.847,
         318.0
       ],
       "label_length_um": 22.2,
@@ -877,17 +877,17 @@
       },
       "output_end_y_offset_um": 47.559930075288634,
       "origin_um": [
-        4706.639,
+        4645.139,
         303.0
       ],
       "row_index": 2,
       "row_align": "left",
       "global_x_extent_um": [
-        2880.653,
-        6532.625
+        2819.153,
+        6471.125
       ],
       "label_origin_um": [
-        4455.653,
+        4394.153,
         318.0
       ],
       "label_length_um": 25.6,
@@ -939,17 +939,17 @@
       },
       "output_end_y_offset_um": 47.559930075288634,
       "origin_um": [
-        9536.639,
+        9435.139,
         303.0
       ],
       "row_index": 2,
       "row_align": "left",
       "global_x_extent_um": [
-        7710.653,
-        11362.625
+        7609.153,
+        11261.125
       ],
       "label_origin_um": [
-        9285.653,
+        9184.153,
         318.0
       ],
       "label_length_um": 25.6,
@@ -1001,17 +1001,17 @@
       },
       "output_end_y_offset_um": 47.559930075288634,
       "origin_um": [
-        -4943.361,
+        -4924.861,
         803.0
       ],
       "row_index": 3,
       "row_align": "left",
       "global_x_extent_um": [
-        -6779.347,
-        -3107.375
+        -6760.847,
+        -3088.875
       ],
       "label_origin_um": [
-        -5204.347,
+        -5185.847,
         818.0
       ],
       "label_length_um": 22.2,
@@ -1063,17 +1063,17 @@
       },
       "output_end_y_offset_um": 47.559930075288634,
       "origin_um": [
-        -113.361,
+        -134.861,
         803.0
       ],
       "row_index": 3,
       "row_align": "left",
       "global_x_extent_um": [
-        -1949.347,
-        1722.625
+        -1970.847,
+        1701.125
       ],
       "label_origin_um": [
-        -374.347,
+        -395.847,
         818.0
       ],
       "label_length_um": 22.2,
@@ -1125,17 +1125,17 @@
       },
       "output_end_y_offset_um": 47.559930075288634,
       "origin_um": [
-        4716.639,
+        4655.139,
         803.0
       ],
       "row_index": 3,
       "row_align": "left",
       "global_x_extent_um": [
-        2880.653,
-        6552.625
+        2819.153,
+        6491.125
       ],
       "label_origin_um": [
-        4455.653,
+        4394.153,
         818.0
       ],
       "label_length_um": 25.6,
@@ -1187,17 +1187,17 @@
       },
       "output_end_y_offset_um": 47.559930075288634,
       "origin_um": [
-        9546.639,
+        9445.139,
         803.0
       ],
       "row_index": 3,
       "row_align": "left",
       "global_x_extent_um": [
-        7710.653,
-        11382.625
+        7609.153,
+        11281.125
       ],
       "label_origin_um": [
-        9285.653,
+        9184.153,
         818.0
       ],
       "label_length_um": 25.6,
@@ -1249,17 +1249,17 @@
       },
       "output_end_y_offset_um": 47.559930075288634,
       "origin_um": [
-        -4933.361,
+        -4914.861,
         1303.0
       ],
       "row_index": 4,
       "row_align": "left",
       "global_x_extent_um": [
-        -6779.347,
-        -3087.375
+        -6760.847,
+        -3068.875
       ],
       "label_origin_um": [
-        -5204.347,
+        -5185.847,
         1318.0
       ],
       "label_length_um": 22.2,
@@ -1311,17 +1311,17 @@
       },
       "output_end_y_offset_um": 47.559930075288634,
       "origin_um": [
-        -103.361,
+        -124.861,
         1303.0
       ],
       "row_index": 4,
       "row_align": "left",
       "global_x_extent_um": [
-        -1949.347,
-        1742.625
+        -1970.847,
+        1721.125
       ],
       "label_origin_um": [
-        -374.347,
+        -395.847,
         1318.0
       ],
       "label_length_um": 22.2,
@@ -1373,17 +1373,17 @@
       },
       "output_end_y_offset_um": 47.559930075288634,
       "origin_um": [
-        4726.639,
+        4665.139,
         1303.0
       ],
       "row_index": 4,
       "row_align": "left",
       "global_x_extent_um": [
-        2880.653,
-        6572.625
+        2819.153,
+        6511.125
       ],
       "label_origin_um": [
-        4455.653,
+        4394.153,
         1318.0
       ],
       "label_length_um": 25.6,
@@ -1435,17 +1435,17 @@
       },
       "output_end_y_offset_um": 47.559930075288634,
       "origin_um": [
-        9556.639,
+        9455.139,
         1303.0
       ],
       "row_index": 4,
       "row_align": "left",
       "global_x_extent_um": [
-        7710.653,
-        11402.625
+        7609.153,
+        11301.125
       ],
       "label_origin_um": [
-        9285.653,
+        9184.153,
         1318.0
       ],
       "label_length_um": 25.6,
@@ -1493,17 +1493,17 @@
       "s_bend": null,
       "output_end_y_offset_um": 0.0,
       "origin_um": [
-        2398.653,
+        2417.153,
         1803.0
       ],
       "row_index": 5,
       "row_align": "right",
       "global_x_extent_um": [
-        -6779.347,
-        11898.653
+        -6760.847,
+        11917.153
       ],
       "label_origin_um": [
-        -5204.347,
+        -5185.847,
         1818.0
       ],
       "label_length_um": 27.6,
@@ -1548,17 +1548,17 @@
       "s_bend": null,
       "output_end_y_offset_um": 0.0,
       "origin_um": [
-        2398.653,
+        2417.153,
         2303.0
       ],
       "row_index": 6,
       "row_align": "right",
       "global_x_extent_um": [
-        -6779.347,
-        11898.653
+        -6760.847,
+        11917.153
       ],
       "label_origin_um": [
-        -5204.347,
+        -5185.847,
         2318.0
       ],
       "label_length_um": 27.4,
@@ -1603,17 +1603,17 @@
       "s_bend": null,
       "output_end_y_offset_um": 0.0,
       "origin_um": [
-        2398.653,
+        2417.153,
         2803.0
       ],
       "row_index": 7,
       "row_align": "right",
       "global_x_extent_um": [
-        -6779.347,
-        11898.653
+        -6760.847,
+        11917.153
       ],
       "label_origin_um": [
-        -5204.347,
+        -5185.847,
         2818.0
       ],
       "label_length_um": 27.8,
@@ -1658,17 +1658,17 @@
       "s_bend": null,
       "output_end_y_offset_um": 0.0,
       "origin_um": [
-        2398.653,
+        2417.153,
         3303.0
       ],
       "row_index": 8,
       "row_align": "right",
       "global_x_extent_um": [
-        -6779.347,
-        11898.653
+        -6760.847,
+        11917.153
       ],
       "label_origin_um": [
-        -5204.347,
+        -5185.847,
         3318.0
       ],
       "label_length_um": 27.6,
@@ -1713,17 +1713,17 @@
       "s_bend": null,
       "output_end_y_offset_um": 0.0,
       "origin_um": [
-        2398.653,
+        2417.153,
         3803.0
       ],
       "row_index": 9,
       "row_align": "right",
       "global_x_extent_um": [
-        -6779.347,
-        11898.653
+        -6760.847,
+        11917.153
       ],
       "label_origin_um": [
-        -5204.347,
+        -5185.847,
         3818.0
       ],
       "label_length_um": 27.0,
@@ -1768,17 +1768,17 @@
       "s_bend": null,
       "output_end_y_offset_um": 0.0,
       "origin_um": [
-        2398.653,
+        2417.153,
         4303.0
       ],
       "row_index": 10,
       "row_align": "right",
       "global_x_extent_um": [
-        -6779.347,
-        11898.653
+        -6760.847,
+        11917.153
       ],
       "label_origin_um": [
-        -5204.347,
+        -5185.847,
         4318.0
       ],
       "label_length_um": 27.6,
@@ -1823,17 +1823,17 @@
       "s_bend": null,
       "output_end_y_offset_um": 0.0,
       "origin_um": [
-        2398.653,
+        2417.153,
         4803.0
       ],
       "row_index": 11,
       "row_align": "right",
       "global_x_extent_um": [
-        -6779.347,
-        11898.653
+        -6760.847,
+        11917.153
       ],
       "label_origin_um": [
-        -5204.347,
+        -5185.847,
         4818.0
       ],
       "label_length_um": 27.4,
@@ -1878,17 +1878,17 @@
       "s_bend": null,
       "output_end_y_offset_um": 0.0,
       "origin_um": [
-        2398.653,
+        2417.153,
         5303.0
       ],
       "row_index": 12,
       "row_align": "right",
       "global_x_extent_um": [
-        -6779.347,
-        11898.653
+        -6760.847,
+        11917.153
       ],
       "label_origin_um": [
-        -5204.347,
+        -5185.847,
         5318.0
       ],
       "label_length_um": 27.8,
@@ -1933,17 +1933,17 @@
       "s_bend": null,
       "output_end_y_offset_um": 0.0,
       "origin_um": [
-        2398.653,
+        2417.153,
         5803.0
       ],
       "row_index": 13,
       "row_align": "right",
       "global_x_extent_um": [
-        -6779.347,
-        11898.653
+        -6760.847,
+        11917.153
       ],
       "label_origin_um": [
-        -5204.347,
+        -5185.847,
         5818.0
       ],
       "label_length_um": 27.6,
@@ -1988,17 +1988,17 @@
       "s_bend": null,
       "output_end_y_offset_um": 0.0,
       "origin_um": [
-        2398.653,
+        2417.153,
         6303.0
       ],
       "row_index": 14,
       "row_align": "right",
       "global_x_extent_um": [
-        -6779.347,
-        11898.653
+        -6760.847,
+        11917.153
       ],
       "label_origin_um": [
-        -5204.347,
+        -5185.847,
         6318.0
       ],
       "label_length_um": 27.0,

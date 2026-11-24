@@ -61,7 +61,7 @@ LONG_WIDTHS = (1.590, 1.595, 1.600, 1.605, 1.610)   # long-device waveguide widt
 S_BEND_RADIUS = 150.0                         # short devices: the straight becomes a gentle S-bend:
 S_BEND_ANGLE_DEG = 10.0                       # arc (R, this angle) - tilted straight - arc back
 S_BEND_OFFSET = None                          # output-end y offset; None = follows from the angle
-SHORT_COLUMN_PITCH = 4830.0                   # short-device column spacing (left edges)
+SHORT_COLUMN_PITCH = 4790.0                   # short-device column spacing (left edges)
 SHORT_PATH_LENGTH = 300.0                     # short devices: waveguide path length between the ports
 SHORT_LENGTH = 300.0                          # label value; the port-to-port x span is solved from the path; with the
                                               # tapers every short device fits two 300 um fields (590 um)
