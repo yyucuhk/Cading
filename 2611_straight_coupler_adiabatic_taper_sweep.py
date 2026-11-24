@@ -99,6 +99,7 @@ LABEL_GAP = 0.5
 
 SMALL_MARKER_SQUARE = 25.0                    # the smaller corner cross is replaced by this square (um side)
 SMALL_MARKER_LAYER = (15, 0)
+MARKER_X_INSET = 1000.0                       # every corner marker set moves this far toward the centre in x
 ROW_PITCH = 580.0                             # = 2 EBL field pitches: every row sits identically in its field
 FIRST_ROW_Y = -700.0
 ROW_GROUPS = {'2T': ((500.0, 5000.0), (15000.0,)),   # lengths sharing one row, left to right
@@ -386,15 +387,16 @@ def build_frame(src_frame, y0, y1):
     n = 0
     for cen, g in groups.items():
         dy = um(hh - src_hh) * (1 if cen[1] > 0 else -1)
+        mdx = -um(MARKER_X_INSET) * (1 if cen[0] > 0 else -1)
         if abs(reach[cen] - small) < 1 and SMALL_MARKER_SQUARE:
             h = um(SMALL_MARKER_SQUARE / 2)
-            x0, y0_ = cen[0], cen[1] + dy
+            x0, y0_ = cen[0] + mdx, cen[1] + dy
             c.polygons.append((SMALL_MARKER_LAYER[0], SMALL_MARKER_LAYER[1],
                                [(x0 - h, y0_ - h), (x0 + h, y0_ - h), (x0 + h, y0_ + h), (x0 - h, y0_ + h)]))
             n += 1
             continue
         for l, d, p in g:
-            c.polygons.append((l, d, [(x, y + dy) for x, y in p]))
+            c.polygons.append((l, d, [(x + mdx, y + dy) for x, y in p]))
             n += 1
     return c, (cx, cy), n
 
