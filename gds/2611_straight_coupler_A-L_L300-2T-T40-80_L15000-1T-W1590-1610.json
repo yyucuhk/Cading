@@ -3,7 +3,7 @@
   "source_gds_sha256": "17fc0ade4016c57f51874e486d0b319241d6c507fed9511c9765a1084503bb3c",
   "source_device_copied_for_far_assemblies": "D1_SINGLE_L15000_W1620_2T",
   "gds": "gds/2611_straight_coupler_A-L_L300-2T-T40-80_L15000-1T-W1590-1610.gds",
-  "gds_sha256": "5014412207a5a07737701dd38ebe928f172e5d5f8b59390ed6d36cd4e843f199",
+  "gds_sha256": "eded6b6b112ad9c462eb5d62e505a63d1b355ee29b34cab82877327fdd124223",
   "top_cell": "STRAIGHT_COUPLER_ADIABATIC_TAPER_SWEEP",
   "device_count": 40,
   "parameters": {
@@ -240,8 +240,8 @@
     "far_assembly_shift_um": "l10_taper_length - 80 per end",
     "row_pitch_um": 300.0,
     "device_gap_um": 500.0,
-    "row_left_edge_x_um": -6780.347,
-    "row_right_edge_x_um": 11899.653,
+    "row_left_edge_x_um": -6781.347,
+    "row_right_edge_x_um": 11898.653,
     "ebl_write_fields": {
       "field_size_um": 300.0,
       "field_overlap_um": 10.0,
@@ -255,31 +255,31 @@
         0
       ],
       "mask_shift_um": [
-        157.5,
+        156.5,
         133.0
       ],
-      "layer15_field_count": 1234,
+      "layer15_field_count": 1242,
       "priority": "no_taper_stitch",
-      "devices_over_field_limit": 0,
-      "taper_zones_with_stitch": 0,
-      "label_zones_with_stitch": 0,
-      "min_stitch_to_taper_zone_um": 143.653,
+      "devices_over_field_limit": 8,
+      "taper_zones_with_stitch": 3,
+      "label_zones_with_stitch": 1,
+      "min_stitch_to_taper_zone_um": -31.375,
       "alternatives_before_gap_adjustment": {
         "fields": {
-          "fields": 1234,
-          "taper_zones_with_stitch": 0,
-          "label_zones_with_stitch": 0,
+          "fields": 1242,
+          "taper_zones_with_stitch": 3,
+          "label_zones_with_stitch": 1,
           "mask_shift_um": [
-            157.5,
+            156.5,
             133.0
           ]
         },
         "no_taper_stitch": {
-          "fields": 1234,
-          "taper_zones_with_stitch": 0,
-          "label_zones_with_stitch": 0,
+          "fields": 1242,
+          "taper_zones_with_stitch": 3,
+          "label_zones_with_stitch": 1,
           "mask_shift_um": [
-            157.5,
+            156.5,
             133.0
           ]
         }
@@ -287,9 +287,9 @@
       "shared_row_gaps_um": {}
     },
     "frame_bounds_um": [
-      -7242.5,
+      -7243.5,
       -1294.75,
-      12457.5,
+      12456.5,
       7365.25
     ],
     "moved_marker_polygon_count": 24
@@ -313,48 +313,49 @@
       "alignment_tip_position_um": 40.0,
       "layer14_linear_start_distance_um": 36.847,
       "straight_length_um": 300.0,
+      "port_span_um": 295.9724,
       "output_extension_length_um": 0.0,
-      "path_length_excluding_tapers_um": 304.0898,
+      "path_length_excluding_tapers_um": 300.0,
       "s_bend": {
         "radius_um": 150.0,
         "angle_deg": 10.0,
-        "offset_um": 48.2701
+        "offset_um": 47.5599
       },
-      "output_end_y_offset_um": 48.27011064681601,
+      "output_end_y_offset_um": 47.559930075288634,
       "origin_um": [
-        -4970.347,
+        -4973.361,
         -567.0
       ],
       "row_index": 0,
       "row_align": "left",
       "global_x_extent_um": [
-        -6778.347,
-        -3162.347
+        -6779.347,
+        -3167.375
       ],
       "label_origin_um": [
-        -5203.347,
+        -5204.347,
         -552.0
       ],
       "label_length_um": 22.2,
       "input_port_local_um": [
-        -150.0,
+        -147.9862,
         0.0
       ],
       "output_port_local_um": [
-        150.0,
-        48.27011064681601
+        147.9862,
+        47.5599
       ],
-      "l10_entrance_local_x_um": -195.0,
-      "l15_tip_local_x_um": -235.0,
-      "alignment_tip_local_x_um": -235.0,
-      "l10_tip_local_x_um": -293.0,
+      "l10_entrance_local_x_um": -192.9862,
+      "l15_tip_local_x_um": -232.9862,
+      "alignment_tip_local_x_um": -232.98618291802555,
+      "l10_tip_local_x_um": -290.9862,
       "layer2_neck_extension_um": 22.6,
       "layer2_start_width_um": 20.9836,
       "layer14_start_width_um": 17.0,
       "tick_inner_y_um": 2.4,
       "s_bend_theta_deg": 10.0,
-      "s_bend_tilted_straight_um": 251.7299,
-      "s_bend_path_length_um": 304.0898
+      "s_bend_tilted_straight_um": 247.6401,
+      "s_bend_path_length_um": 300.0
     },
     {
       "case_id": "SC_L300_T40_L_2T",
@@ -374,48 +375,49 @@
       "alignment_tip_position_um": 40.0,
       "layer14_linear_start_distance_um": 36.847,
       "straight_length_um": 300.0,
+      "port_span_um": 295.9724,
       "output_extension_length_um": 0.0,
-      "path_length_excluding_tapers_um": 304.0898,
+      "path_length_excluding_tapers_um": 300.0,
       "s_bend": {
         "radius_um": 150.0,
         "angle_deg": 10.0,
-        "offset_um": 48.2701
+        "offset_um": 47.5599
       },
-      "output_end_y_offset_um": 48.27011064681601,
+      "output_end_y_offset_um": 47.559930075288634,
       "origin_um": [
-        -40.347,
+        -143.361,
         -567.0
       ],
       "row_index": 0,
       "row_align": "left",
       "global_x_extent_um": [
-        -1848.347,
-        1767.653
+        -1949.347,
+        1662.625
       ],
       "label_origin_um": [
-        -273.347,
+        -374.347,
         -552.0
       ],
       "label_length_um": 22.2,
       "input_port_local_um": [
-        -150.0,
+        -147.9862,
         0.0
       ],
       "output_port_local_um": [
-        150.0,
-        48.27011064681601
+        147.9862,
+        47.5599
       ],
-      "l10_entrance_local_x_um": -195.0,
-      "l15_tip_local_x_um": -235.0,
-      "alignment_tip_local_x_um": -235.0,
-      "l10_tip_local_x_um": -293.0,
+      "l10_entrance_local_x_um": -192.9862,
+      "l15_tip_local_x_um": -232.9862,
+      "alignment_tip_local_x_um": -232.98618291802555,
+      "l10_tip_local_x_um": -290.9862,
       "layer2_neck_extension_um": 22.6,
       "layer2_start_width_um": 20.29,
       "layer14_start_width_um": 17.0,
       "tick_inner_y_um": 2.4,
       "s_bend_theta_deg": 10.0,
-      "s_bend_tilted_straight_um": 251.7299,
-      "s_bend_path_length_um": 304.0898
+      "s_bend_tilted_straight_um": 247.6401,
+      "s_bend_path_length_um": 300.0
     },
     {
       "case_id": "SC_L300_T40_A_2T_2",
@@ -435,48 +437,49 @@
       "alignment_tip_position_um": 40.0,
       "layer14_linear_start_distance_um": 36.847,
       "straight_length_um": 300.0,
+      "port_span_um": 295.9724,
       "output_extension_length_um": 0.0,
-      "path_length_excluding_tapers_um": 304.0898,
+      "path_length_excluding_tapers_um": 300.0,
       "s_bend": {
         "radius_um": 150.0,
         "angle_deg": 10.0,
-        "offset_um": 48.2701
+        "offset_um": 47.5599
       },
-      "output_end_y_offset_um": 48.27011064681601,
+      "output_end_y_offset_um": 47.559930075288634,
       "origin_um": [
-        4889.653,
+        4686.639,
         -567.0
       ],
       "row_index": 0,
       "row_align": "left",
       "global_x_extent_um": [
-        3081.653,
-        6697.653
+        2880.653,
+        6492.625
       ],
       "label_origin_um": [
-        4656.653,
+        4455.653,
         -552.0
       ],
       "label_length_um": 25.6,
       "input_port_local_um": [
-        -150.0,
+        -147.9862,
         0.0
       ],
       "output_port_local_um": [
-        150.0,
-        48.27011064681601
+        147.9862,
+        47.5599
       ],
-      "l10_entrance_local_x_um": -195.0,
-      "l15_tip_local_x_um": -235.0,
-      "alignment_tip_local_x_um": -235.0,
-      "l10_tip_local_x_um": -293.0,
+      "l10_entrance_local_x_um": -192.9862,
+      "l15_tip_local_x_um": -232.9862,
+      "alignment_tip_local_x_um": -232.98618291802555,
+      "l10_tip_local_x_um": -290.9862,
       "layer2_neck_extension_um": 22.6,
       "layer2_start_width_um": 20.9836,
       "layer14_start_width_um": 17.0,
       "tick_inner_y_um": 2.4,
       "s_bend_theta_deg": 10.0,
-      "s_bend_tilted_straight_um": 251.7299,
-      "s_bend_path_length_um": 304.0898
+      "s_bend_tilted_straight_um": 247.6401,
+      "s_bend_path_length_um": 300.0
     },
     {
       "case_id": "SC_L300_T40_L_2T_2",
@@ -496,48 +499,49 @@
       "alignment_tip_position_um": 40.0,
       "layer14_linear_start_distance_um": 36.847,
       "straight_length_um": 300.0,
+      "port_span_um": 295.9724,
       "output_extension_length_um": 0.0,
-      "path_length_excluding_tapers_um": 304.0898,
+      "path_length_excluding_tapers_um": 300.0,
       "s_bend": {
         "radius_um": 150.0,
         "angle_deg": 10.0,
-        "offset_um": 48.2701
+        "offset_um": 47.5599
       },
-      "output_end_y_offset_um": 48.27011064681601,
+      "output_end_y_offset_um": 47.559930075288634,
       "origin_um": [
-        9819.653,
+        9516.639,
         -567.0
       ],
       "row_index": 0,
       "row_align": "left",
       "global_x_extent_um": [
-        8011.653,
-        11627.653
+        7710.653,
+        11322.625
       ],
       "label_origin_um": [
-        9586.653,
+        9285.653,
         -552.0
       ],
       "label_length_um": 25.6,
       "input_port_local_um": [
-        -150.0,
+        -147.9862,
         0.0
       ],
       "output_port_local_um": [
-        150.0,
-        48.27011064681601
+        147.9862,
+        47.5599
       ],
-      "l10_entrance_local_x_um": -195.0,
-      "l15_tip_local_x_um": -235.0,
-      "alignment_tip_local_x_um": -235.0,
-      "l10_tip_local_x_um": -293.0,
+      "l10_entrance_local_x_um": -192.9862,
+      "l15_tip_local_x_um": -232.9862,
+      "alignment_tip_local_x_um": -232.98618291802555,
+      "l10_tip_local_x_um": -290.9862,
       "layer2_neck_extension_um": 22.6,
       "layer2_start_width_um": 20.29,
       "layer14_start_width_um": 17.0,
       "tick_inner_y_um": 2.4,
       "s_bend_theta_deg": 10.0,
-      "s_bend_tilted_straight_um": 251.7299,
-      "s_bend_path_length_um": 304.0898
+      "s_bend_tilted_straight_um": 247.6401,
+      "s_bend_path_length_um": 300.0
     },
     {
       "case_id": "SC_L300_T50_A_2T",
@@ -557,48 +561,49 @@
       "alignment_tip_position_um": 50.0,
       "layer14_linear_start_distance_um": 46.847,
       "straight_length_um": 300.0,
+      "port_span_um": 295.9724,
       "output_extension_length_um": 0.0,
-      "path_length_excluding_tapers_um": 304.0898,
+      "path_length_excluding_tapers_um": 300.0,
       "s_bend": {
         "radius_um": 150.0,
         "angle_deg": 10.0,
-        "offset_um": 48.2701
+        "offset_um": 47.5599
       },
-      "output_end_y_offset_um": 48.27011064681601,
+      "output_end_y_offset_um": 47.559930075288634,
       "origin_um": [
-        -4960.347,
+        -4963.361,
         -267.0
       ],
       "row_index": 1,
       "row_align": "left",
       "global_x_extent_um": [
-        -6778.347,
-        -3142.347
+        -6779.347,
+        -3147.375
       ],
       "label_origin_um": [
-        -5203.347,
+        -5204.347,
         -252.0
       ],
       "label_length_um": 22.2,
       "input_port_local_um": [
-        -150.0,
+        -147.9862,
         0.0
       ],
       "output_port_local_um": [
-        150.0,
-        48.27011064681601
+        147.9862,
+        47.5599
       ],
-      "l10_entrance_local_x_um": -195.0,
-      "l15_tip_local_x_um": -245.0,
-      "alignment_tip_local_x_um": -245.0,
-      "l10_tip_local_x_um": -303.0,
+      "l10_entrance_local_x_um": -192.9862,
+      "l15_tip_local_x_um": -242.9862,
+      "alignment_tip_local_x_um": -242.98618291802555,
+      "l10_tip_local_x_um": -300.9862,
       "layer2_neck_extension_um": 22.6,
       "layer2_start_width_um": 20.9914,
       "layer14_start_width_um": 17.0,
       "tick_inner_y_um": 2.4,
       "s_bend_theta_deg": 10.0,
-      "s_bend_tilted_straight_um": 251.7299,
-      "s_bend_path_length_um": 304.0898
+      "s_bend_tilted_straight_um": 247.6401,
+      "s_bend_path_length_um": 300.0
     },
     {
       "case_id": "SC_L300_T50_L_2T",
@@ -618,48 +623,49 @@
       "alignment_tip_position_um": 50.0,
       "layer14_linear_start_distance_um": 46.847,
       "straight_length_um": 300.0,
+      "port_span_um": 295.9724,
       "output_extension_length_um": 0.0,
-      "path_length_excluding_tapers_um": 304.0898,
+      "path_length_excluding_tapers_um": 300.0,
       "s_bend": {
         "radius_um": 150.0,
         "angle_deg": 10.0,
-        "offset_um": 48.2701
+        "offset_um": 47.5599
       },
-      "output_end_y_offset_um": 48.27011064681601,
+      "output_end_y_offset_um": 47.559930075288634,
       "origin_um": [
-        -30.347,
+        -133.361,
         -267.0
       ],
       "row_index": 1,
       "row_align": "left",
       "global_x_extent_um": [
-        -1848.347,
-        1787.653
+        -1949.347,
+        1682.625
       ],
       "label_origin_um": [
-        -273.347,
+        -374.347,
         -252.0
       ],
       "label_length_um": 22.2,
       "input_port_local_um": [
-        -150.0,
+        -147.9862,
         0.0
       ],
       "output_port_local_um": [
-        150.0,
-        48.27011064681601
+        147.9862,
+        47.5599
       ],
-      "l10_entrance_local_x_um": -195.0,
-      "l15_tip_local_x_um": -245.0,
-      "alignment_tip_local_x_um": -245.0,
-      "l10_tip_local_x_um": -303.0,
+      "l10_entrance_local_x_um": -192.9862,
+      "l15_tip_local_x_um": -242.9862,
+      "alignment_tip_local_x_um": -242.98618291802555,
+      "l10_tip_local_x_um": -300.9862,
       "layer2_neck_extension_um": 22.6,
       "layer2_start_width_um": 20.432,
       "layer14_start_width_um": 17.0,
       "tick_inner_y_um": 2.4,
       "s_bend_theta_deg": 10.0,
-      "s_bend_tilted_straight_um": 251.7299,
-      "s_bend_path_length_um": 304.0898
+      "s_bend_tilted_straight_um": 247.6401,
+      "s_bend_path_length_um": 300.0
     },
     {
       "case_id": "SC_L300_T50_A_2T_2",
@@ -679,48 +685,49 @@
       "alignment_tip_position_um": 50.0,
       "layer14_linear_start_distance_um": 46.847,
       "straight_length_um": 300.0,
+      "port_span_um": 295.9724,
       "output_extension_length_um": 0.0,
-      "path_length_excluding_tapers_um": 304.0898,
+      "path_length_excluding_tapers_um": 300.0,
       "s_bend": {
         "radius_um": 150.0,
         "angle_deg": 10.0,
-        "offset_um": 48.2701
+        "offset_um": 47.5599
       },
-      "output_end_y_offset_um": 48.27011064681601,
+      "output_end_y_offset_um": 47.559930075288634,
       "origin_um": [
-        4899.653,
+        4696.639,
         -267.0
       ],
       "row_index": 1,
       "row_align": "left",
       "global_x_extent_um": [
-        3081.653,
-        6717.653
+        2880.653,
+        6512.625
       ],
       "label_origin_um": [
-        4656.653,
+        4455.653,
         -252.0
       ],
       "label_length_um": 25.6,
       "input_port_local_um": [
-        -150.0,
+        -147.9862,
         0.0
       ],
       "output_port_local_um": [
-        150.0,
-        48.27011064681601
+        147.9862,
+        47.5599
       ],
-      "l10_entrance_local_x_um": -195.0,
-      "l15_tip_local_x_um": -245.0,
-      "alignment_tip_local_x_um": -245.0,
-      "l10_tip_local_x_um": -303.0,
+      "l10_entrance_local_x_um": -192.9862,
+      "l15_tip_local_x_um": -242.9862,
+      "alignment_tip_local_x_um": -242.98618291802555,
+      "l10_tip_local_x_um": -300.9862,
       "layer2_neck_extension_um": 22.6,
       "layer2_start_width_um": 20.9914,
       "layer14_start_width_um": 17.0,
       "tick_inner_y_um": 2.4,
       "s_bend_theta_deg": 10.0,
-      "s_bend_tilted_straight_um": 251.7299,
-      "s_bend_path_length_um": 304.0898
+      "s_bend_tilted_straight_um": 247.6401,
+      "s_bend_path_length_um": 300.0
     },
     {
       "case_id": "SC_L300_T50_L_2T_2",
@@ -740,48 +747,49 @@
       "alignment_tip_position_um": 50.0,
       "layer14_linear_start_distance_um": 46.847,
       "straight_length_um": 300.0,
+      "port_span_um": 295.9724,
       "output_extension_length_um": 0.0,
-      "path_length_excluding_tapers_um": 304.0898,
+      "path_length_excluding_tapers_um": 300.0,
       "s_bend": {
         "radius_um": 150.0,
         "angle_deg": 10.0,
-        "offset_um": 48.2701
+        "offset_um": 47.5599
       },
-      "output_end_y_offset_um": 48.27011064681601,
+      "output_end_y_offset_um": 47.559930075288634,
       "origin_um": [
-        9829.653,
+        9526.639,
         -267.0
       ],
       "row_index": 1,
       "row_align": "left",
       "global_x_extent_um": [
-        8011.653,
-        11647.653
+        7710.653,
+        11342.625
       ],
       "label_origin_um": [
-        9586.653,
+        9285.653,
         -252.0
       ],
       "label_length_um": 25.6,
       "input_port_local_um": [
-        -150.0,
+        -147.9862,
         0.0
       ],
       "output_port_local_um": [
-        150.0,
-        48.27011064681601
+        147.9862,
+        47.5599
       ],
-      "l10_entrance_local_x_um": -195.0,
-      "l15_tip_local_x_um": -245.0,
-      "alignment_tip_local_x_um": -245.0,
-      "l10_tip_local_x_um": -303.0,
+      "l10_entrance_local_x_um": -192.9862,
+      "l15_tip_local_x_um": -242.9862,
+      "alignment_tip_local_x_um": -242.98618291802555,
+      "l10_tip_local_x_um": -300.9862,
       "layer2_neck_extension_um": 22.6,
       "layer2_start_width_um": 20.432,
       "layer14_start_width_um": 17.0,
       "tick_inner_y_um": 2.4,
       "s_bend_theta_deg": 10.0,
-      "s_bend_tilted_straight_um": 251.7299,
-      "s_bend_path_length_um": 304.0898
+      "s_bend_tilted_straight_um": 247.6401,
+      "s_bend_path_length_um": 300.0
     },
     {
       "case_id": "SC_L300_T60_A_2T",
@@ -801,48 +809,49 @@
       "alignment_tip_position_um": 60.0,
       "layer14_linear_start_distance_um": 56.847,
       "straight_length_um": 300.0,
+      "port_span_um": 295.9724,
       "output_extension_length_um": 0.0,
-      "path_length_excluding_tapers_um": 304.0898,
+      "path_length_excluding_tapers_um": 300.0,
       "s_bend": {
         "radius_um": 150.0,
         "angle_deg": 10.0,
-        "offset_um": 48.2701
+        "offset_um": 47.5599
       },
-      "output_end_y_offset_um": 48.27011064681601,
+      "output_end_y_offset_um": 47.559930075288634,
       "origin_um": [
-        -4950.347,
+        -4953.361,
         33.0
       ],
       "row_index": 2,
       "row_align": "left",
       "global_x_extent_um": [
-        -6778.347,
-        -3122.347
+        -6779.347,
+        -3127.375
       ],
       "label_origin_um": [
-        -5203.347,
+        -5204.347,
         48.0
       ],
       "label_length_um": 22.2,
       "input_port_local_um": [
-        -150.0,
+        -147.9862,
         0.0
       ],
       "output_port_local_um": [
-        150.0,
-        48.27011064681601
+        147.9862,
+        47.5599
       ],
-      "l10_entrance_local_x_um": -195.0,
-      "l15_tip_local_x_um": -255.0,
-      "alignment_tip_local_x_um": -255.0,
-      "l10_tip_local_x_um": -313.0,
+      "l10_entrance_local_x_um": -192.9862,
+      "l15_tip_local_x_um": -252.9862,
+      "alignment_tip_local_x_um": -252.98618291802555,
+      "l10_tip_local_x_um": -310.9862,
       "layer2_neck_extension_um": 22.6,
       "layer2_start_width_um": 20.995,
       "layer14_start_width_um": 17.0,
       "tick_inner_y_um": 2.4,
       "s_bend_theta_deg": 10.0,
-      "s_bend_tilted_straight_um": 251.7299,
-      "s_bend_path_length_um": 304.0898
+      "s_bend_tilted_straight_um": 247.6401,
+      "s_bend_path_length_um": 300.0
     },
     {
       "case_id": "SC_L300_T60_L_2T",
@@ -862,48 +871,49 @@
       "alignment_tip_position_um": 60.0,
       "layer14_linear_start_distance_um": 56.847,
       "straight_length_um": 300.0,
+      "port_span_um": 295.9724,
       "output_extension_length_um": 0.0,
-      "path_length_excluding_tapers_um": 304.0898,
+      "path_length_excluding_tapers_um": 300.0,
       "s_bend": {
         "radius_um": 150.0,
         "angle_deg": 10.0,
-        "offset_um": 48.2701
+        "offset_um": 47.5599
       },
-      "output_end_y_offset_um": 48.27011064681601,
+      "output_end_y_offset_um": 47.559930075288634,
       "origin_um": [
-        -20.347,
+        -123.361,
         33.0
       ],
       "row_index": 2,
       "row_align": "left",
       "global_x_extent_um": [
-        -1848.347,
-        1807.653
+        -1949.347,
+        1702.625
       ],
       "label_origin_um": [
-        -273.347,
+        -374.347,
         48.0
       ],
       "label_length_um": 22.2,
       "input_port_local_um": [
-        -150.0,
+        -147.9862,
         0.0
       ],
       "output_port_local_um": [
-        150.0,
-        48.27011064681601
+        147.9862,
+        47.5599
       ],
-      "l10_entrance_local_x_um": -195.0,
-      "l15_tip_local_x_um": -255.0,
-      "alignment_tip_local_x_um": -255.0,
-      "l10_tip_local_x_um": -313.0,
+      "l10_entrance_local_x_um": -192.9862,
+      "l15_tip_local_x_um": -252.9862,
+      "alignment_tip_local_x_um": -252.98618291802555,
+      "l10_tip_local_x_um": -310.9862,
       "layer2_neck_extension_um": 22.6,
       "layer2_start_width_um": 20.5267,
       "layer14_start_width_um": 17.0,
       "tick_inner_y_um": 2.4,
       "s_bend_theta_deg": 10.0,
-      "s_bend_tilted_straight_um": 251.7299,
-      "s_bend_path_length_um": 304.0898
+      "s_bend_tilted_straight_um": 247.6401,
+      "s_bend_path_length_um": 300.0
     },
     {
       "case_id": "SC_L300_T60_A_2T_2",
@@ -923,48 +933,49 @@
       "alignment_tip_position_um": 60.0,
       "layer14_linear_start_distance_um": 56.847,
       "straight_length_um": 300.0,
+      "port_span_um": 295.9724,
       "output_extension_length_um": 0.0,
-      "path_length_excluding_tapers_um": 304.0898,
+      "path_length_excluding_tapers_um": 300.0,
       "s_bend": {
         "radius_um": 150.0,
         "angle_deg": 10.0,
-        "offset_um": 48.2701
+        "offset_um": 47.5599
       },
-      "output_end_y_offset_um": 48.27011064681601,
+      "output_end_y_offset_um": 47.559930075288634,
       "origin_um": [
-        4909.653,
+        4706.639,
         33.0
       ],
       "row_index": 2,
       "row_align": "left",
       "global_x_extent_um": [
-        3081.653,
-        6737.653
+        2880.653,
+        6532.625
       ],
       "label_origin_um": [
-        4656.653,
+        4455.653,
         48.0
       ],
       "label_length_um": 25.6,
       "input_port_local_um": [
-        -150.0,
+        -147.9862,
         0.0
       ],
       "output_port_local_um": [
-        150.0,
-        48.27011064681601
+        147.9862,
+        47.5599
       ],
-      "l10_entrance_local_x_um": -195.0,
-      "l15_tip_local_x_um": -255.0,
-      "alignment_tip_local_x_um": -255.0,
-      "l10_tip_local_x_um": -313.0,
+      "l10_entrance_local_x_um": -192.9862,
+      "l15_tip_local_x_um": -252.9862,
+      "alignment_tip_local_x_um": -252.98618291802555,
+      "l10_tip_local_x_um": -310.9862,
       "layer2_neck_extension_um": 22.6,
       "layer2_start_width_um": 20.995,
       "layer14_start_width_um": 17.0,
       "tick_inner_y_um": 2.4,
       "s_bend_theta_deg": 10.0,
-      "s_bend_tilted_straight_um": 251.7299,
-      "s_bend_path_length_um": 304.0898
+      "s_bend_tilted_straight_um": 247.6401,
+      "s_bend_path_length_um": 300.0
     },
     {
       "case_id": "SC_L300_T60_L_2T_2",
@@ -984,48 +995,49 @@
       "alignment_tip_position_um": 60.0,
       "layer14_linear_start_distance_um": 56.847,
       "straight_length_um": 300.0,
+      "port_span_um": 295.9724,
       "output_extension_length_um": 0.0,
-      "path_length_excluding_tapers_um": 304.0898,
+      "path_length_excluding_tapers_um": 300.0,
       "s_bend": {
         "radius_um": 150.0,
         "angle_deg": 10.0,
-        "offset_um": 48.2701
+        "offset_um": 47.5599
       },
-      "output_end_y_offset_um": 48.27011064681601,
+      "output_end_y_offset_um": 47.559930075288634,
       "origin_um": [
-        9839.653,
+        9536.639,
         33.0
       ],
       "row_index": 2,
       "row_align": "left",
       "global_x_extent_um": [
-        8011.653,
-        11667.653
+        7710.653,
+        11362.625
       ],
       "label_origin_um": [
-        9586.653,
+        9285.653,
         48.0
       ],
       "label_length_um": 25.6,
       "input_port_local_um": [
-        -150.0,
+        -147.9862,
         0.0
       ],
       "output_port_local_um": [
-        150.0,
-        48.27011064681601
+        147.9862,
+        47.5599
       ],
-      "l10_entrance_local_x_um": -195.0,
-      "l15_tip_local_x_um": -255.0,
-      "alignment_tip_local_x_um": -255.0,
-      "l10_tip_local_x_um": -313.0,
+      "l10_entrance_local_x_um": -192.9862,
+      "l15_tip_local_x_um": -252.9862,
+      "alignment_tip_local_x_um": -252.98618291802555,
+      "l10_tip_local_x_um": -310.9862,
       "layer2_neck_extension_um": 22.6,
       "layer2_start_width_um": 20.5267,
       "layer14_start_width_um": 17.0,
       "tick_inner_y_um": 2.4,
       "s_bend_theta_deg": 10.0,
-      "s_bend_tilted_straight_um": 251.7299,
-      "s_bend_path_length_um": 304.0898
+      "s_bend_tilted_straight_um": 247.6401,
+      "s_bend_path_length_um": 300.0
     },
     {
       "case_id": "SC_L300_T70_A_2T",
@@ -1045,48 +1057,49 @@
       "alignment_tip_position_um": 70.0,
       "layer14_linear_start_distance_um": 66.847,
       "straight_length_um": 300.0,
+      "port_span_um": 295.9724,
       "output_extension_length_um": 0.0,
-      "path_length_excluding_tapers_um": 304.0898,
+      "path_length_excluding_tapers_um": 300.0,
       "s_bend": {
         "radius_um": 150.0,
         "angle_deg": 10.0,
-        "offset_um": 48.2701
+        "offset_um": 47.5599
       },
-      "output_end_y_offset_um": 48.27011064681601,
+      "output_end_y_offset_um": 47.559930075288634,
       "origin_um": [
-        -4940.347,
+        -4943.361,
         333.0
       ],
       "row_index": 3,
       "row_align": "left",
       "global_x_extent_um": [
-        -6778.347,
-        -3102.347
+        -6779.347,
+        -3107.375
       ],
       "label_origin_um": [
-        -5203.347,
+        -5204.347,
         348.0
       ],
       "label_length_um": 22.2,
       "input_port_local_um": [
-        -150.0,
+        -147.9862,
         0.0
       ],
       "output_port_local_um": [
-        150.0,
-        48.27011064681601
+        147.9862,
+        47.5599
       ],
-      "l10_entrance_local_x_um": -195.0,
-      "l15_tip_local_x_um": -265.0,
-      "alignment_tip_local_x_um": -265.0,
-      "l10_tip_local_x_um": -323.0,
+      "l10_entrance_local_x_um": -192.9862,
+      "l15_tip_local_x_um": -262.9862,
+      "alignment_tip_local_x_um": -262.9861829180255,
+      "l10_tip_local_x_um": -320.9862,
       "layer2_neck_extension_um": 22.6,
       "layer2_start_width_um": 20.9968,
       "layer14_start_width_um": 17.0,
       "tick_inner_y_um": 2.4,
       "s_bend_theta_deg": 10.0,
-      "s_bend_tilted_straight_um": 251.7299,
-      "s_bend_path_length_um": 304.0898
+      "s_bend_tilted_straight_um": 247.6401,
+      "s_bend_path_length_um": 300.0
     },
     {
       "case_id": "SC_L300_T70_L_2T",
@@ -1106,48 +1119,49 @@
       "alignment_tip_position_um": 70.0,
       "layer14_linear_start_distance_um": 66.847,
       "straight_length_um": 300.0,
+      "port_span_um": 295.9724,
       "output_extension_length_um": 0.0,
-      "path_length_excluding_tapers_um": 304.0898,
+      "path_length_excluding_tapers_um": 300.0,
       "s_bend": {
         "radius_um": 150.0,
         "angle_deg": 10.0,
-        "offset_um": 48.2701
+        "offset_um": 47.5599
       },
-      "output_end_y_offset_um": 48.27011064681601,
+      "output_end_y_offset_um": 47.559930075288634,
       "origin_um": [
-        -10.347,
+        -113.361,
         333.0
       ],
       "row_index": 3,
       "row_align": "left",
       "global_x_extent_um": [
-        -1848.347,
-        1827.653
+        -1949.347,
+        1722.625
       ],
       "label_origin_um": [
-        -273.347,
+        -374.347,
         348.0
       ],
       "label_length_um": 22.2,
       "input_port_local_um": [
-        -150.0,
+        -147.9862,
         0.0
       ],
       "output_port_local_um": [
-        150.0,
-        48.27011064681601
+        147.9862,
+        47.5599
       ],
-      "l10_entrance_local_x_um": -195.0,
-      "l15_tip_local_x_um": -265.0,
-      "alignment_tip_local_x_um": -265.0,
-      "l10_tip_local_x_um": -323.0,
+      "l10_entrance_local_x_um": -192.9862,
+      "l15_tip_local_x_um": -262.9862,
+      "alignment_tip_local_x_um": -262.9861829180255,
+      "l10_tip_local_x_um": -320.9862,
       "layer2_neck_extension_um": 22.6,
       "layer2_start_width_um": 20.5943,
       "layer14_start_width_um": 17.0,
       "tick_inner_y_um": 2.4,
       "s_bend_theta_deg": 10.0,
-      "s_bend_tilted_straight_um": 251.7299,
-      "s_bend_path_length_um": 304.0898
+      "s_bend_tilted_straight_um": 247.6401,
+      "s_bend_path_length_um": 300.0
     },
     {
       "case_id": "SC_L300_T70_A_2T_2",
@@ -1167,48 +1181,49 @@
       "alignment_tip_position_um": 70.0,
       "layer14_linear_start_distance_um": 66.847,
       "straight_length_um": 300.0,
+      "port_span_um": 295.9724,
       "output_extension_length_um": 0.0,
-      "path_length_excluding_tapers_um": 304.0898,
+      "path_length_excluding_tapers_um": 300.0,
       "s_bend": {
         "radius_um": 150.0,
         "angle_deg": 10.0,
-        "offset_um": 48.2701
+        "offset_um": 47.5599
       },
-      "output_end_y_offset_um": 48.27011064681601,
+      "output_end_y_offset_um": 47.559930075288634,
       "origin_um": [
-        4919.653,
+        4716.639,
         333.0
       ],
       "row_index": 3,
       "row_align": "left",
       "global_x_extent_um": [
-        3081.653,
-        6757.653
+        2880.653,
+        6552.625
       ],
       "label_origin_um": [
-        4656.653,
+        4455.653,
         348.0
       ],
       "label_length_um": 25.6,
       "input_port_local_um": [
-        -150.0,
+        -147.9862,
         0.0
       ],
       "output_port_local_um": [
-        150.0,
-        48.27011064681601
+        147.9862,
+        47.5599
       ],
-      "l10_entrance_local_x_um": -195.0,
-      "l15_tip_local_x_um": -265.0,
-      "alignment_tip_local_x_um": -265.0,
-      "l10_tip_local_x_um": -323.0,
+      "l10_entrance_local_x_um": -192.9862,
+      "l15_tip_local_x_um": -262.9862,
+      "alignment_tip_local_x_um": -262.9861829180255,
+      "l10_tip_local_x_um": -320.9862,
       "layer2_neck_extension_um": 22.6,
       "layer2_start_width_um": 20.9968,
       "layer14_start_width_um": 17.0,
       "tick_inner_y_um": 2.4,
       "s_bend_theta_deg": 10.0,
-      "s_bend_tilted_straight_um": 251.7299,
-      "s_bend_path_length_um": 304.0898
+      "s_bend_tilted_straight_um": 247.6401,
+      "s_bend_path_length_um": 300.0
     },
     {
       "case_id": "SC_L300_T70_L_2T_2",
@@ -1228,48 +1243,49 @@
       "alignment_tip_position_um": 70.0,
       "layer14_linear_start_distance_um": 66.847,
       "straight_length_um": 300.0,
+      "port_span_um": 295.9724,
       "output_extension_length_um": 0.0,
-      "path_length_excluding_tapers_um": 304.0898,
+      "path_length_excluding_tapers_um": 300.0,
       "s_bend": {
         "radius_um": 150.0,
         "angle_deg": 10.0,
-        "offset_um": 48.2701
+        "offset_um": 47.5599
       },
-      "output_end_y_offset_um": 48.27011064681601,
+      "output_end_y_offset_um": 47.559930075288634,
       "origin_um": [
-        9849.653,
+        9546.639,
         333.0
       ],
       "row_index": 3,
       "row_align": "left",
       "global_x_extent_um": [
-        8011.653,
-        11687.653
+        7710.653,
+        11382.625
       ],
       "label_origin_um": [
-        9586.653,
+        9285.653,
         348.0
       ],
       "label_length_um": 25.6,
       "input_port_local_um": [
-        -150.0,
+        -147.9862,
         0.0
       ],
       "output_port_local_um": [
-        150.0,
-        48.27011064681601
+        147.9862,
+        47.5599
       ],
-      "l10_entrance_local_x_um": -195.0,
-      "l15_tip_local_x_um": -265.0,
-      "alignment_tip_local_x_um": -265.0,
-      "l10_tip_local_x_um": -323.0,
+      "l10_entrance_local_x_um": -192.9862,
+      "l15_tip_local_x_um": -262.9862,
+      "alignment_tip_local_x_um": -262.9861829180255,
+      "l10_tip_local_x_um": -320.9862,
       "layer2_neck_extension_um": 22.6,
       "layer2_start_width_um": 20.5943,
       "layer14_start_width_um": 17.0,
       "tick_inner_y_um": 2.4,
       "s_bend_theta_deg": 10.0,
-      "s_bend_tilted_straight_um": 251.7299,
-      "s_bend_path_length_um": 304.0898
+      "s_bend_tilted_straight_um": 247.6401,
+      "s_bend_path_length_um": 300.0
     },
     {
       "case_id": "SC_L300_T80_A_2T",
@@ -1289,48 +1305,49 @@
       "alignment_tip_position_um": 80.0,
       "layer14_linear_start_distance_um": 76.847,
       "straight_length_um": 300.0,
+      "port_span_um": 295.9724,
       "output_extension_length_um": 0.0,
-      "path_length_excluding_tapers_um": 304.0898,
+      "path_length_excluding_tapers_um": 300.0,
       "s_bend": {
         "radius_um": 150.0,
         "angle_deg": 10.0,
-        "offset_um": 48.2701
+        "offset_um": 47.5599
       },
-      "output_end_y_offset_um": 48.27011064681601,
+      "output_end_y_offset_um": 47.559930075288634,
       "origin_um": [
-        -4930.347,
+        -4933.361,
         633.0
       ],
       "row_index": 4,
       "row_align": "left",
       "global_x_extent_um": [
-        -6778.347,
-        -3082.347
+        -6779.347,
+        -3087.375
       ],
       "label_origin_um": [
-        -5203.347,
+        -5204.347,
         648.0
       ],
       "label_length_um": 22.2,
       "input_port_local_um": [
-        -150.0,
+        -147.9862,
         0.0
       ],
       "output_port_local_um": [
-        150.0,
-        48.27011064681601
+        147.9862,
+        47.5599
       ],
-      "l10_entrance_local_x_um": -195.0,
-      "l15_tip_local_x_um": -275.0,
-      "alignment_tip_local_x_um": -275.0,
-      "l10_tip_local_x_um": -333.0,
+      "l10_entrance_local_x_um": -192.9862,
+      "l15_tip_local_x_um": -272.9862,
+      "alignment_tip_local_x_um": -272.9861829180255,
+      "l10_tip_local_x_um": -330.9862,
       "layer2_neck_extension_um": 22.6,
       "layer2_start_width_um": 20.9979,
       "layer14_start_width_um": 17.0,
       "tick_inner_y_um": 2.4,
       "s_bend_theta_deg": 10.0,
-      "s_bend_tilted_straight_um": 251.7299,
-      "s_bend_path_length_um": 304.0898
+      "s_bend_tilted_straight_um": 247.6401,
+      "s_bend_path_length_um": 300.0
     },
     {
       "case_id": "SC_L300_T80_L_2T",
@@ -1350,48 +1367,49 @@
       "alignment_tip_position_um": 80.0,
       "layer14_linear_start_distance_um": 76.847,
       "straight_length_um": 300.0,
+      "port_span_um": 295.9724,
       "output_extension_length_um": 0.0,
-      "path_length_excluding_tapers_um": 304.0898,
+      "path_length_excluding_tapers_um": 300.0,
       "s_bend": {
         "radius_um": 150.0,
         "angle_deg": 10.0,
-        "offset_um": 48.2701
+        "offset_um": 47.5599
       },
-      "output_end_y_offset_um": 48.27011064681601,
+      "output_end_y_offset_um": 47.559930075288634,
       "origin_um": [
-        -0.347,
+        -103.361,
         633.0
       ],
       "row_index": 4,
       "row_align": "left",
       "global_x_extent_um": [
-        -1848.347,
-        1847.653
+        -1949.347,
+        1742.625
       ],
       "label_origin_um": [
-        -273.347,
+        -374.347,
         648.0
       ],
       "label_length_um": 22.2,
       "input_port_local_um": [
-        -150.0,
+        -147.9862,
         0.0
       ],
       "output_port_local_um": [
-        150.0,
-        48.27011064681601
+        147.9862,
+        47.5599
       ],
-      "l10_entrance_local_x_um": -195.0,
-      "l15_tip_local_x_um": -275.0,
-      "alignment_tip_local_x_um": -275.0,
-      "l10_tip_local_x_um": -333.0,
+      "l10_entrance_local_x_um": -192.9862,
+      "l15_tip_local_x_um": -272.9862,
+      "alignment_tip_local_x_um": -272.9861829180255,
+      "l10_tip_local_x_um": -330.9862,
       "layer2_neck_extension_um": 22.6,
       "layer2_start_width_um": 20.645,
       "layer14_start_width_um": 17.0,
       "tick_inner_y_um": 2.4,
       "s_bend_theta_deg": 10.0,
-      "s_bend_tilted_straight_um": 251.7299,
-      "s_bend_path_length_um": 304.0898
+      "s_bend_tilted_straight_um": 247.6401,
+      "s_bend_path_length_um": 300.0
     },
     {
       "case_id": "SC_L300_T80_A_2T_2",
@@ -1411,48 +1429,49 @@
       "alignment_tip_position_um": 80.0,
       "layer14_linear_start_distance_um": 76.847,
       "straight_length_um": 300.0,
+      "port_span_um": 295.9724,
       "output_extension_length_um": 0.0,
-      "path_length_excluding_tapers_um": 304.0898,
+      "path_length_excluding_tapers_um": 300.0,
       "s_bend": {
         "radius_um": 150.0,
         "angle_deg": 10.0,
-        "offset_um": 48.2701
+        "offset_um": 47.5599
       },
-      "output_end_y_offset_um": 48.27011064681601,
+      "output_end_y_offset_um": 47.559930075288634,
       "origin_um": [
-        4929.653,
+        4726.639,
         633.0
       ],
       "row_index": 4,
       "row_align": "left",
       "global_x_extent_um": [
-        3081.653,
-        6777.653
+        2880.653,
+        6572.625
       ],
       "label_origin_um": [
-        4656.653,
+        4455.653,
         648.0
       ],
       "label_length_um": 25.6,
       "input_port_local_um": [
-        -150.0,
+        -147.9862,
         0.0
       ],
       "output_port_local_um": [
-        150.0,
-        48.27011064681601
+        147.9862,
+        47.5599
       ],
-      "l10_entrance_local_x_um": -195.0,
-      "l15_tip_local_x_um": -275.0,
-      "alignment_tip_local_x_um": -275.0,
-      "l10_tip_local_x_um": -333.0,
+      "l10_entrance_local_x_um": -192.9862,
+      "l15_tip_local_x_um": -272.9862,
+      "alignment_tip_local_x_um": -272.9861829180255,
+      "l10_tip_local_x_um": -330.9862,
       "layer2_neck_extension_um": 22.6,
       "layer2_start_width_um": 20.9979,
       "layer14_start_width_um": 17.0,
       "tick_inner_y_um": 2.4,
       "s_bend_theta_deg": 10.0,
-      "s_bend_tilted_straight_um": 251.7299,
-      "s_bend_path_length_um": 304.0898
+      "s_bend_tilted_straight_um": 247.6401,
+      "s_bend_path_length_um": 300.0
     },
     {
       "case_id": "SC_L300_T80_L_2T_2",
@@ -1472,48 +1491,49 @@
       "alignment_tip_position_um": 80.0,
       "layer14_linear_start_distance_um": 76.847,
       "straight_length_um": 300.0,
+      "port_span_um": 295.9724,
       "output_extension_length_um": 0.0,
-      "path_length_excluding_tapers_um": 304.0898,
+      "path_length_excluding_tapers_um": 300.0,
       "s_bend": {
         "radius_um": 150.0,
         "angle_deg": 10.0,
-        "offset_um": 48.2701
+        "offset_um": 47.5599
       },
-      "output_end_y_offset_um": 48.27011064681601,
+      "output_end_y_offset_um": 47.559930075288634,
       "origin_um": [
-        9859.653,
+        9556.639,
         633.0
       ],
       "row_index": 4,
       "row_align": "left",
       "global_x_extent_um": [
-        8011.653,
-        11707.653
+        7710.653,
+        11402.625
       ],
       "label_origin_um": [
-        9586.653,
+        9285.653,
         648.0
       ],
       "label_length_um": 25.6,
       "input_port_local_um": [
-        -150.0,
+        -147.9862,
         0.0
       ],
       "output_port_local_um": [
-        150.0,
-        48.27011064681601
+        147.9862,
+        47.5599
       ],
-      "l10_entrance_local_x_um": -195.0,
-      "l15_tip_local_x_um": -275.0,
-      "alignment_tip_local_x_um": -275.0,
-      "l10_tip_local_x_um": -333.0,
+      "l10_entrance_local_x_um": -192.9862,
+      "l15_tip_local_x_um": -272.9862,
+      "alignment_tip_local_x_um": -272.9861829180255,
+      "l10_tip_local_x_um": -330.9862,
       "layer2_neck_extension_um": 22.6,
       "layer2_start_width_um": 20.645,
       "layer14_start_width_um": 17.0,
       "tick_inner_y_um": 2.4,
       "s_bend_theta_deg": 10.0,
-      "s_bend_tilted_straight_um": 251.7299,
-      "s_bend_path_length_um": 304.0898
+      "s_bend_tilted_straight_um": 247.6401,
+      "s_bend_path_length_um": 300.0
     },
     {
       "case_id": "SC_L15000_W1590_A_1T",
@@ -1533,22 +1553,23 @@
       "alignment_tip_position_um": 60.0,
       "layer14_linear_start_distance_um": 56.847,
       "straight_length_um": 15000.0,
+      "port_span_um": 15000.0,
       "output_extension_length_um": 2000.0,
       "path_length_excluding_tapers_um": 17000.0,
       "s_bend": null,
       "output_end_y_offset_um": 0.0,
       "origin_um": [
-        2399.653,
+        2398.653,
         933.0
       ],
       "row_index": 5,
       "row_align": "right",
       "global_x_extent_um": [
-        -6778.347,
-        11899.653
+        -6779.347,
+        11898.653
       ],
       "label_origin_um": [
-        -5203.347,
+        -5204.347,
         948.0
       ],
       "label_length_um": 27.6,
@@ -1587,22 +1608,23 @@
       "alignment_tip_position_um": 60.0,
       "layer14_linear_start_distance_um": 56.847,
       "straight_length_um": 15000.0,
+      "port_span_um": 15000.0,
       "output_extension_length_um": 2000.0,
       "path_length_excluding_tapers_um": 17000.0,
       "s_bend": null,
       "output_end_y_offset_um": 0.0,
       "origin_um": [
-        2399.653,
+        2398.653,
         1233.0
       ],
       "row_index": 6,
       "row_align": "right",
       "global_x_extent_um": [
-        -6778.347,
-        11899.653
+        -6779.347,
+        11898.653
       ],
       "label_origin_um": [
-        -5203.347,
+        -5204.347,
         1248.0
       ],
       "label_length_um": 27.4,
@@ -1641,22 +1663,23 @@
       "alignment_tip_position_um": 60.0,
       "layer14_linear_start_distance_um": 56.847,
       "straight_length_um": 15000.0,
+      "port_span_um": 15000.0,
       "output_extension_length_um": 2000.0,
       "path_length_excluding_tapers_um": 17000.0,
       "s_bend": null,
       "output_end_y_offset_um": 0.0,
       "origin_um": [
-        2399.653,
+        2398.653,
         1533.0
       ],
       "row_index": 7,
       "row_align": "right",
       "global_x_extent_um": [
-        -6778.347,
-        11899.653
+        -6779.347,
+        11898.653
       ],
       "label_origin_um": [
-        -5203.347,
+        -5204.347,
         1548.0
       ],
       "label_length_um": 27.8,
@@ -1695,22 +1718,23 @@
       "alignment_tip_position_um": 60.0,
       "layer14_linear_start_distance_um": 56.847,
       "straight_length_um": 15000.0,
+      "port_span_um": 15000.0,
       "output_extension_length_um": 2000.0,
       "path_length_excluding_tapers_um": 17000.0,
       "s_bend": null,
       "output_end_y_offset_um": 0.0,
       "origin_um": [
-        2399.653,
+        2398.653,
         1833.0
       ],
       "row_index": 8,
       "row_align": "right",
       "global_x_extent_um": [
-        -6778.347,
-        11899.653
+        -6779.347,
+        11898.653
       ],
       "label_origin_um": [
-        -5203.347,
+        -5204.347,
         1848.0
       ],
       "label_length_um": 27.6,
@@ -1749,22 +1773,23 @@
       "alignment_tip_position_um": 60.0,
       "layer14_linear_start_distance_um": 56.847,
       "straight_length_um": 15000.0,
+      "port_span_um": 15000.0,
       "output_extension_length_um": 2000.0,
       "path_length_excluding_tapers_um": 17000.0,
       "s_bend": null,
       "output_end_y_offset_um": 0.0,
       "origin_um": [
-        2399.653,
+        2398.653,
         2133.0
       ],
       "row_index": 9,
       "row_align": "right",
       "global_x_extent_um": [
-        -6778.347,
-        11899.653
+        -6779.347,
+        11898.653
       ],
       "label_origin_um": [
-        -5203.347,
+        -5204.347,
         2148.0
       ],
       "label_length_um": 27.0,
@@ -1803,22 +1828,23 @@
       "alignment_tip_position_um": 60.0,
       "layer14_linear_start_distance_um": 56.847,
       "straight_length_um": 15000.0,
+      "port_span_um": 15000.0,
       "output_extension_length_um": 2000.0,
       "path_length_excluding_tapers_um": 17000.0,
       "s_bend": null,
       "output_end_y_offset_um": 0.0,
       "origin_um": [
-        2399.653,
+        2398.653,
         2433.0
       ],
       "row_index": 10,
       "row_align": "right",
       "global_x_extent_um": [
-        -6778.347,
-        11899.653
+        -6779.347,
+        11898.653
       ],
       "label_origin_um": [
-        -5203.347,
+        -5204.347,
         2448.0
       ],
       "label_length_um": 27.6,
@@ -1857,22 +1883,23 @@
       "alignment_tip_position_um": 60.0,
       "layer14_linear_start_distance_um": 56.847,
       "straight_length_um": 15000.0,
+      "port_span_um": 15000.0,
       "output_extension_length_um": 2000.0,
       "path_length_excluding_tapers_um": 17000.0,
       "s_bend": null,
       "output_end_y_offset_um": 0.0,
       "origin_um": [
-        2399.653,
+        2398.653,
         2733.0
       ],
       "row_index": 11,
       "row_align": "right",
       "global_x_extent_um": [
-        -6778.347,
-        11899.653
+        -6779.347,
+        11898.653
       ],
       "label_origin_um": [
-        -5203.347,
+        -5204.347,
         2748.0
       ],
       "label_length_um": 27.4,
@@ -1911,22 +1938,23 @@
       "alignment_tip_position_um": 60.0,
       "layer14_linear_start_distance_um": 56.847,
       "straight_length_um": 15000.0,
+      "port_span_um": 15000.0,
       "output_extension_length_um": 2000.0,
       "path_length_excluding_tapers_um": 17000.0,
       "s_bend": null,
       "output_end_y_offset_um": 0.0,
       "origin_um": [
-        2399.653,
+        2398.653,
         3033.0
       ],
       "row_index": 12,
       "row_align": "right",
       "global_x_extent_um": [
-        -6778.347,
-        11899.653
+        -6779.347,
+        11898.653
       ],
       "label_origin_um": [
-        -5203.347,
+        -5204.347,
         3048.0
       ],
       "label_length_um": 27.8,
@@ -1965,22 +1993,23 @@
       "alignment_tip_position_um": 60.0,
       "layer14_linear_start_distance_um": 56.847,
       "straight_length_um": 15000.0,
+      "port_span_um": 15000.0,
       "output_extension_length_um": 2000.0,
       "path_length_excluding_tapers_um": 17000.0,
       "s_bend": null,
       "output_end_y_offset_um": 0.0,
       "origin_um": [
-        2399.653,
+        2398.653,
         3333.0
       ],
       "row_index": 13,
       "row_align": "right",
       "global_x_extent_um": [
-        -6778.347,
-        11899.653
+        -6779.347,
+        11898.653
       ],
       "label_origin_um": [
-        -5203.347,
+        -5204.347,
         3348.0
       ],
       "label_length_um": 27.6,
@@ -2019,22 +2048,23 @@
       "alignment_tip_position_um": 60.0,
       "layer14_linear_start_distance_um": 56.847,
       "straight_length_um": 15000.0,
+      "port_span_um": 15000.0,
       "output_extension_length_um": 2000.0,
       "path_length_excluding_tapers_um": 17000.0,
       "s_bend": null,
       "output_end_y_offset_um": 0.0,
       "origin_um": [
-        2399.653,
+        2398.653,
         3633.0
       ],
       "row_index": 14,
       "row_align": "right",
       "global_x_extent_um": [
-        -6778.347,
-        11899.653
+        -6779.347,
+        11898.653
       ],
       "label_origin_um": [
-        -5203.347,
+        -5204.347,
         3648.0
       ],
       "label_length_um": 27.0,
@@ -2073,22 +2103,23 @@
       "alignment_tip_position_um": 60.0,
       "layer14_linear_start_distance_um": 56.847,
       "straight_length_um": 15000.0,
+      "port_span_um": 15000.0,
       "output_extension_length_um": 2000.0,
       "path_length_excluding_tapers_um": 17000.0,
       "s_bend": null,
       "output_end_y_offset_um": 0.0,
       "origin_um": [
-        2399.653,
+        2398.653,
         3933.0
       ],
       "row_index": 15,
       "row_align": "right",
       "global_x_extent_um": [
-        -6778.347,
-        11899.653
+        -6779.347,
+        11898.653
       ],
       "label_origin_um": [
-        -5203.347,
+        -5204.347,
         3948.0
       ],
       "label_length_um": 31.0,
@@ -2127,22 +2158,23 @@
       "alignment_tip_position_um": 60.0,
       "layer14_linear_start_distance_um": 56.847,
       "straight_length_um": 15000.0,
+      "port_span_um": 15000.0,
       "output_extension_length_um": 2000.0,
       "path_length_excluding_tapers_um": 17000.0,
       "s_bend": null,
       "output_end_y_offset_um": 0.0,
       "origin_um": [
-        2399.653,
+        2398.653,
         4233.0
       ],
       "row_index": 16,
       "row_align": "right",
       "global_x_extent_um": [
-        -6778.347,
-        11899.653
+        -6779.347,
+        11898.653
       ],
       "label_origin_um": [
-        -5203.347,
+        -5204.347,
         4248.0
       ],
       "label_length_um": 30.8,
@@ -2181,22 +2213,23 @@
       "alignment_tip_position_um": 60.0,
       "layer14_linear_start_distance_um": 56.847,
       "straight_length_um": 15000.0,
+      "port_span_um": 15000.0,
       "output_extension_length_um": 2000.0,
       "path_length_excluding_tapers_um": 17000.0,
       "s_bend": null,
       "output_end_y_offset_um": 0.0,
       "origin_um": [
-        2399.653,
+        2398.653,
         4533.0
       ],
       "row_index": 17,
       "row_align": "right",
       "global_x_extent_um": [
-        -6778.347,
-        11899.653
+        -6779.347,
+        11898.653
       ],
       "label_origin_um": [
-        -5203.347,
+        -5204.347,
         4548.0
       ],
       "label_length_um": 31.2,
@@ -2235,22 +2268,23 @@
       "alignment_tip_position_um": 60.0,
       "layer14_linear_start_distance_um": 56.847,
       "straight_length_um": 15000.0,
+      "port_span_um": 15000.0,
       "output_extension_length_um": 2000.0,
       "path_length_excluding_tapers_um": 17000.0,
       "s_bend": null,
       "output_end_y_offset_um": 0.0,
       "origin_um": [
-        2399.653,
+        2398.653,
         4833.0
       ],
       "row_index": 18,
       "row_align": "right",
       "global_x_extent_um": [
-        -6778.347,
-        11899.653
+        -6779.347,
+        11898.653
       ],
       "label_origin_um": [
-        -5203.347,
+        -5204.347,
         4848.0
       ],
       "label_length_um": 31.0,
@@ -2289,22 +2323,23 @@
       "alignment_tip_position_um": 60.0,
       "layer14_linear_start_distance_um": 56.847,
       "straight_length_um": 15000.0,
+      "port_span_um": 15000.0,
       "output_extension_length_um": 2000.0,
       "path_length_excluding_tapers_um": 17000.0,
       "s_bend": null,
       "output_end_y_offset_um": 0.0,
       "origin_um": [
-        2399.653,
+        2398.653,
         5133.0
       ],
       "row_index": 19,
       "row_align": "right",
       "global_x_extent_um": [
-        -6778.347,
-        11899.653
+        -6779.347,
+        11898.653
       ],
       "label_origin_um": [
-        -5203.347,
+        -5204.347,
         5148.0
       ],
       "label_length_um": 30.4,
@@ -2343,22 +2378,23 @@
       "alignment_tip_position_um": 60.0,
       "layer14_linear_start_distance_um": 56.847,
       "straight_length_um": 15000.0,
+      "port_span_um": 15000.0,
       "output_extension_length_um": 2000.0,
       "path_length_excluding_tapers_um": 17000.0,
       "s_bend": null,
       "output_end_y_offset_um": 0.0,
       "origin_um": [
-        2399.653,
+        2398.653,
         5433.0
       ],
       "row_index": 20,
       "row_align": "right",
       "global_x_extent_um": [
-        -6778.347,
-        11899.653
+        -6779.347,
+        11898.653
       ],
       "label_origin_um": [
-        -5203.347,
+        -5204.347,
         5448.0
       ],
       "label_length_um": 31.0,
@@ -2397,22 +2433,23 @@
       "alignment_tip_position_um": 60.0,
       "layer14_linear_start_distance_um": 56.847,
       "straight_length_um": 15000.0,
+      "port_span_um": 15000.0,
       "output_extension_length_um": 2000.0,
       "path_length_excluding_tapers_um": 17000.0,
       "s_bend": null,
       "output_end_y_offset_um": 0.0,
       "origin_um": [
-        2399.653,
+        2398.653,
         5733.0
       ],
       "row_index": 21,
       "row_align": "right",
       "global_x_extent_um": [
-        -6778.347,
-        11899.653
+        -6779.347,
+        11898.653
       ],
       "label_origin_um": [
-        -5203.347,
+        -5204.347,
         5748.0
       ],
       "label_length_um": 30.8,
@@ -2451,22 +2488,23 @@
       "alignment_tip_position_um": 60.0,
       "layer14_linear_start_distance_um": 56.847,
       "straight_length_um": 15000.0,
+      "port_span_um": 15000.0,
       "output_extension_length_um": 2000.0,
       "path_length_excluding_tapers_um": 17000.0,
       "s_bend": null,
       "output_end_y_offset_um": 0.0,
       "origin_um": [
-        2399.653,
+        2398.653,
         6033.0
       ],
       "row_index": 22,
       "row_align": "right",
       "global_x_extent_um": [
-        -6778.347,
-        11899.653
+        -6779.347,
+        11898.653
       ],
       "label_origin_um": [
-        -5203.347,
+        -5204.347,
         6048.0
       ],
       "label_length_um": 31.2,
@@ -2505,22 +2543,23 @@
       "alignment_tip_position_um": 60.0,
       "layer14_linear_start_distance_um": 56.847,
       "straight_length_um": 15000.0,
+      "port_span_um": 15000.0,
       "output_extension_length_um": 2000.0,
       "path_length_excluding_tapers_um": 17000.0,
       "s_bend": null,
       "output_end_y_offset_um": 0.0,
       "origin_um": [
-        2399.653,
+        2398.653,
         6333.0
       ],
       "row_index": 23,
       "row_align": "right",
       "global_x_extent_um": [
-        -6778.347,
-        11899.653
+        -6779.347,
+        11898.653
       ],
       "label_origin_um": [
-        -5203.347,
+        -5204.347,
         6348.0
       ],
       "label_length_um": 31.0,
@@ -2559,22 +2598,23 @@
       "alignment_tip_position_um": 60.0,
       "layer14_linear_start_distance_um": 56.847,
       "straight_length_um": 15000.0,
+      "port_span_um": 15000.0,
       "output_extension_length_um": 2000.0,
       "path_length_excluding_tapers_um": 17000.0,
       "s_bend": null,
       "output_end_y_offset_um": 0.0,
       "origin_um": [
-        2399.653,
+        2398.653,
         6633.0
       ],
       "row_index": 24,
       "row_align": "right",
       "global_x_extent_um": [
-        -6778.347,
-        11899.653
+        -6779.347,
+        11898.653
       ],
       "label_origin_um": [
-        -5203.347,
+        -5204.347,
         6648.0
       ],
       "label_length_um": 30.4,

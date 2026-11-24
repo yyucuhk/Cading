@@ -61,8 +61,9 @@ LONG_WIDTHS = (1.590, 1.595, 1.600, 1.605, 1.610)   # long-device waveguide widt
 S_BEND_RADIUS = 150.0                         # short devices: the straight becomes a gentle S-bend:
 S_BEND_ANGLE_DEG = 10.0                       # arc (R, this angle) - tilted straight - arc back
 S_BEND_OFFSET = None                          # output-end y offset; None = follows from the angle
-SHORT_COLUMN_PITCH = 4930.0                   # = 17 x 290 um field pitch: every column sits identically in the field grid
-SHORT_LENGTH = 300.0                          # short devices: port-to-port x span (S-bend inside); with the
+SHORT_COLUMN_PITCH = 4830.0                   # short-device column spacing (left edges)
+SHORT_PATH_LENGTH = 300.0                     # short devices: waveguide path length between the ports
+SHORT_LENGTH = 300.0                          # label value; the port-to-port x span is solved from the path; with the
                                               # tapers every short device fits two 300 um fields (590 um)
 BLOCKS = (dict(mode='2T', align='left', members=((SHORT_LENGTH, 'A'), (SHORT_LENGTH, 'L'),
                                                   (SHORT_LENGTH, 'A'), (SHORT_LENGTH, 'L')),
@@ -256,6 +257,15 @@ def s_bend_offset(span, radius, angle_deg):
     th = math.radians(angle_deg)
     ls = (span - 2 * radius * math.sin(th)) / math.cos(th)
     return 2 * radius * (1 - math.cos(th)) + ls * math.sin(th)
+
+
+def s_span(path_label):
+    """Port-to-port x span whose S-bend path equals SHORT_PATH_LENGTH (label length otherwise)."""
+    if SHORT_PATH_LENGTH is None:
+        return path_label
+    th = math.radians(S_BEND_ANGLE_DEG)
+    r = S_BEND_RADIUS
+    return (SHORT_PATH_LENGTH - 2 * r * th) * math.cos(th) + 2 * r * math.sin(th)
 
 
 def s_offset(L):
@@ -984,14 +994,16 @@ def main():
                   seen[(L, tag)] = copy = seen.get((L, tag), 0) + block.get('copy', 1)
                   suffix = '' if copy == 1 else f'_{copy}'           # repeated members are copies
                   case = f'SC_L{int(L)}_{key.replace(".", "")}_{tag}_{mode}{suffix}'
-                  off = s_offset(L) if block.get('s_bend') else 0.0
-                  cell, rep = build_device(case, L, w, mode, far, off)
+                  Lg = s_span(L) if block.get('s_bend') else L          # geometric port-to-port span
+                  off = s_offset(Lg) if block.get('s_bend') else 0.0
+                  cell, rep = build_device(case, Lg, w, mode, far, off)
                   xs = [q[0] for _, _, pp in cell.polygons for q in pp]
                   built.append((L, case, cell, rep, min(xs) / DBU_PER_UM, max(xs) / DBU_PER_UM, tag, suffix))
               span = sum(b[5] - b[4] for b in built) + DEVICE_GAP * (len(built) - 1)
               x_left = ROW_LEFT_EDGE_X if align == 'left' else ROW_RIGHT_EDGE_X - span
               for k_dev, (L, case, cell, rep, lo, hi, tag, suffix) in enumerate(built):
-                  off = s_offset(L) if block.get('s_bend') else 0.0
+                  Lg = s_span(L) if block.get('s_bend') else L
+                  off = s_offset(Lg) if block.get('s_bend') else 0.0
                   profile = PROFILES[tag]
                   if block.get('column_pitch'):                   # aligned columns: left edges on a pitch
                       x_left = ROW_LEFT_EDGE_X + k_dev * block['column_pitch']
@@ -1007,13 +1019,13 @@ def main():
                   x_left += (hi - lo) + DEVICE_GAP
                   text = f'L{int(L)}_{key}_{tag}_{mode}{suffix}'
                   lab = Cell('LABEL_' + case)
-                  tip_x = -(L / 2 + PORT_TO_L10_ENTRANCE + TICK_POSITION)
+                  tip_x = -(Lg / 2 + PORT_TO_L10_ENTRANCE + TICK_POSITION)
                   polys, lab_len = label_polygons(text, glyphs, 0.0, 0.0)
                   lab.polygons += [(LABEL_LAYER[0], LABEL_LAYER[1], p) for p in polys]
                   lib.add(lab)
                   lib.add(cell)
                   lx, ly = dev_x + tip_x + LABEL_TIP_X_OFFSET, y + LABEL_Y_OFFSET
-                  xe = L / 2 + PORT_TO_L10_ENTRANCE
+                  xe = Lg / 2 + PORT_TO_L10_ENTRANCE
                   hi_s = TICK_POSITION + TICK_WIDTH / 2 + 1.0          # taper + alignment tips
                   zones = (('taper', -1.0, hi_s),
                            ('label', TICK_POSITION - LABEL_TIP_X_OFFSET - lab_len_of(text, glyphs) - 1.0,
@@ -1031,7 +1043,7 @@ def main():
                       width_um=w, l10_stage1_length_um=T, l10_taper_length_um=L10_TAPER_LENGTH,
                       l15_taper_length_um=L15_TAPER_LENGTH, alignment_tip_position_um=TICK_POSITION,
                       layer14_linear_start_distance_um=L14_LINEAR_START,
-                      straight_length_um=L, output_extension_length_um=out_len,
+                      straight_length_um=L, port_span_um=round(Lg, 4), output_extension_length_um=out_len,
                       path_length_excluding_tapers_um=round(rep.get('s_bend_path_length_um', L) + out_len, 4),
                       s_bend=(dict(radius_um=S_BEND_RADIUS, angle_deg=round(rep['s_bend_theta_deg'], 6),
                                    offset_um=round(off, 4)) if off else None),
@@ -1039,12 +1051,12 @@ def main():
                       origin_um=[dev_x, y], row_index=row, row_align=align,
                       global_x_extent_um=[round(dev_x + lo, 3), round(dev_x + hi, 3)], label_origin_um=[round(lx, 3), round(ly, 3)],
                       label_length_um=round(lab_len, 3),
-                      input_port_local_um=[-L / 2, 0.0],
-                      output_port_local_um=[L / 2 + out_len, off],
-                      l10_entrance_local_x_um=-(L / 2 + PORT_TO_L10_ENTRANCE),
-                      l15_tip_local_x_um=-(L / 2 + PORT_TO_L10_ENTRANCE + L15_TAPER_LENGTH),
+                      input_port_local_um=[round(-Lg / 2, 4), 0.0],
+                      output_port_local_um=[round(Lg / 2 + out_len, 4), round(off, 4)],
+                      l10_entrance_local_x_um=round(-(Lg / 2 + PORT_TO_L10_ENTRANCE), 4),
+                      l15_tip_local_x_um=round(-(Lg / 2 + PORT_TO_L10_ENTRANCE + L15_TAPER_LENGTH), 4),
                       alignment_tip_local_x_um=tip_x,
-                      l10_tip_local_x_um=-(L / 2 + PORT_TO_L10_ENTRANCE + L10_TAPER_LENGTH),
+                      l10_tip_local_x_um=round(-(Lg / 2 + PORT_TO_L10_ENTRANCE + L10_TAPER_LENGTH), 4),
                       **{k: round(v, 4) for k, v in rep.items()}))
               row += 1
     y0 = FIRST_ROW_Y - FRAME_BOTTOM_MARGIN
