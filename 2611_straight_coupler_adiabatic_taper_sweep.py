@@ -91,7 +91,11 @@ LABEL_GAP = 0.5
 
 ROW_PITCH = 550.0
 FIRST_ROW_Y = -700.0
-DEVICE_X = 2242.153                           # same device centre x as the source
+ROW_GROUPS = ((500.0, 5000.0), (15000.0,))    # lengths sharing one row, placed left to right
+DEVICE_GAP = 500.0                            # edge-to-edge gap between devices in one row
+ROW_ALIGN = {'2T': 'left', '1T': 'right'}     # per device set
+ROW_LEFT_EDGE_X = -6937.847                   # left edge of every left-aligned row
+ROW_RIGHT_EDGE_X = 11742.153                  # right edge (plain output end) of every right-aligned row
 FRAME_X = (-7400.0, 12300.0)                  # same chip width as the source
 FRAME_BOTTOM_MARGIN = 700.0
 FRAME_TOP_MARGIN = 650.0
@@ -349,40 +353,51 @@ def build_frame(src_frame, y0, y1):
 def main():
     src, far, glyphs, src_frame = load_source()
     lib = Library('LIB')
-    top = Cell('STRAIGHT_COUPLER_LINEAR_TAPER_SWEEP')
+    top = Cell('STRAIGHT_COUPLER_ADIABATIC_TAPER_SWEEP')
     devices = []
     row = 0
+    assert sorted(L for g in ROW_GROUPS for L in g) == sorted(STRAIGHT_LENGTHS)
     for mode in DEVICE_SETS:
-        for L in STRAIGHT_LENGTHS:
-            for w in WG_WIDTHS:
-                y = FIRST_ROW_Y + row * ROW_PITCH
-                case = f'SC_L{int(L)}_W{int(round(w * 1000))}_{mode}'
-                text = f'L{int(L)}_W{w:.2f}_{mode}'
-                cell, rep = build_device(case, L, w, mode, far)
-                lab = Cell('LABEL_' + case)
-                tip_x = -(L / 2 + PORT_TO_L10_ENTRANCE + TICK_POSITION)
-                polys, lab_len = label_polygons(text, glyphs, 0.0, 0.0)
-                lab.polygons += [(LABEL_LAYER[0], LABEL_LAYER[1], p) for p in polys]
-                lib.add(lab)
-                lib.add(cell)
-                lx, ly = DEVICE_X + tip_x + LABEL_TIP_X_OFFSET, y + LABEL_Y_OFFSET
-                top.refs.append(dict(name=case, xy=(um(DEVICE_X), um(y)), angle=0, mag=1.0, reflect=False))
-                top.refs.append(dict(name='LABEL_' + case, xy=(um(lx), um(ly)), angle=0, mag=1.0, reflect=False))
-                out_len = OUTPUT_EXTENSION_LENGTH if mode == '1T' else 0.0
-                devices.append(dict(
-                    case_id=case, mode=mode, label=text, label_layer=list(LABEL_LAYER),
-                    width_um=w, straight_length_um=L, output_extension_length_um=out_len,
-                    path_length_excluding_tapers_um=L + out_len,
-                    origin_um=[DEVICE_X, y], label_origin_um=[round(lx, 3), round(ly, 3)],
-                    label_length_um=round(lab_len, 3),
-                    input_port_local_um=[-L / 2, 0.0],
-                    output_port_local_um=[L / 2 + out_len, 0.0],
-                    l10_entrance_local_x_um=-(L / 2 + PORT_TO_L10_ENTRANCE),
-                    l15_tip_local_x_um=-(L / 2 + PORT_TO_L10_ENTRANCE + L15_TAPER_LENGTH),
-                    alignment_tip_local_x_um=tip_x,
-                    l10_tip_local_x_um=-(L / 2 + PORT_TO_L10_ENTRANCE + L10_TAPER_LENGTH),
-                    **{k: round(v, 4) for k, v in rep.items()}))
-                row += 1
+        for group in ROW_GROUPS:
+          for w in WG_WIDTHS:
+              y = FIRST_ROW_Y + row * ROW_PITCH
+              built = []
+              for L in group:
+                  case = f'SC_L{int(L)}_W{int(round(w * 1000))}_{mode}'
+                  cell, rep = build_device(case, L, w, mode, far)
+                  xs = [q[0] for _, _, pp in cell.polygons for q in pp]
+                  built.append((L, case, cell, rep, min(xs) / DBU_PER_UM, max(xs) / DBU_PER_UM))
+              span = sum(b[5] - b[4] for b in built) + DEVICE_GAP * (len(built) - 1)
+              x_left = ROW_LEFT_EDGE_X if ROW_ALIGN[mode] == 'left' else ROW_RIGHT_EDGE_X - span
+              for L, case, cell, rep, lo, hi in built:
+                  dev_x = round(x_left - lo, 3)
+                  x_left += (hi - lo) + DEVICE_GAP
+                  text = f'L{int(L)}_W{w:.2f}_{mode}'
+                  lab = Cell('LABEL_' + case)
+                  tip_x = -(L / 2 + PORT_TO_L10_ENTRANCE + TICK_POSITION)
+                  polys, lab_len = label_polygons(text, glyphs, 0.0, 0.0)
+                  lab.polygons += [(LABEL_LAYER[0], LABEL_LAYER[1], p) for p in polys]
+                  lib.add(lab)
+                  lib.add(cell)
+                  lx, ly = dev_x + tip_x + LABEL_TIP_X_OFFSET, y + LABEL_Y_OFFSET
+                  top.refs.append(dict(name=case, xy=(um(dev_x), um(y)), angle=0, mag=1.0, reflect=False))
+                  top.refs.append(dict(name='LABEL_' + case, xy=(um(lx), um(ly)), angle=0, mag=1.0, reflect=False))
+                  out_len = OUTPUT_EXTENSION_LENGTH if mode == '1T' else 0.0
+                  devices.append(dict(
+                      case_id=case, mode=mode, label=text, label_layer=list(LABEL_LAYER),
+                      width_um=w, straight_length_um=L, output_extension_length_um=out_len,
+                      path_length_excluding_tapers_um=L + out_len,
+                      origin_um=[dev_x, y], row_index=row, row_align=ROW_ALIGN[mode],
+                      global_x_extent_um=[round(dev_x + lo, 3), round(dev_x + hi, 3)], label_origin_um=[round(lx, 3), round(ly, 3)],
+                      label_length_um=round(lab_len, 3),
+                      input_port_local_um=[-L / 2, 0.0],
+                      output_port_local_um=[L / 2 + out_len, 0.0],
+                      l10_entrance_local_x_um=-(L / 2 + PORT_TO_L10_ENTRANCE),
+                      l15_tip_local_x_um=-(L / 2 + PORT_TO_L10_ENTRANCE + L15_TAPER_LENGTH),
+                      alignment_tip_local_x_um=tip_x,
+                      l10_tip_local_x_um=-(L / 2 + PORT_TO_L10_ENTRANCE + L10_TAPER_LENGTH),
+                      **{k: round(v, 4) for k, v in rep.items()}))
+              row += 1
     y0 = FIRST_ROW_Y - FRAME_BOTTOM_MARGIN
     y1 = FIRST_ROW_Y + (row - 1) * ROW_PITCH + FRAME_TOP_MARGIN
     frame, (cx, cy), nmark = build_frame(src_frame, y0, y1)
@@ -411,7 +426,8 @@ def main():
                                slab_overlap_um=BEAM_SLAB_OVERLAP, span_um=BEAM_SPAN),
         label=dict(layer=list(LABEL_LAYER), tip_x_offset_um=LABEL_TIP_X_OFFSET, y_offset_um=LABEL_Y_OFFSET),
         far_assembly_shift_um=L10_TAPER_LENGTH - SRC_L10_LENGTH,
-        row_pitch_um=ROW_PITCH, frame_bounds_um=[FRAME_X[0], y0, FRAME_X[1], y1],
+        row_pitch_um=ROW_PITCH, row_groups_um=[list(g) for g in ROW_GROUPS], device_gap_um=DEVICE_GAP,
+        row_align=ROW_ALIGN, row_left_edge_x_um=ROW_LEFT_EDGE_X, row_right_edge_x_um=ROW_RIGHT_EDGE_X, frame_bounds_um=[FRAME_X[0], y0, FRAME_X[1], y1],
         moved_marker_polygon_count=nmark)
     manifest = dict(
         source_gds=str(SOURCE_GDS.relative_to(ROOT)),
