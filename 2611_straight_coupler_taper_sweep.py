@@ -4,12 +4,13 @@ gds/2611_straight_coupler_L15000_output_comparison.gds (+ .json).
 Changes relative to that source layout
 --------------------------------------
 1. Waveguide (Layer 15) width fixed at 1.60 um.
-2. Straight lengths: 500, 5000, 15000 um, all with tapers at both ends
-   (single-taper devices are made by cleaving afterwards).
+2. Device blocks (BLOCKS): 500 um straights with tapers at both ends ("2T",
+   adiabatic and linear side by side in one row per T), and 15000 um
+   straights with an input taper + 2000 um plain output ("1T").
 3. Layer-10 first-stage taper length sweep (15 -> 0.8 um): 40/50/60/70/80 um,
-   built twice: set "A" uses the source's adiabatic quintic smootherstep profile
-   (zero width slope at both ends of every stage), set "L" straight-sided
-   linear stages. Same widths and lengths in both sets:
+   each built twice: "A" uses the source's adiabatic quintic smootherstep
+   profile (zero width slope at both ends of every stage), "L" straight-sided
+   linear stages. Same widths and lengths for both:
    - Layer 10: 15 um -> 0.8 um over T, then 0.8 um -> 0.200 um over 58 um.
    - Layer 15: W -> 0.200 um, ending 2 um before the 0.8 um point (T - 2).
    - Layer-15 alignment tips at the 0.8 um point.
@@ -44,19 +45,22 @@ SOURCE_DEVICE = 'D1_SINGLE_L15000_W1620_2T'
 SOURCE_LABEL_CELLS = ('LABEL_D1_SINGLE_L15000_W1620_2T',
                       'LABEL_D1_SINGLE_L15000_W1640_1T_OUT2000',
                       'LABEL_D1_SINGLE_L15000_W1680_2T')
-STEM = '2611_straight_coupler_W160_L500-15000_T40-80_adiabatic_vs_linear'
+STEM = '2611_straight_coupler_W160_T40-80_A-L_L500-2T_L15000-1T'
 OUTPUT = ROOT / 'gds' / (STEM + '.gds')
 
 # %% [01] USER PARAMETERS (um)
 WG_WIDTH = 1.60                               # Layer 15 waveguide width (all devices)
 L10_STAGE1_LENGTHS = (40.0, 50.0, 60.0, 70.0, 80.0)   # 15 -> 0.8 um stage; bottom to top in each block
-STRAIGHT_LENGTHS = (500.0, 5000.0, 15000.0)
-DEVICE_SETS = (('A', 'smootherstep'),         # (label tag, taper profile); all devices have two tapers
-               ('L', 'linear'))
+PROFILES = {'A': 'smootherstep', 'L': 'linear'}   # label tag -> taper profile
+# Each block gives one row per taper length T; members are placed left to right.
+BLOCKS = (dict(mode='2T', align='left', members=((500.0, 'A'), (500.0, 'L'))),
+          dict(mode='1T', align='right', members=((15000.0, 'A'),)),
+          dict(mode='1T', align='right', members=((15000.0, 'L'),)))
+STRAIGHT_LENGTHS = tuple(sorted({L for b in BLOCKS for L, _ in b['members']}))
 OUTPUT_EXTENSION_LENGTH = 2000.0              # 1T plain output beyond the output port
 PORT_TO_L10_ENTRANCE = 45.0                   # plain Layer-15 straight between port and taper start
 
-TAPER_PROFILE = 'smootherstep'                # set per device set from DEVICE_SETS
+TAPER_PROFILE = 'smootherstep'                # set per device from PROFILES
 TAPER_SAMPLE_STEP = 0.25                      # vertex spacing along curved tapers
 
 L15_TIP_WIDTH = 0.200
@@ -104,12 +108,9 @@ SMALL_MARKER_LAYER = (15, 0)
 MARKER_X_INSET = 1000.0                       # every corner marker set moves this far toward the centre in x
 ROW_PITCH = 580.0                             # = 2 EBL field pitches: every row sits identically in its field
 FIRST_ROW_Y = -700.0
-ROW_GROUPS = {'A': ((500.0, 5000.0), (15000.0,)),    # lengths sharing one row, left to right
-              'L': ((500.0, 5000.0), (15000.0,))}
 DEVICE_GAP = 500.0                            # minimum edge-to-edge gap between devices in one row
 DEVICE_GAP_EBL_RANGE = 290.0                  # the 2nd device of a shared row may move right by up to this
                                               # (per row) so its tapers avoid EBL stitches; rows stay aligned
-ROW_ALIGN = {'A': 'left', 'L': 'left'}       # per device set
 ROW_LEFT_EDGE_X = -6937.847                   # left edge of every left-aligned row
 ROW_RIGHT_EDGE_X = 11742.153                  # right edge (plain output end) of every right-aligned row
 FRAME_X = (-7400.0, 12300.0)                  # same chip width as the source
@@ -676,28 +677,29 @@ def main():
     critical = []                                  # (y, x0, x1, kind, case) Layer-15 taper/tip/label zones
     movable = {}                                   # 2nd device of left-aligned shared rows
     global TAPER_PROFILE
-    mode = '2T'
-    for tag, profile in DEVICE_SETS:
-        TAPER_PROFILE = profile
-        for group in ROW_GROUPS[tag]:
+    for block in BLOCKS:
+        mode, align = block['mode'], block['align']
+        if True:
           for T in L10_STAGE1_LENGTHS:
               set_taper(T)
               w = WG_WIDTH
               y = FIRST_ROW_Y + row * ROW_PITCH
               built = []
-              for L in group:
-                  case = f'SC_L{int(L)}_T{int(T)}_{tag}'
+              for L, tag in block['members']:
+                  TAPER_PROFILE = PROFILES[tag]
+                  case = f'SC_L{int(L)}_T{int(T)}_{tag}_{mode}'
                   cell, rep = build_device(case, L, w, mode, far)
                   xs = [q[0] for _, _, pp in cell.polygons for q in pp]
-                  built.append((L, case, cell, rep, min(xs) / DBU_PER_UM, max(xs) / DBU_PER_UM))
+                  built.append((L, case, cell, rep, min(xs) / DBU_PER_UM, max(xs) / DBU_PER_UM, tag))
               span = sum(b[5] - b[4] for b in built) + DEVICE_GAP * (len(built) - 1)
-              x_left = ROW_LEFT_EDGE_X if ROW_ALIGN[tag] == 'left' else ROW_RIGHT_EDGE_X - span
-              for k_dev, (L, case, cell, rep, lo, hi) in enumerate(built):
-                  if k_dev > 0 and ROW_ALIGN[tag] == 'left':
+              x_left = ROW_LEFT_EDGE_X if align == 'left' else ROW_RIGHT_EDGE_X - span
+              for k_dev, (L, case, cell, rep, lo, hi, tag) in enumerate(built):
+                  profile = PROFILES[tag]
+                  if k_dev > 0 and align == 'left':
                       movable[case] = dict(row_y=y, lo=lo, hi=hi)
                   dev_x = round(x_left - lo, 3)
                   x_left += (hi - lo) + DEVICE_GAP
-                  text = f'L{int(L)}_T{int(T)}_{tag}'
+                  text = f'L{int(L)}_T{int(T)}_{tag}_{mode}'
                   lab = Cell('LABEL_' + case)
                   tip_x = -(L / 2 + PORT_TO_L10_ENTRANCE + TICK_POSITION)
                   polys, lab_len = label_polygons(text, glyphs, 0.0, 0.0)
@@ -725,7 +727,7 @@ def main():
                       layer14_linear_start_distance_um=L14_LINEAR_START,
                       straight_length_um=L, output_extension_length_um=out_len,
                       path_length_excluding_tapers_um=L + out_len,
-                      origin_um=[dev_x, y], row_index=row, row_align=ROW_ALIGN[tag],
+                      origin_um=[dev_x, y], row_index=row, row_align=align,
                       global_x_extent_um=[round(dev_x + lo, 3), round(dev_x + hi, 3)], label_origin_um=[round(lx, 3), round(ly, 3)],
                       label_length_um=round(lab_len, 3),
                       input_port_local_um=[-L / 2, 0.0],
@@ -764,7 +766,8 @@ def main():
 
     params = dict(
         wg_width_um=WG_WIDTH, l10_stage1_lengths_um=list(L10_STAGE1_LENGTHS),
-        device_sets=[dict(tag=t, taper_profile=pr) for t, pr in DEVICE_SETS],
+        profiles=PROFILES, blocks=[dict(mode=b['mode'], align=b['align'],
+                                         members=[[L, t] for L, t in b['members']]) for b in BLOCKS],
         layer15_taper=dict(start_width='waveguide width', end_width_um=L15_TIP_WIDTH,
                            length='stage-1 length - mid offset'),
         layer10_taper=dict(start_width_um=L10_START_WIDTH, mid_width_um=L10_MID_WIDTH,
@@ -781,9 +784,9 @@ def main():
                                slab_overlap_um=BEAM_SLAB_OVERLAP, span_um=BEAM_SPAN),
         label=dict(layer=list(LABEL_LAYER), tip_x_offset_um=LABEL_TIP_X_OFFSET, y_offset_um=LABEL_Y_OFFSET),
         far_assembly_shift_um='l10_taper_length - %g per end' % SRC_L10_LENGTH,
-        row_pitch_um=ROW_PITCH, row_groups_um={k: [list(g) for g in v] for k, v in ROW_GROUPS.items()},
+        row_pitch_um=ROW_PITCH,
         device_gap_um=DEVICE_GAP,
-        row_align=ROW_ALIGN, row_left_edge_x_um=ROW_LEFT_EDGE_X + sx, row_right_edge_x_um=ROW_RIGHT_EDGE_X + sx,
+        row_left_edge_x_um=ROW_LEFT_EDGE_X + sx, row_right_edge_x_um=ROW_RIGHT_EDGE_X + sx,
         ebl_write_fields={k: v for k, v in ebl.items() if k != 'fields_xy'}, frame_bounds_um=[FRAME_X[0] + sx, y0, FRAME_X[1] + sx, y1],
         moved_marker_polygon_count=nmark)
     manifest = dict(
