@@ -1133,5 +1133,26 @@ def main():
     print('wrote', OUTPUT, len(devices), 'devices')
 
 
+# Layout variants written by one run (each overrides the parameters above)
+VARIANTS = {
+    '': {},                                            # 300 um rows, 250 um circles, long set duplicated
+    '_pitch500': dict(ROW_PITCH=500.0, GLUE_CIRCLE_DIAMETER=300.0,   # 500 um rows, source 300 um
+                      BLOCKS=tuple(b for b in BLOCKS if 'copy' not in b)),  # circles, no long copies
+}
+
+
+def run_variants():
+    global STEM, OUTPUT
+    base = dict(STEM=STEM, **{k: globals()[k] for v in VARIANTS.values() for k in v})
+    for suffix, over in VARIANTS.items():
+        globals().update(base)
+        globals().update(over)
+        STEM = base['STEM'] + suffix
+        OUTPUT = ROOT / 'gds' / (STEM + '.gds')
+        cell_pieces.__defaults__[0].clear()           # piece cache is per layout
+        main()
+    globals().update(base)
+
+
 if __name__ == '__main__':
-    main()
+    run_variants()
