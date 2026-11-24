@@ -138,7 +138,8 @@ FIRST_ROW_Y = -700.0
 DEVICE_GAP = 500.0                            # minimum edge-to-edge gap between devices in one row
 DEVICE_GAP_EBL_RANGE = 290.0                  # the 2nd device of a shared row may move right by up to this
                                               # (per row) so its tapers avoid EBL stitches; rows stay aligned
-ROW_LEFT_EDGE_X = -6937.847                   # left edge of every left-aligned row
+ROW_LEFT_EDGE_X = -6937.847                   # left edge of every left-aligned row (see ALIGN_BLOCK_STARTS)
+ALIGN_BLOCK_STARTS = True                     # left-aligned blocks start exactly where the long devices start
 ROW_RIGHT_EDGE_X = 11742.153                  # right edge (plain output end) of every right-aligned row
 FRAME_X = (-7400.0, 12300.0)                  # same chip width as the source
 FRAME_BOTTOM_MARGIN = 727.75                  # puts the corner markers at the same field phase as the rows
@@ -797,7 +798,8 @@ def one_field_row(pieces, py):
     return any(py + pitch * jj <= y0 and y1 <= py + pitch * jj + EBL_FIELD_SIZE for jj in (j - 1, j))
 
 
-def place_for_ebl(lib, top, critical, skip=frozenset(), fixed=None, exclude=frozenset(), y_groups=()):
+def place_for_ebl(lib, top, critical, skip=frozenset(), fixed=None, exclude=frozenset(), y_groups=(),
+                  limits=()):
     """Shift of the whole mask (dx, dy in [0, pitch)) against the field grid. Pieces owned by
     `exclude` are ignored; each owner group in `y_groups` must fit inside one field row."""
     pitch = EBL_FIELD_SIZE - EBL_FIELD_OVERLAP
@@ -805,6 +807,7 @@ def place_for_ebl(lib, top, critical, skip=frozenset(), fixed=None, exclude=froz
     allp = mask_pieces(lib, top)
     pieces = [q for q in allp if q[4] not in exclude]
     groups = [[q for q in allp if q[4] in g] for g in y_groups]
+    lim = [([q[:4] for q in allp if q[4] in g], n) for g, n in limits]
     if fixed is not None:
         y_cands = [fixed[1]]
     else:   # rank y offsets by expected field count, then search x for the best few
@@ -823,11 +826,14 @@ def place_for_ebl(lib, top, critical, skip=frozenset(), fixed=None, exclude=froz
         rowiv = row_intervals(pieces, py)
         zr = zone_rows_for(critical, py)
         xs = [fixed[0]] if fixed is not None else [k * EBL_SEARCH_STEP for k in range(int(round(pitch / EBL_SEARCH_STEP)))]
+        lim_rows = [(row_intervals(ps, py), n) for ps, n in lim]
         for dx in xs:
             used = used_fields(rowiv, gx - dx)
             hits, clear = stitch_hits(zr, used, gx - dx, skip)
-            results.append(dict(n=len(used), taper=hits['taper'], label=hits['label'], clear=clear, dx=dx, dy=dy))
-    alternatives = {k: min(results, key=f) for k, f in RANK.items()}
+            over = sum(max(0, len(used_fields(riv, gx - dx)) - n) for riv, n in lim_rows)
+            results.append(dict(over=over, n=len(used), taper=hits['taper'], label=hits['label'],
+                                clear=clear, dx=dx, dy=dy))
+    alternatives = {k: min(results, key=lambda r, f=f: (r['over'],) + f(r)) for k, f in RANK.items()}
     chosen = alternatives[EBL_PRIORITY]
     dx, dy = chosen['dx'], chosen['dy']
     fields = sorted(used_fields(row_intervals(allp, gy - dy), gx - dx))
@@ -835,6 +841,7 @@ def place_for_ebl(lib, top, critical, skip=frozenset(), fixed=None, exclude=froz
         field_size_um=EBL_FIELD_SIZE, field_overlap_um=EBL_FIELD_OVERLAP, field_pitch_um=pitch,
         grid_origin_um=list(EBL_GRID_ORIGIN), layer=list(EBL_LAYER),
         mask_shift_um=[dx, dy], layer15_field_count=len(fields), priority=EBL_PRIORITY,
+        devices_over_field_limit=chosen['over'],
         taper_zones_with_stitch=chosen['taper'], label_zones_with_stitch=chosen['label'],
         min_stitch_to_taper_zone_um=round(chosen['clear'], 3),
         alternatives={k: dict(fields=v['n'], taper_zones_with_stitch=v['taper'],
@@ -1049,15 +1056,22 @@ def main():
 
     # EBL field placement: global mask shift (ignoring the movable devices' zones), then
     # per-row gap for the movable devices, then report the final placement
+    # every left-aligned block starts where the right-aligned (long) devices start
+    starts = [d['global_x_extent_um'][0] for d in devices if d['row_align'] == 'right']
+    if starts and ALIGN_BLOCK_STARTS:
+        x_start = min(starts)
+        for b in BLOCKS:
+            if b['align'] != 'left':
+                continue
+            cases = [d['case_id'] for d in devices if d['row_align'] == 'left']
+            delta = x_start - min(d['global_x_extent_um'][0] for d in devices if d['case_id'] in cases)
+            shift_devices(top, critical, devices, cases, delta)
     lim_cases = {c for b in limited.values() for c in b['cases']}
-    lim_owners = lim_cases | {'LABEL_' + c for c in lim_cases}
-    ebl0 = place_for_ebl(lib, top, critical, skip=set(movable) | lim_cases, exclude=lim_owners,
-                         y_groups=[{c, 'LABEL_' + c} for c in lim_cases])
-    blocks_info = [place_limited_block(lib, top, critical, devices, b['cases'], b['leads'], b['limit'],
-                                       ebl0['mask_shift_um']) for b in limited.values()]
+    limits = [({c, 'LABEL_' + c}, b['limit']) for b in limited.values() for c in b['cases']]
+    ebl0 = place_for_ebl(lib, top, critical, skip=set(movable),
+                         y_groups=[{c, 'LABEL_' + c} for c in lim_cases], limits=limits)
     gaps = adjust_movable_gaps(lib, top, critical, movable, devices, ebl0['mask_shift_um'])
-    ebl = place_for_ebl(lib, top, critical, fixed=ebl0['mask_shift_um'])
-    ebl['limited_blocks'] = blocks_info
+    ebl = place_for_ebl(lib, top, critical, fixed=ebl0['mask_shift_um'], limits=limits)
     ebl['alternatives_before_gap_adjustment'] = ebl0['alternatives']
     ebl.pop('alternatives')
     ebl['shared_row_gaps_um'] = gaps
