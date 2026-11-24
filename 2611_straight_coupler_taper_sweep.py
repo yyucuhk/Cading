@@ -59,7 +59,8 @@ LONG_TAPER_T = 60.0                           # fixed L10 first-stage length for
 LONG_WIDTHS = (1.590, 1.595, 1.600, 1.605, 1.610)   # long-device waveguide width sweep
 # 'rows' lists (T, width) per row; 'label' says which parameter the label shows.
 S_BEND_RADIUS = 150.0                         # short devices: the straight becomes a gentle S-bend:
-S_BEND_OFFSET = 50.0                          # arc (R) - tilted straight - arc back, output end raised by this
+S_BEND_ANGLE_DEG = 10.0                       # arc (R, this angle) - tilted straight - arc back
+S_BEND_OFFSET = None                          # output-end y offset; None = follows from the angle
 BLOCKS = (dict(mode='2T', align='left', members=((500.0, 'A'), (500.0, 'L'), (500.0, 'A'), (500.0, 'L')),
                rows=None, label='T', s_bend=True),                          # rows: T sweep at WG_WIDTH
           dict(mode='1T', align='right', members=((15000.0, 'A'),),
@@ -232,6 +233,16 @@ def merged_end_polygon(near_top, near_bot, far_seq):
     """near_top/near_bot: [(x,y)] from inner start to the cut; far_seq from cut-top to cut-bottom."""
     pts = near_top[:-1] + far_seq + list(reversed(near_bot[:-1]))
     return pts
+
+
+def s_bend_offset(span, radius, angle_deg):
+    th = math.radians(angle_deg)
+    ls = (span - 2 * radius * math.sin(th)) / math.cos(th)
+    return 2 * radius * (1 - math.cos(th)) + ls * math.sin(th)
+
+
+def s_offset(L):
+    return S_BEND_OFFSET if S_BEND_OFFSET is not None else s_bend_offset(L, S_BEND_RADIUS, S_BEND_ANGLE_DEG)
 
 
 def s_bend(span, radius, offset):
@@ -751,14 +762,14 @@ def main():
                   seen[(L, tag)] = copy = seen.get((L, tag), 0) + 1
                   suffix = '' if copy == 1 else f'_{copy}'           # repeated members are copies
                   case = f'SC_L{int(L)}_{key.replace(".", "")}_{tag}_{mode}{suffix}'
-                  off = S_BEND_OFFSET if block.get('s_bend') else 0.0
+                  off = s_offset(L) if block.get('s_bend') else 0.0
                   cell, rep = build_device(case, L, w, mode, far, off)
                   xs = [q[0] for _, _, pp in cell.polygons for q in pp]
                   built.append((L, case, cell, rep, min(xs) / DBU_PER_UM, max(xs) / DBU_PER_UM, tag, suffix))
               span = sum(b[5] - b[4] for b in built) + DEVICE_GAP * (len(built) - 1)
               x_left = ROW_LEFT_EDGE_X if align == 'left' else ROW_RIGHT_EDGE_X - span
               for k_dev, (L, case, cell, rep, lo, hi, tag, suffix) in enumerate(built):
-                  off = S_BEND_OFFSET if block.get('s_bend') else 0.0
+                  off = s_offset(L) if block.get('s_bend') else 0.0
                   profile = PROFILES[tag]
                   if k_dev > 0 and align == 'left':
                       movable[case] = dict(row_y=y, lo=lo, hi=hi, row=row, order=k_dev)
@@ -792,7 +803,8 @@ def main():
                       layer14_linear_start_distance_um=L14_LINEAR_START,
                       straight_length_um=L, output_extension_length_um=out_len,
                       path_length_excluding_tapers_um=round(rep.get('s_bend_path_length_um', L) + out_len, 4),
-                      s_bend=(dict(radius_um=S_BEND_RADIUS, offset_um=off) if off else None),
+                      s_bend=(dict(radius_um=S_BEND_RADIUS, angle_deg=round(rep['s_bend_theta_deg'], 6),
+                                   offset_um=round(off, 4)) if off else None),
                       output_end_y_offset_um=off,
                       origin_um=[dev_x, y], row_index=row, row_align=align,
                       global_x_extent_um=[round(dev_x + lo, 3), round(dev_x + hi, 3)], label_origin_um=[round(lx, 3), round(ly, 3)],
