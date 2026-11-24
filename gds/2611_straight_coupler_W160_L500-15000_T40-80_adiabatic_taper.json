@@ -3,7 +3,7 @@
   "source_gds_sha256": "17fc0ade4016c57f51874e486d0b319241d6c507fed9511c9765a1084503bb3c",
   "source_device_copied_for_far_assemblies": "D1_SINGLE_L15000_W1620_2T",
   "gds": "gds/2611_straight_coupler_W160_L500-15000_T40-80_adiabatic_taper.gds",
-  "gds_sha256": "5cfbf4acc3fc6069767a6b686c24de187d609af6fd1c56878a1c2f897275fdcb",
+  "gds_sha256": "437546c770b6b0bd3a0620a209f8b6ddc1ce345fab58cc584c8f6566a6441696",
   "top_cell": "STRAIGHT_COUPLER_ADIABATIC_TAPER_SWEEP",
   "device_count": 25,
   "parameters": {
@@ -61,7 +61,7 @@
         0.5,
         1.5
       ],
-      "slab_overlap_um": 0.5,
+      "slab_overlap_um": 1.5,
       "span_um": 5.596
     },
     "label": {

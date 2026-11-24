@@ -89,7 +89,7 @@ TICK_GAP_TO_L10 = 2.0                         # same gap to the slab edge as the
 BEAM_LAYER = (11, 0)
 BEAM_WIDTH = 0.5
 BEAM_OFFSETS_FROM_L2_START = (-0.5, 0.5, 1.5)  # same relation to the L2 window as the source
-BEAM_SLAB_OVERLAP = 0.5
+BEAM_SLAB_OVERLAP = 1.5                       # L11 beam reaches this far inside the L10 edge
 BEAM_SPAN = 5.096 + 0.5                       # source anchor span + outer overlap
 
 LABEL_LAYER = (15, 0)
