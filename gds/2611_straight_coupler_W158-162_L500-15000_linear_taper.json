@@ -3,7 +3,7 @@
   "source_gds_sha256": "17fc0ade4016c57f51874e486d0b319241d6c507fed9511c9765a1084503bb3c",
   "source_device_copied_for_far_assemblies": "D1_SINGLE_L15000_W1620_2T",
   "gds": "gds/2611_straight_coupler_W158-162_L500-15000_linear_taper.gds",
-  "gds_sha256": "64214c0d8fc47044efaa8ff9aaa3227e470ab0edb7300c9128a50bd0d8a01ed0",
+  "gds_sha256": "ec22fde7d8cff0e013ab0a067c6ea332a8ce764b02b7a9ba271c8ce409fd3cd9",
   "top_cell": "STRAIGHT_COUPLER_LINEAR_TAPER_SWEEP",
   "device_count": 30,
   "parameters": {
@@ -31,6 +31,9 @@
     },
     "layer10_taper": {
       "start_width_um": 10.0,
+      "mid_width_um": 1.0,
+      "mid_position_um": 62.0,
+      "mid_offset_beyond_l15_tip_um": 2.0,
       "end_width_um": 0.2,
       "length_um": 120.0,
       "extra_length_beyond_l15_tip_um": 60.0
@@ -116,9 +119,9 @@
       "l10_entrance_local_x_um": -295.0,
       "l15_tip_local_x_um": -355.0,
       "l10_tip_local_x_um": -415.0,
-      "layer2_start_width_um": 14.8367,
+      "layer2_start_width_um": 14.7097,
       "layer14_start_width_um": 12.0,
-      "tick_inner_y_um": 4.55
+      "tick_inner_y_um": 2.6452
     },
     {
       "case_id": "SC_L500_W1590_2T",
@@ -152,9 +155,9 @@
       "l10_entrance_local_x_um": -295.0,
       "l15_tip_local_x_um": -355.0,
       "l10_tip_local_x_um": -415.0,
-      "layer2_start_width_um": 14.8367,
+      "layer2_start_width_um": 14.7097,
       "layer14_start_width_um": 12.0,
-      "tick_inner_y_um": 4.55
+      "tick_inner_y_um": 2.6452
     },
     {
       "case_id": "SC_L500_W1600_2T",
@@ -188,9 +191,9 @@
       "l10_entrance_local_x_um": -295.0,
       "l15_tip_local_x_um": -355.0,
       "l10_tip_local_x_um": -415.0,
-      "layer2_start_width_um": 14.8367,
+      "layer2_start_width_um": 14.7097,
       "layer14_start_width_um": 12.0,
-      "tick_inner_y_um": 4.55
+      "tick_inner_y_um": 2.6452
     },
     {
       "case_id": "SC_L500_W1610_2T",
@@ -224,9 +227,9 @@
       "l10_entrance_local_x_um": -295.0,
       "l15_tip_local_x_um": -355.0,
       "l10_tip_local_x_um": -415.0,
-      "layer2_start_width_um": 14.8367,
+      "layer2_start_width_um": 14.7097,
       "layer14_start_width_um": 12.0,
-      "tick_inner_y_um": 4.55
+      "tick_inner_y_um": 2.6452
     },
     {
       "case_id": "SC_L500_W1620_2T",
@@ -260,9 +263,9 @@
       "l10_entrance_local_x_um": -295.0,
       "l15_tip_local_x_um": -355.0,
       "l10_tip_local_x_um": -415.0,
-      "layer2_start_width_um": 14.8367,
+      "layer2_start_width_um": 14.7097,
       "layer14_start_width_um": 12.0,
-      "tick_inner_y_um": 4.55
+      "tick_inner_y_um": 2.6452
     },
     {
       "case_id": "SC_L5000_W1580_2T",
@@ -296,9 +299,9 @@
       "l10_entrance_local_x_um": -2545.0,
       "l15_tip_local_x_um": -2605.0,
       "l10_tip_local_x_um": -2665.0,
-      "layer2_start_width_um": 14.8367,
+      "layer2_start_width_um": 14.7097,
       "layer14_start_width_um": 12.0,
-      "tick_inner_y_um": 4.55
+      "tick_inner_y_um": 2.6452
     },
     {
       "case_id": "SC_L5000_W1590_2T",
@@ -332,9 +335,9 @@
       "l10_entrance_local_x_um": -2545.0,
       "l15_tip_local_x_um": -2605.0,
       "l10_tip_local_x_um": -2665.0,
-      "layer2_start_width_um": 14.8367,
+      "layer2_start_width_um": 14.7097,
       "layer14_start_width_um": 12.0,
-      "tick_inner_y_um": 4.55
+      "tick_inner_y_um": 2.6452
     },
     {
       "case_id": "SC_L5000_W1600_2T",
@@ -368,9 +371,9 @@
       "l10_entrance_local_x_um": -2545.0,
       "l15_tip_local_x_um": -2605.0,
       "l10_tip_local_x_um": -2665.0,
-      "layer2_start_width_um": 14.8367,
+      "layer2_start_width_um": 14.7097,
       "layer14_start_width_um": 12.0,
-      "tick_inner_y_um": 4.55
+      "tick_inner_y_um": 2.6452
     },
     {
       "case_id": "SC_L5000_W1610_2T",
@@ -404,9 +407,9 @@
       "l10_entrance_local_x_um": -2545.0,
       "l15_tip_local_x_um": -2605.0,
       "l10_tip_local_x_um": -2665.0,
-      "layer2_start_width_um": 14.8367,
+      "layer2_start_width_um": 14.7097,
       "layer14_start_width_um": 12.0,
-      "tick_inner_y_um": 4.55
+      "tick_inner_y_um": 2.6452
     },
     {
       "case_id": "SC_L5000_W1620_2T",
@@ -440,9 +443,9 @@
       "l10_entrance_local_x_um": -2545.0,
       "l15_tip_local_x_um": -2605.0,
       "l10_tip_local_x_um": -2665.0,
-      "layer2_start_width_um": 14.8367,
+      "layer2_start_width_um": 14.7097,
       "layer14_start_width_um": 12.0,
-      "tick_inner_y_um": 4.55
+      "tick_inner_y_um": 2.6452
     },
     {
       "case_id": "SC_L15000_W1580_2T",
@@ -476,9 +479,9 @@
       "l10_entrance_local_x_um": -7545.0,
       "l15_tip_local_x_um": -7605.0,
       "l10_tip_local_x_um": -7665.0,
-      "layer2_start_width_um": 14.8367,
+      "layer2_start_width_um": 14.7097,
       "layer14_start_width_um": 12.0,
-      "tick_inner_y_um": 4.55
+      "tick_inner_y_um": 2.6452
     },
     {
       "case_id": "SC_L15000_W1590_2T",
@@ -512,9 +515,9 @@
       "l10_entrance_local_x_um": -7545.0,
       "l15_tip_local_x_um": -7605.0,
       "l10_tip_local_x_um": -7665.0,
-      "layer2_start_width_um": 14.8367,
+      "layer2_start_width_um": 14.7097,
       "layer14_start_width_um": 12.0,
-      "tick_inner_y_um": 4.55
+      "tick_inner_y_um": 2.6452
     },
     {
       "case_id": "SC_L15000_W1600_2T",
@@ -548,9 +551,9 @@
       "l10_entrance_local_x_um": -7545.0,
       "l15_tip_local_x_um": -7605.0,
       "l10_tip_local_x_um": -7665.0,
-      "layer2_start_width_um": 14.8367,
+      "layer2_start_width_um": 14.7097,
       "layer14_start_width_um": 12.0,
-      "tick_inner_y_um": 4.55
+      "tick_inner_y_um": 2.6452
     },
     {
       "case_id": "SC_L15000_W1610_2T",
@@ -584,9 +587,9 @@
       "l10_entrance_local_x_um": -7545.0,
       "l15_tip_local_x_um": -7605.0,
       "l10_tip_local_x_um": -7665.0,
-      "layer2_start_width_um": 14.8367,
+      "layer2_start_width_um": 14.7097,
       "layer14_start_width_um": 12.0,
-      "tick_inner_y_um": 4.55
+      "tick_inner_y_um": 2.6452
     },
     {
       "case_id": "SC_L15000_W1620_2T",
@@ -620,9 +623,9 @@
       "l10_entrance_local_x_um": -7545.0,
       "l15_tip_local_x_um": -7605.0,
       "l10_tip_local_x_um": -7665.0,
-      "layer2_start_width_um": 14.8367,
+      "layer2_start_width_um": 14.7097,
       "layer14_start_width_um": 12.0,
-      "tick_inner_y_um": 4.55
+      "tick_inner_y_um": 2.6452
     },
     {
       "case_id": "SC_L500_W1580_1T",
@@ -656,9 +659,9 @@
       "l10_entrance_local_x_um": -295.0,
       "l15_tip_local_x_um": -355.0,
       "l10_tip_local_x_um": -415.0,
-      "layer2_start_width_um": 14.8367,
+      "layer2_start_width_um": 14.7097,
       "layer14_start_width_um": 12.0,
-      "tick_inner_y_um": 4.55
+      "tick_inner_y_um": 2.6452
     },
     {
       "case_id": "SC_L500_W1590_1T",
@@ -692,9 +695,9 @@
       "l10_entrance_local_x_um": -295.0,
       "l15_tip_local_x_um": -355.0,
       "l10_tip_local_x_um": -415.0,
-      "layer2_start_width_um": 14.8367,
+      "layer2_start_width_um": 14.7097,
       "layer14_start_width_um": 12.0,
-      "tick_inner_y_um": 4.55
+      "tick_inner_y_um": 2.6452
     },
     {
       "case_id": "SC_L500_W1600_1T",
@@ -728,9 +731,9 @@
       "l10_entrance_local_x_um": -295.0,
       "l15_tip_local_x_um": -355.0,
       "l10_tip_local_x_um": -415.0,
-      "layer2_start_width_um": 14.8367,
+      "layer2_start_width_um": 14.7097,
       "layer14_start_width_um": 12.0,
-      "tick_inner_y_um": 4.55
+      "tick_inner_y_um": 2.6452
     },
     {
       "case_id": "SC_L500_W1610_1T",
@@ -764,9 +767,9 @@
       "l10_entrance_local_x_um": -295.0,
       "l15_tip_local_x_um": -355.0,
       "l10_tip_local_x_um": -415.0,
-      "layer2_start_width_um": 14.8367,
+      "layer2_start_width_um": 14.7097,
       "layer14_start_width_um": 12.0,
-      "tick_inner_y_um": 4.55
+      "tick_inner_y_um": 2.6452
     },
     {
       "case_id": "SC_L500_W1620_1T",
@@ -800,9 +803,9 @@
       "l10_entrance_local_x_um": -295.0,
       "l15_tip_local_x_um": -355.0,
       "l10_tip_local_x_um": -415.0,
-      "layer2_start_width_um": 14.8367,
+      "layer2_start_width_um": 14.7097,
       "layer14_start_width_um": 12.0,
-      "tick_inner_y_um": 4.55
+      "tick_inner_y_um": 2.6452
     },
     {
       "case_id": "SC_L5000_W1580_1T",
@@ -836,9 +839,9 @@
       "l10_entrance_local_x_um": -2545.0,
       "l15_tip_local_x_um": -2605.0,
       "l10_tip_local_x_um": -2665.0,
-      "layer2_start_width_um": 14.8367,
+      "layer2_start_width_um": 14.7097,
       "layer14_start_width_um": 12.0,
-      "tick_inner_y_um": 4.55
+      "tick_inner_y_um": 2.6452
     },
     {
       "case_id": "SC_L5000_W1590_1T",
@@ -872,9 +875,9 @@
       "l10_entrance_local_x_um": -2545.0,
       "l15_tip_local_x_um": -2605.0,
       "l10_tip_local_x_um": -2665.0,
-      "layer2_start_width_um": 14.8367,
+      "layer2_start_width_um": 14.7097,
       "layer14_start_width_um": 12.0,
-      "tick_inner_y_um": 4.55
+      "tick_inner_y_um": 2.6452
     },
     {
       "case_id": "SC_L5000_W1600_1T",
@@ -908,9 +911,9 @@
       "l10_entrance_local_x_um": -2545.0,
       "l15_tip_local_x_um": -2605.0,
       "l10_tip_local_x_um": -2665.0,
-      "layer2_start_width_um": 14.8367,
+      "layer2_start_width_um": 14.7097,
       "layer14_start_width_um": 12.0,
-      "tick_inner_y_um": 4.55
+      "tick_inner_y_um": 2.6452
     },
     {
       "case_id": "SC_L5000_W1610_1T",
@@ -944,9 +947,9 @@
       "l10_entrance_local_x_um": -2545.0,
       "l15_tip_local_x_um": -2605.0,
       "l10_tip_local_x_um": -2665.0,
-      "layer2_start_width_um": 14.8367,
+      "layer2_start_width_um": 14.7097,
       "layer14_start_width_um": 12.0,
-      "tick_inner_y_um": 4.55
+      "tick_inner_y_um": 2.6452
     },
     {
       "case_id": "SC_L5000_W1620_1T",
@@ -980,9 +983,9 @@
       "l10_entrance_local_x_um": -2545.0,
       "l15_tip_local_x_um": -2605.0,
       "l10_tip_local_x_um": -2665.0,
-      "layer2_start_width_um": 14.8367,
+      "layer2_start_width_um": 14.7097,
       "layer14_start_width_um": 12.0,
-      "tick_inner_y_um": 4.55
+      "tick_inner_y_um": 2.6452
     },
     {
       "case_id": "SC_L15000_W1580_1T",
@@ -1016,9 +1019,9 @@
       "l10_entrance_local_x_um": -7545.0,
       "l15_tip_local_x_um": -7605.0,
       "l10_tip_local_x_um": -7665.0,
-      "layer2_start_width_um": 14.8367,
+      "layer2_start_width_um": 14.7097,
       "layer14_start_width_um": 12.0,
-      "tick_inner_y_um": 4.55
+      "tick_inner_y_um": 2.6452
     },
     {
       "case_id": "SC_L15000_W1590_1T",
@@ -1052,9 +1055,9 @@
       "l10_entrance_local_x_um": -7545.0,
       "l15_tip_local_x_um": -7605.0,
       "l10_tip_local_x_um": -7665.0,
-      "layer2_start_width_um": 14.8367,
+      "layer2_start_width_um": 14.7097,
       "layer14_start_width_um": 12.0,
-      "tick_inner_y_um": 4.55
+      "tick_inner_y_um": 2.6452
     },
     {
       "case_id": "SC_L15000_W1600_1T",
@@ -1088,9 +1091,9 @@
       "l10_entrance_local_x_um": -7545.0,
       "l15_tip_local_x_um": -7605.0,
       "l10_tip_local_x_um": -7665.0,
-      "layer2_start_width_um": 14.8367,
+      "layer2_start_width_um": 14.7097,
       "layer14_start_width_um": 12.0,
-      "tick_inner_y_um": 4.55
+      "tick_inner_y_um": 2.6452
     },
     {
       "case_id": "SC_L15000_W1610_1T",
@@ -1124,9 +1127,9 @@
       "l10_entrance_local_x_um": -7545.0,
       "l15_tip_local_x_um": -7605.0,
       "l10_tip_local_x_um": -7665.0,
-      "layer2_start_width_um": 14.8367,
+      "layer2_start_width_um": 14.7097,
       "layer14_start_width_um": 12.0,
-      "tick_inner_y_um": 4.55
+      "tick_inner_y_um": 2.6452
     },
     {
       "case_id": "SC_L15000_W1620_1T",
@@ -1160,9 +1163,9 @@
       "l10_entrance_local_x_um": -7545.0,
       "l15_tip_local_x_um": -7605.0,
       "l10_tip_local_x_um": -7665.0,
-      "layer2_start_width_um": 14.8367,
+      "layer2_start_width_um": 14.7097,
       "layer14_start_width_um": 12.0,
-      "tick_inner_y_um": 4.55
+      "tick_inner_y_um": 2.6452
     }
   ],
   "optical_or_mechanical_simulation_performed": false

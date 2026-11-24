@@ -8,8 +8,9 @@ Changes relative to that source layout
    "2T" = taper at both ends, "1T" = input taper + 2000 um plain output).
 3. Tapers are now LINEAR (the source used quintic/smootherstep profiles):
    - Layer 15: W -> 0.200 um over 60 um.
-   - Layer 10: 10 um -> 0.200 um over 120 um (60 um under the Layer-15 taper
-     plus 60 um extra beyond the Layer-15 tip).
+   - Layer 10: two linear stages over 120 um total (60 um under the Layer-15
+     taper plus 60 um extra): 10 um -> 1 um at 62 um (2 um beyond the
+     Layer-15 tip), then 1 um -> 0.200 um at 120 um.
 4. Device labels are drawn on Layer 15 (source: Layer 2).
 5. Layer 10 now extends 2.0 um past the start of the Layer-2 window
    (source: 0.5 um, the JSON's layer2_start_offset_um).
@@ -56,6 +57,9 @@ L15_TIP_WIDTH = 0.200
 L10_START_WIDTH = 10.0
 L10_EXTRA_LENGTH = 60.0                       # beyond the Layer-15 tip
 L10_TAPER_LENGTH = L15_TAPER_LENGTH + L10_EXTRA_LENGTH
+L10_MID_WIDTH = 1.0                           # two linear stages: start -> 1 um -> tip
+L10_MID_OFFSET = 2.0                          # 1 um point sits this far beyond the L15 tip
+L10_MID_POSITION = L15_TAPER_LENGTH + L10_MID_OFFSET
 L10_TIP_WIDTH = 0.200
 
 L2_MARGIN = 2.5                               # per side around Layer 10
@@ -99,7 +103,15 @@ def um(v):
 
 def l10_half(s):
     s = min(max(s, 0.0), L10_TAPER_LENGTH)
-    return 0.5 * (L10_START_WIDTH + (L10_TIP_WIDTH - L10_START_WIDTH) * s / L10_TAPER_LENGTH)
+    if s <= L10_MID_POSITION:
+        return 0.5 * (L10_START_WIDTH + (L10_MID_WIDTH - L10_START_WIDTH) * s / L10_MID_POSITION)
+    t = (s - L10_MID_POSITION) / (L10_TAPER_LENGTH - L10_MID_POSITION)
+    return 0.5 * (L10_MID_WIDTH + (L10_TIP_WIDTH - L10_MID_WIDTH) * t)
+
+
+def l10_stations(s0, s1):
+    """s0, the L10 stage break(s) inside (s0, s1), and s1: vertices of the piecewise-linear edge."""
+    return [s0] + [b for b in (L10_MID_POSITION,) if s0 < b < s1] + [s1]
 
 
 def l15_half(s, w):
@@ -211,8 +223,8 @@ def build_end(cell, side, half_L, width, far):
     # Layer 10: linear taper merged with the copied neck + butterfly tether
     (_, xc, seq), = far[(10, side)]
     seq = shifted(seq, side, half_L)
-    top = [(X(s), um(l10_half(s))) for s in sample(0, S)]
-    bot = [(X(s), -um(l10_half(s))) for s in sample(0, S)]
+    top = [(X(s), um(l10_half(s))) for s in l10_stations(0, S)]
+    bot = [(X(s), -um(l10_half(s))) for s in l10_stations(0, S)]
     top[-1], bot[-1] = seq[0], seq[-1]
     cell.polygons.append((10, 0, merged_end_polygon(top, bot, seq)))
 
@@ -220,8 +232,8 @@ def build_end(cell, side, half_L, width, far):
     s2 = L2_START_OFFSET
     (_, xc, seq), = [f for f in far[(2, side)] if f[0] == 'cut']
     seq = shifted(seq, side, half_L)
-    top = [(X(s), um(l10_half(s) + L2_MARGIN)) for s in sample(s2, S)]
-    bot = [(X(s), -um(l10_half(s) + L2_MARGIN)) for s in sample(s2, S)]
+    top = [(X(s), um(l10_half(s) + L2_MARGIN)) for s in l10_stations(s2, S)]
+    bot = [(X(s), -um(l10_half(s) + L2_MARGIN)) for s in l10_stations(s2, S)]
     top[-1], bot[-1] = seq[0], seq[-1]
     cell.polygons.append((2, 0, merged_end_polygon(top, bot, seq)))
     report['layer2_start_width_um'] = 2 * (l10_half(s2) + L2_MARGIN)
@@ -230,8 +242,8 @@ def build_end(cell, side, half_L, width, far):
     s14, sj = L14_START_OFFSET, L14_LINEAR_START
     (_, xc, seq), = [f for f in far[(14, side)] if f[0] == 'cut']
     seq = shifted(seq, side, half_L)
-    top = [(X(s), um(l10_half(s) + L14_MARGIN)) for s in sample(s14, sj)] + [seq[0]]
-    bot = [(X(s), -um(l10_half(s) + L14_MARGIN)) for s in sample(s14, sj)] + [seq[-1]]
+    top = [(X(s), um(l10_half(s) + L14_MARGIN)) for s in l10_stations(s14, sj)] + [seq[0]]
+    bot = [(X(s), -um(l10_half(s) + L14_MARGIN)) for s in l10_stations(s14, sj)] + [seq[-1]]
     cell.polygons.append((14, 0, top[:-1] + seq + list(reversed(bot[:-1]))))
     report['layer14_start_width_um'] = 2 * (l10_half(s14) + L14_MARGIN)
     # safety: straight-sided L14 bridge must still cover L10 + margin
@@ -361,7 +373,9 @@ def main():
         wg_widths_um=list(WG_WIDTHS), straight_lengths_um=list(STRAIGHT_LENGTHS), device_sets=list(DEVICE_SETS),
         taper_profile='linear',
         layer15_taper=dict(start_width='waveguide width', end_width_um=L15_TIP_WIDTH, length_um=L15_TAPER_LENGTH),
-        layer10_taper=dict(start_width_um=L10_START_WIDTH, end_width_um=L10_TIP_WIDTH, length_um=L10_TAPER_LENGTH,
+        layer10_taper=dict(start_width_um=L10_START_WIDTH, mid_width_um=L10_MID_WIDTH,
+                           mid_position_um=L10_MID_POSITION, mid_offset_beyond_l15_tip_um=L10_MID_OFFSET,
+                           end_width_um=L10_TIP_WIDTH, length_um=L10_TAPER_LENGTH,
                            extra_length_beyond_l15_tip_um=L10_EXTRA_LENGTH),
         port_to_l10_entrance_um=PORT_TO_L10_ENTRANCE,
         layer2_margin_um=L2_MARGIN, layer2_start_offset_um=L2_START_OFFSET,
