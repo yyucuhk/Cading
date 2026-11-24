@@ -3,12 +3,14 @@ gds/2611_straight_coupler_L15000_output_comparison.gds (+ .json).
 
 Changes relative to that source layout
 --------------------------------------
-1. Waveguide (Layer 15) width fixed at 1.60 um.
-2. Device blocks (BLOCKS): 500 um straights with tapers at both ends ("2T",
-   adiabatic and linear side by side in one row per T), and 15000 um
-   straights with an input taper + 2000 um plain output ("1T").
-3. Layer-10 first-stage taper length sweep (15 -> 0.8 um): 40/50/60/70/80 um,
-   each built twice: "A" uses the source's adiabatic quintic smootherstep
+1. Device blocks (BLOCKS):
+   - 500 um straights with tapers at both ends ("2T"), W = 1.60 um,
+     L10 first-stage length T = 40/50/60/70/80 um; each row holds A, L and a
+     copy of each.
+   - 15000 um straights with an input taper + 2000 um plain output ("1T"),
+     T = 60 um, W = 1.590/1.595/1.600/1.605/1.610 um (0.5 nm centreline offset
+     where W/2 is a half nm, so the width is exact on the 1 nm grid).
+2. Both taper profiles everywhere: "A" uses the source's adiabatic quintic smootherstep
    profile (zero width slope at both ends of every stage), "L" straight-sided
    linear stages. Same widths and lengths for both:
    - Layer 10: 15 um -> 0.8 um over T, then 0.8 um -> 0.200 um over 58 um.
@@ -45,7 +47,7 @@ SOURCE_DEVICE = 'D1_SINGLE_L15000_W1620_2T'
 SOURCE_LABEL_CELLS = ('LABEL_D1_SINGLE_L15000_W1620_2T',
                       'LABEL_D1_SINGLE_L15000_W1640_1T_OUT2000',
                       'LABEL_D1_SINGLE_L15000_W1680_2T')
-STEM = '2611_straight_coupler_W160_T40-80_A-L_L500-2T_L15000-1T'
+STEM = '2611_straight_coupler_A-L_L500-2T-T40-80_L15000-1T-W1590-1610'
 OUTPUT = ROOT / 'gds' / (STEM + '.gds')
 
 # %% [01] USER PARAMETERS (um)
@@ -53,9 +55,15 @@ WG_WIDTH = 1.60                               # Layer 15 waveguide width (all de
 L10_STAGE1_LENGTHS = (40.0, 50.0, 60.0, 70.0, 80.0)   # 15 -> 0.8 um stage; bottom to top in each block
 PROFILES = {'A': 'smootherstep', 'L': 'linear'}   # label tag -> taper profile
 # Each block gives one row per taper length T; members are placed left to right.
-BLOCKS = (dict(mode='2T', align='left', members=((500.0, 'A'), (500.0, 'L'), (500.0, 'A'), (500.0, 'L'))),
-          dict(mode='1T', align='right', members=((15000.0, 'A'),)),
-          dict(mode='1T', align='right', members=((15000.0, 'L'),)))
+LONG_TAPER_T = 60.0                           # fixed L10 first-stage length for the long devices
+LONG_WIDTHS = (1.590, 1.595, 1.600, 1.605, 1.610)   # long-device waveguide width sweep
+# 'rows' lists (T, width) per row; 'label' says which parameter the label shows.
+BLOCKS = (dict(mode='2T', align='left', members=((500.0, 'A'), (500.0, 'L'), (500.0, 'A'), (500.0, 'L')),
+               rows=None, label='T'),                                       # rows: T sweep at WG_WIDTH
+          dict(mode='1T', align='right', members=((15000.0, 'A'),),
+               rows=tuple((LONG_TAPER_T, w) for w in LONG_WIDTHS), label='W'),
+          dict(mode='1T', align='right', members=((15000.0, 'L'),),
+               rows=tuple((LONG_TAPER_T, w) for w in LONG_WIDTHS), label='W'))
 STRAIGHT_LENGTHS = tuple(sorted({L for b in BLOCKS for L, _ in b['members']}))
 OUTPUT_EXTENSION_LENGTH = 2000.0              # 1T plain output beyond the output port
 PORT_TO_L10_ENTRANCE = 45.0                   # plain Layer-15 straight between port and taper start
@@ -379,14 +387,22 @@ def build_device(name, L, width, mode, far):
     xe = h + PORT_TO_L10_ENTRANCE
     xt = xe + L15_TAPER_LENGTH
     ss = stations(0.0, L15_TAPER_LENGTH, ())                       # outward from the entrance
-    left = [(um(-(xe + s)), -um(l15_half(s, width))) for s in reversed(ss)]   # tip -> entrance, bottom
-    left_top = [(um(-(xe + s)), um(l15_half(s, width))) for s in ss]          # entrance -> tip, top
+
+    def lo(s):   # bottom/top edges on the 1 nm grid with the exact total width
+        wn = int(round(2 * um(l15_half(s, width))))
+        return -(wn // 2)
+
+    def hi(s):
+        wn = int(round(2 * um(l15_half(s, width))))
+        return wn - wn // 2
+    left = [(um(-(xe + s)), lo(s)) for s in reversed(ss)]     # tip -> entrance, bottom
+    left_top = [(um(-(xe + s)), hi(s)) for s in ss]           # entrance -> tip, top
     if mode == '2T':
-        right = ([(um(xe + s), -um(l15_half(s, width))) for s in ss] +
-                 [(um(xe + s), um(l15_half(s, width))) for s in reversed(ss)])
+        right = ([(um(xe + s), lo(s)) for s in ss] +
+                 [(um(xe + s), hi(s)) for s in reversed(ss)])
     else:
         xo = h + OUTPUT_EXTENSION_LENGTH
-        right = [(um(xo), -um(width / 2)), (um(xo), um(width / 2))]
+        right = [(um(xo), lo(0.0)), (um(xo), hi(0.0))]
     cell.polygons.append((15, 0, left + right + left_top))
     rep = build_end(cell, -1, h, width, far)
     if mode == '2T':
@@ -685,9 +701,9 @@ def main():
     for block in BLOCKS:
         mode, align = block['mode'], block['align']
         if True:
-          for T in L10_STAGE1_LENGTHS:
+          for T, w in (block['rows'] or tuple((t, WG_WIDTH) for t in L10_STAGE1_LENGTHS)):
               set_taper(T)
-              w = WG_WIDTH
+              key = f'T{int(T)}' if block['label'] == 'T' else f'W{w:.3f}'
               y = FIRST_ROW_Y + row * ROW_PITCH
               built = []
               seen = {}
@@ -695,7 +711,7 @@ def main():
                   TAPER_PROFILE = PROFILES[tag]
                   seen[(L, tag)] = copy = seen.get((L, tag), 0) + 1
                   suffix = '' if copy == 1 else f'_{copy}'           # repeated members are copies
-                  case = f'SC_L{int(L)}_T{int(T)}_{tag}_{mode}{suffix}'
+                  case = f'SC_L{int(L)}_{key.replace(".", "")}_{tag}_{mode}{suffix}'
                   cell, rep = build_device(case, L, w, mode, far)
                   xs = [q[0] for _, _, pp in cell.polygons for q in pp]
                   built.append((L, case, cell, rep, min(xs) / DBU_PER_UM, max(xs) / DBU_PER_UM, tag, suffix))
@@ -707,7 +723,7 @@ def main():
                       movable[case] = dict(row_y=y, lo=lo, hi=hi, row=row, order=k_dev)
                   dev_x = round(x_left - lo, 3)
                   x_left += (hi - lo) + DEVICE_GAP
-                  text = f'L{int(L)}_T{int(T)}_{tag}_{mode}{suffix}'
+                  text = f'L{int(L)}_{key}_{tag}_{mode}{suffix}'
                   lab = Cell('LABEL_' + case)
                   tip_x = -(L / 2 + PORT_TO_L10_ENTRANCE + TICK_POSITION)
                   polys, lab_len = label_polygons(text, glyphs, 0.0, 0.0)
@@ -774,7 +790,9 @@ def main():
 
     params = dict(
         wg_width_um=WG_WIDTH, l10_stage1_lengths_um=list(L10_STAGE1_LENGTHS),
-        profiles=PROFILES, blocks=[dict(mode=b['mode'], align=b['align'],
+        long_device_taper_t_um=LONG_TAPER_T, long_device_widths_um=list(LONG_WIDTHS),
+        profiles=PROFILES, blocks=[dict(mode=b['mode'], align=b['align'], label=b['label'],
+                                         rows=[list(r) for r in b['rows']] if b['rows'] else 'T sweep',
                                          members=[[L, t] for L, t in b['members']]) for b in BLOCKS],
         layer15_taper=dict(start_width='waveguide width', end_width_um=L15_TIP_WIDTH,
                            length='stage-1 length - mid offset'),
