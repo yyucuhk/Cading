@@ -97,6 +97,8 @@ LABEL_TIP_X_OFFSET = 2.0                      # from the alignment tips, toward 
 LABEL_Y_OFFSET = 15.0                         # source used 10; raised to clear the wider L11 beams (to 13.1 um)
 LABEL_GAP = 0.5
 
+SMALL_MARKER_SQUARE = 25.0                    # the smaller corner cross is replaced by this square (um side)
+SMALL_MARKER_LAYER = (15, 0)
 ROW_PITCH = 580.0                             # = 2 EBL field pitches: every row sits identically in its field
 FIRST_ROW_Y = -700.0
 ROW_GROUPS = {'2T': ((500.0, 5000.0), (15000.0,)),   # lengths sharing one row, left to right
@@ -368,14 +370,32 @@ def build_frame(src_frame, y0, y1):
     src_hh = 2050.0
     c = Cell('FRAME_AND_MARKERS')
     c.polygons.append((0, 0, [(um(-hw), um(-hh)), (um(hw), um(-hh)), (um(hw), um(hh)), (um(-hw), um(hh))]))
-    n = 0
+    # group the source marker polygons into crosses around their centre squares
+    centres = [tuple(sum(q[k] for q in p) / len(p) for k in (0, 1))
+               for l, d, p in src_frame.polygons if l != 0 and len(p) == 8]
+    groups = {cen: [] for cen in centres}
     for l, d, p in src_frame.polygons:
         if l == 0:
             continue
-        ymid = sum(q[1] for q in p) / len(p)
-        dy = um(hh - src_hh) * (1 if ymid > 0 else -1)
-        c.polygons.append((l, d, [(x, y + dy) for x, y in p]))
-        n += 1
+        mx, my = (sum(q[k] for q in p) / len(p) for k in (0, 1))
+        cen = min(centres, key=lambda q: (q[0] - mx) ** 2 + (q[1] - my) ** 2)
+        groups[cen].append((l, d, p))
+    reach = {cen: max(max(abs(q[0] - cen[0]), abs(q[1] - cen[1])) for _, _, p in g for q in p)
+             for cen, g in groups.items()}
+    small = min(reach.values())
+    n = 0
+    for cen, g in groups.items():
+        dy = um(hh - src_hh) * (1 if cen[1] > 0 else -1)
+        if abs(reach[cen] - small) < 1 and SMALL_MARKER_SQUARE:
+            h = um(SMALL_MARKER_SQUARE / 2)
+            x0, y0_ = cen[0], cen[1] + dy
+            c.polygons.append((SMALL_MARKER_LAYER[0], SMALL_MARKER_LAYER[1],
+                               [(x0 - h, y0_ - h), (x0 + h, y0_ - h), (x0 + h, y0_ + h), (x0 - h, y0_ + h)]))
+            n += 1
+            continue
+        for l, d, p in g:
+            c.polygons.append((l, d, [(x, y + dy) for x, y in p]))
+            n += 1
     return c, (cx, cy), n
 
 
@@ -728,7 +748,7 @@ def main():
         row_pitch_um=ROW_PITCH, row_groups_um={k: [list(g) for g in v] for k, v in ROW_GROUPS.items()},
         device_gap_um=DEVICE_GAP,
         row_align=ROW_ALIGN, row_left_edge_x_um=ROW_LEFT_EDGE_X + sx, row_right_edge_x_um=ROW_RIGHT_EDGE_X + sx,
-        ebl_write_fields={k: v for k, v in ebl.items() if k != 'fields_xy'}, frame_bounds_um=[FRAME_X[0], y0, FRAME_X[1], y1],
+        ebl_write_fields={k: v for k, v in ebl.items() if k != 'fields_xy'}, frame_bounds_um=[FRAME_X[0] + sx, y0, FRAME_X[1] + sx, y1],
         moved_marker_polygon_count=nmark)
     manifest = dict(
         source_gds=str(SOURCE_GDS.relative_to(ROOT)),
