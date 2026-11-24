@@ -14,7 +14,7 @@ Changes relative to that source layout
    profile (zero width slope at both ends of every stage), "L" straight-sided
    linear stages. Same widths and lengths for both:
    - Layer 10: 15 um -> 0.8 um over T, then 0.8 um -> 0.200 um over 58 um.
-   - Layer 15: W -> 0.200 um, ending 2 um before the 0.8 um point (T - 2).
+   - Layer 15: W -> 0.200 um over T, ending at the L10 0.8 um point.
    - Layer-15 alignment tips at the 0.8 um point.
 4. Device labels are drawn on Layer 15 (source: Layer 2).
 5. Layer 10 now extends 2.0 um past the start of the Layer-2 window
@@ -78,7 +78,7 @@ L15_TIP_WIDTH = 0.200
 L10_START_WIDTH = 15.0
 L10_MID_WIDTH = 0.8                           # two stages: start -> 0.8 um -> tip
 L10_STAGE2_LENGTH = 58.0                      # 0.8 -> 0.2 um
-L10_MID_OFFSET = 2.0                          # 0.8 um point sits this far beyond the L15 tip
+L10_MID_OFFSET = 0.0                          # L15 0.2 um end sits at the L10 0.8 um point (and the tips)
 L10_TIP_WIDTH = 0.200
 L14_LINEAR_START_BEFORE_MID = 3.153           # straight-sided L14 bridge starts this far before the 0.8 um point
 
