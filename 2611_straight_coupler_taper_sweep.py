@@ -70,6 +70,10 @@ BLOCKS = (dict(mode='2T', align='left', members=((SHORT_LENGTH, 'A'), (SHORT_LEN
           dict(mode='1T', align='right', members=((15000.0, 'A'),),
                rows=tuple((LONG_TAPER_T, w) for w in LONG_WIDTHS), label='W', s_bend=False),
           dict(mode='1T', align='right', members=((15000.0, 'L'),),
+               rows=tuple((LONG_TAPER_T, w) for w in LONG_WIDTHS), label='W', s_bend=False),
+          dict(mode='1T', align='right', members=((15000.0, 'A'),), copy=2,        # duplicate long set
+               rows=tuple((LONG_TAPER_T, w) for w in LONG_WIDTHS), label='W', s_bend=False),
+          dict(mode='1T', align='right', members=((15000.0, 'L'),), copy=2,
                rows=tuple((LONG_TAPER_T, w) for w in LONG_WIDTHS), label='W', s_bend=False))
 STRAIGHT_LENGTHS = tuple(sorted({L for b in BLOCKS for L, _ in b['members']}))
 OUTPUT_EXTENSION_LENGTH = 2000.0              # 1T plain output beyond the output port
@@ -126,7 +130,10 @@ LABEL_RASTER = 0.02                           # grid used to thin the strokes (2
 SMALL_MARKER_SQUARE = 25.0                    # the smaller corner cross is replaced by this square (um side)
 SMALL_MARKER_LAYER = (15, 0)
 MARKER_X_INSET = 1000.0                       # every corner marker set moves this far toward the centre in x
-ROW_PITCH = 500.0                             # device row spacing in y
+ROW_PITCH = 300.0                             # device row spacing in y (glue circles 50 um apart)
+GLUE_CIRCLE_DIAMETER = 250.0                  # the source's 300 um Layer-2/14 glue circles are redrawn at this size
+SRC_GLUE_CIRCLE_R = 150.0
+SRC_GLUE_CIRCLE_X = (8075.0, 8575.0)          # |x| of the source circle centres (on the waveguide axis)
 FIRST_ROW_Y = -700.0
 DEVICE_GAP = 500.0                            # minimum edge-to-edge gap between devices in one row
 DEVICE_GAP_EBL_RANGE = 290.0                  # the 2nd device of a shared row may move right by up to this
@@ -296,9 +303,50 @@ def load_source():
                 far.setdefault((l, side), []).append(('cut',) + cut_far_piece(p, side))
             elif fully:
                 far.setdefault((l, side), []).append(('whole', None, p))
+    if GLUE_CIRCLE_DIAMETER != 2 * SRC_GLUE_CIRCLE_R:
+        resize_glue_circles(far)
     glyphs = extract_glyphs(lib)
     frame = lib.cells['FRAME_AND_MARKERS']
     return lib, far, glyphs, frame
+
+
+def resize_glue_circles(far):
+    """Remove the source circle arcs from the Layer-2/14 channel outlines (each arc is replaced by
+    the straight chord between its two channel junctions) and add separate circles of
+    GLUE_CIRCLE_DIAMETER at the same centres."""
+    r_old = um(SRC_GLUE_CIRCLE_R)
+    for (layer, side), items in far.items():
+        if layer not in (2, 14):
+            continue
+        centres = [(um(side * cx), 0) for cx in SRC_GLUE_CIRCLE_X]
+
+        def on_circle(q):
+            return any(abs(math.hypot(q[0] - c[0], q[1] - c[1]) - r_old) < 50 for c in centres)
+
+        def strip(pts, ring):
+            flags = [on_circle(q) for q in pts]
+            n = len(pts)
+            keep = []
+            for k in range(n):
+                if not flags[k]:
+                    keep.append(pts[k])
+                    continue
+                prev_on = flags[k - 1] if (ring or k > 0) else False
+                next_on = flags[(k + 1) % n] if (ring or k < n - 1) else False
+                if not (prev_on and next_on):          # run ends (channel junctions) stay
+                    keep.append(pts[k])
+            return keep
+        found = 0
+        for n_item, (kind, xc, poly) in enumerate(items):
+            before = len(poly)
+            new = strip(poly, ring=(kind == 'whole'))
+            found += before - len(new)
+            items[n_item] = (kind, xc, new)
+        assert found > 100, 'glue circle arcs not found on layer %d' % layer
+        r = um(GLUE_CIRCLE_DIAMETER / 2)
+        for c in centres:
+            items.append(('whole', None, [(round(c[0] + r * math.cos(2 * math.pi * k / 720)),
+                                           round(c[1] + r * math.sin(2 * math.pi * k / 720))) for k in range(720)]))
 
 
 def extract_glyphs(lib):
@@ -926,7 +974,7 @@ def main():
               seen = {}
               for L, tag in block['members']:
                   TAPER_PROFILE = PROFILES[tag]
-                  seen[(L, tag)] = copy = seen.get((L, tag), 0) + 1
+                  seen[(L, tag)] = copy = seen.get((L, tag), 0) + block.get('copy', 1)
                   suffix = '' if copy == 1 else f'_{copy}'           # repeated members are copies
                   case = f'SC_L{int(L)}_{key.replace(".", "")}_{tag}_{mode}{suffix}'
                   off = s_offset(L) if block.get('s_bend') else 0.0
