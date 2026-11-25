@@ -206,8 +206,6 @@
     },
     "far_assembly_shift_um": "l10_taper_length - 80 per end",
     "row_pitch_um": 300.0,
-    "device_gap_um": 500.0,
-    "row_left_edge_x_um": -6664.347,
     "row_right_edge_x_um": 12015.653,
     "ebl_write_fields": {
       "field_size_um": 300.0,
@@ -231,7 +229,7 @@
       "taper_zones_with_stitch": 1,
       "label_zones_with_stitch": 1,
       "min_stitch_to_taper_zone_um": -24.043,
-      "alternatives_before_gap_adjustment": {
+      "alternatives": {
         "fields": {
           "fields": 953,
           "taper_zones_with_stitch": 1,
@@ -250,8 +248,7 @@
             133.0
           ]
         }
-      },
-      "shared_row_gaps_um": {}
+      }
     },
     "frame_bounds_um": [
       -7126.5,

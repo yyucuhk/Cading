@@ -1,7 +1,6 @@
-"""Minimal pure-Python GDSII reader/writer (no klayout/gdstk available).
+"""Minimal pure-Python GDSII reader/writer (no klayout/gdstk needed).
 
-Supports BOUNDARY, PATH, BOX, TEXT, SREF, AREF; flattening with
-translation, rotation (any angle), x-reflection and magnification.
+Reads BOUNDARY, PATH, BOX, TEXT, SREF and AREF records; writes polygons, texts and SREFs.
 """
 from __future__ import annotations
 import math
@@ -131,46 +130,6 @@ class Library:
                 el = None
         return lib
 
-    def tops(self):
-        used = {r["name"] for c in self.cells.values() for r in c.refs}
-        return [n for n in self.order if n not in used]
-
-    # ------------------------------------------------------------- flatten
-    def flatten(self, name):
-        """Return (polys, texts) in DB units: polys=[(l,d,pts float)], texts=[(l,d,(x,y),s)]."""
-        polys, texts = [], []
-
-        def tf_make(xy, ang, mag, refl):
-            c, s = math.cos(math.radians(ang)), math.sin(math.radians(ang))
-
-            def f(p):
-                x, y = p
-                if refl:
-                    y = -y
-                x, y = x * mag, y * mag
-                return (c * x - s * y + xy[0], s * x + c * y + xy[1])
-            return f
-
-        def walk(cname, f):
-            cell = self.cells[cname]
-            for l, d, pts in cell.polygons:
-                polys.append((l, d, [f(p) for p in pts]))
-            for l, d, w, pt, pts in cell.paths:
-                for poly in path_to_polys(pts, w, pt):
-                    polys.append((l, d, [f(p) for p in poly]))
-            for l, d, xy, s, m in cell.texts:
-                texts.append((l, d, f(xy), s))
-            for r in cell.refs:
-                offs = [(0.0, 0.0)]
-                if r.get("pitch"):
-                    a, b, c2, d2 = r["pitch"]
-                    offs = [(i * a + j * c2, i * b + j * d2) for i in range(r["cols"]) for j in range(r["rows"])]
-                for ox, oy in offs:
-                    g = tf_make((r["xy"][0] + ox, r["xy"][1] + oy), r.get("angle", 0.0), r.get("mag", 1.0), r.get("reflect", False))
-                    walk(r["name"], (lambda gg: (lambda p: f(gg(p))))(g))
-        walk(name, lambda p: p)
-        return polys, texts
-
     # --------------------------------------------------------------- write
     def write(self, path, max_vertices=4000):
         out = bytearray()
@@ -263,27 +222,6 @@ def clip_halfplane(pts, xc, keep_left):
             t = (xc - a[0]) / (b[0] - a[0])
             out.append((xc, a[1] + t * (b[1] - a[1])))
     return out
-
-
-def path_to_polys(pts, w, pathtype):
-    hw = w / 2.0
-    polys = []
-    for (x0, y0), (x1, y1) in zip(pts[:-1], pts[1:]):
-        dx, dy = x1 - x0, y1 - y0
-        L = math.hypot(dx, dy) or 1
-        ux, uy = dx / L, dy / L
-        ext = hw if pathtype == 2 else 0
-        x0e, y0e, x1e, y1e = x0 - ux * ext, y0 - uy * ext, x1 + ux * ext, y1 + uy * ext
-        nx, ny = -uy * hw, ux * hw
-        polys.append([(x0e + nx, y0e + ny), (x1e + nx, y1e + ny), (x1e - nx, y1e - ny), (x0e - nx, y0e - ny)])
-    return polys
-
-
-def area(pts):
-    a = 0.0
-    for (x0, y0), (x1, y1) in zip(pts, pts[1:] + pts[:1]):
-        a += x0 * y1 - x1 * y0
-    return a / 2.0
 
 
 def bbox(pts):
