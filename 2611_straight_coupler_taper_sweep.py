@@ -4,8 +4,8 @@ gds/2611_straight_coupler_L15000_output_comparison.gds.
 Short devices: tapers at both ends, an S-bend of SHORT_PATH_LENGTH path, L10 first-stage
 length T swept; columns SHORT_COLUMN_PITCH apart, each device kept to two EBL fields if possible.
 Long devices: 15 mm with an input taper and a 2 mm plain output, waveguide width swept.
-Tapers (A = quintic smootherstep, L = linear): L10 15 -> 0.8 um over T, then -> 0.2 um over
-58 um; L15 W -> 0.2 um over T, ending at the L10 0.8 um point and the alignment tips.
+Tapers (A = quintic smootherstep, L = linear): L10 9 -> 1.2 um over T, then -> 0.2 um over
+58 um; L15 W -> 0.2 um over T, ending at the L10 1.2 um point and the alignment tips.
 Everything outward of the L10 neck (tether, L2/L14 channels, glue circles, L13 pad) is copied
 from the source device. Labels are on L15. The whole mask is shifted on the EBL field grid.
 One run writes every layout in VARIANTS. Needs only the bundled gdsio_min.py.
@@ -33,7 +33,7 @@ OUTPUT = ROOT / 'gds' / (STEM + '.gds')
 
 # %% [01] USER PARAMETERS (um)
 WG_WIDTH = 1.60                               # Layer 15 waveguide width (all devices)
-L10_STAGE1_LENGTHS = (40.0, 50.0, 60.0, 70.0, 80.0)   # 15 -> 0.8 um stage; bottom to top in each block
+L10_STAGE1_LENGTHS = (40.0, 50.0, 60.0, 70.0, 80.0)   # 9 -> 1.2 um stage; bottom to top in each block
 PROFILES = {'A': 'smootherstep', 'L': 'linear'}   # label tag -> taper profile
 LONG_TAPER_T = 60.0                           # fixed L10 first-stage length for the long devices
 LONG_WIDTHS = (1.590, 1.595, 1.600, 1.605, 1.610)   # long-device waveguide width sweep
@@ -59,12 +59,12 @@ TAPER_PROFILE = 'smootherstep'                # set per device from PROFILES
 TAPER_SAMPLE_STEP = 0.25                      # vertex spacing along curved tapers
 
 L15_TIP_WIDTH = 0.200
-L10_START_WIDTH = 15.0
-L10_MID_WIDTH = 0.8                           # two stages: start -> 0.8 um -> tip
-L10_STAGE2_LENGTH = 58.0                      # 0.8 -> 0.2 um
-L10_MID_OFFSET = 0.0                          # L15 0.2 um end sits at the L10 0.8 um point (and the tips)
+L10_START_WIDTH = 9.0
+L10_MID_WIDTH = 1.2                           # two stages: start -> 1.2 um -> tip
+L10_STAGE2_LENGTH = 58.0                      # 1.2 -> 0.2 um
+L10_MID_OFFSET = 0.0                          # L15 0.2 um end sits at the L10 1.2 um point (and the tips)
 L10_TIP_WIDTH = 0.200
-L14_LINEAR_START_BEFORE_MID = 3.153           # straight-sided L14 bridge starts this far before the 0.8 um point
+L14_LINEAR_START_BEFORE_MID = 3.153           # straight-sided L14 bridge starts this far before the 1.2 um point
 
 # Per-device taper geometry, set by set_taper(T) before each device is built
 L10_MID_POSITION = L10_TAPER_LENGTH = L15_TAPER_LENGTH = TICK_POSITION = L14_LINEAR_START = None
@@ -75,7 +75,7 @@ def set_taper(stage1_length):
     L10_MID_POSITION = stage1_length
     L10_TAPER_LENGTH = stage1_length + L10_STAGE2_LENGTH
     L15_TAPER_LENGTH = stage1_length - L10_MID_OFFSET
-    TICK_POSITION = L10_MID_POSITION          # alignment tips mark the L10 0.8 um point
+    TICK_POSITION = L10_MID_POSITION          # alignment tips mark the L10 1.2 um point
     L14_LINEAR_START = L10_MID_POSITION - L14_LINEAR_START_BEFORE_MID
 
 L2_MARGIN = 3.0                               # per side around Layer 10 (source: 2.5)

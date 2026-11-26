@@ -3,7 +3,7 @@
   "source_gds_sha256": "17fc0ade4016c57f51874e486d0b319241d6c507fed9511c9765a1084503bb3c",
   "source_device_copied_for_far_assemblies": "D1_SINGLE_L15000_W1620_2T",
   "gds": "gds/2611_straight_coupler_A-L_L200-2T-T40-80_L15000-1T-W1590-1610.gds",
-  "gds_sha256": "56d42d817794675a1e5bc11835fd22424661180c95bd044aeedbb2074d461255",
+  "gds_sha256": "13a60d1df62ca2514bbc5362c3313c001109607ff8bac3f72fd5213aadea9f4a",
   "top_cell": "STRAIGHT_COUPLER_ADIABATIC_TAPER_SWEEP",
   "device_count": 35,
   "parameters": {
@@ -158,8 +158,8 @@
       "length": "stage-1 length - mid offset"
     },
     "layer10_taper": {
-      "start_width_um": 15.0,
-      "mid_width_um": 0.8,
+      "start_width_um": 9.0,
+      "mid_width_um": 1.2,
       "stage1_length": "swept",
       "stage2_length_um": 58.0,
       "mid_offset_beyond_l15_tip_um": 0.0,
@@ -314,9 +314,9 @@
       "alignment_tip_local_x_um": -181.07009300921533,
       "l10_tip_local_x_um": -239.0701,
       "layer2_neck_extension_um": 22.6,
-      "layer2_start_width_um": 20.9836,
-      "layer14_start_width_um": 17.0,
-      "tick_inner_y_um": 2.4,
+      "layer2_start_width_um": 14.991,
+      "layer14_start_width_um": 11.0,
+      "tick_inner_y_um": 2.6,
       "s_bend_theta_deg": 20.0,
       "s_bend_tilted_straight_um": 95.2802,
       "s_bend_path_length_um": 200.0
@@ -376,9 +376,9 @@
       "alignment_tip_local_x_um": -181.07009300921533,
       "l10_tip_local_x_um": -239.0701,
       "layer2_neck_extension_um": 22.6,
-      "layer2_start_width_um": 20.29,
-      "layer14_start_width_um": 17.0,
-      "tick_inner_y_um": 2.4,
+      "layer2_start_width_um": 14.61,
+      "layer14_start_width_um": 11.0,
+      "tick_inner_y_um": 2.6,
       "s_bend_theta_deg": 20.0,
       "s_bend_tilted_straight_um": 95.2802,
       "s_bend_path_length_um": 200.0
@@ -438,9 +438,9 @@
       "alignment_tip_local_x_um": -181.07009300921533,
       "l10_tip_local_x_um": -239.0701,
       "layer2_neck_extension_um": 22.6,
-      "layer2_start_width_um": 20.9836,
-      "layer14_start_width_um": 17.0,
-      "tick_inner_y_um": 2.4,
+      "layer2_start_width_um": 14.991,
+      "layer14_start_width_um": 11.0,
+      "tick_inner_y_um": 2.6,
       "s_bend_theta_deg": 20.0,
       "s_bend_tilted_straight_um": 95.2802,
       "s_bend_path_length_um": 200.0
@@ -500,9 +500,9 @@
       "alignment_tip_local_x_um": -181.07009300921533,
       "l10_tip_local_x_um": -239.0701,
       "layer2_neck_extension_um": 22.6,
-      "layer2_start_width_um": 20.29,
-      "layer14_start_width_um": 17.0,
-      "tick_inner_y_um": 2.4,
+      "layer2_start_width_um": 14.61,
+      "layer14_start_width_um": 11.0,
+      "tick_inner_y_um": 2.6,
       "s_bend_theta_deg": 20.0,
       "s_bend_tilted_straight_um": 95.2802,
       "s_bend_path_length_um": 200.0
@@ -562,9 +562,9 @@
       "alignment_tip_local_x_um": -191.07009300921533,
       "l10_tip_local_x_um": -249.0701,
       "layer2_neck_extension_um": 22.6,
-      "layer2_start_width_um": 20.9914,
-      "layer14_start_width_um": 17.0,
-      "tick_inner_y_um": 2.4,
+      "layer2_start_width_um": 14.9953,
+      "layer14_start_width_um": 11.0,
+      "tick_inner_y_um": 2.6,
       "s_bend_theta_deg": 20.0,
       "s_bend_tilted_straight_um": 95.2802,
       "s_bend_path_length_um": 200.0
@@ -624,9 +624,9 @@
       "alignment_tip_local_x_um": -191.07009300921533,
       "l10_tip_local_x_um": -249.0701,
       "layer2_neck_extension_um": 22.6,
-      "layer2_start_width_um": 20.432,
-      "layer14_start_width_um": 17.0,
-      "tick_inner_y_um": 2.4,
+      "layer2_start_width_um": 14.688,
+      "layer14_start_width_um": 11.0,
+      "tick_inner_y_um": 2.6,
       "s_bend_theta_deg": 20.0,
       "s_bend_tilted_straight_um": 95.2802,
       "s_bend_path_length_um": 200.0
@@ -686,9 +686,9 @@
       "alignment_tip_local_x_um": -191.07009300921533,
       "l10_tip_local_x_um": -249.0701,
       "layer2_neck_extension_um": 22.6,
-      "layer2_start_width_um": 20.9914,
-      "layer14_start_width_um": 17.0,
-      "tick_inner_y_um": 2.4,
+      "layer2_start_width_um": 14.9953,
+      "layer14_start_width_um": 11.0,
+      "tick_inner_y_um": 2.6,
       "s_bend_theta_deg": 20.0,
       "s_bend_tilted_straight_um": 95.2802,
       "s_bend_path_length_um": 200.0
@@ -748,9 +748,9 @@
       "alignment_tip_local_x_um": -191.07009300921533,
       "l10_tip_local_x_um": -249.0701,
       "layer2_neck_extension_um": 22.6,
-      "layer2_start_width_um": 20.432,
-      "layer14_start_width_um": 17.0,
-      "tick_inner_y_um": 2.4,
+      "layer2_start_width_um": 14.688,
+      "layer14_start_width_um": 11.0,
+      "tick_inner_y_um": 2.6,
       "s_bend_theta_deg": 20.0,
       "s_bend_tilted_straight_um": 95.2802,
       "s_bend_path_length_um": 200.0
@@ -810,9 +810,9 @@
       "alignment_tip_local_x_um": -201.07009300921533,
       "l10_tip_local_x_um": -259.0701,
       "layer2_neck_extension_um": 22.6,
-      "layer2_start_width_um": 20.995,
-      "layer14_start_width_um": 17.0,
-      "tick_inner_y_um": 2.4,
+      "layer2_start_width_um": 14.9973,
+      "layer14_start_width_um": 11.0,
+      "tick_inner_y_um": 2.6,
       "s_bend_theta_deg": 20.0,
       "s_bend_tilted_straight_um": 95.2802,
       "s_bend_path_length_um": 200.0
@@ -872,9 +872,9 @@
       "alignment_tip_local_x_um": -201.07009300921533,
       "l10_tip_local_x_um": -259.0701,
       "layer2_neck_extension_um": 22.6,
-      "layer2_start_width_um": 20.5267,
-      "layer14_start_width_um": 17.0,
-      "tick_inner_y_um": 2.4,
+      "layer2_start_width_um": 14.74,
+      "layer14_start_width_um": 11.0,
+      "tick_inner_y_um": 2.6,
       "s_bend_theta_deg": 20.0,
       "s_bend_tilted_straight_um": 95.2802,
       "s_bend_path_length_um": 200.0
@@ -934,9 +934,9 @@
       "alignment_tip_local_x_um": -201.07009300921533,
       "l10_tip_local_x_um": -259.0701,
       "layer2_neck_extension_um": 22.6,
-      "layer2_start_width_um": 20.995,
-      "layer14_start_width_um": 17.0,
-      "tick_inner_y_um": 2.4,
+      "layer2_start_width_um": 14.9973,
+      "layer14_start_width_um": 11.0,
+      "tick_inner_y_um": 2.6,
       "s_bend_theta_deg": 20.0,
       "s_bend_tilted_straight_um": 95.2802,
       "s_bend_path_length_um": 200.0
@@ -996,9 +996,9 @@
       "alignment_tip_local_x_um": -201.07009300921533,
       "l10_tip_local_x_um": -259.0701,
       "layer2_neck_extension_um": 22.6,
-      "layer2_start_width_um": 20.5267,
-      "layer14_start_width_um": 17.0,
-      "tick_inner_y_um": 2.4,
+      "layer2_start_width_um": 14.74,
+      "layer14_start_width_um": 11.0,
+      "tick_inner_y_um": 2.6,
       "s_bend_theta_deg": 20.0,
       "s_bend_tilted_straight_um": 95.2802,
       "s_bend_path_length_um": 200.0
@@ -1058,9 +1058,9 @@
       "alignment_tip_local_x_um": -211.07009300921533,
       "l10_tip_local_x_um": -269.0701,
       "layer2_neck_extension_um": 22.6,
-      "layer2_start_width_um": 20.9968,
-      "layer14_start_width_um": 17.0,
-      "tick_inner_y_um": 2.4,
+      "layer2_start_width_um": 14.9983,
+      "layer14_start_width_um": 11.0,
+      "tick_inner_y_um": 2.6,
       "s_bend_theta_deg": 20.0,
       "s_bend_tilted_straight_um": 95.2802,
       "s_bend_path_length_um": 200.0
@@ -1120,9 +1120,9 @@
       "alignment_tip_local_x_um": -211.07009300921533,
       "l10_tip_local_x_um": -269.0701,
       "layer2_neck_extension_um": 22.6,
-      "layer2_start_width_um": 20.5943,
-      "layer14_start_width_um": 17.0,
-      "tick_inner_y_um": 2.4,
+      "layer2_start_width_um": 14.7771,
+      "layer14_start_width_um": 11.0,
+      "tick_inner_y_um": 2.6,
       "s_bend_theta_deg": 20.0,
       "s_bend_tilted_straight_um": 95.2802,
       "s_bend_path_length_um": 200.0
@@ -1182,9 +1182,9 @@
       "alignment_tip_local_x_um": -211.07009300921533,
       "l10_tip_local_x_um": -269.0701,
       "layer2_neck_extension_um": 22.6,
-      "layer2_start_width_um": 20.9968,
-      "layer14_start_width_um": 17.0,
-      "tick_inner_y_um": 2.4,
+      "layer2_start_width_um": 14.9983,
+      "layer14_start_width_um": 11.0,
+      "tick_inner_y_um": 2.6,
       "s_bend_theta_deg": 20.0,
       "s_bend_tilted_straight_um": 95.2802,
       "s_bend_path_length_um": 200.0
@@ -1244,9 +1244,9 @@
       "alignment_tip_local_x_um": -211.07009300921533,
       "l10_tip_local_x_um": -269.0701,
       "layer2_neck_extension_um": 22.6,
-      "layer2_start_width_um": 20.5943,
-      "layer14_start_width_um": 17.0,
-      "tick_inner_y_um": 2.4,
+      "layer2_start_width_um": 14.7771,
+      "layer14_start_width_um": 11.0,
+      "tick_inner_y_um": 2.6,
       "s_bend_theta_deg": 20.0,
       "s_bend_tilted_straight_um": 95.2802,
       "s_bend_path_length_um": 200.0
@@ -1306,9 +1306,9 @@
       "alignment_tip_local_x_um": -221.07009300921533,
       "l10_tip_local_x_um": -279.0701,
       "layer2_neck_extension_um": 22.6,
-      "layer2_start_width_um": 20.9979,
-      "layer14_start_width_um": 17.0,
-      "tick_inner_y_um": 2.4,
+      "layer2_start_width_um": 14.9988,
+      "layer14_start_width_um": 11.0,
+      "tick_inner_y_um": 2.6,
       "s_bend_theta_deg": 20.0,
       "s_bend_tilted_straight_um": 95.2802,
       "s_bend_path_length_um": 200.0
@@ -1368,9 +1368,9 @@
       "alignment_tip_local_x_um": -221.07009300921533,
       "l10_tip_local_x_um": -279.0701,
       "layer2_neck_extension_um": 22.6,
-      "layer2_start_width_um": 20.645,
-      "layer14_start_width_um": 17.0,
-      "tick_inner_y_um": 2.4,
+      "layer2_start_width_um": 14.805,
+      "layer14_start_width_um": 11.0,
+      "tick_inner_y_um": 2.6,
       "s_bend_theta_deg": 20.0,
       "s_bend_tilted_straight_um": 95.2802,
       "s_bend_path_length_um": 200.0
@@ -1430,9 +1430,9 @@
       "alignment_tip_local_x_um": -221.07009300921533,
       "l10_tip_local_x_um": -279.0701,
       "layer2_neck_extension_um": 22.6,
-      "layer2_start_width_um": 20.9979,
-      "layer14_start_width_um": 17.0,
-      "tick_inner_y_um": 2.4,
+      "layer2_start_width_um": 14.9988,
+      "layer14_start_width_um": 11.0,
+      "tick_inner_y_um": 2.6,
       "s_bend_theta_deg": 20.0,
       "s_bend_tilted_straight_um": 95.2802,
       "s_bend_path_length_um": 200.0
@@ -1492,9 +1492,9 @@
       "alignment_tip_local_x_um": -221.07009300921533,
       "l10_tip_local_x_um": -279.0701,
       "layer2_neck_extension_um": 22.6,
-      "layer2_start_width_um": 20.645,
-      "layer14_start_width_um": 17.0,
-      "tick_inner_y_um": 2.4,
+      "layer2_start_width_um": 14.805,
+      "layer14_start_width_um": 11.0,
+      "tick_inner_y_um": 2.6,
       "s_bend_theta_deg": 20.0,
       "s_bend_tilted_straight_um": 95.2802,
       "s_bend_path_length_um": 200.0
@@ -1550,9 +1550,9 @@
       "alignment_tip_local_x_um": -7605.0,
       "l10_tip_local_x_um": -7663.0,
       "layer2_neck_extension_um": 22.6,
-      "layer2_start_width_um": 20.995,
-      "layer14_start_width_um": 17.0,
-      "tick_inner_y_um": 2.4
+      "layer2_start_width_um": 14.9973,
+      "layer14_start_width_um": 11.0,
+      "tick_inner_y_um": 2.6
     },
     {
       "case_id": "SC_L15000_W1595_A_1T",
@@ -1605,9 +1605,9 @@
       "alignment_tip_local_x_um": -7605.0,
       "l10_tip_local_x_um": -7663.0,
       "layer2_neck_extension_um": 22.6,
-      "layer2_start_width_um": 20.995,
-      "layer14_start_width_um": 17.0,
-      "tick_inner_y_um": 2.4
+      "layer2_start_width_um": 14.9973,
+      "layer14_start_width_um": 11.0,
+      "tick_inner_y_um": 2.6
     },
     {
       "case_id": "SC_L15000_W1600_A_1T",
@@ -1660,9 +1660,9 @@
       "alignment_tip_local_x_um": -7605.0,
       "l10_tip_local_x_um": -7663.0,
       "layer2_neck_extension_um": 22.6,
-      "layer2_start_width_um": 20.995,
-      "layer14_start_width_um": 17.0,
-      "tick_inner_y_um": 2.4
+      "layer2_start_width_um": 14.9973,
+      "layer14_start_width_um": 11.0,
+      "tick_inner_y_um": 2.6
     },
     {
       "case_id": "SC_L15000_W1605_A_1T",
@@ -1715,9 +1715,9 @@
       "alignment_tip_local_x_um": -7605.0,
       "l10_tip_local_x_um": -7663.0,
       "layer2_neck_extension_um": 22.6,
-      "layer2_start_width_um": 20.995,
-      "layer14_start_width_um": 17.0,
-      "tick_inner_y_um": 2.4
+      "layer2_start_width_um": 14.9973,
+      "layer14_start_width_um": 11.0,
+      "tick_inner_y_um": 2.6
     },
     {
       "case_id": "SC_L15000_W1610_A_1T",
@@ -1770,9 +1770,9 @@
       "alignment_tip_local_x_um": -7605.0,
       "l10_tip_local_x_um": -7663.0,
       "layer2_neck_extension_um": 22.6,
-      "layer2_start_width_um": 20.995,
-      "layer14_start_width_um": 17.0,
-      "tick_inner_y_um": 2.4
+      "layer2_start_width_um": 14.9973,
+      "layer14_start_width_um": 11.0,
+      "tick_inner_y_um": 2.6
     },
     {
       "case_id": "SC_L15000_W1590_L_1T",
@@ -1825,9 +1825,9 @@
       "alignment_tip_local_x_um": -7605.0,
       "l10_tip_local_x_um": -7663.0,
       "layer2_neck_extension_um": 22.6,
-      "layer2_start_width_um": 20.5267,
-      "layer14_start_width_um": 17.0,
-      "tick_inner_y_um": 2.4
+      "layer2_start_width_um": 14.74,
+      "layer14_start_width_um": 11.0,
+      "tick_inner_y_um": 2.6
     },
     {
       "case_id": "SC_L15000_W1595_L_1T",
@@ -1880,9 +1880,9 @@
       "alignment_tip_local_x_um": -7605.0,
       "l10_tip_local_x_um": -7663.0,
       "layer2_neck_extension_um": 22.6,
-      "layer2_start_width_um": 20.5267,
-      "layer14_start_width_um": 17.0,
-      "tick_inner_y_um": 2.4
+      "layer2_start_width_um": 14.74,
+      "layer14_start_width_um": 11.0,
+      "tick_inner_y_um": 2.6
     },
     {
       "case_id": "SC_L15000_W1600_L_1T",
@@ -1935,9 +1935,9 @@
       "alignment_tip_local_x_um": -7605.0,
       "l10_tip_local_x_um": -7663.0,
       "layer2_neck_extension_um": 22.6,
-      "layer2_start_width_um": 20.5267,
-      "layer14_start_width_um": 17.0,
-      "tick_inner_y_um": 2.4
+      "layer2_start_width_um": 14.74,
+      "layer14_start_width_um": 11.0,
+      "tick_inner_y_um": 2.6
     },
     {
       "case_id": "SC_L15000_W1605_L_1T",
@@ -1990,9 +1990,9 @@
       "alignment_tip_local_x_um": -7605.0,
       "l10_tip_local_x_um": -7663.0,
       "layer2_neck_extension_um": 22.6,
-      "layer2_start_width_um": 20.5267,
-      "layer14_start_width_um": 17.0,
-      "tick_inner_y_um": 2.4
+      "layer2_start_width_um": 14.74,
+      "layer14_start_width_um": 11.0,
+      "tick_inner_y_um": 2.6
     },
     {
       "case_id": "SC_L15000_W1610_L_1T",
@@ -2045,9 +2045,9 @@
       "alignment_tip_local_x_um": -7605.0,
       "l10_tip_local_x_um": -7663.0,
       "layer2_neck_extension_um": 22.6,
-      "layer2_start_width_um": 20.5267,
-      "layer14_start_width_um": 17.0,
-      "tick_inner_y_um": 2.4
+      "layer2_start_width_um": 14.74,
+      "layer14_start_width_um": 11.0,
+      "tick_inner_y_um": 2.6
     },
     {
       "case_id": "SC_L15000_W1590_A_1T_2",
@@ -2100,9 +2100,9 @@
       "alignment_tip_local_x_um": -7605.0,
       "l10_tip_local_x_um": -7663.0,
       "layer2_neck_extension_um": 22.6,
-      "layer2_start_width_um": 20.995,
-      "layer14_start_width_um": 17.0,
-      "tick_inner_y_um": 2.4
+      "layer2_start_width_um": 14.9973,
+      "layer14_start_width_um": 11.0,
+      "tick_inner_y_um": 2.6
     },
     {
       "case_id": "SC_L15000_W1595_A_1T_2",
@@ -2155,9 +2155,9 @@
       "alignment_tip_local_x_um": -7605.0,
       "l10_tip_local_x_um": -7663.0,
       "layer2_neck_extension_um": 22.6,
-      "layer2_start_width_um": 20.995,
-      "layer14_start_width_um": 17.0,
-      "tick_inner_y_um": 2.4
+      "layer2_start_width_um": 14.9973,
+      "layer14_start_width_um": 11.0,
+      "tick_inner_y_um": 2.6
     },
     {
       "case_id": "SC_L15000_W1600_A_1T_2",
@@ -2210,9 +2210,9 @@
       "alignment_tip_local_x_um": -7605.0,
       "l10_tip_local_x_um": -7663.0,
       "layer2_neck_extension_um": 22.6,
-      "layer2_start_width_um": 20.995,
-      "layer14_start_width_um": 17.0,
-      "tick_inner_y_um": 2.4
+      "layer2_start_width_um": 14.9973,
+      "layer14_start_width_um": 11.0,
+      "tick_inner_y_um": 2.6
     },
     {
       "case_id": "SC_L15000_W1605_A_1T_2",
@@ -2265,9 +2265,9 @@
       "alignment_tip_local_x_um": -7605.0,
       "l10_tip_local_x_um": -7663.0,
       "layer2_neck_extension_um": 22.6,
-      "layer2_start_width_um": 20.995,
-      "layer14_start_width_um": 17.0,
-      "tick_inner_y_um": 2.4
+      "layer2_start_width_um": 14.9973,
+      "layer14_start_width_um": 11.0,
+      "tick_inner_y_um": 2.6
     },
     {
       "case_id": "SC_L15000_W1610_A_1T_2",
@@ -2320,9 +2320,9 @@
       "alignment_tip_local_x_um": -7605.0,
       "l10_tip_local_x_um": -7663.0,
       "layer2_neck_extension_um": 22.6,
-      "layer2_start_width_um": 20.995,
-      "layer14_start_width_um": 17.0,
-      "tick_inner_y_um": 2.4
+      "layer2_start_width_um": 14.9973,
+      "layer14_start_width_um": 11.0,
+      "tick_inner_y_um": 2.6
     }
   ],
   "optical_or_mechanical_simulation_performed": false
