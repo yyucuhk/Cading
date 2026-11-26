@@ -5,7 +5,7 @@ Short devices: tapers at both ends, an S-bend of SHORT_PATH_LENGTH path, L10 fir
 length T swept; columns SHORT_COLUMN_PITCH apart, each device kept to two EBL fields if possible.
 Long devices: 15 mm with an input taper and a 2 mm plain output, waveguide width swept.
 Tapers (A = quintic smootherstep, L = linear): L10 9 -> 1.2 um over T, then -> 0.2 um over
-58 um; L15 W -> 0.2 um over T, ending at the L10 1.2 um point and the alignment tips.
+50 um; L15 W -> 0.2 um over T, ending at the L10 1.2 um point and the alignment tips.
 Everything outward of the L10 neck (tether, L2/L14 channels, glue circles, L13 pad) is copied
 from the source device. Labels are on L15. The whole mask is shifted on the EBL field grid.
 One run writes every layout in VARIANTS. Needs only the bundled gdsio_min.py.
@@ -61,7 +61,7 @@ TAPER_SAMPLE_STEP = 0.25                      # vertex spacing along curved tape
 L15_TIP_WIDTH = 0.200
 L10_START_WIDTH = 9.0
 L10_MID_WIDTH = 1.2                           # two stages: start -> 1.2 um -> tip
-L10_STAGE2_LENGTH = 58.0                      # 1.2 -> 0.2 um
+L10_STAGE2_LENGTH = 50.0                      # 1.2 -> 0.2 um
 L10_MID_OFFSET = 0.0                          # L15 0.2 um end sits at the L10 1.2 um point (and the tips)
 L10_TIP_WIDTH = 0.200
 L14_LINEAR_START_BEFORE_MID = 3.153           # straight-sided L14 bridge starts this far before the 1.2 um point

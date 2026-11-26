@@ -3,7 +3,7 @@
   "source_gds_sha256": "17fc0ade4016c57f51874e486d0b319241d6c507fed9511c9765a1084503bb3c",
   "source_device_copied_for_far_assemblies": "D1_SINGLE_L15000_W1620_2T",
   "gds": "gds/2611_straight_coupler_A-L_L200-2T-T40-80_L15000-1T-W1590-1610_pitch500.gds",
-  "gds_sha256": "5f33fcfdee38ca7e57d491f9dd5503833ac28aeb1802f841d8aaa6d738b6fef6",
+  "gds_sha256": "5d945eb2765e6ac5545f02fac119b67b5c38e44775b7f2adfafba0f17057c035",
   "top_cell": "STRAIGHT_COUPLER_ADIABATIC_TAPER_SWEEP",
   "device_count": 30,
   "parameters": {
@@ -128,7 +128,7 @@
       "start_width_um": 9.0,
       "mid_width_um": 1.2,
       "stage1_length": "swept",
-      "stage2_length_um": 58.0,
+      "stage2_length_um": 50.0,
       "mid_offset_beyond_l15_tip_um": 0.0,
       "end_width_um": 0.2
     },
@@ -239,7 +239,7 @@
       ],
       "width_um": 1.6,
       "l10_stage1_length_um": 40.0,
-      "l10_taper_length_um": 98.0,
+      "l10_taper_length_um": 90.0,
       "l15_taper_length_um": 40.0,
       "alignment_tip_position_um": 40.0,
       "layer14_linear_start_distance_um": 36.847,
@@ -260,8 +260,8 @@
       "row_index": 0,
       "row_align": "left",
       "global_x_extent_um": [
-        -6662.347,
-        -3154.207
+        -6654.347,
+        -3162.207
       ],
       "label_origin_um": [
         -5087.347,
@@ -279,7 +279,7 @@
       "l10_entrance_local_x_um": -141.0701,
       "l15_tip_local_x_um": -181.0701,
       "alignment_tip_local_x_um": -181.07009300921533,
-      "l10_tip_local_x_um": -239.0701,
+      "l10_tip_local_x_um": -231.0701,
       "layer2_neck_extension_um": 22.6,
       "layer2_start_width_um": 14.991,
       "layer14_start_width_um": 11.0,
@@ -301,7 +301,7 @@
       ],
       "width_um": 1.6,
       "l10_stage1_length_um": 40.0,
-      "l10_taper_length_um": 98.0,
+      "l10_taper_length_um": 90.0,
       "l15_taper_length_um": 40.0,
       "alignment_tip_position_um": 40.0,
       "layer14_linear_start_distance_um": 36.847,
@@ -322,8 +322,8 @@
       "row_index": 0,
       "row_align": "left",
       "global_x_extent_um": [
-        -1862.347,
-        1645.793
+        -1854.347,
+        1637.793
       ],
       "label_origin_um": [
         -287.347,
@@ -341,7 +341,7 @@
       "l10_entrance_local_x_um": -141.0701,
       "l15_tip_local_x_um": -181.0701,
       "alignment_tip_local_x_um": -181.07009300921533,
-      "l10_tip_local_x_um": -239.0701,
+      "l10_tip_local_x_um": -231.0701,
       "layer2_neck_extension_um": 22.6,
       "layer2_start_width_um": 14.61,
       "layer14_start_width_um": 11.0,
@@ -363,7 +363,7 @@
       ],
       "width_um": 1.6,
       "l10_stage1_length_um": 40.0,
-      "l10_taper_length_um": 98.0,
+      "l10_taper_length_um": 90.0,
       "l15_taper_length_um": 40.0,
       "alignment_tip_position_um": 40.0,
       "layer14_linear_start_distance_um": 36.847,
@@ -384,8 +384,8 @@
       "row_index": 0,
       "row_align": "left",
       "global_x_extent_um": [
-        2937.653,
-        6445.793
+        2945.653,
+        6437.793
       ],
       "label_origin_um": [
         4512.653,
@@ -403,7 +403,7 @@
       "l10_entrance_local_x_um": -141.0701,
       "l15_tip_local_x_um": -181.0701,
       "alignment_tip_local_x_um": -181.07009300921533,
-      "l10_tip_local_x_um": -239.0701,
+      "l10_tip_local_x_um": -231.0701,
       "layer2_neck_extension_um": 22.6,
       "layer2_start_width_um": 14.991,
       "layer14_start_width_um": 11.0,
@@ -425,7 +425,7 @@
       ],
       "width_um": 1.6,
       "l10_stage1_length_um": 40.0,
-      "l10_taper_length_um": 98.0,
+      "l10_taper_length_um": 90.0,
       "l15_taper_length_um": 40.0,
       "alignment_tip_position_um": 40.0,
       "layer14_linear_start_distance_um": 36.847,
@@ -446,8 +446,8 @@
       "row_index": 0,
       "row_align": "left",
       "global_x_extent_um": [
-        7737.653,
-        11245.793
+        7745.653,
+        11237.793
       ],
       "label_origin_um": [
         9312.653,
@@ -465,7 +465,7 @@
       "l10_entrance_local_x_um": -141.0701,
       "l15_tip_local_x_um": -181.0701,
       "alignment_tip_local_x_um": -181.07009300921533,
-      "l10_tip_local_x_um": -239.0701,
+      "l10_tip_local_x_um": -231.0701,
       "layer2_neck_extension_um": 22.6,
       "layer2_start_width_um": 14.61,
       "layer14_start_width_um": 11.0,
@@ -487,7 +487,7 @@
       ],
       "width_um": 1.6,
       "l10_stage1_length_um": 50.0,
-      "l10_taper_length_um": 108.0,
+      "l10_taper_length_um": 100.0,
       "l15_taper_length_um": 50.0,
       "alignment_tip_position_um": 50.0,
       "layer14_linear_start_distance_um": 46.847,
@@ -508,8 +508,8 @@
       "row_index": 1,
       "row_align": "left",
       "global_x_extent_um": [
-        -6662.347,
-        -3134.207
+        -6654.347,
+        -3142.207
       ],
       "label_origin_um": [
         -5087.347,
@@ -527,7 +527,7 @@
       "l10_entrance_local_x_um": -141.0701,
       "l15_tip_local_x_um": -191.0701,
       "alignment_tip_local_x_um": -191.07009300921533,
-      "l10_tip_local_x_um": -249.0701,
+      "l10_tip_local_x_um": -241.0701,
       "layer2_neck_extension_um": 22.6,
       "layer2_start_width_um": 14.9953,
       "layer14_start_width_um": 11.0,
@@ -549,7 +549,7 @@
       ],
       "width_um": 1.6,
       "l10_stage1_length_um": 50.0,
-      "l10_taper_length_um": 108.0,
+      "l10_taper_length_um": 100.0,
       "l15_taper_length_um": 50.0,
       "alignment_tip_position_um": 50.0,
       "layer14_linear_start_distance_um": 46.847,
@@ -570,8 +570,8 @@
       "row_index": 1,
       "row_align": "left",
       "global_x_extent_um": [
-        -1862.347,
-        1665.793
+        -1854.347,
+        1657.793
       ],
       "label_origin_um": [
         -287.347,
@@ -589,7 +589,7 @@
       "l10_entrance_local_x_um": -141.0701,
       "l15_tip_local_x_um": -191.0701,
       "alignment_tip_local_x_um": -191.07009300921533,
-      "l10_tip_local_x_um": -249.0701,
+      "l10_tip_local_x_um": -241.0701,
       "layer2_neck_extension_um": 22.6,
       "layer2_start_width_um": 14.688,
       "layer14_start_width_um": 11.0,
@@ -611,7 +611,7 @@
       ],
       "width_um": 1.6,
       "l10_stage1_length_um": 50.0,
-      "l10_taper_length_um": 108.0,
+      "l10_taper_length_um": 100.0,
       "l15_taper_length_um": 50.0,
       "alignment_tip_position_um": 50.0,
       "layer14_linear_start_distance_um": 46.847,
@@ -632,8 +632,8 @@
       "row_index": 1,
       "row_align": "left",
       "global_x_extent_um": [
-        2937.653,
-        6465.793
+        2945.653,
+        6457.793
       ],
       "label_origin_um": [
         4512.653,
@@ -651,7 +651,7 @@
       "l10_entrance_local_x_um": -141.0701,
       "l15_tip_local_x_um": -191.0701,
       "alignment_tip_local_x_um": -191.07009300921533,
-      "l10_tip_local_x_um": -249.0701,
+      "l10_tip_local_x_um": -241.0701,
       "layer2_neck_extension_um": 22.6,
       "layer2_start_width_um": 14.9953,
       "layer14_start_width_um": 11.0,
@@ -673,7 +673,7 @@
       ],
       "width_um": 1.6,
       "l10_stage1_length_um": 50.0,
-      "l10_taper_length_um": 108.0,
+      "l10_taper_length_um": 100.0,
       "l15_taper_length_um": 50.0,
       "alignment_tip_position_um": 50.0,
       "layer14_linear_start_distance_um": 46.847,
@@ -694,8 +694,8 @@
       "row_index": 1,
       "row_align": "left",
       "global_x_extent_um": [
-        7737.653,
-        11265.793
+        7745.653,
+        11257.793
       ],
       "label_origin_um": [
         9312.653,
@@ -713,7 +713,7 @@
       "l10_entrance_local_x_um": -141.0701,
       "l15_tip_local_x_um": -191.0701,
       "alignment_tip_local_x_um": -191.07009300921533,
-      "l10_tip_local_x_um": -249.0701,
+      "l10_tip_local_x_um": -241.0701,
       "layer2_neck_extension_um": 22.6,
       "layer2_start_width_um": 14.688,
       "layer14_start_width_um": 11.0,
@@ -735,7 +735,7 @@
       ],
       "width_um": 1.6,
       "l10_stage1_length_um": 60.0,
-      "l10_taper_length_um": 118.0,
+      "l10_taper_length_um": 110.0,
       "l15_taper_length_um": 60.0,
       "alignment_tip_position_um": 60.0,
       "layer14_linear_start_distance_um": 56.847,
@@ -756,8 +756,8 @@
       "row_index": 2,
       "row_align": "left",
       "global_x_extent_um": [
-        -6662.347,
-        -3114.207
+        -6654.347,
+        -3122.207
       ],
       "label_origin_um": [
         -5087.347,
@@ -775,7 +775,7 @@
       "l10_entrance_local_x_um": -141.0701,
       "l15_tip_local_x_um": -201.0701,
       "alignment_tip_local_x_um": -201.07009300921533,
-      "l10_tip_local_x_um": -259.0701,
+      "l10_tip_local_x_um": -251.0701,
       "layer2_neck_extension_um": 22.6,
       "layer2_start_width_um": 14.9973,
       "layer14_start_width_um": 11.0,
@@ -797,7 +797,7 @@
       ],
       "width_um": 1.6,
       "l10_stage1_length_um": 60.0,
-      "l10_taper_length_um": 118.0,
+      "l10_taper_length_um": 110.0,
       "l15_taper_length_um": 60.0,
       "alignment_tip_position_um": 60.0,
       "layer14_linear_start_distance_um": 56.847,
@@ -818,8 +818,8 @@
       "row_index": 2,
       "row_align": "left",
       "global_x_extent_um": [
-        -1862.347,
-        1685.793
+        -1854.347,
+        1677.793
       ],
       "label_origin_um": [
         -287.347,
@@ -837,7 +837,7 @@
       "l10_entrance_local_x_um": -141.0701,
       "l15_tip_local_x_um": -201.0701,
       "alignment_tip_local_x_um": -201.07009300921533,
-      "l10_tip_local_x_um": -259.0701,
+      "l10_tip_local_x_um": -251.0701,
       "layer2_neck_extension_um": 22.6,
       "layer2_start_width_um": 14.74,
       "layer14_start_width_um": 11.0,
@@ -859,7 +859,7 @@
       ],
       "width_um": 1.6,
       "l10_stage1_length_um": 60.0,
-      "l10_taper_length_um": 118.0,
+      "l10_taper_length_um": 110.0,
       "l15_taper_length_um": 60.0,
       "alignment_tip_position_um": 60.0,
       "layer14_linear_start_distance_um": 56.847,
@@ -880,8 +880,8 @@
       "row_index": 2,
       "row_align": "left",
       "global_x_extent_um": [
-        2937.653,
-        6485.793
+        2945.653,
+        6477.793
       ],
       "label_origin_um": [
         4512.653,
@@ -899,7 +899,7 @@
       "l10_entrance_local_x_um": -141.0701,
       "l15_tip_local_x_um": -201.0701,
       "alignment_tip_local_x_um": -201.07009300921533,
-      "l10_tip_local_x_um": -259.0701,
+      "l10_tip_local_x_um": -251.0701,
       "layer2_neck_extension_um": 22.6,
       "layer2_start_width_um": 14.9973,
       "layer14_start_width_um": 11.0,
@@ -921,7 +921,7 @@
       ],
       "width_um": 1.6,
       "l10_stage1_length_um": 60.0,
-      "l10_taper_length_um": 118.0,
+      "l10_taper_length_um": 110.0,
       "l15_taper_length_um": 60.0,
       "alignment_tip_position_um": 60.0,
       "layer14_linear_start_distance_um": 56.847,
@@ -942,8 +942,8 @@
       "row_index": 2,
       "row_align": "left",
       "global_x_extent_um": [
-        7737.653,
-        11285.793
+        7745.653,
+        11277.793
       ],
       "label_origin_um": [
         9312.653,
@@ -961,7 +961,7 @@
       "l10_entrance_local_x_um": -141.0701,
       "l15_tip_local_x_um": -201.0701,
       "alignment_tip_local_x_um": -201.07009300921533,
-      "l10_tip_local_x_um": -259.0701,
+      "l10_tip_local_x_um": -251.0701,
       "layer2_neck_extension_um": 22.6,
       "layer2_start_width_um": 14.74,
       "layer14_start_width_um": 11.0,
@@ -983,7 +983,7 @@
       ],
       "width_um": 1.6,
       "l10_stage1_length_um": 70.0,
-      "l10_taper_length_um": 128.0,
+      "l10_taper_length_um": 120.0,
       "l15_taper_length_um": 70.0,
       "alignment_tip_position_um": 70.0,
       "layer14_linear_start_distance_um": 66.847,
@@ -1004,8 +1004,8 @@
       "row_index": 3,
       "row_align": "left",
       "global_x_extent_um": [
-        -6662.347,
-        -3094.207
+        -6654.347,
+        -3102.207
       ],
       "label_origin_um": [
         -5087.347,
@@ -1023,7 +1023,7 @@
       "l10_entrance_local_x_um": -141.0701,
       "l15_tip_local_x_um": -211.0701,
       "alignment_tip_local_x_um": -211.07009300921533,
-      "l10_tip_local_x_um": -269.0701,
+      "l10_tip_local_x_um": -261.0701,
       "layer2_neck_extension_um": 22.6,
       "layer2_start_width_um": 14.9983,
       "layer14_start_width_um": 11.0,
@@ -1045,7 +1045,7 @@
       ],
       "width_um": 1.6,
       "l10_stage1_length_um": 70.0,
-      "l10_taper_length_um": 128.0,
+      "l10_taper_length_um": 120.0,
       "l15_taper_length_um": 70.0,
       "alignment_tip_position_um": 70.0,
       "layer14_linear_start_distance_um": 66.847,
@@ -1066,8 +1066,8 @@
       "row_index": 3,
       "row_align": "left",
       "global_x_extent_um": [
-        -1862.347,
-        1705.793
+        -1854.347,
+        1697.793
       ],
       "label_origin_um": [
         -287.347,
@@ -1085,7 +1085,7 @@
       "l10_entrance_local_x_um": -141.0701,
       "l15_tip_local_x_um": -211.0701,
       "alignment_tip_local_x_um": -211.07009300921533,
-      "l10_tip_local_x_um": -269.0701,
+      "l10_tip_local_x_um": -261.0701,
       "layer2_neck_extension_um": 22.6,
       "layer2_start_width_um": 14.7771,
       "layer14_start_width_um": 11.0,
@@ -1107,7 +1107,7 @@
       ],
       "width_um": 1.6,
       "l10_stage1_length_um": 70.0,
-      "l10_taper_length_um": 128.0,
+      "l10_taper_length_um": 120.0,
       "l15_taper_length_um": 70.0,
       "alignment_tip_position_um": 70.0,
       "layer14_linear_start_distance_um": 66.847,
@@ -1128,8 +1128,8 @@
       "row_index": 3,
       "row_align": "left",
       "global_x_extent_um": [
-        2937.653,
-        6505.793
+        2945.653,
+        6497.793
       ],
       "label_origin_um": [
         4512.653,
@@ -1147,7 +1147,7 @@
       "l10_entrance_local_x_um": -141.0701,
       "l15_tip_local_x_um": -211.0701,
       "alignment_tip_local_x_um": -211.07009300921533,
-      "l10_tip_local_x_um": -269.0701,
+      "l10_tip_local_x_um": -261.0701,
       "layer2_neck_extension_um": 22.6,
       "layer2_start_width_um": 14.9983,
       "layer14_start_width_um": 11.0,
@@ -1169,7 +1169,7 @@
       ],
       "width_um": 1.6,
       "l10_stage1_length_um": 70.0,
-      "l10_taper_length_um": 128.0,
+      "l10_taper_length_um": 120.0,
       "l15_taper_length_um": 70.0,
       "alignment_tip_position_um": 70.0,
       "layer14_linear_start_distance_um": 66.847,
@@ -1190,8 +1190,8 @@
       "row_index": 3,
       "row_align": "left",
       "global_x_extent_um": [
-        7737.653,
-        11305.793
+        7745.653,
+        11297.793
       ],
       "label_origin_um": [
         9312.653,
@@ -1209,7 +1209,7 @@
       "l10_entrance_local_x_um": -141.0701,
       "l15_tip_local_x_um": -211.0701,
       "alignment_tip_local_x_um": -211.07009300921533,
-      "l10_tip_local_x_um": -269.0701,
+      "l10_tip_local_x_um": -261.0701,
       "layer2_neck_extension_um": 22.6,
       "layer2_start_width_um": 14.7771,
       "layer14_start_width_um": 11.0,
@@ -1231,7 +1231,7 @@
       ],
       "width_um": 1.6,
       "l10_stage1_length_um": 80.0,
-      "l10_taper_length_um": 138.0,
+      "l10_taper_length_um": 130.0,
       "l15_taper_length_um": 80.0,
       "alignment_tip_position_um": 80.0,
       "layer14_linear_start_distance_um": 76.847,
@@ -1252,8 +1252,8 @@
       "row_index": 4,
       "row_align": "left",
       "global_x_extent_um": [
-        -6662.347,
-        -3074.207
+        -6654.347,
+        -3082.207
       ],
       "label_origin_um": [
         -5087.347,
@@ -1271,7 +1271,7 @@
       "l10_entrance_local_x_um": -141.0701,
       "l15_tip_local_x_um": -221.0701,
       "alignment_tip_local_x_um": -221.07009300921533,
-      "l10_tip_local_x_um": -279.0701,
+      "l10_tip_local_x_um": -271.0701,
       "layer2_neck_extension_um": 22.6,
       "layer2_start_width_um": 14.9988,
       "layer14_start_width_um": 11.0,
@@ -1293,7 +1293,7 @@
       ],
       "width_um": 1.6,
       "l10_stage1_length_um": 80.0,
-      "l10_taper_length_um": 138.0,
+      "l10_taper_length_um": 130.0,
       "l15_taper_length_um": 80.0,
       "alignment_tip_position_um": 80.0,
       "layer14_linear_start_distance_um": 76.847,
@@ -1314,8 +1314,8 @@
       "row_index": 4,
       "row_align": "left",
       "global_x_extent_um": [
-        -1862.347,
-        1725.793
+        -1854.347,
+        1717.793
       ],
       "label_origin_um": [
         -287.347,
@@ -1333,7 +1333,7 @@
       "l10_entrance_local_x_um": -141.0701,
       "l15_tip_local_x_um": -221.0701,
       "alignment_tip_local_x_um": -221.07009300921533,
-      "l10_tip_local_x_um": -279.0701,
+      "l10_tip_local_x_um": -271.0701,
       "layer2_neck_extension_um": 22.6,
       "layer2_start_width_um": 14.805,
       "layer14_start_width_um": 11.0,
@@ -1355,7 +1355,7 @@
       ],
       "width_um": 1.6,
       "l10_stage1_length_um": 80.0,
-      "l10_taper_length_um": 138.0,
+      "l10_taper_length_um": 130.0,
       "l15_taper_length_um": 80.0,
       "alignment_tip_position_um": 80.0,
       "layer14_linear_start_distance_um": 76.847,
@@ -1376,8 +1376,8 @@
       "row_index": 4,
       "row_align": "left",
       "global_x_extent_um": [
-        2937.653,
-        6525.793
+        2945.653,
+        6517.793
       ],
       "label_origin_um": [
         4512.653,
@@ -1395,7 +1395,7 @@
       "l10_entrance_local_x_um": -141.0701,
       "l15_tip_local_x_um": -221.0701,
       "alignment_tip_local_x_um": -221.07009300921533,
-      "l10_tip_local_x_um": -279.0701,
+      "l10_tip_local_x_um": -271.0701,
       "layer2_neck_extension_um": 22.6,
       "layer2_start_width_um": 14.9988,
       "layer14_start_width_um": 11.0,
@@ -1417,7 +1417,7 @@
       ],
       "width_um": 1.6,
       "l10_stage1_length_um": 80.0,
-      "l10_taper_length_um": 138.0,
+      "l10_taper_length_um": 130.0,
       "l15_taper_length_um": 80.0,
       "alignment_tip_position_um": 80.0,
       "layer14_linear_start_distance_um": 76.847,
@@ -1438,8 +1438,8 @@
       "row_index": 4,
       "row_align": "left",
       "global_x_extent_um": [
-        7737.653,
-        11325.793
+        7745.653,
+        11317.793
       ],
       "label_origin_um": [
         9312.653,
@@ -1457,7 +1457,7 @@
       "l10_entrance_local_x_um": -141.0701,
       "l15_tip_local_x_um": -221.0701,
       "alignment_tip_local_x_um": -221.07009300921533,
-      "l10_tip_local_x_um": -279.0701,
+      "l10_tip_local_x_um": -271.0701,
       "layer2_neck_extension_um": 22.6,
       "layer2_start_width_um": 14.805,
       "layer14_start_width_um": 11.0,
@@ -1479,7 +1479,7 @@
       ],
       "width_um": 1.59,
       "l10_stage1_length_um": 60.0,
-      "l10_taper_length_um": 118.0,
+      "l10_taper_length_um": 110.0,
       "l15_taper_length_um": 60.0,
       "alignment_tip_position_um": 60.0,
       "layer14_linear_start_distance_um": 56.847,
@@ -1496,7 +1496,7 @@
       "row_index": 5,
       "row_align": "right",
       "global_x_extent_um": [
-        -6662.347,
+        -6654.347,
         12015.653
       ],
       "label_origin_um": [
@@ -1515,7 +1515,7 @@
       "l10_entrance_local_x_um": -7545.0,
       "l15_tip_local_x_um": -7605.0,
       "alignment_tip_local_x_um": -7605.0,
-      "l10_tip_local_x_um": -7663.0,
+      "l10_tip_local_x_um": -7655.0,
       "layer2_neck_extension_um": 22.6,
       "layer2_start_width_um": 14.9973,
       "layer14_start_width_um": 11.0,
@@ -1534,7 +1534,7 @@
       ],
       "width_um": 1.595,
       "l10_stage1_length_um": 60.0,
-      "l10_taper_length_um": 118.0,
+      "l10_taper_length_um": 110.0,
       "l15_taper_length_um": 60.0,
       "alignment_tip_position_um": 60.0,
       "layer14_linear_start_distance_um": 56.847,
@@ -1551,7 +1551,7 @@
       "row_index": 6,
       "row_align": "right",
       "global_x_extent_um": [
-        -6662.347,
+        -6654.347,
         12015.653
       ],
       "label_origin_um": [
@@ -1570,7 +1570,7 @@
       "l10_entrance_local_x_um": -7545.0,
       "l15_tip_local_x_um": -7605.0,
       "alignment_tip_local_x_um": -7605.0,
-      "l10_tip_local_x_um": -7663.0,
+      "l10_tip_local_x_um": -7655.0,
       "layer2_neck_extension_um": 22.6,
       "layer2_start_width_um": 14.9973,
       "layer14_start_width_um": 11.0,
@@ -1589,7 +1589,7 @@
       ],
       "width_um": 1.6,
       "l10_stage1_length_um": 60.0,
-      "l10_taper_length_um": 118.0,
+      "l10_taper_length_um": 110.0,
       "l15_taper_length_um": 60.0,
       "alignment_tip_position_um": 60.0,
       "layer14_linear_start_distance_um": 56.847,
@@ -1606,7 +1606,7 @@
       "row_index": 7,
       "row_align": "right",
       "global_x_extent_um": [
-        -6662.347,
+        -6654.347,
         12015.653
       ],
       "label_origin_um": [
@@ -1625,7 +1625,7 @@
       "l10_entrance_local_x_um": -7545.0,
       "l15_tip_local_x_um": -7605.0,
       "alignment_tip_local_x_um": -7605.0,
-      "l10_tip_local_x_um": -7663.0,
+      "l10_tip_local_x_um": -7655.0,
       "layer2_neck_extension_um": 22.6,
       "layer2_start_width_um": 14.9973,
       "layer14_start_width_um": 11.0,
@@ -1644,7 +1644,7 @@
       ],
       "width_um": 1.605,
       "l10_stage1_length_um": 60.0,
-      "l10_taper_length_um": 118.0,
+      "l10_taper_length_um": 110.0,
       "l15_taper_length_um": 60.0,
       "alignment_tip_position_um": 60.0,
       "layer14_linear_start_distance_um": 56.847,
@@ -1661,7 +1661,7 @@
       "row_index": 8,
       "row_align": "right",
       "global_x_extent_um": [
-        -6662.347,
+        -6654.347,
         12015.653
       ],
       "label_origin_um": [
@@ -1680,7 +1680,7 @@
       "l10_entrance_local_x_um": -7545.0,
       "l15_tip_local_x_um": -7605.0,
       "alignment_tip_local_x_um": -7605.0,
-      "l10_tip_local_x_um": -7663.0,
+      "l10_tip_local_x_um": -7655.0,
       "layer2_neck_extension_um": 22.6,
       "layer2_start_width_um": 14.9973,
       "layer14_start_width_um": 11.0,
@@ -1699,7 +1699,7 @@
       ],
       "width_um": 1.61,
       "l10_stage1_length_um": 60.0,
-      "l10_taper_length_um": 118.0,
+      "l10_taper_length_um": 110.0,
       "l15_taper_length_um": 60.0,
       "alignment_tip_position_um": 60.0,
       "layer14_linear_start_distance_um": 56.847,
@@ -1716,7 +1716,7 @@
       "row_index": 9,
       "row_align": "right",
       "global_x_extent_um": [
-        -6662.347,
+        -6654.347,
         12015.653
       ],
       "label_origin_um": [
@@ -1735,7 +1735,7 @@
       "l10_entrance_local_x_um": -7545.0,
       "l15_tip_local_x_um": -7605.0,
       "alignment_tip_local_x_um": -7605.0,
-      "l10_tip_local_x_um": -7663.0,
+      "l10_tip_local_x_um": -7655.0,
       "layer2_neck_extension_um": 22.6,
       "layer2_start_width_um": 14.9973,
       "layer14_start_width_um": 11.0,
@@ -1754,7 +1754,7 @@
       ],
       "width_um": 1.59,
       "l10_stage1_length_um": 60.0,
-      "l10_taper_length_um": 118.0,
+      "l10_taper_length_um": 110.0,
       "l15_taper_length_um": 60.0,
       "alignment_tip_position_um": 60.0,
       "layer14_linear_start_distance_um": 56.847,
@@ -1771,7 +1771,7 @@
       "row_index": 10,
       "row_align": "right",
       "global_x_extent_um": [
-        -6662.347,
+        -6654.347,
         12015.653
       ],
       "label_origin_um": [
@@ -1790,7 +1790,7 @@
       "l10_entrance_local_x_um": -7545.0,
       "l15_tip_local_x_um": -7605.0,
       "alignment_tip_local_x_um": -7605.0,
-      "l10_tip_local_x_um": -7663.0,
+      "l10_tip_local_x_um": -7655.0,
       "layer2_neck_extension_um": 22.6,
       "layer2_start_width_um": 14.74,
       "layer14_start_width_um": 11.0,
@@ -1809,7 +1809,7 @@
       ],
       "width_um": 1.595,
       "l10_stage1_length_um": 60.0,
-      "l10_taper_length_um": 118.0,
+      "l10_taper_length_um": 110.0,
       "l15_taper_length_um": 60.0,
       "alignment_tip_position_um": 60.0,
       "layer14_linear_start_distance_um": 56.847,
@@ -1826,7 +1826,7 @@
       "row_index": 11,
       "row_align": "right",
       "global_x_extent_um": [
-        -6662.347,
+        -6654.347,
         12015.653
       ],
       "label_origin_um": [
@@ -1845,7 +1845,7 @@
       "l10_entrance_local_x_um": -7545.0,
       "l15_tip_local_x_um": -7605.0,
       "alignment_tip_local_x_um": -7605.0,
-      "l10_tip_local_x_um": -7663.0,
+      "l10_tip_local_x_um": -7655.0,
       "layer2_neck_extension_um": 22.6,
       "layer2_start_width_um": 14.74,
       "layer14_start_width_um": 11.0,
@@ -1864,7 +1864,7 @@
       ],
       "width_um": 1.6,
       "l10_stage1_length_um": 60.0,
-      "l10_taper_length_um": 118.0,
+      "l10_taper_length_um": 110.0,
       "l15_taper_length_um": 60.0,
       "alignment_tip_position_um": 60.0,
       "layer14_linear_start_distance_um": 56.847,
@@ -1881,7 +1881,7 @@
       "row_index": 12,
       "row_align": "right",
       "global_x_extent_um": [
-        -6662.347,
+        -6654.347,
         12015.653
       ],
       "label_origin_um": [
@@ -1900,7 +1900,7 @@
       "l10_entrance_local_x_um": -7545.0,
       "l15_tip_local_x_um": -7605.0,
       "alignment_tip_local_x_um": -7605.0,
-      "l10_tip_local_x_um": -7663.0,
+      "l10_tip_local_x_um": -7655.0,
       "layer2_neck_extension_um": 22.6,
       "layer2_start_width_um": 14.74,
       "layer14_start_width_um": 11.0,
@@ -1919,7 +1919,7 @@
       ],
       "width_um": 1.605,
       "l10_stage1_length_um": 60.0,
-      "l10_taper_length_um": 118.0,
+      "l10_taper_length_um": 110.0,
       "l15_taper_length_um": 60.0,
       "alignment_tip_position_um": 60.0,
       "layer14_linear_start_distance_um": 56.847,
@@ -1936,7 +1936,7 @@
       "row_index": 13,
       "row_align": "right",
       "global_x_extent_um": [
-        -6662.347,
+        -6654.347,
         12015.653
       ],
       "label_origin_um": [
@@ -1955,7 +1955,7 @@
       "l10_entrance_local_x_um": -7545.0,
       "l15_tip_local_x_um": -7605.0,
       "alignment_tip_local_x_um": -7605.0,
-      "l10_tip_local_x_um": -7663.0,
+      "l10_tip_local_x_um": -7655.0,
       "layer2_neck_extension_um": 22.6,
       "layer2_start_width_um": 14.74,
       "layer14_start_width_um": 11.0,
@@ -1974,7 +1974,7 @@
       ],
       "width_um": 1.61,
       "l10_stage1_length_um": 60.0,
-      "l10_taper_length_um": 118.0,
+      "l10_taper_length_um": 110.0,
       "l15_taper_length_um": 60.0,
       "alignment_tip_position_um": 60.0,
       "layer14_linear_start_distance_um": 56.847,
@@ -1991,7 +1991,7 @@
       "row_index": 14,
       "row_align": "right",
       "global_x_extent_um": [
-        -6662.347,
+        -6654.347,
         12015.653
       ],
       "label_origin_um": [
@@ -2010,7 +2010,7 @@
       "l10_entrance_local_x_um": -7545.0,
       "l15_tip_local_x_um": -7605.0,
       "alignment_tip_local_x_um": -7605.0,
-      "l10_tip_local_x_um": -7663.0,
+      "l10_tip_local_x_um": -7655.0,
       "layer2_neck_extension_um": 22.6,
       "layer2_start_width_um": 14.74,
       "layer14_start_width_um": 11.0,
